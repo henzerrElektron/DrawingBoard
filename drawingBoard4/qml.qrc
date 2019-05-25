@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>XYPlot.qml</file>
+        <file>mpIndicator.qml</file>
+        <file>mpodDisplayItem.qml</file>
+        <file>MpodDisplayer.qml</file>
+        <file>plotPointers.qml</file>
+        <file>PlotterPointers.qml</file>
+        <file>VerticalLineComponent.qml</file>
+        <file>HorizontalLineComponent.qml</file>
+        <file>PlotTriComponent.qml</file>
+        <file>PlotRecComponent.qml</file>
+    </qresource>
+</RCC>
