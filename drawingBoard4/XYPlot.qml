@@ -21,7 +21,8 @@ Item {
     property int numGridCol: 10
     property alias mouseAreaWidth: mouseArea.width
     property alias mouseAreaHeight: mouseArea.height
-
+    property real itemMouseX: 0
+    property real itemMouseY: 0
     //property alias mouseAreaX: mouseArea.X
     //property alias mouseAreaY: mouseArea.Y
     RowLayout {
@@ -424,9 +425,10 @@ Item {
                 var startPoint = Qt.point(value5,1);//(value7*10)
                 var endPoint = Qt.point(value5,numGridRow*10);//(value7*10)
                 console.log("The start and end point is"+ startPoint+ "then end point is"+endPoint)
-                 var plottingPoint =  PlotPoint.intersectionPoint(startPoint,endPoint);
+                var plottingPoint =  PlotPoint.intersectionPoint(startPoint,endPoint);
+
                 if(PlotPoint.containsIntersection)
-                { 
+                {
                     var value1reverse = numGridRow - ((plottingPoint.y)/10);
                     var value5reverse = plottingPoint.x * mouseArea.width/numGridCol;
                     var value6reverse = value1reverse * mouseArea.height/numGridRow;
@@ -437,8 +439,15 @@ Item {
                     }
                     item_mouseClick = plotRecComponent.createObject (mouseArea,{"x": value5reverse-5,
                                                                          "y": value6reverse-5});
+                    mouseAreaWidth = mouseArea.width;
+                    mouseAreaHeight = mouseArea.height;
+                    itemMouseX = plottingPoint.x;//value5reverse-5;
+                    itemMouseY= plottingPoint.y//value6reverse-5;
+                    //var value1reverse = numGridRow - ((plottingPoint.y)/10);
+                    //var value5reverse = plottingPoint.x * mouseArea.width/numGridCol;
+                    //var value6reverse = value1reverse * mouseArea.height/numGridRow;
                 }
-
+                console.log("The width are"+mouseAreaWidth+"height are"+mouseAreaHeight+"itemX"+itemMouseX+"itemY"+itemMouseY+"px"+plottingPoint.x+"py"+plottingPoint.y)
             }
             onPositionChanged: {
                 if ( mouse.x >= mouseArea.x && mouse.x < mouseArea.width &&
@@ -481,9 +490,11 @@ Item {
                 }
 
             }
-            onWidthChanged:
-            {
 
+            onWidthChanged: widthHeightChanged();
+            onHeightChanged:widthHeightChanged();
+
+            function widthHeightChanged(){
                 item_horizontal.lastX = (item_horizontal.lastX/item_horizontal.lastWidth)*mouseArea.width
                 item_horizontal.lastY = (item_horizontal.lastY/item_horizontal.lastHeight)*mouseArea.height
                 item_horizontal.lastWidth = mouseArea.width
@@ -498,40 +509,21 @@ Item {
                 {
                     item_horizontal.x = ((item_horizontal.lastX));
                     item_horizontal.height = mouseArea.height
-                    //  item_horizontal.y =0
                 }
                 if (item_Vertical !== null)
                 {
-                    // item_Vertical.x = ((0));
                     item_Vertical.y =item_Vertical.lastY
                     item_Vertical.width = mouseArea.width
                 }
-            }
-
-            onHeightChanged:
-            {
-                item_horizontal.lastX = (item_horizontal.lastX/item_horizontal.lastWidth)*mouseArea.width
-                item_horizontal.lastY = (item_horizontal.lastY/item_horizontal.lastHeight)*mouseArea.height
-                item_horizontal.lastWidth = mouseArea.width
-                item_horizontal.lastHeight = mouseArea.height
-                item_Vertical.lastX = (item_Vertical.lastX/item_Vertical.lastWidth)*mouseArea.width
-                item_Vertical.lastY = (item_Vertical.lastY/item_Vertical.lastHeight)*mouseArea.height
-                item_Vertical.lastWidth = mouseArea.width
-                item_Vertical.lastHeight = mouseArea.height
-                console.log("item_horizontal are on"+  item_horizontal.lastX+"next"+ item_horizontal.lastY+"aagain" +item_horizontal.lastWidth+item_horizontal.lastHeight)
-                console.log("item_Vertical are on"+  item_Vertical.lastX+"next"+ item_Vertical.lastY+"aagain" +item_Vertical.lastWidth+item_Vertical.lastHeight)
-                if (item_horizontal !== null)
+                var value1reverse = numGridRow - ((itemMouseY)/10);
+                var value5reverse =itemMouseX * mouseArea.width/numGridCol;
+                var value6reverse = value1reverse * mouseArea.height/numGridRow;
+                if(item_mouseClick !== null)
                 {
-                    item_horizontal.x = ((item_horizontal.lastX));
-                    item_horizontal.height = mouseArea.height
-                    //  item_horizontal.y =0
+                    item_mouseClick.destroy();
                 }
-                if (item_Vertical !== null)
-                {
-                    // item_Vertical.x = ((0));
-                    item_Vertical.y =item_Vertical.lastY
-                    item_Vertical.width = mouseArea.width
-                }
+                item_mouseClick = plotRecComponent.createObject (mouseArea,{"x": value5reverse-5,
+                                                                     "y": value6reverse-5});
             }
         }
     }
