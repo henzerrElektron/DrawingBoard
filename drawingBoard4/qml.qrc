@@ -11,5 +11,7 @@
         <file>HorizontalLineComponent.qml</file>
         <file>PlotTriComponent.qml</file>
         <file>PlotRecComponent.qml</file>
+		<file>TestController.qml</file>
+		<file>TestTabs.qml</file>
     </qresource>
 </RCC>
