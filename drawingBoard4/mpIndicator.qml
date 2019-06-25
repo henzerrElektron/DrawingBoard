@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.12
 import QtQuick.Controls.Material 2.0
 import QtQuick.Controls.Universal 2.0
 import QtQuick.Dialogs.qml 1.0
@@ -298,8 +298,12 @@ Item {
 
 
 
+
+
+
+
 /*##^## Designer {
-    D{i:2;anchors_height:480;anchors_width:640}D{i:1;anchors_height:480;anchors_width:640;anchors_x:209;anchors_y:150}
-D{i:13;anchors_x:47;anchors_y:36}D{i:14;anchors_x:47;anchors_y:36}D{i:11;anchors_x:47;anchors_y:8}
+    D{i:1;anchors_height:480;anchors_width:640;anchors_x:209;anchors_y:150}D{i:14;anchors_x:47;anchors_y:36}
+D{i:11;anchors_x:47;anchors_y:8}D{i:13;anchors_x:47;anchors_y:36}
 }
  ##^##*/

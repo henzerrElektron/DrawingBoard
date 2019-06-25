@@ -11,7 +11,15 @@
         <file>HorizontalLineComponent.qml</file>
         <file>PlotTriComponent.qml</file>
         <file>PlotRecComponent.qml</file>
-		<file>TestController.qml</file>
-		<file>TestTabs.qml</file>
+        <file>TestController.qml</file>
+        <file>TestTabs.qml</file>
+        <file>TestControlModel.qml</file>
+        <file>HeaderTitleItem.qml</file>
+        <file>imports/ApplicationContstants/qmldir</file>
+        <file>imports/ApplicationContstants/Constants.qml</file>
+        <file>imports/ApplicationContstants/SegoeFonts/segoeui.ttf</file>
+        <file>TestItems.qml</file>
+        <file>TestControlDelegate.qml</file>
+        <file>TestPageTabs.qml</file>
     </qresource>
 </RCC>

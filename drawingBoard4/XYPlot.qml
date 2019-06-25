@@ -425,8 +425,7 @@ Item {
                 var startPoint = Qt.point(value5,1);//(value7*10)
                 var endPoint = Qt.point(value5,numGridRow*10);//(value7*10)
                 console.log("The start and end point is"+ startPoint+ "then end point is"+endPoint)
-                var plottingPoint =  PlotPoint.intersectionPoint(startPoint,endPoint);
-
+                 var plottingPoint =  PlotPoint.intersectionPoint(startPoint,endPoint);
                 if(PlotPoint.containsIntersection)
                 {
                     var value1reverse = numGridRow - ((plottingPoint.y)/10);

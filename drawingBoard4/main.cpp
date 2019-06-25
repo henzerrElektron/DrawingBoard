@@ -10,6 +10,11 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     plotDataPoint PlotPoint;
     QQmlApplicationEngine engine;
+    engine.addImportPath("qrc:/");
+    engine.addImportPath("qrc:/imports/");
+    engine.addImportPath(":/");
+    engine.addImportPath(":/imports/");
+    engine.addImportPath( "qrc:/imports/ApplicationContstants" );
     engine.rootContext()->setContextProperty("PlotPoint",&PlotPoint);
     //engine.rootContext()->setContextProperty("PlotList",QVariant::fromValue&PlotPoint.xyPlotPoints()))
     const QUrl url(QStringLiteral("qrc:/main.qml"));

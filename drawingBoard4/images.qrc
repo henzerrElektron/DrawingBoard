@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/icon_backup.png</file>
+        <file>images/icon_current_operator.png</file>
+        <file>images/icon_edit_patient.png</file>
+        <file>images/icon_eet.png</file>
+        <file>images/icon_existing_patient.png</file>
+        <file>images/icon_help.png</file>
+        <file>images/icon_home.png</file>
+        <file>images/icon_new_patient.png</file>
+        <file>images/icon_patient_timeline.png</file>
+        <file>images/icon_pause.png</file>
+        <file>images/icon_play_detailed.png</file>
+        <file>images/icon_save.png</file>
+        <file>images/icon_setting.png</file>
+        <file>images/icon_stop.png</file>
+        <file>images/icon_switch_operator.png</file>
+        <file>images/icon_switch_patient.png</file>
+        <file>images/icon_test_patient.png</file>
+        <file>images/icon_test_standard.png</file>
+        <file>images/icon_view_report.png</file>
+    </qresource>
+</RCC>

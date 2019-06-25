@@ -12,13 +12,15 @@ import QtQuick.Controls 2.3
 import Qt.labs.settings 1.0
 //import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
+import "."
+import "./images/"
 //import appContstants 1.0
 
 Window {
     id: window
     visible: true
     width: 640
-    height: 480
+    height:480
     title: qsTr("Hello World")
 
 
@@ -37,32 +39,38 @@ Window {
 //                    height: 500
 
 //                }
+    TestController{
+        //anchors.fill: parent
+        Layout.fillHeight: true
+        Layout.fillWidth: true
 
-        XYPlot{
-            id:xyplotgrid
-            width: 500
-            height: 500
-            //anchors.fill: parent
-            anchors.left: mainGrid.left
-            anchors.right: columnLayout.left
-            anchors.top: mainGrid.top
-            anchors.bottom: mainGrid.bottom
-        }
-        ColumnLayout {
-            id: columnLayout
-            width: 100
-            height: 100
-            Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
-            //anchors.left: xyplotgrid.right
-            anchors.right: mainGrid.right
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            MpodDisplayer{
-                id:displayMpod
-                anchors.fill: parent
-            }
-        }
     }
+
+//        XYPlot{
+//            id:xyplotgrid
+//            width: 500
+//            height: 500
+//            //anchors.fill: parent
+//            anchors.left: mainGrid.left
+//            anchors.right: columnLayout.left
+//            anchors.top: mainGrid.top
+//            anchors.bottom: mainGrid.bottom
+//        }
+//        ColumnLayout {
+//            id: columnLayout
+//            width: 100
+//            height: 100
+//            Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
+//            //anchors.left: xyplotgrid.right
+//            anchors.right: mainGrid.right
+//            anchors.top: parent.top
+//            anchors.bottom: parent.bottom
+//            MpodDisplayer{
+//                id:displayMpod
+//                anchors.fill: parent
+//            }
+//        }
+     }
 }
 
 //        RowLayout {
@@ -565,14 +573,9 @@ Window {
 
 
 
+
+
 /*##^## Designer {
-    D{i:3;anchors_height:400;anchors_width:400;anchors_x:206;anchors_y:"-14"}D{i:30;anchors_height:70;anchors_width:200;anchors_x:220;anchors_y:410}
-D{i:31;anchors_height:70;anchors_width:200;anchors_x:220;anchors_y:410}D{i:33;anchors_height:70;anchors_width:200;anchors_x:220;anchors_y:410}
-D{i:34;anchors_height:70;anchors_width:200;anchors_x:220;anchors_y:410}D{i:2;anchors_width:200;anchors_x:220}
-D{i:1;anchors_height:400;anchors_width:70;anchors_x:0;anchors_y:0}D{i:47;anchors_height:400;anchors_width:400;anchors_x:206;anchors_y:"-14"}
-D{i:49;anchors_height:400;anchors_width:400;anchors_x:206;anchors_y:"-14"}D{i:50;anchors_height:400;anchors_width:400;anchors_x:206;anchors_y:"-14"}
-D{i:46;anchors_height:400;anchors_width:400;anchors_x:206;anchors_y:"-14"}D{i:56;anchors_height:100;anchors_width:100;anchors_x:284;anchors_y:155}
-D{i:60;anchors_height:100;anchors_width:100;anchors_x:284;anchors_y:155}D{i:59;anchors_height:100;anchors_width:100;anchors_x:284;anchors_y:155}
-D{i:57;anchors_height:100;anchors_width:100;anchors_x:284;anchors_y:155}
+    D{i:2;anchors_width:200;anchors_x:220}D{i:1;anchors_height:400;anchors_width:70;anchors_x:0;anchors_y:0}
 }
  ##^##*/

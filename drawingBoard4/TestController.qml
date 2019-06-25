@@ -3,124 +3,108 @@ import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
 import "."
 import "./images/"
+import ApplicationContstants 1.0
 Item {
-    Rectangle {
-        id: rectangle
-        color: "#ffffff"
-        anchors.fill: parent
-        border.width: 1
-        border.color: "black"
-        GridLayout{
-            id:rowLayout
+    id: element
+    Grid{
+        id:rowLayout
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.left: parent.left
+        flow: GridLayout.TopToBottom
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 0
+        signal clickedButton(int arg);
+        //row: 2
+        Label {
+            id: label_eye
+            //implicitHeight:  100
+            //implicitWidth: 150
+            text: qsTr("Test Status")
+            font.pointSize: Constants.m_intLblFontSize
+            font.family: Constants.fontFamily
+            renderType: Text.QtRendering
+            fontSizeMode: Text.HorizontalFit
+            //lineHeight: 0.7
+            height: rowLayout.height/20
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            anchors.left: parent.left
+            anchors.leftMargin: 0
+            anchors.right: parent.right
+            anchors.rightMargin: 0
             anchors.top: parent.top
-            anchors.right: parent.right
-            anchors.left: parent.left
-            flow: GridLayout.TopToBottom
-            row: 2
-            Label {
-                id: label_eye
-                text: qsTr("Label")
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                anchors.left: parent.left
-                anchors.leftMargin: 0
-                anchors.right: parent.right
-                anchors.rightMargin: 0
-                anchors.top: parent.top
-                anchors.topMargin: 0
-                color: "#ffffff"
-                background: Rectangle{
-                    anchors.fill: parent
-                    color: "black"
-                }
-            }
-
-            Label {
-                id: label_instrument
-                text: qsTr("Label")
-                anchors.top: label_eye.bottom
-                anchors.topMargin: 0
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-                anchors.right: parent.right
-                anchors.rightMargin: 0
-                anchors.left: parent.left
-                anchors.leftMargin: 0
-                background: Rectangle{
-                    anchors.fill: parent
-                    border.width: 1
-                    border.color: "black"
-                }
-            }
-
-        }
-
-
-        GridLayout {
-            id: columnLayout
-            anchors.top: rowLayout.bottom//label_instrument.bottom
-            anchors.topMargin: -2
-            anchors.bottomMargin: 0
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            anchors.leftMargin: 10
-            flow: GridLayout.LeftToRight
-            columns: 4
-            columnSpacing: 10
-            //spacing: 10
-            RoundButton {
-                id: button_playCentral
-                //Layout.alignment: parent.left
-                //Layout.preferredHeight: 100
-                //Layout.preferredWidth: 100
-                //icon.width: button_playCentral.width
-                //icon.height: button_playCentral.height
-                //text: qsTr("Button")
-                icon.source: "icon_new_patient.png"
-                display: AbstractButton.IconOnly
-                radius: 10
-
-            }
-            RoundButton {
-                id: button_playPeripheral
-                //Layout.alignment: parent.left
-                //Layout.preferredHeight: 100
-                //Layout.preferredWidth: 100
-                //icon.width: button_playPeripheral.width
-                //icon.height: button_playPeripheral.height
-                //text: qsTr("Button")
-                icon.source: "icon_new_patient.png"
-                display: AbstractButton.IconOnly
-                radius: 10
-            }
-            RoundButton {
-                id: button_pauseAll
-                //Layout.alignment: button_Central.right
-                //Layout.alignment: parent.left
-                //Layout.preferredHeight: 100
-                //Layout.preferredWidth: 100
-                //icon.width: button_pauseAll.width
-                //icon.height: button_pauseAll.height
-                //text: qsTr("Button")
-                icon.source: "icon_new_patient.png"
-                display: AbstractButton.IconOnly
-                radius: 10
-            }
-            RoundButton {
-                id: button_stopAll
-                //Layout.alignment: button_Central.right
-                //Layout.alignment: parent.left
-                //Layout.preferredHeight: 100
-                //Layout.preferredWidth: 100
-                //icon.width: button_stopAll.width
-                //icon.height: button_stopAll.height
-                //text: qsTr("Button")
-                icon.source: "icon_new_patient.png"
-                display: AbstractButton.IconOnly
-                radius: 10
+            anchors.topMargin: 0
+            color: "#ffffff"
+            background: Rectangle{
+                anchors.fill: parent
+                color: "black"
             }
         }
+
+        Label {
+            id: label_instrument
+            //implicitHeight: 150
+            //implicitWidth: 150
+            text: qsTr("Instrument status")
+            font.pointSize: Constants.m_intLblFontSize
+            font.family: Constants.fontFamily
+            renderType: Text.QtRendering
+            fontSizeMode: Text.HorizontalFit
+            anchors.top: label_eye.bottom
+            height: rowLayout.height/10
+            anchors.topMargin: 0
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+            anchors.right: parent.right
+            anchors.rightMargin: 0
+            anchors.left: parent.left
+            anchors.leftMargin: 0
+            background: Rectangle{
+                anchors.fill: parent
+                border.width: 1
+                border.color: "black"
+            }
+        }
+        TestItems {
+            id: testItems
+            layoutDirection: Qt.LeftToRight
+            orientation: ListView.Horizontal
+            anchors.top: label_instrument.bottom
+            anchors.topMargin: 10
+            anchors.horizontalCenter: parent.horizontalCenter
+           // width: parent.width/3
+           // height: parent.height/4
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }

@@ -6,6 +6,7 @@ lineIntersect::lineIntersect(QObject *parent) : QObject(parent)
 }
 
 bool lineIntersect::doLineSegmentsIntersect(QPointF p,QPointF p2,QPointF q,QPointF q2) {
+    qDebug()<<"The values are"<<p<<p2<<q<<q2;
     QPointF r = subtractPoints(p2, p);//r(80,0)
     qDebug()<<"The point r is"<<r;
     QPointF s = subtractPoints(q2, q);//(0,40)
