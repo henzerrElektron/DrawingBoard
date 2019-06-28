@@ -71,4 +71,11 @@ QtObject {
     readonly property string m_strPeripheral: qsTr("Peripheral")
     readonly property int m_intChkFontSize: 10
     readonly property int m_intLblFontSize: 12
+    readonly property int actionBtnWidth: 75
+    readonly property int actionBtnHeight: 75
+    readonly property string actionBtnBackgroundColor: "#3A9FA4"
+    readonly property string headerBackgroundColor: "#5EBDC3"
+    readonly property string actionBtnBorderColor: "black"
+
+
 }

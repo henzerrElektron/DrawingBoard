@@ -1,0 +1,10 @@
+module models
+ActionDelegateModel 1.0 ActionDelegateModel.qml
+AllPageModel 1.0 AllPageModel.qml
+ExistingPatientDelegateModel 1.0 ExistingPatientDelegateModel.qml
+HomeDelegateModel 1.0 HomeDelegateModel.qml
+NewPatientDelegateModel 1.0 NewPatientDelegateModel.qml
+OperatorPageDelegateModel 1.0 OperatorPageDelegateModel.qml
+ReportPageDelegateModel 1.0 ReportPageDelegateModel.qml
+TestPageDelegateModel 1.0 TestPageDelegateModel.qml
+TestControlModel 1.0 TestControlModel.qml

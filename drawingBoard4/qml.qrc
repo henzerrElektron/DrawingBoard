@@ -1,25 +1,45 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>XYPlot.qml</file>
         <file>mpIndicator.qml</file>
         <file>mpodDisplayItem.qml</file>
         <file>MpodDisplayer.qml</file>
         <file>plotPointers.qml</file>
-        <file>PlotterPointers.qml</file>
+        <!--<file>PlotterPointers.qml</file>-->
         <file>VerticalLineComponent.qml</file>
-        <file>HorizontalLineComponent.qml</file>
-        <file>PlotTriComponent.qml</file>
-        <file>PlotRecComponent.qml</file>
-        <file>TestController.qml</file>
         <file>TestTabs.qml</file>
-        <file>TestControlModel.qml</file>
         <file>HeaderTitleItem.qml</file>
         <file>imports/ApplicationContstants/qmldir</file>
         <file>imports/ApplicationContstants/Constants.qml</file>
         <file>imports/ApplicationContstants/SegoeFonts/segoeui.ttf</file>
-        <file>TestItems.qml</file>
-        <file>TestControlDelegate.qml</file>
         <file>TestPageTabs.qml</file>
+        <file>HomePageHeader.qml</file>
+        <file>models/qmldir</file>
+        <file>models/ActionDelegateModel.qml</file>
+        <file>models/HomeDelegateModel.qml</file>
+        <file>models/NewPatientDelegateModel.qml</file>
+        <file>models/ExistingPatientDelegateModel.qml</file>
+        <file>models/TestPageDelegateModel.qml</file>
+        <file>models/ReportPageDelegateModel.qml</file>
+        <file>models/OperatorPageDelegateModel.qml</file>
+        <file>models/AllPageModel.qml</file>
+        <file>delegates/ActionHeaderDelegate.qml</file>
+        <file>TestPageNewTable.qml</file>
+        <file>page/test/ResultsTableView.qml</file>
+        <file>page/test/ResultOldStyleConfidenceTableView.qml</file>
+        <file>page/test/ResultTableGrid.qml</file>
+        <file>page/test/ResultOldStyleParametersTableView.qml</file>
+        <file>page/test/ResultOldStyleMpValue.qml</file>
+        <file>page/test/ResultOldStyleTableGrid.qml</file>
+        <file>delegates/TestControlDelegate.qml</file>
+        <file>models/TestControlModel.qml</file>
+        <file>page/test/TestItems.qml</file>
+        <file>page/test/TestController.qml</file>
+        <file>page/test/TestingAllPageHeaderActions.qml</file>
+        <file>page/test/XYPlot.qml</file>
+        <file>page/test/HorizontalLineComponent.qml</file>
+        <file>page/test/PlotRecComponent.qml</file>
+        <file>page/test/PlotTriComponent.qml</file>
+        <file>page/test/PlotterPointers.qml</file>
     </qresource>
 </RCC>

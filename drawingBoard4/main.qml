@@ -10,12 +10,22 @@ import Qt.labs.calendar 1.0
 import QtQuick.Controls.Material 2.0
 import QtQuick.Controls 2.3
 import Qt.labs.settings 1.0
+import QtQuick 2.1
+import QtQuick.Controls 1.0
+import QtQuick.Controls.Styles 1.2
 //import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
 import "."
 import "./images/"
+import "models"
+import "page"
+import "delegates"
 //import appContstants 1.0
-
+import "./models"
+import "./delegates"
+import "./page"
+import "./page/test/"
+import TestResultModels 0.1
 Window {
     id: window
     visible: true
@@ -32,45 +42,56 @@ Window {
         id:mainGrid
         anchors.fill: parent
 
-//                PlotterPointers{
-//                    id:sample
-//                   // anchors.fill: parent
-//                    width: 500
-//                    height: 500
+        //                PlotterPointers{
+        //                    id:sample
+        //                   // anchors.fill: parent
+        //                    width: 500
+        //                    height: 500
 
-//                }
-    TestController{
-        //anchors.fill: parent
-        Layout.fillHeight: true
-        Layout.fillWidth: true
+        //                }
 
-    }
-
-//        XYPlot{
-//            id:xyplotgrid
-//            width: 500
-//            height: 500
+//        TestController{
 //            //anchors.fill: parent
-//            anchors.left: mainGrid.left
-//            anchors.right: columnLayout.left
-//            anchors.top: mainGrid.top
-//            anchors.bottom: mainGrid.bottom
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
 //        }
-//        ColumnLayout {
-//            id: columnLayout
-//            width: 100
-//            height: 100
-//            Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
-//            //anchors.left: xyplotgrid.right
-//            anchors.right: mainGrid.right
-//            anchors.top: parent.top
-//            anchors.bottom: parent.bottom
-//            MpodDisplayer{
-//                id:displayMpod
-//                anchors.fill: parent
-//            }
+//        ResultTableGrid {
+//            id: grid1
 //        }
-     }
+//        ResultOldStyleTableGrid {
+//            id: grid2
+//        }
+
+//        TestingAllPageHeaderActions{
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
+//        }
+
+        XYPlot{
+            id:xyplotgrid
+            width: 500
+            height: 500
+            //anchors.fill: parent
+            anchors.left: mainGrid.left
+            anchors.right: columnLayout.left
+            anchors.top: mainGrid.top
+            anchors.bottom: mainGrid.bottom
+        }
+        ColumnLayout {
+            id: columnLayout
+            width: 100
+            height: 100
+            Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
+            //anchors.left: xyplotgrid.right
+            anchors.right: mainGrid.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            MpodDisplayer{
+                id:displayMpod
+                anchors.fill: parent
+            }
+        }
+    }
 }
 
 //        RowLayout {
@@ -546,6 +567,12 @@ Window {
 //        }
 
 //}
+
+
+
+
+
+
 
 
 

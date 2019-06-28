@@ -1,6 +1,6 @@
 QT += quickcontrols2 quick qml
 CONFIG += c++11
-
+QT += widgets
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Refer to the documentation for the
@@ -16,7 +16,8 @@ SOURCES += \
         lineintersect.cpp \
         main.cpp \
         plotdatapoint.cpp \
-        plotpoints.cpp
+        plotpoints.cpp \
+        testresultmodels.cpp
 
 RESOURCES += qml.qrc \
     images.qrc
@@ -26,8 +27,14 @@ RESOURCES += qml.qrc \
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 #QML_DESIGNER_IMPORT_PATH =
-QML_IMPORT_PATH =$$PWD/imports/
-QML2_IMPORT_PATH =$$PWD/imports/
+QML_IMPORT_PATH +=$$PWD/imports/
+QML2_IMPORT_PATH +=$$PWD/imports/
+QML_IMPORT_PATH +=$$PWD/models/
+QML2_IMPORT_PATH +=$$PWD/models/
+QML_IMPORT_PATH +=$$PWD/delegates/
+QML2_IMPORT_PATH +=$$PWD/delegates/
+QML_IMPORT_PATH +=$$PWD/page/
+QML2_IMPORT_PATH +=$$PWD/page/
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
@@ -44,4 +51,5 @@ DISTFILES += \
 HEADERS += \
     lineintersect.h \
     plotdatapoint.h \
-    plotpoints.h
+    plotpoints.h \
+    testresultmodels.h

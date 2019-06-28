@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
 import "."
-import "./images/"
+import "./../images/"
 import ApplicationContstants 1.0
 Component{
     id:testControlDelegate
