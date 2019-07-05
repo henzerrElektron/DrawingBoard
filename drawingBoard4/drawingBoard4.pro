@@ -11,7 +11,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-
+message(Qt version: $$[QT_VERSION])
+message(Qt is installed in $$[QT_INSTALL_PREFIX])
+message(Qt resources can be found in the following locations:)
+message(Documentation: $$[QT_INSTALL_DOCS])
+message(Header files: $$[QT_INSTALL_HEADERS])
+message(Libraries: $$[QT_INSTALL_LIBS])
+message(Binary files (executables): $$[QT_INSTALL_BINS])
+message(Plugins: $$[QT_INSTALL_PLUGINS])
+message(Data files: $$[QT_INSTALL_DATA])
+message(Translation files: $$[QT_INSTALL_TRANSLATIONS])
+message(Settings: $$[QT_INSTALL_SETTINGS])
+message(Examples: $$[QT_INSTALL_EXAMPLES])
+message(Demonstrations: $$[QT_INSTALL_DEMOS])
 SOURCES += \
         lineintersect.cpp \
         main.cpp \
@@ -20,7 +32,37 @@ SOURCES += \
         testresultmodels.cpp
 
 RESOURCES += qml.qrc \
-    images.qrc
+    images.qrc\
+     qtquickcontrols2.conf \
+  #  icons/small/index.theme\
+   # icons/normal/index.theme\
+   # icons/big/index.theme\
+    icons/all/index.theme\
+  #  $$files(icons/small/32x32/*.png)\
+  #  $$files(icons/small/32x32@2/*.png)\
+  #  $$files(icons/small/32x32@3/*.png)\
+  # $$files(icons/small/32x32@4/*.png)\
+ #   $$files(icons/normal/50x50/*.png)\
+ #   $$files(icons/normal/50x50@2/*.png)\
+ #   $$files(icons/normal/50x50@3/*.png)\
+ #   $$files(icons/normal/50x50@4/*.png)\
+ #   $$files(icons/big/100x100/*.png)\
+ #   $$files(icons/big/100x100@2/*.png)\
+ #   $$files(icons/big/100x100@3/*.png)\
+ #   $$files(icons/big/100x100@4/*.png)\
+    $$files(icons/all/32x32/*.png)\
+    $$files(icons/all/32x32@2/*.png)\
+    $$files(icons/all/32x32@3/*.png)\
+    $$files(icons/all/32x32@4/*.png)\
+    $$files(icons/all/50x50/*.png)\
+    $$files(icons/all/50x50@2/*.png)\
+    $$files(icons/all/50x50@3/*.png)\
+    $$files(icons/all/50x50@4/*.png)\
+    $$files(icons/all/100x100/*.png)\
+    $$files(icons/all/100x100@2/*.png)\
+    $$files(icons/all/100x100@3/*.png)\
+    $$files(icons/all/100x100@4/*.png)\
+    $$files(appImage/*.png)
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 #QML_IMPORT_PATH =
@@ -44,6 +86,7 @@ DISTFILES += \
     MpodDisplayer.qml \
     PlotterPointers.qml \
     XYPlot.qml \
+    icons/all/32x32/Test.png \
     mpIndicator.qml \
     mpodDisplayItem.qml \
     plotPointers.qml

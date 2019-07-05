@@ -1,5 +1,5 @@
-import QtQuick 2.2
-import QtQuick.Controls 1.1
+import QtQuick 2.12
+import QtQuick.Controls 2.5
 import QtQuick.Window 2.0
 //import QtQml.Models 2.1
 import "."
@@ -12,7 +12,10 @@ ListModel{
         newPatientAction:true;
         existingPatientAction:true;
         testPageAction:true;
-        actionImgSource:"../images/icon_new_patient.png";
+        actionIconName:"icon_home"
+        actionIconSource:"qrc:/images/icon_home.png"
+        actionIconColor:"transparent"
+        actionImgSource:"icon_new_patient";//icon.name: "timeline_tab_selected"
         index:1;
     }
     ListElement{
@@ -21,7 +24,10 @@ ListModel{
         newPatientAction:true;
         existingPatientAction:true;
         testPageAction:true;
-        actionImgSource:"../images/icon_new_patient.png";
+        actionIconName:"icon_setting"
+        actionIconSource:"qrc:/images/icon_setting.png"
+        actionIconColor:"transparent"
+        actionImgSource:"icon_setting";//"../images/icon_new_patient.png";
         index:2;
     }
     ListElement{
@@ -30,7 +36,10 @@ ListModel{
         newPatientAction:true;
         existingPatientAction:true;
         testPageAction:true;
-        actionImgSource:"../images/icon_new_patient.png";
+        actionIconName:"icon_help"
+        actionIconSource:"qrc:/images/icon_help.png"
+        actionIconColor:"transparent"
+        actionImgSource:"icon_help";//"../images/icon_new_patient.png";
         index:3;
     }
     ListElement{
@@ -39,7 +48,10 @@ ListModel{
         newPatientAction:true;
         //existingPatientAction:true;
         testPageAction:true;
-        actionImgSource:"../images/icon_new_patient.png";
+        actionIconName:"icon_switch_patient"
+        actionIconSource:"qrc:/images/icon_switch_patient.png"
+        actionIconColor:"transparent"
+        actionImgSource:"icon_switch_patient";//"../images/icon_new_patient.png";
         index:4;
     }
     ListElement{
@@ -48,7 +60,10 @@ ListModel{
         newPatientAction:true;
         //existingPatientAction:true;
         //testPageAction:true;
-        actionImgSource:"../images/icon_new_patient.png";
+        actionIconName:"icon_save"
+        actionIconSource:"qrc:/images/icon_save.png"
+        actionIconColor:"transparent"
+        actionImgSource:"icon_save";//"../images/icon_new_patient.png";
         index:5;
     }
     ListElement{
@@ -57,7 +72,10 @@ ListModel{
         newPatientAction:true;
         existingPatientAction:true;
         //testPageAction:true;
-        actionImgSource:"../images/icon_new_patient.png";
+        actionIconName:"icon_test_patient"
+        actionIconSource:"qrc:/images/icon_test_patient.png"
+        actionIconColor:"transparent"
+        actionImgSource:"icon_test_patient";//"../images/icon_new_patient.png";
         index:6;
     }
     ListElement{
@@ -66,6 +84,9 @@ ListModel{
         //newPatientAction:true;
         existingPatientAction:true;
         //testPageAction:true;
+        actionIconName:"icon_new_patient"
+        actionIconSource:"qrc:/images/icon_new_patient.png"
+        actionIconColor:"transparent"
         actionImgSource:"../images/icon_new_patient.png";
         index:7;
     }
@@ -75,6 +96,9 @@ ListModel{
         //newPatientAction:true;
         existingPatientAction:true;
         testPageAction:true;
+        actionIconName:"icon_edit_patient"
+        actionIconSource:"qrc:/images/icon_edit_patient.png"
+        actionIconColor:"transparent"
         actionImgSource:"../images/icon_new_patient.png";
         index:8;
     }
@@ -85,6 +109,9 @@ ListModel{
         //existingPatientAction:true;
         testPageAction:true;
         reportPageAction:true;
+        actionIconName:"icon_view_report"
+        actionIconSource:"qrc:/images/icon_view_report.png"
+        actionIconColor:"transparent"
         actionImgSource:"../images/icon_new_patient.png";
         index:9;
     }
@@ -96,6 +123,9 @@ ListModel{
         //testPageAction:true;
         //reportPageAction:true;
         operatorPageAction:true;
+        actionIconName:"icon_add_operator"
+        actionIconSource:"qrc:/images/icon_add_operator.png"
+        actionIconColor:"transparent"
         actionImgSource:"../images/icon_new_patient.png";
         index:10;
     }
@@ -107,7 +137,11 @@ ListModel{
         //testPageAction:true;
         //reportPageAction:true;
         operatorPageAction:true;
-        actionImgSource:"../images/icon_new_patient.png";
+        actionIconName:"icon_edit_operator"
+        actionIconSource:"qrc:/images/icon_edit_operator.png"
+        actionIconColor:"transparent"
+        //actionImgSource:"../images/icon_new_patient.png";
+        actionImgSource:"icon_new_patient";//"../images/icon_new_patient.png";
         index:11;
     }
 }

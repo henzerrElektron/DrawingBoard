@@ -28,7 +28,12 @@ Component{
         ToolButton {
             id:testControlBtn
             anchors.centerIn: parent
-            icon.source:actionImgSource
+            icon.name: actionIconName
+            icon.source:actionIconSource
+            icon.color:actionIconColor
+            //icon.name: "timeline_tab_selected"
+            icon.width: 50
+            icon.height: 50
             width: 2*icon.width
             height: 2*icon.height
             background: Rectangle{ color: Constants.actionBtnBackgroundColor}

@@ -1,7 +1,7 @@
-import QtQuick 2.2
-import QtQuick.Controls 1.1
-import QtQuick.Window 2.0
-import QtQml.Models 2.1
+import QtQuick 2.12
+//import QtQuick.Controls 1.1
+//import QtQuick.Window 2.0
+import QtQml.Models 2.12
 import "."
 DelegateModel{
     id: allPageModel

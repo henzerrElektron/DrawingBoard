@@ -42,55 +42,67 @@ Window {
         id:mainGrid
         anchors.fill: parent
 
-        //                PlotterPointers{
-        //                    id:sample
-        //                   // anchors.fill: parent
+        //        PlotterPointers{
+        //            id:sample
+        //            // anchors.fill: parent
+        //            width: 500
+        //            height: 500
+
+        //        }
+        TestPagePatientResultIndex{
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+        }
+        //        TestPlotTabs{
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //        }
+
+        //                TestController{
+        //                    //anchors.fill: parent
+        //                    Layout.fillHeight: true
+        //                    Layout.fillWidth: true
+        //                }
+        //                ResultTableGrid {
+        //                    id: grid1
+        //                }
+        //                ResultOldStyleTableGrid {
+        //                    id: grid2
+        //                }
+        //        TestPageTabs{
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //        }
+
+        //                        TestingAllPageHeaderActions{
+        //                            Layout.fillHeight: true
+        //                            Layout.fillWidth: true
+        //                        }
+
+        //                XYPlot{
+        //                    id:xyplotgrid
         //                    width: 500
         //                    height: 500
-
+        //                    //anchors.fill: parent
+        //                    anchors.left: mainGrid.left
+        //                    anchors.right: columnLayout.left
+        //                    anchors.top: mainGrid.top
+        //                    anchors.bottom: mainGrid.bottom
         //                }
-
-//        TestController{
-//            //anchors.fill: parent
-//            Layout.fillHeight: true
-//            Layout.fillWidth: true
-//        }
-//        ResultTableGrid {
-//            id: grid1
-//        }
-//        ResultOldStyleTableGrid {
-//            id: grid2
-//        }
-
-//        TestingAllPageHeaderActions{
-//            Layout.fillHeight: true
-//            Layout.fillWidth: true
-//        }
-
-        XYPlot{
-            id:xyplotgrid
-            width: 500
-            height: 500
-            //anchors.fill: parent
-            anchors.left: mainGrid.left
-            anchors.right: columnLayout.left
-            anchors.top: mainGrid.top
-            anchors.bottom: mainGrid.bottom
-        }
-        ColumnLayout {
-            id: columnLayout
-            width: 100
-            height: 100
-            Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
-            //anchors.left: xyplotgrid.right
-            anchors.right: mainGrid.right
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            MpodDisplayer{
-                id:displayMpod
-                anchors.fill: parent
-            }
-        }
+        //                ColumnLayout {
+        //                    id: columnLayout
+        //                    width: 100
+        //                    height: 100
+        //                    Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
+        //                    //anchors.left: xyplotgrid.right
+        //                    anchors.right: mainGrid.right
+        //                    anchors.top: parent.top
+        //                    anchors.bottom: parent.bottom
+        //                    MpodDisplayer{
+        //                        id:displayMpod
+        //                        anchors.fill: parent
+        //                    }
+        //                }
     }
 }
 

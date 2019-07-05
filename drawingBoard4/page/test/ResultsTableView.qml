@@ -4,14 +4,50 @@ import QtQuick 2.0
 TableView {
     id: tableView
     //anchors.fill: parent
+    //anchors.left: parent.left
+    //anchors.right: parent.right
+    //width: parent.width
+    //width: 500
+    //height: 125
+    //implicitHeight: 500
+    //implicitWidth: 125
+    onWidthChanged: {
+        console.log("The width is"+width)
+        //forceLayout()
+    }
+    onHeightChanged: {
+        console.log("The height is"+height)
+        //forceLayout()
+    }
+
     columnSpacing: 1
     rowSpacing: 1
     clip: true
-    property var columnWidths: [175, 50, 80, 150]
-    property var rowHeights: [40, 25, 25, 25,25]
-    columnWidthProvider: function (column) { return columnWidths[column] }
-    rowHeightProvider: function (row){return rowHeights[row]}
+//    property var columnWidths: [200, 110, 110, 150]
+//    property var rowHeights: [40, 25, 25, 25,25]
+//    columnWidthProvider: function (column) {
+//        console.log("The width is"+tableView.width)
+//        return columnWidths[column] }
+//    rowHeightProvider: function (row){
+//        console.log("The height is"+tableView.height)
+//        return rowHeights[row]}
     //TestResultModels {}
+//    columnWidthProvider: function (column){
+//        console.log("The width is"+tableView.width)
+//        console.log("The height is"+tableView.height)
+//        console.log("The column and row count are"+ tableView.rows)
+//        console.log("The column and row count are"+ tableView.columns)
+//        console.log("The answer is"+tableView.width/tableView.columns)
+//        return tableView.width/tableView.columns}
+
+
+//    rowHeightProvider: function(row){
+//        console.log("The width is"+tableView.width)
+//        console.log("The height is"+tableView.height)
+//        console.log("The column and row count are"+ tableView.rows)
+//        console.log("The column and row count are"+ tableView.columns)
+//        console.log("The answer is"+tableView.width/tableView.columns)
+//        return tableView.height/tableView.rows}
     delegate: Rectangle {
         implicitWidth: 150
         implicitHeight: 50

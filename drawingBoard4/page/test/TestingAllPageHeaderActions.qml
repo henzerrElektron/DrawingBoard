@@ -1,5 +1,5 @@
-import QtQuick 2.2
-import QtQuick.Controls 1.1
+import QtQuick 2.12
+import QtQuick.Controls 2.5
 import QtQuick.Window 2.0
 import QtQml.Models 2.1
 
@@ -42,12 +42,13 @@ Column{
         anchors.left: parent.left
         anchors.right: parent.right
 
-        ExclusiveGroup {
-            id: groupSelection
-        }
+//        ExclusiveGroup {
+//            id: groupSelection
+//        }
         RadioButton {
             id: homeGroup
-            exclusiveGroup: groupSelection
+            autoExclusive: true
+            //exclusiveGroup: groupSelection
             text: "Home Group"
             checked:  true
             onCheckedChanged: {
@@ -59,8 +60,10 @@ Column{
         }
         RadioButton {
             id: existingPatientGroup
-            exclusiveGroup: groupSelection
+            autoExclusive: true
+            //exclusiveGroup: groupSelection
             text: "existingPatientItems Group"
+            ///checkable: true
             onCheckedChanged: {
                 if ( checked ) {
                     allPageModel.delegate = actionHeaderDelegate
@@ -70,7 +73,8 @@ Column{
         }
         RadioButton {
             id: newPatientGroup
-            exclusiveGroup: groupSelection
+            autoExclusive: true
+            //exclusiveGroup: groupSelection
             text: "newPatientItems Group"
             onCheckedChanged: {
                 if ( checked ) {
@@ -81,7 +85,8 @@ Column{
         }
         RadioButton {
             id: operatorPageGroup
-            exclusiveGroup: groupSelection
+            autoExclusive: true
+            //exclusiveGroup: groupSelection
             text: "operatorPageItems Group"
             onCheckedChanged: {
                 if ( checked ) {
@@ -92,7 +97,8 @@ Column{
         }
         RadioButton {
             id: reportPageGroup
-            exclusiveGroup: groupSelection
+            autoExclusive: true
+            //exclusiveGroup: groupSelection
             text: "reportPageItems Group"
             onCheckedChanged: {
                 if ( checked ) {
@@ -103,7 +109,8 @@ Column{
         }
         RadioButton {
             id: testPageItemsGroup
-            exclusiveGroup: groupSelection
+            autoExclusive: true
+            //exclusiveGroup: groupSelection
             text: "testPageItems Group"
             onCheckedChanged: {
                 if ( checked ) {

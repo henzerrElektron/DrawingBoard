@@ -61,7 +61,9 @@ Item {
 //        }
         Rectangle {
             id: gridRec
-            anchors.fill: parent
+            //anchors.fill: parent
+            Layout.fillHeight: true
+            Layout.fillWidth: true
             //width: 500
             //height: 500
             color: "transparent"

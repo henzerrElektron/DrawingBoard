@@ -9,8 +9,8 @@ import ApplicationContstants 1.0
 ListView{
     id:testItems
     //anchors.fill: parent
-    implicitHeight:100
-    implicitWidth:360
+    //implicitHeight:100
+    //implicitWidth:360
     model: TestControlModel{}
     spacing: 10
     //height:4* testControlBtn.height

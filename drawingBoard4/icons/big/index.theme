@@ -1,0 +1,24 @@
+[Icon Theme]
+Name=Big
+Comment=Contains all big icons
+
+Directories=100x100,100x100@2,100x100@3,100x100@4
+
+[100x100]
+Size=100
+Type=Fixed
+
+[100x100@2]
+Size=100
+Scale=2
+Type=Fixed
+
+[100x100@3]
+Size=100
+Scale=3
+Type=Fixed
+
+[100x100@4]
+Size=100
+Scale=4
+Type=Fixed

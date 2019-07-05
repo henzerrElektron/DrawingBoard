@@ -5,13 +5,16 @@
         <file>mpodDisplayItem.qml</file>
         <file>MpodDisplayer.qml</file>
         <file>plotPointers.qml</file>
-        <!--<file>PlotterPointers.qml</file>-->
         <file>VerticalLineComponent.qml</file>
-        <file>TestTabs.qml</file>
+        <file>page/test/TestTabs.qml</file>
         <file>HeaderTitleItem.qml</file>
         <file>imports/ApplicationContstants/qmldir</file>
         <file>imports/ApplicationContstants/Constants.qml</file>
         <file>imports/ApplicationContstants/SegoeFonts/segoeui.ttf</file>
+        <file>imports/ApplicationContstants/fontAwesome/fontawesome-webfont.ttf</file>
+        <file>imports/ApplicationContstants/fontAwesome/Font Awesome 5 Brands-Regular-400.otf</file>
+        <file>imports/ApplicationContstants/fontAwesome/Font Awesome 5 Free-Regular-400.otf</file>
+        <file>imports/ApplicationContstants/fontAwesome/Font Awesome 5 Free-Solid-900.otf</file>
         <file>TestPageTabs.qml</file>
         <file>HomePageHeader.qml</file>
         <file>models/qmldir</file>
@@ -41,5 +44,19 @@
         <file>page/test/PlotRecComponent.qml</file>
         <file>page/test/PlotTriComponent.qml</file>
         <file>page/test/PlotterPointers.qml</file>
+        <file>page/test/PatientLabel.qml</file>
+        <file>page/test/TestPageButton.qml</file>
+        <file>page/test/TestPageLabel.qml</file>
+        <file>page/test/TestPagePatientResultIndex.qml</file>
+        <file>common/FontAwesomeToolButton.qml</file>
+        <file>page/test/TestPage.qml</file>
+        <file>page/test/TestPageAllLabels.qml</file>
+        <file>page/test/TestPageActionButtons.qml</file>
+        <file>page/test/TestPageSwitchButtons.qml</file>
+        <file>page/test/TestPageTitle.qml</file>
+        <file>page/test/TestPlotTabs.qml</file>
+        <file>models/TestPatientNavigationModel.qml</file>
+        <file>page/test/TestNavItems.qml</file>
+        <file>delegates/TestNavDelegate.qml</file>
     </qresource>
 </RCC>

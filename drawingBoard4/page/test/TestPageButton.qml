@@ -59,8 +59,8 @@ import ApplicationContstants 1.0
                       height: 14
                       x: 6
                       y: 6
-                      radius: 2
-                      color: control.down ? "#17a81a" : "#21be2b"
+                      radius: 20
+                      color: control.down ? Constants.testPage_checkBtnBgColor:"white"///"#17a81a" : "#21be2b"
                       visible: control.down//control.checked
                   }
               }

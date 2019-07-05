@@ -51,14 +51,31 @@
 
 pragma Singleton
 import QtQuick 2.12
-
+import "."
+import "./../../"
 QtObject {
     property FontLoader fontLoader: FontLoader {
         id: fontLoader
         source: "SegoeFonts/segoeui.ttf"
     }
+    property FontLoader fontLoader1: FontLoader {
+        id: fontLoader1
+        source: "qrc:/imports/ApplicationContstants/fontAwesome/fontawesome-webfont.ttf"
+    }
+    property FontLoader fontAwesomeRegular: FontLoader {
+        source: "qrc:/imports/ApplicationContstants/fontAwesome/Font Awesome 5 Free-Regular-400.otf"
+    }
+    property FontLoader fontAwesomeSolid: FontLoader {
+        source: "qrc:/imports/ApplicationContstants/fontAwesome/Font Awesome 5 Free-Solid-900.otf"
+    }
+    property FontLoader fontAwesomeBrands: FontLoader {
+        source: "qrc:/imports/ApplicationContstants/fontAwesome/Font Awesome 5 Brands-Regular-400.otf"
+    }
     readonly property alias fontFamily: fontLoader.name
-
+    readonly property alias awefontFamily: fontLoader1.name
+    readonly property string icons: fontAwesomeRegular.name
+    readonly property string brands: fontAwesomeBrands.name
+    readonly property string solidIcons: fontAwesomeSolid.name
     readonly property int width: 1024
     readonly property int height: 768
     readonly property int leftSideBarWidth: 366
@@ -76,6 +93,24 @@ QtObject {
     readonly property string actionBtnBackgroundColor: "#3A9FA4"
     readonly property string headerBackgroundColor: "#5EBDC3"
     readonly property string actionBtnBorderColor: "black"
-
-
+    readonly property string label_testPgHeader: qsTr("Patient Testing Screen")
+    readonly property string label_testPgPatient: qsTr("Patient:")
+    readonly property string label_testPgMedRef: qsTr("Medical Reference:")
+    readonly property string label_testPgDOB: qsTr("Birth date:")
+    readonly property string label_testPgIOLFitted: qsTr("IOL Fitted(R/L):")
+    readonly property string label_testPgIOLAge: qsTr("IOL Age(R/L):")
+    readonly property string label_testPgEye: qsTr("Eye:")
+    readonly property string label_testPgMode: qsTr("TestMode:")
+    readonly property int testPage_lblHeight: 25
+    readonly property int testPage_lblWidth: 200
+    readonly property int testPage_bottomMargin: -2 *20// testPage_lblHeight
+    readonly property int testPage_rightMargin: -200
+    readonly property string testPage_backgroundColor: "#5EBDC3"
+    readonly property string testPage_unCheckBtnBgColor: "#C3F1F3"
+    readonly property string testPage_checkBtnBgColor: "#218A8F"
+    readonly property string testPage_checkBtnBorderBgColor: "#A1ADAD"
+    readonly property string testPage_lblFontColor: "#A8E2E6"
+    readonly property string testPage_ResultIndexTitleBgColor: "#4A4A4A"
+    readonly property string testPage_ResultIndexEyeBgColor: "#774013"
+    readonly property int testPage_lblFontSize: 20//25
 }

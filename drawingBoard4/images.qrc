@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/icon_backup.png</file>
+        <!--<file>images/icon_backup.png</file>-->
         <file>images/icon_current_operator.png</file>
         <file>images/icon_edit_patient.png</file>
         <file>images/icon_eet.png</file>
@@ -19,5 +19,275 @@
         <file>images/icon_test_patient.png</file>
         <file>images/icon_test_standard.png</file>
         <file>images/icon_view_report.png</file>
+       <!-- adding image files -->
+        <file>images/add_supplement.png</file>
+        <file>images/add_supplement@2x.png</file>
+        <file>images/add_supplement@3x.png</file>
+        <file>images/add_supplement@4x.png</file>
+        <!-- adding image files -->
+        <file>images/icon_add_operator.png</file>
+        <file>images/icon_add_operator@2x.png</file>
+        <file>images/icon_add_operator@3x.png</file>
+        <file>images/icon_add_operator@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_backup.png</file>
+         <file>images/icon_backup@2x.png</file>
+         <file>images/icon_backup@3x.png</file>
+         <file>images/icon_backup@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_current_operator.png</file>
+         <file>images/icon_current_operator@2x.png</file>
+         <file>images/icon_current_operator@3x.png</file>
+         <file>images/icon_current_operator@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_edit_operator.png</file>
+         <file>images/icon_edit_operator@2x.png</file>
+         <file>images/icon_edit_operator@3x.png</file>
+         <file>images/icon_edit_operator@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_edit_patient.png</file>
+         <file>images/icon_edit_patient@2x.png</file>
+         <file>images/icon_edit_patient@3x.png</file>
+         <file>images/icon_edit_patient@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_eet.png</file>
+         <file>images/icon_eet@2x.png</file>
+         <file>images/icon_eet@3x.png</file>
+         <file>images/icon_eet@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_eet_disabled.png</file>
+         <file>images/icon_eet_disabled@2x.png</file>
+         <file>images/icon_eet_disabled@3x.png</file>
+         <file>images/icon_eet_disabled@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_existing_patient.png</file>
+         <file>images/icon_existing_patient@2x.png</file>
+         <file>images/icon_existing_patient@3x.png</file>
+         <file>images/icon_existing_patient@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_help.png</file>
+         <file>images/icon_help@2x.png</file>
+         <file>images/icon_help@3x.png</file>
+         <file>images/icon_help@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_help_disabled.png</file>
+         <file>images/icon_help_disabled@2x.png</file>
+         <file>images/icon_help_disabled@3x.png</file>
+         <file>images/icon_help_disabled@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_home.png</file>
+         <file>images/icon_home@2x.png</file>
+         <file>images/icon_home@3x.png</file>
+         <file>images/icon_home@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_home.png</file>
+         <file>images/icon_home@2x.png</file>
+         <file>images/icon_home@3x.png</file>
+         <file>images/icon_home@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_home_disabled.png</file>
+         <file>images/icon_home_disabled@2x.png</file>
+         <file>images/icon_home_disabled@3x.png</file>
+         <file>images/icon_home_disabled@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_home_disabled.png</file>
+         <file>images/icon_home_disabled@2x.png</file>
+         <file>images/icon_home_disabled@3x.png</file>
+         <file>images/icon_home_disabled@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_home_disabled.png</file>
+         <file>images/icon_home_disabled@2x.png</file>
+         <file>images/icon_home_disabled@3x.png</file>
+         <file>images/icon_home_disabled@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_new_patient.png</file>
+         <file>images/icon_new_patient@2x.png</file>
+         <file>images/icon_new_patient@3x.png</file>
+         <file>images/icon_new_patient@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_patient_timeline.png</file>
+         <file>images/icon_patient_timeline@2x.png</file>
+         <file>images/icon_patient_timeline@3x.png</file>
+         <file>images/icon_patient_timeline@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_patient_timeline_disabled.png</file>
+         <file>images/icon_patient_timeline_disabled@2x.png</file>
+         <file>images/icon_patient_timeline_disabled@3x.png</file>
+         <file>images/icon_patient_timeline_disabled@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_pause.png</file>
+         <file>images/icon_pause@2x.png</file>
+         <file>images/icon_pause@3x.png</file>
+         <file>images/icon_pause@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_pause_disabled.png</file>
+         <file>images/icon_pause_disabled@2x.png</file>
+         <file>images/icon_pause_disabled@3x.png</file>
+         <file>images/icon_pause_disabled@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_play_detailed.png</file>
+         <file>images/icon_play_detailed@2x.png</file>
+         <file>images/icon_play_detailed@3x.png</file>
+         <file>images/icon_play_detailed@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_play_detailed_disabled.png</file>
+         <file>images/icon_play_detailed_disabled@2x.png</file>
+         <file>images/icon_play_detailed_disabled@3x.png</file>
+         <file>images/icon_play_detailed_disabled@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_save.png</file>
+         <file>images/icon_save@2x.png</file>
+         <file>images/icon_save@3x.png</file>
+         <file>images/icon_save@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_save_disabled.png</file>
+         <file>images/icon_save_disabled@2x.png</file>
+         <file>images/icon_save_disabled@3x.png</file>
+         <file>images/icon_save_disabled@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_setting.png</file>
+         <file>images/icon_setting@2x.png</file>
+         <file>images/icon_setting@3x.png</file>
+         <file>images/icon_setting@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_setting_disabled.png</file>
+         <file>images/icon_setting_disabled@2x.png</file>
+         <file>images/icon_setting_disabled@3x.png</file>
+         <file>images/icon_setting_disabled@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_stop.png</file>
+         <file>images/icon_stop@2x.png</file>
+         <file>images/icon_stop@3x.png</file>
+         <file>images/icon_stop@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_stop_disabled.png</file>
+         <file>images/icon_stop_disabled@2x.png</file>
+         <file>images/icon_stop_disabled@3x.png</file>
+         <file>images/icon_stop_disabled@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_switch_operator.png</file>
+         <file>images/icon_switch_operator@2x.png</file>
+         <file>images/icon_switch_operator@3x.png</file>
+         <file>images/icon_switch_operator@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_switch_patient.png</file>
+         <file>images/icon_switch_patient@2x.png</file>
+         <file>images/icon_switch_patient@3x.png</file>
+         <file>images/icon_switch_patient@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_switch_patient.png</file>
+         <file>images/icon_switch_patient@2x.png</file>
+         <file>images/icon_switch_patient@3x.png</file>
+         <file>images/icon_switch_patient@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_test_patient.png</file>
+         <file>images/icon_test_patient@2x.png</file>
+         <file>images/icon_test_patient@3x.png</file>
+         <file>images/icon_test_patient@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_test_patient_disabled.png</file>
+         <file>images/icon_test_patient_disabled@2x.png</file>
+         <file>images/icon_test_patient_disabled@3x.png</file>
+         <file>images/icon_test_patient_disabled@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_test_standard.png</file>
+         <file>images/icon_test_standard@2x.png</file>
+         <file>images/icon_test_standard@3x.png</file>
+         <file>images/icon_test_standard@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_test_standard_disabled.png</file>
+         <file>images/icon_test_standard_disabled@2x.png</file>
+         <file>images/icon_test_standard_disabled@3x.png</file>
+         <file>images/icon_test_standard_disabled@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_to_first.png</file>
+         <file>images/icon_to_first@2x.png</file>
+         <file>images/icon_to_first@3x.png</file>
+         <file>images/icon_to_first@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_to_last.png</file>
+         <file>images/icon_to_last@2x.png</file>
+         <file>images/icon_to_last@3x.png</file>
+         <file>images/icon_to_last@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_to_last.png</file>
+         <file>images/icon_to_last@2x.png</file>
+         <file>images/icon_to_last@3x.png</file>
+         <file>images/icon_to_last@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_to_last.png</file>
+         <file>images/icon_to_last@2x.png</file>
+         <file>images/icon_to_last@3x.png</file>
+         <file>images/icon_to_last@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_to_next.png</file>
+         <file>images/icon_to_next@2x.png</file>
+         <file>images/icon_to_next@3x.png</file>
+         <file>images/icon_to_next@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_to_previous.png</file>
+         <file>images/icon_to_previous@2x.png</file>
+         <file>images/icon_to_previous@3x.png</file>
+         <file>images/icon_to_previous@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_view_report.png</file>
+         <file>images/icon_view_report@2x.png</file>
+         <file>images/icon_view_report@3x.png</file>
+         <file>images/icon_view_report@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_view_report_disabled.png</file>
+         <file>images/icon_view_report_disabled@2x.png</file>
+         <file>images/icon_view_report_disabled@3x.png</file>
+         <file>images/icon_view_report_disabled@4x.png</file>
+         <!-- adding image files -->
+         <file>images/lock.png</file>
+         <file>images/lock@2x.png</file>
+         <file>images/lock@3x.png</file>
+         <file>images/lock@4x.png</file>
+         <!-- adding image files -->
+         <file>images/notes.png</file>
+         <file>images/notes@2x.png</file>
+         <file>images/notes@3x.png</file>
+         <file>images/notes@4x.png</file>
+         <!-- adding image files -->
+         <file>images/remove_supplement.png</file>
+         <file>images/remove_supplement@2x.png</file>
+         <file>images/remove_supplement@3x.png</file>
+         <file>images/remove_supplement@4x.png</file>
+         <!-- adding image files -->
+         <file>images/report_tab_selected.png</file>
+         <file>images/report_tab_selected@2x.png</file>
+         <file>images/report_tab_selected@3x.png</file>
+         <file>images/report_tab_selected@4x.png</file>
+         <!-- adding image files -->
+         <file>images/report_tab_unselected.png</file>
+         <file>images/report_tab_unselected@2x.png</file>
+         <file>images/report_tab_unselected@3x.png</file>
+         <file>images/report_tab_unselected@4x.png</file>
+         <!-- adding image files -->
+         <file>images/selection_tick.png</file>
+         <file>images/selection_tick@2x.png</file>
+         <file>images/selection_tick@3x.png</file>
+         <file>images/selection_tick@4x.png</file>
+         <!-- adding image files -->
+         <file>images/supplement.png</file>
+         <file>images/supplement@2x.png</file>
+         <file>images/supplement@3x.png</file>
+         <file>images/supplement@4x.png</file>
+         <!-- adding image files -->
+         <file>images/test_tab_selected.png</file>
+         <file>images/test_tab_selected@2x.png</file>
+         <file>images/test_tab_selected@3x.png</file>
+         <file>images/test_tab_selected@4x.png</file>
+         <!-- adding image files -->
+         <file>images/timeline_tab_selected.png</file>
+         <file>images/timeline_tab_selected@2x.png</file>
+         <file>images/timeline_tab_selected@3x.png</file>
+         <file>images/timeline_tab_selected@4x.png</file>
+         <!-- adding image files -->
+         <file>images/timeline_tab_selected.png</file>
+         <file>images/timeline_tab_selected@2x.png</file>
+         <file>images/timeline_tab_selected@3x.png</file>
+         <file>images/timeline_tab_selected@4x.png</file>
     </qresource>
 </RCC>

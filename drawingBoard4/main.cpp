@@ -6,11 +6,34 @@
 #include <testresultmodels.h>
 #include <QTableView>
 #include <QApplication>
+#include <QSettings>
+#include <QQuickStyle>
+#include <QDebug>
+#include <QDir>
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+    QGuiApplication::setApplicationName("MPSRewrite");
+     QGuiApplication::setOrganizationName("EET");
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-
+    QIcon::setThemeName("all");
+    QQuickStyle::setStyle("Material");
+    QStringList list;
+    //list<<":/icons";
+    //list<<":/icons/small";
+    //list<<"/usr/share/icons";
+    //QIcon::setThemeSearchPaths(list);
+    qDebug()<<QIcon::themeSearchPaths();
+    QDir dir(":/");
+    for (auto entry : dir.entryList()) {
+        qWarning() << "Found entry in resources:" << entry;
+    }
+//    QSettings settings;
+//    QString style = QQuickStyle::name();
+//    if (!style.isEmpty())
+//        settings.setValue("style", style);
+//    else
+//        QQuickStyle::setStyle(settings.value("style").toString());
     TestResultModels model;// = nullptr;
     model.addResult(Result("ConfidenceLevel","Right","Left"));
     model.addResult(Result("Central","Accept","Reject"));
@@ -39,6 +62,7 @@ int main(int argc, char *argv[])
     //QGuiApplication app(argc, argv);
     plotDataPoint PlotPoint;
     QQmlApplicationEngine engine;
+    //engine.rootContext()->setContextProperty("availableStyles", QQuickStyle::availableStyles());
     engine.rootContext()->setContextProperty("theModel", &model);
     engine.rootContext()->setContextProperty("theModel1", &model1);
     engine.rootContext()->setContextProperty("theModel2", &model2);

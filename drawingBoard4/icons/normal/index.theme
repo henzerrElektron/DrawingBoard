@@ -1,0 +1,24 @@
+[Icon Theme]
+Name=Normal
+Comment=Contains all normal icons
+
+Directories=50x50,50x50@2,50x50@3,50x50@4
+
+[50x50]
+Size=50
+Type=Fixed
+
+[50x50@2]
+Size=50
+Scale=2
+Type=Fixed
+
+[50x50@3]
+Size=50
+Scale=3
+Type=Fixed
+
+[50x50@4]
+Size=50
+Scale=4
+Type=Fixed
