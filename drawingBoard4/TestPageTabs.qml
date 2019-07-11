@@ -6,7 +6,7 @@ import "./common/"
 import "./imports/ApplicationContstants/"
 //Item {
 Rectangle{
-    color: "green"
+    color: "white"
     //    Row{
     //        Text {
     //            id: name
@@ -45,9 +45,11 @@ Rectangle{
 //            text: "\uf234"
 //        }
         FontAwesomeToolButton {
-            //width: 100
-            //height: 100
+            width: 100
+            height: 100
             text: "\uf234"
+            Component.onCompleted: setFontColor("red")
+            //fontColor:"blue"
         }
         FontAwesomeToolButton {
             text: "\uf556"

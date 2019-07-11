@@ -4,6 +4,7 @@
 #include <QQmlContext>
 #include <QVariant>
 #include <testresultmodels.h>
+#include <testpagesupplementationmodel.h>
 #include <QTableView>
 #include <QApplication>
 #include <QSettings>
@@ -34,6 +35,10 @@ int main(int argc, char *argv[])
 //        settings.setValue("style", style);
 //    else
 //        QQuickStyle::setStyle(settings.value("style").toString());
+    TestPageSupplementationModel supplementModel;
+    supplementModel.addSupplement(Supplementation("Date","Dosage","PerDay","Description"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate(),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate(),"test",1,"testing"));
     TestResultModels model;// = nullptr;
     model.addResult(Result("ConfidenceLevel","Right","Left"));
     model.addResult(Result("Central","Accept","Reject"));
@@ -66,8 +71,9 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("theModel", &model);
     engine.rootContext()->setContextProperty("theModel1", &model1);
     engine.rootContext()->setContextProperty("theModel2", &model2);
+    engine.rootContext()->setContextProperty("theSupplementModel",&supplementModel);
     qmlRegisterType<TestResultModels>("TestResultModels",0,1,"TestResultModels");
-
+    qmlRegisterType<TestPageSupplementationModel>("TestPageSupplementationModel",0,1,"TestPageSupplementationModel");
     engine.addImportPath("qrc:/");
     engine.addImportPath("qrc:/imports/");
     engine.addImportPath(":/");
@@ -82,6 +88,8 @@ int main(int argc, char *argv[])
     engine.addImportPath( "qrc:/models/" );
     engine.addImportPath(":/page/");
     engine.addImportPath( "qrc:/page/" );
+    engine.addImportPath(":/common/");
+    engine.addImportPath( "qrc:/common/" );
     engine.rootContext()->setContextProperty("PlotPoint",&PlotPoint);
     //engine.rootContext()->setContextProperty("PlotList",QVariant::fromValue&PlotPoint.xyPlotPoints()))
     const QUrl url(QStringLiteral("qrc:/main.qml"));
@@ -92,7 +100,7 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
     QTableView view;
-    view.setModel(&model2);//Also test for other model1 and model
+    view.setModel(&supplementModel);//(&supplementModel);//(&model2);//Also test for other model1 and model
     view.show();
     return app.exec();
 }

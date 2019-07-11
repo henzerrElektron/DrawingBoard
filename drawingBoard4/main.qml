@@ -49,10 +49,24 @@ Window {
         //            height: 500
 
         //        }
-        TestPagePatientResultIndex{
+//        TestPageNotesTabPage{
+//            Layout.fillWidth: true
+//            Layout.fillHeight: true
+//        }
+
+        TestPage{
             Layout.fillHeight: true
             Layout.fillWidth: true
         }
+//        TestPageSupplementTabPage{
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
+//        }
+
+//        TestPagePatientResultIndex{
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
+//        }
         //        TestPlotTabs{
         //            Layout.fillHeight: true
         //            Layout.fillWidth: true
@@ -69,10 +83,10 @@ Window {
         //                ResultOldStyleTableGrid {
         //                    id: grid2
         //                }
-        //        TestPageTabs{
-        //            Layout.fillHeight: true
-        //            Layout.fillWidth: true
-        //        }
+//                TestPageTabs{
+//                    Layout.fillHeight: true
+//                    Layout.fillWidth: true
+//                }
 
         //                        TestingAllPageHeaderActions{
         //                            Layout.fillHeight: true

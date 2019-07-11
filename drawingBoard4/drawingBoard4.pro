@@ -29,6 +29,7 @@ SOURCES += \
         main.cpp \
         plotdatapoint.cpp \
         plotpoints.cpp \
+        testpagesupplementationmodel.cpp \
         testresultmodels.cpp
 
 RESOURCES += qml.qrc \
@@ -77,6 +78,8 @@ QML_IMPORT_PATH +=$$PWD/delegates/
 QML2_IMPORT_PATH +=$$PWD/delegates/
 QML_IMPORT_PATH +=$$PWD/page/
 QML2_IMPORT_PATH +=$$PWD/page/
+QML_IMPORT_PATH +=$$PWD/common/
+QML2_IMPORT_PATH +=$$PWD/common/
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
@@ -95,4 +98,5 @@ HEADERS += \
     lineintersect.h \
     plotdatapoint.h \
     plotpoints.h \
+    testpagesupplementationmodel.h \
     testresultmodels.h

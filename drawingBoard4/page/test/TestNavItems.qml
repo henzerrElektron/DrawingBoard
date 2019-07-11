@@ -8,6 +8,11 @@ import "./../../models/"
 import ApplicationContstants 1.0
 GridView{
     id:testItems
+    flickableDirection: Flickable.HorizontalFlick
+    cellWidth: 50//navToolButton.width
+    cellHeight: 50//navToolButton.height
+    width: modelCount * cellWidth
+    height: cellHeight
     //anchors.fill: parent
     //implicitHeight:100
     //implicitWidth:360
@@ -16,9 +21,16 @@ GridView{
     flow:GridView.LeftToRight
     //spacing: 10
     //height:4* testControlBtn.height
-    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+    //Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
     //Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
     delegate:TestNavDelegate{}
     //highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
-    flickDeceleration: Flickable.VerticalFlick
+    flickDeceleration: Flickable.HorizontalFlick
 }
+
+
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+ ##^##*/

@@ -20,8 +20,8 @@ import "./../../icons/all/"
 import "./../../delegates/"
 import ApplicationContstants 1.0
 Item {
-    width: 800
-    height: 125
+    //width: 800
+    //height: 125
     Rectangle {
         id: rectangle
         //color: "#ffffff"
@@ -30,7 +30,7 @@ Item {
         border.width: 1
         Row{
             id:mainRow
-            height: 125
+            //height: 125
             anchors.fill: parent
             Rectangle {
                 id: rectangle1
@@ -112,7 +112,10 @@ Item {
                             id: label3
                             //anchors.centerIn: rectangle3.Center
                             text: qsTr("Both")
-                            anchors.fill: parent
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.left: parent.left
+                            anchors.bottom: parent.bottom
+                            anchors.top: parent.top
                             font.bold: true
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
@@ -182,12 +185,31 @@ Item {
                     //                        anchors.left: parent.right
                     //                        anchors.leftMargin: -50
                     //                    }
-                    TestNavItems{
-                        anchors.left: rectangle3.right
-                        anchors.leftMargin: 10
-                        anchors.right: parent.right
-                        anchors.rightMargin: 10
+                    Item {
+                        id:spaceItem
+                        width: parent.width
                         height: parent.height
+                    }
+                    Rectangle{
+                        id:rectangle7
+                        color: "transparent"
+                        //anchors.left: rectangle3.right
+                        //anchors.leftMargin:10
+                        anchors.right: parent.right
+                        anchors.rightMargin: -50//navItems.width/2
+                        width: 250//navItems.width+10
+                        //anchors.fill: parent
+                        TestNavItems{
+                            id:navItems
+                            //anchors.left: rectangle3.right
+                            //anchors.leftMargin:10
+                            //anchors.right: parent.right
+                            //anchors.rightMargin: (10)
+                            //height: parent.height
+                            //anchors.right: parent.left
+                            anchors.fill: parent
+                            flickableDirection: Flickable.AutoFlickDirection
+                        }
                     }
 
                     // }
@@ -252,7 +274,14 @@ Item {
 
 
 
+
+
+
+
+
+
 /*##^## Designer {
-    D{i:3;anchors_y:19}D{i:2;anchors_width:200;anchors_x:151;anchors_y:24}D{i:1;anchors_height:200;anchors_width:200;anchors_x:109;anchors_y:72}
+    D{i:0;autoSize:true;height:480;width:640}D{i:3;anchors_y:19}D{i:2;anchors_width:200;anchors_x:151;anchors_y:24}
+D{i:1;anchors_height:200;anchors_width:200;anchors_x:109;anchors_y:72}
 }
  ##^##*/

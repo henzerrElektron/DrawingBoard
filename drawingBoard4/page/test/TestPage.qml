@@ -22,7 +22,7 @@ Item {
     GridLayout {
         id: gridLayout
         anchors.fill: parent
-        rows:2
+        rows:3
         columns: 2
         //RowLayout{
         //    id: row
@@ -41,7 +41,7 @@ Item {
             anchors.rightMargin: 0
             anchors.top: parent.top
             anchors.topMargin: 0
-            Layout.maximumHeight: parent.height/4
+            Layout.maximumHeight: parent.height/6
             PatientLabel{
                 id:ptLabel
                 anchors.fill: parent
@@ -53,9 +53,9 @@ Item {
         Rectangle{
             id:rectangle2
             color: "transparent"
-            anchors.top: ptLabel.bottom
+            anchors.top: rectangle1.bottom
             anchors.left: gridLayout.left
-            anchors.bottom: gridLayout.bottom
+            anchors.bottom: rectangle6.top
             //anchors.right: rectangle2.left
             //anchors.fill: parent
             Layout.column: 1
@@ -92,12 +92,12 @@ Item {
         Rectangle{
             id:rectangle3
             color: "transparent"
-            anchors.top: ptLabel.bottom
+            anchors.top: rectangle1.bottom
             anchors.left: rectangle2.right
-            anchors.bottom: parent.bottom
+            anchors.bottom: rectangle6.top
             anchors.right: parent.right
             //anchors.fill: parent
-            Layout.column: 2
+            Layout.column: 3
             Layout.columnSpan: 1
             Layout.fillHeight: true
             Layout.fillWidth: true
@@ -149,7 +149,30 @@ Item {
             }
 
         }
-
+        Rectangle{
+            id:rectangle6
+            color: "black"
+            //anchors.top: rectangle3.bottom
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            //anchors.fill: parent
+            Layout.column: 1
+            Layout.columnSpan: 1
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
+            Layout.row:3
+            width: parent.width
+            height: 100
+            TestPagePatientResultIndex
+            {
+                //Layout.fillHeight: true
+                //height: 100
+                //: parent.width
+                //Layout.fillWidth: true
+                anchors.fill: parent
+            }
+        }
 
         //           }
         //}

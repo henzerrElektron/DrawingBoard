@@ -6,18 +6,21 @@ import "./../imports/ApplicationContstants/"
 //Item {
 ToolButton {
     id: button
-    implicitWidth:  100
-    implicitHeight:  100
+    implicitWidth:  200
+    implicitHeight:  200
+    //property alias fontColor:
     //property alias symbol: button.text
     
     // This can be set to either Fonts.icons or Fonts.brands
     // to switch between the two icon sets.
     //font.family: Constants.icons
+    function setFontColor(fontColor){colorMe = fontColor}
     font: {
         family:Constants.icons
         weight: Font.Regular
-        color: "#ffffff"
+        color: colorMe//"blue"//"#ffffff"
     }
+
     onFontChanged: {
         console.log("font loaded")
     }

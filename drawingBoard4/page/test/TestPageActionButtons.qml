@@ -1,4 +1,6 @@
 import QtQuick 2.12
+import QtQuick 2.5
+import QtQuick.Controls 2.5
 //import QtQuick.Window 2.12
 //import QtQuick.Shapes 1.11
 //import QtQuick.Templates 2.5
@@ -68,6 +70,8 @@ Rectangle {
         ListElement { name: "W" }
     }
 }
+
+
 
 /*##^## Designer {
     D{i:0;autoSize:true;height:480;width:640}

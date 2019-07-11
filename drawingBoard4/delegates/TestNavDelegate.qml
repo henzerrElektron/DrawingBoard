@@ -24,7 +24,7 @@ ToolButton {
     //height: 60
     //text: qsTr("Tool Button")
     background: Rectangle{
-        color: "white"
+        color: "transparent"
     }
     autoExclusive: true
     icon.width: 50

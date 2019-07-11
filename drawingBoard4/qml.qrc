@@ -58,5 +58,9 @@
         <file>models/TestPatientNavigationModel.qml</file>
         <file>page/test/TestNavItems.qml</file>
         <file>delegates/TestNavDelegate.qml</file>
+        <file>page/test/TestPageSupplementTableView.qml</file>
+        <file>page/test/TestPageSupplementTabPage.qml</file>
+        <file>common/IconOnlyButtons.qml</file>
+        <file>page/test/TestPageNotesTabPage.qml</file>
     </qresource>
 </RCC>

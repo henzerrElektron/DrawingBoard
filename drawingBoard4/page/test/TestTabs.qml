@@ -25,18 +25,28 @@ Page {
         //onCurrentIndexChanged:
         TabButton {
             text: qsTr("Results")
+            onClicked: {page1.visible = true;
+            page2.visible = false;
+            page3.visible = false;}
         }
         TabButton {
             text: qsTr("Notes")
+            onClicked: {page1.visible = false;
+            page2.visible = true;
+            page3.visible = false;}
         }
         TabButton {
             text: qsTr("Supplementation")
+            onClicked: {page1.visible = false;
+            page2.visible = false;
+            page3.visible = true;}
         }
     }
 
     SwipeView {
         id: testview//swipeView
         anchors.fill: parent
+        //initialItem: page1//bar.currentIndex
         currentIndex: bar.currentIndex
         function addPage(page) {
             addItem(page)
@@ -59,10 +69,14 @@ Page {
         Page {
             id: page1
             visible: true;
+
             //anchors.fill: parent
             ResultTableGrid {
                 id: resultGrid
-                anchors.fill: parent
+                anchors.left: parent.left
+                anchors.right: parent.right
+
+                //anchors.fill: parent
                 //width: parent.width
                 Layout.fillHeight: true
                 Layout.fillWidth: true
@@ -85,21 +99,37 @@ Page {
 
         Page {
             id: page2
-            visible: false;
-            background: Rectangle { color: "lightGreen" }
-            Label {
-                text: "Page2"
+            visible: true;
+            TestPageNotesTabPage{
+                id:notesTabPage
+                anchors.fill: parent
+                Layout.fillHeight: true
+                Layout.fillWidth: true
             }
+
+            //           background: Rectangle { color: "lightGreen" }
+            //            Label {
+            //                text: "Page2"
+            //            }
+
 
         }
 
         Page {
             id: page3
-            visible: false;
-            background: Rectangle { color: "magenta" }
-            Label {
-                text: "Page3"
+            visible: true;
+            TestPageSupplementTabPage{
+                id: supplementTab
+                anchors.fill: parent
+                //width: parent.width
+                Layout.fillHeight: true
+                Layout.fillWidth: true
             }
+
+            //background: Rectangle { color: "magenta" }
+//            Label {
+//                text: "Page3"
+//            }
         }
     }
     PageIndicator {
