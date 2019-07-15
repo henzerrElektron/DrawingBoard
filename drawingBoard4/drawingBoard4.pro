@@ -29,6 +29,8 @@ SOURCES += \
         main.cpp \
         plotdatapoint.cpp \
         plotpoints.cpp \
+        supplementpagepatienttablemodel.cpp \
+        switchpatienttablemodel.cpp \
         testpagesupplementationmodel.cpp \
         testresultmodels.cpp
 
@@ -92,11 +94,14 @@ DISTFILES += \
     icons/all/32x32/Test.png \
     mpIndicator.qml \
     mpodDisplayItem.qml \
-    plotPointers.qml
+    plotPointers.qml \
+    supplementPagePatientTableModel.qml
 
 HEADERS += \
     lineintersect.h \
     plotdatapoint.h \
     plotpoints.h \
+    supplementpagepatienttablemodel.h \
+    switchpatienttablemodel.h \
     testpagesupplementationmodel.h \
     testresultmodels.h

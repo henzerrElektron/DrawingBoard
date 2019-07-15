@@ -15,9 +15,14 @@ import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.2
 //import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
-import "."
 //import appContstants 1.0
+import "."
+import "./../../images/"
+import "./../../delegates/"
+import "./../../models/"
+import "./../test/"
 import TestResultModels 0.1
+import SwitchPatientTableModel 0.1
 GridLayout{
     id:gridLayout
     columns: 1
@@ -27,6 +32,7 @@ GridLayout{
     rows: 3
     anchors.fill: parent
     property int rowTabHeight: height/rows
+    property bool testOrSwitch: false
     //spacing: 0
     //    Rectangle{
     //        id:rectangle1

@@ -25,6 +25,7 @@ Rectangle{
     id:rectangle1
     //color: "black"
     color: "transparent"
+    property alias labelText: label_testPageHeading.text
     //Layout.rowSpan: 2
     //height: 100
     Image {

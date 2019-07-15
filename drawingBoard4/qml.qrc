@@ -62,5 +62,29 @@
         <file>page/test/TestPageSupplementTabPage.qml</file>
         <file>common/IconOnlyButtons.qml</file>
         <file>page/test/TestPageNotesTabPage.qml</file>
+        <file>page/changePatient/changePatient.qml</file>
+        <file>page/help/help.qml</file>
+        <file>page/home/home.qml</file>
+        <file>page/newPatient/newPatient.qml</file>
+        <file>page/operator/operator.qml</file>
+        <file>page/savePatient/savePatient.qml</file>
+        <file>page/setting/setting.qml</file>
+        <file>page/viewPatientReport/viewPatientReport.qml</file>
+        <file>page/home/HomePage.qml</file>
+        <file>page/home/HomePageLabel.qml</file>
+        <file>page/home/HomePageTitle.qml</file>
+        <file>page/home/HomePageActionButtons.qml</file>
+        <file>common/PageActionsButtons.qml</file>
+        <file>page/home/HomePageRightLogo.qml</file>
+        <file>page/home/HomePageLeftLogo.qml</file>
+        <file>page/home/HomePageLogo.qml</file>
+        <file>page/home/HomePageBody.qml</file>
+        <file>delegates/HomePageBodyDelegate.qml</file>
+        <file>page/changePatient/SwitchPatient.qml</file>
+        <file>page/changePatient/SwitchPatientLabel.qml</file>
+        <file>page/changePatient/SwitchSearchBox.qml</file>
+        <file>page/changePatient/SwitchSearchItems.qml</file>
+        <file>page/changePatient/ExistingPatientTableGrid.qml</file>
+        <file>page/changePatient/ExistingPatientTableView.qml</file>
     </qresource>
 </RCC>

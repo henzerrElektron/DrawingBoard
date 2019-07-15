@@ -93,8 +93,12 @@ QtObject {
     readonly property string actionBtnBackgroundColor: "#3A9FA4"
     readonly property string headerBackgroundColor: "#5EBDC3"
     readonly property string actionBtnBorderColor: "black"
+    readonly property string label_searchQuestion: "You can enter some of the patient's details to veiw matching enteries"
+    readonly property string label_searchPatientTitle: qsTr("Please select an existing patient")
     readonly property string label_testPgHeader: qsTr("Patient Testing Screen")
     readonly property string label_testPgPatient: qsTr("Patient:")
+    readonly property string label_switchPatientSurname: qsTr("Surname")
+    readonly property string label_switchPatientFirstName: qsTr("FirstName")
     readonly property string label_testPgMedRef: qsTr("Medical Reference:")
     readonly property string label_testPgDOB: qsTr("Birth date:")
     readonly property string label_testPgIOLFitted: qsTr("IOL Fitted(R/L):")

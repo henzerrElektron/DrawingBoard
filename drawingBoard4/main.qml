@@ -21,10 +21,12 @@ import "models"
 import "page"
 import "delegates"
 //import appContstants 1.0
+import "./page/home/"
 import "./models"
 import "./delegates"
 import "./page"
 import "./page/test/"
+import "./page/changePatient/"
 import TestResultModels 0.1
 Window {
     id: window
@@ -41,6 +43,70 @@ Window {
     GridLayout{
         id:mainGrid
         anchors.fill: parent
+//        StackView {
+//            id: stackView
+//            anchors.fill: parent
+
+//            initialItem: Pane {
+//                id: pane
+
+//                Image {
+//                    id: logo
+//                    width: pane.availableWidth / 2
+//                    height: pane.availableHeight / 2
+//                    anchors.centerIn: parent
+//                    anchors.verticalCenterOffset: -50
+//                    fillMode: Image.PreserveAspectFit
+//                    source: "qrc:/images/icon_eet.png"
+//                }
+
+//                Label {
+//                    text: "Qt Quick Controls 2 provides a set of controls that can be used to build complete interfaces in Qt Quick."
+//                    anchors.margins: 20
+//                    anchors.top: logo.bottom
+//                    anchors.left: parent.left
+//                    anchors.right: parent.right
+//                    anchors.bottom: arrow.top
+//                    horizontalAlignment: Label.AlignHCenter
+//                    verticalAlignment: Label.AlignVCenter
+//                    wrapMode: Label.Wrap
+//                }
+//                TestPageActionButtons{
+//                    id:testbuttons
+//                    anchors.fill: parent
+//                    group:"homeItems"
+//                    onComponentTriggered: {
+//                        stackView.push(name)
+//                    }
+//                }
+
+//                //                Image {
+//                //                    id: arrow
+//                //                    source: "qrc:/images/icon_eet.png"
+//                //                    anchors.left: parent.left
+//                //                    anchors.bottom: parent.bottom
+//                //                }
+//            }
+//        }
+        SwitchPatient{
+            id:homeTPage
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+        }
+//           SwitchPatient{
+//              id:switchPage
+//              Layout.fillHeight: true
+//              Layout.fillWidth: true
+
+//           }
+
+//                  HomePageLabel{
+//                      id:homeTitle
+//                      //width: parent.width
+//                      //height: 200
+//                      Layout.fillHeight: true
+//                      Layout.fillWidth: true
+//                  }
 
         //        PlotterPointers{
         //            id:sample
@@ -49,24 +115,29 @@ Window {
         //            height: 500
 
         //        }
-//        TestPageNotesTabPage{
-//            Layout.fillWidth: true
-//            Layout.fillHeight: true
-//        }
+        //        TestPageNotesTabPage{
+        //            Layout.fillWidth: true
+        //            Layout.fillHeight: true
+        //        }
 
-        TestPage{
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-        }
-//        TestPageSupplementTabPage{
-//            Layout.fillHeight: true
-//            Layout.fillWidth: true
-//        }
+        //        TestPage{
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //            Connections {
+        //                        target: testControlBtn
+        //                        onInvokeSoure:  { console.log("Hello by Comp 2") }
+        //                        onTest:{console.log("Testing")}
+        //                    }
+        //        }
+        //        TestPageSupplementTabPage{
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //        }
 
-//        TestPagePatientResultIndex{
-//            Layout.fillHeight: true
-//            Layout.fillWidth: true
-//        }
+        //        TestPagePatientResultIndex{
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //        }
         //        TestPlotTabs{
         //            Layout.fillHeight: true
         //            Layout.fillWidth: true
@@ -83,10 +154,10 @@ Window {
         //                ResultOldStyleTableGrid {
         //                    id: grid2
         //                }
-//                TestPageTabs{
-//                    Layout.fillHeight: true
-//                    Layout.fillWidth: true
-//                }
+        //                TestPageTabs{
+        //                    Layout.fillHeight: true
+        //                    Layout.fillWidth: true
+        //                }
 
         //                        TestingAllPageHeaderActions{
         //                            Layout.fillHeight: true

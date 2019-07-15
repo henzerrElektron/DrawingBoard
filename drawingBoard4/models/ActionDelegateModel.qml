@@ -12,10 +12,12 @@ ListModel{
         newPatientAction:true;
         existingPatientAction:true;
         testPageAction:true;
+        actionText:"Home"
         actionIconName:"icon_home"
         actionIconSource:"qrc:/images/icon_home.png"
         actionIconColor:"transparent"
-        actionImgSource:"icon_new_patient";//icon.name: "timeline_tab_selected"
+        actionImgSource:"qrc:/images/icon_home.png";//icon.name: "timeline_tab_selected"
+        source:"qrc:/page/test/TestPage.qml"//"qrc:/page/home/home.qml"
         index:1;
     }
     ListElement{
@@ -24,10 +26,12 @@ ListModel{
         newPatientAction:true;
         existingPatientAction:true;
         testPageAction:true;
+        actionText:"Setting"
         actionIconName:"icon_setting"
         actionIconSource:"qrc:/images/icon_setting.png"
         actionIconColor:"transparent"
-        actionImgSource:"icon_setting";//"../images/icon_new_patient.png";
+        actionImgSource:"qrc:/images/icon_setting.png";//"../images/icon_new_patient.png";
+        source:"qrc:/page/setting/setting.qml"
         index:2;
     }
     ListElement{
@@ -36,10 +40,12 @@ ListModel{
         newPatientAction:true;
         existingPatientAction:true;
         testPageAction:true;
+        actionText:"Help"
         actionIconName:"icon_help"
         actionIconSource:"qrc:/images/icon_help.png"
         actionIconColor:"transparent"
-        actionImgSource:"icon_help";//"../images/icon_new_patient.png";
+        actionImgSource:"qrc:/images/icon_help.png";//"../images/icon_new_patient.png";
+        source:"qrc:/page/help/help.qml"
         index:3;
     }
     ListElement{
@@ -48,10 +54,12 @@ ListModel{
         newPatientAction:true;
         //existingPatientAction:true;
         testPageAction:true;
+        actionText:"Switch Patient"
         actionIconName:"icon_switch_patient"
         actionIconSource:"qrc:/images/icon_switch_patient.png"
         actionIconColor:"transparent"
-        actionImgSource:"icon_switch_patient";//"../images/icon_new_patient.png";
+        actionImgSource:"qrc:/images/icon_switch_patient.png";//"../images/icon_new_patient.png";
+        source:"qrc:/page/changePatient/changePatient.qml"
         index:4;
     }
     ListElement{
@@ -61,9 +69,11 @@ ListModel{
         //existingPatientAction:true;
         //testPageAction:true;
         actionIconName:"icon_save"
+        actionText:"Save Patient"
         actionIconSource:"qrc:/images/icon_save.png"
         actionIconColor:"transparent"
-        actionImgSource:"icon_save";//"../images/icon_new_patient.png";
+        actionImgSource:"qrc:/images/icon_save.png";//"../images/icon_new_patient.png";
+        source:"qrc:/page/savePatient/savePatient.qml"
         index:5;
     }
     ListElement{
@@ -72,47 +82,58 @@ ListModel{
         newPatientAction:true;
         existingPatientAction:true;
         //testPageAction:true;
+        actionText:"Test Patient"
         actionIconName:"icon_test_patient"
         actionIconSource:"qrc:/images/icon_test_patient.png"
         actionIconColor:"transparent"
-        actionImgSource:"icon_test_patient";//"../images/icon_new_patient.png";
+        actionImgSource:"qrc:/images/icon_test_patient.png";//"../images/icon_new_patient.png";
+        source:"qrc:/page/test/TestPage.qml"
         index:6;
     }
     ListElement{
         actionName:"newPatient";
+        homeMainAction:true;
         //homeAction:false;
         //newPatientAction:true;
         existingPatientAction:true;
         //testPageAction:true;
+        actionText:"New Patient"
         actionIconName:"icon_new_patient"
         actionIconSource:"qrc:/images/icon_new_patient.png"
         actionIconColor:"transparent"
         actionImgSource:"../images/icon_new_patient.png";
+        source:"qrc:/page/newPatient/newPatient.qml"
         index:7;
     }
     ListElement{
         actionName:"editPatient";
+        homeMainAction:true;
         //homeAction:false;
         //newPatientAction:true;
         existingPatientAction:true;
         testPageAction:true;
+        actionText:"Edit Patient"
         actionIconName:"icon_edit_patient"
         actionIconSource:"qrc:/images/icon_edit_patient.png"
         actionIconColor:"transparent"
         actionImgSource:"../images/icon_new_patient.png";
+        source:"qrc:/page/newPatient/newPatient.qml"
         index:8;
     }
     ListElement{
         actionName:"viewPatientReport";
+        homeMainAction:true;
         //homeAction:false;
         //newPatientAction:true;
         //existingPatientAction:true;
         testPageAction:true;
         reportPageAction:true;
+        actionText:"View Patient Report"
         actionIconName:"icon_view_report"
         actionIconSource:"qrc:/images/icon_view_report.png"
         actionIconColor:"transparent"
-        actionImgSource:"../images/icon_new_patient.png";
+        actionImgSource:"qrc:/images/icon_view_report.png";
+        source:"qrc:/page/viewPatientReport/viewPatientReport.qml"
         index:9;
     }
     ListElement{
@@ -123,10 +144,12 @@ ListModel{
         //testPageAction:true;
         //reportPageAction:true;
         operatorPageAction:true;
+        actionText:"Add Operator"
         actionIconName:"icon_add_operator"
         actionIconSource:"qrc:/images/icon_add_operator.png"
         actionIconColor:"transparent"
-        actionImgSource:"../images/icon_new_patient.png";
+        actionImgSource:"qrc:/images/icon_add_operator.png";
+        source:"qrc:/page/operator/operator.qml"
         index:10;
     }
     ListElement{
@@ -137,11 +160,31 @@ ListModel{
         //testPageAction:true;
         //reportPageAction:true;
         operatorPageAction:true;
+        actionText:"Edit Operator"
         actionIconName:"icon_edit_operator"
         actionIconSource:"qrc:/images/icon_edit_operator.png"
         actionIconColor:"transparent"
         //actionImgSource:"../images/icon_new_patient.png";
-        actionImgSource:"icon_new_patient";//"../images/icon_new_patient.png";
+        actionImgSource:"qrc:/images/icon_edit_operator.png";//"../images/icon_new_patient.png";
+        source:"qrc:/page/operator/operator.qml"
         index:11;
+    }
+    ListElement{
+        actionName:"switchOperator";
+        //homeAction:false;
+        //newPatientAction:true;
+        //existingPatientAction:true;
+        //testPageAction:true;
+        //reportPageAction:true;
+        homeMainAction:true;
+        operatorPageAction:true;
+        actionText:"Switch OPerator"
+        actionIconName:"icon_switch_operator"
+        actionIconSource:"qrc:/images/icon_switch_operator.png"
+        actionIconColor:"transparent"
+        //actionImgSource:"../images/icon_new_patient.png";
+        actionImgSource:"qrc:/images/icon_switch_operator.png";//"../images/icon_new_patient.png";
+        source:"qrc:/page/operator/operator.qml"
+        index:12;
     }
 }

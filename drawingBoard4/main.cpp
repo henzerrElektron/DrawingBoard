@@ -5,6 +5,7 @@
 #include <QVariant>
 #include <testresultmodels.h>
 #include <testpagesupplementationmodel.h>
+#include <switchpatienttablemodel.h>
 #include <QTableView>
 #include <QApplication>
 #include <QSettings>
@@ -35,6 +36,22 @@ int main(int argc, char *argv[])
 //        settings.setValue("style", style);
 //    else
 //        QQuickStyle::setStyle(settings.value("style").toString());
+    SwitchPatientTableModel existingPatientModel;
+    existingPatientModel.addExistingPatient(ExistingPatients("FirstName","SurName","Date","TestResults(R/L)","MedicalReference","Address"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Henzerr","vm0",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Henzerr1","vm1",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Henzerr2","vm2",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Henzerr3","vm3",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Henzerr4","vm4",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Henzerr55","vm5",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Henzerr6","vm6",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Henzerr7","vm7",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Henzerr8","vm8",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Henzerr9","vm9",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Henzerr10","vm10",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Henzerr11","vm11",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Henzerr12","vm12",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Henzerr13","vm13",QDate::currentDate(),1.857,"5632fggf424","Address1"));
     TestPageSupplementationModel supplementModel;
     supplementModel.addSupplement(Supplementation("Date","Dosage","PerDay","Description"));
     supplementModel.addSupplement(Supplementation(QDate::currentDate(),"test",1,"testing"));
@@ -72,8 +89,10 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("theModel1", &model1);
     engine.rootContext()->setContextProperty("theModel2", &model2);
     engine.rootContext()->setContextProperty("theSupplementModel",&supplementModel);
+    engine.rootContext()->setContextProperty("theExistingPatientsModel",&existingPatientModel);
     qmlRegisterType<TestResultModels>("TestResultModels",0,1,"TestResultModels");
     qmlRegisterType<TestPageSupplementationModel>("TestPageSupplementationModel",0,1,"TestPageSupplementationModel");
+    qmlRegisterType<SwitchPatientTableModel>("SwitchPatientTableModel",0,1,"SwitchPatientTableModel");
     engine.addImportPath("qrc:/");
     engine.addImportPath("qrc:/imports/");
     engine.addImportPath(":/");
@@ -100,7 +119,7 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
     QTableView view;
-    view.setModel(&supplementModel);//(&supplementModel);//(&model2);//Also test for other model1 and model
+    view.setModel(&existingPatientModel);//(&supplementModel);//(&supplementModel);//(&model2);//Also test for other model1 and model
     view.show();
     return app.exec();
 }

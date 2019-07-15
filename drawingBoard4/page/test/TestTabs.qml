@@ -13,6 +13,11 @@ import QtQuick.Controls 1.4
 import Qt.labs.settings 1.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
+import "."
+import "./../../images/"
+import "./../../delegates/"
+import "./../../models/"
+import "./../test/"
 Page {
     id: tabsPage
     anchors.fill: parent
@@ -75,7 +80,6 @@ Page {
                 id: resultGrid
                 anchors.left: parent.left
                 anchors.right: parent.right
-
                 //anchors.fill: parent
                 //width: parent.width
                 Layout.fillHeight: true

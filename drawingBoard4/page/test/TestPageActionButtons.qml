@@ -26,6 +26,14 @@ import ApplicationContstants 1.0
 Rectangle {
     id: rectangle3
     color: "transparent"
+    property alias group: allPageModel.filterOnGroup
+    signal componentTriggered(string name)
+    signal tested
+    onTested: {"I am tested in TestActionsButtons"}
+    onComponentTriggered: {
+            console.log(" component was triggered"+name)
+        }
+    //signal clicked
     //color: "black"
     ActionDelegateModel {
         id: actionDelegateModel
@@ -33,14 +41,30 @@ Rectangle {
 
     AllPageModel {
         id: allPageModel
-        delegate: actionHeaderDelegate
+        delegate: ActionHeaderDelegate{
+            Component.onCompleted: {
+            invokeSource.connect(rectangle3.componentTriggered)
+            test.connect(rectangle3.tested)
+            }
+        }//actionHeaderDelegate
         filterOnGroup: "testPageItems"
         model: actionDelegateModel
 
     }
-    ActionHeaderDelegate {
-        id: actionHeaderDelegate
-    }
+//    ActionHeaderDelegate {
+//        id: actionHeaderDelegate
+//        Component.onCompleted:{
+//            //testControlBtn.clicked.connect(invokeSoure)
+//            //testControlBtn.clicked.connect(test)
+////            invokeSoure.connect(componentTriggered)
+////            test.connect(tested)
+////            testControlBtn.invokeSoure.connect(componentTriggered)
+////            testControlBtn.test.connect(tested)
+////            onInvokeSource:
+////            console.log("Testing it here")
+//        }
+
+//    }
     Component {
         id:  highlightComponent
         Rectangle {  color: "lightsteelblue"; radius: 5;width:  Constants.actionBtnWidth;height: Constants.actionBtnHeight }
@@ -60,6 +84,7 @@ Rectangle {
         cellHeight:Constants.actionBtnHeight//75
         cellWidth:Constants.actionBtnWidth//75
         model:allPageModel// allPageModel
+
     }
     ListModel {
         id: nameModel

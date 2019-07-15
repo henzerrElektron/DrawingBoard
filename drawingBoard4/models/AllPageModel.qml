@@ -8,6 +8,10 @@ DelegateModel{
     groups: [
         DelegateModelGroup{
             includeByDefault: false
+            name:"homeMainItems"
+        },
+        DelegateModelGroup{
+            includeByDefault: false
             name:"homeItems"
         },
         DelegateModelGroup{
@@ -37,6 +41,13 @@ DelegateModel{
         for(var i = 0;i<rowCount;i++)
         {
             var entry = actionDelegateModel.get(i);
+            if(entry.homeMainAction !== undefined)
+            {
+                if(entry.homeMainAction === true)
+                {
+                    items.insert(entry,"homeMainItems");
+                }
+            }
             if(entry.homeAction !== undefined)
             {
                 if(entry.homeAction === true)

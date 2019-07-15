@@ -14,17 +14,22 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
 import ApplicationContstants 1.0
 import "."
-Component{
-    id: actionHeaderDelegate
+//Component{
+//    id: actionHeaderDelegate
 
     Rectangle {
         //anchors.left: parent.left
         //anchors.right: parent.right
         //height: root.rowHeight
+        id: actionHeaderDelegateRec
         height: Constants.actionBtnHeight//75
         width: Constants.actionBtnWidth//75
-        color: Constants.headerBackgroundColor//"transparent"//"#5EBDC3"//
+        color: "#5EBDC3"//Constants.headerBackgroundColor//"transparent"//"#5EBDC3"//
         //border.color: "black"//Constants.actionBtnBorderColor
+        signal invokeSource(string source)
+        signal test()
+        onTest: console.log("I am tested")
+        onInvokeSource: console.log("I am the soure"+source)
         ToolButton {
             id:testControlBtn
             anchors.centerIn: parent
@@ -34,13 +39,16 @@ Component{
             //icon.name: "timeline_tab_selected"
             icon.width: 50
             icon.height: 50
-            width: 2*icon.width
-            height: 2*icon.height
+            //width: 2*icon.width
+            //height: 2*icon.height
             background: Rectangle{ color: Constants.actionBtnBackgroundColor}
             display: AbstractButton.IconOnly
             //radius: 10
             onClicked: {
-                //console.log("clicked on"+btnName)
+                console.log("clicked on"+actionIconName)
+                console.log(source)
+                invokeSource(source)
+                test()
                 //clickedButton(index)
             }
         }
@@ -49,4 +57,4 @@ Component{
         //            anchors.centerIn: parent
         //        }
     }
-}
+//}
