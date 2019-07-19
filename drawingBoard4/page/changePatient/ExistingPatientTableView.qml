@@ -31,12 +31,12 @@ import QtQuick 2.0
             color: ( heading === true || arRole === true ) ? ( heading === true ? "red":"green" ) : ( arRole === true ? "blue":"transparent" );
             //color:  heading === true ? "red":"green"
             onColorChanged: console.log("Color changed")
-            TableView.onPooled: console.log(Dosage + " pooled")
-            TableView.onReused: console.log(Dosage + " resused")
+            TableView.onPooled: console.log(display + " pooled")
+            TableView.onReused: console.log(display + " resused")
 
 
             Text {
-                text: Address
+                text:display
                 font.pointSize: 12
                 anchors.centerIn: parent
             }

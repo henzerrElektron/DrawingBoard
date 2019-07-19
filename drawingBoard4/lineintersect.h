@@ -9,7 +9,7 @@ class lineIntersect : public QObject
 {
     Q_OBJECT
 public:
-    explicit lineIntersect(QObject *parent = nullptr);
+    explicit lineIntersect(QObject *parent = 0);
 
     bool equalPoints(QPointF point1, QPointF point2);
     QPointF subtractPoints(QPointF point1, QPointF point2);

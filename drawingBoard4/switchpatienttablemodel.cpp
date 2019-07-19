@@ -173,7 +173,7 @@ QVariant SwitchPatientTableModel::data(const QModelIndex &index, int role) const
     Q_ASSERT(index.column() >= 0);
     Q_ASSERT(index.column() < columnCount(index.parent()));
     Q_ASSERT(checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid | QAbstractItemModel::CheckIndexOption::ParentIsInvalid));
-    qDebug()<<QString("row %1,col%2, role%3").arg(row).arg(col).arg(role);
+    qDebug()<<QString("row %1,col%2, role%3 role%4 %5").arg(row).arg(col).arg(role).arg(index.row()).arg(index.column());
     if (index.row() < 0 || index.row() >= m_existingPatients.count())
         return QVariant();
     const ExistingPatients &existingPatient = m_existingPatients[index.row()];
@@ -213,24 +213,65 @@ QVariant SwitchPatientTableModel::data(const QModelIndex &index, int role) const
         }
 
     }
-    switch(index.column())
-    {
-    case 0:
-        return existingPatient.firstName();
-    case 1:
-        return  existingPatient.secName();
-    case 2:
-        return  existingPatient.dob();
-    case 3:
-        return  existingPatient.testResult();
-    case 4:
-        return  existingPatient.medRef();
-    case 5:
-        return  existingPatient.address();
-    default:
-        qDebug() << "Not supposed to happen";
-        return QVariant();
+
+    switch (role) {
+    case Qt::DisplayRole:
+        switch(index.column())
+        {
+        //case 0:
+        //    return tr("heading");
+        case 0:
+            return existingPatient.firstName();
+        case 1:
+            return existingPatient.secName();
+        case 2:
+            return  existingPatient.dob();
+        case 3:
+            return  existingPatient.testResult();
+        case 4:
+            return  existingPatient.medRef();
+        case 5:
+            return  existingPatient.address();
+        default:   break;}
+    break;
+    case FirstNameRole:  return existingPatient.firstName() ;
+    case SecNameRole: return existingPatient.secName();
+    case DobRole:return existingPatient.dob();
+    case MedRefRole: return existingPatient.medRef();
+    case AddressRole: return existingPatient.address();
+    case TestResultsRole:return existingPatient.testResult();
+    default: break;
+        //    default:
+        //        qDebug() << "Not supposed to happen";
+        //        return QVariant();
     }
+   // if((role == Qt::DisplayRole)||(role == HeadingRole))
+    {
+        switch(index.column())
+        {
+        //case 0:
+        //    return tr("heading");
+        case 0:
+            return existingPatient.firstName();
+        case 1:
+            return existingPatient.secName();
+        case 2:
+            return  existingPatient.dob();
+        case 3:
+            return  existingPatient.testResult();
+        case 4:
+            return  existingPatient.medRef();
+        case 5:
+            return  existingPatient.address();
+        default:   break;
+        //case 6:
+        //    return  tr("arRole");
+        //default:
+       //     qDebug() << "Not supposed to happen";
+        //    return QVariant();
+        }
+    }
+    return QVariant();
     //if (role != Qt::DisplayRole)
     //       return {};
     //   return m_existingPatients.getData(index.row(), index.column());
@@ -243,17 +284,21 @@ QVariant SwitchPatientTableModel::headerData(int section, Qt::Orientation orient
     if (orientation == Qt::Horizontal) {
         switch (section) {
         case 0:
-            return tr("First name");
+            return tr("heading");
         case 1:
-            return tr("Surname");
+            return tr("First name");
         case 2:
-            return  tr("Date of Birth");
+            return tr("Surname");
         case 3:
-            return  tr("Test results");
+            return  tr("Date of Birth");
         case 4:
-            return  tr("Medical Reference");
+            return  tr("Test results");
         case 5:
+            return  tr("Medical Reference");
+        case 6:
             return  tr("Address");
+        case 7:
+            return  tr("arRole");
         default:
             return QVariant();
         }
@@ -272,12 +317,15 @@ Qt::ItemFlags SwitchPatientTableModel::flags(const QModelIndex &index) const
 QHash<int, QByteArray> SwitchPatientTableModel::roleNames() const
 {
     QHash<int,QByteArray> roles;
+    roles[Qt::DisplayRole]= "display";
+    roles[AcceptRejectRole]="arRole";
+    roles[HeadingRole] = "heading";
     roles[FirstNameRole] = "First name";
     roles[SecNameRole] = "Surname";
     roles[DobRole] = "Date of Birth";
     roles[TestResultsRole] = "Test Results";
-    roles[MedRefRole] = "Medical Reference";
     roles[AddressRole] = "Address";
+    roles[MedRefRole] = "Medical Reference";
     // roles[AcceptRejectRole] = "arRole";
     return  roles;
 }

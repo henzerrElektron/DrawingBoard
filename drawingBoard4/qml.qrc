@@ -63,13 +63,6 @@
         <file>common/IconOnlyButtons.qml</file>
         <file>page/test/TestPageNotesTabPage.qml</file>
         <file>page/changePatient/changePatient.qml</file>
-        <file>page/help/help.qml</file>
-        <file>page/home/home.qml</file>
-        <file>page/newPatient/newPatient.qml</file>
-        <file>page/operator/operator.qml</file>
-        <file>page/savePatient/savePatient.qml</file>
-        <file>page/setting/setting.qml</file>
-        <file>page/viewPatientReport/viewPatientReport.qml</file>
         <file>page/home/HomePage.qml</file>
         <file>page/home/HomePageLabel.qml</file>
         <file>page/home/HomePageTitle.qml</file>
@@ -86,5 +79,25 @@
         <file>page/changePatient/SwitchSearchItems.qml</file>
         <file>page/changePatient/ExistingPatientTableGrid.qml</file>
         <file>page/changePatient/ExistingPatientTableView.qml</file>
+        <file>page/newPatient/NewPatientPage.qml</file>
+        <file>page/newPatient/NewPatientLabel.qml</file>
+        <file>page/newPatient/NewPatientMedicalDetails.qml</file>
+        <file>page/newPatient/NewPatientContactDetails.qml</file>
+        <file>page/newPatient/NewPatientRiskFactors.qml</file>
+        <file>page/newPatient/NewPatientRecommendations.qml</file>
+        <file>page/newPatient/NewPatientLabelWithText.qml</file>
+        <file>page/newPatient/NewPatientGroupLabel.qml</file>
+        <file>page/newPatient/NewPatientRiskFactorSwitchSlide.qml</file>
+        <file>page/newPatient/NewPatientDataDial.qml</file>
+        <file>page/newPatient/NewPatientDataTumbler.qml</file>
+        <file>page/newPatient/NewPatientSliderLabelUnit.qml</file>
+        <file>page/newPatient/NewPatientDataSwitches.qml</file>
+        <file>page/newPatient/RiskFactorHeaderDelegate.qml</file>
+        <file>page/newPatient/ColorModel.qml</file>
+        <file>page/newPatient/DelegateComponent.qml</file>
+        <file>page/newPatient/ColordelegateComponent.qml</file>
+        <file>page/newPatient/NewPatientDataTumblerHorizontal.qml</file>
+        <file>page/newPatient/NewPatientRiskFactorSwitchSliderHorizontal.qml</file>
+        <file>page/newPatient/WeightKgModel.qml</file>
     </qresource>
 </RCC>

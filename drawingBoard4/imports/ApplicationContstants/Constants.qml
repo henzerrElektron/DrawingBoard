@@ -90,6 +90,7 @@ QtObject {
     readonly property int m_intLblFontSize: 12
     readonly property int actionBtnWidth: 75
     readonly property int actionBtnHeight: 75
+    readonly property string label_NewPatientLabelBgColor: "#4A4A4A"
     readonly property string actionBtnBackgroundColor: "#3A9FA4"
     readonly property string headerBackgroundColor: "#5EBDC3"
     readonly property string actionBtnBorderColor: "black"
@@ -117,4 +118,22 @@ QtObject {
     readonly property string testPage_ResultIndexTitleBgColor: "#4A4A4A"
     readonly property string testPage_ResultIndexEyeBgColor: "#774013"
     readonly property int testPage_lblFontSize: 20//25
+
+    readonly property string lbl_npContactMobile: qsTr("Mobile")
+    readonly property string lbl_npContactAddr1: qsTr("Address Line 1")
+    readonly property string lbl_npContactAddr2: qsTr("Address Line 2")
+    readonly property string lbl_npContactCity: qsTr("City")
+    readonly property string lbl_npContactCountry: qsTr("Country")
+    readonly property string lbl_npContactEmail: qsTr("Email")
+    readonly property string lbl_npContactPostalCode: qsTr("Postal Code")
+    readonly property string lbl_npContactCounty: qsTr("County")
+    readonly property string lbl_npContactMobilePh: qsTr("Please enter a valid mobile number")
+    readonly property string lbl_npContactAddr1Ph: qsTr("Please enter Address Line 1")
+    readonly property string lbl_npContactAddr2Ph: qsTr("Please enter Address Line 2")
+    readonly property string lbl_npContactCityPh: qsTr("Please enter City")
+    readonly property string lbl_npContactCountryPh: qsTr("Please enter Country")
+    readonly property string lbl_npContactEmailPh: qsTr("Please enter Email address")
+    readonly property string lbl_npContactPostalCodePh: qsTr("Please enter Postal Code")
+    readonly property string lbl_npContactCountyPh: qsTr("Please enter County")
+
 }

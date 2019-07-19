@@ -26,6 +26,7 @@ import "./models"
 import "./delegates"
 import "./page"
 import "./page/test/"
+import "./page/newPatient/"
 import "./page/changePatient/"
 import TestResultModels 0.1
 Window {
@@ -88,11 +89,27 @@ Window {
 //                //                }
 //            }
 //        }
-        SwitchPatient{
-            id:homeTPage
-            Layout.fillWidth: true
+//        NewPatientContactDetails{
+//            id:newpatientLabel
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
+//        }
+//            NewPatientRiskFactorSwitchSlide{
+//                id:newPatientLabelSwitchSlide
+//                Layout.fillHeight: true
+//                Layout.fillWidth: true
+//            }
+        NewPatientRecommendations{
+            id:newPatientRecon
             Layout.fillHeight: true
+            Layout.fillWidth: true
         }
+
+//        SwitchPatient{
+//            id:homeTPage
+//            Layout.fillWidth: true
+//            Layout.fillHeight: true
+//        }
 //           SwitchPatient{
 //              id:switchPage
 //              Layout.fillHeight: true

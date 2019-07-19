@@ -62,7 +62,9 @@ Rectangle {
         anchors.rightMargin: 10
         anchors.left: parent.left
         anchors.leftMargin: 10
-        height: rec.height/2// - label.height - 10
+        height: rec.height/2
+        editable: true// - label.height - 10
+        displayText: textRole
     }
     onCommboTextRoleChanged: {console.log("ComboBoxTextRoleChanged")}
 
@@ -74,7 +76,9 @@ Rectangle {
 
 
 
+
+
 /*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:1;anchors_x:253;anchors_y:111}D{i:2;anchors_x:228}
+    D{i:1;anchors_x:253;anchors_y:111}D{i:2;anchors_x:228}
 }
  ##^##*/
