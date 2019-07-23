@@ -21,9 +21,15 @@ import "./../../models/"
 import ApplicationContstants 1.0
 Rectangle{
     id:mainRec
-    width: (elementKnown.width >= elementYesNo.width)?elementKnown.width:elementYesNo.width
+    //width: (elementKnown.width >= elementYesNo.width)?elementKnown.width:elementYesNo.width
+    //height: elementKnown.height + elementYesNo.height +mainLayout.spacing
+    property bool horOrVer: true
     //anchors.fill: parent
-    //color: "black"//"transparent"//
+    width: mainLayout.width
+    height: mainLayout.height
+    //color: "red"//"transparent"//
+    //height: mainLayout.height
+    //width: mainLayout.width
     signal toggleCommandReceived()
     onToggleCommandReceived: {
         if(!elementKnown.checked)
@@ -36,19 +42,31 @@ Rectangle{
         }
     }
 
-    ColumnLayout{
+    GridLayout{
         id:mainLayout
-        anchors.fill: parent
-        spacing: 10
+        columns:horOrVer?1:2
+        rows: horOrVer?2:1
+        rowSpacing: horOrVer?20:10
+        columnSpacing: horOrVer?10:20
+        //anchors.fill: parent
+        //spacing: 10
         Switch {
             id: elementKnown
             //Layout.fillWidth: true
-            //Layout.minimumWidth: 25
-            //Layout.preferredWidth: 50
-            //Layout.maximumWidth: 75
-            //Layout.minimumHeight: 75
+            Layout.minimumWidth: horOrVer?125:125
+            Layout.preferredWidth: horOrVer?125:125
+            Layout.maximumWidth: horOrVer?125:125
+            Layout.minimumHeight: horOrVer?30:30
+            Layout.preferredHeight: horOrVer?30:30
+            Layout.maximumHeight: horOrVer?30:30
+            Layout.row: 1
+            Layout.rowSpan: 1
+            Layout.column: 1
+            Layout.columnSpan: 1
+            //Layout.fillWidth: true
+            //Layout.fillHeight: true
             text: qsTr("UnKnown")
-            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             onCheckedChanged: {
                 if(text === "UnKnown")
                 {
@@ -63,12 +81,20 @@ Rectangle{
         Switch {
             id: elementYesNo
             //Layout.fillWidth: true
-            //Layout.minimumWidth: 25
-            //Layout.preferredWidth: 50
-            //Layout.maximumWidth: 75
-            // Layout.minimumHeight: 75
+            Layout.minimumWidth: horOrVer?125:125
+            Layout.preferredWidth: horOrVer?125:125
+            Layout.maximumWidth: horOrVer?125:125
+            Layout.minimumHeight: horOrVer?30:30
+            Layout.preferredHeight: horOrVer?30:30
+            Layout.maximumHeight: horOrVer?30:30
+            Layout.row: horOrVer?2:1
+            Layout.rowSpan: 1
+            Layout.column:  horOrVer?1:2
+            Layout.columnSpan: 1
+            //Layout.fillWidth: true
+            //Layout.fillHeight: true
             text: qsTr("No")
-            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             onCheckedChanged: {
                 if(text === "No")
                 {
@@ -89,7 +115,4 @@ Rectangle{
 
 
 
-/*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
- ##^##*/
+

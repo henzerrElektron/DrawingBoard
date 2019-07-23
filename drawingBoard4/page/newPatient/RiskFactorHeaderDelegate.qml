@@ -24,7 +24,7 @@ import ApplicationContstants 1.0
         anchors.left: parent.left
         anchors.right: parent.right
         Layout.fillWidth: true
-        height: 100
+        //height: 100
         //width: 400
         color: "transparent"
         NewPatientGroupLabel{

@@ -47,6 +47,33 @@ Rectangle {
         firstTumbler.currentIndex = value
     }
 
+    signal secTumblerValue(int index)
+    signal secDialValue(int index)
+    signal secSliderValue(int index)
+
+    onSecDialValue: {
+        secTumbler.currentIndex = index
+    }
+    onSecSliderValue: {
+        console.log("The value is"+index)
+        secTumbler.currentIndex = index
+    }
+
+    //    onSecSliderValue: {
+    //        console.log("The value is"+value)
+    //        secTumbler.currentIndex = value
+    //    }
+
+    signal thirdTumblerValue(int index)
+    signal thirdDialValue(int index)
+    signal thirdSliderValue(int index)
+    onThirdDialValue: {
+        thirdTumbler.currentIndex = index
+    }
+    onThirdSliderValue: {
+        console.log("The value is"+value)
+        thirdTumbler.currentIndex = index
+    }
 
     function formatText(count, modelData) {
         //var data = count === 12 ? modelData + 1 : modelData;
@@ -70,15 +97,18 @@ Rectangle {
     Frame {
         id: frame
         anchors.fill: parent
+        //Layout.fillWidth: true
+        //width: parent.width
         //anchors.horizontalCenter: parent.horizontalCenter
         //    anchors.fill: parent
-        //    height: firstTumbler.height+secTumbler.height+thirdTumbler.height
-
+        //height: 1.2*(firstTumbler.height+secTumbler.height+thirdTumbler.height)//+thirdTumbler.height
+        //height: 2*(firstTumberRec.height)+8*(secTumblerRec.height)+2*(thirdTumblerRec.height)
         GridLayout {
             id: row
             rows: 3
             anchors.fill: parent
-            Layout.maximumHeight:40
+            Layout.minimumHeight:secTumblerVisibility?120:30
+            Layout.maximumHeight:120
             Rectangle{
                 id:firstTumberRec
                 Layout.alignment: Qt.AlignTop
@@ -86,11 +116,12 @@ Rectangle {
                 Layout.fillHeight: true
                 Layout.row: 1
                 Layout.rowSpan: 1
-                Layout.minimumHeight: 50
+                Layout.minimumHeight: 25
+                Layout.maximumHeight: 50
                 //height: 50
                 //color: "green"
-                border.width: 1
-                border.color: "black"
+                //border.width: 1
+                //border.color: "black"
                 Tumbler {
                     id: firstTumbler
                     anchors.fill: parent
@@ -100,6 +131,7 @@ Rectangle {
                     //                    }
                     model: 100
                     delegate: numberOrColorDelegate?colordelegateComponent:delegateComponent
+                    visibleItemCount: count%2 === 0?visibleItemCount+1:visibleItemCount
                     wheelEnabled: true
                     onModelChanged: {
                         console.log("The model has changed")
@@ -145,11 +177,12 @@ Rectangle {
                 Layout.fillHeight: true
                 Layout.row: 2
                 Layout.rowSpan: 1
-                Layout.minimumHeight: 50
+                Layout.minimumHeight: 25
+                Layout.maximumHeight: 50
                 //height: 50
                 //color: "blue"
-                border.width: 1
-                border.color: "black"
+                //border.width: 1
+                //border.color: "black"
                 Tumbler {
                     id: secTumbler
                     anchors.fill: parent
@@ -162,6 +195,9 @@ Rectangle {
                     //height: parent.height/3 > 50? parent.height/3:50
                     delegate: delegateComponent
                     wheelEnabled: true
+                    onCurrentIndexChanged: {
+                        secTumblerValue(currentIndex)
+                    }
                     onModelChanged: {
                         console.log("The model has changed")
                     }
@@ -200,8 +236,8 @@ Rectangle {
                 //height: 50
                 //color: "green"
                 Layout.minimumHeight: 50
-                border.width: 1
-                border.color: "black"
+                // border.width: 1
+                // border.color: "black"
                 anchors.top: secTumblerRec.bottom
                 anchors.topMargin: 10
                 Tumbler {
@@ -217,7 +253,9 @@ Rectangle {
                     //height: parent.height/3 > 50? parent.height/3:50
                     delegate: delegateComponent
                     wheelEnabled: true
-
+                    onCurrentIndexChanged: {
+                        thirdSliderValue(currentIndex)
+                    }
                     onModelChanged: {
                         console.log("The model has changed")
                     }

@@ -21,6 +21,7 @@ import "./../../models/"
 import ApplicationContstants 1.0
 ListModel {
     id: colorModel
+    //ListElement{name:"Unknown";value:"white"}
     ListElement {name: "Amber";value:"#ffbf00"}
     ListElement {name: "Black";value:"#B4B4B4"}
     ListElement {name: "Blue";value:"#a1caf1"}

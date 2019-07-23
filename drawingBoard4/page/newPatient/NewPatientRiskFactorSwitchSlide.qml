@@ -146,6 +146,7 @@ Rectangle{
             id:btmSliderUnit
             Component.onCompleted: {
                 dataTumbler.firstTumblerValue.connect(btmSliderUnit.firstTumblerValue)
+                btmSliderUnit.sliderValueChange.connect(dataTumbler.secSliderValue)
             }
         }
     }

@@ -26,7 +26,9 @@ Rectangle {
     property alias firstTumblerModel: firstTumbler.model
     property alias firstTumblerDelegate: firstTumbler.delegate
     property alias secTumblerModel: secTumbler.model
+    property alias secTumblerDelegate: secTumbler.delegate
     property alias thirdTumblerModel: thirdTumbler.model
+    property alias thirdTumblerDelegate: thirdTumbler.delegate
     property alias firstTumblerVisibility: firstTumbler.visible
     property alias secTumblerVisibility: secTumbler.visible
     property alias thirdTumblerVisibility: thirdTumbler.visible
@@ -42,6 +44,28 @@ Rectangle {
         firstTumbler.currentIndex = value
     }
 
+    signal secondTumblerValue(int index)
+    signal secondDialValue(int index)
+    signal secondSliderValue(int index)
+
+    onSecondDialValue: {
+        secTumbler.currentIndex = index
+    }
+    onSecondSliderValue: {
+        secTumbler.currentIndex = value
+    }
+
+    signal thirdTumblerValue(int index)
+    signal thirdDialValue(int index)
+    signal thirdSliderValue(int index)
+
+    onThirdDialValue: {
+        thirdTumbler.currentIndex = index
+    }
+
+    onThirdSliderValue: {
+        thirdTumbler.currentIndex = index
+    }
 
     function formatText(count, modelData) {
         //var data = count === 12 ? modelData + 1 : modelData;
@@ -101,6 +125,9 @@ Rectangle {
                 onModelChanged: {
                     console.log("The model has changed")
                 }
+                onCurrentIndexChanged: {
+                    secondTumblerValue(currentIndex)
+                }
             }
 
             Tumbler {
@@ -111,7 +138,9 @@ Rectangle {
                 //                anchors.topMargin: 10
                 delegate: delegateComponent
                 wheelEnabled: true
-
+                onCurrentIndexChanged: {
+                    thirdTumblerValue(currentIndex)
+                }
                 onModelChanged: {
                     console.log("The model has changed")
                 }

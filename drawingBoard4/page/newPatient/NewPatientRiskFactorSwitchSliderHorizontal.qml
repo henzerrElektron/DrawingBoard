@@ -19,9 +19,11 @@ import "./../../models/"
 import ApplicationContstants 1.0
 Rectangle{
     id:mainRec
-    border.width: 1
-    border.color: "black"
-    //height: 225
+    //color: "blue"
+    //border.width: 1
+    //border.color: "black"
+    height: mainGrid.height
+    //width: mainGrid.width
     property alias labelText: label.text
     property alias dataTumblerFirstModel: dataTumbler.firstTumblerModel
     property alias dataTumblerSecModel: dataTumbler.secTumblerModel
@@ -39,8 +41,32 @@ Rectangle{
     //property alias btmSliderAreaText:  btmSliderUnit.topTextAreaText
     property alias btmSliderMinValue: btmSliderUnit.topSliderMinValue
     property alias btmSliderMaxValue:  btmSliderUnit.topSliderMaxValue
-    property alias topSliderVisible: topSliderUnit.visible
-    property alias btmSliderVisible: btmSliderUnit.visible
+    property alias topSliderVisible: subRec.visible
+    property alias btmSliderVisible: subRec1.visible
+    property alias dataSwitchesVisible: dataSwitches.visible
+    property alias dataTumblerVisibility: subRec0.visible
+    onTopSliderVisibleChanged: {
+        if(subRec.visible === false)
+        {
+            topSliderUnit.visible = false
+        }
+        if(subRec.visible === true)
+        {
+            topSliderUnit.visible = true
+        }
+    }
+
+    onBtmSliderVisibleChanged: {
+        if(subRec1.visible === false)
+        {
+            btmSliderUnit.visible = false
+        }
+        if(subRec1.visible === true)
+        {
+            btmSliderUnit.visible = true
+        }
+    }
+
     property alias eyeColorDialVisibilty: dialRect.visible
     property alias dataTumblerNoOrColorDelegate: dataTumbler.numberOrColorDelegate
     property alias topSliderModel: topSliderUnit.topTextAreaModel
@@ -50,50 +76,87 @@ Rectangle{
     //height: //dataTumbler.height
     anchors.fill: parent
     GridLayout{
-        anchors.fill: parent
+        //
         id:mainGrid
+        anchors.bottomMargin: 10
+        anchors.fill: parent
+        //        anchors.bottom: parent.bottom
+        //        anchors.bottomMargin: 10
+        //        anchors.top: parent.top
+        //        anchors.right: parent.right
+        //        anchors.left: parent.left
         anchors.topMargin: 10
         anchors.rightMargin: 10
         anchors.leftMargin: 10
-        anchors.bottomMargin: 10
-        columns:3
-        rows: 2
+        columns:4
+        //rows: 2
         Label {
             id: label
             text: qsTr("Label")
+            Layout.topMargin: dataTumblerVisibility?(dataSwitchesVisible?50:25):-5
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+            //Layout.alignment:dataSwitchesVisible?Qt.AlignTop|Qt.AlignHCenter: Qt.AlignTop|Qt.AlignHCenter
             Layout.column: 1
-            Layout.columnSpan: 2
+            Layout.columnSpan: 1
             Layout.row: 1
-            Layout.fillWidth: true
-            height: 100//mainRec.height/15
+            Layout.minimumWidth: 50
+            Layout.minimumHeight: 20
+            //Layout.fillWidth: true
+            height: 20//100//mainRec.height/15
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
         }
-        NewPatientDataSwitches{
-            id:dataSwitches
-            Layout.column: 1
-            Layout.columnSpan: 1
-            Layout.row: 2
-            Layout.fillHeight: true
-            width: 125
-            Component.onCompleted:{
-                mainRec.toggleSwitchButton.connect(dataSwitches.toggleCommandReceived)
-            }
-        }
         Rectangle{
-            id:mainsubRec
-            anchors.bottom: parent.bottom
+            id:dataSwitchRec
             Layout.column: 2
             Layout.columnSpan: 1
-            Layout.row: 2
-            Layout.fillHeight: true
+            Layout.row: 1
+            Layout.fillHeight: false
+            Layout.minimumWidth: 125
+            Layout.alignment:  Qt.AlignLeft | Qt.AlignTop//Qt.AlignLeft |
+            Layout.topMargin:dataTumblerVisibility?25: -7
+            NewPatientDataSwitches{
+                id:dataSwitches
+
+                horOrVer: dataTumblerVisibility?true:false
+                //width: 125
+
+                //Layout.fillWidth: true
+                Component.onCompleted:{
+                    mainRec.toggleSwitchButton.connect(dataSwitches.toggleCommandReceived)
+                }
+            }
+        }
+
+
+        Rectangle{
+            id:mainsubRec
+            //anchors.bottom: parent.bottom
+            Layout.column: 3
+            Layout.columnSpan: 1
+            Layout.row: 1
+            //anchors.top: parent.top
+            //Layout.fillHeight: true
             Layout.fillWidth: true
+            //Layout.top: parent.top
+            color: "red"
+            Layout.fillHeight: false
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+            //Layout.fillHeight: true
+            //height: mainsubRow.height
+            //height: 200
             ColumnLayout{
                 id:mainsubRow
-                anchors.fill: parent
+                //anchors.fill: parent
+                anchors.right: parent.right
+                anchors.left: parent.left
+                anchors.top: parent.top
+                height: subRec.height+subRec0.height+subRec1.height
+
+
                 Rectangle{
                     id:subRec
-                   // color: "black"
+                    //color: "black"
                     //anchors.left: parent.left
                     //anchors.right: parent.right
                     anchors.top: parent.top
@@ -112,7 +175,7 @@ Rectangle{
                 }
                 Rectangle{
                     id:subRec1
-                   // color: "green"
+                    //color: "green"
                     //anchors.left: parent.left
                     //anchors.right: parent.right
                     Layout.fillWidth: true
@@ -124,19 +187,21 @@ Rectangle{
                         //height: 150
                         //height: btmSliderUnit.height
                         Component.onCompleted: {
-                            dataTumbler.firstTumblerValue.connect(btmSliderUnit.firstTumblerValue)
+                            dataTumbler.secTumblerValue.connect(btmSliderUnit.secondTumblerValue)
+                            btmSliderUnit.sliderValueChange.connect(dataTumbler.secSliderValue)
                         }
                     }
                 }
                 Rectangle{
                     id:subRec0
-                    color: "black"
+                    //color: "black"
+                    //height: dataTumbler.height
                     //height: 150
                     //height: mainsubRec.height/2
-                  //  anchors.left: parent.left
-                  //  anchors.right: parent.right
+                    //anchors.left: parent.left
+                    //anchors.right: parent.right
                     Layout.fillWidth: true
-                    anchors.top: subRec1.bottom
+                    anchors.top:subRec1.visible? subRec1.bottom:subRec.visible?subRec.bottom:parent.top
                     anchors.topMargin: 10
                     //anchors.bottom: parent.bottom
                     //anchors.bottomMargin: 10
@@ -145,6 +210,7 @@ Rectangle{
                     NewPatientDataTumblerHorizontal{
                         id:dataTumbler
                         //firstTumblerModel: 100
+                        height: dataTumblersecVisibility?75:40
                         width: parent.width
                         //height: parent.height
                         // anchors.fill: parent
@@ -153,7 +219,7 @@ Rectangle{
                         Component.onCompleted: {
                             //model = dataTumblerFirstModel
                             dataTumbler.firstTumblerValue.connect(dialUnit.firstTumblerValue)
-
+                            dataTumbler.secTumblerValue.connect(dialUnit.secondTumblerValue)
                         }
                     }
                 }
@@ -161,26 +227,32 @@ Rectangle{
         }
         Rectangle{
             id:dialRect
-            Layout.column: 3
+            Layout.column: 4
             Layout.columnSpan: 1
-            Layout.row: 2
+            Layout.row: 1
+            height: dialUnit.height
+            width:  dialUnit.width
+            //anchors.top: parent.top
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+            //Layout.fillHeight: false
             //color: "red"
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-//            onVisibleChanged: {
-//                dialRect.width = 0
-//                dialRect.height = 0
-//                dialUnit.width = 0
-//                dialUnit.height = 0
-//                dialUnit.visible = false
-//                mainsubRec.update()
-//                mainGrid.update()
-//                mainGrid.visibleChildren.update()
-//            }
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
+            //            onVisibleChanged: {
+            //                dialRect.width = 0
+            //                dialRect.height = 0
+            //                dialUnit.width = 0
+            //                dialUnit.height = 0
+            //                dialUnit.visible = false
+            //                mainsubRec.update()
+            //                mainGrid.update()
+            //                mainGrid.visibleChildren.update()
+            //            }
 
             NewPatientDataDial{
                 id:dialUnit
                 anchors.fill: parent
+                //height: 100
                 Component.onCompleted: {
                     dialUnit.firstDialValue.connect(dataTumbler.firstDialValue)
                     dialUnit.firstDialValue.connect(checkValue)
@@ -208,7 +280,53 @@ Rectangle{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*##^## Designer {
-    D{i:7;anchors_height:150}D{i:8;anchors_height:150}
+    D{i:8;anchors_height:150}D{i:7;anchors_height:150}D{i:9;anchors_height:150}
 }
  ##^##*/
