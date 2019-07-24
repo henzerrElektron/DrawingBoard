@@ -118,7 +118,7 @@ Rectangle{
             NewPatientDataSwitches{
                 id:dataSwitches
 
-                horOrVer: dataTumblerVisibility?true:false
+                horOrVer: true//dataTumblerVisibility?true:false
                 //width: 125
 
                 //Layout.fillWidth: true

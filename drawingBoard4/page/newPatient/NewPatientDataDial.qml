@@ -25,7 +25,7 @@ Dial {
     stepSize: 1
     maximumValue: 7
     minimumValue: 0
-    value: 1
+    value: 0
     //wrap:false
     anchors.centerIn: parent
     //property alias dialColor:dialStyle.dialStyleBgColor

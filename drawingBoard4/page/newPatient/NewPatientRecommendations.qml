@@ -230,7 +230,7 @@ Rectangle{
         anchors.right: parent.right
         //anchors.bottom: parent.bottom
         //anchors.bottomMargin: 10
-        height: parent.height/20//weightOperator.height//amdOperator.height
+        height: parent.height/16//weightOperator.height//amdOperator.height
         NewPatientRiskFactorSwitchSliderHorizontal{
             id:amdOperator
             labelText: "AMD family History"
