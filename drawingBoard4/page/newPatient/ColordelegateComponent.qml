@@ -23,45 +23,26 @@ import ApplicationContstants 1.0
 
 Component {
     id: colordelegateComponent
-    //Rectangle{
-    //    id:lblRec
-    //    color: value
-    //    width: parent.width/5
-        //property alias lblHeight: lbl.height
-        Label {
-            id:lbl
-            //height: 25
-            //implicitWidth: 25
-            //implicitHeight: 10
-            //anchors.fill: parent
-            //width: parent.width/Tumbler.tumbler.visibleItemCount//100//
-            //height: parent.height
-            text:name// formatText(Tumbler.tumbler.count, modelData)
-            //color: name==="Brown"?"white":"black"
-            opacity: 1.0 - Math.abs(Tumbler.displacement) / (Tumbler.tumbler.visibleItemCount / 2)//- Math.abs(Tumbler.displacement) / (Tumbler.tumbler.visibleItemCount / 2)
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            font.pixelSize: fontMetrics.font.pixelSize * 1.25
 
-            //            background:
-            //                Rectangle{
-            //                id:rec
-            //               // implicitHeight: 50
-            //               // implicitWidth: 50
-            //                //border.color: "black"
-            //                //border.width: 1
-            //                //height: 30
-            //                //width: 100
-            //                //            width: 10
-            //                //            height: 10
-            //                //            implicitHeight: 10
-            //                //            implicitWidth: 40
-            //                //           anchors.fill: parent
-            //                color:value// "green"//
-            //            }
-
+    Label {
+        id:lbl
+        // height: 100
+        // width: 200
+        //width:pathView.width/(Tumbler.tumbler.visibleItemCount/2)
+        text:name// formatText(Tumbler.tumbler.count, modelData)
+        color: name==="Brown"?"white":"black"
+        opacity: 1.0 - Math.abs(Tumbler.displacement) / (Tumbler.tumbler.visibleItemCount/2)//- Math.abs(Tumbler.displacement) / (Tumbler.tumbler.visibleItemCount / 2)
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        font.pixelSize: fontMetrics.font.pixelSize * 1.25
+        background: Rectangle{
+            id:rec1
+            width: lbl.width/Tumbler.tumbler.visibleItemCount
+            //height: lbl.height
+            anchors.centerIn: parent
+            opacity: pathView.view.currentItem?1.0:0.2//1.0 - Math.abs(Tumbler.displacement) / (Tumbler.tumbler.visibleItemCount/2)
+            color: value
         }
-    //}
+    }
 }
-
 
