@@ -206,13 +206,13 @@ Rectangle {
                     visibleItemCount: count%2 === 0?visibleItemCount+1:visibleItemCount
                     wheelEnabled: true
                     model: 100
-                    delegate: Text {
-                        text: qsTr("%1").arg(modelData)
-                        font: firstTumbler.font
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
-                        opacity: 1.0 - Math.abs(Tumbler.displacement) / (firstTumbler.visibleItemCount / 2)
-                    }
+//                    delegate: Text {
+//                        text: qsTr("%1").arg(modelData)
+//                        font: firstTumbler.font
+//                        horizontalAlignment: Text.AlignHCenter
+//                        verticalAlignment: Text.AlignVCenter
+//                        opacity: 1.0 - Math.abs(Tumbler.displacement) / (firstTumbler.visibleItemCount / 2)
+//                    }
 
                     Rectangle {
                         anchors.horizontalCenter: firstTumbler.horizontalCenter
@@ -303,10 +303,12 @@ Rectangle {
                     //                anchors.top: parent.top
                     //                anchors.topMargin: 10
                     anchors.left: firstTumbler.right
+                    height: parent.height
                     anchors.leftMargin: 5
                     delegate: delegateComponent
                     wheelEnabled: true
                     clip: true
+                     model: 100
                     //                delegate: Text {
                     //                    text: qsTr("%1").arg(modelData)
                     //                    font: firstTumbler.font
@@ -372,8 +374,9 @@ Rectangle {
                     //                anchors.topMargin: 10
                     anchors.left: secTumbler.right
                     anchors.leftMargin: 5
+                    height: parent.height
                     delegate: delegateComponent
-
+                     model: 100
 
                     //                delegate: Text {
                     //                    text: qsTr("%1").arg(modelData)
