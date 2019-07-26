@@ -99,7 +99,7 @@ Window {
 //                Layout.fillHeight: true
 //                Layout.fillWidth: true
 //            }
-        NewPatientRecommendations{
+        NewPatientDateChooser{
             id:newPatientRecon
             Layout.fillHeight: true
             Layout.fillWidth: true

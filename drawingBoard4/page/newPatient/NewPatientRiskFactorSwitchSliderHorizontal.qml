@@ -45,6 +45,8 @@ Rectangle{
     property alias btmSliderVisible: subRec1.visible
     property alias dataSwitchesVisible: dataSwitches.visible
     property alias dataTumblerVisibility: subRec0.visible
+    property alias labelVisibility: label.visible
+    property bool labelCol1or2: true
     onTopSliderVisibleChanged: {
         if(subRec.visible === false)
         {
@@ -96,7 +98,7 @@ Rectangle{
             Layout.topMargin: dataTumblerVisibility?(dataSwitchesVisible?50:25):-5
             Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
             //Layout.alignment:dataSwitchesVisible?Qt.AlignTop|Qt.AlignHCenter: Qt.AlignTop|Qt.AlignHCenter
-            Layout.column: 1
+            Layout.column: labelCol1or2?1:2
             Layout.columnSpan: 1
             Layout.row: 1
             Layout.minimumWidth: 50

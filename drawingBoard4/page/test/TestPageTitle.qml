@@ -28,25 +28,33 @@ Rectangle{
     property alias labelText: label_testPageHeading.text
     //Layout.rowSpan: 2
     //height: 100
-    Image {
-        id: image
-        source: "qrc:/images/icon_eet.png"
-        Layout.row: 1
-        Layout.column: 1
-        
-    }
-    TestPageLabel {
-        id: label_testPageHeading
-        width: 2*Constants.testPage_lblWidth
-        height: 2*Constants.testPage_lblHeight
-        //anchors.right: image.right
-        //anchors.rightMargin: 2*Constants.testPage_rightMargin
-        //font.pixelSize:35
-        text: Constants.label_testPgHeader
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        Layout.row: 1
-        Layout.column: 2
+    GridLayout{
+        //anchors.fill: parent
+        columns: 2
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.topMargin: 10
+        anchors.leftMargin: 10
+        Image {
+            id: image
+            source: "qrc:/images/icon_eet.png"
+            Layout.row: 1
+            Layout.column: 1
+
+        }
+        TestPageLabel {
+            id: label_testPageHeading
+            width: 2*Constants.testPage_lblWidth
+            height: 2*Constants.testPage_lblHeight
+            //anchors.right: image.right
+            //anchors.rightMargin: 2*Constants.testPage_rightMargin
+            //font.pixelSize:35
+            text: Constants.label_testPgHeader
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            Layout.row: 1
+            Layout.column: 2
+        }
     }
     
 }

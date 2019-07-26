@@ -99,5 +99,10 @@
         <file>page/newPatient/NewPatientDataTumblerHorizontal.qml</file>
         <file>page/newPatient/NewPatientRiskFactorSwitchSliderHorizontal.qml</file>
         <file>page/newPatient/WeightKgModel.qml</file>
+        <file>page/newPatient/ColorTumbler.qml</file>
+        <file>page/newPatient/NewPatientPersonalDetails.qml</file>
+        <file>page/newPatient/NewPatientTitleGender.qml</file>
+        <file>page/newPatient/NewPatientDateCalendar.qml</file>
+        <file>page/newPatient/NewPatientDateChooser.qml</file>
     </qresource>
 </RCC>

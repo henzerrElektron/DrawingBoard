@@ -51,6 +51,7 @@ Rectangle {
     signal secDialValue(int index)
     signal secSliderValue(int index)
 
+    signal firstSecTumblerValue(int index)
     onSecDialValue: {
         secTumbler.currentIndex = index
     }
@@ -118,6 +119,11 @@ Rectangle {
                 Layout.rowSpan: 1
                 Layout.minimumHeight: 25
                 Layout.maximumHeight: 50
+                //                Label {
+                //                    id:lbl
+                //                    anchors.verticalCenter: parent.verticalCenter
+                //                    text: "Title"
+                //                }
                 //height: 50
                 //color: "green"
                 //border.width: 1
@@ -137,15 +143,37 @@ Rectangle {
                         console.log("The model has changed")
                     }
                     onCurrentIndexChanged: {
+                        console.log("The index is"+currentIndex+model[currentIndex])
                         firstTumblerValue(currentIndex)
                     }
-
+//                    Component {
+//                            id: appHighlight
+//                            Rectangle { anchors.horizontalCenter: firstTumbler.horizontalCenter
+//                                width: 10
+//                                height: 10
+//                                color: "lightsteelblue" }
+//                        }
                     contentItem: PathView {
                         id: pathView
                         width: firstTumbler.width
                         height: firstTumbler.height
                         model: firstTumbler.model
                         delegate: firstTumbler.delegate
+                        //highlight: appHighlight
+//                        highlight:
+//                            Rectangle {
+//                            //anchors.horizontalCenter: firstTumbler.horizontalCenter
+//                            x: firstTumbler.width/2/// * 0.4
+//                            height : firstTumbler.height
+//                            width: 40//(firstTumbler.width * 0.6) - (firstTumbler.width * 0.4)
+//                            border.color: "black"
+//                            border.width: 1
+//                            color: "#21be2b"
+//                            radius: 20
+//                            opacity: 0.5
+//                        }
+
+
                         clip: true
                         pathItemCount: firstTumbler.visibleItemCount + 1
                         preferredHighlightBegin: 0.5
@@ -196,7 +224,9 @@ Rectangle {
                     delegate: delegateComponent
                     wheelEnabled: true
                     onCurrentIndexChanged: {
+                        console.log("The index is"+firstTumbler.model[firstTumbler.currentIndex]+currentIndex)
                         secTumblerValue(currentIndex)
+                        firstSecTumblerValue(firstTumbler.model[firstTumbler.currentIndex]+currentIndex)
                     }
                     onModelChanged: {
                         console.log("The model has changed")

@@ -16,7 +16,7 @@ import "."
 import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
-import "../../test/"
+import "./../test/"
 Item {
     width: 960
     height: 640

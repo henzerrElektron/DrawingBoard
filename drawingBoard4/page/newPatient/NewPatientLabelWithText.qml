@@ -30,13 +30,14 @@ Item {
     property alias tfText: textField.text
     property alias tfReadOnly: textField.readOnly
     property alias tfPlaceHolderText: textField.placeholderText
+    property bool textAlignLeftOrCenter: true
     //height: 50
     //width: 250
     Label {
         id: label
         text: qsTr("Label")
         verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignHCenter
+        horizontalAlignment:textAlignLeftOrCenter? Text.AlignHCenter:Text.AlignLeft
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
         anchors.top: parent.top

@@ -22,12 +22,33 @@ import "./../../models/"
 import ApplicationContstants 1.0
 Component {
     id: delegateComponent
-    
-    Label {
-        text: formatText(Tumbler.tumbler.count, modelData)
-        opacity: 1.0 - Math.abs(Tumbler.displacement) / (Tumbler.tumbler.visibleItemCount / 2)
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        font.pixelSize: fontMetrics.font.pixelSize * 1.25
-    }
+//    Rectangle {
+//        id: name
+
+        Label {
+            id:lbl
+            text: formatText(Tumbler.tumbler.count, modelData)
+            opacity: 1.0 - Math.abs(Tumbler.displacement) / (Tumbler.tumbler.visibleItemCount / 2)
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            font.pixelSize: fontMetrics.font.pixelSize * 1.25
+        }
+
+//        Rectangle {
+//            anchors.verticalCenter:  Tumbler.tumbler.verticalCenter
+//            x: Tumbler.tumbler.width * 0.4
+//            height: 40
+//            width: 1
+//            color: "#21be2b"
+//        }
+
+//        Rectangle {
+//            anchors.verticalCenter:  Tumbler.tumbler.verticalCenter
+//            y: Tumbler.tumbler.width * 0.6
+//            height: 40
+//            width: 1
+//            color: "#21be2b"
+//        }
+//    }
+
 }
