@@ -104,5 +104,9 @@
         <file>page/newPatient/NewPatientTitleGender.qml</file>
         <file>page/newPatient/NewPatientDateCalendar.qml</file>
         <file>page/newPatient/NewPatientDateChooser.qml</file>
+        <file>page/newPatient/TumberRec.qml</file>
+        <file>page/newPatient/YearDelegateComponent.qml</file>
+        <file>page/newPatient/CalendarYearModel.qml</file>
+        <file>page/newPatient/CalyearDelegateComponent.qml</file>
     </qresource>
 </RCC>

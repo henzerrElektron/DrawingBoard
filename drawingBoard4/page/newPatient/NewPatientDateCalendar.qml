@@ -25,15 +25,27 @@ import Qt.labs.calendar 1.0
 Rectangle{
     id:mainRec
     anchors.fill: parent
+    property var locale: Qt.locale()
+    property date currentDate: new Date()
+    property string dateString
     signal changeMonthFromTumbler(int index)
     signal changeYearFromTumbler(int index)
     onChangeYearFromTumbler: {
-        console.log("Change year from tumbler year is"+index)
+        currentDate.setFullYear(index)
+        console.log("Received year is "+index)
+        //currentDate.setMonth(monthTumbler.model.index)
+        dateString = currentDate.toLocaleDateString();
+        print(Date.fromLocaleDateString(dateString));
+        console.log("Change year from tumbler year is"+dateString+ "year index is"+index)
         grid.changeYear(index)
     }
 
     onChangeMonthFromTumbler: {
-        console.log("The index value is"+index)
+        //currentDate.setFullYear(yearTumbler.model.index)
+        currentDate.setMonth(index)
+        // dateString = currentDate.toLocaleDateString();
+        print(Date.fromLocaleDateString(dateString));
+        console.log("The index value is"+dateString)
         grid.changeMonth(index)
     }
 
@@ -42,7 +54,7 @@ Rectangle{
     CalendarModel {
         id:calModel
         from: new Date(1875, 0, 1)
-        to: new Date(2015, 11, 31)//new Date().getDate()
+        to: new Date()//.getDate()
     }
     GridLayout {
         columns: 2
@@ -67,24 +79,31 @@ Rectangle{
             //month: Calendar.December
             //year: 2015
             locale: Qt.locale("en_UK")
-
+            // Layout.column: 2
             Layout.fillWidth: true
             Layout.fillHeight: true
-            delegate: Text {
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                opacity: model.month === grid.month ? 1 : 0
-                text: model.day
-                font: control.font
+            onClicked: {
+                dateString = currentDate.toLocaleDateString();
+                print(Date.fromLocaleDateString(dateString));
             }
+
+            //            delegate: Text {
+            //                horizontalAlignment: Text.AlignHCenter
+            //                verticalAlignment: Text.AlignVCenter
+            //                opacity: model.month === grid.month ? 1 : 0
+            //                text: model.day
+            //                font: control.font
+            //            }
             function changeMonth(index)
             {
                 console.log("The month value is"+index)
                 month = index
+                // month = index
             }
             function changeYear(index)
             {
                 console.log("The year value is"+index)
+                //year = index
                 year = index
             }
         }

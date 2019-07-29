@@ -25,12 +25,13 @@ import Qt.labs.calendar 1.0
 Rectangle{
     id:mainRec
     anchors.fill: parent
+    //color: "violet"
     // width: 500
     // height: 500
     CalendarModel {
         id:calModel
         from: new Date(1875, 0, 1)
-        to: new Date(2015, 11, 31)//new Date().getDate()
+        to: new Date()//.getDate()//new Date().getDate()
     }
     GridLayout {
         rows:2
@@ -80,11 +81,12 @@ Rectangle{
             Layout.column: 1
             //Layout.columnSpan: 2
             Layout.fillWidth: true
+            //anchors.horizontalCenter: parent.horizontalCenter
             //anchors.right: dwr.right
             anchors.top: parent.top
             anchors.left:rec1.right// parent.left//
             //anchors.fill: parent
-            anchors.right: parent.right
+            //anchors.right: parent.right
             // width: 100
             height: 200//150
             //            NewPatientDataTumblerHorizontal{
@@ -99,8 +101,10 @@ Rectangle{
             //                    yearOperator.firstSecTumblerValue.connect(grid.changeYearFromTumbler)
             //                }
             //            }
+            //        }
             NewPatientDataTumbler{
                 id:yearTumbler
+                anchors.centerIn: parent
                 labelText:"Year"
                 firstTumblerVisibility: true
                 secTumblerVisibility: true
@@ -109,7 +113,10 @@ Rectangle{
                 secModelReArrangeCondition: 1
                 thirdModelReArrangeCondition: 1
                 secTumblerModel:secModelRearrange? [9,8]:[0]
-                thirdTumblerModel:thirdModelRearrange? 100:Qt.formatDateTime(new Date(), "yy")+1
+                thirdTumblerModel:thirdModelRearrange? 100:20//Qt.formatDateTime(new Date(), "yy")
+                onThirdTumblerModelChanged: {
+                    update()
+                }
 
                 onRearrangeModelChanged: {
                     update()
@@ -120,34 +127,34 @@ Rectangle{
                 }
             }
         }
-            Rectangle{
-                id:rec3
-                color: "red"
-                Layout.row: 2
-                Layout.column: 2
-                //Layout.columnSpan: 2
-                Layout.fillWidth: true
-                //Layout.fillHeight: true
-                //anchors.fill: parent
-                //anchors.right: dwr.right
-                anchors.top: rec2.bottom
-                anchors.left:rec1.right// parent.left//
-                anchors.bottom: parent.bottom
-                //anchors.fill: parent
-                anchors.right: parent.right
-                // width: 100
-                //  height: 150
-                NewPatientDateCalendar{
-                    id:grid
-                    anchors.fill: parent
-                    //firstTumblerModel: 2000//calModel.year
-                    Component.onCompleted: {
-                        // monthTumbler.firstTumblerValue.connect(grid.changeMonthFromTumbler)
-                    }
+        Rectangle{
+            id:rec3
+            color: "red"
+            Layout.row: 2
+            Layout.column: 2
+            //Layout.columnSpan: 2
+            Layout.fillWidth: true
+            //Layout.fillHeight: true
+            //anchors.fill: parent
+            //anchors.right: dwr.right
+            anchors.top: rec2.bottom
+            anchors.left:rec1.right// parent.left//
+            anchors.bottom: parent.bottom
+            //anchors.fill: parent
+            anchors.right: parent.right
+            // width: 100
+            //  height: 150
+            NewPatientDateCalendar{
+                id:grid
+                anchors.fill: parent
+                //firstTumblerModel: 2000//calModel.year
+                Component.onCompleted: {
+                    // monthTumbler.firstTumblerValue.connect(grid.changeMonthFromTumbler)
                 }
             }
-
-
         }
 
+
     }
+
+}

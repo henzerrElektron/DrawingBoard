@@ -29,6 +29,9 @@ import "./page/test/"
 import "./page/newPatient/"
 import "./page/changePatient/"
 import TestResultModels 0.1
+import QtQml.Models 2.12
+import Qt.labs.calendar 1.0
+
 Window {
     id: window
     visible: true
@@ -44,86 +47,168 @@ Window {
     GridLayout{
         id:mainGrid
         anchors.fill: parent
-//        StackView {
-//            id: stackView
-//            anchors.fill: parent
+        //        StackView {
+        //            id: stackView
+        //            anchors.fill: parent
 
-//            initialItem: Pane {
-//                id: pane
+        //            initialItem: Pane {
+        //                id: pane
 
-//                Image {
-//                    id: logo
-//                    width: pane.availableWidth / 2
-//                    height: pane.availableHeight / 2
-//                    anchors.centerIn: parent
-//                    anchors.verticalCenterOffset: -50
-//                    fillMode: Image.PreserveAspectFit
-//                    source: "qrc:/images/icon_eet.png"
-//                }
+        //                Image {
+        //                    id: logo
+        //                    width: pane.availableWidth / 2
+        //                    height: pane.availableHeight / 2
+        //                    anchors.centerIn: parent
+        //                    anchors.verticalCenterOffset: -50
+        //                    fillMode: Image.PreserveAspectFit
+        //                    source: "qrc:/images/icon_eet.png"
+        //                }
+
+        //                Label {
+        //                    text: "Qt Quick Controls 2 provides a set of controls that can be used to build complete interfaces in Qt Quick."
+        //                    anchors.margins: 20
+        //                    anchors.top: logo.bottom
+        //                    anchors.left: parent.left
+        //                    anchors.right: parent.right
+        //                    anchors.bottom: arrow.top
+        //                    horizontalAlignment: Label.AlignHCenter
+        //                    verticalAlignment: Label.AlignVCenter
+        //                    wrapMode: Label.Wrap
+        //                }
+        //                TestPageActionButtons{
+        //                    id:testbuttons
+        //                    anchors.fill: parent
+        //                    group:"homeItems"
+        //                    onComponentTriggered: {
+        //                        stackView.push(name)
+        //                    }
+        //                }
+
+        //                //                Image {
+        //                //                    id: arrow
+        //                //                    source: "qrc:/images/icon_eet.png"
+        //                //                    anchors.left: parent.left
+        //                //                    anchors.bottom: parent.bottom
+        //                //                }
+        //            }
+        //        }
+        //        NewPatientContactDetails{
+        //            id:newpatientLabel
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //        }
+        //            NewPatientRiskFactorSwitchSlide{
+        //                id:newPatientLabelSwitchSlide
+        //                Layout.fillHeight: true
+        //                Layout.fillWidth: true
+        //            }
+        //        ListView {
+        //            id: listview
+
+        //            width: 200; height: 200
+        //            snapMode: ListView.SnapOneItem
+        //            orientation: ListView.Horizontal
+        //            highlightRangeMode: ListView.StrictlyEnforceRange
+
+        //            model: CalendarModel {
+        //                from: new Date(2015, 0, 1)
+        //                to: new Date(2015, 11, 31)
+        //            }
+
+        //            delegate:Label{
+        //                id:txtLabel
+        //                text:model.month
+        //            }
+//        Rectangle {
+//            width: frame.implicitWidth + 10
+//            height: frame.implicitHeight + 10
+
+//            function formatText(count, modelData) {
+//                var data = count === 12 ? modelData + 1 : modelData;
+//                return data.toString().length < 2 ? "0" + data : data;
+//            }
+
+//            FontMetrics {
+//                id: fontMetrics
+//            }
+
+//            Component {
+//                id: delegateComponent
 
 //                Label {
-//                    text: "Qt Quick Controls 2 provides a set of controls that can be used to build complete interfaces in Qt Quick."
-//                    anchors.margins: 20
-//                    anchors.top: logo.bottom
-//                    anchors.left: parent.left
-//                    anchors.right: parent.right
-//                    anchors.bottom: arrow.top
-//                    horizontalAlignment: Label.AlignHCenter
-//                    verticalAlignment: Label.AlignVCenter
-//                    wrapMode: Label.Wrap
+//                    text:1900+modelData//model.month===0?model.year:""//formatText(Tumbler.tumbler.count, model.year)
+//                    opacity: 1.0 - Math.abs(Tumbler.displacement) / (Tumbler.tumbler.visibleItemCount / 2)
+//                    horizontalAlignment: Text.AlignHCenter
+//                    verticalAlignment: Text.AlignVCenter
+//                    font.pixelSize: fontMetrics.font.pixelSize * 1.25
 //                }
-//                TestPageActionButtons{
-//                    id:testbuttons
-//                    anchors.fill: parent
-//                    group:"homeItems"
-//                    onComponentTriggered: {
-//                        stackView.push(name)
+//            }
+
+//            Frame {
+//                id: frame
+//                padding: 0
+//                anchors.centerIn: parent
+
+//                Row {
+//                    id: row
+
+//                    Tumbler {
+//                        CalendarModel {
+//                            id:calModel
+//                            property var difference: calModel.yearAt(0)
+//                            from: new Date(1900, 0, 1)
+//                            to: new Date()//(2015, 11, 31)
+//                            function calculateYears() { // birthday is a date
+//                                // var years = new Date(new Date() - new Date(1900, 0, 1)).getFullYear() - 1970;
+//                                var years = new Date(to - from).getFullYear() - 1970;
+//                                console.log(years);
+//                                return years;
+//                                //                               var ageDifMs = Date.now() - birthday.getTime();
+//                                //                               var ageDate = new Date(ageDifMs); // miliseconds from epoch
+//                                //                               console.log("The difference is"+ ageDifMs + ageDate + Math.abs(ageDate.getUTCFullYear() - 1970))
+//                                //                               return Math.abs(ageDate.getUTCFullYear() - 1970);
+//                            }
+//                        }
+//                        model:calModel.calculateYears()
+//                        id: hoursTumbler
+//                        //model: calModel.year
+//                        delegate: delegateComponent
 //                    }
 //                }
-
-//                //                Image {
-//                //                    id: arrow
-//                //                    source: "qrc:/images/icon_eet.png"
-//                //                    anchors.left: parent.left
-//                //                    anchors.bottom: parent.bottom
-//                //                }
 //            }
+//            ScrollIndicator.horizontal: ScrollIndicator { }
 //        }
-//        NewPatientContactDetails{
-//            id:newpatientLabel
-//            Layout.fillHeight: true
-//            Layout.fillWidth: true
-//        }
-//            NewPatientRiskFactorSwitchSlide{
-//                id:newPatientLabelSwitchSlide
-//                Layout.fillHeight: true
-//                Layout.fillWidth: true
-//            }
-        NewPatientPersonalDetails{
-            id:newPatientRecon
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-        }
 
-//        SwitchPatient{
-//            id:homeTPage
-//            Layout.fillWidth: true
-//            Layout.fillHeight: true
-//        }
-//           SwitchPatient{
-//              id:switchPage
-//              Layout.fillHeight: true
-//              Layout.fillWidth: true
 
-//           }
 
-//                  HomePageLabel{
-//                      id:homeTitle
-//                      //width: parent.width
-//                      //height: 200
-//                      Layout.fillHeight: true
-//                      Layout.fillWidth: true
-//                  }
+
+
+
+                NewPatientPersonalDetails{
+                    id:newPatientRecon
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                }
+
+        //        SwitchPatient{
+        //            id:homeTPage
+        //            Layout.fillWidth: true
+        //            Layout.fillHeight: true
+        //        }
+        //           SwitchPatient{
+        //              id:switchPage
+        //              Layout.fillHeight: true
+        //              Layout.fillWidth: true
+
+        //           }
+
+        //                  HomePageLabel{
+        //                      id:homeTitle
+        //                      //width: parent.width
+        //                      //height: 200
+        //                      Layout.fillHeight: true
+        //                      Layout.fillWidth: true
+        //                  }
 
         //        PlotterPointers{
         //            id:sample

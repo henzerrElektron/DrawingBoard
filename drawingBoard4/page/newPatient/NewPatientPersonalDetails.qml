@@ -19,6 +19,11 @@ import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
 import ApplicationContstants 1.0
+import QtQml.Models 2.12
+import Qt.labs.calendar 1.0
+
+
+
 Rectangle {
     id: rectangle
     height: 1000
@@ -127,6 +132,8 @@ Rectangle {
                 }
             }
         }
+
+
         Rectangle{
             id:rec3
             anchors.top: parent.top
@@ -142,33 +149,42 @@ Rectangle {
             //Layout.rowSpan: 1
             //Layout.fillWidth: true
             height:210//genderOperator.height//4// parent.height/4//weightOperator.height
-            width: 210//patientTitleTumbler.width
+            width: 70//210//patientTitleTumbler.width
             NewPatientDataTumbler{
                 id:yearTumbler
+                CalendarYearModel{
+                    id:calModel
+                }
+                CalyearDelegateComponent{
+                    id:calYearCom
+                }
+
                 labelText:"Year"
                 //height: parent.height
                 // anchors.left: lbl.right
                 // anchors.leftMargin: 10
                 firstTumblerVisibility: true
-                secTumblerVisibility: true
-                thirdTumblerVisibility: true
-                firstTumblerModel:[1,2]//rearrangeModel?10:2
-                secModelReArrangeCondition: 1
-                thirdModelReArrangeCondition: 1
-                //secModelRearrange: true
-                //thirdModelRearrange: true
-//                onSecModelRearrangeChanged: {
-//                    secTumblerModel:secModelRearrange?["nine","eight"]:["zero"]
-//                }
-//                onThirdModelRearrangeChanged: {
-//                    thirdTumblerModel:thirdModelRearrange?100:Qt.formatDateTime(new Date(), "yy")
-//                }
+                secTumblerVisibility: false
+                thirdTumblerVisibility: false
+                firstTumblerModel:calModel.calculateYears()
+                firstTumblerDelegate:calYearCom
+                    //[1,2]//rearrangeModel?10:2
+                    //               secModelReArrangeCondition: 1
+                    //               thirdModelReArrangeCondition: 1
+                    //secModelRearrange: true
+                    //thirdModelRearrange: true
+                    //                onSecModelRearrangeChanged: {
+                    //                    secTumblerModel:secModelRearrange?["nine","eight"]:["zero"]
+                    //                }
+                    //                onThirdModelRearrangeChanged: {
+                    //                    thirdTumblerModel:thirdModelRearrange?100:Qt.formatDateTime(new Date(), "yy")
+                    //                }
 
-                secTumblerModel:secModelRearrange? ["9","8"]:["0"]
-                thirdTumblerModel:thirdModelRearrange? 100:Qt.formatDateTime(new Date(), "yy")
-                onRearrangeModelChanged: {
-                    update()
-                }
+                    //                secTumblerModel:secModelRearrange? ["9","8"]:["0"]
+                    //                thirdTumblerModel:thirdModelRearrange? 100:Qt.formatDateTime(new Date(), "yy")
+                    onRearrangeModelChanged: {
+                        update()
+                    }
 
                 Component.onCompleted: {
                     // yearTumbler.firstTumblerValue.connect(monthTumbler.rearrangeValues)
