@@ -29,18 +29,18 @@ Rectangle{
     property alias labelText: label_testPageHeading.text
     GridLayout
     {
-        columns: 5
+        columns: Constants.columnCount5
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        anchors.topMargin: 10
-        anchors.leftMargin: 10
-        columnSpacing: 5
+        anchors.topMargin: Constants.margin10
+        anchors.leftMargin: Constants.margin10
+        columnSpacing: Constants.margin5
         Rectangle{
             id:rec1
-            Layout.row: 1
-            Layout.column: 1
+            Layout.row: Constants.rowCount1
+            Layout.column: Constants.columnCount1
             color: "transparent"
             width: 50
             height: parent.height
@@ -54,8 +54,8 @@ Rectangle{
         }
         Rectangle{
             id:rec2
-            Layout.row: 1
-            Layout.column: 2
+            Layout.row: Constants.rowCount1
+            Layout.column: Constants.columnCount2
             color: "transparent"
             Layout.fillWidth: true
             height: parent.height
@@ -65,8 +65,6 @@ Rectangle{
                 text: Constants.label_testPgHeader
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                Layout.row: 1
-                Layout.column: 2
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left
 
@@ -77,11 +75,11 @@ Rectangle{
         TestPageActionButtons {
             id: rectangle3
             //color: "black"
-            Layout.column: 3
-            Layout.columnSpan: 2
+            Layout.column: Constants.columnCount3
+            Layout.columnSpan: Constants.columnCount2
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.row: 1
+            Layout.row: Constants.rowCount1
             Layout.alignment: Qt.AlignRight
         }//TestPageActionButtons//Rectangle
     }
