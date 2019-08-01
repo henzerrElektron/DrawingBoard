@@ -18,6 +18,7 @@ import "./../../images/"
 import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
+import "./../../common/"
 import ApplicationContstants 1.0
 
 
@@ -27,6 +28,7 @@ Rectangle{
     color: Constants.testPage_backgroundColor//"transparent"
     anchors.fill: parent
     property alias labelText: label_testPageHeading.text
+    property alias actionGridGroup: actionGridView.group
     GridLayout
     {
         columns: Constants.columnCount5
@@ -71,17 +73,25 @@ Rectangle{
             }
         }
 
-
-        TestPageActionButtons {
-            id: rectangle3
-            //color: "black"
+        Rectangle{
+            id:rec3
+            color: "transparent"
             Layout.column: Constants.columnCount3
             Layout.columnSpan: Constants.columnCount2
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.row: Constants.rowCount1
             Layout.alignment: Qt.AlignRight
-        }//TestPageActionButtons//Rectangle
+            height: parent.height
+           // anchors.left: rec1.right
+        PageActionsButtons {
+            id: actionGridView
+            //color: "black"
+            anchors.right: parent.right
+            group: "testPageItems"
+            actionOrHome: true
+        }//TestPageActionButtons//Rectangle//PageActionsButtons
+        }
     }
 
 }

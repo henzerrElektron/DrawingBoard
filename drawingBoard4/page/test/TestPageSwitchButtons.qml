@@ -24,7 +24,7 @@ import ApplicationContstants 1.0
 Rectangle {
     id: rectangle4
     //color: "black"
-    color: "transparent"
+    color: Constants.testPage_backgroundColor//color: "transparent"
     //anchors.left: rectangle2.right
     //Layout.alignment: Qt.AlignLeft| Qt.AlignBottom
     Layout.alignment: Qt.AlignVCenter| Qt.AlignHCenter

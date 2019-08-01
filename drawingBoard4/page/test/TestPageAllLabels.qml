@@ -23,17 +23,32 @@ import ApplicationContstants 1.0
 
 Rectangle {
     id: rectangle2
-    color: "transparent"
+    color: Constants.testPage_backgroundColor//color: "transparent"
+    anchors.fill: parent
+    property alias lblPatientNameVisible: label_lblPatientName.visible
+    property alias txtPatientNameVisible: label_PatientName.visible
+    property alias lblmedicalRefVisible: label_lblmedicalRef.visible
+    property alias txtmedicalRefVisible: label_medicalRef.visible
+    property alias lblDOBVisible: label_lblDOB.visible
+    property alias txtDOBVisible: label_DOB.visible
+    property alias lblIOLFittedVisible: label_lblIOLFitted.visible
+    property alias txtIOLFittedVisible: label_IOLFitted.visible
+    property alias lblIOLAgeVisible: label_lblIOLAge.visible
+    property alias txtIOLAgeVisible: label_IOLAge.visible
+
     //color: "red"
     //anchors.fill: parent
     //color: "transparent"
     //Layout.rowSpan: 2
     GridLayout{
         id: mainGridRow
+        columnSpacing: 10
+        rowSpacing: 10
         //width: 700
         anchors.fill: parent
         columns: 2
-        rows:7
+        rows:5
+        Layout.minimumHeight: rows* label_PatientName+ rows*rowSpacing
         //rowSpacing: 5
         TestPageLabel {
             id: label_lblPatientName
@@ -42,13 +57,13 @@ Rectangle {
             lblOrText: false
             text: Constants.label_testPgPatient
             Layout.fillHeight: true
-            Layout.fillWidth: true
+            //Layout.fillWidth: true
             Layout.columnSpan: 1
             Layout.rowSpan: 1
-            Layout.row: 3
+            Layout.row: 1
             Layout.column: 1
         }
-        
+
         TestPageLabel {
             id: label_PatientName
             text: qsTr("Label")
@@ -57,7 +72,7 @@ Rectangle {
             Layout.fillWidth: true
             Layout.columnSpan: 1
             Layout.rowSpan: 1
-            Layout.row: 3
+            Layout.row: 1
             Layout.column: 2
             //anchors.right: label_lblPatientName.right
             //anchors.rightMargin: Constants.testPage_rightMargin
@@ -69,10 +84,10 @@ Rectangle {
             lblOrText: false
             text: Constants.label_testPgMedRef
             Layout.fillHeight: true
-            Layout.fillWidth: true
+            //Layout.fillWidth: true
             Layout.columnSpan: 1
             Layout.rowSpan: 1
-            Layout.row: 4
+            Layout.row: 2
             Layout.column: 1
         }
         TestPageLabel {
@@ -83,7 +98,7 @@ Rectangle {
             Layout.fillWidth: true
             Layout.columnSpan: 1
             Layout.rowSpan: 1
-            Layout.row: 4
+            Layout.row: 2
             Layout.column: 2
             //anchors.right: label_lblmedicalRef.right
             //anchors.rightMargin: Constants.testPage_rightMargin
@@ -95,21 +110,22 @@ Rectangle {
             lblOrText: false
             text: Constants.label_testPgDOB
             Layout.fillHeight: true
-            Layout.fillWidth: true
+            //Layout.fillWidth: true
             Layout.columnSpan: 1
             Layout.rowSpan: 1
-            Layout.row: 5
+            Layout.row: 3
             Layout.column: 1
         }
         TestPageLabel {
             id: label_DOB
             text: qsTr("Label")
+            Layout.fillWidth: true
             lblOrText: true
             Layout.fillHeight: true
-            Layout.fillWidth: true
+            //Layout.fillWidth: true
             Layout.columnSpan: 1
             Layout.rowSpan: 1
-            Layout.row: 5
+            Layout.row: 3
             Layout.column: 2
             //anchors.right: label_lblDOB.right
             //anchors.rightMargin: Constants.testPage_rightMargin
@@ -121,10 +137,10 @@ Rectangle {
             lblOrText: false
             text: Constants.label_testPgIOLFitted
             Layout.fillHeight: true
-            Layout.fillWidth: true
+            //Layout.fillWidth: true
             Layout.columnSpan: 1
             Layout.rowSpan: 1
-            Layout.row: 6
+            Layout.row: 4
             Layout.column: 1
         }
         TestPageLabel {
@@ -135,7 +151,7 @@ Rectangle {
             Layout.fillWidth: true
             Layout.columnSpan: 1
             Layout.rowSpan: 1
-            Layout.row: 6
+            Layout.row: 4
             Layout.column: 2
             //anchors.right: label_lblIOLFitted.right
             //anchors.rightMargin: Constants.testPage_rightMargin
@@ -147,10 +163,10 @@ Rectangle {
             lblOrText: false
             text: Constants.label_testPgIOLAge
             Layout.fillHeight: true
-            Layout.fillWidth: true
+            //Layout.fillWidth: true
             Layout.columnSpan: 1
             Layout.rowSpan: 1
-            Layout.row: 7
+            Layout.row: 5
             Layout.column: 1
         }
         TestPageLabel {
@@ -161,10 +177,19 @@ Rectangle {
             Layout.fillWidth: true
             Layout.columnSpan: 1
             Layout.rowSpan: 1
-            Layout.row: 7
+            Layout.row: 5
             Layout.column: 2
             //anchors.right: label_lblIOLFitted.right
             //anchors.rightMargin: Constants.testPage_rightMargin
         }
     }
 }
+
+
+
+
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+ ##^##*/
