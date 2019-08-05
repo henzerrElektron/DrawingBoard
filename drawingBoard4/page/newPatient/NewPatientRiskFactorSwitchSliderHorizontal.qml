@@ -47,6 +47,10 @@ Rectangle{
     property alias dataTumblerVisibility: subRec0.visible
     property alias labelVisibility: label.visible
     property bool labelCol1or2: true
+    property alias eyeColorDialVisibilty: dialRect.visible
+    property alias dataTumblerNoOrColorDelegate: dataTumbler.numberOrColorDelegate
+    property alias topSliderModel: topSliderUnit.topTextAreaModel
+    property alias btmSliderModel: btmSliderUnit.topTextAreaModel
     onTopSliderVisibleChanged: {
         if(subRec.visible === false)
         {
@@ -69,10 +73,7 @@ Rectangle{
         }
     }
 
-    property alias eyeColorDialVisibilty: dialRect.visible
-    property alias dataTumblerNoOrColorDelegate: dataTumbler.numberOrColorDelegate
-    property alias topSliderModel: topSliderUnit.topTextAreaModel
-    property alias btmSliderModel: btmSliderUnit.topTextAreaModel
+
 
     signal toggleSwitchButton()
     //height: //dataTumbler.height
@@ -80,14 +81,15 @@ Rectangle{
     GridLayout{
         //
         id:mainGrid
-        anchors.bottomMargin: 10
-        anchors.fill: parent
+        rowSpacing: 2
+        anchors.bottomMargin: 0
+        //anchors.fill: parent
         //        anchors.bottom: parent.bottom
         //        anchors.bottomMargin: 10
         //        anchors.top: parent.top
-        //        anchors.right: parent.right
-        //        anchors.left: parent.left
-        anchors.topMargin: 10
+        anchors.right: parent.right
+        anchors.left: parent.left
+        anchors.topMargin: 0
         anchors.rightMargin: 10
         anchors.leftMargin: 10
         columns:4
@@ -95,7 +97,7 @@ Rectangle{
         Label {
             id: label
             text: qsTr("Label")
-            Layout.topMargin: dataTumblerVisibility?(dataSwitchesVisible?50:25):-5
+            Layout.topMargin: dataTumblerVisibility?(dataSwitchesVisible?50:25):10
             Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
             //Layout.alignment:dataSwitchesVisible?Qt.AlignTop|Qt.AlignHCenter: Qt.AlignTop|Qt.AlignHCenter
             Layout.column: labelCol1or2?1:2
@@ -113,16 +115,16 @@ Rectangle{
             Layout.column: 2
             Layout.columnSpan: 1
             Layout.row: 1
-            Layout.fillHeight: false
-            Layout.minimumWidth: 125
+            Layout.fillHeight: true
+            Layout.minimumWidth: dataTumblerVisibility?125:250
+            Layout.minimumHeight:dataTumblerVisibility?40:35
             Layout.alignment:  Qt.AlignLeft | Qt.AlignTop//Qt.AlignLeft |
-            Layout.topMargin:dataTumblerVisibility?25: -7
+            Layout.topMargin:dataTumblerVisibility?25: 5
             NewPatientDataSwitches{
                 id:dataSwitches
-
-                horOrVer: true//dataTumblerVisibility?true:false
+                anchors.fill: parent
+                horOrVer:dataTumblerVisibility?true:false
                 //width: 125
-
                 //Layout.fillWidth: true
                 Component.onCompleted:{
                     mainRec.toggleSwitchButton.connect(dataSwitches.toggleCommandReceived)
@@ -131,29 +133,28 @@ Rectangle{
         }
 
 
-        Rectangle{
-            id:mainsubRec
+        Rectangle {
+            id: mainsubRec
+            anchors.left:dataSwitchRec.right
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             //anchors.bottom: parent.bottom
             Layout.column: 3
-            Layout.columnSpan: 1
+            Layout.columnSpan: eyeColorDialVisibilty?1:2
             Layout.row: 1
             //anchors.top: parent.top
             //Layout.fillHeight: true
             Layout.fillWidth: true
-            //Layout.top: parent.top
-            color: "red"
-            Layout.fillHeight: false
-            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-            //Layout.fillHeight: true
-            //height: mainsubRow.height
-            //height: 200
-            ColumnLayout{
+            GridLayout{
                 id:mainsubRow
+                rows: 3
+                columns: 2
+                rowSpacing: 0
+                //columnSpacing:  0
                 //anchors.fill: parent
                 anchors.right: parent.right
                 anchors.left: parent.left
                 anchors.top: parent.top
-                height: subRec.height+subRec0.height+subRec1.height
+                //height: subRec.height+subRec0.height+subRec1.height
 
 
                 Rectangle{
@@ -163,11 +164,21 @@ Rectangle{
                     //anchors.right: parent.right
                     anchors.top: parent.top
                     //anchors.topMargin: 10
+                    Layout.row: 1
+                    // Layout.rowSpan: 1
+                    Layout.column: 1
+                    Layout.columnSpan:btmSliderVisible?1:2
                     Layout.fillWidth: true
+                    Layout.maximumHeight: 40
+                    Layout.minimumHeight: 40
+                    //Layout.fillHeight: true
                     height: topSliderUnit.height
                     NewPatientSliderLabelUnit{
                         id:topSliderUnit
                         anchors.fill: parent
+                        //width: parent.width
+                        //height: 50
+                        //anchors.fill: parent
                         //anchors.bottom: parent.bottom
                         Component.onCompleted: {
                             dataTumbler.firstTumblerValue.connect(topSliderUnit.firstTumblerValue)
@@ -181,11 +192,22 @@ Rectangle{
                     //anchors.left: parent.left
                     //anchors.right: parent.right
                     Layout.fillWidth: true
-                    anchors.top: subRec.bottom
-                    anchors.topMargin: 10
-                    height: btmSliderUnit.height
+                    anchors.top: parent.top
+                    // anchors.top: subRec.bottom
+                    //anchors.topMargin: 10
+                    Layout.minimumHeight: 40
+                    Layout.maximumHeight: 40
+                    Layout.row: 1
+                    // Layout.rowSpan: 1
+                    Layout.column: 2
+                    //Layout.columnSpan: 1
+                    //Layout.fillHeight: true
+                    //height: btmSliderUnit.height
                     NewPatientSliderLabelUnit{
                         id:btmSliderUnit
+                        anchors.fill: parent
+                        //width: parent.width
+                        //height: 100
                         //height: 150
                         //height: btmSliderUnit.height
                         Component.onCompleted: {
@@ -196,6 +218,10 @@ Rectangle{
                 }
                 Rectangle{
                     id:subRec0
+                    Layout.row: 2
+                    Layout.rowSpan: 1
+                    Layout.column: 1
+                    Layout.columnSpan: 2
                     //color: "black"
                     //height: dataTumbler.height
                     //height: 150
@@ -208,12 +234,17 @@ Rectangle{
                     //anchors.bottom: parent.bottom
                     //anchors.bottomMargin: 10
                     //Layout.fillHeight: true
+                    Layout.minimumHeight: dataTumblersecVisibility?75:50
+                    Layout.maximumHeight: dataTumblersecVisibility?75:50
                     //Layout.fillWidth: true
                     NewPatientDataTumblerHorizontal{
                         id:dataTumbler
+                        //anchors.bottomMargin: 0
+                        //anchors.fill: parent
                         //firstTumblerModel: 100
-                        height: dataTumblersecVisibility?75:40
-                        width: parent.width
+                        anchors.fill: parent
+                        //height: 75//dataTumblersecVisibility?75:50
+                        //width: parent.width
                         //height: parent.height
                         // anchors.fill: parent
                         // secTumblerVisibility: false
@@ -239,7 +270,7 @@ Rectangle{
             //Layout.fillHeight: false
             //color: "red"
             //Layout.fillHeight: true
-            //Layout.fillWidth: true
+            ///Layout.fillWidth: true
             //            onVisibleChanged: {
             //                dialRect.width = 0
             //                dialRect.height = 0
@@ -254,6 +285,7 @@ Rectangle{
             NewPatientDataDial{
                 id:dialUnit
                 anchors.fill: parent
+                anchors.topMargin: 10
                 //height: 100
                 Component.onCompleted: {
                     dialUnit.firstDialValue.connect(dataTumbler.firstDialValue)
@@ -273,6 +305,32 @@ Rectangle{
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

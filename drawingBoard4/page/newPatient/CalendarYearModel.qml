@@ -34,4 +34,7 @@ CalendarModel {
         //                               console.log("The difference is"+ ageDifMs + ageDate + Math.abs(ageDate.getUTCFullYear() - 1970))
         //                               return Math.abs(ageDate.getUTCFullYear() - 1970);
     }
-}
+    function calculateRange(start, end){
+          return new Array(end - start + 1).fill().map((_, idx) => start + idx)
+        }
+    }

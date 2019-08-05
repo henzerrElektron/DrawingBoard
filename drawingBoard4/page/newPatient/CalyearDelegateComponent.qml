@@ -27,8 +27,10 @@ Component {
     Label {
         text:1900+modelData//model.month===0?model.year:""//formatText(Tumbler.tumbler.count, model.year)
         opacity: 1.0 - Math.abs(Tumbler.displacement) / (Tumbler.tumbler.visibleItemCount / 2)
+        font: Constants.fontFamily
+        color: "white"
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        font.pixelSize: fontMetrics.font.pixelSize * 1.25
+        //font.pixelSize: fontMetrics.font.pixelSize * 1.25
     }
 }

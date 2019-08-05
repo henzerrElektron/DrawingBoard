@@ -27,7 +27,7 @@ Rectangle{
         id:medicalDetailsLabel
         anchors.left: parent.left
         anchors.right: parent.right
-        height: 100
+        height: 30//100
         text: "MedicalDetails"
     }
 
@@ -53,7 +53,7 @@ Rectangle{
         anchors.left: parent.left
         anchors.right: parent.right
         //anchors.bottom: parent.bottom
-        height: parent.height/8//weightOperator.height
+        height: parent.height/8<100?100:parent.height/8//weightOperator.height
         NewPatientRiskFactorSwitchSliderHorizontal{
             id:rightFittedOperator
             anchors.fill: parent
@@ -79,8 +79,8 @@ Rectangle{
         anchors.topMargin: 10
         anchors.left: parent.left
         anchors.right: parent.right
-        height: parent.height/8//heightOperator.height
-       // height:headerDelegate1.switchMetricsChecked? parent.height/10:parent.height/7
+        height: parent.height/8<100?100:parent.height/8//weightOperator.height
+        // height:headerDelegate1.switchMetricsChecked? parent.height/10:parent.height/7
         NewPatientRiskFactorSwitchSliderHorizontal{
             id:leftFittedOperator
             labelText: "Left Fitted"
@@ -109,7 +109,7 @@ Rectangle{
         anchors.topMargin: 10
         anchors.left: parent.left
         anchors.right: parent.right
-        height: parent.height/8//weightOperator.height
+        height: parent.height/8<100?100:parent.height/8//weightOperator.height
         NewPatientRiskFactorSwitchSliderHorizontal{
             id:diabeticsOperator
             labelText: "Diabetic"

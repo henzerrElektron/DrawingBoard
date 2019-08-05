@@ -152,7 +152,7 @@ Page {
         Page {
             id: page3
             visible: true;
-            NewPatientRecommendations{
+            NewPatientRiskFactors{
                 id:recommendTabPage
                 anchors.fill: parent
                 Layout.fillHeight: true

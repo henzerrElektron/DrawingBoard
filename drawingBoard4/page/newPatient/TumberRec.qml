@@ -26,9 +26,14 @@ Rectangle{
     property alias allTumblerDelegate: firstTumbler.delegate
     property alias allTumblerVisibility: firstTumbler.visible
     property alias allTumblerVisibleItemCount: firstTumbler.visibleItemCount
+    property int allTumblerValue//: allTumblerModel[firstTumbler.currentIndex]
     //property alias allTumbler: firstTumbler
     property alias allTumblerIndex: firstTumbler.currentIndex
+    property bool donotUpdateWhileMoving: false
+    //property alias allTumblerValue: allTumblerModel[firstTumbler.currentIndex]
     signal tumblerIndexChanged(int currentIndex)
+
+
     Layout.minimumWidth:  secTumblerRec.visible?(thirdTumblerRec.visible?parent.width/3:parent.width/2):parent.width
     Tumbler {
         id: firstTumbler
@@ -41,27 +46,57 @@ Rectangle{
         Rectangle {
             anchors.horizontalCenter: firstTumbler.horizontalCenter
             y: firstTumbler.height * 0.4
-            width: 40
+            width: parent.width//40
             height: (firstTumbler.height * 0.6) - (firstTumbler.height * 0.4)//40//parent.height/10//
-            border.color: "black"
-            border.width: 1
-            color: "#21be2b"
-            radius: 20
+            //border.color: "black"
+            //border.width: 1
+            color:  Constants.actionBtnBackgroundColor
+            //radius: 20
             opacity: 0.5
         }
+        delegate: Text {
+            text: qsTr("%1").arg(modelData)
+            font: Constants.fontFamily
+            color: "white"
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            opacity: 1.0 - Math.abs(Tumbler.displacement) / (firstTumbler.visibleItemCount / 2)
+        }
+        onMovingChanged: {
+            if(donotUpdateWhileMoving === true)
+            {
+                if(moving === false)
+                {
+                    tumblerIndexChanged(currentIndex)
+                }
+            }
+        }
+
         onModelChanged: {
             console.log("The model has changed")
-        }
-        onCurrentIndexChanged: {
-            tumblerIndexChanged(currentIndex)
 
         }
+        onCurrentIndexChanged: {
+            if(donotUpdateWhileMoving === true)
+            {
+                if(moving === false)
+                {
+                    tumblerIndexChanged(currentIndex)
+                }
+            }
+            else
+            {
+                tumblerIndexChanged(currentIndex)
+            }
+        }
+
+        //        onCurrentIndexChanged: {
+        //             console.log("The model has changed")
+        //            tumblerIndexChanged(currentIndex)
+        //        }
         onCurrentItemChanged: {
             
         }
-        
-        
-        
-        
+
     }
 }

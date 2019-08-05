@@ -23,7 +23,7 @@ Rectangle{
     id:mainRec
     //width: (elementKnown.width >= elementYesNo.width)?elementKnown.width:elementYesNo.width
     //height: elementKnown.height + elementYesNo.height +mainLayout.spacing
-    property bool horOrVer: true
+    property bool horOrVer: false
     //anchors.fill: parent
     width: mainLayout.width
     height: mainLayout.height
@@ -44,10 +44,11 @@ Rectangle{
 
     GridLayout{
         id:mainLayout
+        //rowSpacing: 5
         columns:horOrVer?1:2
         rows: horOrVer?2:1
-        rowSpacing: horOrVer?20:10
         columnSpacing: horOrVer?10:20
+        rowSpacing:horOrVer?5:10
         //anchors.fill: parent
         //spacing: 10
         Switch {

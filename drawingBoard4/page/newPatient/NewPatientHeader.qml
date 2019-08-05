@@ -30,14 +30,14 @@ Rectangle {
     id: rectangle
     color: Constants.testPage_backgroundColor
     anchors.fill: parent
-    height: 400
-    width: 800
+   //height: 400
+   // width: 800
     GridLayout{
         id: mainRow
         // width: 700
         anchors.fill: parent
         //columns: 3
-        rows:3
+        rows:2//3
 
         Rectangle {
             id: rectangle1
@@ -49,6 +49,7 @@ Rectangle {
                 id:pgTitle
                 anchors.fill: parent
                 actionGridGroup:"newPatientItems"
+                labelText: Constants.label_newPtPgHeader
             }//TestPageTitle
         }//TestPageTitle
         Rectangle {
@@ -61,31 +62,140 @@ Rectangle {
             GridLayout{
                 id: mainCol
                 anchors.fill: parent
-                columns: 2
-                Rectangle {
-                    id: rectangleSub1
+                columns: 4
+                //rows: 3
+                Rectangle{
+                    id:rectangleSub1
                     color: Constants.testPage_backgroundColor
                     Layout.column: 1
+                    //Layout.row: 2
+                    Layout.fillHeight: true
+                    //Layout.fillWidth: true
+                    width: 100
+                    //height: 150
+                    NewPatientDataTumbler{
+                        id:pageTitle
+                        anchors.fill: parent
+                        labelText: Constants.lbl_npPatientTitle
+                        firstTumblerVisibility: true
+                        secTumblerVisibility: false
+                        thirdTumblerVisibility: false
+                        firstTumblerModel:Constants.modelTitle
+                    }
+                }
 
+                Rectangle{
+                    id:rectangleSub2
+                    color: Constants.testPage_backgroundColor//"green"///
+                    Layout.column: 2
+                    // Layout.row: 3
+                    Layout.fillHeight: true
+                    Layout.alignment: Qt.AlignLeft
+                    //Layout.fillWidth: true
+                    width: 100
+                    //height: 150
+                    NewPatientDataTumbler{
+                        id:pageGender
+                        //anchors.fill: parent
+                        anchors.left: parent.left
+                        labelText: Constants.lbl_npPatientGender
+                        firstTumblerVisibility: true
+                        secTumblerVisibility: false
+                        thirdTumblerVisibility: false
+                        firstTumblerModel:Constants.modelGender
+                    }
+                }
+                //                Rectangle {
+                //                    id: rectangleSub5
+                //                    color: Constants.testPage_backgroundColor
+                //                    Layout.column: 1
+                //                    Layout.row: 1
+                //                    Layout.rowSpan: 1
+                //                    Layout.alignment: Qt.AlignLeft
+                //                    //Layout.fillHeight: true
+                //                    Layout.fillWidth: true
+                //                    height:75
+                //                    NewPatientRiskFactorSwitchSliderHorizontal{
+                //                        id:titleOperator
+                //                        anchors.fill: parent
+                //                        //height: 150
+                //                        labelText: "Title"
+                //                        dataTumblersecVisibility: false
+                //                        dataTumblerthirdVisibility: false
+                //                        dataTumblerfirstVisibility: true
+                //                        topSliderMinValue: 0
+                //                        labelCol1or2:false
+                //                        dataTumblerNoOrColorDelegate:false
+                //                        dataTumblerFirstModel: ["Mr","Dr","Mrs","Miss","Other"]
+                //                        dataSwitchesVisible: false
+                //                        topSliderVisible: false
+                //                        btmSliderVisible:false
+                //                        eyeColorDialVisibilty: false
+                //                    }
+                //                }
+                //                Rectangle {
+                //                    id: rectangleSub6
+                //                    color: Constants.testPage_backgroundColor
+                //                    Layout.column: 1
+                //                    Layout.row: 2
+                //                    Layout.rowSpan: 1
+                //                    Layout.alignment: Qt.AlignLeft
+                //                    //Layout.fillHeight: true
+                //                    Layout.fillWidth: true
+                //                    height:75
+                //                    NewPatientRiskFactorSwitchSliderHorizontal{
+                //                        id:genderOperator
+                //                        anchors.fill: parent
+                //                        //height: 150
+                //                        labelText: "Gender"
+                //                        dataTumblersecVisibility: false
+                //                        dataTumblerthirdVisibility: false
+                //                        dataTumblerfirstVisibility: true
+                //                        labelCol1or2:false
+                //                        topSliderMinValue: 0
+                //                        dataTumblerNoOrColorDelegate:false
+                //                        dataTumblerFirstModel: ["Male","Female","Other"]
+                //                        dataSwitchesVisible: false
+                //                        topSliderVisible: false
+                //                        btmSliderVisible:false
+                //                        eyeColorDialVisibilty: false
+                //                    }
+                //                }
+
+
+                Rectangle {
+                    id: rectangleSub3
+                    color: Constants.testPage_backgroundColor
+                    Layout.column: 3
+                    //Layout.row: 3
+                    Layout.rowSpan: 1
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    TestPageAllLabels{
+                    Layout.maximumWidth: parent.width/2
+                    NewPatientPersonalDetails{
                         id:pageLabels
                         anchors.fill: parent
                     }
                 }
                 Rectangle {
-                    id: rectangleSub2
-                    color: Constants.testPage_backgroundColor
-                    Layout.column: 2
+                    id: rectangleSub4
+                    color:Constants.testPage_backgroundColor// "black"//
+                    Layout.column: 4
+                    // Layout.row: 1
+                    // Layout.rowSpan: 3
                     Layout.fillHeight: true
+                    Layout.maximumWidth: 300//parent.width/4
                     Layout.fillWidth: true
-                    TestPageSwitchButtons{
+                    Layout.alignment: Qt.AlignRight
+                    NewPatientDobTumbler{
                         id:pageSwitchButtons
-                        width: parent.width/2
-                        height: parent.height/2
-                         anchors.right: parent.right
-                         anchors.verticalCenter: parent.verticalCenter
+                        recTextVisible: false
+                        //anchors.fill: parent
+                        // width: parent.width/2
+                        // height: parent.height/2
+                        anchors.right: parent.right
+                        //anchors.horizontalCenter: parent.horizontalCenter
+                        /// anchors.verticalCenter: parent.verticalCenter
                     }//TestPageSwitchButtons
                 }
 

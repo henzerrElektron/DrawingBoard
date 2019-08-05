@@ -31,7 +31,7 @@ Component {
             opacity: 1.0 - Math.abs(Tumbler.displacement) / (Tumbler.tumbler.visibleItemCount / 2)
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            font.pixelSize: fontMetrics.font.pixelSize * 1.25
+            //font.pixelSize: fontMetrics.font.pixelSize * 1.25
         }
 
 //        Rectangle {
