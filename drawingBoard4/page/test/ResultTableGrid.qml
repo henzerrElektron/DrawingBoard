@@ -23,6 +23,11 @@ import "./../../models/"
 import "./../test/"
 import TestResultModels 0.1
 import SwitchPatientTableModel 0.1
+import ApplicationIntegerConstants 1.0
+import ApplicationStringConstants 1.0
+import ApplicationOtherConstants 1.0
+
+
 GridLayout{
     id:gridLayout
     columns: 1

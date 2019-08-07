@@ -19,8 +19,10 @@ import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
-import ApplicationContstants 1.0
-
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 
 
 Rectangle{
@@ -34,7 +36,7 @@ Rectangle{
         id:labelGridLogo
         anchors.fill: parent
         rows: 2
-        rowSpacing: Constants.logoFontSpacing
+        rowSpacing: IntegerConstants.logoFontSpacing
         ToolButton {
             id: image
             anchors.left: parent.left
@@ -54,9 +56,9 @@ Rectangle{
             color: "white"//Constants.logoFontBgcolor
             font.pointSize: 20//Constants.m_intlogoFontSize//5*Constants.m_intChkFontSize
             font.bold:true
-            height: Constants.m_intlogoFontSize
+            height: IntegerConstants.m_intlogoFontSize
             wrapMode: Label.WordWrap
-            font.family: Constants.fontFamily
+            font.family: OtherConstants.fontFamily
             renderType: Text.QtRendering
             fontSizeMode: Text.HorizontalFit
             horizontalAlignment: Text.AlignHCenter
@@ -72,9 +74,9 @@ Rectangle{
             color: "white"//Constants.logoFontBgcolor
             font.pointSize: 20//Constants.m_intlogoFontSize
             font.bold:true
-            height: Constants.m_intlogoFontSize
+            height: IntegerConstants.m_intlogoFontSize
             wrapMode: Label.WordWrap
-            font.family: Constants.fontFamily
+            font.family: OtherConstants.fontFamily
             renderType: Text.QtRendering
             fontSizeMode: Text.HorizontalFit
             horizontalAlignment: Text.AlignHCenter
@@ -83,7 +85,7 @@ Rectangle{
             anchors.bottom: labellogo.bottom
             anchors.bottomMargin: -30
             anchors.left: image.right
-            anchors.leftMargin: Constants.m_constantLeftMargin
+            anchors.leftMargin: IntegerConstants.m_constantLeftMargin
         }
     }
 }

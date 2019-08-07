@@ -18,6 +18,9 @@ import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
 import "./../test/"
+import ApplicationIntegerConstants 1.0
+import ApplicationStringConstants 1.0
+import ApplicationOtherConstants 1.0
 Page {
     id: tabsPage
     anchors.fill: parent

@@ -16,115 +16,136 @@ import QtQuick.Controls 2.5
 //import QtQml.Models 2.12
 import "."
 import "./../images/"
-import "./../imports/"
+//import "./../imports/"
 import "./../models/"
 import "./../delegates/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
 
 
-Rectangle {
-    id: rectangle3
-    color: "transparent"
-    property alias group:allPageModel.filterOnGroup//actionOrHome ? allPageModel.filterOnGroup:allPageModel1.filterOnGroup
-    property alias group1: allPageModel1.filterOnGroup
-    property bool actionOrHome: true
-    signal componentTriggered(string name)
-    signal tested
-    onTested: {"I am tested in TestActionsButtons"}
-    onComponentTriggered: {
-            console.log(" component was triggered"+name)
-        }
+//Rectangle {
+//    id: rectangle3
+    //color: "black"//"transparent"
+//    anchors.fill: parent
+
     //signal clicked
     //color: "black"
-    ActionDelegateModel {
-        id: actionDelegateModel
-    }
 
-    AllPageModel {
-        id: allPageModel
-        delegate: ActionHeaderDelegate{
-            Component.onCompleted: {
-            invokeSource.connect(rectangle3.componentTriggered)
-            test.connect(rectangle3.tested)
-            }
-        }//actionHeaderDelegate
-        filterOnGroup: ""//"homeItems"
-        model: actionDelegateModel//ActionDelegateModel{}//actionDelegateModel
 
-    }
-//    HomePageBodyDelegate{
-//        id: homePageBodyDelegate
+
+    //    HomePageBodyDelegate{
+    //        id: homePageBodyDelegate
+    //    }
+    // ActionDelegateModel{
+    //      id:actionDelegateModel
+    //  }
+
+    //   ActionHeaderDelegate {
+    //        id: actionHeaderDelegate
+    //        Component.onCompleted:{
+    //testControlBtn.clicked.connect(invokeSoure)
+    //testControlBtn.clicked.connect(test)
+    //            invokeSoure.connect(componentTriggered)
+    //            test.connect(tested)
+    //            testControlBtn.invokeSoure.connect(componentTriggered)
+    //            testControlBtn.test.connect(tested)
+    //            onInvokeSource:
+    //            console.log("Testing it here")
+    //        }
+
+    //    }
+//    Component {
+//        id:  highlightComponent
+//        Rectangle {  color: "black"; radius: 5;width:  IntegerConstants.actionBtnWidth;height: IntegerConstants.actionBtnHeight }
 //    }
-   // ActionDelegateModel{
-  //      id:actionDelegateModel
-  //  }
-    AllPageModel {
-        id: allPageModel1
-        delegate: HomePageBodyDelegate{
-            Component.onCompleted: {
-            invokeSource.connect(rectangle3.componentTriggered)
-            test.connect(rectangle3.tested)
-            }
-        }//actionHeaderDelegate
-        filterOnGroup: "homeMainItems"
-        model: actionDelegateModel//ActionDelegateModel{}//actionDelegateModel//homePageBodyDelegate
-
-    }
-    ActionHeaderDelegate {
-        id: actionHeaderDelegate
-        Component.onCompleted:{
-            //testControlBtn.clicked.connect(invokeSoure)
-            //testControlBtn.clicked.connect(test)
-//            invokeSoure.connect(componentTriggered)
-//            test.connect(tested)
-//            testControlBtn.invokeSoure.connect(componentTriggered)
-//            testControlBtn.test.connect(tested)
-//            onInvokeSource:
-//            console.log("Testing it here")
-        }
-
-    }
-    Component {
-        id:  highlightComponent
-        Rectangle {  color: "black"; radius: 5;width:  Constants.actionBtnWidth;height: Constants.actionBtnHeight }
-    }
     GridView {
         id: theListView
         //anchors.fill: parent
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        anchors.rightMargin: 10
-        anchors.left: parent.left
+        property alias group:allPageModel.filterOnGroup//actionOrHome ? allPageModel.filterOnGroup:allPageModel1.filterOnGroup
+        property alias group1: allPageModel1.filterOnGroup
+        property alias theModel: theListView.model
+        property int curWidth: theListView.width
+        property bool actionOrHome: true
+        //width: theListView.width
+        //height: theListView.height
+       // flow: GridView.FlowLeftToRight
+        signal componentTriggered(string name)
+        signal tested
+        onTested: {"I am tested in TestActionsButtons"}
+        onComponentTriggered: {
+            console.log(" component was triggered"+name)
+        }
+        cellWidth: actionOrHome ?75:175
+        cellHeight: actionOrHome ?75:175
+        //width: parent.width
+        //height: parent.height
+        //anchors.fill: parent
+        //anchors.top: parent.top
+        //anchors.bottom: parent.bottom
+        //anchors.right: parent.right
+        //anchors.rightMargin: 10
+        //anchors.left: parent.left
         //anchors.leftMargin: 10
-        anchors.leftMargin: parent.width - theListView.count * cellWidth - 10
-        highlight: highlightComponent
-        focus: true
-        cellHeight:Constants.actionBtnHeight//actionOrHome ?Constants.actionBtnHeight:2*Constants.actionBtnHeight//75
-        cellWidth:Constants.actionBtnWidth//actionOrHome ?Constants.actionBtnWidth:2*Constants.actionBtnWidth//75
+        ////////anchors.leftMargin: actionOrHome ?parent.width - theListView.count * cellWidth - 10:parent.width/2 - theListView.count/2 * cellWidth - 10
+        //highlight: highlightComponent
+        //focus: true
+        width:count*cellWidth//actionOrHome ?count*cellWidth:700// actionOrHome ?width:theListView.count* cellWidth+10
+        height: actionOrHome ?cellHeight:175//cellHeight+20//
+        ///////////////////cellHeight:actionOrHome ?IntegerConstants.actionBtnHeight:2*IntegerConstants.actionBtnHeight//actionOrHome ?IntegerConstants.actionBtnHeight:2*IntegerConstants.actionBtnHeight//75
+        //////////////////cellWidth:actionOrHome ?IntegerConstants.actionBtnWidth:2*IntegerConstants.actionBtnWidth//actionOrHome ?IntegerConstants.actionBtnWidth:2*IntegerConstants.actionBtnWidth//75
         model:actionOrHome ? allPageModel:allPageModel1// allPageModel//nameModel
+        AllPageModel {
+            id: allPageModel1
+            delegate: HomePageBodyDelegate{
+                Component.onCompleted: {
+                    invokeSource.connect(actionGridView.componentTriggered)
+                    test.connect(actionGridView.tested)
+                }
+            }//actionHeaderDelegate
+            filterOnGroup: "homeMainItems"
+            model: actionDelegateModel//ActionDelegateModel{}//actionDelegateModel//homePageBodyDelegate
 
+        }
+        AllPageModel {
+            id: allPageModel
+            delegate: ActionHeaderDelegate{
+                Component.onCompleted: {
+                    invokeSource.connect(actionGridView.componentTriggered)
+                    test.connect(actionGridView.tested)
+                }
+            }//actionHeaderDelegate
+            filterOnGroup: ""//"homeItems"
+            onFilterGroupChanged: {
+                console.log("I am changed")
+                update()
+            }
+
+            model: actionDelegateModel//ActionDelegateModel{}//actionDelegateModel
+
+        }
+        ActionDelegateModel {
+            id: actionDelegateModel
+        }
     }
-    ListModel {
-          id:nameModel
-          ListElement {
-              name: "Jim Williams"
-              portrait: "qrc:/images/icon_to_next.png"
-          }
-          ListElement {
-              name: "John Brown"
-              portrait: "qrc:/images/icon_to_next.png"
-          }
-          ListElement {
-              name: "Bill Smyth"
-              portrait: "qrc:/images/icon_to_next.png"
-          }
-          ListElement {
-              name: "Sam Wise"
-              portrait: "qrc:/images/icon_to_next.png"
-          }
-      }
-}
+//    ListModel {
+//        id:nameModel
+//        ListElement {
+//            name: "Jim Williams"
+//            portrait: "qrc:/images/icon_to_next.png"
+//        }
+//        ListElement {
+//            name: "John Brown"
+//            portrait: "qrc:/images/icon_to_next.png"
+//        }
+//        ListElement {
+//            name: "Bill Smyth"
+//            portrait: "qrc:/images/icon_to_next.png"
+//        }
+//        ListElement {
+//            name: "Sam Wise"
+//            portrait: "qrc:/images/icon_to_next.png"
+//        }
+//    }
+//}
 
 
 

@@ -3,7 +3,11 @@ import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
 import "."
 import "./../../images/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
+
 Item {
     id: element
     //height: 150
@@ -28,8 +32,8 @@ Item {
                 //implicitHeight:  100
                 //implicitWidth: 150
                 text: qsTr("Test Status")
-                font.pointSize: Constants.m_intLblFontSize
-                font.family: Constants.fontFamily
+                font.pointSize: IntegerConstants.m_intLblFontSize
+                font.family: StringConstants.fontFamily
                 renderType: Text.QtRendering
                 fontSizeMode: Text.HorizontalFit
                 //lineHeight: 0.7
@@ -54,8 +58,8 @@ Item {
                 //implicitHeight: 150
                 //implicitWidth: 150
                 text: qsTr("Instrument status")
-                font.pointSize: Constants.m_intLblFontSize
-                font.family: Constants.fontFamily
+                font.pointSize: IntegerConstants.m_intLblFontSize
+                font.family: StringConstants.fontFamily
                 renderType: Text.QtRendering
                 fontSizeMode: Text.HorizontalFit
                 anchors.top: label_eye.bottom

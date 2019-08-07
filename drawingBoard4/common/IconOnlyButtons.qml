@@ -1,11 +1,11 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
 import "."
-import "./../imports/ApplicationContstants/"
+//import "./../imports/ApplicationConstants/"
 import "."
 import "./../images"
-import "./../imports/"
+//import "./../imports/"
 import "./../icons/all/"
 ToolButton {
     id: iconlOnlyButtons

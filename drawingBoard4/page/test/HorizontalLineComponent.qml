@@ -12,6 +12,11 @@ import QtQuick.Controls 2.3
 import Qt.labs.settings 1.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
+import ApplicationIntegerConstants 1.0
+import ApplicationStringConstants 1.0
+import ApplicationOtherConstants 1.0
+
+
 Item {
     id:horVerLineItem
     property Component horVerLine: lineComponent

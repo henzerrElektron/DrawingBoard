@@ -16,7 +16,12 @@ import "."
 import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
+
+
 Rectangle{
     id:mainRec
     height: 1225

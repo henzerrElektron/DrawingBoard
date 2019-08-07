@@ -15,34 +15,36 @@ import QtQuick.Shapes 1.11
 import QtQml.Models 2.12
 import "."
 import "./../../images/"
-import "./../../imports/"
+//import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../../common/"
-import ApplicationContstants 1.0
-
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 
 Rectangle{
     id:rectangle1
     //color: "black"
-    color: Constants.testPage_backgroundColor//"transparent"
+    color: StringConstants.testPage_backgroundColor//"transparent"
     anchors.fill: parent
     property alias labelText: label_testPageHeading.text
     property alias actionGridGroup: actionGridView.group
     GridLayout
     {
-        columns: Constants.columnCount5
+        columns: IntegerConstants.columnCount5
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        anchors.topMargin: Constants.margin10
-        anchors.leftMargin: Constants.margin10
-        columnSpacing: Constants.margin5
+        anchors.topMargin: IntegerConstants.margin10
+        anchors.leftMargin: IntegerConstants.margin10
+        columnSpacing: IntegerConstants.margin5
         Rectangle{
             id:rec1
-            Layout.row: Constants.rowCount1
-            Layout.column: Constants.columnCount1
+            Layout.row: IntegerConstants.rowCount1
+            Layout.column: IntegerConstants.columnCount1
             color: "transparent"
             width: 50
             height: parent.height
@@ -56,15 +58,15 @@ Rectangle{
         }
         Rectangle{
             id:rec2
-            Layout.row: Constants.rowCount1
-            Layout.column: Constants.columnCount2
+            Layout.row: IntegerConstants.rowCount1
+            Layout.column: IntegerConstants.columnCount2
             color: "transparent"
             Layout.fillWidth: true
             height: parent.height
             anchors.left: rec1.right
             TestPageLabel {
                 id: label_testPageHeading
-                text: Constants.label_testPgHeader
+                text: StringConstants.label_testPgHeader
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.verticalCenter: parent.verticalCenter
@@ -76,11 +78,11 @@ Rectangle{
         Rectangle{
             id:rec3
             color: "transparent"
-            Layout.column: Constants.columnCount3
-            Layout.columnSpan: Constants.columnCount2
+            Layout.column: IntegerConstants.columnCount3
+            Layout.columnSpan: IntegerConstants.columnCount2
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.row: Constants.rowCount1
+            Layout.row: IntegerConstants.rowCount1
             Layout.alignment: Qt.AlignRight
             height: parent.height
            // anchors.left: rec1.right

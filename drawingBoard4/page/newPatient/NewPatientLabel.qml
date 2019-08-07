@@ -18,7 +18,11 @@ import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
+
 //GridLayout {
 //    columns: 2
 
@@ -49,7 +53,7 @@ import ApplicationContstants 1.0
 //}
 Rectangle {
     id: rectangle
-    color: Constants.testPage_backgroundColor
+    color: StringConstants.testPage_backgroundColor
     anchors.fill: parent
     border.color: "black"
     border.width: 1

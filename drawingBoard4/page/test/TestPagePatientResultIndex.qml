@@ -18,7 +18,10 @@ import "./../../images/"
 import "./../../imports/"
 import "./../../icons/all/"
 import "./../../delegates/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 Item {
     //width: 800
     //height: 125
@@ -35,7 +38,7 @@ Item {
             Rectangle {
                 id: rectangle1
                 height: 50
-                color: Constants.testPage_ResultIndexTitleBgColor
+                color: StringConstants.testPage_ResultIndexTitleBgColor
                 anchors.top: parent.top
                 anchors.topMargin: 0
                 anchors.right: parent.right
@@ -75,7 +78,7 @@ Item {
                         //anchors.left: parent.left
                         //anchors.right: parent.right
                         width: 100
-                        color: Constants.testPage_ResultIndexTitleBgColor
+                        color: StringConstants.testPage_ResultIndexTitleBgColor
                         radius: 30
                         Label {
                             id: label1
@@ -105,7 +108,7 @@ Item {
                         width: 100
                         anchors.left: label2.right
                         anchors.leftMargin: 10
-                        color: Constants.testPage_ResultIndexEyeBgColor
+                        color: StringConstants.testPage_ResultIndexEyeBgColor
                         radius: 30
                         anchors.verticalCenter: label2.verticalCenter
                         Label {

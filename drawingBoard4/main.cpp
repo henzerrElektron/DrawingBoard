@@ -93,12 +93,20 @@ int main(int argc, char *argv[])
     qmlRegisterType<TestResultModels>("TestResultModels",0,1,"TestResultModels");
     qmlRegisterType<TestPageSupplementationModel>("TestPageSupplementationModel",0,1,"TestPageSupplementationModel");
     qmlRegisterType<SwitchPatientTableModel>("SwitchPatientTableModel",0,1,"SwitchPatientTableModel");
+    //qmlRegisterSingletonType(QUrl("qrc:/imports/ApplicationConstants/IntegerConstants.qml"),"ApplicationIntegerConstants",1,0,"IntegerConstants");
+    //qmlRegisterSingletonType(QUrl("qrc:/imports/ApplicationConstants/StringConstants.qml"),"ApplicationStringConstants",1,0,"StringConstants");
+    //qmlRegisterSingletonType(QUrl("qrc:/imports/ApplicationConstants/OtherConstants.qml"),"ApplicationOtherConstants",1,0,"OtherConstants");
+
     engine.addImportPath("qrc:/");
     engine.addImportPath("qrc:/imports/");
     engine.addImportPath(":/");
     engine.addImportPath(":/imports/");
-    engine.addImportPath( "qrc:/imports/ApplicationContstants" );
-
+    engine.addImportPath("qrc:/imports/ApplicationConstants");
+    engine.addImportPath(":/imports/ApplicationConstants");
+    engine.addImportPath("qrc:/imports/ApplicationConstants/");
+    engine.addImportPath(":/imports/ApplicationConstants/");
+    engine.addImportPath( "qrc:///imports/ApplicationConstants" );
+    engine.addImportPath( "qrc:///imports/ApplicationConstants/" );
 
     engine.addImportPath("qrc:/");
     engine.addImportPath("qrc:/models/");

@@ -12,7 +12,10 @@ import QtQuick.Controls 2.3
 import Qt.labs.settings 1.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
-import ApplicationContstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
+import ApplicationConstants 1.0
 import "."
 //Component{
 //    id: actionHeaderDelegate
@@ -22,8 +25,8 @@ import "."
         //anchors.right: parent.right
         //height: root.rowHeight
         id: actionHeaderDelegateRec
-        height: Constants.actionBtnHeight//75
-        width: Constants.actionBtnWidth//75
+        height: IntegerConstants.actionBtnHeight//75
+        width: IntegerConstants.actionBtnWidth//75
         color: "#5EBDC3"//Constants.headerBackgroundColor//"transparent"//"#5EBDC3"//
         //border.color: "black"//Constants.actionBtnBorderColor
         signal invokeSource(string source)
@@ -41,7 +44,7 @@ import "."
             icon.height: 50
             //width: 2*icon.width
             //height: 2*icon.height
-            background: Rectangle{ color: Constants.actionBtnBackgroundColor}
+            background: Rectangle{ color: StringConstants.actionBtnBackgroundColor}
             display: AbstractButton.IconOnly
             //radius: 10
             onClicked: {

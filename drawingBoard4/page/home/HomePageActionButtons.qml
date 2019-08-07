@@ -20,7 +20,10 @@ import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 //PageActionsButtons{
 //    id:image2
 //    group1: "homeMainItems"
@@ -80,7 +83,7 @@ Rectangle {
 //    }
 //    Component {
 //        id:  highlightComponent
-//        Rectangle {  color: "lightsteelblue"; radius: 5;width:  Constants.actionBtnWidth;height: Constants.actionBtnHeight }
+//        Rectangle {  color: "lightsteelblue"; radius: 5;width:  IntegerConstants.actionBtnWidth;height: IntegerConstants.actionBtnHeight }
 //    }
     GridView {
         id: theListView
@@ -103,8 +106,8 @@ Rectangle {
         width: theListView.count* cellWidth+10
        // height: theListView.count * cellHeight + 10
         focus: true
-        cellHeight:2*Constants.actionBtnHeight//actionOrHome ?Constants.actionBtnHeight:2*Constants.actionBtnHeight//75
-        cellWidth:2*Constants.actionBtnWidth///actionOrHome ?Constants.actionBtnWidth:2*Constants.actionBtnWidth//75
+        cellHeight:2*IntegerConstants.actionBtnHeight//actionOrHome ?IntegerConstants.actionBtnHeight:2*IntegerConstants.actionBtnHeight//75
+        cellWidth:2*IntegerConstants.actionBtnWidth///actionOrHome ?IntegerConstants.actionBtnWidth:2*IntegerConstants.actionBtnWidth//75
         model:allPageModel1//actionOrHome ? allPageModel:// allPageModel//nameModel
 
     }

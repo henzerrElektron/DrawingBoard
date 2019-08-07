@@ -1,4 +1,5 @@
 module ApplicationConstants
+singleton Constants 1.0 Constants.qml
 singleton IntegerConstants 1.0 IntegerConstants.qml
 singleton StringConstants 1.0 StringConstants.qml
-Singleton OtherConstants 1.0 OtherConstants.qml
+singleton OtherConstants 1.0 OtherConstants.qml

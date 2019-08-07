@@ -1,9 +1,12 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
 import "."
 import "./common/"
-import "./imports/ApplicationContstants/"
+//import "./imports/ApplicationConstants/"
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 //Item {
 Rectangle{
     color: "white"
@@ -14,7 +17,7 @@ Rectangle{
     //            height: 100
     //            //text: qsTr("text")
     //            font: {
-    //                family:Constants.awefontFamily
+    //                family:OtherConstants.awefontFamily
     //                pixelsize:42
 
     //            }
@@ -33,7 +36,7 @@ Rectangle{
 //            height: 100
 //            //text: qsTr("text")
 //            font: {
-//                family:Constants.icons
+//                family:OtherConstants.icons
 //                pixelsize:42
 
 //            }

@@ -20,8 +20,10 @@ import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
-import ApplicationContstants 1.0
-
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 Rectangle {
     id: rec
     property alias labelText: label.text
@@ -46,10 +48,10 @@ Rectangle {
         anchors.rightMargin: 0
         anchors.left: parent.left
         anchors.leftMargin: 0
-        font: Constants.fontFamily
+        font: OtherConstants.fontFamily
         //font.pixelSize: 10
         //font.bold: true
-        color: Constants.actionBtnBackgroundColor
+        color: StringConstants.actionBtnBackgroundColor
         height: rec.height/2
     }
 

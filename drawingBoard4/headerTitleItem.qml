@@ -1,8 +1,10 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
-import ApplicationContstants 1.0
-
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 //Item {
 //    id: element
     //width: 500
@@ -37,8 +39,8 @@ import ApplicationContstants 1.0
                 id: label
                 color: "#ffffff"
                 text: qsTr("Label")
-                font.pointSize: Constants.m_intLblFontSize
-                font.family: Constants.fontFamily
+                font.pointSize: IntegerConstants.m_intLblFontSize
+                font.family: OtherConstants.fontFamily
                 renderType: Text.QtRendering
                 fontSizeMode: Text.HorizontalFit
                 horizontalAlignment: Text.AlignHCenter

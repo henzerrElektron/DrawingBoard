@@ -13,22 +13,23 @@ import Qt.labs.settings 1.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
 import QtQml.Models 2.12
+import ApplicationConstants 1.0
 import "."
 import "./../../images/"
-import "./../../imports/"
+//import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
-import ApplicationContstants 1.0
-
-
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 //Item {
 //  width: 950
 //  height: 275
 
 Rectangle {
     id: rectangle
-    color: Constants.testPage_backgroundColor
+    color: StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor
     anchors.fill: parent
    //height: 400
    // width: 800
@@ -41,7 +42,7 @@ Rectangle {
 
         Rectangle {
             id: rectangle1
-            color: Constants.testPage_backgroundColor
+            color: StringConstants.testPage_backgroundColor
             height:75// pgTitle.height
             Layout.fillWidth: true
             Layout.row: 1
@@ -49,12 +50,12 @@ Rectangle {
                 id:pgTitle
                 anchors.fill: parent
                 actionGridGroup:"newPatientItems"
-                labelText: Constants.label_newPtPgHeader
+                labelText: StringConstants.label_newPtPgHeader
             }//TestPageTitle
         }//TestPageTitle
         Rectangle {
             id: rectangle2
-            color: Constants.testPage_backgroundColor
+            color: StringConstants.testPage_backgroundColor
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.row: 2
@@ -66,7 +67,7 @@ Rectangle {
                 //rows: 3
                 Rectangle{
                     id:rectangleSub1
-                    color: Constants.testPage_backgroundColor
+                    color: StringConstants.testPage_backgroundColor
                     Layout.column: 1
                     //Layout.row: 2
                     Layout.fillHeight: true
@@ -76,17 +77,17 @@ Rectangle {
                     NewPatientDataTumbler{
                         id:pageTitle
                         anchors.fill: parent
-                        labelText: Constants.lbl_npPatientTitle
+                        labelText: StringConstants.lbl_npPatientTitle
                         firstTumblerVisibility: true
                         secTumblerVisibility: false
                         thirdTumblerVisibility: false
-                        firstTumblerModel:Constants.modelTitle
+                        firstTumblerModel:OtherConstants.modelTitle
                     }
                 }
 
                 Rectangle{
                     id:rectangleSub2
-                    color: Constants.testPage_backgroundColor//"green"///
+                    color: StringConstants.testPage_backgroundColor//"green"///
                     Layout.column: 2
                     // Layout.row: 3
                     Layout.fillHeight: true
@@ -98,11 +99,11 @@ Rectangle {
                         id:pageGender
                         //anchors.fill: parent
                         anchors.left: parent.left
-                        labelText: Constants.lbl_npPatientGender
+                        labelText: StringConstants.lbl_npPatientGender
                         firstTumblerVisibility: true
                         secTumblerVisibility: false
                         thirdTumblerVisibility: false
-                        firstTumblerModel:Constants.modelGender
+                        firstTumblerModel:OtherConstants.modelGender
                     }
                 }
                 //                Rectangle {
@@ -165,7 +166,7 @@ Rectangle {
 
                 Rectangle {
                     id: rectangleSub3
-                    color: Constants.testPage_backgroundColor
+                    color: StringConstants.testPage_backgroundColor
                     Layout.column: 3
                     //Layout.row: 3
                     Layout.rowSpan: 1
@@ -179,7 +180,7 @@ Rectangle {
                 }
                 Rectangle {
                     id: rectangleSub4
-                    color:Constants.testPage_backgroundColor// "black"//
+                    color:StringConstants.testPage_backgroundColor// "black"//
                     Layout.column: 4
                     // Layout.row: 1
                     // Layout.rowSpan: 3

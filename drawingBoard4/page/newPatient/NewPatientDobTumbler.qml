@@ -14,14 +14,16 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
 import "."
 import "./../../images/"
-import "./../../imports/"
+//import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
 import QtQml.Models 2.12
 import Qt.labs.calendar 1.0
-
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 
 
 Rectangle {
@@ -29,8 +31,8 @@ Rectangle {
     color: "transparent"
     width: mainGrid.width+3*(2* mainGrid.columnSpacing)
     height: mainGrid.height
-   // border.color: Constants.borderColorBlack
-   // border.width: Constants.borderWidth1
+   // border.color: OtherConstants.borderColorBlack
+   // border.width: IntegerConstants.borderWidth1
     property int curSetDate: 0
     property int curSetYear: 0
     property string curSetYearString: ""
@@ -50,28 +52,28 @@ Rectangle {
         curDateMonthYear = curSetDate.toString()+"/"+curSetMonth+"/"+curSetYear.toString()//curSetYearString//
     }
     onSetMonth: {
-        curSetMonth = Constants.dobCalAllMonths[index]
+        curSetMonth = OtherConstants.dobCalAllMonths[index]
         curDateMonthYear = curSetDate.toString()+"/"+curSetMonth+"/"+curSetYear.toString()//curSetYearString//
     }
     onSetYear: {
-        curSetYear = Constants.dobStartDate+index
+        curSetYear = OtherConstants.dobStartDate+index
         curDateMonthYear = curSetDate.toString()+"/"+curSetMonth+"/"+curSetYear.toString()//curSetYearString//
     }
 
     GridLayout{
         id:mainGrid
-        columns: Constants.columnCount3
-        rows: Constants.rowCount4
-        columnSpacing: Constants.spacing
+        columns: IntegerConstants.columnCount3
+        rows: IntegerConstants.rowCount4
+        columnSpacing: IntegerConstants.spacing
         Layout.minimumHeight: recDate.height+recTitle.height
         Layout.minimumWidth: recDate.width+recMonth.width+recYear.width//630
         Rectangle{
             id:recTitle
             color: "transparent"
-            Layout.row: Constants.rowCount1
+            Layout.row: IntegerConstants.rowCount1
             Layout.fillWidth: true
-            Layout.column: recTextVisible?Constants.columnCount1:Constants.columnCount2
-            Layout.columnSpan: recTextVisible?Constants.columnSpan1:Constants.columnSpan3//3
+            Layout.column: recTextVisible?IntegerConstants.columnCount1:IntegerConstants.columnCount2
+            Layout.columnSpan: recTextVisible?IntegerConstants.columnSpan1:IntegerConstants.columnSpan3//3
             Layout.alignment: recTextVisible?Qt.AlignLeft:Qt.AlignHCenter
             anchors.top: parent.top
             anchors.left: recTextVisible?recDate.left:0//recMonth.left
@@ -81,7 +83,7 @@ Rectangle {
             //width: 100//parent.width
             Label{
                 id:lbl
-                text: Constants.dobTitle
+                text: StringConstants.dobTitle
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
 
@@ -94,10 +96,10 @@ Rectangle {
         Rectangle{
             id:recText
             color: "transparent"
-            Layout.row: Constants.rowCount1
+            Layout.row: IntegerConstants.rowCount1
             Layout.fillWidth: true
-            Layout.column: Constants.columnCount2
-            Layout.columnSpan: Constants.columnSpan2//3
+            Layout.column: IntegerConstants.columnCount2
+            Layout.columnSpan: IntegerConstants.columnSpan2//3
             anchors.top: parent.top
             //anchors.left: recDate.left
             //anchors.right: recYear.right
@@ -119,12 +121,12 @@ Rectangle {
         Rectangle{
             id:recDate
             color: "transparent"
-            Layout.row: Constants.rowCount2//Constants.rowCount2
-            Layout.column: Constants.columnCount1
+            Layout.row: IntegerConstants.rowCount2//Constants.rowCount2
+            Layout.column: IntegerConstants.columnCount1
             anchors.top:recTitle.bottom
             anchors.left: parent.left
-            height:Constants.dobCalTumblerHeight
-            width: Constants.dobCalTumblerWidth
+            height:IntegerConstants.dobCalTumblerHeight
+            width: IntegerConstants.dobCalTumblerWidth
 
 
             NewPatientDataTumbler{
@@ -134,7 +136,7 @@ Rectangle {
                 firstTumblerVisibility: true
                 secTumblerVisibility: false
                 thirdTumblerVisibility: false
-                firstTumblerModel:calModel.calculateRange(1,Constants.dobCalNoOfDays)//Constants.dobCalNoOfDays//[0,1,2,3]
+                firstTumblerModel:calModel.calculateRange(1,IntegerConstants.dobCalNoOfDays)//Constants.dobCalNoOfDays//[0,1,2,3]
                 Component.onCompleted: {
                       dateTumbler.comboIndexChange.connect(setDate)
                 }
@@ -145,12 +147,12 @@ Rectangle {
             color: "transparent"
             anchors.top:recTitle.bottom
             anchors.left:  recDate.right
-            anchors.leftMargin: Constants.margin10
-            Layout.row: Constants.rowCount2
-            Layout.column: Constants.columnCount2
-            Layout.columnSpan: Constants.columnSpan2
-            height:Constants.dobCalTumblerHeight
-            width: 2*Constants.dobCalTumblerWidth
+            anchors.leftMargin: IntegerConstants.margin10
+            Layout.row: IntegerConstants.rowCount2
+            Layout.column: IntegerConstants.columnCount2
+            Layout.columnSpan: IntegerConstants.columnSpan2
+            height:IntegerConstants.dobCalTumblerHeight
+            width: 2*IntegerConstants.dobCalTumblerWidth
             NewPatientDataTumbler{
                 id:monthTumbler
                 labelVisible: false
@@ -158,7 +160,7 @@ Rectangle {
                 firstTumblerVisibility: true
                 secTumblerVisibility: false
                 thirdTumblerVisibility: false
-                firstTumblerModel:Constants.dobCalAllMonths
+                firstTumblerModel:OtherConstants.dobCalAllMonths
                 onRearrangeModelChanged: {
                     update()
                 }
@@ -177,10 +179,10 @@ Rectangle {
             //anchors.left:  recMonth.right
             anchors.right: parent.right
             //anchors.leftMargin: Constants.margin10
-            Layout.row: Constants.rowCount2
-            Layout.column: Constants.columnCount4
-            height:Constants.dobCalTumblerHeight
-            width: Constants.dobCalTumblerWidth
+            Layout.row: IntegerConstants.rowCount2
+            Layout.column: IntegerConstants.columnCount4
+            height:IntegerConstants.dobCalTumblerHeight
+            width: IntegerConstants.dobCalTumblerWidth
             NewPatientDataTumbler{
                 id:yearTumbler
                 CalendarYearModel{
@@ -196,7 +198,7 @@ Rectangle {
                 thirdTumblerVisibility: false
                 //donotUpdateMovingTumbler: true
                 firstTumblerModel:calModel.calculateYears()
-                comboBoxModel: calModel.calculateRange(Constants.dobStartDate,Constants.dobEndDate)//calculateRange(1900,2019)//
+                comboBoxModel: calModel.calculateRange(IntegerConstants.dobStartDate,IntegerConstants.dobEndDate)//calculateRange(1900,2019)//
                 firstTumblerDelegate:calYearCom
                 onRearrangeModelChanged: {
                     update()

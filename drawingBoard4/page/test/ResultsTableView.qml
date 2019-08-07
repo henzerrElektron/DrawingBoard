@@ -1,6 +1,10 @@
 import QtQuick 2.12
 import TestResultModels 0.1
 import QtQuick 2.0
+import ApplicationIntegerConstants 1.0
+import ApplicationStringConstants 1.0
+import ApplicationOtherConstants 1.0
+
 TableView {
     id: tableView
     //anchors.fill: parent

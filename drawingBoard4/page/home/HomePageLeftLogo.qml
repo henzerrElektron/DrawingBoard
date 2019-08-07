@@ -19,8 +19,10 @@ import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
-import ApplicationContstants 1.0
-
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 
 Rectangle{
     id: logoRec
@@ -43,7 +45,7 @@ Rectangle{
             color: "#ffffff"//"black"//
             font.pointSize: 11//*Constants.m_intChkFontSize
             font.bold:true
-            font.family: Constants.fontFamily
+            font.family: OtherConstants.fontFamily
             renderType: Text.QtRendering
             fontSizeMode: Text.HorizontalFit
             horizontalAlignment: Text.AlignHCenter
@@ -58,7 +60,7 @@ Rectangle{
             height:50
             font.pointSize: 48//5*Constants.m_intChkFontSize
             font.bold:true
-            font.family: Constants.fontFamily
+            font.family: OtherConstants.fontFamily
             renderType: Text.QtRendering
             fontSizeMode: Text.HorizontalFit
             horizontalAlignment: Text.AlignHCenter

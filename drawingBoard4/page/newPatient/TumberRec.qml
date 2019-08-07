@@ -19,7 +19,13 @@ import "."
 import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
+
+
+
 Rectangle{
     id:firstTumberRec
     property alias allTumblerModel: firstTumbler.model
@@ -50,13 +56,13 @@ Rectangle{
             height: (firstTumbler.height * 0.6) - (firstTumbler.height * 0.4)//40//parent.height/10//
             //border.color: "black"
             //border.width: 1
-            color:  Constants.actionBtnBackgroundColor
+            color:  StringConstants.actionBtnBackgroundColor
             //radius: 20
             opacity: 0.5
         }
         delegate: Text {
             text: qsTr("%1").arg(modelData)
-            font: Constants.fontFamily
+            font: StringConstants.fontFamily
             color: "white"
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter

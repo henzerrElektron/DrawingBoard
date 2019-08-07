@@ -15,11 +15,15 @@ import QtQuick.Shapes 1.11
 import QtQml.Models 2.12
 import "."
 import "./../../images/"
-import "./../../imports/"
+//import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
+
 Item {
 
     id:mainRec
@@ -45,7 +49,7 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin: 0
         width: parent.width/4
-        font: Constants.fontFamily
+        font: StringConstants.fontFamily
         //width: 200//(parent.width - (100))/3
         //height: 100
 //        background: Rectangle{
@@ -72,7 +76,7 @@ Item {
         width: parent.width - label.width
         text: ""
         verticalAlignment: Text.AlignVCenter
-        font: Constants.fontFamily
+        font: StringConstants.fontFamily
         //placeholderText: "please enter some data"
         //width: 300//(parent.width - label.width)//(parent.width/10))/2
         //height: 100

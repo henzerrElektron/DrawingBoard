@@ -18,6 +18,10 @@ import QtQuick.Shapes 1.11
 import TestResultModels 0.1
 import QtQml.Models 2.12
 import Qt.labs.calendar 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 
 CalendarModel {
     id:calModel

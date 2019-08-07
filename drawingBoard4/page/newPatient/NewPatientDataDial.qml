@@ -18,7 +18,11 @@ import "."
 import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
+
 Dial {
     id: idDial
     width: 100; height: 80
@@ -135,7 +139,7 @@ Dial {
                 //id: name1
                 text: colorModel.get(styleData.index).name//styleData.value//styleData.index
                 anchors.centerIn: parent
-                //font: Constants.fontFamily
+                //font: OtherConstants.fontFamily
                 font.pixelSize: 7
             }
 

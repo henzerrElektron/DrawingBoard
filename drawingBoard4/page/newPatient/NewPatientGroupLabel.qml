@@ -16,7 +16,11 @@ import "."
 import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
+
 //Rectangle{
 //    id:mainRec
 
@@ -35,11 +39,11 @@ import ApplicationContstants 1.0
         anchors.left: parent.left
         anchors.leftMargin: 0
         height: 50
-        font:Constants.fontFamily
+        font:OtherConstants.fontFamily
         color: "white"
         background: Rectangle{
             id:labelRec
-            color: Constants.label_NewPatientLabelBgColor//"black"
+            color: StringConstants.label_NewPatientLabelBgColor//"black"
         }
     }
 

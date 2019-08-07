@@ -3,7 +3,7 @@ import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
 import "."
 import "./../images/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
 //Component{
 //    id:testControlDelegate
 //    Connections{
@@ -31,7 +31,7 @@ RoundButton {
     icon.name: btnIconName  //"icon_play_detailed"
     icon.source:btnIconSource //"qrc:/images/icon_play_detailed.png"
     icon.color: btnIconColor//"transparent"//btnSource//"Test"//
-    //icon.color: Constants.actionBtnBackgroundColor
+    //icon.color: StringConstants.actionBtnBackgroundColor
         background: Rectangle{
             color: "white"
         }

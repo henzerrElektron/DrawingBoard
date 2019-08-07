@@ -19,8 +19,10 @@ import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
-import ApplicationContstants 1.0
-
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 
 Rectangle {
     id: rectangle2
@@ -39,8 +41,8 @@ Rectangle {
         //rowSpacing: 5
         Label{
             id:label
-            text: Constants.label_searchQuestion
-            color: Constants.actionBtnBackgroundColor
+            text: StringConstants.label_searchQuestion
+            color: StringConstants.actionBtnBackgroundColor
             Layout.alignment: Qt.AlignTop |Qt.AlignLeft
             //Layout.fillHeight: true
             //Layout.fillWidth: true
@@ -61,7 +63,7 @@ Rectangle {
             //anchors.top: label.bottom//parent.top//label.bottom
             //anchors.topMargin: 10
             //Layout.alignment: Qt.AlignTop |Qt.AlignLeft
-            labelText: Constants.label_switchPatientSurname
+            labelText: StringConstants.label_switchPatientSurname
             //Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.column: 1
@@ -75,7 +77,7 @@ Rectangle {
 
         SwitchSearchBox {
             id: label_PatientName
-            labelText: Constants.label_switchPatientFirstName
+            labelText: StringConstants.label_switchPatientFirstName
             comboModel: theExistingPatientsModel
             commboTextRole: "Surname"
            // anchors.top: label.bottom
@@ -91,7 +93,7 @@ Rectangle {
             //width: parent.width/3
             //height: parent.height/3
             //anchors.right: label_lblPatientName.right
-            //anchors.rightMargin: Constants.testPage_rightMargin
+            //anchors.rightMargin: IntegerConstants.testPage_rightMargin
         }
         SwitchSearchBox {
             id: label_lblmedicalRef
@@ -99,11 +101,11 @@ Rectangle {
             commboTextRole: "Medical Reference"
            // anchors.top: label.bottom
            // anchors.topMargin: 10
-            labelText: Constants.label_testPgMedRef
+            labelText: StringConstants.label_testPgMedRef
             //anchors.left: parent.left
             //anchors.leftMargin: 0
             //lblOrText: false
-            //text: Constants.label_testPgMedRef
+            //text: StringConstants.label_testPgMedRef
             //Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.column: 3

@@ -14,7 +14,11 @@ import QtQuick.Shapes 1.11
 import "."
 import "./../../images/"
 import "./../../imports/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
+
 //import appContstants 1.0
 
 
@@ -37,9 +41,9 @@ import ApplicationContstants 1.0
                   font.bold: true
                   font.pointSize:12//control.down ? 12:10
                   //font.pointSize: Constants.m_intLblFontSize
-                  font.family: Constants.fontFamily
+                  font.family: OtherConstants.fontFamily
                   //opacity: enabled ? 1.0 : 0.3
-                  color: control.down ?  "white":Constants.testPage_checkBtnBgColor
+                  color: control.down ?  "white":StringConstants.testPage_checkBtnBgColor
                   elide: Text.ElideRight
                   verticalAlignment: Text.AlignVCenter
               }
@@ -60,7 +64,7 @@ import ApplicationContstants 1.0
                       x: 6
                       y: 6
                       radius: 20
-                      color: control.down ? Constants.testPage_checkBtnBgColor:"white"///"#17a81a" : "#21be2b"
+                      color: control.down ? StringConstants.testPage_checkBtnBgColor:"white"///"#17a81a" : "#21be2b"
                       visible: control.down//control.checked
                   }
               }
@@ -69,9 +73,9 @@ import ApplicationContstants 1.0
                   implicitWidth: 60
                   implicitHeight: 40
                   border.width: 2
-                  border.color: control.down ?"white" : Constants.testPage_checkBtnBorderBgColor
+                  border.color: control.down ?"white" : StringConstants.testPage_checkBtnBorderBgColor
                   //visible: control.down || control.highlighted
-                  color: control.down ?  Constants.testPage_checkBtnBgColor:Constants.testPage_unCheckBtnBgColor
+                  color: control.down ?  Constants.testPage_checkBtnBgColor:StringConstants.testPage_unCheckBtnBgColor
               }
     }
 

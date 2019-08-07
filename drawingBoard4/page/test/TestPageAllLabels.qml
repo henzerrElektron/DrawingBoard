@@ -18,12 +18,14 @@ import "./../../images/"
 import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
-import ApplicationContstants 1.0
-
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 
 Rectangle {
     id: rectangle2
-    color: Constants.testPage_backgroundColor//color: "transparent"
+    color: StringConstants.testPage_backgroundColor//color: "transparent"
     anchors.fill: parent
     property alias lblPatientNameVisible: label_lblPatientName.visible
     property alias txtPatientNameVisible: label_PatientName.visible
@@ -55,7 +57,7 @@ Rectangle {
             //anchors.left: parent.left
             //anchors.leftMargin: 0
             lblOrText: false
-            text: Constants.label_testPgPatient
+            text: StringConstants.label_testPgPatient
             Layout.fillHeight: true
             //Layout.fillWidth: true
             Layout.columnSpan: 1
@@ -82,7 +84,7 @@ Rectangle {
             //anchors.left: parent.left
             //anchors.leftMargin: 0
             lblOrText: false
-            text: Constants.label_testPgMedRef
+            text: StringConstants.label_testPgMedRef
             Layout.fillHeight: true
             //Layout.fillWidth: true
             Layout.columnSpan: 1
@@ -108,7 +110,7 @@ Rectangle {
             //anchors.left: parent.left
             //anchors.leftMargin: 0
             lblOrText: false
-            text: Constants.label_testPgDOB
+            text: StringConstants.label_testPgDOB
             Layout.fillHeight: true
             //Layout.fillWidth: true
             Layout.columnSpan: 1
@@ -135,7 +137,7 @@ Rectangle {
             //anchors.left: parent.left
             //anchors.leftMargin: 0
             lblOrText: false
-            text: Constants.label_testPgIOLFitted
+            text: StringConstants.label_testPgIOLFitted
             Layout.fillHeight: true
             //Layout.fillWidth: true
             Layout.columnSpan: 1
@@ -161,7 +163,7 @@ Rectangle {
             //anchors.left: parent.left
             //anchors.leftMargin: 0
             lblOrText: false
-            text: Constants.label_testPgIOLAge
+            text: StringConstants.label_testPgIOLAge
             Layout.fillHeight: true
             //Layout.fillWidth: true
             Layout.columnSpan: 1

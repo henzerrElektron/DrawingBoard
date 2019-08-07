@@ -12,7 +12,7 @@ import QtQuick.Controls 2.3
 import Qt.labs.settings 1.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
 import "."
 //Component{
 //    id: actionHeaderDelegate
@@ -22,10 +22,10 @@ Rectangle {
     //anchors.right: parent.right
     //height: root.rowHeight
     id: homePageBodyDelegate
-    height: Constants.homePageBodyBtnHeight//4*testControlBtn.height////75
-    width: Constants.homePageBodyBtnwidth//4*testControlBtn.width////75
-    color: Constants.homePageBodyColor//"#5EBDC3"//Constants.headerBackgroundColor//"transparent"//"#5EBDC3"//
-    border.color: Constants.homePageBodyBorder//Constants.actionBtnBorderColor
+    height: IntegerConstants.homePageBodyBtnHeight//4*testControlBtn.height////75
+    width: IntegerConstants.homePageBodyBtnwidth//4*testControlBtn.width////75
+    color: IntegerConstants.homePageBodyColor//"#5EBDC3"//Constants.headerBackgroundColor//"transparent"//"#5EBDC3"//
+    border.color: IntegerConstants.homePageBodyBorder//Constants.actionBtnBorderColor
     border.width: 5
     signal invokeSource(string source)
     signal test()
@@ -42,7 +42,7 @@ Rectangle {
         icon.height: 100
         width: 2*icon.width
         height: 2*icon.height
-        background: Rectangle{ color: Constants.homePageBodyColor}//Constants.actionBtnBackgroundColor}
+        background: Rectangle{ color: StringConstants.homePageBodyColor}//Constants.actionBtnBackgroundColor}
         display: AbstractButton.TextUnderIcon
         text: actionText
         //radius: 10

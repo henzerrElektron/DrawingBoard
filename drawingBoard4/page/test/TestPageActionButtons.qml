@@ -20,8 +20,10 @@ import "./../../images/"
 import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
-import ApplicationContstants 1.0
-
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 
 Rectangle {
     id: rectangle3
@@ -67,7 +69,7 @@ Rectangle {
 //    }
     Component {
         id:  highlightComponent
-        Rectangle {  color: "lightsteelblue"; radius: 5;width:  Constants.actionBtnWidth;height: Constants.actionBtnHeight }
+        Rectangle {  color: "lightsteelblue"; radius: 5;width:  IntegerConstants.actionBtnWidth;height: IntegerConstants.actionBtnHeight }
     }
     GridView {
         id: theListView
@@ -81,8 +83,8 @@ Rectangle {
         anchors.leftMargin: parent.width - theListView.count * cellWidth - 10
         highlight: highlightComponent
         focus: true
-        cellHeight:Constants.actionBtnHeight//75
-        cellWidth:Constants.actionBtnWidth//75
+        cellHeight:IntegerConstants.actionBtnHeight//75
+        cellWidth:IntegerConstants.actionBtnWidth//75
         model:allPageModel// allPageModel
 
     }

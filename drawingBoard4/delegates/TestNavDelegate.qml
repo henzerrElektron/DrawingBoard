@@ -17,7 +17,7 @@ import "."
 import "./../images"
 import "./../imports/"
 import "./../icons/all/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
 ToolButton {
     id: navToolButton
     //width: 60

@@ -18,8 +18,10 @@ import "./../../images/"
 import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
-import ApplicationContstants 1.0
-
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 
 //Item {
 //  width: 950
@@ -27,7 +29,7 @@ import ApplicationContstants 1.0
 
 Rectangle {
     id: rectangle
-    color: Constants.testPage_backgroundColor
+    color: StringConstants.testPage_backgroundColor
     anchors.fill: parent
     height: 400
     width: 800
@@ -40,7 +42,7 @@ Rectangle {
 
         Rectangle {
             id: rectangle1
-            color: Constants.testPage_backgroundColor
+            color: StringConstants.testPage_backgroundColor
             //color: "black"
             //anchors.top: parent.top
             //anchors.left: parent.left
@@ -81,7 +83,7 @@ Rectangle {
                 columns: 2
                 Rectangle {
                     id: rectangleSub1
-                    color: Constants.testPage_backgroundColor
+                    color: StringConstants.testPage_backgroundColor
                     //color: "black"
                     //anchors.top: parent.top
                     //anchors.left: parent.left
@@ -99,7 +101,7 @@ Rectangle {
                 }
                 Rectangle {
                     id: rectangleSub2
-                    color: Constants.testPage_backgroundColor
+                    color: StringConstants.testPage_backgroundColor
                     //color: "red"
                     //anchors.top: parent.top
                     //anchors.left: parent.left

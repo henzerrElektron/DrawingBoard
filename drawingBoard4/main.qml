@@ -31,7 +31,10 @@ import "./page/changePatient/"
 import TestResultModels 0.1
 import QtQml.Models 2.12
 import Qt.labs.calendar 1.0
-
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 Window {
     id: window
     visible: true
@@ -180,21 +183,25 @@ Window {
 //        }
 
 
+            NewPatientPage{
+                id:newpatientTabb
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+            }
 
 
 
+//                NewPatientPersonalDetails{
+//                    id:newPatientRecon
+//                    Layout.fillHeight: true
+//                    Layout.fillWidth: true
+//                }
 
-                NewPatientPersonalDetails{
-                    id:newPatientRecon
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                }
-
-        //        SwitchPatient{
-        //            id:homeTPage
-        //            Layout.fillWidth: true
-        //            Layout.fillHeight: true
-        //        }
+//                SwitchPatient{
+//                    id:homeTPage
+//                    Layout.fillWidth: true
+//                    Layout.fillHeight: true
+//                }
         //           SwitchPatient{
         //              id:switchPage
         //              Layout.fillHeight: true

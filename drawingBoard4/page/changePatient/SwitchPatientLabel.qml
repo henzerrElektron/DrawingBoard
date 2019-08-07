@@ -19,8 +19,10 @@ import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
-import ApplicationContstants 1.0
-
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 
 //Item {
 //    width: 950
@@ -28,7 +30,7 @@ import ApplicationContstants 1.0
 
     Rectangle {
         id: rectangle
-        color: Constants.testPage_backgroundColor
+        color: StringConstants.testPage_backgroundColor
         anchors.fill: parent
         GridLayout{
             id: mainRow
@@ -39,7 +41,7 @@ import ApplicationContstants 1.0
 
             TestPageTitle {
                 id: rectangle1
-                labelText:Constants.label_searchPatientTitle
+                labelText:StringConstants.label_searchPatientTitle
                 anchors.top: parent.top
                 anchors.left: parent.left
                 Layout.column: 1

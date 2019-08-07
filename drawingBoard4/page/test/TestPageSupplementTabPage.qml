@@ -18,6 +18,10 @@ import "./../../delegates/"
 import "./../../models/"
 import "./../../common/"
 import TestPageSupplementationModel 0.1
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 Page{
     id:supplementTabPage
     Rectangle{

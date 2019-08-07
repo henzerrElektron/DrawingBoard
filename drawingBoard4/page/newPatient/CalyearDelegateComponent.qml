@@ -19,7 +19,10 @@ import "."
 import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
-import ApplicationContstants 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 
 Component {
     id: calYearDelegateComponent
@@ -27,7 +30,7 @@ Component {
     Label {
         text:1900+modelData//model.month===0?model.year:""//formatText(Tumbler.tumbler.count, model.year)
         opacity: 1.0 - Math.abs(Tumbler.displacement) / (Tumbler.tumbler.visibleItemCount / 2)
-        font: Constants.fontFamily
+        font: OtherConstants.fontFamily
         color: "white"
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter

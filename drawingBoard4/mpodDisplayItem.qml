@@ -11,6 +11,9 @@ import QtQuick.Controls 2.3
 import QtQuick.Controls.Styles.Desktop 1.0
 import QtQuick.Layouts 1.3
 import QtQuick.Shapes 1.12
+import ApplicationIntegerConstants 1.0
+import ApplicationStringConstants 1.0
+import ApplicationOtherConstants 1.0
 Item {
     id: mpIndicatorItem
     //width: 100
