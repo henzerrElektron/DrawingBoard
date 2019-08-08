@@ -17,7 +17,7 @@ import QtQuick.Controls 2.5
 //import QtQml.Models 2.12
 import "."
 import "./../../images/"
-import "./../../imports/"
+//import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import ApplicationConstants 1.0
