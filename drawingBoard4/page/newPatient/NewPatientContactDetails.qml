@@ -33,6 +33,7 @@ Rectangle{
 
     Rectangle{
         id:testRec
+        color: "transparent"
         anchors.top: contactDetailLabel.bottom
         anchors.topMargin: 10
         anchors.bottom: parent.bottom
@@ -54,6 +55,10 @@ Rectangle{
                 Layout.rowSpan: 1
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                lblValueVisible: false
+                txtVisible:true
+                itemVisible: true
+                commonColor: StringConstants.label_NewPatientLabelBgColor
             }
             NewPatientLabelWithText{
                 id:twoLabel
@@ -64,6 +69,10 @@ Rectangle{
                 Layout.rowSpan: 1
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                lblValueVisible: false
+                txtVisible:true
+                itemVisible: true
+                commonColor: StringConstants.label_NewPatientLabelBgColor
             }
             NewPatientLabelWithText{
                 id:threeLabel
@@ -74,6 +83,11 @@ Rectangle{
                 Layout.rowSpan: 1
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                lblValueVisible: false
+                txtVisible:true
+                itemVisible: true
+                commonColor: StringConstants.label_NewPatientLabelBgColor
+
             }
             NewPatientLabelWithText{
                 id:fourLabel
@@ -84,6 +98,11 @@ Rectangle{
                 Layout.rowSpan: 1
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                lblValueVisible: false
+                txtVisible:true
+                itemVisible: true
+                commonColor: StringConstants.label_NewPatientLabelBgColor
+
             }
             NewPatientLabelWithText{
                 id:fiveLabel
@@ -94,6 +113,11 @@ Rectangle{
                 Layout.rowSpan: 1
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                lblValueVisible: false
+                txtVisible:true
+                itemVisible: true
+                commonColor:StringConstants.label_NewPatientLabelBgColor
+
             }
             NewPatientLabelWithText{
                 id:sixLabel
@@ -104,6 +128,10 @@ Rectangle{
                 Layout.rowSpan: 1
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                lblValueVisible: false
+                txtVisible:true
+                itemVisible: true
+                commonColor: StringConstants.label_NewPatientLabelBgColor
             }
             NewPatientLabelWithText{
                 id:sevenLabel
@@ -114,6 +142,10 @@ Rectangle{
                 Layout.rowSpan: 1
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                lblValueVisible: false
+                txtVisible:true
+                itemVisible: true
+                commonColor: StringConstants.label_NewPatientLabelBgColor
             }
             NewPatientLabelWithText{
                 id:eightLabel
@@ -124,6 +156,10 @@ Rectangle{
                 Layout.rowSpan: 1
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                lblValueVisible: false
+                txtVisible:true
+                itemVisible: true
+                commonColor: StringConstants.label_NewPatientLabelBgColor
             }
         }
     }

@@ -21,9 +21,13 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
-Item {
-    width: 960
-    height: 640
+Rectangle {
+    id:mainRec
+    anchors.fill: parent
+    //color: StringConstants.testPage_backgroundColor
+    color: "transparent"
+    //width: 960
+    //height: 640
     GridLayout {
         id: gridLayout
         anchors.fill: parent
@@ -36,7 +40,8 @@ Item {
         //    Layout.alignment: Qt.AlignLeft | Qt.AlignTop
         Rectangle{
             id:rectangle1
-            color: "transparent"
+            color: StringConstants.testPage_backgroundColor
+            // color: "transparent"
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.row: 1
@@ -58,6 +63,7 @@ Item {
         Rectangle{
             id:rectangle2
             color: "transparent"
+            // color: StringConstants.testPage_backgroundColor
             anchors.top: rectangle1.bottom
             anchors.left: gridLayout.left
             anchors.bottom: parent.bottom//rectangle6.top
@@ -88,102 +94,102 @@ Item {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
             }
-//            TestPlotTabs{
-//                id:testpagePlotTabs
-//                Layout.fillHeight: true
-//                Layout.fillWidth: true
-//                anchors.fill: parent
-//                //                anchors.left: rectangle1.left
-//                //                anchors.right: rectangle2.left
-//                //                anchors.top: rectangle1.top
-//                //                anchors.bottom: rectangle1.bottom
-//                //            }
-//            }
+            //            TestPlotTabs{
+            //                id:testpagePlotTabs
+            //                Layout.fillHeight: true
+            //                Layout.fillWidth: true
+            //                anchors.fill: parent
+            //                //                anchors.left: rectangle1.left
+            //                //                anchors.right: rectangle2.left
+            //                //                anchors.top: rectangle1.top
+            //                //                anchors.bottom: rectangle1.bottom
+            //                //            }
+            //            }
         }
-//        Rectangle{
-//            id:rectangle3
-//            color: "transparent"
-//            anchors.top: rectangle1.bottom
-//            anchors.left: rectangle2.right
-//            anchors.bottom: rectangle6.top
-//            anchors.right: parent.right
-//            //anchors.fill: parent
-//            Layout.column: 3
-//            Layout.columnSpan: 1
-//            Layout.fillHeight: true
-//            Layout.fillWidth: true
-//            Layout.row: 2
-//            //Layout.minimumHeight: 400
-//            Layout.minimumWidth: parent.width -rectangle2.width
-//            //width: 100
-//            //height: parent.height
-//            GridLayout {
-//                id: subgridLayout
-//                anchors.fill: parent
-//                rows:2
-//                columns: 1
-//                Rectangle{
-//                    id:rectangle4
-//                    color: "transparent"
-//                    Layout.column: 1
-//                    Layout.columnSpan: 1
-//                    Layout.fillHeight: true
-//                    Layout.fillWidth: true
-//                    Layout.maximumHeight: parent.height/6
-//                    Layout.row: 1
-//                    TestController{
-//                        id:curTestControl
-//                        anchors.fill: parent
-//                        Layout.fillHeight: true
-//                        Layout.fillWidth: true
-//                    }
-//                }
-//                Rectangle{
-//                    id:rectangle5
-//                    //color: "black"
-//                    color: "transparent"
-//                    Layout.column: 1
-//                    Layout.columnSpan: 1
-//                    Layout.fillHeight: true
-//                    Layout.fillWidth: true
-//                    Layout.row: 2
-//                    anchors.top: rectangle4.bottom
-//                    anchors.bottom: parent.bottom
-//                    //anchors.left: parent
-//                    TestTabs{
-//                        id:curTestTabs
-//                        anchors.fill: parent
-//                        Layout.fillHeight: true
-//                        Layout.fillWidth: true
-//                    }
-//                }
-//            }
+        //        Rectangle{
+        //            id:rectangle3
+        //            color: "transparent"
+        //            anchors.top: rectangle1.bottom
+        //            anchors.left: rectangle2.right
+        //            anchors.bottom: rectangle6.top
+        //            anchors.right: parent.right
+        //            //anchors.fill: parent
+        //            Layout.column: 3
+        //            Layout.columnSpan: 1
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //            Layout.row: 2
+        //            //Layout.minimumHeight: 400
+        //            Layout.minimumWidth: parent.width -rectangle2.width
+        //            //width: 100
+        //            //height: parent.height
+        //            GridLayout {
+        //                id: subgridLayout
+        //                anchors.fill: parent
+        //                rows:2
+        //                columns: 1
+        //                Rectangle{
+        //                    id:rectangle4
+        //                    color: "transparent"
+        //                    Layout.column: 1
+        //                    Layout.columnSpan: 1
+        //                    Layout.fillHeight: true
+        //                    Layout.fillWidth: true
+        //                    Layout.maximumHeight: parent.height/6
+        //                    Layout.row: 1
+        //                    TestController{
+        //                        id:curTestControl
+        //                        anchors.fill: parent
+        //                        Layout.fillHeight: true
+        //                        Layout.fillWidth: true
+        //                    }
+        //                }
+        //                Rectangle{
+        //                    id:rectangle5
+        //                    //color: "black"
+        //                    color: "transparent"
+        //                    Layout.column: 1
+        //                    Layout.columnSpan: 1
+        //                    Layout.fillHeight: true
+        //                    Layout.fillWidth: true
+        //                    Layout.row: 2
+        //                    anchors.top: rectangle4.bottom
+        //                    anchors.bottom: parent.bottom
+        //                    //anchors.left: parent
+        //                    TestTabs{
+        //                        id:curTestTabs
+        //                        anchors.fill: parent
+        //                        Layout.fillHeight: true
+        //                        Layout.fillWidth: true
+        //                    }
+        //                }
+        //            }
 
-//        }
-//        Rectangle{
-//            id:rectangle6
-//            color: "black"
-//            //anchors.top: rectangle3.bottom
-//            anchors.left: parent.left
-//            anchors.bottom: parent.bottom
-//            anchors.right: parent.right
-//            //anchors.fill: parent
-//            Layout.column: 1
-//            Layout.columnSpan: 1
-//            //Layout.fillHeight: true
-//            //Layout.fillWidth: true
-//            Layout.row:3
-//            width: parent.width
-//            height: 100
-//            TestPagePatientResultIndex
-//            {
-//                //Layout.fillHeight: true
-//                //height: 100
-//                //: parent.width
-//                //Layout.fillWidth: true
-//                anchors.fill: parent
-//            }
-//        }
+        //        }
+        //        Rectangle{
+        //            id:rectangle6
+        //            color: "black"
+        //            //anchors.top: rectangle3.bottom
+        //            anchors.left: parent.left
+        //            anchors.bottom: parent.bottom
+        //            anchors.right: parent.right
+        //            //anchors.fill: parent
+        //            Layout.column: 1
+        //            Layout.columnSpan: 1
+        //            //Layout.fillHeight: true
+        //            //Layout.fillWidth: true
+        //            Layout.row:3
+        //            width: parent.width
+        //            height: 100
+        //            TestPagePatientResultIndex
+        //            {
+        //                //Layout.fillHeight: true
+        //                //height: 100
+        //                //: parent.width
+        //                //Layout.fillWidth: true
+        //                anchors.fill: parent
+        //            }
+        //        }
 
         //           }
         //}

@@ -18,9 +18,10 @@ import QtQuick.Shapes 1.11
 import "."
 //import appContstants 1.0
 import TestResultModels 0.1
-import ApplicationIntegerConstants 1.0
-import ApplicationStringConstants 1.0
-import ApplicationOtherConstants 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 
 
 TableView {

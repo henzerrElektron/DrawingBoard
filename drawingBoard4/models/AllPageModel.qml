@@ -9,34 +9,35 @@ import ApplicationConstants 1.0
 //import ApplicationOtherConstants 1.0
 DelegateModel{
     id: allPageModel
+
     groups: [
         DelegateModelGroup{
             includeByDefault: false
-            name:"homeMainItems"
+            name:StringConstants.modelHomeMainItems
         },
         DelegateModelGroup{
             includeByDefault: false
-            name:"homeItems"
+            name:StringConstants.modelHomeItems
         },
         DelegateModelGroup{
             includeByDefault: false
-            name:"existingPatientItems"
+            name:StringConstants.modelExistingPtItems
         },
         DelegateModelGroup{
             includeByDefault: false
-            name:"newPatientItems"
+            name:StringConstants.modelNewPatientItems
         },
         DelegateModelGroup{
             includeByDefault: false
-            name:"operatorPageItems"
+            name:StringConstants.modelOperatorPageItems
         },
         DelegateModelGroup{
             includeByDefault: false
-            name:"reportPageItems"
+            name:StringConstants.modelReportPageItems
         },
         DelegateModelGroup{
             includeByDefault: false
-            name:"testPageItems"
+            name:StringConstants.modelTestPageItems
         }
     ]
     Component.onCompleted: {

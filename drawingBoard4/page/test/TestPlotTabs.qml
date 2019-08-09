@@ -13,9 +13,10 @@ import QtQuick.Controls 1.4
 import Qt.labs.settings 1.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
-import ApplicationIntegerConstants 1.0
-import ApplicationStringConstants 1.0
-import ApplicationOtherConstants 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 Page {
     id: tabsPage
     header:  TabBar {

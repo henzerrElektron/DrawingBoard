@@ -13,7 +13,7 @@ import Qt.labs.settings 1.0
 import QtQuick.Shapes 1.11
 import "."
 import "./../../images/"
-import "./../../imports/"
+//import "./../../imports/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0

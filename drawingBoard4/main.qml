@@ -25,6 +25,7 @@ import "./page/home/"
 import "./models"
 import "./delegates"
 import "./page"
+import "./page/reports/"
 import "./page/test/"
 import "./page/newPatient/"
 import "./page/changePatient/"
@@ -183,7 +184,7 @@ Window {
 //        }
 
 
-            NewPatientPage{
+            ReportPageHeader{
                 id:newpatientTabb
                 Layout.fillHeight: true
                 Layout.fillWidth: true

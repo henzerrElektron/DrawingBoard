@@ -15,10 +15,11 @@ import QtQuick.Shapes 1.11
 import QtQml.Models 2.12
 import "."
 import "./../../images/"
-import "./../../imports/"
+//import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
+import "./../../common/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
@@ -26,26 +27,77 @@ import ApplicationConstants 1.0
 Rectangle {
     id: rectangle
     color: StringConstants.testPage_backgroundColor
-    Grid{
+    GridLayout{
         id: mainRow
         anchors.fill: parent
         rows:2
-        HomePageTitle{
-            id:homePageTitleRec
+        //Home
+        Rectangle {
+            id: rectangle1
+            color: "transparent"
             anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.right: parent.right
-            Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.preferredHeight: 75
             Layout.row: 1
-            Layout.rowSpan: 1
+            // color: StringConstants.testPage_backgroundColor
+            //height:75// pgTitle.height
+            //Layout.fillHeight: true
+            //anchors.top: parent.top
+            //anchors.left: parent.left
+            //anchors.right: parent.right
+            //color: "green"
+            //Layout.column: 1
+            //Layout.columnSpan: 3
+            PageTitle{
+                id:homePageTitleRec
+                anchors.fill: parent
+                actionGridGroup:"newPatientItems"
+                labelText: ""//StringConstants.label_newPtPgHeader
+                //anchors.top: parent.top
+                //anchors.left: parent.left
+                //anchors.right: parent.right
+                //Layout.fillHeight: true
+                // Layout.fillWidth: true
+                // Layout.row: 1
+                // Layout.rowSpan: 1
+
+            }
         }
-        HomePageLogo{
-            id:homePageLogo
-            anchors.top: homePageTitleRec.bottom
-            anchors.left: parent.left
-            anchors.right: parent.right
-            Layout.maximumHeight: parent.height/5
+        //        Rectangle{
+        //            id:spaceRec
+        //            Layout.fillWidth: true
+        //            Layout.row: 2
+        //            color: "transparent"
+        //        }
+
+        Rectangle {
+            id: rectangle2
+            color: "transparent"
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.row: 2
+            //color: StringConstants.testPage_backgroundColor
+            //height:75// pgTitle.height
+            //anchors.top: rectangle1.bottom
+            //anchors.topMargin: 100
+            //anchors.left: parent.left
+            //anchors.right: parent.right
+            //anchors.bottom: parent.bottom
+            // color: "black"
+            //Layout.column: 1
+            //Layout.columnSpan: 3
+            //Layout.maximumHeight: parent.height/5
+            HomePageLogo{
+                id:homePageLogo
+                anchors.fill: parent
+                ///////////////anchors.verticalCenter: parent.verticalCenter
+                ///////anchors.left: parent.left
+                ////////anchors.right: parent.right
+                //anchors.top: homePageTitleRec.bottom
+                //anchors.left: parent.left
+                //anchors.right: parent.right
+
+            }
         }
     }
 }
@@ -168,7 +220,23 @@ Rectangle {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*##^## Designer {
-    D{i:1;anchors_height:200;anchors_width:200;anchors_x:107;anchors_y:66}
+    D{i:0;autoSize:true;height:480;width:640}
 }
  ##^##*/

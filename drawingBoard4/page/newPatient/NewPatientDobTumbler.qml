@@ -39,6 +39,14 @@ Rectangle {
     property string curSetMonth: ""
     property string curDateMonthYear: ""
     property alias recTextVisible: recText.visible
+    property alias lblText: lbl.text
+//    property alias dateTumblerModel: dateTumbler.firstTumblerModel
+//    property alias dateComboModel: dateTumbler.comboBoxModel
+//    property alias monthTumblerModel: dateTumbler.firstTumblerModel
+//    property alias monthComboModel: dateTumbler.comboBoxModel
+//    property alias yearTumblerModel: dateTumbler.firstTumblerModel
+//    property alias yearComboModel: dateTumbler.yearComboModel
+
     signal setDate(int index)
     signal setMonth(int index)
     signal setYear(int index)

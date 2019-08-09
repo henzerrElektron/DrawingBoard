@@ -15,7 +15,7 @@ import QtQuick.Shapes 1.11
 import QtQml.Models 2.12
 import "."
 import "./../../images/"
-import "./../../imports/"
+//import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import ApplicationConstants 1.0
@@ -43,37 +43,73 @@ Rectangle {
         anchors.fill: parent
         rows: 2
         columns:2
-        TestPageButton {
-            id: buttonRight
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            down:true
-            onClicked: !down
-            //width: 130
-            //height: 50
+        Rectangle{
+            id:rec1
+            Layout.row: 1
+            Layout.column: 1
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            TestPageButton {
+                id: buttonRight
+                anchors.fill: parent
+                //Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                down:true
+                onClicked: !down
+                //width: 130
+                //height: 50
+            }
         }
-        TestPageButton {
-            id: buttonLeft
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            //width: 130
-            //height: 50
-            anchors.left: buttonRight.right
-            anchors.leftMargin: 2
+        Rectangle{
+            id:rec2
+            Layout.row: 1
+            Layout.column: 2
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            TestPageButton {
+                id: buttonLeft
+                anchors.fill: parent
+                //Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                //width: 130
+                //height: 50
+                //anchors.left: buttonRight.right
+                //anchors.leftMargin: 2
+            }
         }
-        TestPageButton {
-            id: buttonStandard
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            //width: 160
-            //height: 50
+        Rectangle{
+            id:rec3
+            Layout.row: 2
+            Layout.column: 1
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            TestPageButton {
+                id: buttonStandard
+                anchors.fill: parent
+                //Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                //width: 160
+                //height: 50
+            }
         }
-        TestPageButton {
-            id: buttonDetailed
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            down:true
-            //width: 160
-            //height: 50
-            anchors.left: buttonStandard.right
-            anchors.leftMargin: 2
+
+        Rectangle{
+            id:rec4
+            Layout.row: 2
+            Layout.column: 2
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            TestPageButton {
+                id: buttonDetailed
+                anchors.fill: parent
+                //Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                down:true
+                //width: 160
+                //height: 50
+                //anchors.left: buttonStandard.right
+                //anchors.leftMargin: 2
+            }
         }
+
+
+
     }
 }
 

@@ -26,56 +26,196 @@ import Qt.labs.calendar 1.0
 //import ApplicationOtherConstants 1.0
 
 
+
 Rectangle{
-    id:mainRec
+    id:testRec
     anchors.fill: parent
     color: StringConstants.testPage_backgroundColor
-    Rectangle{
-        id:testRec
-        anchors.top: parent.top
-        anchors.topMargin: 10
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 0
-        anchors.right: parent.right
-        anchors.rightMargin: 0
-        anchors.left: parent.left
-        anchors.leftMargin: 0
-        color: "transparent"
-        GridLayout{
-            id:grid
-            anchors.fill: parent
-            rows: 3
-            NewPatientLabelWithText{
-                id:oneLabel
-                labelText:StringConstants.lbl_npSurName
-                tfReadOnly:false
-                tfPlaceHolderText:StringConstants.lbl_npRequestSurName
-                Layout.row: 1
-                Layout.rowSpan: 1
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+    property bool pageSpOrNp: false//true means search patient page  false means New Patient Page Np means New patient page Sp means search patient Page
+    property int pageNpSpTp: 0//Np =1 //Sp = 2 //TP == 3
+    property bool pageSpOrTp: false//true means search patient page false means New Patient Page
+    property int lblIndex: 0
+    function iSVisible(lblIndex)
+    {
+        if(pageNpSpTp === 1)
+        {
+//            if(lblIndex <= 3)
+//            {
+//                return true
+//            }
+//            else
+//            {
+//                return false
+//            }
+             return false
+
+        }
+        if(pageNpSpTp === 2)
+        {
+            if(lblIndex === 5)
+            {
+                return true
             }
-            NewPatientLabelWithText{
-                id:twoLabel
-                labelText:StringConstants.lbl_npFirstName
-                tfPlaceHolderText:StringConstants.lbl_npRequestFirstName
-                tfReadOnly:false
-                Layout.row: 2
-                Layout.rowSpan: 1
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+            if(lblIndex === 6)
+            {
+                return false
             }
-            NewPatientLabelWithText{
-                id:threeLabel
-                labelText:StringConstants.lbl_npMedicalReference
-                tfPlaceHolderText:StringConstants.lbl_npRequestMedicalReference
-                tfReadOnly:false
-                Layout.row: 3
-                Layout.rowSpan: 1
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+            if(lblIndex === 7)
+            {
+                return false
             }
+        }
+        if(pageNpSpTp === 3)
+        {
+            if(lblIndex === 5)
+            {
+                return false
+            }
+            if(lblIndex === 6)
+            {
+                return true
+            }
+            if(lblIndex === 7)
+            {
+                return true
+            }
+        }
+    }
+
+    //        anchors.top: parent.top
+    //        anchors.topMargin: IntegerConstants.margin10
+    //        anchors.bottom: parent.bottom
+    //        anchors.bottomMargin: 0
+    //        anchors.right: parent.right
+    //        anchors.rightMargin: 0
+    //        anchors.left: parent.left
+    //        anchors.leftMargin: 0
+    //        color: "transparent"
+    GridLayout{
+        id:grid
+        anchors.fill: parent
+        rows: pageSpOrNp?IntegerConstants.rowCount5:IntegerConstants.rowCount3
+        NewPatientLabelWithText{
+            id:oneLabel
+            index:1
+            labelText:StringConstants.lbl_npSurName
+            tfReadOnly:false
+            tfPlaceHolderText:StringConstants.lbl_npRequestSurName
+            lblValueText:StringConstants.lbl_npRequestSurName
+            Layout.row: IntegerConstants.rowCount1
+            Layout.rowSpan: IntegerConstants.rowSpan1
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            //lblVisible: true
+            lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp
+            txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
+            itemVisible: true
+
+        }
+        NewPatientLabelWithText{
+            id:twoLabel
+            index:2
+            labelText:StringConstants.lbl_npFirstName
+            tfPlaceHolderText:StringConstants.lbl_npRequestFirstName
+            lblValueText:StringConstants.lbl_npRequestFirstName
+            tfReadOnly:false
+            Layout.row: IntegerConstants.rowCount2
+            Layout.rowSpan: IntegerConstants.rowSpan1
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            //lblVisible: true
+            lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp
+            txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
+            itemVisible: true
+
+        }
+        NewPatientLabelWithText{
+            id:threeLabel
+            index:3
+            labelText:StringConstants.lbl_npMedicalReference
+            tfPlaceHolderText:StringConstants.lbl_npRequestMedicalReference
+            lblValueText:StringConstants.lbl_npRequestMedicalReference
+            tfReadOnly:false
+            Layout.row: IntegerConstants.rowCount3
+            Layout.rowSpan: IntegerConstants.rowSpan1
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            //lblVisible: true
+            lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp
+            txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
+            itemVisible: true
+
+        }
+
+        NewPatientLabelWithText{
+            id:fourLabel
+            index:4
+            labelText:StringConstants.label_testPgDOB
+            tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
+            lblValueText:""
+            tfReadOnly:false
+            Layout.row: IntegerConstants.rowCount4
+            Layout.rowSpan: IntegerConstants.rowSpan1
+            //lblVisible: pageSpOrNp
+            lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp
+            txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
+            itemVisible: pageNpSpTp===1?false:true
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+
+        }
+
+        NewPatientLabelWithText{
+            id:fiveLabel
+            index:5
+            labelText:StringConstants.lbl_npContactAddr
+            tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
+            lblValueText:""
+            tfReadOnly:false
+            Layout.row: IntegerConstants.rowCount5
+            //lblVisible:  pageNpSpTp===2?true:false//iSVisible(5)//pageSpOrNp
+            lblValueVisible:  pageNpSpTp===2?true:false//iSVisible(5)//pageSpOrNp
+            txtVisible: false //pageNpOrSp
+            itemVisible: pageNpSpTp===2?true:false //pageSpOrNp
+            Layout.rowSpan: IntegerConstants.rowSpan1
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+
+        }
+        NewPatientLabelWithText{
+            id:sevenLabel
+            index:6
+            labelText:StringConstants.label_testPgIOLAge
+            tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
+            lblValueText:""
+            tfReadOnly:false
+            Layout.row: IntegerConstants.rowCount6
+            //lblVisible: pageNpSpTp===3?true:false//iSVisible(6)//pageSpOrNp
+            lblValueVisible:  pageNpSpTp===3?true:false //iSVisible(6)//pageSpOrNp
+            txtVisible: !lblValueVisible//false//pageNpOrSp
+            itemVisible:  pageNpSpTp===3?true:false //iSVisible(6)////pageSpOrNp
+            Layout.rowSpan: IntegerConstants.rowSpan1
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+
+        }
+        NewPatientLabelWithText{
+            id:eightLabel
+            index:7
+            labelText:StringConstants.label_testPgIOLAge
+            tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
+            lblValueText:""
+            tfReadOnly:false
+            Layout.row: IntegerConstants.rowCount7
+            //lblVisible:  pageNpSpTp===3?true:false ////iSVisible(7)//pageSpOrNp
+            lblValueVisible:  pageNpSpTp===3?true:false ////iSVisible(7)//pageSpOrNp
+            txtVisible: !lblValueVisible//false//pageNpOrSp
+            itemVisible:  pageNpSpTp===3?true:false //iSVisible(7)//pageSpOrNp
+            Layout.rowSpan: IntegerConstants.rowSpan1
+            Layout.fillHeight: true
+            Layout.fillWidth: true
 
         }
     }
 }
+

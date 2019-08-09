@@ -64,7 +64,7 @@ Rectangle{
             Layout.fillWidth: true
             height: parent.height
             anchors.left: rec1.right
-            TestPageLabel {
+            PageLabel {
                 id: label_testPageHeading
                 text: StringConstants.label_testPgHeader
                 horizontalAlignment: Text.AlignHCenter
@@ -85,14 +85,14 @@ Rectangle{
             Layout.row: IntegerConstants.rowCount1
             Layout.alignment: Qt.AlignRight
             height: parent.height
-           // anchors.left: rec1.right
-        PageActionsButtons {
-            id: actionGridView
-            //color: "black"
-            anchors.right: parent.right
-            group: "testPageItems"
-            actionOrHome: true
-        }//TestPageActionButtons//Rectangle//PageActionsButtons
+            // anchors.left: rec1.right
+            PageActionsButtons {
+                id: actionGridView
+                //color: "black"
+                anchors.right: parent.right
+                group: "testPageItems"
+                actionOrHome: true
+            }//TestPageActionButtons//Rectangle//PageActionsButtons
         }
     }
 

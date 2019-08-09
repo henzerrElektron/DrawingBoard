@@ -116,5 +116,12 @@
         <file>page/newPatient/SliderTumbler.qml</file>
         <file>imports/qmldir</file>
         <file>imports/ApplicationConstants/qmldir</file>
+        <file>common/PageLabel.qml</file>
+        <file>common/PageTitle.qml</file>
+        <file>page/reports/ReportPage.qml</file>
+        <file>page/reports/ReportDetails.qml</file>
+        <file>page/reports/ReportDetailDateRange.qml</file>
+        <file>page/reports/ReportPageHeader.qml</file>
+        <file>page/reports/ReportDateRangeSlider.qml</file>
     </qresource>
 </RCC>

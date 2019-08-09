@@ -14,8 +14,9 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
 import "."
 import "./../../images/"
-import "./../../imports/"
+//import "./../../imports/"
 import "./../../models/"
+import "./../../common/"
 import "./../../delegates/"
 import "./../test/"
 import ApplicationConstants 1.0
@@ -63,22 +64,27 @@ Rectangle {
         anchors.fill: parent
         columns: 3
         rows:8
-
-        TestPageTitle {
-            id: rectangle1
-            labelText:"Please enter the Patient details"//Constants.label_NewPatientQuestion
-            anchors.top: parent.top
-            anchors.left: parent.left
+        Rectangle{
+            id:rectangle1
             Layout.column: 1
             Layout.columnSpan: 1
-            Layout.fillHeight: true
+            //Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.row: 1
             Layout.rowSpan: 2
-            Layout.maximumHeight: parent.height/5
+            Layout.maximumHeight: 75//parent.height/5
+            //Test
+//            PageTitle {
+//                //id: rectangle1
+//                anchors.fill: parent
+//                actionGridGroup:"testPageItems"
+//                labelText:"Please enter the Patient details"//Constants.label_NewPatientQuestion
+//                //anchors.top: parent.top
+//                //anchors.left: parent.left
+//            }
         }
 
-        TestPageAllLabels {
+        Rectangle{
             id: rectangle2
             Layout.column: 1
             Layout.columnSpan: 1
@@ -87,7 +93,11 @@ Rectangle {
             Layout.row: 3
             Layout.rowSpan: 5
             //anchors.bottom: rectangleSwitchPatientLabel.top
-            anchors.top: rectangle1.bottom
+            //anchors.top: rectangle1.bottom
+            TestPageAllLabels {
+                id:testpgLabels
+                anchors.fill: parent
+            }
         }
 
 //        TestPageActionButtons {

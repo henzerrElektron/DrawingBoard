@@ -16,9 +16,10 @@ import "."
 import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
-import ApplicationIntegerConstants 1.0
-import ApplicationStringConstants 1.0
-import ApplicationOtherConstants 1.0
+import ApplicationConstants 1.0
+//import ApplicationIntegerConstants 1.0
+//import ApplicationStringConstants 1.0
+//import ApplicationOtherConstants 1.0
 
 
 Item {
@@ -46,7 +47,7 @@ Item {
             anchors.rightMargin: 0
             anchors.top: parent.top
             anchors.topMargin: 0
-            Layout.maximumHeight: parent.height/6
+            Layout.maximumHeight: parent.height/5
             PatientLabel{
                 id:ptLabel
                 anchors.fill: parent

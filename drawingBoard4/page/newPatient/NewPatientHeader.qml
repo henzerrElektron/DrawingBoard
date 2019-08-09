@@ -20,6 +20,7 @@ import "./../../images/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
+import "./../../common/"
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
@@ -31,8 +32,8 @@ Rectangle {
     id: rectangle
     color: StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor
     anchors.fill: parent
-   //height: 400
-   // width: 800
+    //height: 400
+    // width: 800
     GridLayout{
         id: mainRow
         // width: 700
@@ -46,7 +47,7 @@ Rectangle {
             height:75// pgTitle.height
             Layout.fillWidth: true
             Layout.row: 1
-            TestPageTitle{
+            PageTitle{
                 id:pgTitle
                 anchors.fill: parent
                 actionGridGroup:"newPatientItems"
@@ -175,7 +176,16 @@ Rectangle {
                     Layout.maximumWidth: parent.width/2
                     NewPatientPersonalDetails{
                         id:pageLabels
-                        anchors.fill: parent
+                        anchors.top: parent.top
+                        anchors.topMargin: IntegerConstants.margin10
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 0
+                        anchors.right: parent.right
+                        anchors.rightMargin: 0
+                        anchors.left: parent.left
+                        anchors.leftMargin: 0
+                        pageSpOrNp:false
+                        pageNpSpTp:1
                     }
                 }
                 Rectangle {

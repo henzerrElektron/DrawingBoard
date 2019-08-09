@@ -16,7 +16,7 @@ import QtQml.Models 2.12
 import "."
 import "./../../common/"
 import "./../../images/"
-import "./../../imports/"
+//import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"

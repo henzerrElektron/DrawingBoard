@@ -15,9 +15,11 @@ import QtQuick.Shapes 1.11
 import QtQml.Models 2.12
 import "."
 import "./../../images/"
-import "./../../imports/"
+//import "./../../imports/"
 import "./../../models/"
+import "./../../common/"
 import "./../../delegates/"
+import "./../newPatient/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
@@ -30,16 +32,17 @@ import ApplicationConstants 1.0
 Rectangle {
     id: rectangle
     color: StringConstants.testPage_backgroundColor
+    property alias titleGroup: pgTitle.actionGridGroup
     anchors.fill: parent
-    height: 400
-    width: 800
+    //height: 400
+    //width: 800
     GridLayout{
         id: mainRow
         // width: 700
         anchors.fill: parent
         //columns: 3
-        rows:3
-
+        rows:2
+        columns:2
         Rectangle {
             id: rectangle1
             color: StringConstants.testPage_backgroundColor
@@ -54,78 +57,102 @@ Rectangle {
             //height: rectangle.height/3
             Layout.fillWidth: true
             Layout.row: 1
-            TestPageTitle{
+            Layout.column: 1
+            Layout.columnSpan: 2
+            //Test
+            PageTitle{
                 id:pgTitle
                 anchors.fill: parent
-                actionGridGroup:"newPatientItems"
+                actionGridGroup:"testPageItems"//"newPatientItems"
             }//TestPageTitle
 
             //Layout.rowSpan: 2
             //Layout.maximumHeight: parent.height/5
         }//TestPageTitle
+        // Rectangle {
+        //     id: rectangle2
+        //     color: Constants.testPage_backgroundColor
+        //color: "black"
+        //anchors.top: parent.top
+        //anchors.left: parent.left
+        //Layout.column: 1
+        //Layout.columnSpan: 1
+        // Layout.minimumHeight: parent.height - rectangle1.height
+        // height: 500
+        //     Layout.fillHeight: true
+        //      Layout.fillWidth: true
+        //      Layout.row: 2
+        //      Layout.rowSpan: 2
+        //      GridLayout{
+        //          id: mainCol
+        //          anchors.fill: parent
+        //          columns: 2
         Rectangle {
-            id: rectangle2
-            color: Constants.testPage_backgroundColor
+            id: rectangleSub1
+            color: StringConstants.testPage_backgroundColor
             //color: "black"
             //anchors.top: parent.top
             //anchors.left: parent.left
-            //Layout.column: 1
+            Layout.row: 2
+            Layout.column: 1
             //Layout.columnSpan: 1
-            // Layout.minimumHeight: parent.height - rectangle1.height
-            // height: 500
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.row: 2
-            Layout.rowSpan: 2
-            GridLayout{
-                id: mainCol
-                anchors.fill: parent
-                columns: 2
-                Rectangle {
-                    id: rectangleSub1
-                    color: StringConstants.testPage_backgroundColor
-                    //color: "black"
-                    //anchors.top: parent.top
-                    //anchors.left: parent.left
-                    Layout.column: 1
-                    //Layout.columnSpan: 1
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    TestPageAllLabels{
-                        id:pageLabels
-                        anchors.fill: parent
-                        //anchors.left: parent.left
-                        //anchors.top: parent.top
-                        //anchors.bottom: parent.bottom
-                    }
-                }
-                Rectangle {
-                    id: rectangleSub2
-                    color: StringConstants.testPage_backgroundColor
-                    //color: "red"
-                    //anchors.top: parent.top
-                    //anchors.left: parent.left
-                    Layout.column: 2
-                    //Layout.columnSpan: 1
-                    Layout.fillHeight: true
-                    //width: parent.width/3
-                    Layout.fillWidth: true
-                    TestPageSwitchButtons{
-                        id:pageSwitchButtons
-                        // color: "black"
-                        width: parent.width/2
-                        height: parent.height/2
-                        //anchors.fill: parent
-                         anchors.right: parent.right
-                         anchors.verticalCenter: parent.verticalCenter
-                        //anchors.left: parent.left
-                        //anchors.top: parent.top
-                        //anchors.bottom: parent.bottom
-                    }//TestPageSwitchButtons
-                }
-
+            //TestPageAllLabels
+            NewPatientPersonalDetails{
+                id:pageLabels
+                //anchors.fill: parent
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
+                pageSpOrNp:true
+                pageNpSpTp:3
+                //anchors.left: parent.left
+                //anchors.top: parent.top
+                //anchors.bottom: parent.bottom
             }
         }
+        Rectangle {
+            id: rectangleSub2
+            color: StringConstants.testPage_backgroundColor
+            //color: "red"
+            //anchors.top: parent.top
+            //anchors.left: parent.left
+            Layout.row: 2
+            Layout.column: 2
+            Layout.columnSpan: 1
+            Layout.fillHeight: true
+            Layout.minimumWidth:   parent.width/3
+            Layout.minimumHeight:  parent.height/2
+            Layout.maximumWidth:  parent.width/3
+            Layout.maximumHeight: parent.height/2
+            //width: parent.width/3
+            //Layout.fillWidth: true
+            TestPageSwitchButtons{
+                id:pageSwitchButtons
+                anchors.fill: parent
+                anchors.left: parent.left
+                anchors.leftMargin: 10
+                anchors.right: parent.right
+                anchors.rightMargin: 10
+                anchors.top: parent.top
+                anchors.topMargin: 10
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 10
+                // color: "black"
+                //width: parent.width/2
+                //height: parent.height/2
+                //anchors.fill: parent
+                // anchors.right: parent.right
+                //  anchors.verticalCenter: parent.verticalCenter
+                //anchors.left: parent.left
+                //anchors.top: parent.top
+                //anchors.bottom: parent.bottom
+            }//TestPageSwitchButtons
+        }
+
+        //    }
+        // }
 
         //                TestPageSwitchButtons {
         //                    id: rectangle4
