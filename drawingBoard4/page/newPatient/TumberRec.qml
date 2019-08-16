@@ -46,7 +46,7 @@ Rectangle{
         anchors.centerIn: parent
         height: parent.height
         ////////////////delegate: numberOrColorDelegate?colordelegateComponent:delegateComponent
-        visibleItemCount: count%2 === 0?visibleItemCount+1:visibleItemCount
+        ///////////////visibleItemCount: count%2 === 0?visibleItemCount+1:visibleItemCount
         wheelEnabled: true
         model: 100
         Rectangle {
@@ -56,7 +56,7 @@ Rectangle{
             height: (firstTumbler.height * 0.6) - (firstTumbler.height * 0.4)//40//parent.height/10//
             //border.color: "black"
             //border.width: 1
-            color:  StringConstants.actionBtnBackgroundColor
+            color:StringConstants.actionBtnBackgroundColor//"black"//
             //radius: 20
             opacity: 0.5
         }

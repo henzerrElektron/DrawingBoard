@@ -111,6 +111,7 @@ Rectangle{
         //anchors.bottom: parent.bottom
         secTumblerVisibility: false
         thirdTumblerVisibility: false
+        comboBoxModel: firstTumblerModel
         Component.onCompleted: {
             dataTumbler.firstTumblerValue.connect(dialUnit.firstTumblerValue)
 

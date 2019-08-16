@@ -123,5 +123,7 @@
         <file>page/reports/ReportDetailDateRange.qml</file>
         <file>page/reports/ReportPageHeader.qml</file>
         <file>page/reports/ReportDateRangeSlider.qml</file>
+        <file>page/reports/ReportRangeSlider.qml</file>
+        <file>page/reports/ReportCustomRangeSlider.qml</file>
     </qresource>
 </RCC>

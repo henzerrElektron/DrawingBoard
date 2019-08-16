@@ -28,7 +28,7 @@ Component {
     id: calYearDelegateComponent
 
     Label {
-        text:1900+modelData//model.month===0?model.year:""//formatText(Tumbler.tumbler.count, model.year)
+        text:modelData//1900+//model.month===0?model.year:""//formatText(Tumbler.tumbler.count, model.year)
         opacity: 1.0 - Math.abs(Tumbler.displacement) / (Tumbler.tumbler.visibleItemCount / 2)
         font: OtherConstants.fontFamily
         color: "white"

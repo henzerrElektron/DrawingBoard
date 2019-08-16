@@ -39,6 +39,8 @@ CalendarModel {
         //                               return Math.abs(ageDate.getUTCFullYear() - 1970);
     }
     function calculateRange(start, end){
-          return new Array(end - start + 1).fill().map((_, idx) => start + idx)
+        var arr = new Array(end - start + 1).fill().map((_, idx) => start + idx)
+        console.log("The length of array is"+arr)
+        return arr
         }
     }

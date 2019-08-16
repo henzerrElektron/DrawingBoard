@@ -47,12 +47,12 @@ Rectangle {
             height:75// pgTitle.height
             Layout.fillWidth: true
             Layout.row: 1
-//            PageTitle{
-//                id:pgTitle
-//                anchors.fill: parent
-//                actionGridGroup:StringConstants.modelReportPageItems//"newPatientItems"
-//                labelText: StringConstants.lbl_rpPageHeader
-//            }//TestPageTitle
+            PageTitle{
+                id:pgTitle
+                anchors.fill: parent
+                actionGridGroup:StringConstants.modelReportPageItems//"newPatientItems"
+                labelText: StringConstants.lbl_rpPageHeader
+            }//TestPageTitle
         }//TestPageTitle
         Rectangle {
             id: rectangle2
@@ -84,11 +84,11 @@ Rectangle {
                     ReportDetails{
                         id:pageTitle
                         anchors.fill: parent
-//                        labelText: StringConstants.lbl_npPatientTitle
-//                        firstTumblerVisibility: true
-//                        secTumblerVisibility: false
-//                        thirdTumblerVisibility: false
-//                        firstTumblerModel:OtherConstants.modelTitle
+                        //                        labelText: StringConstants.lbl_npPatientTitle
+                        //                        firstTumblerVisibility: true
+                        //                        secTumblerVisibility: false
+                        //                        thirdTumblerVisibility: false
+                        //                        firstTumblerModel:OtherConstants.modelTitle
                     }
                 }
                 Rectangle{
@@ -102,6 +102,8 @@ Rectangle {
                     ReportDetailDateRange{
                         id:pageDateRange
                         anchors.fill: parent
+
+
                         //sli
                     }
                 }

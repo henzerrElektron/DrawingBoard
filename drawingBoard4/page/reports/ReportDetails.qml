@@ -45,6 +45,7 @@ Rectangle{
             index:1
             labelText:StringConstants.lbl_rpGenerate
             tfReadOnly:false
+            textAlignLeftOrCenter: false
             //tfPlaceHolderText:StringConstants.lbl_npRequestSurName
             lblValueText:StringConstants.lbl_rpGenerateValue
             Layout.row: IntegerConstants.rowCount2
@@ -65,6 +66,7 @@ Rectangle{
             //tfPlaceHolderText:StringConstants.lbl_npRequestFirstName
             lblValueText:StringConstants.lbl_rpTotalTestsValue
             tfReadOnly:false
+            textAlignLeftOrCenter: false
             Layout.row: IntegerConstants.rowCount3
             Layout.rowSpan: IntegerConstants.rowSpan1
             Layout.fillHeight: true
@@ -83,6 +85,7 @@ Rectangle{
             //tfPlaceHolderText:StringConstants.lbl_npRequestMedicalReference
             lblValueText:StringConstants.lbl_rpNoOfRETestsValue
             tfReadOnly:false
+            textAlignLeftOrCenter: false
             Layout.row: IntegerConstants.rowCount4
             Layout.rowSpan: IntegerConstants.rowSpan1
             Layout.fillHeight: true
@@ -103,6 +106,7 @@ Rectangle{
             lblValueText:StringConstants.lbl_rpNoOfLETestsValue
             tfReadOnly:false
             addSpace: true
+            textAlignLeftOrCenter: false
             Layout.row: IntegerConstants.rowCount5
             Layout.rowSpan: IntegerConstants.rowSpan1
             //lblVisible: pageSpOrNp
@@ -122,6 +126,7 @@ Rectangle{
             lblValueText:StringConstants.lbl_rpNoOfCombinedTestsValue
             tfReadOnly:false
             addSpace: true
+            textAlignLeftOrCenter: false
             Layout.row: IntegerConstants.rowCount6
             //lblVisible:  pageNpSpTp===2?true:false//iSVisible(5)//pageSpOrNp
             lblValueVisible: true//pageNpSpTp===1?false:true//pageSpOrNp

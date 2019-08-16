@@ -83,6 +83,7 @@ Rectangle {
                         secTumblerVisibility: false
                         thirdTumblerVisibility: false
                         firstTumblerModel:OtherConstants.modelTitle
+                        comboBoxModel: OtherConstants.modelTitle
                     }
                 }
 
@@ -105,6 +106,7 @@ Rectangle {
                         secTumblerVisibility: false
                         thirdTumblerVisibility: false
                         firstTumblerModel:OtherConstants.modelGender
+                        comboBoxModel: OtherConstants.modelGender
                     }
                 }
                 //                Rectangle {

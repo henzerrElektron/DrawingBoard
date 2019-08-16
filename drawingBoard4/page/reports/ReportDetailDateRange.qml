@@ -62,12 +62,25 @@ Rectangle{
                 id:pageStartTumbler
                 recTextVisible: false
                 lblText:StringConstants.lbl_rpStartDate
+                sortLeapYears:true
+                firstOrLast: false
+                stopDateIndex: pageEndTumbler.curSetDate
+                stopMonthIndex: pageEndTumbler.curSetMonth
+                stopYearIndex: pageEndTumbler.curSetYear
                 //anchors.fill: parent
                 // width: parent.width/2
                 // height: parent.height/2
                 anchors.right: parent.right
                 //anchors.horizontalCenter: parent.horizontalCenter
                 /// anchors.verticalCenter: parent.verticalCenter
+                Component.onCompleted: {
+                    pageStartTumbler.setDate.connect(pageSlider.setFromDate)
+                    pageStartTumbler.setDate.connect(pageEndTumbler.checkStopDateIndex)
+                    pageStartTumbler.setMonth.connect(pageSlider.setFromMonth)
+                    pageStartTumbler.setDate.connect(pageEndTumbler.checkStopMonthIndex)
+                    pageStartTumbler.setYear.connect(pageSlider.setFromYear)
+                    pageStartTumbler.setDate.connect(pageEndTumbler.checkStopYearIndex)
+                }
             }//TestPageSwitchButtons
         }
         Rectangle {
@@ -90,12 +103,33 @@ Rectangle{
                 id:pageEndTumbler
                 recTextVisible: false
                 lblText:StringConstants.lbl_rpEndDate
+                //curSetDate:31
+                //curSetMonth:Calendar.December
+                //curSetYear:2019
+                sortLeapYears:true
+                firstOrLast: true
+                stopDateIndex: pageStartTumbler.curSetDate
+                stopMonthIndex: pageStartTumbler.curSetMonth
+                stopYearIndex: pageStartTumbler.curSetYear
+                //dateModel:pageSlider.dateSliderTo //pageSlider.getDaysInMonth(slider2.sliderTo,slider3.sliderTo)//pageSlider.dateSliderTo
                 //anchors.fill: parent
                 // width: parent.width/2
                 // height: parent.height/2
                 anchors.right: parent.right
                 //anchors.horizontalCenter: parent.horizontalCenter
                 /// anchors.verticalCenter: parent.verticalCenter
+                Component.onCompleted: {
+
+                    pageEndTumbler.setDate.connect(pageStartTumbler.checkStopDateIndex)
+                    pageEndTumbler.setDate.connect(pageSlider.setToDate)
+                    pageEndTumbler.setDate.connect(pageStartTumbler.checkStopMonthIndex)
+                    pageEndTumbler.setMonth.connect(pageSlider.setToMonth)
+                    pageEndTumbler.setDate.connect(pageStartTumbler.checkStopYearIndex)
+                    pageEndTumbler.setYear.connect(pageSlider.setToYear)
+                    // setTumblerDate(30)
+                    // setTumblerMonth(11)
+                    // setTumblerYear(IntegerConstants.dobEndDate - IntegerConstants.dobStartDate - 1)
+                }
             }//TestPageSwitchButtons
         }
         Rectangle {
@@ -106,10 +140,19 @@ Rectangle{
             Layout.columnSpan:IntegerConstants.columnSpan2
             Layout.fillHeight: true
             Layout.fillWidth: true
+            //Layout.preferredHeight: 100
             //Layout.alignment: Qt.AlignRight
             ReportDateRangeSlider{
                 id:pageSlider
                 anchors.fill: parent
+                Component.onCompleted: {
+                    pageSlider.dateFromChange.connect(pageStartTumbler.setTumblerDate)
+                    pageSlider.dateToChange.connect(pageEndTumbler.setTumblerDate)
+                    pageSlider.monthFromChange.connect(pageStartTumbler.setTumblerMonth)
+                    pageSlider.monthToChange.connect(pageEndTumbler.setTumblerMonth)
+                    pageSlider.calcYearFromChange.connect(pageStartTumbler.setTumblerYear)
+                    pageSlider.calcYearToChange.connect(pageEndTumbler.setTumblerYear)
+                }
                 //slider1From: pageStartTumbler.dateTumblerModel.valueat(0)
             }
         }

@@ -32,7 +32,7 @@ Rectangle {
     anchors.fill: parent
     anchors.top: parent.top
     anchors.bottom: parent.bottom
-    color: "transparent"
+    color: "transparent"//StringConstants.actionBtnBackgroundColor//"transparent"//
     //width: frame.width
     // color: "black"
     property alias firstTumblerModel: firstTumblerRec.allTumblerModel
@@ -44,6 +44,14 @@ Rectangle {
     property alias firstTumblerVisibility: firstTumblerRec.allTumblerVisibility
     property alias secTumblerVisibility: secTumblerRec.allTumblerVisibility
     property alias comboBoxModel: topTextArea.model
+    onComboBoxModelChanged: {
+        console.log("The model is"+topTextArea.model)
+    }
+
+    onFirstTumblerModelChanged: {
+        console.log("The first tumbler model is"+firstTumblerRec.allTumblerModel)
+    }
+
     property alias comboBoxText: topTextArea.displayText
     property alias comboBoxCurText: topTextArea.currentText
     property alias comboBoxIndex: topTextArea.currentIndex
@@ -70,7 +78,21 @@ Rectangle {
     property int secModelReArrangeCondition: 0
     property int thirdModelReArrangeCondition: 0
     property alias  firstTumblerCount: firstTumblerRec.allTumblerVisibleItemCount
+    signal changeTumblerComboValue(int index)
+    onChangeTumblerComboValue: {
+        console.log("The value of the index is"+index)
+        topTextArea.currentIndex = index
+
+    }
+
     signal firstTumblerValue(int index)
+    onFirstTumblerValue: {
+        console.log("The value is current index"+index)
+        //comboIndexChange(value)
+
+        //firstTumblerRec.allTumblerIndex = index
+    }
+
     signal firstDialValue(int index)
     signal firstSliderValue(int value)
     signal rearrangeValues(int value)
@@ -198,90 +220,92 @@ Rectangle {
             }
             ComboBox {
                 id: topTextArea
+
+
                 signal tumblerIndexRecord(int index)
                 onTumblerIndexRecord: {
                     currentIndex = index
                 }
                 ////
                 delegate: ItemDelegate {
-                          width: topTextArea.width
-                          contentItem: Text {
-                              text: modelData
-                              color: "White"//"red"
-                              font: topTextArea.font
-                              elide: Text.ElideRight
-                              verticalAlignment: Text.AlignVCenter
-                          }
-                          highlighted: topTextArea.highlightedIndex === index
-                      }
+                    width: topTextArea.width
+                    contentItem: Text {
+                        text: modelData
+                        color: "White"//"red"
+                        font: topTextArea.font
+                        elide: Text.ElideRight
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                    highlighted: topTextArea.highlightedIndex === index
+                }
 
-//                      indicator: Canvas {
-//                          id: canvas
-//                          x: topTextArea.width - width - topTextArea.rightPadding
-//                          y: topTextArea.topPadding + (topTextArea.availableHeight - height) / 2
-//                          width: 12
-//                          height: 8
-//                          contextType: "2d"
+                //                      indicator: Canvas {
+                //                          id: canvas
+                //                          x: topTextArea.width - width - topTextArea.rightPadding
+                //                          y: topTextArea.topPadding + (topTextArea.availableHeight - height) / 2
+                //                          width: 12
+                //                          height: 8
+                //                          contextType: "2d"
 
-//                          Connections {
-//                              target: topTextArea
-//                              onPressedChanged: canvas.requestPaint()
-//                          }
+                //                          Connections {
+                //                              target: topTextArea
+                //                              onPressedChanged: canvas.requestPaint()
+                //                          }
 
-//                          onPaint: {
-//                              context.reset();
-//                              context.moveTo(0, 0);
-//                              context.lineTo(width, 0);
-//                              context.lineTo(width / 2, height);
-//                              context.closePath();
-//                              context.fillStyle = topTextArea.pressed ? "green" : "red";
-//                              context.fill();
-//                          }
-//                      }
+                //                          onPaint: {
+                //                              context.reset();
+                //                              context.moveTo(0, 0);
+                //                              context.lineTo(width, 0);
+                //                              context.lineTo(width / 2, height);
+                //                              context.closePath();
+                //                              context.fillStyle = topTextArea.pressed ? "green" : "red";
+                //                              context.fill();
+                //                          }
+                //                      }
 
-//                      contentItem: Text {
-//                         // leftPadding: 0
-//                        //  rightPadding: topTextArea.indicator.width + topTextArea.spacing
+                //                      contentItem: Text {
+                //                         // leftPadding: 0
+                //                        //  rightPadding: topTextArea.indicator.width + topTextArea.spacing
 
-//                          text: topTextArea.displayText
-//                          font: topTextArea.font
-//                          color: "black"//topTextArea.pressed ? "green" : "red"
-//                          verticalAlignment: Text.AlignVCenter
-//                          horizontalAlignment: Text.AlignHCenter
-//                          elide: Text.ElideRight
-//                      }
+                //                          text: topTextArea.displayText
+                //                          font: topTextArea.font
+                //                          color: "black"//topTextArea.pressed ? "green" : "red"
+                //                          verticalAlignment: Text.AlignVCenter
+                //                          horizontalAlignment: Text.AlignHCenter
+                //                          elide: Text.ElideRight
+                //                      }
 
-//                      background: Rectangle {
-//                          implicitWidth: 200
-//                          implicitHeight: 40
-//                          color: StringConstants.actionBtnBackgroundColor
-//                          //border.color: topTextArea.pressed ? "green" : "red"
-//                         // border.width: topTextArea.visualFocus ? 2 : 1
-//                         // radius: 2
-//                      }
+                //                      background: Rectangle {
+                //                          implicitWidth: 200
+                //                          implicitHeight: 40
+                //                          color: StringConstants.actionBtnBackgroundColor
+                //                          //border.color: topTextArea.pressed ? "green" : "red"
+                //                         // border.width: topTextArea.visualFocus ? 2 : 1
+                //                         // radius: 2
+                //                      }
 
-                      popup: Popup {
-                          y: topTextArea.height - 1
-                          width: topTextArea.width
-                          implicitHeight: contentItem.implicitHeight
-                          padding: 1
+                popup: Popup {
+                    y: topTextArea.height - 1
+                    width: topTextArea.width
+                    implicitHeight: contentItem.implicitHeight
+                    padding: 1
 
-                          contentItem: ListView {
-                              clip: true
-                              implicitHeight: contentHeight
-                              model: topTextArea.popup.visible ? topTextArea.delegateModel : null
-                              currentIndex: topTextArea.highlightedIndex
+                    contentItem: ListView {
+                        clip: true
+                        implicitHeight: contentHeight
+                        model: topTextArea.popup.visible ? topTextArea.delegateModel : null
+                        currentIndex: topTextArea.highlightedIndex
 
-                              ScrollIndicator.vertical: ScrollIndicator { }
-                          }
+                        ScrollIndicator.vertical: ScrollIndicator { }
+                    }
 
-                          background: Rectangle {
-                              anchors.fill: parent
-                              color:StringConstants.actionBtnBackgroundColor
-                              border.color: StringConstants.actionBtnBackgroundColor
-                              radius: 2
-                          }
-                      }
+                    background: Rectangle {
+                        anchors.fill: parent
+                        color:StringConstants.actionBtnBackgroundColor
+                        border.color: StringConstants.actionBtnBackgroundColor
+                        radius: 2
+                    }
+                }
                 ////
                 Layout.row: lbl.visible?2:1
                 Layout.rowSpan: 1
@@ -306,7 +330,7 @@ Rectangle {
                     comboDisplayTextChange(currentText)
                 }
 
-                model: firstTumblerModel
+                //model: firstTumblerModel
             }
 
             TumberRec {
@@ -409,7 +433,6 @@ Rectangle {
 
 
 
-/*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
- ##^##*/
+
+
+
