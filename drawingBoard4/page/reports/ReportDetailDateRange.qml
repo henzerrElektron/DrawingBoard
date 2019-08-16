@@ -74,11 +74,11 @@ Rectangle{
                 //anchors.horizontalCenter: parent.horizontalCenter
                 /// anchors.verticalCenter: parent.verticalCenter
                 Component.onCompleted: {
-                   // pageStartTumbler.setDate.connect(pageSlider.setFromDate)
+                    pageStartTumbler.setDate.connect(pageSlider.setFromDate)
                     // pageStartTumbler.setDate.connect(pageEndTumbler.checkStopDateIndex)
-                  //  pageStartTumbler.setMonth.connect(pageSlider.setFromMonth)
+                    pageStartTumbler.setMonth.connect(pageSlider.setFromMonth)
                     //  pageStartTumbler.setDate.connect(pageEndTumbler.checkStopMonthIndex)
-                  //  pageStartTumbler.setYear.connect(pageSlider.setFromYear)
+                    pageStartTumbler.setYear.connect(pageSlider.setFromYear)
                     //   pageStartTumbler.setDate.connect(pageEndTumbler.checkStopYearIndex)
                 }
             }//TestPageSwitchButtons
@@ -121,11 +121,11 @@ Rectangle{
                 Component.onCompleted: {
 
                     //pageEndTumbler.setDate.connect(pageStartTumbler.checkStopDateIndex)
-                   // pageEndTumbler.setDate.connect(pageSlider.setToDate)
+                    pageEndTumbler.setDate.connect(pageSlider.setToDate)
                     //pageEndTumbler.setDate.connect(pageStartTumbler.checkStopMonthIndex)
-                   // pageEndTumbler.setMonth.connect(pageSlider.setToMonth)
+                    pageEndTumbler.setMonth.connect(pageSlider.setToMonth)
                     //pageEndTumbler.setDate.connect(pageStartTumbler.checkStopYearIndex)
-                   // pageEndTumbler.setYear.connect(pageSlider.setToYear)
+                    pageEndTumbler.setYear.connect(pageSlider.setToYear)
                     setTumblerDate(30)
                     setTumblerMonth(11)
                     setTumblerYear(IntegerConstants.dobEndDate - IntegerConstants.dobStartDate - 1)
