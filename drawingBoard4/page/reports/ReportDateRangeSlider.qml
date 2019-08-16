@@ -47,13 +47,16 @@ Rectangle{
     }
     signal setFromYear(int index)
     onSetFromYear: {
-       var value =  IntegerConstants.dobStartDate+index
+        var value =  IntegerConstants.dobStartDate+index
         slider3.changeFirstValue(incrementValue(value))
+        dateFromChange(slider1.firstValue)
+        dateToChange(slider1.secValue)
     }
     signal setToYear(int index)
     onSetToYear: {
         var value =  IntegerConstants.dobStartDate+index
         slider3.changeSecValue(incrementValue(value))
+
     }
 
     signal dateFromChange(int value)
@@ -68,19 +71,30 @@ Rectangle{
 
     signal monthFromChange(int value)
     onMonthFromChange: {
+        dateFromChange(slider1.firstValue)
+        dateToChange(slider1.secValue)
+        console.log("The index is"+value)
+        // slider1.prevFirstValue = slider1.firstValue+1
+        //  slider1.changeDayValue(value,slider3.firstValue)
         console.log("The index is"+value)
     }
 
     signal monthToChange(int value)
     onMonthToChange: {
-        slider1.prevSecValue = slider1.secValue+1
-        slider1.changeDayValue(value,slider3.secValue)
+       // slider1.changeFirstValue(incrementValue(index))
+       // slider1.changeSecValue(incrementValue(index))
+       // slider1.prevSecValue = slider1.secValue+1
+       // slider1.changeDayValue(value,slider3.secValue)
+        dateFromChange(slider1.firstValue)
+        dateToChange(slider1.secValue)
         console.log("The index is"+value)
     }
     signal calcYearFromChange(int value)
     signal calcYearToChange(int value)
     signal yearFromChange(int value)
     onYearFromChange: {
+        //slider1.prevFirstValue = slider1.firstValue+1
+        //slider1.changeDayValue(slider2.firstValue,value)
         var index = value - IntegerConstants.dobStartDate
         calcYearFromChange(index)
         console.log("The index is"+value)
@@ -214,7 +228,16 @@ Rectangle{
                 sliderFrom:1
                 sliderTo: 12
                 alterValues:true
+                onFirst1RangeValue: {
+                    slider1.sliderTo=getDaysInMonth(slider2.secValue,slider3.secValue)
+                }
+                onFirst2RangeValue: {
+                    slider1.sliderTo=getDaysInMonth(slider2.secValue,slider3.secValue)
+                }
+
+
                 Component.onCompleted: {
+
                     slider2.first1RangeValue.connect(monthFromChange)
                     slider2.first2RangeValue.connect(monthToChange)
 

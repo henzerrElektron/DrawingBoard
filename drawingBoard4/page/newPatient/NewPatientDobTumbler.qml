@@ -38,76 +38,76 @@ Rectangle {
     property int prevSetDate: 0
     property int curSetYear: 0
     property int prevSetYear: 0
-    property int stopDateIndex: 0
-    property int stopMonthIndex: 0
-    property int stopYearIndex: 0
+//    property int stopDateIndex: 0
+//    property int stopMonthIndex: 0
+//    property int stopYearIndex: 0
     property bool firstOrLast: false//false == first//startTumbler true == second//means stopTumbler
-    function checkStopDateIndex(index)
-    {
-        var setDateValue;
-        if(firstOrLast === false)
-        {
-            if(index> stopDateIndex)
-            {
-                console.log("StopDateIndex"+stopDateIndex+index+setDateValue)
-                curSetDate = stopDateIndex;
-            }
-        }
-        if(firstOrLast === true)
-        {
+//    function checkStopDateIndex(index)
+//    {
+//        var setDateValue;
+//        if(firstOrLast === false)
+//        {
+//            if(index> stopDateIndex)
+//            {
+//                console.log("StopDateIndex"+stopDateIndex+index+setDateValue)
+//                curSetDate = stopDateIndex;
+//            }
+//        }
+//        if(firstOrLast === true)
+//        {
 
-            if(stopDateIndex < index)
-            {
-                console.log("StopDateIndex"+stopDateIndex+index+setDateValue)
-                curSetDate = stopDateIndex;
-            }
-        }
-        console.log("StopDateIndex"+stopDateIndex+index)
-        //curSetDate = setDateValue
-        //setDate(setDateValue);
-        //return setDateValue;
+//            if(stopDateIndex < index)
+//            {
+//                console.log("StopDateIndex"+stopDateIndex+index+setDateValue)
+//                curSetDate = stopDateIndex;
+//            }
+//        }
+//        console.log("StopDateIndex"+stopDateIndex+index)
+//        //curSetDate = setDateValue
+//        //setDate(setDateValue);
+//        //return setDateValue;
 
-    }
-    function checkStopMonthIndex(index)
-    {
-        var setMonthValue;
-        if(firstOrLast === false)
-        {
-            if(index> stopMonthIndex)
-            {
-                setMonthValue = stopMonthIndex;
-            }
-        }
-        else
-        {
-            if(stopMonthIndex < index)
-            {
-                setMonthValue = stopMonthIndex;
-            }
-        }
-        setMonth(setMonthValue);
-        //return setMonthValue;
-    }
-    function checkStopYearIndex(index)
-    {
-        var setYearValue;
-        if(firstOrLast === false)
-        {
-            if(index> stopYearIndex)
-            {
-                setYearValue = stopYearIndex;
-            }
-        }
-        else
-        {
-            if(stopYearIndex < index)
-            {
-                setYearValue = stopYearIndex;
-            }
-        }
-        //return setYearValue;
-        setYear(setYearValue)
-    }
+//    }
+//    function checkStopMonthIndex(index)
+//    {
+//        var setMonthValue;
+//        if(firstOrLast === false)
+//        {
+//            if(index> stopMonthIndex)
+//            {
+//                setMonthValue = stopMonthIndex;
+//            }
+//        }
+//        else
+//        {
+//            if(stopMonthIndex < index)
+//            {
+//                setMonthValue = stopMonthIndex;
+//            }
+//        }
+//        setMonth(setMonthValue);
+//        //return setMonthValue;
+//    }
+//    function checkStopYearIndex(index)
+//    {
+//        var setYearValue;
+//        if(firstOrLast === false)
+//        {
+//            if(index> stopYearIndex)
+//            {
+//                setYearValue = stopYearIndex;
+//            }
+//        }
+//        else
+//        {
+//            if(stopYearIndex < index)
+//            {
+//                setYearValue = stopYearIndex;
+//            }
+//        }
+//        //return setYearValue;
+//        setYear(setYearValue)
+//    }
     property string curSetYearString: ""
     property string curSetMonth: ""
     property string curDateMonthYear: ""
@@ -167,6 +167,8 @@ Rectangle {
     }
     signal setNoDateInMonthYear()
     onSetNoDateInMonthYear: {
+       dateTumbler.comboBoxIndex = prevSetDate
+       dateTumbler.curSetDate = prevSetDate
        // dateTumbler.comboBoxModel = getDaysInMonth(curSetMonth,curSetYear)
        // dateTumbler.firstTumblerModel = getDaysInMonth(curSetMonth,curSetYear)
     }
@@ -180,7 +182,7 @@ Rectangle {
     }
 
     onSetDate: {
-        prevSetDate = curSetDate
+      //////////  prevSetDate = curSetDate
         console.log("The values are"+prevSetDate+curSetDate)
         curSetDate = index
         curDateMonthYear = curSetDate.toString()+"/"+curSetMonth+"/"+curSetYear.toString()//curSetYearString//
@@ -190,16 +192,16 @@ Rectangle {
     }
 
     onSetMonth: {
-
+       /////// prevSetDate = curSetDate
         curSetMonth = OtherConstants.dobCalAllMonths[index]
         curDateMonthYear = curSetDate.toString()+"/"+curSetMonth+"/"+curSetYear.toString()//curSetYearString//
-        setNoDateInMonthYear()
+        ////////////setNoDateInMonthYear()
     }
     onSetYear: {
 
-        curSetYear = OtherConstants.dobStartDate+index
+        curSetYear = IntegerConstants.dobStartDate+index
         curDateMonthYear = curSetDate.toString()+"/"+curSetMonth+"/"+curSetYear.toString()//curSetYearString//
-        setNoDateInMonthYear()
+       // setNoDateInMonthYear()
     }
 
     GridLayout{
@@ -282,10 +284,14 @@ Rectangle {
                 comboBoxModel: calModel.calculateRange(1,getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex))//calModel.calculateRange(1,IntegerConstants.dobCalNoOfDays)//getDaysInMonth(monthTumbler.firstTumblerIndex,yearTumbler.firstTumblerIndex)//calModel.calculateRange(1,IntegerConstants.dobCalNoOfDays)
                 onComboBoxModelChanged: {
                     firstTumblerModel = comboBoxModel
+                   // comboBoxIndex = prevSetDate
+                   // curSetDate = prevSetDate
                 }
 
+
                 onFirstTumblerCountChanged: {
-                    curSetDate = prevSetDate
+                 //   comboBoxIndex = prevSetDate
+                 //   curSetDate = prevSetDate
                 }
 
                 Component.onCompleted: {

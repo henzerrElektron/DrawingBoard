@@ -42,6 +42,7 @@ Rectangle{
     }
 
     // property real realSecValue: 0
+    property int prevFirstValue: 0
     property int prevSecValue: 0
     //    onSliderFromValueChanged: {
     //        first1RangeValue(first.value.toFixed(0))
@@ -70,7 +71,7 @@ Rectangle{
     signal changeToPosition()
     function getDaysInMonth(month,year) {
         var dateValue =  new Date(year, month+1, 0).getDate();
-        console.log("The datevalue is "+dateValue)
+        console.log("The datevalue is "+dateValue+year+month)
         return dateValue;
     }
     onChangeDayValue: {
@@ -214,8 +215,8 @@ Rectangle{
                 }
                 Component.onCompleted: {
                     //slider1.setValues(slider1.from,slider1.to)
-                    first.value = slider1.from
-                    second.value = slider1.to
+                    //first.value = slider1.from
+                    //second.value = slider1.to
                     prevSecValue =  second.valueto.toFixed(0);
                     prevTo = slider1.to.toFixed(0);
                     //firstValue = first.value.toFixed(0);
