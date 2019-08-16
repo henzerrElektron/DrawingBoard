@@ -34,7 +34,7 @@ Rectangle{
     property int secValue: 0
     property int newFirstValue: 0
     function changeFirstValue(index){
-       slider1.first.value = index
+        slider1.first.value = index
     }
     function changeSecValue(index)
     {
@@ -83,14 +83,14 @@ Rectangle{
     }
     onChangeToPosition: {
         console.log("This is in a wrong position"+prevTo+"ok"+slider1.to)
-//        if(slider1.to >= prevTo)
-//        {
-//            if(slider1.second.position === 1.0)
-//            {
-//                console.log("This is in a wrong position"+prevTo+"ok"+prevSecValue)
-//                slider1.second.value = prevSecValue
-//            }
-//        }
+        //        if(slider1.to >= prevTo)
+        //        {
+        //            if(slider1.second.position === 1.0)
+        //            {
+        //                console.log("This is in a wrong position"+prevTo+"ok"+prevSecValue)
+        //                slider1.second.value = prevSecValue
+        //            }
+        //        }
     }
 
     GridLayout{
@@ -203,10 +203,10 @@ Rectangle{
                         console.log("The curvalue is"+secValue)
                     }
                     // console.log("The sec value is"+secValue+"The real secvalue is"+realSecValue+"the real slider1 to value is"+slider1.to)
-//                    if((secValue) === slider1.to)
-//                    {
-//                        slider1.second.position = 1.0
-//                    }
+                    //                    if((secValue) === slider1.to)
+                    //                    {
+                    //                        slider1.second.position = 1.0
+                    //                    }
                     console.log("The curvalue is"+secValue)
                     first2RangeValue(secValue)//.toFixed(0)
                     //first2RangeValue(second.value.toFixed(0))
@@ -215,8 +215,8 @@ Rectangle{
                 }
                 Component.onCompleted: {
                     //slider1.setValues(slider1.from,slider1.to)
-                    //first.value = slider1.from
-                    //second.value = slider1.to
+                    first.value = slider1.from
+                    second.value = slider1.to
                     prevSecValue =  second.valueto.toFixed(0);
                     prevTo = slider1.to.toFixed(0);
                     //firstValue = first.value.toFixed(0);
