@@ -24,7 +24,7 @@ import "./../../common/"
 
 Rectangle {
     id: rectangle
-    color: StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor
+    color: StringConstants.actionBtnBackgroundColor////StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor
     anchors.fill: parent
 
     GridLayout{

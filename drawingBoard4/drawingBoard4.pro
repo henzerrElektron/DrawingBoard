@@ -27,6 +27,7 @@ message(Demonstrations: $$[QT_INSTALL_DEMOS])
 SOURCES += \
         lineintersect.cpp \
         main.cpp \
+        medicaltestmodel.cpp \
         plotdatapoint.cpp \
         plotpoints.cpp \
         supplementpagepatienttablemodel.cpp \
@@ -104,6 +105,7 @@ DISTFILES += \
 
 HEADERS += \
     lineintersect.h \
+    medicaltestmodel.h \
     plotdatapoint.h \
     plotpoints.h \
     supplementpagepatienttablemodel.h \

@@ -125,5 +125,8 @@
         <file>page/reports/ReportDateRangeSlider.qml</file>
         <file>page/reports/ReportRangeSlider.qml</file>
         <file>page/reports/ReportCustomRangeSlider.qml</file>
+        <file>page/reports/ReportTabs.qml</file>
+        <file>page/reports/ReportPraticeTimeline.qml</file>
+        <file>page/reports/ReportPatientTimeline.qml</file>
     </qresource>
 </RCC>

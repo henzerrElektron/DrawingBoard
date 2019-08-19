@@ -23,7 +23,7 @@ import ApplicationConstants 1.0
 Rectangle{
     id:mainRec
     anchors.fill: parent
-    color: StringConstants.actionBtnBackgroundColor
+    color: StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor
     width:  rectangleSub4.width+rectangleSub5.width
     GridLayout{
         id:mainGrid
@@ -44,7 +44,7 @@ Rectangle{
         }
         Rectangle {
             id: rectangleSub4
-            color:StringConstants.testPage_backgroundColor// "black"//
+            color:StringConstants.testPage_backgroundColor// "black"//StringConstants.actionBtnBackgroundColor//
             Layout.row: IntegerConstants.rowCount2
             //Layout.rowSpan: IntegerConstants.rowSpan2
             Layout.column: IntegerConstants.columnCount1
@@ -80,10 +80,10 @@ Rectangle{
         }
         Rectangle {
             id: rectangleSub5
-            color:StringConstants.testPage_backgroundColor// "black"//
+            color:StringConstants.testPage_backgroundColor// "black"//StringConstants.actionBtnBackgroundColor//
             Layout.row: IntegerConstants.rowCount2
             Layout.column: IntegerConstants.columnCount2
-            Layout.columnSpan:IntegerConstants.columnSpan1
+            Layout.columnSpan:IntegerConstants.columnSpan2
             Layout.preferredWidth: pageEndTumbler.width
             Layout.minimumWidth:pageEndTumbler.width
             Layout.maximumWidth: pageEndTumbler.width
@@ -111,14 +111,14 @@ Rectangle{
                 }
             }//TestPageSwitchButtons
         }
-        Rectangle {
-            id: rectangleSub6
-            color:StringConstants.testPage_backgroundColor// "black"//
-            Layout.row: IntegerConstants.rowCount3
-            Layout.column: IntegerConstants.columnCount1
-            Layout.columnSpan:IntegerConstants.columnSpan2
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+//        Rectangle {
+//            id: rectangleSub6
+//            color:StringConstants.testPage_backgroundColor// "black"//
+//            Layout.row: IntegerConstants.rowCount3
+//            Layout.column: IntegerConstants.columnCount1
+//            Layout.columnSpan:IntegerConstants.columnSpan2
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
 //            ReportDateRangeSlider{
 //                id:pageSlider
 //                anchors.fill: parent
@@ -131,7 +131,7 @@ Rectangle{
 //                    pageSlider.calcYearToChange.connect(pageEndTumbler.setTumblerYear)
 //                }
 //            }
-        }
+//        }
 
     }
 }
