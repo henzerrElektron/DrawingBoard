@@ -52,6 +52,8 @@ Rectangle{
         dateFromChange(slider1.firstValue)
         dateToChange(slider1.secValue)
     }
+
+
     signal setToYear(int index)
     onSetToYear: {
         var value =  IntegerConstants.dobStartDate+index
@@ -74,17 +76,11 @@ Rectangle{
         dateFromChange(slider1.firstValue)
         dateToChange(slider1.secValue)
         console.log("The index is"+value)
-        // slider1.prevFirstValue = slider1.firstValue+1
-        //  slider1.changeDayValue(value,slider3.firstValue)
         console.log("The index is"+value)
     }
 
     signal monthToChange(int value)
     onMonthToChange: {
-       // slider1.changeFirstValue(incrementValue(index))
-       // slider1.changeSecValue(incrementValue(index))
-       // slider1.prevSecValue = slider1.secValue+1
-       // slider1.changeDayValue(value,slider3.secValue)
         dateFromChange(slider1.firstValue)
         dateToChange(slider1.secValue)
         console.log("The index is"+value)
@@ -93,8 +89,6 @@ Rectangle{
     signal calcYearToChange(int value)
     signal yearFromChange(int value)
     onYearFromChange: {
-        //slider1.prevFirstValue = slider1.firstValue+1
-        //slider1.changeDayValue(slider2.firstValue,value)
         var index = value - IntegerConstants.dobStartDate
         calcYearFromChange(index)
         console.log("The index is"+value)
@@ -119,69 +113,7 @@ Rectangle{
         console.log("The datevalue is "+dateValue)
         return dateValue;
     }
-    //signal first1RangeValue(int value)
-    //signal first2RangeValue(int value)
-    //signal sec1RangeValue(int value)
-    //signal sec2RangeValue(int value)
-    // signal third1RangeValue(int value)
-    // signal third2RangeValue(int value)
-    //    property alias slider1From: slider1.from
-    //    property alias slider1To: slider1.to
-    //    property alias slider1FirstValue: slider1.first.value
-    //    property alias slider1SecondValue: slider1.second.value
-    //    property alias slider2From: slider2.from
-    //    property alias slider2To: slider2.to
-    //    property alias slider2FirstValue: slider2.first.value
-    //    property alias slider2SecondValue: slider2.second.value
-    //    property alias slider3From: slider3.from
-    //    property alias slider3To: slider3.to
-    //    property alias slider3FirstValue: slider3.first.value
-    //    property alias slider3SecondValue: slider3.second.value
-    //    onSlider1FromChanged: {
 
-    //    }
-    //    onSlider1ToChanged: {
-
-    //    }
-
-    //    onSlider1FirstValueChanged: {
-
-    //    }
-    //    onSlider1SecondValueChanged: {
-
-    //    }
-
-
-
-    //    onSlider2FromChanged: {
-
-    //    }
-    //    onSlider2ToChanged: {
-
-    //    }
-
-    //    onSlider2FirstValueChanged: {
-
-    //    }
-    //    onSlider2SecondValueChanged: {
-
-    //    }
-
-
-
-    //    onSlider3FromChanged: {
-
-    //    }
-    //    onSlider3ToChanged: {
-
-    //    }
-
-    //    onSlider3FirstValueChanged: {
-
-    //    }
-    //    onSlider3SecondValueChanged: {
-
-    //    }
 
 
     GridLayout{

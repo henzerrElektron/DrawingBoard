@@ -64,22 +64,16 @@ Rectangle{
                 lblText:StringConstants.lbl_rpStartDate
                 sortLeapYears:true
                 firstOrLast: false
-                //stopDateIndex: pageEndTumbler.curSetDate
-                // stopMonthIndex: pageEndTumbler.curSetMonth
-                // stopYearIndex: pageEndTumbler.curSetYear
-                //anchors.fill: parent
-                // width: parent.width/2
-                // height: parent.height/2
+
                 anchors.right: parent.right
-                //anchors.horizontalCenter: parent.horizontalCenter
-                /// anchors.verticalCenter: parent.verticalCenter
+
                 Component.onCompleted: {
                     pageStartTumbler.setDate.connect(pageSlider.setFromDate)
-                    // pageStartTumbler.setDate.connect(pageEndTumbler.checkStopDateIndex)
                     pageStartTumbler.setMonth.connect(pageSlider.setFromMonth)
-                    //  pageStartTumbler.setDate.connect(pageEndTumbler.checkStopMonthIndex)
                     pageStartTumbler.setYear.connect(pageSlider.setFromYear)
-                    //   pageStartTumbler.setDate.connect(pageEndTumbler.checkStopYearIndex)
+                    pageEndTumbler.setYear.connect(pageStartTumbler.setMaxYear)
+                    pageEndTumbler.resetYear.connect(pageStartTumbler.resetYear)
+
                 }
             }//TestPageSwitchButtons
         }
@@ -92,39 +86,21 @@ Rectangle{
             Layout.preferredWidth: pageEndTumbler.width
             Layout.minimumWidth:pageEndTumbler.width
             Layout.maximumWidth: pageEndTumbler.width
-            //Layout.rowSpan: IntegerConstants.rowSpan3
-            // Layout.row: 1
-            // Layout.rowSpan: 3
+
             Layout.fillHeight: true
-            // Layout.maximumWidth: 300//parent.width/4
+
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignRight
             NewPatientDobTumbler{
                 id:pageEndTumbler
                 recTextVisible: false
                 lblText:StringConstants.lbl_rpEndDate
-                //curSetDate:31
-                //curSetMonth:Calendar.December
-                //curSetYear:2019
                 sortLeapYears:true
                 firstOrLast: true
-                // stopDateIndex: pageStartTumbler.curSetDate
-                // stopMonthIndex: pageStartTumbler.curSetMonth
-                // stopYearIndex: pageStartTumbler.curSetYear
-                //dateModel:pageSlider.dateSliderTo //pageSlider.getDaysInMonth(slider2.sliderTo,slider3.sliderTo)//pageSlider.dateSliderTo
-                //anchors.fill: parent
-                // width: parent.width/2
-                // height: parent.height/2
                 anchors.right: parent.right
-                //anchors.horizontalCenter: parent.horizontalCenter
-                /// anchors.verticalCenter: parent.verticalCenter
                 Component.onCompleted: {
-
-                    //pageEndTumbler.setDate.connect(pageStartTumbler.checkStopDateIndex)
                     pageEndTumbler.setDate.connect(pageSlider.setToDate)
-                    //pageEndTumbler.setDate.connect(pageStartTumbler.checkStopMonthIndex)
                     pageEndTumbler.setMonth.connect(pageSlider.setToMonth)
-                    //pageEndTumbler.setDate.connect(pageStartTumbler.checkStopYearIndex)
                     pageEndTumbler.setYear.connect(pageSlider.setToYear)
                     setTumblerDate(30)
                     setTumblerMonth(11)

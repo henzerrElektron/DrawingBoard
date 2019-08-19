@@ -177,10 +177,24 @@ Rectangle {
     signal setMonth(int index)
     signal setYear(int index)
     signal setYearString(string value)
+    signal resetYear()
+    onResetYear: {
+        console.log("The prevsetYesar"+prevSetYear)
+        setYear(prevSetYear)
+    }
+
     onSetYearString: {
         curSetYearString = value
     }
+    signal setMaxYear(int index)
+    onSetMaxYear: {
 
+        console.log("The index is"+index+"The prev year is"+prevSetYear+"The current year is"+curSetYear)
+        yearTumbler.comboBoxModel = calModel.calculateRange(IntegerConstants.dobStartDate,IntegerConstants.dobStartDate+index)//index
+        console.log("The model is the current model"+yearTumbler.comboBoxModel)
+        yearTumbler.firstTumblerModel = calModel.calculateRange(IntegerConstants.dobStartDate,IntegerConstants.dobStartDate+index)//index
+        resetYear()
+    }
     onSetDate: {
         // prevSetDate = curSetDate
         console.log("The values are"+prevSetDate+curSetDate)
@@ -200,6 +214,7 @@ Rectangle {
     onSetYear: {
 
         curSetYear = IntegerConstants.dobStartDate+index
+        prevSetYear = index
         curDateMonthYear = curSetDate.toString()+"/"+curSetMonth+"/"+curSetYear.toString()//curSetYearString//
         // setNoDateInMonthYear()
     }
@@ -300,7 +315,7 @@ Rectangle {
                     console.log("The index value is"+prevSetDate+getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex))
                     if((prevSetDate+1) >getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex))
                     {
-                       prevSetDate =  getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex) - 1
+                        prevSetDate =  getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex) - 1
                     }
                     comboBoxIndex = prevSetDate
                     curSetDate = prevSetDate
@@ -370,6 +385,17 @@ Rectangle {
                 firstTumblerModel:calModel.calculateRange(IntegerConstants.dobStartDate,IntegerConstants.dobEndDate)//calModel.calculateYears()
                 comboBoxModel: calModel.calculateRange(IntegerConstants.dobStartDate,IntegerConstants.dobEndDate)//calculateRange(1900,2019)//
                 firstTumblerDelegate:calYearCom
+                onComboBoxModelChanged: {
+                    console.log("The prev and current year"+prevSetYear+curSetYear)
+                    prevSetYear = curSetYear - IntegerConstants.dobStartDate
+                    console.log("The prev and current year"+prevSetYear+curSetYear)
+                }
+                onFirstTumblerModelChanged: {
+                    console.log("The prev and current year"+prevSetYear+curSetYear)
+                    prevSetYear = curSetYear - IntegerConstants.dobStartDate
+                    console.log("The prev and current year"+prevSetYear+curSetYear)
+                }
+
                 onRearrangeModelChanged: {
                     update()
                 }

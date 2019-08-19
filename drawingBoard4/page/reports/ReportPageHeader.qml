@@ -21,24 +21,15 @@ import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
 import "./../../common/"
-//import ApplicationIntegerConstants 1.0
-//import ApplicationStringConstants 1.0
-//import ApplicationOtherConstants 1.0
-//Item {
-//  width: 950
-//  height: 275
 
 Rectangle {
     id: rectangle
     color: StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor
     anchors.fill: parent
-    //height: 400
-    // width: 800
+
     GridLayout{
         id: mainRow
-        // width: 700
         anchors.fill: parent
-        //columns: 3
         rows:2//3
 
         Rectangle {
