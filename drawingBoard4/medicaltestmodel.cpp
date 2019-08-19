@@ -155,12 +155,25 @@ void MedicalResult::setLePeripheralConfidenceLevel(double lePeripheralConfidence
 
 MedicalResult::MedicalResult(const qlonglong testResultNo, const QDate testDate, QTime testTime, qlonglong testPatId, double reMPEstimate, const double reMPAbsolute, const double reMPAdusted, const double reCentralConfidenceLevel, const double rePeripheralConfidenceLevel, const double leMpEstimate, const double leMpAbsolute, const double leMpAdjusted, const double leCentralConfidenceLevel, const double lePeripheralConfidenceLevel)
 {
-
+    m_testResultNo = testResultNo;
+    m_testDate = testDate;
+    m_testTime = testTime;
+    m_testPatientId = testPatId;
+    m_reMPEstimate = reMPEstimate;
+    m_reMpAbsolute = reMPAbsolute;
+    m_reMPAdjusted = reMPAdusted;
+    m_reCentralConfidenceLevel = reCentralConfidenceLevel;
+    m_rePeripheralConfidenceLevel = rePeripheralConfidenceLevel;
+    m_leMPEstimate = leMpEstimate;
+    m_leMPAdjusted = leMpAdjusted;
+    m_leMPAbsolute = leMpAbsolute;
+    m_leCentralConfidenceLevel = leCentralConfidenceLevel;
+    m_lePeripheralConfidenceLevel = lePeripheralConfidenceLevel;
 }
 
 medicalTestModel::medicalTestModel(QList<MedicalResult> medicalResults, QObject *parent)
 {
-  m_results = medicalResults;
+    m_results = medicalResults;
 }
 medicalTestModel::medicalTestModel(QObject *parent)
 {
@@ -247,8 +260,15 @@ bool medicalTestModel::setData(const QModelIndex &index, const QVariant &value, 
         else if (index.column() == 12) {
             p.setLePeripheralConfidenceLevel(value.toDouble());
         }
+        else{
+            return false;
+        }
+        m_results.replace(row,p);
+        emit(dataChanged(index,index));
+        return  true;
 
     }
+    return  false;
 }
 int medicalTestModel::rowCount(const QModelIndex &parent) const
 {
@@ -283,22 +303,22 @@ QVariant medicalTestModel::data(const QModelIndex &index, int role) const
         switch (index.column()) {
         case 0:
             break;
-//        case 1:
-//            if(result.leftValue().toString() == "Accept")
-//            {
-//                return  true;
-//            }
-//            else {
-//                return  false;
-//            }
-//        case 2:
-//            if(result.rightValue().toString() == "Accept")
-//            {
-//                return  true;
-//            }
-//            else {
-//                return  false;
-//            }
+            //        case 1:
+            //            if(result.leftValue().toString() == "Accept")
+            //            {
+            //                return  true;
+            //            }
+            //            else {
+            //                return  false;
+            //            }
+            //        case 2:
+            //            if(result.rightValue().toString() == "Accept")
+            //            {
+            //                return  true;
+            //            }
+            //            else {
+            //                return  false;
+            //            }
         default:
             qDebug() << "Not supposed to happen";
             return QVariant();
