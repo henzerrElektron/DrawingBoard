@@ -36,6 +36,7 @@ Rectangle{
     //property alias allTumbler: firstTumbler
     property alias allTumblerIndex: firstTumbler.currentIndex
     property bool donotUpdateWhileMoving: false
+    property bool stopped: false
     //property alias allTumblerValue: allTumblerModel[firstTumbler.currentIndex]
     signal tumblerIndexChanged(int currentIndex)
 
@@ -74,6 +75,7 @@ Rectangle{
                 if(moving === false)
                 {
                     tumblerIndexChanged(currentIndex)
+                    stopped = true
                 }
             }
         }

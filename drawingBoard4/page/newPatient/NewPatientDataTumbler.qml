@@ -44,6 +44,7 @@ Rectangle {
     property alias firstTumblerVisibility: firstTumblerRec.allTumblerVisibility
     property alias secTumblerVisibility: secTumblerRec.allTumblerVisibility
     property alias comboBoxModel: topTextArea.model
+    property alias firstTumblerStopped: firstTumblerRec.stopped
     //property alias comboBoxModelCount: topTextArea.model.modelData.count
     onComboBoxModelChanged: {
         console.log("The model is"+topTextArea.model)

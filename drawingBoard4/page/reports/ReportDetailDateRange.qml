@@ -71,8 +71,9 @@ Rectangle{
                     pageStartTumbler.setDate.connect(pageSlider.setFromDate)
                     pageStartTumbler.setMonth.connect(pageSlider.setFromMonth)
                     pageStartTumbler.setYear.connect(pageSlider.setFromYear)
-                    pageEndTumbler.setYear.connect(pageStartTumbler.setMaxYear)
-                    pageEndTumbler.resetYear.connect(pageStartTumbler.resetYear)
+                    pageStartTumbler.setMinYear.connect(pageEndTumbler.setMinYear)
+                    pageStartTumbler.resetYear.connect(pageEndTumbler.resetYear)
+
 
                 }
             }//TestPageSwitchButtons
@@ -102,6 +103,8 @@ Rectangle{
                     pageEndTumbler.setDate.connect(pageSlider.setToDate)
                     pageEndTumbler.setMonth.connect(pageSlider.setToMonth)
                     pageEndTumbler.setYear.connect(pageSlider.setToYear)
+                    pageEndTumbler.setMaxYear.connect(pageStartTumbler.setMaxYear)
+                    pageEndTumbler.resetYear.connect(pageStartTumbler.resetYear)
                     setTumblerDate(30)
                     setTumblerMonth(11)
                     setTumblerYear(IntegerConstants.dobEndDate - IntegerConstants.dobStartDate - 1)
@@ -116,21 +119,18 @@ Rectangle{
             Layout.columnSpan:IntegerConstants.columnSpan2
             Layout.fillHeight: true
             Layout.fillWidth: true
-            //Layout.preferredHeight: 100
-            //Layout.alignment: Qt.AlignRight
-            ReportDateRangeSlider{
-                id:pageSlider
-                anchors.fill: parent
-                Component.onCompleted: {
-                    pageSlider.dateFromChange.connect(pageStartTumbler.setTumblerDate)
-                    pageSlider.dateToChange.connect(pageEndTumbler.setTumblerDate)
-                    pageSlider.monthFromChange.connect(pageStartTumbler.setTumblerMonth)
-                    pageSlider.monthToChange.connect(pageEndTumbler.setTumblerMonth)
-                    pageSlider.calcYearFromChange.connect(pageStartTumbler.setTumblerYear)
-                    pageSlider.calcYearToChange.connect(pageEndTumbler.setTumblerYear)
-                }
-                //slider1From: pageStartTumbler.dateTumblerModel.valueat(0)
-            }
+//            ReportDateRangeSlider{
+//                id:pageSlider
+//                anchors.fill: parent
+//                Component.onCompleted: {
+//                    pageSlider.dateFromChange.connect(pageStartTumbler.setTumblerDate)
+//                    pageSlider.dateToChange.connect(pageEndTumbler.setTumblerDate)
+//                    pageSlider.monthFromChange.connect(pageStartTumbler.setTumblerMonth)
+//                    pageSlider.monthToChange.connect(pageEndTumbler.setTumblerMonth)
+//                    pageSlider.calcYearFromChange.connect(pageStartTumbler.setTumblerYear)
+//                    pageSlider.calcYearToChange.connect(pageEndTumbler.setTumblerYear)
+//                }
+//            }
         }
 
     }

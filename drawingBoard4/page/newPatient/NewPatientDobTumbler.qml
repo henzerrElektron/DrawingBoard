@@ -38,6 +38,8 @@ Rectangle {
     property int prevSetDate: 0
     property int curSetYear: 0
     property int prevSetYear: 0
+    property int startDate: IntegerConstants.dobStartDate
+    property int endDate: IntegerConstants.dobEndDate
     //    property int stopDateIndex: 0
     //    property int stopMonthIndex: 0
     //    property int stopYearIndex: 0
@@ -186,14 +188,44 @@ Rectangle {
     onSetYearString: {
         curSetYearString = value
     }
+    signal setMinYear(int index)
+    onSetMinYear: {
+        console.log("The first or last is"+firstOrLast)
+        if(firstOrLast === true)
+        {
+            prevSetYear = startDate +index
+            curSetYear = startDate + index
+            console.log("The index is"+index+"The prev year is"+prevSetYear+"The current year is"+curSetYear+"Start date"+startDate+"endDate"+endDate)
+            yearTumbler.comboBoxModel = calModel.calculateRange(startDate+index,endDate)//index
+            console.log("The model is the current model"+yearTumbler.comboBoxModel)
+            yearTumbler.firstTumblerModel = calModel.calculateRange(startDate+index,endDate)//index
+            //startDate = IntegerConstants.dobStartDate+ index
+            console.log("The index is"+index+"The prev year is"+prevSetYear+"The current year is"+curSetYear+"Start date"+startDate+"endDate"+endDate)
+            // curSetYear = prevSetYear
+            resetYear()
+        }
+
+
+        console.log("The modified start date  is"+startDate)
+    }
+
     signal setMaxYear(int index)
     onSetMaxYear: {
+        console.log("The first or last is"+firstOrLast)
+        if(firstOrLast === false)
+        {
+            prevSetYear = index
+            // endDate = startDate+index
+            console.log("The index is"+index+"The prev year is"+prevSetYear+"The current year is"+curSetYear+"The start date is"+startDate+"The end date is"+endDate)
+            yearTumbler.comboBoxModel = calModel.calculateRange(curSetYear,curSetYear+index)//index
+            console.log("The model is the current model"+yearTumbler.comboBoxModel)
+            yearTumbler.firstTumblerModel = calModel.calculateRange(curSetYear,curSetYear+index)//index
+            console.log("The model is the current model"+yearTumbler.firstTumblerModel)
+            curSetYear = startDate+index
+            resetYear()
+        }
 
-        console.log("The index is"+index+"The prev year is"+prevSetYear+"The current year is"+curSetYear)
-        yearTumbler.comboBoxModel = calModel.calculateRange(IntegerConstants.dobStartDate,IntegerConstants.dobStartDate+index)//index
-        console.log("The model is the current model"+yearTumbler.comboBoxModel)
-        yearTumbler.firstTumblerModel = calModel.calculateRange(IntegerConstants.dobStartDate,IntegerConstants.dobStartDate+index)//index
-        resetYear()
+
     }
     onSetDate: {
         // prevSetDate = curSetDate
@@ -213,9 +245,32 @@ Rectangle {
     }
     onSetYear: {
 
-        curSetYear = IntegerConstants.dobStartDate+index
+        curSetYear = startDate+index
         prevSetYear = index
         curDateMonthYear = curSetDate.toString()+"/"+curSetMonth+"/"+curSetYear.toString()//curSetYearString//
+//        if(firstOrLast === true)
+//        {
+//            //endDate = startDate+index
+//            if(yearTumbler.firstTumblerStopped === true)
+//            {
+//                yearTumbler.firstTumblerStopped = false
+//                console.log("The index is"+index+"The prev year is"+prevSetYear+"The current year is"+curSetYear+"The start date is"+startDate+"The end date is"+endDate)
+//                pageStartTumbler.setMaxYear(index)
+//            }
+//        }
+//        if(firstOrLast === false)
+//        {
+//             pageStartTumbler.setMinYear(index)
+//             startDate = IntegerConstants.dobStartDate+ index
+//            if(yearTumbler.firstTumblerStopped === true)
+//            {
+//                yearTumbler.firstTumblerStopped = false
+//                console.log("The index is"+index+"The prev year is"+prevSetYear+"The current year is"+curSetYear+"The start date is"+startDate+"The end date is"+endDate)
+//                pageEndTumbler.setMinYear(index)
+//            }
+
+//        }
+
         // setNoDateInMonthYear()
     }
 
@@ -381,7 +436,7 @@ Rectangle {
                 firstTumblerVisibility: true
                 secTumblerVisibility: false
                 thirdTumblerVisibility: false
-                //donotUpdateMovingTumbler: true
+                donotUpdateMovingTumbler: true
                 firstTumblerModel:calModel.calculateRange(IntegerConstants.dobStartDate,IntegerConstants.dobEndDate)//calModel.calculateYears()
                 comboBoxModel: calModel.calculateRange(IntegerConstants.dobStartDate,IntegerConstants.dobEndDate)//calculateRange(1900,2019)//
                 firstTumblerDelegate:calYearCom
