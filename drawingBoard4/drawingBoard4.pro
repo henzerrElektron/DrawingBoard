@@ -28,6 +28,7 @@ SOURCES += \
         lineintersect.cpp \
         main.cpp \
         medicaltestmodel.cpp \
+        patientresultmodel.cpp \
         plotdatapoint.cpp \
         plotpoints.cpp \
         supplementpagepatienttablemodel.cpp \
@@ -106,6 +107,7 @@ DISTFILES += \
 HEADERS += \
     lineintersect.h \
     medicaltestmodel.h \
+    patientresultmodel.h \
     plotdatapoint.h \
     plotpoints.h \
     supplementpagepatienttablemodel.h \

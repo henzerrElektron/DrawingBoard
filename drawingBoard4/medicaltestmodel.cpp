@@ -301,8 +301,8 @@ QVariant medicalTestModel::data(const QModelIndex &index, int role) const
     if(role == AcceptRejectRole)
     {
         switch (index.column()) {
-        case 0:
-            break;
+        //case 0:
+        //    break;
             //        case 1:
             //            if(result.leftValue().toString() == "Accept")
             //            {
@@ -435,6 +435,7 @@ QHash<int, QByteArray> medicalTestModel::roleNames() const
     roles[LEMPAdjustedRole] = "LE MP Adjusted";
     roles[LECentralConfidenceRole] = "LE Central Confidence Level";
     roles[LEPeripheralConfidenceRole] = "LE Peripheral Confidence Level";
-
+    roles[HeadingRole] = "heading";
+    roles[AcceptRejectRole] = "arRole";
     return  roles;
 }
