@@ -38,7 +38,8 @@ int main(int argc, char *argv[])
 //        settings.setValue("style", style);
 //    else
 //        QQuickStyle::setStyle(settings.value("style").toString());
-    medicalTestModel medTestModel;
+    MedicalTestModel medTestModel;
+    medTestModel.addMedicalResult(MedicalResult("TestResultNo","TestDate","TestTime","PatientId","RE MP Estimate","RE  MP Absolute","RE MP Adjusted","RE Central Confidence Level","RE Peripheral Confidence Level","LE MP Estimate","LE MP Absolute","LE MP Adjusted","LE Central Confidence Level","LE Peripheral Confidence Level"));
     medTestModel.addMedicalResult(MedicalResult(1,QDate::currentDate(),QTime::currentTime(),1,1.01,2.02,3.03,4.05,5.06,7.07,8.07,3.56,2.69,3.34));
     medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate(),QTime::currentTime(),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
     medTestModel.addMedicalResult(MedicalResult(3,QDate::currentDate(),QTime::currentTime(),3,3.01,4.02,5.03,6.05,7.06,9.07,11.07,21.56,18.69,19.34));
@@ -48,11 +49,23 @@ int main(int argc, char *argv[])
     medTestModel.addMedicalResult(MedicalResult(7,QDate::currentDate(),QTime::currentTime(),7,2.01,7.02,3.03,0.05,5.06,38.07,19.07,15.56,1.349,13.34));
     medTestModel.addMedicalResult(MedicalResult(8,QDate::currentDate(),QTime::currentTime(),8,2.01,3.02,4.03,6.05,3.06,48.07,2.67,21.56,1.59,15.34));
 
+
     PatientResultModel leftpatResultModel;
+    leftpatResultModel.addPatientResult(PatientResult("TestResultNo","TestDate","TestTime","MP Estimate","MP Absolute","MP Adjusted"));
     leftpatResultModel.addPatientResult(PatientResult(1,QDate::currentDate(),QTime::currentTime(),3.034,6.029,1.03));
     leftpatResultModel.addPatientResult(PatientResult(2,QDate::currentDate(),QTime::currentTime(),6.134,7.029,2.03));
     leftpatResultModel.addPatientResult(PatientResult(3,QDate::currentDate(),QTime::currentTime(),2.134,4.029,3.03));
     leftpatResultModel.addPatientResult(PatientResult(4,QDate::currentDate(),QTime::currentTime(),1.034,8.029,7.03));
+
+    PatientResultModel rightPatResultModel;
+    rightPatResultModel.addPatientResult(PatientResult("TestResultNo","TestDate","TestTime","MP Estimate","MP Absolute","MP Adjusted"));
+    rightPatResultModel.addPatientResult(PatientResult(1,QDate::currentDate(),QTime::currentTime(),3.1232,4.121,0.23));
+    rightPatResultModel.addPatientResult(PatientResult(2,QDate::currentDate(),QTime::currentTime(),1.43,21.21,1.121));
+    rightPatResultModel.addPatientResult(PatientResult(3,QDate::currentDate(),QTime::currentTime(),1.2,2.3,0.21));
+    rightPatResultModel.addPatientResult(PatientResult(4,QDate::currentDate(),QTime::currentTime(),1.33,4.22,1.221));
+
+
+
 
     SwitchPatientTableModel existingPatientModel;
     existingPatientModel.addExistingPatient(ExistingPatients("FirstName","SurName","Date","TestResults(R/L)","MedicalReference","Address"));
@@ -70,6 +83,7 @@ int main(int argc, char *argv[])
     existingPatientModel.addExistingPatient(ExistingPatients("feafrvv","vm11",QDate::currentDate(),1.857,"5632fggf424","Address1"));
     existingPatientModel.addExistingPatient(ExistingPatients("erfavlue","vm12",QDate::currentDate(),1.857,"5632fggf424","Address1"));
     existingPatientModel.addExistingPatient(ExistingPatients("negala","vm13",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+
     TestPageSupplementationModel supplementModel;
     supplementModel.addSupplement(Supplementation("Date","Dosage","PerDay","Description"));
     supplementModel.addSupplement(Supplementation(QDate::currentDate(),"test",1,"testing"));
@@ -108,9 +122,15 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("theModel2", &model2);
     engine.rootContext()->setContextProperty("theSupplementModel",&supplementModel);
     engine.rootContext()->setContextProperty("theExistingPatientsModel",&existingPatientModel);
+    engine.rootContext()->setContextProperty("theRightPatientResultModel",&rightPatResultModel);
+    engine.rootContext()->setContextProperty("theLeftPatientResultModel",&leftpatResultModel);
+    engine.rootContext()->setContextProperty("theMedicalTestModel",&medTestModel);
     qmlRegisterType<TestResultModels>("TestResultModels",0,1,"TestResultModels");
     qmlRegisterType<TestPageSupplementationModel>("TestPageSupplementationModel",0,1,"TestPageSupplementationModel");
     qmlRegisterType<SwitchPatientTableModel>("SwitchPatientTableModel",0,1,"SwitchPatientTableModel");
+    qmlRegisterType<MedicalTestModel>("MedicalTestModel",0,1,"MedicalTestModel");
+    qmlRegisterType<PatientResultModel>("PatientResultModel",0,1,"PatientResultModel");
+
     //qmlRegisterSingletonType(QUrl("qrc:/imports/ApplicationConstants/IntegerConstants.qml"),"ApplicationIntegerConstants",1,0,"IntegerConstants");
     //qmlRegisterSingletonType(QUrl("qrc:/imports/ApplicationConstants/StringConstants.qml"),"ApplicationStringConstants",1,0,"StringConstants");
     //qmlRegisterSingletonType(QUrl("qrc:/imports/ApplicationConstants/OtherConstants.qml"),"ApplicationOtherConstants",1,0,"OtherConstants");
@@ -145,7 +165,7 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
     QTableView view;
-    view.setModel(&existingPatientModel);//(&supplementModel);//(&supplementModel);//(&model2);//Also test for other model1 and model
+    view.setModel(&leftpatResultModel);//&medTestModel//(&supplementModel);//(&supplementModel);//(&model2);//Also test for other model1 and model
     view.show();
     return app.exec();
 }

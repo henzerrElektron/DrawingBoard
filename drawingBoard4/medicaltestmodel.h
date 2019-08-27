@@ -8,81 +8,81 @@
 #include <QTime>
 class MedicalResult{
 public:
-    qlonglong testResultNo() const;
-    void setTestResultNo(qlonglong testResultNo);
+    QVariant testResultNo() const;
+    void setTestResultNo(QVariant testResultNo);
 
-    QDate testDate() const;
-    void setTestDate(const QDate &testDate);
+    QVariant testDate() const;
+    void setTestDate(const QVariant &testDate);
 
-    QTime testTime() const;
-    void setTestTime(const QTime &testTime);
+    QVariant testTime() const;
+    void setTestTime(const QVariant &testTime);
 
-    qlonglong testPatientId() const;
-    void setTestPatientId(qlonglong testPatientId);
+    QVariant testPatientId() const;
+    void setTestPatientId(QVariant testPatientId);
 
-    double reMPEstimate() const;
-    void setReMPEstimate(double reMPEstimate);
+    QVariant reMPEstimate() const;
+    void setReMPEstimate(QVariant reMPEstimate);
 
-    double reMpAbsolute() const;
-    void setReMpAbsolute(double reMpAbsolute);
+    QVariant reMpAbsolute() const;
+    void setReMpAbsolute(QVariant reMpAbsolute);
 
-    double reMPAdjusted() const;
-    void setReMPAdjusted(double reMPAdjusted);
+    QVariant reMPAdjusted() const;
+    void setReMPAdjusted(QVariant reMPAdjusted);
 
-    double reCentralConfidenceLevel() const;
-    void setReCentralConfidenceLevel(double reCentralConfidenceLevel);
+    QVariant reCentralConfidenceLevel() const;
+    void setReCentralConfidenceLevel(QVariant reCentralConfidenceLevel);
 
-    double rePeripheralConfidenceLevel() const;
-    void setRePeripheralConfidenceLevel(double rePeripheralConfidenceLevel);
+    QVariant rePeripheralConfidenceLevel() const;
+    void setRePeripheralConfidenceLevel(QVariant rePeripheralConfidenceLevel);
 
-    double leMPEstimate() const;
-    void setLeMPEstimate(double leMPEstimate);
+    QVariant leMPEstimate() const;
+    void setLeMPEstimate(QVariant leMPEstimate);
 
-    double leMPAbsolute() const;
-    void setLeMPAbsolute(double leMPAbsolute);
+    QVariant leMPAbsolute() const;
+    void setLeMPAbsolute(QVariant leMPAbsolute);
 
-    double leMPAdjusted() const;
-    void setLeMPAdjusted(double leMPAdjusted);
+    QVariant leMPAdjusted() const;
+    void setLeMPAdjusted(QVariant leMPAdjusted);
 
-    double leCentralConfidenceLevel() const;
-    void setLeCentralConfidenceLevel(double leCentralConfidenceLevel);
+    QVariant leCentralConfidenceLevel() const;
+    void setLeCentralConfidenceLevel(QVariant leCentralConfidenceLevel);
 
-    double lePeripheralConfidenceLevel() const;
-    void setLePeripheralConfidenceLevel(double lePeripheralConfidenceLevel);
-    MedicalResult(const qlonglong testResultNo,
-                  const QDate testDate,
-                  QTime testTime,
-                  qlonglong testPatId,
-                  double reMPEstimate,
-                  const double reMPAbsolute,
-                  const double reMPAdusted,
-                  const double reCentralConfidenceLevel,
-                  const double rePeripheralConfidenceLevel,
-                  const double leMpEstimate,
-                  const double leMpAbsolute,
-                  const double leMpAdjusted,
-                  const double leCentralConfidenceLevel,
-                  const double lePeripheralConfidenceLevel);
+    QVariant lePeripheralConfidenceLevel() const;
+    void setLePeripheralConfidenceLevel(QVariant lePeripheralConfidenceLevel);
+    MedicalResult(const QVariant testResultNo,
+                  const QVariant testDate,
+                  QVariant testTime,
+                  QVariant testPatId,
+                  QVariant reMPEstimate,
+                  const QVariant reMPAbsolute,
+                  const QVariant reMPAdusted,
+                  const QVariant reCentralConfidenceLevel,
+                  const QVariant rePeripheralConfidenceLevel,
+                  const QVariant leMpEstimate,
+                  const QVariant leMpAbsolute,
+                  const QVariant leMpAdjusted,
+                  const QVariant leCentralConfidenceLevel,
+                  const QVariant lePeripheralConfidenceLevel);
 
 private:
-    qlonglong m_testResultNo;
-    QDate m_testDate;
-    QTime m_testTime;
-    qlonglong m_testPatientId;
-    double m_reMPEstimate;
-    double m_reMpAbsolute;
-    double m_reMPAdjusted;
-    double m_reCentralConfidenceLevel;
-    double m_rePeripheralConfidenceLevel;
-    double m_leMPEstimate;
-    double m_leMPAbsolute;
-    double m_leMPAdjusted;
-    double m_leCentralConfidenceLevel;
-    double m_lePeripheralConfidenceLevel;
+    QVariant m_testResultNo;//qlonglong
+    QVariant m_testDate;//QDate
+    QVariant m_testTime;//QTime
+    QVariant m_testPatientId;//qlonglong
+    QVariant m_reMPEstimate;//double
+    QVariant m_reMpAbsolute;//double
+    QVariant m_reMPAdjusted;//double
+    QVariant m_reCentralConfidenceLevel;//double
+    QVariant m_rePeripheralConfidenceLevel;//double
+    QVariant m_leMPEstimate;//double
+    QVariant m_leMPAbsolute;//double
+    QVariant m_leMPAdjusted;//double
+    QVariant m_leCentralConfidenceLevel;//double
+    QVariant m_lePeripheralConfidenceLevel;//double
 
 };
 
-class medicalTestModel:public QAbstractTableModel
+class MedicalTestModel:public QAbstractTableModel
 {
     Q_OBJECT
     Q_ENUMS(MedicalRoles)
@@ -106,8 +106,8 @@ class medicalTestModel:public QAbstractTableModel
         HeadingRole,
         AcceptRejectRole
     };
-    explicit medicalTestModel(QObject *parent = 0);
-    explicit medicalTestModel(QList<MedicalResult> medicalResults,QObject *parent = 0);
+    explicit MedicalTestModel(QObject *parent = 0);
+    explicit MedicalTestModel(QList<MedicalResult> medicalResults,QObject *parent = 0);
     void addMedicalResult(const MedicalResult &result);
     int rowCount(const QModelIndex & parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;

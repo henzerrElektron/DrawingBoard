@@ -128,5 +128,9 @@
         <file>page/reports/ReportTabs.qml</file>
         <file>page/reports/ReportPraticeTimeline.qml</file>
         <file>page/reports/ReportPatientTimeline.qml</file>
+        <file>page/reports/ReportPraticeTable.qml</file>
+        <file>page/reports/ReportPatientTableGrid.qml</file>
+        <file>page/reports/ReportPraticeTableGrid.qml</file>
+        <file>page/reports/ReportPatientTable.qml</file>
     </qresource>
 </RCC>

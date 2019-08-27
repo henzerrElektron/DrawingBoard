@@ -7,37 +7,37 @@
 #include <QTime>
 class PatientResult{
 public:
-    double reMPAdjusted() const;
-    void setReMPAdjusted(double reMPAdjusted);
+    QVariant reMPAdjusted() const;
+    void setReMPAdjusted(QVariant reMPAdjusted);
 
-    double reMpAbsolute() const;
-    void setReMpAbsolute(double reMpAbsolute);
+    QVariant reMpAbsolute() const;
+    void setReMpAbsolute(QVariant reMpAbsolute);
 
-    double reMPEstimate() const;
-    void setReMPEstimate(double reMPEstimate);
+    QVariant reMPEstimate() const;
+    void setReMPEstimate(QVariant reMPEstimate);
 
-    QTime testTime() const;
-    void setTestTime(const QTime &testTime);
+    QVariant testTime() const;
+    void setTestTime(const QVariant &testTime);
 
-    QDate testDate() const;
-    void setTestDate(const QDate &testDate);
+    QVariant testDate() const;
+    void setTestDate(const QVariant &testDate);
 
-    qlonglong testResultNo() const;
-    void setTestResultNo(const qlonglong &testResultNo);
-    PatientResult(const qlonglong testResultNo,
-                  const QDate testDate,
-                  const QTime testTime,
-                  const double reMPEstimate,
-                  const double reMPAbsolute,
-                  const double reMPAdjusted);
+    QVariant testResultNo() const;
+    void setTestResultNo(const QVariant &testResultNo);
+    PatientResult(const QVariant testResultNo,
+                  const QVariant testDate,
+                  const QVariant testTime,
+                  const QVariant reMPEstimate,
+                  const QVariant reMPAbsolute,
+                  const QVariant reMPAdjusted);
 
 private:
-    qlonglong m_testResultNo;
-    QDate m_testDate;
-    QTime m_testTime;
-    double m_reMPEstimate;
-    double m_reMpAbsolute;
-    double m_reMPAdjusted;
+    QVariant m_testResultNo;//qlonglong
+    QVariant m_testDate;//QDate
+    QVariant m_testTime;//QTime
+    QVariant m_reMPEstimate;//double
+    QVariant m_reMpAbsolute;//double
+    QVariant m_reMPAdjusted;//double
 };
 
 class PatientResultModel:public QAbstractTableModel
@@ -46,14 +46,15 @@ class PatientResultModel:public QAbstractTableModel
     Q_ENUMS(PatientResults)
 public:
     enum PatientResults{
-        TitleRole = Qt::UserRole+1,
+        HeadingRole = Qt::UserRole+1,
         ResultNoRole,
         DateRole,
         TimeRole,
         REMPEstimateRole,
         REMPAbsoluteRole,
         REMPAdjustedRole,
-        HeadingRole,
+        TitleRole,//
+        //HeadingRole,
         AcceptRejectRole
     };
     explicit PatientResultModel(QObject *parent = 0);

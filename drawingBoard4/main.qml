@@ -184,11 +184,16 @@ Window {
 //        }
 
 
-            ReportPageHeader{
-                id:newpatientTabb
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-            }
+            //ReportPageHeader{
+           //     id:newpatientTabb
+           //     Layout.fillHeight: true
+          //     Layout.fillWidth: true
+          //  }
+        ReportPraticeTableGrid{
+            id:reportPraticeTb
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+        }
 
 
 

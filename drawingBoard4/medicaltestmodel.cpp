@@ -2,158 +2,158 @@
 #include <QDebug>
 
 
-QList<MedicalResult> medicalTestModel::results() const
+QList<MedicalResult> MedicalTestModel::results() const
 {
     return m_results;
 }
 
-void medicalTestModel::setResults(const QList<MedicalResult> &results)
+void MedicalTestModel::setResults(const QList<MedicalResult> &results)
 {
     m_results = results;
 }
 
 
-qlonglong MedicalResult::testResultNo() const
+QVariant MedicalResult::testResultNo() const
 {
     return m_testResultNo;
 }
 
-void MedicalResult::setTestResultNo(qlonglong testResultNo)
+void MedicalResult::setTestResultNo(const QVariant testResultNo)
 {
     m_testResultNo = testResultNo;
 }
 
-QDate MedicalResult::testDate() const
+QVariant MedicalResult::testDate() const
 {
     return m_testDate;
 }
 
-void MedicalResult::setTestDate(const QDate &testDate)
+void MedicalResult::setTestDate(const QVariant &testDate)
 {
     m_testDate = testDate;
 }
 
-QTime MedicalResult::testTime() const
+QVariant MedicalResult::testTime() const
 {
     return m_testTime;
 }
 
-void MedicalResult::setTestTime(const QTime &testTime)
+void MedicalResult::setTestTime(const QVariant &testTime)
 {
     m_testTime = testTime;
 }
 
-qlonglong MedicalResult::testPatientId() const
+QVariant MedicalResult::testPatientId() const
 {
     return m_testPatientId;
 }
 
-void MedicalResult::setTestPatientId(qlonglong testPatientId)
+void MedicalResult::setTestPatientId(QVariant testPatientId)
 {
     m_testPatientId = testPatientId;
 }
 
-double MedicalResult::reMPEstimate() const
+QVariant MedicalResult::reMPEstimate() const
 {
     return m_reMPEstimate;
 }
 
-void MedicalResult::setReMPEstimate(double reMPEstimate)
+void MedicalResult::setReMPEstimate(QVariant reMPEstimate)
 {
     m_reMPEstimate = reMPEstimate;
 }
 
-double MedicalResult::reMpAbsolute() const
+QVariant MedicalResult::reMpAbsolute() const
 {
     return m_reMpAbsolute;
 }
 
-void MedicalResult::setReMpAbsolute(double reMpAbsolute)
+void MedicalResult::setReMpAbsolute(QVariant reMpAbsolute)
 {
     m_reMpAbsolute = reMpAbsolute;
 }
 
-double MedicalResult::reMPAdjusted() const
+QVariant MedicalResult::reMPAdjusted() const
 {
     return m_reMPAdjusted;
 }
 
-void MedicalResult::setReMPAdjusted(double reMPAdjusted)
+void MedicalResult::setReMPAdjusted(QVariant reMPAdjusted)
 {
     m_reMPAdjusted = reMPAdjusted;
 }
 
-double MedicalResult::reCentralConfidenceLevel() const
+QVariant MedicalResult::reCentralConfidenceLevel() const
 {
     return m_reCentralConfidenceLevel;
 }
 
-void MedicalResult::setReCentralConfidenceLevel(double reCentralConfidenceLevel)
+void MedicalResult::setReCentralConfidenceLevel(QVariant reCentralConfidenceLevel)
 {
     m_reCentralConfidenceLevel = reCentralConfidenceLevel;
 }
 
-double MedicalResult::rePeripheralConfidenceLevel() const
+QVariant MedicalResult::rePeripheralConfidenceLevel() const
 {
     return m_rePeripheralConfidenceLevel;
 }
 
-void MedicalResult::setRePeripheralConfidenceLevel(double rePeripheralConfidenceLevel)
+void MedicalResult::setRePeripheralConfidenceLevel(QVariant rePeripheralConfidenceLevel)
 {
     m_rePeripheralConfidenceLevel = rePeripheralConfidenceLevel;
 }
 
-double MedicalResult::leMPEstimate() const
+QVariant MedicalResult::leMPEstimate() const
 {
     return m_leMPEstimate;
 }
 
-void MedicalResult::setLeMPEstimate(double leMPEstimate)
+void MedicalResult::setLeMPEstimate(QVariant leMPEstimate)
 {
     m_leMPEstimate = leMPEstimate;
 }
 
-double MedicalResult::leMPAbsolute() const
+QVariant MedicalResult::leMPAbsolute() const
 {
     return m_leMPAbsolute;
 }
 
-void MedicalResult::setLeMPAbsolute(double leMPAbsolute)
+void MedicalResult::setLeMPAbsolute(QVariant leMPAbsolute)
 {
     m_leMPAbsolute = leMPAbsolute;
 }
 
-double MedicalResult::leMPAdjusted() const
+QVariant MedicalResult::leMPAdjusted() const
 {
     return m_leMPAdjusted;
 }
 
-void MedicalResult::setLeMPAdjusted(double leMPAdjusted)
+void MedicalResult::setLeMPAdjusted(QVariant leMPAdjusted)
 {
     m_leMPAdjusted = leMPAdjusted;
 }
 
-double MedicalResult::leCentralConfidenceLevel() const
+QVariant MedicalResult::leCentralConfidenceLevel() const
 {
     return m_leCentralConfidenceLevel;
 }
 
-void MedicalResult::setLeCentralConfidenceLevel(double leCentralConfidenceLevel)
+void MedicalResult::setLeCentralConfidenceLevel(QVariant leCentralConfidenceLevel)
 {
     m_leCentralConfidenceLevel = leCentralConfidenceLevel;
 }
 
-double MedicalResult::lePeripheralConfidenceLevel() const
+QVariant MedicalResult::lePeripheralConfidenceLevel() const
 {
     return m_lePeripheralConfidenceLevel;
 }
 
-void MedicalResult::setLePeripheralConfidenceLevel(double lePeripheralConfidenceLevel)
+void MedicalResult::setLePeripheralConfidenceLevel(QVariant lePeripheralConfidenceLevel)
 {
     m_lePeripheralConfidenceLevel = lePeripheralConfidenceLevel;
 }
 
-MedicalResult::MedicalResult(const qlonglong testResultNo, const QDate testDate, QTime testTime, qlonglong testPatId, double reMPEstimate, const double reMPAbsolute, const double reMPAdusted, const double reCentralConfidenceLevel, const double rePeripheralConfidenceLevel, const double leMpEstimate, const double leMpAbsolute, const double leMpAdjusted, const double leCentralConfidenceLevel, const double lePeripheralConfidenceLevel)
+MedicalResult::MedicalResult(const QVariant testResultNo, const QVariant testDate, QVariant testTime, QVariant testPatId, QVariant reMPEstimate, const QVariant reMPAbsolute, const QVariant reMPAdusted, const QVariant reCentralConfidenceLevel, const QVariant rePeripheralConfidenceLevel, const QVariant leMpEstimate, const QVariant leMpAbsolute, const QVariant leMpAdjusted, const QVariant leCentralConfidenceLevel, const QVariant lePeripheralConfidenceLevel)
 {
     m_testResultNo = testResultNo;
     m_testDate = testDate;
@@ -171,25 +171,25 @@ MedicalResult::MedicalResult(const qlonglong testResultNo, const QDate testDate,
     m_lePeripheralConfidenceLevel = lePeripheralConfidenceLevel;
 }
 
-medicalTestModel::medicalTestModel(QList<MedicalResult> medicalResults, QObject *parent)
+MedicalTestModel::MedicalTestModel(QList<MedicalResult> medicalResults, QObject *parent)
 {
     m_results = medicalResults;
 }
-medicalTestModel::medicalTestModel(QObject *parent)
+MedicalTestModel::MedicalTestModel(QObject *parent)
 {
 
 }
 
 
 
-void medicalTestModel::addMedicalResult(const MedicalResult &result)
+void MedicalTestModel::addMedicalResult(const MedicalResult &result)
 {
     beginInsertRows(QModelIndex(),rowCount(),rowCount());
     m_results<<result;
     endInsertRows();
 }
 
-bool medicalTestModel::insertRows(int position, int rows, const QModelIndex &index)
+bool MedicalTestModel::insertRows(int position, int rows, const QModelIndex &index)
 {
     Q_UNUSED(index);
     beginInsertRows(QModelIndex(), position, position+rows-1);
@@ -199,7 +199,7 @@ bool medicalTestModel::insertRows(int position, int rows, const QModelIndex &ind
 }
 
 
-bool medicalTestModel::removeRows(int position, int rows, const QModelIndex &index)
+bool MedicalTestModel::removeRows(int position, int rows, const QModelIndex &index)
 {
     Q_UNUSED(index);
     Q_UNUSED(rows);
@@ -210,7 +210,7 @@ bool medicalTestModel::removeRows(int position, int rows, const QModelIndex &ind
 }
 
 
-bool medicalTestModel::setData(const QModelIndex &index, const QVariant &value, int role)
+bool MedicalTestModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if(index.isValid() && role == Qt::EditRole){
         int row = index.row();
@@ -270,19 +270,19 @@ bool medicalTestModel::setData(const QModelIndex &index, const QVariant &value, 
     }
     return  false;
 }
-int medicalTestModel::rowCount(const QModelIndex &parent) const
+int MedicalTestModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return m_results.count();
 }
 
-int medicalTestModel::columnCount(const QModelIndex &parent) const
+int MedicalTestModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return 13;//m_results.count();
 }
 
-QVariant medicalTestModel::data(const QModelIndex &index, int role) const
+QVariant MedicalTestModel::data(const QModelIndex &index, int role) const
 {
     int row = index.row();
     int col = index.column();
@@ -362,7 +362,7 @@ QVariant medicalTestModel::data(const QModelIndex &index, int role) const
 }
 
 
-QVariant medicalTestModel::headerData(int section, Qt::Orientation orientation, int role) const
+QVariant MedicalTestModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role != Qt::DisplayRole)
         return QVariant();
@@ -409,7 +409,7 @@ QVariant medicalTestModel::headerData(int section, Qt::Orientation orientation, 
 }
 
 
-Qt::ItemFlags medicalTestModel::flags(const QModelIndex &index) const
+Qt::ItemFlags MedicalTestModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
         return Qt::ItemIsEnabled;
@@ -417,9 +417,10 @@ Qt::ItemFlags medicalTestModel::flags(const QModelIndex &index) const
     return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;
 }
 
-QHash<int, QByteArray> medicalTestModel::roleNames() const
+QHash<int, QByteArray> MedicalTestModel::roleNames() const
 {
     QHash<int,QByteArray> roles;
+    roles[Qt::DisplayRole] = "display";
     roles[TitleRole] = "TestResults";
     roles[ResultNoRole] = "TestResultNumber";
     roles[DateRole] = "TestDate";
@@ -436,6 +437,6 @@ QHash<int, QByteArray> medicalTestModel::roleNames() const
     roles[LECentralConfidenceRole] = "LE Central Confidence Level";
     roles[LEPeripheralConfidenceRole] = "LE Peripheral Confidence Level";
     roles[HeadingRole] = "heading";
-    roles[AcceptRejectRole] = "arRole";
+    //roles[AcceptRejectRole] = "arRole";
     return  roles;
 }

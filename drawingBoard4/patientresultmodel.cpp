@@ -12,62 +12,62 @@ void PatientResultModel::setResults(const QList<PatientResult> &results)
 }
 
 
-double PatientResult::reMPAdjusted() const
+QVariant PatientResult::reMPAdjusted() const
 {
     return m_reMPAdjusted;
 }
 
-void PatientResult::setReMPAdjusted(double reMPAdjusted)
+void PatientResult::setReMPAdjusted(QVariant reMPAdjusted)
 {
     m_reMPAdjusted = reMPAdjusted;
 }
 
-double PatientResult::reMpAbsolute() const
+QVariant PatientResult::reMpAbsolute() const
 {
     return m_reMpAbsolute;
 }
 
-void PatientResult::setReMpAbsolute(double reMpAbsolute)
+void PatientResult::setReMpAbsolute(QVariant reMpAbsolute)
 {
     m_reMpAbsolute = reMpAbsolute;
 }
 
-double PatientResult::reMPEstimate() const
+QVariant PatientResult::reMPEstimate() const
 {
     return m_reMPEstimate;
 }
 
-void PatientResult::setReMPEstimate(double reMPEstimate)
+void PatientResult::setReMPEstimate(QVariant reMPEstimate)
 {
     m_reMPEstimate = reMPEstimate;
 }
 
-QTime PatientResult::testTime() const
+QVariant PatientResult::testTime() const
 {
     return m_testTime;
 }
 
-void PatientResult::setTestTime(const QTime &testTime)
+void PatientResult::setTestTime(const QVariant &testTime)
 {
     m_testTime = testTime;
 }
 
-QDate PatientResult::testDate() const
+QVariant PatientResult::testDate() const
 {
     return m_testDate;
 }
 
-void PatientResult::setTestDate(const QDate &testDate)
+void PatientResult::setTestDate(const QVariant &testDate)
 {
     m_testDate = testDate;
 }
 
-qlonglong PatientResult::testResultNo() const
+QVariant PatientResult::testResultNo() const
 {
     return m_testResultNo;
 }
 
-void PatientResult::setTestResultNo(const qlonglong &testResultNo)
+void PatientResult::setTestResultNo(const QVariant &testResultNo)
 {
     m_testResultNo = testResultNo;
 }
@@ -75,7 +75,7 @@ void PatientResult::setTestResultNo(const qlonglong &testResultNo)
 
 
 
-PatientResult::PatientResult(const qlonglong testResultNo, const QDate testDate, const QTime testTime, const double reMPEstimate, const double reMPAbsolute, const double reMPAdjusted)
+PatientResult::PatientResult(const QVariant testResultNo, const QVariant testDate, const QVariant testTime, const QVariant reMPEstimate, const QVariant reMPAbsolute, const QVariant reMPAdjusted)
 {
     m_testResultNo = testResultNo;
     m_testDate = testDate;
@@ -165,7 +165,7 @@ int PatientResultModel::rowCount(const QModelIndex &parent) const
 int PatientResultModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return 6;//m_results.count();
+    return 5;//m_results.count();
 }
 
 
@@ -242,19 +242,21 @@ QVariant PatientResultModel::headerData(int section, Qt::Orientation orientation
     if(orientation == Qt::Horizontal)
     {
         switch (section) {
+        //case 0:
+        //    return  tr("PatientResults");
+        //case 0:
+       //     return tr("heading");
         case 0:
-            return  tr("PatientResults");
-        case 1:
             return  tr("TestRestultNumber");
-        case 2:
+        case 1:
             return  tr("TestDate");
-        case 3:
+        case 2:
             return  tr("TestTime");
-        case 4:
+        case 3:
             return  tr("RE MP Estimate");
-        case 5:
+        case 4:
             return  tr("RE MP Absolute");
-        case 6:
+        case 5:
             return  tr("RE MP Adjusted");
         default:
             return QVariant();
@@ -274,6 +276,7 @@ Qt::ItemFlags PatientResultModel::flags(const QModelIndex &index) const
 QHash<int, QByteArray> PatientResultModel::roleNames() const
 {
     QHash<int,QByteArray> roles;
+    roles[Qt::DisplayRole] = "display";
     roles[TitleRole] = "PatientResults";
     roles[ResultNoRole] ="TestResultNumber";
     roles[DateRole] = "TestDate";
@@ -283,5 +286,5 @@ QHash<int, QByteArray> PatientResultModel::roleNames() const
     roles[REMPAdjustedRole] = "RE MP Adjusted";
     roles[HeadingRole] = "heading";
     roles[AcceptRejectRole] = "arRole";
-
+    return  roles;
 }
