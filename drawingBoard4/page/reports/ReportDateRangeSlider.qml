@@ -44,39 +44,49 @@ Rectangle{
 
     function incrementValue(value)
     {
-        return value+1
+        return value///value+1
     }
 
     signal setFromDate(int index)
     onSetFromDate: {
-        sliderDay.changeFirstValue(incrementValue(index))
+        sliderDay.changeFirstValue(incrementValue(index+1))
     }
     signal setToDate(int index)
     onSetToDate: {
-        sliderDay.changeSecValue(incrementValue(index))
+        sliderDay.changeSecValue(incrementValue(index+1))
     }
 
     signal setFromMonth(int index)
     onSetFromMonth: {
+        var value = (index)
         sliderMonth.changeFirstValue(incrementValue(index))
+        //checkEqualMonth(value)
+
     }
     signal setToMonth(int index)
     onSetToMonth: {
+        var value = (index)
         sliderMonth.changeSecValue(incrementValue(index))
+        // checkEqualMonth(value)
+
     }
     signal setFromYear(int index)
     onSetFromYear: {
-        var value =  IntegerConstants.dobStartDate+index
-        sliderYear.changeFirstValue(incrementValue(value))
+        var value =  (IntegerConstants.dobStartDate+index)
+        // checkEqualYear(value)
+        sliderYear.changeFirstValue(incrementValue(IntegerConstants.dobStartDate+index))
         dateFromChange(sliderDay.firstValue)
         dateToChange(sliderDay.secValue)
+        // checkEqualYear(value)
+
     }
 
 
     signal setToYear(int index)
     onSetToYear: {
-        var value =  IntegerConstants.dobStartDate+index
-        sliderYear.changeSecValue(incrementValue(value))
+        var value = ( IntegerConstants.dobStartDate+index)
+        sliderYear.changeSecValue(incrementValue(IntegerConstants.dobStartDate+index))
+        //checkEqualYear(value)
 
     }
 
@@ -100,6 +110,7 @@ Rectangle{
 
     signal monthToChange(int value)
     onMonthToChange: {
+        sliderDay.changeDayValue(value,sliderYear.secValue)
         dateFromChange(sliderDay.firstValue)
         dateToChange(sliderDay.secValue)
         console.log("The index is"+value)
@@ -133,7 +144,7 @@ Rectangle{
         return dateValue;
     }
     function checkEqualYear(index){
-        console.log("This index is not used"+index)
+        console.log("This index is not used"+index+"first value is"+sliderYear.firstValue+"secValue"+sliderYear.secValue)
         if(sliderYear.firstValue === sliderYear.secValue)
         {
             if(sliderMonthVisible === false)
@@ -155,7 +166,7 @@ Rectangle{
     }
     function checkEqualMonth(index)
     {
-        console.log("This index is not used"+index)
+        console.log("This index is not used"+index+"sliderMonth"+sliderMonth.firstValue+"slidersecMonth"+sliderMonth.secValue)
         if(sliderMonth.firstValue === sliderMonth.secValue)
         {
             if(sliderDayVisible === false)
@@ -205,6 +216,13 @@ Rectangle{
                 sliderTo:IntegerConstants.dobEndDate
                 alterValues:false//false
                 allowSameFirstSec:true
+                onFirstValueChanged: {
+                    checkEqualYear(0)
+                }
+                onSecValueChanged: {
+                    checkEqualYear(0)
+                }
+
                 Component.onCompleted: {
                     sliderYear.first1RangeValue.connect(yearFromChange)
                     sliderYear.first2RangeValue.connect(yearToChange)            }
@@ -237,6 +255,12 @@ Rectangle{
                 }
                 onFirst2RangeValue: {
                     sliderDay.sliderTo=getDaysInMonth(sliderMonth.secValue,sliderYear.secValue)
+                }
+                onFirstValueChanged: {
+                    checkEqualMonth(0)
+                }
+                onSecValueChanged: {
+                    checkEqualMonth(0)
                 }
 
 

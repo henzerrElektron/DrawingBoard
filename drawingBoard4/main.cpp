@@ -12,6 +12,8 @@
 #include <QQuickStyle>
 #include <QDebug>
 #include <QDir>
+#include "medicaltestmodel.h"
+#include "patientresultmodel.h"
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
@@ -36,6 +38,22 @@ int main(int argc, char *argv[])
 //        settings.setValue("style", style);
 //    else
 //        QQuickStyle::setStyle(settings.value("style").toString());
+    medicalTestModel medTestModel;
+    medTestModel.addMedicalResult(MedicalResult(1,QDate::currentDate(),QTime::currentTime(),1,1.01,2.02,3.03,4.05,5.06,7.07,8.07,3.56,2.69,3.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate(),QTime::currentTime(),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(3,QDate::currentDate(),QTime::currentTime(),3,3.01,4.02,5.03,6.05,7.06,9.07,11.07,21.56,18.69,19.34));
+    medTestModel.addMedicalResult(MedicalResult(4,QDate::currentDate(),QTime::currentTime(),4,5.01,6.02,7.03,6.05,6.06,8.07,9.07,11.56,1.69,43.34));
+    medTestModel.addMedicalResult(MedicalResult(5,QDate::currentDate(),QTime::currentTime(),5,2.01,5.02,6.03,5.05,6.06,8.07,9.07,11.56,1.69,16.34));
+    medTestModel.addMedicalResult(MedicalResult(6,QDate::currentDate(),QTime::currentTime(),6,6.01,3.02,4.03,5.05,6.06,18.07,2.47,17.56,1.29,14.34));
+    medTestModel.addMedicalResult(MedicalResult(7,QDate::currentDate(),QTime::currentTime(),7,2.01,7.02,3.03,0.05,5.06,38.07,19.07,15.56,1.349,13.34));
+    medTestModel.addMedicalResult(MedicalResult(8,QDate::currentDate(),QTime::currentTime(),8,2.01,3.02,4.03,6.05,3.06,48.07,2.67,21.56,1.59,15.34));
+
+    PatientResultModel leftpatResultModel;
+    leftpatResultModel.addPatientResult(PatientResult(1,QDate::currentDate(),QTime::currentTime(),3.034,6.029,1.03));
+    leftpatResultModel.addPatientResult(PatientResult(2,QDate::currentDate(),QTime::currentTime(),6.134,7.029,2.03));
+    leftpatResultModel.addPatientResult(PatientResult(3,QDate::currentDate(),QTime::currentTime(),2.134,4.029,3.03));
+    leftpatResultModel.addPatientResult(PatientResult(4,QDate::currentDate(),QTime::currentTime(),1.034,8.029,7.03));
+
     SwitchPatientTableModel existingPatientModel;
     existingPatientModel.addExistingPatient(ExistingPatients("FirstName","SurName","Date","TestResults(R/L)","MedicalReference","Address"));
     existingPatientModel.addExistingPatient(ExistingPatients("Abc","vm0",QDate::currentDate(),1.857,"5632fggf424","Address1"));

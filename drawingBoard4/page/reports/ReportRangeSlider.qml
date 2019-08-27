@@ -30,18 +30,27 @@ Rectangle{
     property int firstSecEqualCount: 0
     property int prevTo: 0
     property int firstValue: 0
+    onFirstValueChanged: {
+        console.log("The changed value is "+firstValue)
+    }
+
     property int secValue: 0
+    onSecValueChanged: {
+        console.log("The changed value is"+secValue)
+    }
+
     property int newFirstValue: 0
     property int firstSliderSetValue: 0
     property int secSliderSetValue: 0
     function changeFirstValue(index){
         slider1.first.value = index
-        firstValue = first.value.toFixed(0);
+        firstValue = slider1.first.value.toFixed(0);
+
     }
     function changeSecValue(index)
     {
         slider1.second.value = index
-        secValue = second.value.toFixed(0);
+        secValue = slider1.second.value.toFixed(0);
     }
 
     property int prevFirstValue: 0
