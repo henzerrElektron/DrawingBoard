@@ -51,13 +51,16 @@ Rectangle{
             Layout.columnSpan:IntegerConstants.columnSpan1
             // Layout.row: 1
             // Layout.rowSpan: 3
-            Layout.fillHeight: true
+            //Layout.fillHeight: true
             // Layout.maximumWidth: 300//parent.width/4
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignRight
+            Layout.alignment: Qt.AlignRight|Qt.AlignTop
             Layout.preferredWidth: pageStartTumbler.width
             Layout.minimumWidth:pageStartTumbler.width
             Layout.maximumWidth: pageStartTumbler.width
+            Layout.preferredHeight: pageEndTumbler.height
+            Layout.minimumHeight: pageEndTumbler.height
+            Layout.maximumHeight: pageEndTumbler.height
             NewPatientDobTumbler{
                 id:pageStartTumbler
                 recTextVisible: false
@@ -71,27 +74,37 @@ Rectangle{
                     pageStartTumbler.setDate.connect(pageSlider.setFromDate)
                     pageStartTumbler.setMonth.connect(pageSlider.setFromMonth)
                     pageStartTumbler.setYear.connect(pageSlider.setFromYear)
-                    pageStartTumbler.setMinYear.connect(pageEndTumbler.setMinYear)
+                    //pageStartTumbler.informOtherTumbler.connect(pageEndTumbler.maxYear)
+                    pageStartTumbler.otherTumblerInfo.connect(pageEndTumbler.setOtherTumblerInfo)
+                    //pageStartTumbler.informOtherTumbler.connect(pageEndTumbler.minYear)
                     pageStartTumbler.resetYear.connect(pageEndTumbler.resetYear)
-
+                    setTumblerYear(0)//IntegerConstants.dobStartDate
+                    setTumblerDate(0)
+                    setTumblerMonth(0)
 
                 }
             }//TestPageSwitchButtons
         }
         Rectangle {
             id: rectangleSub5
-            color:StringConstants.testPage_backgroundColor// "black"//StringConstants.actionBtnBackgroundColor//
+            color:StringConstants.testPage_backgroundColor
+            anchors.left: rectangleSub4.right
+            anchors.leftMargin: IntegerConstants.margin10
+            //anchors.right: parent.right
+            Layout.rightMargin: 10// "black"//StringConstants.actionBtnBackgroundColor//
             Layout.row: IntegerConstants.rowCount2
             Layout.column: IntegerConstants.columnCount2
-            Layout.columnSpan:IntegerConstants.columnSpan2
+            Layout.columnSpan:IntegerConstants.columnSpan1
             Layout.preferredWidth: pageEndTumbler.width
             Layout.minimumWidth:pageEndTumbler.width
             Layout.maximumWidth: pageEndTumbler.width
 
-            Layout.fillHeight: true
-
+            //Layout.fillHeight: true
+            Layout.preferredHeight: pageEndTumbler.height
+            Layout.minimumHeight: pageEndTumbler.height
+            Layout.maximumHeight: pageEndTumbler.height
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignRight
+            Layout.alignment: Qt.AlignRight|Qt.AlignTop
             NewPatientDobTumbler{
                 id:pageEndTumbler
                 recTextVisible: false
@@ -103,35 +116,53 @@ Rectangle{
                     pageEndTumbler.setDate.connect(pageSlider.setToDate)
                     pageEndTumbler.setMonth.connect(pageSlider.setToMonth)
                     pageEndTumbler.setYear.connect(pageSlider.setToYear)
-                    pageEndTumbler.setMaxYear.connect(pageStartTumbler.setMaxYear)
+                    //pageEndTumbler.informOtherTumbler.connect(pageStartTumbler.minYear)
+                    pageEndTumbler.otherTumblerInfo.connect(pageStartTumbler.setOtherTumblerInfo)
+                    //pageEndTumbler.informOtherTumbler.connect(pageStartTumbler.maxYear)
                     pageEndTumbler.resetYear.connect(pageStartTumbler.resetYear)
-                    setTumblerDate(30)
+                    setTumblerYear(IntegerConstants.dobEndDate - IntegerConstants.dobStartDate)
                     setTumblerMonth(11)
-                    setTumblerYear(IntegerConstants.dobEndDate - IntegerConstants.dobStartDate - 1)
+                    setTumblerDate(30)
                 }
             }//TestPageSwitchButtons
         }
-//        Rectangle {
-//            id: rectangleSub6
-//            color:StringConstants.testPage_backgroundColor// "black"//
-//            Layout.row: IntegerConstants.rowCount3
-//            Layout.column: IntegerConstants.columnCount1
-//            Layout.columnSpan:IntegerConstants.columnSpan2
-//            Layout.fillHeight: true
-//            Layout.fillWidth: true
-//            ReportDateRangeSlider{
-//                id:pageSlider
-//                anchors.fill: parent
-//                Component.onCompleted: {
-//                    pageSlider.dateFromChange.connect(pageStartTumbler.setTumblerDate)
-//                    pageSlider.dateToChange.connect(pageEndTumbler.setTumblerDate)
-//                    pageSlider.monthFromChange.connect(pageStartTumbler.setTumblerMonth)
-//                    pageSlider.monthToChange.connect(pageEndTumbler.setTumblerMonth)
-//                    pageSlider.calcYearFromChange.connect(pageStartTumbler.setTumblerYear)
-//                    pageSlider.calcYearToChange.connect(pageEndTumbler.setTumblerYear)
-//                }
-//            }
-//        }
+        Rectangle {
+            id: rectangleSub6
+            color:StringConstants.actionBtnBackgroundColor
+            Layout.rightMargin: 10
+            Layout.leftMargin: 10//StringConstants.testPage_backgroundColor// "black"//
+            Layout.row: IntegerConstants.rowCount3
+            Layout.column: IntegerConstants.columnCount1
+            Layout.columnSpan:IntegerConstants.columnSpan2
+            //Layout.alignment: Qt.AlignTop
+            anchors.top: rectangleSub5.bottom
+            //Layout.fillHeight: true
+            Layout.fillWidth: true
+            ReportDateRangeSlider{
+                id:pageSlider
+                //anchors.fill: parent
+                anchors.left: parent.left
+                ///anchors.leftMargin: 10
+                //anchors.rightMargin: 10
+                anchors.right: parent.right
+                height:100
+                sliderDayVisible: false
+                sliderMonthVisible: false
+                sliderYearVisible: true
+                Component.onCompleted: {
+                    pageSlider.dateFromChange.connect(pageStartTumbler.setTumblerDate)
+                    pageSlider.dateToChange.connect(pageEndTumbler.setTumblerDate)
+                    pageSlider.monthFromChange.connect(pageStartTumbler.setTumblerMonth)
+                    pageSlider.monthToChange.connect(pageEndTumbler.setTumblerMonth)
+                    pageSlider.calcYearFromChange.connect(pageStartTumbler.setTumblerYear)
+                    pageSlider.calcYearToChange.connect(pageEndTumbler.setTumblerYear)//checkEqualYear
+                    pageSlider.calcYearFromChange.connect(checkEqualYear)
+                    pageSlider.calcYearToChange.connect(checkEqualYear)
+                    pageSlider.monthFromChange.connect(checkEqualMonth)
+                    pageSlider.monthToChange.connect(checkEqualMonth)
+                }
+            }
+        }
 
     }
 }

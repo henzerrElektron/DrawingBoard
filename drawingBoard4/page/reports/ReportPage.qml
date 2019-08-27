@@ -46,6 +46,7 @@ Rectangle {
             color: StringConstants.testPage_backgroundColor
             height:75// pgTitle.height
             Layout.fillWidth: true
+            Layout.bottomMargin: 10
             Layout.row: 1
             PageTitle{
                 id:pgTitle

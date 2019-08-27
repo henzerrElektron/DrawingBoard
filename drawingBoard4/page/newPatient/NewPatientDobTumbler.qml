@@ -35,82 +35,34 @@ Rectangle {
     // border.color: OtherConstants.borderColorBlack
     // border.width: IntegerConstants.borderWidth1
     property int curSetDate: 0
+    onCurSetDateChanged: {
+
+        otherTumblerInfo(curSetDate,cursetIntMonth,curSetYear)
+        console.log("The values are"+prevSetDate+curSetDate)
+    }
+
     property int prevSetDate: 0
-    property int curSetYear: 0
-    property int prevSetYear: 0
+    property int curSetYear: 0//firstOrLast?IntegerConstants.dobEndDate:IntegerConstants.dobStartDate
+    onCurSetYearChanged: {
+        otherTumblerInfo(curSetDate,cursetIntMonth,curSetYear)
+        console.log("The values are"+prevSetDate+curSetDate)
+    }
+
+    property int prevSetYear: firstOrLast?IntegerConstants.dobEndDate:IntegerConstants.dobStartDate
     property int startDate: IntegerConstants.dobStartDate
     property int endDate: IntegerConstants.dobEndDate
     //    property int stopDateIndex: 0
     //    property int stopMonthIndex: 0
     //    property int stopYearIndex: 0
     property bool firstOrLast: false//false == first//startTumbler true == second//means stopTumbler
-    //    function checkStopDateIndex(index)
-    //    {
-    //        var setDateValue;
-    //        if(firstOrLast === false)
-    //        {
-    //            if(index> stopDateIndex)
-    //            {
-    //                console.log("StopDateIndex"+stopDateIndex+index+setDateValue)
-    //                curSetDate = stopDateIndex;
-    //            }
-    //        }
-    //        if(firstOrLast === true)
-    //        {
 
-    //            if(stopDateIndex < index)
-    //            {
-    //                console.log("StopDateIndex"+stopDateIndex+index+setDateValue)
-    //                curSetDate = stopDateIndex;
-    //            }
-    //        }
-    //        console.log("StopDateIndex"+stopDateIndex+index)
-    //        //curSetDate = setDateValue
-    //        //setDate(setDateValue);
-    //        //return setDateValue;
-
-    //    }
-    //    function checkStopMonthIndex(index)
-    //    {
-    //        var setMonthValue;
-    //        if(firstOrLast === false)
-    //        {
-    //            if(index> stopMonthIndex)
-    //            {
-    //                setMonthValue = stopMonthIndex;
-    //            }
-    //        }
-    //        else
-    //        {
-    //            if(stopMonthIndex < index)
-    //            {
-    //                setMonthValue = stopMonthIndex;
-    //            }
-    //        }
-    //        setMonth(setMonthValue);
-    //        //return setMonthValue;
-    //    }
-    //    function checkStopYearIndex(index)
-    //    {
-    //        var setYearValue;
-    //        if(firstOrLast === false)
-    //        {
-    //            if(index> stopYearIndex)
-    //            {
-    //                setYearValue = stopYearIndex;
-    //            }
-    //        }
-    //        else
-    //        {
-    //            if(stopYearIndex < index)
-    //            {
-    //                setYearValue = stopYearIndex;
-    //            }
-    //        }
-    //        //return setYearValue;
-    //        setYear(setYearValue)
-    //    }
     property string curSetYearString: ""
+    property int cursetIntMonth:0
+    onCursetIntMonthChanged: {
+
+        otherTumblerInfo(curSetDate,cursetIntMonth,curSetYear)
+    }
+
     property string curSetMonth: ""
     property string curDateMonthYear: ""
     property alias dateModel: dateTumbler.firstTumblerModel
@@ -132,11 +84,14 @@ Rectangle {
     }
     signal setTumblerDate(int index)
     onSetTumblerDate: {
+        curSetDate = index
         dateTumbler.changeTumblerComboValue(index)
     }
 
+
     signal setTumblerMonth(int index)
     onSetTumblerMonth: {
+        cursetIntMonth = index
         monthTumbler.changeTumblerComboValue(index)
         //monthTumbler.topTextArea.currentIndex = index
         //        if(sortLeapYears === false)
@@ -154,6 +109,7 @@ Rectangle {
 
     signal setTumblerYear(int index)
     onSetTumblerYear: {
+        curSetYear = index
         console.log("The year index is"+index)
         yearTumbler.changeTumblerComboValue(index)
         //        if(sortLeapYears === false)
@@ -180,6 +136,105 @@ Rectangle {
     signal setYear(int index)
     signal setYearString(string value)
     signal resetYear()
+    signal informOtherTumbler(int index)
+    signal otherTumblerInfo(int day,int month,int year)
+    onOtherTumblerInfo: {
+        otherTumblerDay = day
+        otherTumblerMonth = month
+        otherTumblerYear = year
+        //setOtherTumblerInfo(day,month,year)
+    }
+    function setOtherTumblerInfo(day,month,year){
+        otherTumblerDay = day
+        otherTumblerMonth = month
+        otherTumblerYear = year
+        if(firstOrLast === true)
+        {
+            console.log("The other Start tumbler values are"+otherTumblerDay+"Month"+otherTumblerMonth+"Year"+otherTumblerYear)
+            console.log("The End tumbler values are"+curSetDate+"Month"+cursetIntMonth+"Year"+curSetYear)
+            if(curSetYear === otherTumblerYear){
+                if(cursetIntMonth < otherTumblerMonth)
+                {
+                    if(otherTumblerMonth !== 11)
+                    {
+                        setTumblerMonth(otherTumblerMonth+1)
+                    }
+                    else
+                    {
+                        setTumblerMonth(otherTumblerMonth)
+                    }
+                }
+                if(cursetIntMonth === otherTumblerMonth){
+                    if(curSetDate <otherTumblerDay)
+                    {
+                        console.log("The current number of days in a month is"+getDaysInMonth(otherTumblerMonth,otherTumblerYear))
+                        if((otherTumblerDay+1) !== getDaysInMonth(otherTumblerMonth,otherTumblerYear))
+                        {
+                            setTumblerDate(otherTumblerDay+1)
+                        }
+                        else
+                        {
+                            setTumblerDate(otherTumblerDay)
+                        }
+                    }
+                }
+            }
+            if(curSetYear < otherTumblerYear){
+                if(otherTumblerYear !== (IntegerConstants.dobEndDate - IntegerConstants.dobStartDate))
+                {
+                    setTumblerYear(otherTumblerYear+1)
+                }
+                else
+                {
+                    setTumblerYear(otherTumblerYear)
+                }
+            }
+        }
+        else
+        {
+            console.log("The other End tumbler values are"+otherTumblerDay+"Month"+otherTumblerMonth+"Year"+otherTumblerYear)
+            console.log("The start tumbler values are"+curSetDate+"Month"+cursetIntMonth+"Year"+curSetYear)
+            if(curSetYear === otherTumblerYear){
+                if(cursetIntMonth > otherTumblerMonth){
+                    if(otherTumblerMonth !== 0)
+                    {
+                        setTumblerMonth(otherTumblerMonth-1)
+                    }
+                    else
+                    {
+                        setTumblerMonth(otherTumblerMonth)
+                    }
+                }
+                if(cursetIntMonth === otherTumblerMonth){
+                    if(curSetDate > otherTumblerDay){
+                        if((otherTumblerDay !== 0))//||(curSetDate != 0))
+                        {
+                            setTumblerDate(otherTumblerDay-1)
+                        }
+                        else
+                        {
+                            setTumblerDate(otherTumblerDay)
+                        }
+
+                    }
+                }
+            }
+            if(curSetYear > otherTumblerYear){
+                if(otherTumblerYear !== 0)
+                {
+                    setTumblerYear(otherTumblerYear-1)
+                }
+                else
+                {
+                    setTumblerYear(otherTumblerYear)
+                }
+            }
+        }
+    }
+
+    property int otherTumblerDay: 0
+    property int otherTumblerMonth: 0
+    property int otherTumblerYear: 0
     onResetYear: {
         console.log("The prevsetYesar"+prevSetYear)
         setYear(prevSetYear)
@@ -227,49 +282,82 @@ Rectangle {
 
 
     }
+
+    function minYear(index){
+        console.log("The first or last is"+firstOrLast+"Test"+curSetYear+"PrevSetYear"+prevSetYear+"AllIndex"+index)
+        if(firstOrLast === false)
+        {
+            if(IntegerConstants.dobStartDate+curSetYear > (IntegerConstants.dobStartDate+index))
+            {
+                setYear(index)
+                //prevSetYear = curSetYear
+                //curSetYear = IntegerConstants.dobStartDate+(index - 1)
+            }
+        }
+
+
+        console.log("The first or last is"+firstOrLast+"Test"+curSetYear+"PrevSetYear"+prevSetYear+"AllIndex"+index)
+    }
+    function maxYear(index){
+        console.log("The first or last is"+firstOrLast+"Test"+curSetYear+"PrevSetYear"+prevSetYear+"AllIndex"+index)
+        if(firstOrLast === true)
+        {
+            if(IntegerConstants.dobStartDate+curSetYear < (IntegerConstants.dobStartDate+index))
+            {
+                // prevSetYear = curSetYear
+                // curSetYear = IntegerConstants.dobStartDate+(index + 1)
+                setYear(index)
+            }
+        }
+        console.log("The first or last is"+firstOrLast+"Test"+curSetYear+"PrevSetYear"+prevSetYear+"AllIndex"+index)
+    }
     onSetDate: {
         // prevSetDate = curSetDate
         console.log("The values are"+prevSetDate+curSetDate)
         curSetDate = index
         curDateMonthYear = curSetDate.toString()+"/"+curSetMonth+"/"+curSetYear.toString()//curSetYearString//
     }
-    onCurSetDateChanged: {
-        console.log("The values are"+prevSetDate+curSetDate)
-    }
+    // onCurSetDateChanged: {
+    //     console.log("The values are"+prevSetDate+curSetDate)
+    // }
 
     onSetMonth: {
         prevSetDate = curSetDate
+        cursetIntMonth = index
         curSetMonth = OtherConstants.dobCalAllMonths[index]
         curDateMonthYear = curSetDate.toString()+"/"+curSetMonth+"/"+curSetYear.toString()//curSetYearString//
         ////////////setNoDateInMonthYear()
     }
     onSetYear: {
 
-        curSetYear = startDate+index
+        curSetYear = index//IntegerConstants.dobStartDate+index
         prevSetYear = index
         curDateMonthYear = curSetDate.toString()+"/"+curSetMonth+"/"+curSetYear.toString()//curSetYearString//
-//        if(firstOrLast === true)
-//        {
-//            //endDate = startDate+index
-//            if(yearTumbler.firstTumblerStopped === true)
-//            {
-//                yearTumbler.firstTumblerStopped = false
-//                console.log("The index is"+index+"The prev year is"+prevSetYear+"The current year is"+curSetYear+"The start date is"+startDate+"The end date is"+endDate)
-//                pageStartTumbler.setMaxYear(index)
-//            }
-//        }
-//        if(firstOrLast === false)
-//        {
-//             pageStartTumbler.setMinYear(index)
-//             startDate = IntegerConstants.dobStartDate+ index
-//            if(yearTumbler.firstTumblerStopped === true)
-//            {
-//                yearTumbler.firstTumblerStopped = false
-//                console.log("The index is"+index+"The prev year is"+prevSetYear+"The current year is"+curSetYear+"The start date is"+startDate+"The end date is"+endDate)
-//                pageEndTumbler.setMinYear(index)
-//            }
+        yearTumbler.changeTumblerComboValue(index)
+        //yearTumbler.comboBoxIndex = index
+        informOtherTumbler(index)
+        //        if(firstOrLast === true)
+        //        {
+        //            //endDate = startDate+index
+        //            if(yearTumbler.firstTumblerStopped === true)
+        //            {
+        //                yearTumbler.firstTumblerStopped = false
+        //                console.log("The index is"+index+"The prev year is"+prevSetYear+"The current year is"+curSetYear+"The start date is"+startDate+"The end date is"+endDate)
+        //                pageStartTumbler.setMaxYear(index)
+        //            }
+        //        }
+        //        if(firstOrLast === false)
+        //        {
+        //             pageStartTumbler.setMinYear(index)
+        //             startDate = IntegerConstants.dobStartDate+ index
+        //            if(yearTumbler.firstTumblerStopped === true)
+        //            {
+        //                yearTumbler.firstTumblerStopped = false
+        //                console.log("The index is"+index+"The prev year is"+prevSetYear+"The current year is"+curSetYear+"The start date is"+startDate+"The end date is"+endDate)
+        //                pageEndTumbler.setMinYear(index)
+        //            }
 
-//        }
+        //        }
 
         // setNoDateInMonthYear()
     }
@@ -280,10 +368,15 @@ Rectangle {
         rows: IntegerConstants.rowCount4
         columnSpacing: IntegerConstants.spacing
         Layout.minimumHeight: recDate.height+recTitle.height
-        Layout.minimumWidth: recDate.width+recMonth.width+recYear.width//630
+        Layout.minimumWidth: recDate.width+recMonth.width+recYear.width//+3*(2* IntegerConstants.columnSpacingTen)//630
+        Layout.maximumWidth: recDate.width+recMonth.width+recYear.width//+3*(2* IntegerConstants.columnSpacingTen)
+        //Layout.preferredWidth: recDate.width+recMonth.width+recYear.width+3*(2* IntegerConstants.columnSpacingTen)
         Rectangle{
             id:recTitle
+            width: 60
             color: "transparent"
+            Layout.topMargin: 0
+            Layout.leftMargin: 10
             Layout.row: IntegerConstants.rowCount1
             Layout.fillWidth: true
             Layout.column: recTextVisible?IntegerConstants.columnCount1:IntegerConstants.columnCount2
@@ -300,7 +393,6 @@ Rectangle {
                 text: StringConstants.dobTitle
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-
                 //anchors.centerIn: parent
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
@@ -313,7 +405,7 @@ Rectangle {
             Layout.row: IntegerConstants.rowCount1
             Layout.fillWidth: true
             Layout.column: IntegerConstants.columnCount2
-            Layout.columnSpan: IntegerConstants.columnSpan2//3
+            //Layout.columnSpan: IntegerConstants.columnSpan2//3
             anchors.top: parent.top
             //anchors.left: recDate.left
             //anchors.right: recYear.right
@@ -339,6 +431,7 @@ Rectangle {
             Layout.column: IntegerConstants.columnCount1
             anchors.top:recTitle.bottom
             anchors.left: parent.left
+            anchors.leftMargin: IntegerConstants.margin10
             height:IntegerConstants.dobCalTumblerHeight
             width: IntegerConstants.dobCalTumblerWidth
 
@@ -350,6 +443,7 @@ Rectangle {
                 firstTumblerVisibility: true
                 secTumblerVisibility: false
                 thirdTumblerVisibility: false
+                donotUpdateMovingTumbler: true
                 //donotUpdateMovingTumbler: true
                 firstTumblerModel:calModel.calculateRange(1,getDaysInMonth(monthTumbler.firstTumblerIndex,yearTumbler.firstTumblerIndex))//calModel.calculateRange(1,IntegerConstants.dobCalNoOfDays)//getDaysInMonth(monthTumbler.firstTumblerIndex,yearTumbler.firstTumblerIndex)//calModel.calculateRange(1,IntegerConstants.dobCalNoOfDays)//calModel.calculateRange(1,(getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex)))//IntegerConstants.dobCalNoOfDays//(getDaysInMonth(index,yearTumbler.comboBoxIndex)-1//Constants.dobCalNoOfDays//[0,1,2,3]
                 comboBoxModel: calModel.calculateRange(1,getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex))//calModel.calculateRange(1,IntegerConstants.dobCalNoOfDays)//getDaysInMonth(monthTumbler.firstTumblerIndex,yearTumbler.firstTumblerIndex)//calModel.calculateRange(1,IntegerConstants.dobCalNoOfDays)
@@ -389,9 +483,9 @@ Rectangle {
             anchors.leftMargin: IntegerConstants.margin10
             Layout.row: IntegerConstants.rowCount2
             Layout.column: IntegerConstants.columnCount2
-            Layout.columnSpan: IntegerConstants.columnSpan2
+            //Layout.columnSpan: IntegerConstants.columnSpan2
             height:IntegerConstants.dobCalTumblerHeight
-            width: 2*IntegerConstants.dobCalTumblerWidth
+            width: 1.5*IntegerConstants.dobCalTumblerWidth
             NewPatientDataTumbler{
                 id:monthTumbler
                 labelVisible: false
@@ -399,6 +493,7 @@ Rectangle {
                 firstTumblerVisibility: true
                 secTumblerVisibility: false
                 thirdTumblerVisibility: false
+                donotUpdateMovingTumbler: true
                 firstTumblerModel:OtherConstants.dobCalAllMonths
                 comboBoxModel: OtherConstants.dobCalAllMonths
                 onRearrangeModelChanged: {
@@ -416,11 +511,11 @@ Rectangle {
             id:recYear
             color: "transparent"
             anchors.top:recTitle.bottom
-            //anchors.left:  recMonth.right
-            anchors.right: parent.right
-            //anchors.leftMargin: Constants.margin10
+            anchors.left:  recMonth.right
+            //anchors.right: parent.right
+            anchors.leftMargin: IntegerConstants.margin10
             Layout.row: IntegerConstants.rowCount2
-            Layout.column: IntegerConstants.columnCount4
+            Layout.column: IntegerConstants.columnCount3
             height:IntegerConstants.dobCalTumblerHeight
             width: IntegerConstants.dobCalTumblerWidth
             NewPatientDataTumbler{
@@ -442,12 +537,12 @@ Rectangle {
                 firstTumblerDelegate:calYearCom
                 onComboBoxModelChanged: {
                     console.log("The prev and current year"+prevSetYear+curSetYear)
-                    prevSetYear = curSetYear - IntegerConstants.dobStartDate
+                    prevSetYear = (IntegerConstants.dobStartDate+curSetYear) - IntegerConstants.dobStartDate
                     console.log("The prev and current year"+prevSetYear+curSetYear)
                 }
                 onFirstTumblerModelChanged: {
                     console.log("The prev and current year"+prevSetYear+curSetYear)
-                    prevSetYear = curSetYear - IntegerConstants.dobStartDate
+                    prevSetYear = (IntegerConstants.dobStartDate+curSetYear) - IntegerConstants.dobStartDate
                     console.log("The prev and current year"+prevSetYear+curSetYear)
                 }
 
@@ -562,3 +657,71 @@ Rectangle {
 
 //}
 
+
+
+//    function checkStopDateIndex(index)
+//    {
+//        var setDateValue;
+//        if(firstOrLast === false)
+//        {
+//            if(index> stopDateIndex)
+//            {
+//                console.log("StopDateIndex"+stopDateIndex+index+setDateValue)
+//                curSetDate = stopDateIndex;
+//            }
+//        }
+//        if(firstOrLast === true)
+//        {
+
+//            if(stopDateIndex < index)
+//            {
+//                console.log("StopDateIndex"+stopDateIndex+index+setDateValue)
+//                curSetDate = stopDateIndex;
+//            }
+//        }
+//        console.log("StopDateIndex"+stopDateIndex+index)
+//        //curSetDate = setDateValue
+//        //setDate(setDateValue);
+//        //return setDateValue;
+
+//    }
+//    function checkStopMonthIndex(index)
+//    {
+//        var setMonthValue;
+//        if(firstOrLast === false)
+//        {
+//            if(index> stopMonthIndex)
+//            {
+//                setMonthValue = stopMonthIndex;
+//            }
+//        }
+//        else
+//        {
+//            if(stopMonthIndex < index)
+//            {
+//                setMonthValue = stopMonthIndex;
+//            }
+//        }
+//        setMonth(setMonthValue);
+//        //return setMonthValue;
+//    }
+//    function checkStopYearIndex(index)
+//    {
+//        var setYearValue;
+//        if(firstOrLast === false)
+//        {
+//            if(index> stopYearIndex)
+//            {
+//                setYearValue = stopYearIndex;
+//            }
+//        }
+//        else
+//        {
+//            if(stopYearIndex < index)
+//            {
+//                setYearValue = stopYearIndex;
+//            }
+//        }
+//        //return setYearValue;
+//        setYear(setYearValue)
+//    }

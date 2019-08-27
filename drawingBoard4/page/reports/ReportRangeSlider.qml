@@ -23,19 +23,25 @@ Rectangle{
     anchors.fill: parent
     color: StringConstants.actionBtnBackgroundColor
     property bool alterValues: true
+    property bool allowSameFirstSec:true
     property alias labelText: titleLbl.text
     property alias sliderFrom: slider1.from
     property alias sliderTo: slider1.to
+    property int firstSecEqualCount: 0
     property int prevTo: 0
     property int firstValue: 0
     property int secValue: 0
     property int newFirstValue: 0
+    property int firstSliderSetValue: 0
+    property int secSliderSetValue: 0
     function changeFirstValue(index){
         slider1.first.value = index
+        firstValue = first.value.toFixed(0);
     }
     function changeSecValue(index)
     {
         slider1.second.value = index
+        secValue = second.value.toFixed(0);
     }
 
     property int prevFirstValue: 0
@@ -141,27 +147,116 @@ Rectangle{
                 anchors.fill: parent
 
                 first.onMoved: {
-
+                    var secChanged = false
                     firstValue = first.value.toFixed(0);
+                    secValue = second.value.toFixed(0);
+                    if(allowSameFirstSec === false)
+                    {
+                        if(firstValue === secValue)
+                        {
+                            secValue = secValue + 1;
+                            second.value = secValue;
+                            secChanged = true
+                        }
+                    }
+
+                    if((firstValue) > (secValue))
+                    {
+
+                        secValue = secValue + 1;
+                        second.value = secValue;
+                        secChanged = true
+                        console.log("The first and second values are"+firstValue+"SEC"+secValue+"to"+slider1.to+"from"+slider1.from)
+
+                    }
+                    if(secValue > firstValue)
+                    {
+                        console.log("The first and second values are"+firstValue+"SEC"+secValue+"to"+slider1.to+"from"+slider1.from)
+                    }
+
                     if(alterValues === true)
                     {
                         firstValue  = first.value.toFixed(0)-1
+                        secValue = second.value.toFixed(0)-1
                         console.log("The curvalue is"+firstValue)
+                        secChanged  = true
+                    }
+                    else
+                    {
+                        if(firstValue+1 < slider1.from)
+                        {
+                            firstValue = slider1.from
+                        }
+                        if(secValue+1 > slider1.to)
+                        {
+                            secValue = slider1.to
+                            secChanged = true
+                        }
+                    }
+                    if(secChanged === true)
+                    {
+                        first2RangeValue(secValue)
                     }
                     first1RangeValue(firstValue)
                     update()
                 }
                 second.onMoved:
                 {
-
+                    var firstchanged = false
                     prevTo = slider1.to.toFixed(0);
+                    firstValue = first.value.toFixed(0);
                     secValue = second.value.toFixed(0);
+                    if(allowSameFirstSec === false)
+                    {
+                        if(secValue === firstValue)
+                        {
+                            firstValue = firstValue -1
+                            first.value = firstValue
+                            firstchanged = true;
+                        }
+                    }
+
+                    if(((secValue) < (firstValue)))
+                    {
+                        firstValue = firstValue -1
+                        first.value = firstValue
+                        firstchanged = true;
+                    }
+
                     if(alterValues === true)
                     {
+                        firstValue  = first.value.toFixed(0)-1
                         secValue = second.value.toFixed(0)-1
                         console.log("The curvalue is"+secValue)
+                        if(firstValue+1 < slider1.from)
+                        {
+                            firstValue = slider1.from
+                            firstchanged = true;
+                        }
+                        if(secValue+1 > slider1.to)
+                        {
+                            secValue = slider1.to
+                        }
                     }
+                    else
+                    {
+                        if(firstValue < slider1.from)
+                        {
+                            firstValue = slider1.from
+                            firstchanged = true
+                        }
+                        if(secValue > slider1.to)
+                        {
+                            secValue = slider1.to
+                        }
+                    }
+
+
                     console.log("The curvalue is"+secValue)
+                    if(firstchanged === true)
+                    {
+                        first1RangeValue(firstValue)
+                    }
                     first2RangeValue(secValue)
                     update()
                 }
