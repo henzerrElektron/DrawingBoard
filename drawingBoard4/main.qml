@@ -183,28 +183,33 @@ Window {
         //            ScrollIndicator.horizontal: ScrollIndicator { }
         //        }
 
-XYPlot{
-    id:xyPlotId
-    Layout.fillHeight: true
-    Layout.fillWidth: true
-}
+        //XYPlot{
+        //    id:xyPlotId
+        //    Layout.fillHeight: true
+        //    Layout.fillWidth: true
+        //}
+        ReportPraticeTimeline{
+            id:reportTimeline
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+        }
 
-//        ReportPageHeader{
-//            id:newpatientTabb
-//            Layout.fillHeight: true
-//            Layout.fillWidth: true
-//        }
+        //        ReportPageHeader{
+        //            id:newpatientTabb
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //        }
         //        ReportPraticeTableGrid{
         //            id:reportPraticeTb
         //            Layout.fillHeight: true
         //            Layout.fillWidth: true
         //        }
 
-//        ReportPatientTableGrid{
-//            id:reportTablegGrid
-//            Layout.fillHeight: true
-//            Layout.fillWidth: true
-//        }
+        //        ReportPatientTableGrid{
+        //            id:reportTablegGrid
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //        }
 
         //                NewPatientPersonalDetails{
         //                    id:newPatientRecon

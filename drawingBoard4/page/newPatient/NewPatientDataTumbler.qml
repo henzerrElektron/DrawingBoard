@@ -340,7 +340,7 @@ Rectangle {
                 color: "transparent"
                 Layout.alignment: Qt.AlignTop
                 Layout.column: 1
-                Layout.columnSpan: 1
+                Layout.columnSpan: 1//secTumblerVisibility?1:3
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.leftMargin: 10
@@ -376,7 +376,7 @@ Rectangle {
                 Layout.row: 3
                 Layout.column: 2
                 Layout.columnSpan: 1
-                Layout.minimumWidth:thirdTumblerRec.visible?(secTumblerRec.visible?parent.width/3:0):(secTumblerRec.visible?parent.width/2:0)
+                //Layout.minimumWidth:thirdTumblerRec.visible?(secTumblerRec.visible?parent.width/3:0):(secTumblerRec.visible?parent.width/2:0)
                 allTumblerModel:100
                 onTumblerIndexChanged: {
                     //secTumblerIndex = secTumblerModel[secTumblerIndex]//secTumbler.model[secTumbler.currentIndex]
@@ -400,7 +400,7 @@ Rectangle {
                 Layout.rowSpan: 1
                 Layout.column: 3
                 Layout.columnSpan: 1
-                Layout.minimumWidth:thirdTumblerRec.visible?parent.width/3:0
+                //Layout.minimumWidth:thirdTumblerRec.visible?parent.width/3:0
                 anchors.left: secTumblerRec.right
                 anchors.right: parent.right
                 anchors.leftMargin: 10

@@ -132,9 +132,6 @@
         <file>page/reports/ReportPatientTableGrid.qml</file>
         <file>page/reports/ReportPraticeTableGrid.qml</file>
         <file>page/reports/ReportPatientTable.qml</file>
-        <file>page/test/XYCrossGrid.qml</file>
-        <file>page/test/XYRowGrid.qml</file>
-        <file>page/test/XYColGrid.qml</file>
         <file>page/test/XYCrossGridView.qml</file>
         <file>page/test/XYColGridView.qml</file>
         <file>page/test/XYColDelegate.qml</file>

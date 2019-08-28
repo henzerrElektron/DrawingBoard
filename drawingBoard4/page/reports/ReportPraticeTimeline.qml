@@ -25,57 +25,59 @@ import "./../newPatient/"
 Rectangle {
     id: rectangle2
     color: StringConstants.testPage_backgroundColor
-    Layout.fillHeight: true
-    Layout.fillWidth: true
-    Layout.row: 2
-    Layout.rowSpan: 2
+    anchors.fill: parent
     GridLayout{
         id: mainCol
         anchors.fill: parent
-        columns: 4
-        //rows: 3
+        //columns: 4
+        rows: 2
         Rectangle{
             id:rectangleSub1
             color: StringConstants.testPage_backgroundColor
-            Layout.column: 1
-            //Layout.row: 2
-            Layout.fillHeight: true
-            //Layout.fillWidth: true
-            width: 100
-            //height: 150
+            //Layout.column: 1
+            Layout.row: 1
+            //Layout.fillHeight: true
+            Layout.fillWidth: true
+            //width: 100
+            height: 150
             NewPatientDataTumbler{
-                id:pageTitle
+                id:pageOperators
                 anchors.fill: parent
-                labelText: StringConstants.lbl_npPatientTitle
+                labelText: StringConstants.lbl_rpSelectOperator
                 firstTumblerVisibility: true
                 secTumblerVisibility: false
                 thirdTumblerVisibility: false
-                firstTumblerModel:OtherConstants.modelTitle
-                comboBoxModel: OtherConstants.modelTitle
+                firstTumblerModel:OtherConstants.modelPraticeOperators
+                comboBoxModel: OtherConstants.modelPraticeOperators
             }
         }
 
         Rectangle{
             id:rectangleSub2
             color: StringConstants.testPage_backgroundColor//"green"///
-            Layout.column: 2
-            // Layout.row: 3
+            //Layout.column: 2
+             Layout.row: 2
             Layout.fillHeight: true
-            Layout.alignment: Qt.AlignLeft
-            //Layout.fillWidth: true
-            width: 100
-            //height: 150
-            NewPatientDataTumbler{
-                id:pageGender
-                //anchors.fill: parent
-                anchors.left: parent.left
-                labelText: StringConstants.lbl_npPatientGender
-                firstTumblerVisibility: true
-                secTumblerVisibility: false
-                thirdTumblerVisibility: false
-                firstTumblerModel:OtherConstants.modelGender
-                comboBoxModel: OtherConstants.modelGender
+            //Layout.alignment: Qt.AlignLeft
+            Layout.fillWidth: true
+            ReportPraticeTableGrid{
+                id:praticeTable
+                anchors.fill: parent
             }
+
+            //width: 100
+            //height: 150
+//            NewPatientDataTumbler{
+//                id:pageGender
+//                //anchors.fill: parent
+//                anchors.left: parent.left
+//                labelText: StringConstants.lbl_npPatientGender
+//                firstTumblerVisibility: true
+//                secTumblerVisibility: false
+//                thirdTumblerVisibility: false
+//                firstTumblerModel:OtherConstants.modelGender
+//                comboBoxModel: OtherConstants.modelGender
+//            }
         }
     }
 }

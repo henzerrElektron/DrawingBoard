@@ -44,7 +44,8 @@ Rectangle{
     Layout.minimumWidth:  secTumblerRec.visible?(thirdTumblerRec.visible?parent.width/3:parent.width/2):parent.width
     Tumbler {
         id: firstTumbler
-        anchors.centerIn: parent
+        //anchors.centerIn: parent
+        anchors.fill: parent
         height: parent.height
         ////////////////delegate: numberOrColorDelegate?colordelegateComponent:delegateComponent
         ///////////////visibleItemCount: count%2 === 0?visibleItemCount+1:visibleItemCount
