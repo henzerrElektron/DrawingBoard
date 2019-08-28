@@ -140,5 +140,7 @@
         <file>page/test/XYRowGridView.qml</file>
         <file>page/test/XYRowFooter.qml</file>
         <file>page/test/XYRowDelegate.qml</file>
+        <file>page/reports/ReportPatientLeftRightGraph.qml</file>
+        <file>page/test/XYCrossMouseArea.qml</file>
     </qresource>
 </RCC>

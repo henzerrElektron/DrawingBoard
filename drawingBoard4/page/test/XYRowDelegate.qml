@@ -25,7 +25,10 @@ Component {
     Rectangle {
         id:rowRec
         //color: "blue"
-        width: gridRowView.cellWidth; height: gridRowView.cellHeight
+        //width: gridRowView.cellWidth; height: gridRowView.cellHeight
+        //cellWidth: gridRowView.width/2; cellHeight: gridRowView.height/IntegerConstants.numGridRow
+        //width:parent.width/2 //parent.cellWidth;
+        height:parent.height/IntegerConstants.numGridRow //parent.cellHeight;
         Shape {
             id:rowShape
             height: rowRec.height/IntegerConstants.numGridRow

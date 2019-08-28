@@ -24,12 +24,13 @@ GridView {
     id: gridRowView
     Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
     footer: footerItem
-    cellWidth: gridRowView.width/2; cellHeight: gridRowView.height/IntegerConstants.numGridRow
+    //cellWidth: gridRowView.width/2; cellHeight: gridRowView.height/IntegerConstants.numGridRow
     XYRowFooter {
         id: footerItem
     }
     XYRowDelegate {
         id: rowDelegate
+
     }
     model: IntegerConstants.numGridRow*1
     delegate:rowDelegate

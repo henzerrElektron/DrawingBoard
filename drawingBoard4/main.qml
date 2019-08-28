@@ -183,16 +183,16 @@ Window {
         //            ScrollIndicator.horizontal: ScrollIndicator { }
         //        }
 
-        //XYPlot{
-        //    id:xyPlotId
-        //    Layout.fillHeight: true
-        //    Layout.fillWidth: true
-        //}
-        ReportPraticeTimeline{
-            id:reportTimeline
+        XYPlot{
+            id:xyPlotId
             Layout.fillHeight: true
             Layout.fillWidth: true
         }
+//        ReportPraticeTimeline{
+//            id:reportTimeline
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
+//        }
 
         //        ReportPageHeader{
         //            id:newpatientTabb
