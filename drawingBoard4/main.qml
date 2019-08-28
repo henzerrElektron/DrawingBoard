@@ -123,91 +123,100 @@ Window {
         //                id:txtLabel
         //                text:model.month
         //            }
-//        Rectangle {
-//            width: frame.implicitWidth + 10
-//            height: frame.implicitHeight + 10
+        //        Rectangle {
+        //            width: frame.implicitWidth + 10
+        //            height: frame.implicitHeight + 10
 
-//            function formatText(count, modelData) {
-//                var data = count === 12 ? modelData + 1 : modelData;
-//                return data.toString().length < 2 ? "0" + data : data;
-//            }
+        //            function formatText(count, modelData) {
+        //                var data = count === 12 ? modelData + 1 : modelData;
+        //                return data.toString().length < 2 ? "0" + data : data;
+        //            }
 
-//            FontMetrics {
-//                id: fontMetrics
-//            }
+        //            FontMetrics {
+        //                id: fontMetrics
+        //            }
 
-//            Component {
-//                id: delegateComponent
+        //            Component {
+        //                id: delegateComponent
 
-//                Label {
-//                    text:1900+modelData//model.month===0?model.year:""//formatText(Tumbler.tumbler.count, model.year)
-//                    opacity: 1.0 - Math.abs(Tumbler.displacement) / (Tumbler.tumbler.visibleItemCount / 2)
-//                    horizontalAlignment: Text.AlignHCenter
-//                    verticalAlignment: Text.AlignVCenter
-//                    font.pixelSize: fontMetrics.font.pixelSize * 1.25
-//                }
-//            }
+        //                Label {
+        //                    text:1900+modelData//model.month===0?model.year:""//formatText(Tumbler.tumbler.count, model.year)
+        //                    opacity: 1.0 - Math.abs(Tumbler.displacement) / (Tumbler.tumbler.visibleItemCount / 2)
+        //                    horizontalAlignment: Text.AlignHCenter
+        //                    verticalAlignment: Text.AlignVCenter
+        //                    font.pixelSize: fontMetrics.font.pixelSize * 1.25
+        //                }
+        //            }
 
-//            Frame {
-//                id: frame
-//                padding: 0
-//                anchors.centerIn: parent
+        //            Frame {
+        //                id: frame
+        //                padding: 0
+        //                anchors.centerIn: parent
 
-//                Row {
-//                    id: row
+        //                Row {
+        //                    id: row
 
-//                    Tumbler {
-//                        CalendarModel {
-//                            id:calModel
-//                            property var difference: calModel.yearAt(0)
-//                            from: new Date(1900, 0, 1)
-//                            to: new Date()//(2015, 11, 31)
-//                            function calculateYears() { // birthday is a date
-//                                // var years = new Date(new Date() - new Date(1900, 0, 1)).getFullYear() - 1970;
-//                                var years = new Date(to - from).getFullYear() - 1970;
-//                                console.log(years);
-//                                return years;
-//                                //                               var ageDifMs = Date.now() - birthday.getTime();
-//                                //                               var ageDate = new Date(ageDifMs); // miliseconds from epoch
-//                                //                               console.log("The difference is"+ ageDifMs + ageDate + Math.abs(ageDate.getUTCFullYear() - 1970))
-//                                //                               return Math.abs(ageDate.getUTCFullYear() - 1970);
-//                            }
-//                        }
-//                        model:calModel.calculateYears()
-//                        id: hoursTumbler
-//                        //model: calModel.year
-//                        delegate: delegateComponent
-//                    }
-//                }
-//            }
-//            ScrollIndicator.horizontal: ScrollIndicator { }
+        //                    Tumbler {
+        //                        CalendarModel {
+        //                            id:calModel
+        //                            property var difference: calModel.yearAt(0)
+        //                            from: new Date(1900, 0, 1)
+        //                            to: new Date()//(2015, 11, 31)
+        //                            function calculateYears() { // birthday is a date
+        //                                // var years = new Date(new Date() - new Date(1900, 0, 1)).getFullYear() - 1970;
+        //                                var years = new Date(to - from).getFullYear() - 1970;
+        //                                console.log(years);
+        //                                return years;
+        //                                //                               var ageDifMs = Date.now() - birthday.getTime();
+        //                                //                               var ageDate = new Date(ageDifMs); // miliseconds from epoch
+        //                                //                               console.log("The difference is"+ ageDifMs + ageDate + Math.abs(ageDate.getUTCFullYear() - 1970))
+        //                                //                               return Math.abs(ageDate.getUTCFullYear() - 1970);
+        //                            }
+        //                        }
+        //                        model:calModel.calculateYears()
+        //                        id: hoursTumbler
+        //                        //model: calModel.year
+        //                        delegate: delegateComponent
+        //                    }
+        //                }
+        //            }
+        //            ScrollIndicator.horizontal: ScrollIndicator { }
+        //        }
+
+XYPlot{
+    id:xyPlotId
+    Layout.fillHeight: true
+    Layout.fillWidth: true
+}
+
+//        ReportPageHeader{
+//            id:newpatientTabb
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
+//        }
+        //        ReportPraticeTableGrid{
+        //            id:reportPraticeTb
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //        }
+
+//        ReportPatientTableGrid{
+//            id:reportTablegGrid
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
 //        }
 
+        //                NewPatientPersonalDetails{
+        //                    id:newPatientRecon
+        //                    Layout.fillHeight: true
+        //                    Layout.fillWidth: true
+        //                }
 
-            //ReportPageHeader{
-           //     id:newpatientTabb
-           //     Layout.fillHeight: true
-          //     Layout.fillWidth: true
-          //  }
-        ReportPraticeTableGrid{
-            id:reportPraticeTb
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-        }
-
-
-
-//                NewPatientPersonalDetails{
-//                    id:newPatientRecon
-//                    Layout.fillHeight: true
-//                    Layout.fillWidth: true
-//                }
-
-//                SwitchPatient{
-//                    id:homeTPage
-//                    Layout.fillWidth: true
-//                    Layout.fillHeight: true
-//                }
+        //                SwitchPatient{
+        //                    id:homeTPage
+        //                    Layout.fillWidth: true
+        //                    Layout.fillHeight: true
+        //                }
         //           SwitchPatient{
         //              id:switchPage
         //              Layout.fillHeight: true

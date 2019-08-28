@@ -162,6 +162,11 @@ Rectangle{
                 sliderDayVisible = false
                 sliderDay.visible = false
             }
+            if(sliderDayVisible === true)
+            {
+                sliderDayVisible = false
+                sliderDay.visible = false
+            }
         }
     }
     function checkEqualMonth(index)

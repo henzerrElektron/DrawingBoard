@@ -2,7 +2,8 @@
 #include <QDebug>
 lineIntersect::lineIntersect(QObject *parent) : QObject(parent)
 {
-
+    m_intersectionLine.setX(0);
+    m_intersectionLine.setY(0);
 }
 
 bool lineIntersect::doLineSegmentsIntersect(QPointF p,QPointF p2,QPointF q,QPointF q2) {
@@ -70,9 +71,10 @@ bool lineIntersect::doLineSegmentsIntersect(QPointF p,QPointF p2,QPointF q,QPoin
     bool checkPTRQUS = equalPoints(pointP2P1,pointQ2Q1);
     if(checkPTRQUS)
     {
-        m_intersectionLine = pointP2P1;
-       // m_intersectionLine.setX(u);
-       // m_intersectionLine.setY(t);
+        setIntersectionLine(pointP2P1);
+       // m_intersectionLine = QPointF(0.0,0.0);//pointP2P1;
+        //m_intersectionLine.setX(u);
+        //m_intersectionLine.setY(t);
     }
 
     return (t >= 0) && (t <= 1) && (u >= 0) && (u <= 1);

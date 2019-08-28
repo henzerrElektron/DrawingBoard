@@ -42,120 +42,12 @@ Item {
         anchors.bottomMargin: 0
         anchors.top: parent.top
         anchors.topMargin: 0
-        GridView {
+        XYRowGridView {
             id: gridRowView
-            Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
             Layout.fillHeight: true
             Layout.fillWidth: true
             flow: GridView.FlowTopToBottom
             rotation: 180
-            footer: footerItem
-            cellWidth: gridRowView.width/2; cellHeight: gridRowView.height/numGridRow
-            Component{
-                id:footerItem
-                GridLayout{
-                    id: footerGrid
-                    height:row.height
-                    width: row.width/2//30//row.width
-                    Rectangle {
-                        //anchors.fill: parent
-                        Layout.fillHeight: true
-                        Layout.fillWidth: true
-                        id:rowRec
-                        //color: "yellow"
-                        Label{
-                            id: headerLabel
-                            //width: row.width/3
-                            anchors.centerIn: parent
-                            color: "black"
-                            Layout.alignment: Qt.AlignLeft
-                            text: "Temporal Frequency[HZ]"
-                            rotation: 90
-                        }
-                    }
-                }
-            }
-            Component {
-                id:rowDelegate
-                Rectangle {
-                    id:rowRec
-                    //color: "blue"
-                    width: gridRowView.cellWidth; height: gridRowView.cellHeight
-                    Shape {
-                        id:rowShape
-                        height: rowRec.height/numGridRow
-                        property int repeaterIndex: index
-                        onRepeaterIndexChanged: {
-                        }
-                        ShapePath {
-                            strokeWidth: 4
-                            strokeColor: "black"
-                            fillColor: "transparent" // ignored with the gradient set
-                            //strokeStyle: ShapePath.DashLine
-                            // dashPattern: [ 1, 4 ]
-                            startX: 0; startY: 0
-                            PathLine { x: (width - name.width); y: 0 }
-                            PathLine { x: 0; y: 0 }
-                            PathLine { x: 0; y: height }
-                            PathLine { x: (width - name.width); y: height }
-                            PathLine { x: 0; y: height }
-                            PathLine { x: 0; y: height/2 }
-                            //PathLine { x: (width- name.width)/2; y: height/2 }
-                            //PathLine { x: 0; y: height/2 }
-                            PathLine { x: 0; y: height/5*(1) }
-                            PathLine { x: (width- name.width)/2; y: height/5*(1) }
-                            PathLine { x: 0; y: height/5*(1) }
-                            PathLine { x: 0; y: height/5*(2) }
-                            PathLine { x: (width- name.width)/2; y: height/5*(2) }
-                            PathLine { x: 0; y: height/5*(2) }
-                            PathLine { x: 0; y: height/5*(3) }
-                            PathLine { x: (width- name.width)/2; y: height/5*(3) }
-                            PathLine { x: 0; y: height/5*(3) }
-                            PathLine { x: 0; y: height/5*(4) }
-                            PathLine { x: (width- name.width)/2; y: height/5*(4) }
-                            PathLine { x: 0; y: height/5*(4) }
-                            PathLine { x: 0; y: height/5*(5) }
-                            PathLine { x: (width- name.width)/2; y: height/5*(5) }
-                            PathLine { x: 0; y: height/5*(5) }
-                            PathLine { x: 0; y: height/5 }
-                        }
-                        Text {
-                            id: name
-                            //                                anchors.left: parent.left
-                            //                                anchors.leftMargin:20//rowShape.width/2//20
-                            //                                anchors.top: parent.top
-                            //                                anchors.topMargin:-3
-                            //width:20
-                            height:10
-                            x: (rowRec.width)//rowRec.width - 40//5*width
-                            y: rowShape.y - height/4
-                            text: index * 10
-                            rotation: 180
-                        }
-                        Text {
-                            id: name2
-                            //width:20
-                            height:10
-                            //                            anchors.left: parent.left
-                            //                            anchors.leftMargin:20//rowShape.width/2//20
-                            x: (rowRec.width)//rowRec.width - 40//5*width
-                            y: rowRec.height - 10
-                            text:{
-                                if(index == (numGridRow-1))
-                                {
-                                    (index+1) * 10
-                                }
-                            }
-                            rotation: 180
-                        }
-
-
-                    }
-
-                }
-            }
-            model: numGridRow*1
-            delegate:rowDelegate
         }
 
     }
@@ -169,132 +61,18 @@ Item {
         anchors.rightMargin: 0
         anchors.left: row.right
         anchors.leftMargin: 0
-        GridView {
+        XYColGridView {
             id: gridColView
             Layout.fillHeight: true
             Layout.fillWidth: true
-            anchors.rightMargin: 0
-            anchors.leftMargin: 0
             anchors.bottomMargin: 0
+            anchors.leftMargin: 0
+            anchors.rightMargin: 0
             anchors.topMargin: 0
-            //rotation: 180
-            //rows: 1
-            //columns: numGridCol
-            cellWidth: gridColView.width/(numGridCol); cellHeight: gridColView.height/2
-            footer: footerItem1
-            Component{
-                id:footerItem1
-                GridLayout{
-                    id: footerGrid
-                    height:column.height/2
-                    width: column.width///30//row.width
-                    rotation: 0
-                    Layout.alignment: Qt.AlignHCenter
-                    //anchors.centerIn: parent
-                    Rectangle {
-                        //anchors.fill: parent
-                        Layout.fillHeight: true
-                        Layout.fillWidth: true
-                        id:colRec
-                        //color: "yellow"
-                        CheckBox {
-                            id: checkBox
-                            //Layout.alignment: Qt.AlignLeft| Qt.AlignBottom
-                            //Layout.leftMargin: footerGrid.width/5
-                            anchors.left: parent.left
-                            anchors.leftMargin: colRec.width/4
-                            text: qsTr("Centeral")
-                        }
-                        Label{
-                            //Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                            anchors.centerIn: parent
-                            //anchors.topMargin:checkBox.height/3
-                            ///anchors.bottom: parent.bottom
-                            //anchors.bottomMargin:-300
-                            // Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                            color: "black"
-                            //width: footerGrid.width/4
-                            //height: 30
-                            id: headerLabel
-                            text: "Green/Blue Ratio[db]"
-
-                        }
-                        CheckBox {
-                            id: checkBox1
-                            //Layout.alignment: Qt.AlignRight| Qt.AlignBottom
-                            //Layout.rightMargin: footerGrid.width/5
-                            anchors.right: parent.right
-                            anchors.rightMargin: colRec.width/4
-                            text: qsTr("Peripheral")
-                        }
-                    }
-                }
-            }
-            Component {
-                id: colDelegate
-                //Repeater {
-                //    model: 1*numGridCol
-                Rectangle {
-                    id:colRec
-                    //color: "blue"
-                    width: gridColView.width/numGridCol; height: gridColView.height/2
-                    Shape {
-                        id:colShape
-                        //height: rowRec.height/6
-                        width: colRec.width/numGridCol
-                        property int repeaterIndex: index
-                        onRepeaterIndexChanged: {
-
-                        }
-                        ShapePath {
-                            strokeWidth: 4
-                            strokeColor: "black"
-                            fillColor: "transparent" // ignored with the gradient set
-                            //strokeStyle: ShapePath.DashLine
-                            // dashPattern: [ 1, 4 ]
-                            startX: 0; startY: 0
-                            PathLine { x: 0; y: (height  - xName.height)/2 }
-                            PathLine { x: 0; y: 0 }
-                            PathLine { x: width; y: 0 }
-                            PathLine { x: width; y: (height  - xName.height)/2 }
-                            PathLine { x: width; y: 0 }
-                            PathLine { x: width/2; y: 0 }
-                            PathLine { x: width/2; y: (height- xName.height)/4 }
-                            PathLine { x: width/2; y:0  }
-                        }
-                        Text {
-                            id: xName
-                            //width:20
-                            height:10
-                            x: colShape.x //rowRec.width - width
-                            y: colRec.height/2//rowShape.y
-                            text: index
-                            //rotation: 180
-                        }
-                        Text {
-                            id: widthName
-                            width:20
-                            height:10
-                            x: colRec.width -10//rowRec.width - width
-                            y: colRec.height/2//colRec.height - height//rowRec.height - 10
-                            text:
-                            {
-                                if(index == (numGridCol-1))//
-                                {
-                                    index+1
-                                }
-                            }
-                            //rotation: 180
-                        }
-
-                    }
-
-                }
-
-            }
-            model: 1*numGridCol
-            delegate: colDelegate
             focus: true
+            crossColCellWidth:gridColView.width/(IntegerConstants.numGridCol)
+            crossColCellHeight: gridColView.height/2
+            crossColModel: 1 * IntegerConstants.numGridCol
         }
     }
 
@@ -308,43 +86,16 @@ Item {
         anchors.rightMargin: 0
         anchors.left: row.right
         anchors.leftMargin: 0
-        GridView {
+        XYCrossGridView {
             id: gridView
-            anchors.fill: parent
             Layout.fillHeight: true
             Layout.fillWidth: true
-            interactive: false
-            cellWidth: gridView.width/numGridCol; cellHeight:gridView.height/numGridRow
-            //rows: 6
-            // columns: 10
-            // Repeater {
-            //     model: 6*10
-            Component {
-                id: gridCrossDelegate
-                Rectangle {
-                    //color: "lightGray"
-                    width: gridView.width/10; height: gridView.height/6
-                    Shape {
-
-                        anchors.fill: parent
-                        ShapePath {
-                            strokeWidth: 1
-                            strokeColor: "#D3D3D3"
-                            fillColor: "transparent" // ignored with the gradient set
-                            strokeStyle: ShapePath.DashLine
-                            dashPattern: [ 1, 4 ]
-                            startX: 0; startY: 0
-                            PathLine { x: 0; y: height }
-                            PathLine { x: width; y: height }
-                            PathLine { x: width; y: 0 }
-                            PathLine { x: 0; y: 0 }
-                        }
-                    }
-                }
-            }
-            model:numGridRow*numGridCol
-            delegate: gridCrossDelegate
+            anchors.fill: parent
             focus: true
+            interactive: false
+            crossCellWidth:gridView.width/IntegerConstants.numGridCol
+            crossCellHeight: gridView.height/IntegerConstants.numGridRow
+            crossCellModel: IntegerConstants.numGridRow * IntegerConstants.numGridCol
         }
 
         MouseArea {

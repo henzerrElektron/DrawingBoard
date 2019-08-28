@@ -4,7 +4,7 @@
 #include <QVariant>
 plotDataPoint::plotDataPoint(QObject *parent) : QObject(parent)
 {
-    lineIntersect *m_l = new lineIntersect(this);
+    m_l = new lineIntersect(this);
     //bool value = m_l->doLineSegmentsIntersect(QPointF(20,20),QPointF(100,20),QPointF(50,10),QPointF(50,50));
     //qDebug()<<"The value of the flag is"<<value<<"The intersect is at"<<m_l->intersectionLine();
 
@@ -248,7 +248,7 @@ QPointF plotDataPoint::intersectionPoint(QPointF clickedLineStart, QPointF click
 
     for(const plotRecPoints &P : m_trackPoints)
     {
-        if(P.Count <= 7)
+        if(P.Count <= 7)//7//6
         {
             qDebug()<<"The values of the flag are"<<P.point1<<P.point2<<clickedLineStart<<clickedLineEnd;
             bool value = m_l->doLineSegmentsIntersect(P.point1,P.point2,clickedLineStart,clickedLineEnd);
