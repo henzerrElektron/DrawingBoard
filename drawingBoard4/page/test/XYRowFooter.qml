@@ -38,9 +38,10 @@ Component{
                 anchors.centerIn: parent
                 color: "black"
                 Layout.alignment: Qt.AlignLeft
-                text: "Temporal Frequency[HZ]"
+                text:testOrReport? StringConstants.label_testTempFrequency:StringConstants.label_testMPvalue
                 rotation: 90
             }
         }
     }
+
 }

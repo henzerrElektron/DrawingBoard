@@ -24,7 +24,10 @@ GridView {
     id: gridRowView
     Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
     footer: footerItem
-    //cellWidth: gridRowView.width/2; cellHeight: gridRowView.height/IntegerConstants.numGridRow
+    property bool testOrReport: false//true = test false = report
+    property string testOrReportFooter: testOrReport? StringConstants.label_testTempFrequency:StringConstants.label_testMPvalue//
+    cellWidth: gridRowView.width/2; cellHeight: gridRowView.height/(testOrReport?IntegerConstants.numGridRow:IntegerConstants.numReportGridRow)
+
     XYRowFooter {
         id: footerItem
     }
@@ -32,6 +35,10 @@ GridView {
         id: rowDelegate
 
     }
-    model: IntegerConstants.numGridRow*1
-    delegate:rowDelegate
+    XYReportRowDelegate{
+        id:reportRowDelegate
+    }
+
+    model: testOrReport?IntegerConstants.numGridRow*1:IntegerConstants.numReportGridRow*1
+    delegate:testOrReport?rowDelegate:reportRowDelegate//rowDelegate
 }

@@ -31,12 +31,11 @@ Component {
         //height:parent.height/IntegerConstants.numGridRow //parent.cellHeight;
         Shape {
             id:rowShape
-            height: rowRec.height/IntegerConstants.numGridRow
+            height: rowRec.height/IntegerConstants.numReportGridRow
             property int repeaterIndex: index
             onRepeaterIndexChanged: {
             }
             ShapePath {
-                id:shapeId
                 strokeWidth: 4
                 strokeColor: "black"
                 fillColor: "transparent" // ignored with the gradient set
@@ -51,22 +50,22 @@ Component {
                 PathLine { x: 0; y: height/2 }
                 //PathLine { x: (width- name.width)/2; y: height/2 }
                 //PathLine { x: 0; y: height/2 }
-                PathLine { x: 0; y: height/5*(1) }
-                PathLine { x: (width- name.width)/2; y: height/5*(1) }
-                PathLine { x: 0; y: height/5*(1) }
-                PathLine { x: 0; y: height/5*(2) }
-                PathLine { x: (width- name.width)/2; y: height/5*(2) }
-                PathLine { x: 0; y: height/5*(2) }
-                PathLine { x: 0; y: height/5*(3) }
-                PathLine { x: (width- name.width)/2; y: height/5*(3) }
-                PathLine { x: 0; y: height/5*(3) }
-                PathLine { x: 0; y: height/5*(4) }
-                PathLine { x: (width- name.width)/2; y: height/5*(4) }
-                PathLine { x: 0; y: height/5*(4) }
-                PathLine { x: 0; y: height/5*(5) }
-                PathLine { x: (width- name.width)/2; y: height/5*(5) }
-                PathLine { x: 0; y: height/5*(5) }
-                PathLine { x: 0; y: height/5 }
+                PathLine { x: 0; y: height/4*(1) }
+                PathLine { x: (width- name.width)/2; y: height/4*(1) }
+                PathLine { x: 0; y: height/4*(1) }
+                PathLine { x: 0; y: height/4*(2) }
+                PathLine { x: (width- name.width)/2; y: height/4*(2) }
+                PathLine { x: 0; y: height/4*(2) }
+                PathLine { x: 0; y: height/4*(3) }
+                PathLine { x: (width- name.width)/2; y: height/4*(3) }
+                PathLine { x: 0; y: height/4*(3) }
+                PathLine { x: 0; y: height/4*(4) }
+                PathLine { x: (width- name.width)/2; y: height/4*(4) }
+                PathLine { x: 0; y: height/4*(4) }
+                PathLine { x: 0; y: height/4}//*(5) }
+//                PathLine { x: (width- name.width)/2; y: height/5*(5) }
+//                PathLine { x: 0; y: height/5*(5) }
+//                PathLine { x: 0; y: height/5 }
             }
             Text {
                 id: name
@@ -78,7 +77,7 @@ Component {
                 height:10
                 x: (rowRec.width)//rowRec.width - 40//5*width
                 y: rowShape.y - height/4
-                text: index * 10
+                text: (index * 2)/10
                 rotation: 180
             }
             Text {
@@ -90,16 +89,16 @@ Component {
                 x: (rowRec.width)//rowRec.width - 40//5*width
                 y: rowRec.height - 10
                 text:{
-                    if(index == (IntegerConstants.numGridRow-1))
+                    if(index == (IntegerConstants.numReportGridRow-1))
                     {
-                        (index+1) * 10
+                       ((index+1) * 2)/10
                     }
                 }
                 rotation: 180
             }
-            
-            
+
+
         }
-        
+
     }
 }

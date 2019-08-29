@@ -24,7 +24,7 @@ Component {
     id: gridCrossDelegate
     Rectangle {
         //color: "lightGray"
-        width: parent.width/10; height: parent.height/6
+        width: parent.width/IntegerConstants.numGridCol; height: parent.height/IntegerConstants.numGridRow
         Shape {
             
             anchors.fill: parent

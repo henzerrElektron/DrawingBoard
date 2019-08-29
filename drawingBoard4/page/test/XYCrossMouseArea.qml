@@ -100,20 +100,20 @@ MouseArea {
             //component_horizontalLineComponent.internalSettings.color ="blue"
             
         }
-        var value5 = mouse.x * (numGridCol)/mouseArea.width;
-        var value6 = mouse.y * (numGridRow)/mouseArea.height;
-        var value8 = 1 * (numGridRow)/mouseArea.height;
-        var value7 = ((numGridRow) - value6);
-        var value9 = numGridRow - value8;
+        var value5 = mouse.x * (IntegerConstants.numGridCol)/mouseArea.width;
+        var value6 = mouse.y * (IntegerConstants.numGridRow)/mouseArea.height;
+        var value8 = 1 * (IntegerConstants.numGridRow)/mouseArea.height;
+        var value7 = ((IntegerConstants.numGridRow) - value6);
+        var value9 = IntegerConstants.numGridRow - value8;
         var startPoint = Qt.point(value5,1);//(value7*10)
-        var endPoint = Qt.point(value5,numGridRow*10);//(value7*10)
+        var endPoint = Qt.point(value5,IntegerConstants.numGridRow*10);//(value7*10)
         console.log("The start and end point is"+ startPoint+ "then end point is"+endPoint)
         var plottingPoint =  PlotPoint.intersectionPoint(startPoint,endPoint);
         if(PlotPoint.containsIntersection)
         {
-            var value1reverse = numGridRow - ((plottingPoint.y)/10);
-            var value5reverse = plottingPoint.x * mouseArea.width/numGridCol;
-            var value6reverse = value1reverse * mouseArea.height/numGridRow;
+            var value1reverse = IntegerConstants.numGridRow - ((plottingPoint.y)/10);
+            var value5reverse = plottingPoint.x * mouseArea.width/IntegerConstants.numGridCol;
+            var value6reverse = value1reverse * mouseArea.height/IntegerConstants.numGridRow;
             console.log("Intersection point"+plottingPoint)
             if(item_mouseClick !== null)
             {
@@ -138,9 +138,9 @@ MouseArea {
             mouseArea.mousePressedX = mouse.x
             mouseArea.mousePressedY = mouse.y
             console.log("The mouse pressed is"+mousePressedX+"The mouse released"+mousePressedY)
-            var value5 = mouse.x * (numGridCol)/mouseArea.width;
-            var value6 = mouse.y * (numGridRow)/mouseArea.height;
-            var value7 = ((numGridRow) - value6);
+            var value5 = mouse.x * (IntegerConstants.numGridCol)/mouseArea.width;
+            var value6 = mouse.y * (IntegerConstants.numGridRow)/mouseArea.height;
+            var value7 = ((IntegerConstants.numGridRow) - value6);
             console.log("The value5 will b"+value5);
             console.log("The value6 will b"+value6);
             console.log("The value7 will b"+value7);
@@ -197,9 +197,9 @@ MouseArea {
             item_Vertical.y =item_Vertical.lastY
             item_Vertical.width = mouseArea.width
         }
-        var value1reverse = numGridRow - ((itemMouseY)/10);
-        var value5reverse =itemMouseX * mouseArea.width/numGridCol;
-        var value6reverse = value1reverse * mouseArea.height/numGridRow;
+        var value1reverse = IntegerConstants.numGridRow - ((itemMouseY)/10);
+        var value5reverse =itemMouseX * mouseArea.width/IntegerConstants.numGridCol;
+        var value6reverse = value1reverse * mouseArea.height/IntegerConstants.numGridRow;
         if(item_mouseClick !== null)
         {
             item_mouseClick.destroy();

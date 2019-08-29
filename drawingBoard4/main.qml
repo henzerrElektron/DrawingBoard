@@ -22,6 +22,7 @@ import "page"
 import "delegates"
 //import appContstants 1.0
 import "./page/home/"
+import "./common/"
 import "./models"
 import "./delegates"
 import "./page"
@@ -46,8 +47,8 @@ Window {
 
     property Rectangle highlightItem : null;
     property Rectangle highlightItem1 : null;
-    property int numGridRow: 6
-    property int numGridCol: 10
+    //property int numGridRow: 6
+    //property int numGridCol: 10
     GridLayout{
         id:mainGrid
         anchors.fill: parent
@@ -188,11 +189,11 @@ Window {
             Layout.fillHeight: true
             Layout.fillWidth: true
         }
-//        ReportPraticeTimeline{
-//            id:reportTimeline
-//            Layout.fillHeight: true
-//            Layout.fillWidth: true
-//        }
+        //        ReportPraticeTimeline{
+        //            id:reportTimeline
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //        }
 
         //        ReportPageHeader{
         //            id:newpatientTabb

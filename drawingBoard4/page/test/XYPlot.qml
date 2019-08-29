@@ -23,11 +23,11 @@ import ApplicationConstants 1.0
 Item {
     id:xyplotter
 
-    property int numGridRow: 6
-    property int numGridCol: 10
+    //property int numGridRow: 6
+    //property int numGridCol: 10
     property alias mouseAreaWidth: mouseArea.width
     property alias mouseAreaHeight: mouseArea.height
-
+    property bool reportOrTest: true//Test == true//false == report
     //property alias mouseAreaX: mouseArea.X
     //property alias mouseAreaY: mouseArea.Y
     RowLayout {
@@ -39,12 +39,14 @@ Item {
         anchors.bottomMargin: 0
         anchors.top: parent.top
         anchors.topMargin: 0
+
         XYRowGridView {
             id: gridRowView
             Layout.fillHeight: true
             Layout.fillWidth: true
             flow: GridView.FlowTopToBottom
             rotation: 180
+            testOrReport:true
         }
 
     }

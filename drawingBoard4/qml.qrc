@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
+        <file>common/BoxLabel.qml</file>
         <file>main.qml</file>
         <file>mpIndicator.qml</file>
         <file>mpodDisplayItem.qml</file>
@@ -142,5 +143,7 @@
         <file>page/test/XYRowDelegate.qml</file>
         <file>page/reports/ReportPatientLeftRightGraph.qml</file>
         <file>page/test/XYCrossMouseArea.qml</file>
+        <file>page/test/XYReportRowDelegate.qml</file>
+        <file>page/test/XYReportColFooter.qml</file>
     </qresource>
 </RCC>

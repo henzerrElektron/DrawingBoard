@@ -47,12 +47,13 @@ Component {
                 startX: 0; startY: 0
                 PathLine { x: 0; y: (height  - xName.height)/2 }
                 PathLine { x: 0; y: 0 }
-                PathLine { x: width; y: 0 }
-                PathLine { x: width; y: (height  - xName.height)/2 }
-                PathLine { x: width; y: 0 }
                 PathLine { x: width/2; y: 0 }
                 PathLine { x: width/2; y: (height- xName.height)/4 }
                 PathLine { x: width/2; y:0  }
+                PathLine { x: width; y: 0 }
+                PathLine { x: width; y: (height  - xName.height)/2 }
+                PathLine { x: width; y: 0 }
+
             }
             Text {
                 id: xName

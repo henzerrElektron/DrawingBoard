@@ -37,19 +37,19 @@ Item {
     //    }
     function xvalues(n){
         var xItem = 0;
-        xItem =  (n * mouseAreaWidth)/numGridCol
-        console.log(xItem+"Width"+mouseAreaWidth+"col"+numGridCol)
+        xItem =  (n * mouseAreaWidth)/IntegerConstants.numGridCol
+        console.log(xItem+"Width"+mouseAreaWidth+"col"+IntegerConstants.numGridCol)
         return xItem;
     }
     function yvalues(n){
         var yItem = 0;
         var tempItem = 0;
         var h = 0;
-        h = ((numGridRow * 10) - n);
+        h = ((IntegerConstants.numGridRow * 10) - n);
         console.log("The value of n was"+n+"The value of h is"+h)
-        tempItem =  (h * mouseAreaHeight)/(numGridRow*10)
+        tempItem =  (h * mouseAreaHeight)/(IntegerConstants.numGridRow*10)
         //yItem = qAbs((numGridRow * 10) - tempItem);
-        console.log(tempItem+"yitem"+yItem+"height"+mouseAreaWidth+"row"+numGridRow)
+        console.log(tempItem+"yitem"+yItem+"height"+mouseAreaWidth+"row"+IntegerConstants.numGridRow)
         return tempItem;
     }
     GridLayout

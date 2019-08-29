@@ -29,12 +29,16 @@ GridView {
     property alias crossColCellHeight: gridColView.cellHeight
     property alias crossColModel: gridColView.model
     cellWidth: gridColView.width/(IntegerConstants.numGridCol); cellHeight: gridColView.height/2
-    footer: footerItem1
+    footer: footerItem2
 
 
     XYColFooter {
         id: footerItem1
     }
+    XYReportColFooter{
+        id:footerItem2
+    }
+
 
     XYColDelegate {
         id: colDelegate
