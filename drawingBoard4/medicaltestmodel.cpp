@@ -155,6 +155,7 @@ void MedicalResult::setLePeripheralConfidenceLevel(QVariant lePeripheralConfiden
 
 MedicalResult::MedicalResult(const QVariant testResultNo, const QVariant testDate, QVariant testTime, QVariant testPatId, QVariant reMPEstimate, const QVariant reMPAbsolute, const QVariant reMPAdusted, const QVariant reCentralConfidenceLevel, const QVariant rePeripheralConfidenceLevel, const QVariant leMpEstimate, const QVariant leMpAbsolute, const QVariant leMpAdjusted, const QVariant leCentralConfidenceLevel, const QVariant lePeripheralConfidenceLevel)
 {
+    QString data = "";
     m_testResultNo = testResultNo;
     m_testDate = testDate;
     m_testTime = testTime;

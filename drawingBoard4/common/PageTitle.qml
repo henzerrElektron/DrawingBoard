@@ -25,12 +25,17 @@ import ApplicationConstants 1.0
 //import ApplicationOtherConstants 1.0
 
 Rectangle{
-    id:rectangle1
+    id:pgTitle//rectangle1
     //color: "black"
     color: StringConstants.testPage_backgroundColor//"transparent"
     anchors.fill: parent
     property alias labelText: label_testPageHeading.text
     property alias actionGridGroup: actionGridView.group
+    signal invokeSource(string source)
+    onInvokeSource: {
+        console.log("I am reaching here")
+    }
+
     GridLayout
     {
         columns: IntegerConstants.columnCount5
@@ -92,6 +97,9 @@ Rectangle{
                 anchors.right: parent.right
                 group: "testPageItems"
                 actionOrHome: true
+                Component.onCompleted: {
+                   actionGridView.componentTriggered.connect(pgTitle.invokeSource)
+                }
             }//TestPageActionButtons//Rectangle//PageActionsButtons
         }
     }

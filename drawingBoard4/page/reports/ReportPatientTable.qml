@@ -28,9 +28,9 @@ import ApplicationConstants 1.0
         delegate: Rectangle {
             implicitWidth: 150
             implicitHeight: 50
-            border.color: "black"
+            border.color: "white"//"black"
             border.width: 2
-            color: (heading==true)?"red":"green"
+            //color: (heading==true)?"red":"green"
             //color: ( heading === true || arRole === true ) ? ( heading === true ? "red":"green" ) : ( arRole === true ? "blue":"transparent" );
             //color:  heading === true ? "red":"green"
             onColorChanged: console.log("Color changed")
@@ -41,7 +41,8 @@ import ApplicationConstants 1.0
             Text {
                 text:display
                 font.pointSize: 12
-                anchors.centerIn: parent
+                //anchors.centerIn: parent
+                wrapMode: Text.WordWrap
             }
         }
     }

@@ -34,54 +34,23 @@ Page {
         currentIndex: swipeView.currentIndex
         //onCurrentIndexChanged:
         TabButton {
-            text: qsTr("Contact Details")
+            text: qsTr("Pratice Timeline")
             onClicked: {
                 page1.visible = true;
                 page2.visible = false;
-                page3.visible = false;
-                page4.visible = false;
-                page5.visible = false;
+
+
             }
         }
         TabButton {
-            text: qsTr("Medical Details")
+            text: qsTr("Patient Timeline")
             onClicked: {
                 page1.visible = false;
                 page2.visible = true;
-                page3.visible = false;
-                page4.visible = false;
-                page5.visible = false;
+
             }
         }
-        TabButton {
-            text: qsTr("Risk Factors")
-            onClicked: {
-                page1.visible = false;
-                page2.visible = false;
-                page3.visible = true;
-                page4.visible = false;
-                page5.visible = false;
-            }
-        }
-        TabButton {
-            text: qsTr("Notes")
-            onClicked: {
-                page1.visible = false;
-                page2.visible = false;
-                page3.visible = false;
-                page4.visible = true;
-                page5.visible = false;
-            }
-        }
-        TabButton {
-            text: qsTr("Supplementation")
-            onClicked: {
-                page1.visible = false;
-                page2.visible = false;
-                page3.visible = false;
-                page4.visible = false;
-                page5.visible = true;}
-        }
+
     }
 
     SwipeView {
@@ -104,21 +73,31 @@ Page {
             visible: true;
             Rectangle{
                 id:contactTabPage1
+                color: "white"
                 anchors.fill: parent
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-            }
-        }
-            Page {
-                id: page2
-                visible: true;
-                Rectangle{
-                    id:medicaltTabPage
+                ReportPraticeTimeline{
+                    id:reportTimeline
                     anchors.fill: parent
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
                 }
             }
+        }
+        Page {
+            id: page2
+            visible: true;
+            Rectangle{
+                id:medicaltTabPage
+                color: "white"
+                anchors.fill: parent
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ReportPatientTimeline{
+                    id:mainTime
+                    anchors.fill: parent
+                }
+            }
+        }
     }
     PageIndicator {
         id: indicator

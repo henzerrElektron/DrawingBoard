@@ -27,7 +27,7 @@ Item {
     //property int numGridCol: 10
     property alias mouseAreaWidth: mouseArea.width
     property alias mouseAreaHeight: mouseArea.height
-    property bool reportOrTest: true//Test == true//false == report
+    property bool crossTestOrReport :true//Test == true//false == report
     //property alias mouseAreaX: mouseArea.X
     //property alias mouseAreaY: mouseArea.Y
     RowLayout {
@@ -46,7 +46,10 @@ Item {
             Layout.fillWidth: true
             flow: GridView.FlowTopToBottom
             rotation: 180
-            testOrReport:true
+            testOrReport:crossTestOrReport//true
+            crossRowCellWidth:gridRowView.width/2;
+            crossRowCellHeight: gridRowView.height/(testOrReport?IntegerConstants.numGridRow:IntegerConstants.numReportGridRow)
+            crossRowModel: testOrReport?IntegerConstants.numGridRow*1:IntegerConstants.numReportGridRow*1
         }
 
     }
@@ -60,6 +63,11 @@ Item {
         anchors.rightMargin: 0
         anchors.left: row.right
         anchors.leftMargin: 0
+        //        Rectangle{
+        //            id:mainRec
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //            color: "white"
         XYColGridView {
             id: gridColView
             Layout.fillHeight: true
@@ -69,10 +77,14 @@ Item {
             anchors.rightMargin: 0
             anchors.topMargin: 0
             focus: true
+            testOrReport:crossTestOrReport
             crossColCellWidth:gridColView.width/(IntegerConstants.numGridCol)
             crossColCellHeight: gridColView.height/2
             crossColModel: 1 * IntegerConstants.numGridCol
         }
+        //        }
+
+
     }
 
     GridLayout {

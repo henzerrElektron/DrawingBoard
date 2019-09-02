@@ -22,9 +22,11 @@ import ApplicationConstants 1.0
 //import ApplicationOtherConstants 1.0
 
 
-Item {
-    width: 960
-    height: 640
+Rectangle {
+    id:testPage
+    //width: 960
+    //height: 640
+    signal invokeSource(string source)
     GridLayout {
         id: gridLayout
         anchors.fill: parent

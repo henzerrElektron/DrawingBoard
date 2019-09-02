@@ -35,7 +35,7 @@ Rectangle{
             Layout.rowSpan: IntegerConstants.rowSpan1
             //Layout.column: IntegerConstants.columnCount1
             //Layout.columnSpan:IntegerConstants.columnSpan2
-            text: StringConstants.lbl_rpDateRange
+            text: StringConstants.lbl_rpDetails
             Layout.preferredHeight: 30
             Layout.minimumHeight: 30
             Layout.maximumHeight: 30
@@ -127,6 +127,7 @@ Rectangle{
             tfReadOnly:false
             addSpace: true
             textAlignLeftOrCenter: false
+            //lblHorizontalAlignment:Text.AlignRight
             Layout.row: IntegerConstants.rowCount6
             //lblVisible:  pageNpSpTp===2?true:false//iSVisible(5)//pageSpOrNp
             lblValueVisible: true//pageNpSpTp===1?false:true//pageSpOrNp

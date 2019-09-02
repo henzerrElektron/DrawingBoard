@@ -108,7 +108,7 @@ Rectangle {
         focus: true
         cellHeight:2*IntegerConstants.actionBtnHeight//actionOrHome ?IntegerConstants.actionBtnHeight:2*IntegerConstants.actionBtnHeight//75
         cellWidth:2*IntegerConstants.actionBtnWidth///actionOrHome ?IntegerConstants.actionBtnWidth:2*IntegerConstants.actionBtnWidth//75
-        model:allPageModel1//actionOrHome ? allPageModel:// allPageModel//nameModel
+        model:actionOrHome ? allPageModel:allPageModel1//actionOrHome ? allPageModel:// allPageModel//nameModel
 
     }
 

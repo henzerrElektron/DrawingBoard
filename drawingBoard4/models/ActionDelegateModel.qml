@@ -21,7 +21,7 @@ ListModel{
         actionIconSource:"qrc:/images/icon_home.png"
         actionIconColor:"transparent"
         actionImgSource:"qrc:/images/icon_home.png";//icon.name: "timeline_tab_selected"
-        source:"qrc:/page/test/TestPage.qml"//"qrc:/page/home/home.qml"
+        source:"qrc:/page/home/HomePage.qml"//"qrc:/page/test/TestPage.qml"//"qrc:/page/home/home.qml"
         index:1;
     }
     ListElement{
@@ -106,7 +106,7 @@ ListModel{
         actionIconSource:"qrc:/images/icon_new_patient.png"
         actionIconColor:"transparent"
         actionImgSource:"../images/icon_new_patient.png";
-        source:"qrc:/page/newPatient/newPatient.qml"
+        source:"qrc:/page/newPatient/NewPatientPage.qml"
         index:7;
     }
     ListElement{
@@ -121,7 +121,7 @@ ListModel{
         actionIconSource:"qrc:/images/icon_edit_patient.png"
         actionIconColor:"transparent"
         actionImgSource:"../images/icon_new_patient.png";
-        source:"qrc:/page/newPatient/newPatient.qml"
+        source:"qrc:/page/newPatient/NewPatientPage.qml"
         index:8;
     }
     ListElement{

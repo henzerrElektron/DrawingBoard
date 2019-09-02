@@ -30,6 +30,7 @@ import "."
         color: "#5EBDC3"//Constants.headerBackgroundColor//"transparent"//"#5EBDC3"//
         //border.color: "black"//Constants.actionBtnBorderColor
         signal invokeSource(string source)
+        signal invokeIndex(int index)
         signal test()
         onTest: console.log("I am tested")
         onInvokeSource: console.log("I am the soure"+source)
@@ -51,6 +52,7 @@ import "."
                 console.log("clicked on"+actionIconName)
                 console.log(source)
                 invokeSource(source)
+                invokeIndex(index)
                 test()
                 //clickedButton(index)
             }

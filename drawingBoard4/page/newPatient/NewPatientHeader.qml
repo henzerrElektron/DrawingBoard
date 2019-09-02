@@ -52,6 +52,9 @@ Rectangle {
                 anchors.fill: parent
                 actionGridGroup:"newPatientItems"
                 labelText: StringConstants.label_newPtPgHeader
+                Component.onCompleted: {
+
+                }
             }//TestPageTitle
         }//TestPageTitle
         Rectangle {

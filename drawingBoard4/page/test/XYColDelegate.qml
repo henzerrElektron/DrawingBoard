@@ -29,11 +29,13 @@ Component {
         property alias colWidth: colRec.width
         property alias colHeight: colRec.height
         //color: "blue"
-        width: parent.width/IntegerConstants.numGridCol; height: parent.height/3
+        width: parent.width/count//IntegerConstants.numGridCol;
+        height: parent.height/3
+        color: "white"
         Shape {
             id:colShape
             //height: rowRec.height/6
-            width: colRec.width/IntegerConstants.numGridCol
+            width: colRec.width/count//IntegerConstants.numGridCol///
             property int repeaterIndex: index
             onRepeaterIndexChanged: {
                 
@@ -47,12 +49,12 @@ Component {
                 startX: 0; startY: 0
                 PathLine { x: 0; y: (height  - xName.height)/2 }
                 PathLine { x: 0; y: 0 }
-                PathLine { x: width/2; y: 0 }
-                PathLine { x: width/2; y: (height- xName.height)/4 }
-                PathLine { x: width/2; y:0  }
                 PathLine { x: width; y: 0 }
                 PathLine { x: width; y: (height  - xName.height)/2 }
                 PathLine { x: width; y: 0 }
+                PathLine { x: width/2; y: 0 }
+                PathLine { x: width/2; y: (height- xName.height)/4 }
+                PathLine { x: width/2; y:0  }
 
             }
             Text {
@@ -72,7 +74,7 @@ Component {
                 y: colRec.height/2//colRec.height - height//rowRec.height - 10
                 text:
                 {
-                    if(index == (IntegerConstants.numGridCol-1))//
+                    if(index === count-1)//(IntegerConstants.numGridCol-1))//
                     {
                         index+1
                     }

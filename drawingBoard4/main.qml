@@ -52,6 +52,100 @@ Window {
     GridLayout{
         id:mainGrid
         anchors.fill: parent
+        StackView{
+            id:mainStack
+            focus: true
+            anchors.fill: parent
+            property var previousIndex: 1;
+//            Loader
+//            {
+//                id: initialPlaceholder
+//                source: "qrc:/page/home/HomePage.qml"
+//                active: true
+//                visible: false
+//                onLoaded:
+//                {
+//                    mainStack.initialItem = item
+//                }
+//            }
+            //                HomePage{
+            //                id:homePg
+            //                Layout.fillHeight: true
+            //                Layout.fillWidth: true
+            //                onInvokeSource: {
+            //                    mainStack.push(source)
+            //                }
+
+
+            Repeater{
+                id:allPages
+                model:OtherConstants.navigationModel
+                ItemLoader{
+                    id:pageLoader
+                    anchors.fill: parent
+                    onPgInvokeIndex: {
+                        mainStack.previousIndex = index
+                        mainStack.replaceDestination(pageLoader)
+                    }
+
+                    onPgLoad: {
+                        console.log("Page Loaded")
+                        mainStack.replaceDestination(pageLoader)
+                    }
+                    onLoaded: {
+                        console.log("All loaded")
+                        if(modelData.index === 1)
+                        {
+                            visible = true
+                            active = true
+                            mainStack.initialItem = item
+                        }
+                    }
+                }
+//                Component.onCompleted:{
+//                    mainStack.previousIndex = 1
+//                    var prevItemLoader= allPages.itemAt(1)
+//                     mainStack.initialItem = prevItemLoader
+//                    ///mainStack.replace(prevItemLoader)
+//                }
+
+            }
+
+            function replaceDestination(pageLoader){
+                //var previousIndex = mainStack.currentItem.index
+                var prevItemLoader
+                if(previousIndex >= 0)
+                {
+                    prevItemLoader = allPages.itemAt(previousIndex)
+                }
+                mainStack.replace(prevItemLoader)
+                if(previousIndex >= 0)
+                {
+                    allPages.itemAt(previousIndex).active = true
+                    allPages.itemAt(previousIndex).visible = true
+                }
+            }
+        }
+
+        //                TestPage{
+        //                    id:testPg
+        //                    Layout.fillHeight: true
+        //                    Layout.fillWidth: true
+        //                    onInvokeSource: {
+        //                        mainStack.push(source)
+        //                    }
+        //                }
+
+        //                Connections {
+        //                    //target: testControlBtn
+        //                    onInvokeSoure:  {
+        //                        console.log("Hello by Comp 2")
+        //                    }
+        //                    onTest:{console.log("Testing")}
+        //                }
+        //          }
+        //      }
+
         //        StackView {
         //            id: stackView
         //            anchors.fill: parent
@@ -183,12 +277,27 @@ Window {
         //            }
         //            ScrollIndicator.horizontal: ScrollIndicator { }
         //        }
+        //        ReportPatientTimeline{
+        //            id:mainTime
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //        }
+        //        ReportPage{
+        //            id:mainTab
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //        }
+        //        HomePage{
+        //            id:hmPage
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //        }
 
-        XYPlot{
-            id:xyPlotId
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-        }
+        //        XYPlot{
+        //            id:xyPlotId
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //        }
         //        ReportPraticeTimeline{
         //            id:reportTimeline
         //            Layout.fillHeight: true

@@ -22,6 +22,8 @@ import ApplicationConstants 1.0
 //import ApplicationOtherConstants 1.0
 Component{
     id:footerItem1
+    //signal check1Checked()
+    //signal check2Checked()
     GridLayout{
         id: footerGrid
         height:parent.height/3//column.height/2
@@ -34,7 +36,7 @@ Component{
             Layout.fillHeight: true
             Layout.fillWidth: true
             id:colRec
-            //color: "yellow"
+            color: "white"
             CheckBox {
                 id: checkBox
                 //Layout.alignment: Qt.AlignLeft| Qt.AlignBottom
@@ -42,6 +44,9 @@ Component{
                 anchors.left: parent.left
                 anchors.leftMargin: colRec.width/3
                 text: qsTr("Centeral")
+                onCheckedChanged: {
+                    //check1Checked()
+                }
             }
             Label{
                 //Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -68,6 +73,9 @@ Component{
                 anchors.right: parent.right
                 anchors.rightMargin: colRec.width/3
                 text: qsTr("Peripheral")
+                onCheckedChanged: {
+                    //check2Checked()
+                }
             }
         }
     }

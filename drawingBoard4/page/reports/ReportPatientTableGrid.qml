@@ -38,21 +38,23 @@ GridLayout{
     anchors.fill: parent
     property int rowTabHeight: height/rows
     property bool testOrSwitch: false
+    property alias tableModel: table11.model
     ReportPatientTable{
         id:table11
         width: parent.width
         contentWidth: parent.width
         columnWidthProvider: function(column)
         {
+            return (parent.width/columns) -(((parent.width/columns)/columns)/4);
 
-            if(column === 0)
-            {
-                return ((parent.width)-((columns-1)*((parent.width) - parent.width/(columns-1))/(columns-1)));
-            }
-            else
-            {
-                return ((parent.width) - parent.width/(columns-1))/(columns-1);
-            }
+//            if(column === 0)
+//            {
+//                return ((parent.width)-((columns-1)*((parent.width) - parent.width/(columns-1))/(columns-1)));
+//            }
+//            else
+//            {
+//                return ((parent.width) - parent.width/(columns-1))/(columns-1);
+//            }
         }
         onWidthChanged: forceLayout()
         rowHeightProvider: function (row)

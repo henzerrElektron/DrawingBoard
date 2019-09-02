@@ -24,9 +24,10 @@ import "./../../common/"
 
 Rectangle {
     id: rectangle
-    color: StringConstants.actionBtnBackgroundColor////StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor
+    color: StringConstants.testPage_backgroundColor
+    //color: StringConstants.actionBtnBackgroundColor////StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor
     anchors.fill: parent
-
+    signal openDateRange()
     GridLayout{
         id: mainRow
         anchors.fill: parent
@@ -59,17 +60,17 @@ Rectangle {
                 //rows: 3
                 Rectangle{
                     id:rectangleSub1
-                    color: "black"//StringConstants.testPage_backgroundColor
+                    color: StringConstants.testPage_backgroundColor
                     Layout.row: 1
                     Layout.column: 1
                     Layout.columnSpan: 1
                     //Layout.column: 1
                     //Layout.row: 2
                     Layout.fillHeight: true
-                    //Layout.fillWidth: true
-                    Layout.preferredWidth:500// parent.width/5
-                    Layout.minimumWidth: 500//parent.width/5
-                    Layout.maximumWidth: 500//parent.width/5
+                    Layout.fillWidth: true
+                    //Layout.preferredWidth:parent.width/3//500//
+                    //Layout.minimumWidth: parent.width/3//500//
+                    //Layout.maximumWidth: parent.width/3//500//
                     //width: 100
                     //height: 150
                     ReportDetails{
@@ -84,19 +85,28 @@ Rectangle {
                 }
                 Rectangle{
                     id:rectangleSub2
-                    color: "black"
+                    color: StringConstants.testPage_backgroundColor
                     Layout.row: 1
                     Layout.column: 2
                     Layout.columnSpan: 1
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    ReportDetailDateRange{
-                        id:pageDateRange
-                        anchors.fill: parent
-
-
-                        //sli
+                    Button{
+                        id:btnId
+                        text: "Date Range"
+                        width: 200
+                        height: 100
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        //anchors.fill: parent
+                        onClicked: {
+                            openDateRange()
+                        }
                     }
+
+                    //                    ReportDetailDateRange{
+                    //                        id:pageDateRange
+                    //                        anchors.fill: parent
+                    //                    }
                 }
             }
         }

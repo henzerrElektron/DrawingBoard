@@ -40,29 +40,29 @@ int main(int argc, char *argv[])
 //        QQuickStyle::setStyle(settings.value("style").toString());
     MedicalTestModel medTestModel;
     medTestModel.addMedicalResult(MedicalResult("TestResultNo","TestDate","TestTime","PatientId","RE MP Estimate","RE  MP Absolute","RE MP Adjusted","RE Central Confidence Level","RE Peripheral Confidence Level","LE MP Estimate","LE MP Absolute","LE MP Adjusted","LE Central Confidence Level","LE Peripheral Confidence Level"));
-    medTestModel.addMedicalResult(MedicalResult(1,QDate::currentDate(),QTime::currentTime(),1,1.01,2.02,3.03,4.05,5.06,7.07,8.07,3.56,2.69,3.34));
-    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate(),QTime::currentTime(),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
-    medTestModel.addMedicalResult(MedicalResult(3,QDate::currentDate(),QTime::currentTime(),3,3.01,4.02,5.03,6.05,7.06,9.07,11.07,21.56,18.69,19.34));
-    medTestModel.addMedicalResult(MedicalResult(4,QDate::currentDate(),QTime::currentTime(),4,5.01,6.02,7.03,6.05,6.06,8.07,9.07,11.56,1.69,43.34));
-    medTestModel.addMedicalResult(MedicalResult(5,QDate::currentDate(),QTime::currentTime(),5,2.01,5.02,6.03,5.05,6.06,8.07,9.07,11.56,1.69,16.34));
-    medTestModel.addMedicalResult(MedicalResult(6,QDate::currentDate(),QTime::currentTime(),6,6.01,3.02,4.03,5.05,6.06,18.07,2.47,17.56,1.29,14.34));
-    medTestModel.addMedicalResult(MedicalResult(7,QDate::currentDate(),QTime::currentTime(),7,2.01,7.02,3.03,0.05,5.06,38.07,19.07,15.56,1.349,13.34));
-    medTestModel.addMedicalResult(MedicalResult(8,QDate::currentDate(),QTime::currentTime(),8,2.01,3.02,4.03,6.05,3.06,48.07,2.67,21.56,1.59,15.34));
+    medTestModel.addMedicalResult(MedicalResult(1,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),1,1.01,2.02,3.03,4.05,5.06,7.07,8.07,3.56,2.69,3.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(3,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),3,3.01,4.02,5.03,6.05,7.06,9.07,11.07,21.56,18.69,19.34));
+    medTestModel.addMedicalResult(MedicalResult(4,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),4,5.01,6.02,7.03,6.05,6.06,8.07,9.07,11.56,1.69,43.34));
+    medTestModel.addMedicalResult(MedicalResult(5,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),5,2.01,5.02,6.03,5.05,6.06,8.07,9.07,11.56,1.69,16.34));
+    medTestModel.addMedicalResult(MedicalResult(6,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),6,6.01,3.02,4.03,5.05,6.06,18.07,2.47,17.56,1.29,14.34));
+    medTestModel.addMedicalResult(MedicalResult(7,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),7,2.01,7.02,3.03,0.05,5.06,38.07,19.07,15.56,1.349,13.34));
+    medTestModel.addMedicalResult(MedicalResult(8,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),8,2.01,3.02,4.03,6.05,3.06,48.07,2.67,21.56,1.59,15.34));
 
 
     PatientResultModel leftpatResultModel;
     leftpatResultModel.addPatientResult(PatientResult("TestResultNo","TestDate","TestTime","MP Estimate","MP Absolute","MP Adjusted"));
-    leftpatResultModel.addPatientResult(PatientResult(1,QDate::currentDate(),QTime::currentTime(),3.034,6.029,1.03));
-    leftpatResultModel.addPatientResult(PatientResult(2,QDate::currentDate(),QTime::currentTime(),6.134,7.029,2.03));
-    leftpatResultModel.addPatientResult(PatientResult(3,QDate::currentDate(),QTime::currentTime(),2.134,4.029,3.03));
-    leftpatResultModel.addPatientResult(PatientResult(4,QDate::currentDate(),QTime::currentTime(),1.034,8.029,7.03));
+    leftpatResultModel.addPatientResult(PatientResult(1,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),3.034,6.029,1.03));
+    leftpatResultModel.addPatientResult(PatientResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),6.134,7.029,2.03));
+    leftpatResultModel.addPatientResult(PatientResult(3,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2.134,4.029,3.03));
+    leftpatResultModel.addPatientResult(PatientResult(4,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),1.034,8.029,7.03));
 
     PatientResultModel rightPatResultModel;
     rightPatResultModel.addPatientResult(PatientResult("TestResultNo","TestDate","TestTime","MP Estimate","MP Absolute","MP Adjusted"));
-    rightPatResultModel.addPatientResult(PatientResult(1,QDate::currentDate(),QTime::currentTime(),3.1232,4.121,0.23));
-    rightPatResultModel.addPatientResult(PatientResult(2,QDate::currentDate(),QTime::currentTime(),1.43,21.21,1.121));
-    rightPatResultModel.addPatientResult(PatientResult(3,QDate::currentDate(),QTime::currentTime(),1.2,2.3,0.21));
-    rightPatResultModel.addPatientResult(PatientResult(4,QDate::currentDate(),QTime::currentTime(),1.33,4.22,1.221));
+    rightPatResultModel.addPatientResult(PatientResult(1,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),3.1232,4.121,0.23));
+    rightPatResultModel.addPatientResult(PatientResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),1.43,21.21,1.121));
+    rightPatResultModel.addPatientResult(PatientResult(3,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),1.2,2.3,0.21));
+    rightPatResultModel.addPatientResult(PatientResult(4,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),1.33,4.22,1.221));
 
 
 

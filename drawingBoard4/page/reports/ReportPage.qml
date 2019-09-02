@@ -40,57 +40,105 @@ Rectangle {
         anchors.fill: parent
         //columns: 3
         rows:2//3
-
-        Rectangle {
-            id: rectangle1
-            color: StringConstants.testPage_backgroundColor
-            height:75// pgTitle.height
-            Layout.fillWidth: true
-            Layout.bottomMargin: 10
+        Rectangle{
+            id:mainRec
             Layout.row: 1
-            PageTitle{
-                id:pgTitle
-                anchors.fill: parent
-                actionGridGroup:StringConstants.modelReportPageItems//"newPatientItems"
-                labelText: StringConstants.lbl_rpPageHeader
-            }//TestPageTitle
-        }//TestPageTitle
-        Rectangle {
-            id: rectangle2
-            color: StringConstants.testPage_backgroundColor
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.row: 2
-            Layout.rowSpan: 2
-            GridLayout{
-                id: mainCol
+            Layout.preferredHeight: parent.height/3
+            Layout.minimumHeight: parent.height/3
+            Layout.maximumHeight: parent.height/3
+            ReportPageHeader{
+                id:pageHeader
                 anchors.fill: parent
-                columns: 4
-                rows: 3
-                Rectangle{
-                    id:rectangleSub1
-                    color: "black"//StringConstants.testPage_backgroundColor
-                    Layout.row: 1
-                    Layout.column: 1
-                    Layout.columnSpan: 1
-                    //Layout.column: 1
-                    //Layout.row: 2
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    //width: 100
-                    //height: 150
-                    ReportDetails{
-                        id:pageTitle
-                        anchors.fill: parent
-//                        labelText: StringConstants.lbl_npPatientTitle
-//                        firstTumblerVisibility: true
-//                        secTumblerVisibility: false
-//                        thirdTumblerVisibility: false
-//                        firstTumblerModel:OtherConstants.modelTitle
-                    }
-                }
+            }
+            Component.onCompleted: {
+                //pageSlider.dateFromChange.connect(pageStartTumbler.setTumblerDate)
+                pageHeader.openDateRange.connect(popup.open)
             }
         }
+        Rectangle{
+            id:subRec
+            Layout.row: 2
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            ReportTabs{
+                id:mainTab
+                anchors.fill: parent
+            }
+        }
+        Popup {
+            id: popup
+            x: parent.width/2 - parent.width/4
+            y: parent.height/2 - parent.height/4
+            width: parent.width/2
+            height: pageDateRange.height
+            modal: true
+            focus: true
+            ReportDetailDateRange{
+                id:pageDateRange
+                anchors.fill: parent
+            }
+            closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+        }
+        //                    ReportDetailDateRange{
+        //                        id:pageDateRange
+        //                        anchors.fill: parent
+
+
+        //                        //sli
+        //                    }
+
+        //        Rectangle {
+        //            id: rectangle1
+        //            color: StringConstants.testPage_backgroundColor
+        //            height:75// pgTitle.height
+        //            Layout.fillWidth: true
+        //            Layout.bottomMargin: 10
+        //            Layout.row: 1
+        //            PageTitle{
+        //                id:pgTitle
+        //                anchors.fill: parent
+        //                actionGridGroup:StringConstants.modelReportPageItems//"newPatientItems"
+        //                labelText: StringConstants.lbl_rpPageHeader
+        //            }//TestPageTitle
+        //        }//TestPageTitle
+        //        Rectangle {
+        //            id: rectangle2
+        //            color: StringConstants.testPage_backgroundColor
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //            Layout.row: 2
+        //            Layout.rowSpan: 2
+        //            GridLayout{
+        //                id: mainCol
+        //                anchors.fill: parent
+        //                columns: 4
+        //                rows: 3
+        //                Rectangle{
+        //                    id:rectangleSub1
+        //                    color: "black"//StringConstants.testPage_backgroundColor
+        //                    Layout.row: 1
+        //                    Layout.column: 1
+        //                    Layout.columnSpan: 1
+        //                    //Layout.column: 1
+        //                    //Layout.row: 2
+        //                    Layout.fillHeight: true
+        //                    Layout.fillWidth: true
+        //                    //width: 100
+        //                    //height: 150
+        //                    ReportDetails{
+        //                        id:pageTitle
+        //                        anchors.fill: parent
+        ////                        labelText: StringConstants.lbl_npPatientTitle
+        ////                        firstTumblerVisibility: true
+        ////                        secTumblerVisibility: false
+        ////                        thirdTumblerVisibility: false
+        ////                        firstTumblerModel:OtherConstants.modelTitle
+        //                    }
+        //                }
+        //            }
+        //        }
     }
 
 

@@ -26,8 +26,10 @@ import ApplicationConstants 1.0
 //import ApplicationOtherConstants 1.0
 
 Rectangle {
-    id: rectangle
+    id: homePage
     color: "white"//StringConstants.testPage_backgroundColor
+    signal invokeSource(string source)
+    signal invokeIndex(int index)
     GridLayout{
         id: mainRow
         anchors.fill: parent
@@ -49,6 +51,9 @@ Rectangle {
                 anchors.fill: parent
                 // Layout.fillHeight: true
                 // Layout.fillWidth: true
+                Component.onCompleted: {
+                    invokeSource.connect(homePage.invokeSource)
+                }
             }
         }
         Rectangle{
@@ -77,6 +82,18 @@ Rectangle {
                 group1: "homeMainItems"
                 group: ""
                 actionOrHome: false
+                onComponentTriggered: {
+                    console.log("I am reaching here")
+                }
+                onInvokeIndex: {
+                    console.log("Invoke index value is"+index)
+                }
+
+                Component.onCompleted: {
+                    componentTriggered.connect(homePage.invokeSource)
+                    invokeIndex.connect(homePage.invokeIndex)
+                }
+
                 //anchors.leftMargin: parent.width/2 - 200
                 //anchors.topMargin: parent.height/2 - 200
                 //anchors.centerIn: parent

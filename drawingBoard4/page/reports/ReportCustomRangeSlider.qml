@@ -32,7 +32,7 @@ RangeSlider {
         implicitWidth: 26
         implicitHeight: 26
         radius: 13
-        color:"red" //first.pressed ? "#f0f0f0" : "#f6f6f6"
+        color:first.pressed ?"green":"lightsteelblue" //first.pressed ? "#f0f0f0" : "#f6f6f6"
         border.color: "#bdbebf"
         Label{
             id:value1Label
@@ -50,7 +50,7 @@ RangeSlider {
         implicitWidth: 26
         implicitHeight: 26
         radius: 13
-        color: "pink"//second.pressed ? "#f0f0f0" : "#f6f6f6"
+        color: second.pressed ?"green":"pink"// "#f0f0f0" : "#f6f6f6"
         border.color: "#bdbebf"
         Label{
             id:value2Label

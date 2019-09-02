@@ -24,7 +24,7 @@ import "./../../common/"
 import "./../newPatient/"
 Rectangle {
     id: rectangle2
-    color: StringConstants.testPage_backgroundColor
+    color: "white"//StringConstants.testPage_backgroundColor
     anchors.fill: parent
     GridLayout{
         id: mainCol
@@ -39,12 +39,12 @@ Rectangle {
             //Layout.fillHeight: true
             Layout.fillWidth: true
             //width: 100
-            height: 150
+            height: 50//150
             NewPatientDataTumbler{
                 id:pageOperators
                 anchors.fill: parent
                 labelText: StringConstants.lbl_rpSelectOperator
-                firstTumblerVisibility: true
+                firstTumblerVisibility: false
                 secTumblerVisibility: false
                 thirdTumblerVisibility: false
                 firstTumblerModel:OtherConstants.modelPraticeOperators

@@ -31,7 +31,7 @@ Component {
         //height:parent.height/IntegerConstants.numGridRow //parent.cellHeight;
         Shape {
             id:rowShape
-            height: rowRec.height/IntegerConstants.numGridRow
+            height: rowRec.height/count//IntegerConstants.numGridRow
             property int repeaterIndex: index
             onRepeaterIndexChanged: {
             }
@@ -90,7 +90,7 @@ Component {
                 x: (rowRec.width)//rowRec.width - 40//5*width
                 y: rowRec.height - 10
                 text:{
-                    if(index == (IntegerConstants.numGridRow-1))
+                    if(index == count-1)//(IntegerConstants.numGridRow-1))
                     {
                         (index+1) * 10
                     }

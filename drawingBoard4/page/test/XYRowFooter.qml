@@ -25,7 +25,7 @@ Component{
     GridLayout{
         id: footerGrid
         height:parent.height
-        width: parent.width/2//30//row.width
+        width: parent.width/3//30//row.width
         Rectangle {
             //anchors.fill: parent
             Layout.fillHeight: true
@@ -35,12 +35,20 @@ Component{
             Label{
                 id: headerLabel
                 //width: row.width/3
+//                anchors.left: parent.left
+//                anchors.top: parent.top
+//                anchors.bottom: parent.bottom
+//                anchors.right: parent.right
                 anchors.centerIn: parent
                 color: "black"
                 Layout.alignment: Qt.AlignLeft
                 text:testOrReport? StringConstants.label_testTempFrequency:StringConstants.label_testMPvalue
+                anchors.horizontalCenterOffset: parent.width/4
+                horizontalAlignment: Text.AlignHCenter
+
                 rotation: 90
             }
+
         }
     }
 

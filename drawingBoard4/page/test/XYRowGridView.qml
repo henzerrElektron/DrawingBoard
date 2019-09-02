@@ -23,6 +23,9 @@ import ApplicationConstants 1.0
 GridView {
     id: gridRowView
     Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
+    property alias crossRowCellWidth: gridRowView.cellWidth
+    property alias crossRowCellHeight: gridRowView.cellHeight
+    property alias crossRowModel: gridRowView.model
     footer: footerItem
     property bool testOrReport: false//true = test false = report
     property string testOrReportFooter: testOrReport? StringConstants.label_testTempFrequency:StringConstants.label_testMPvalue//

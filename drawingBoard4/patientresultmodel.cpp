@@ -109,7 +109,7 @@ bool PatientResultModel::insertRows(int position, int rows, const QModelIndex &i
 {
     Q_UNUSED(index);
     beginInsertRows(QModelIndex(), position, position+rows-1);
-    m_results.insert(position,PatientResult(1,QDate::currentDate(),QTime::currentTime(),0.0,0.0,0.0));
+    m_results.insert(position,PatientResult(1,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime(),0.0,0.0,0.0));
     endInsertRows();
     return true;
 }

@@ -140,6 +140,8 @@ Rectangle{
             anchors.top: rectangleSub5.bottom
             //Layout.fillHeight: true
             Layout.fillWidth: true
+
+
             ReportDateRangeSlider{
                 id:pageSlider
                 //anchors.fill: parent

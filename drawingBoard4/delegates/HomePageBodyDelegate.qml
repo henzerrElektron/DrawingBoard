@@ -28,6 +28,7 @@ Rectangle {
     border.color: IntegerConstants.homePageBodyBorder//Constants.actionBtnBorderColor
     border.width: 5
     signal invokeSource(string source)
+    signal invokeIndex(int index)
     signal test()
     onTest: console.log("I am tested")
     onInvokeSource: console.log("I am the soure"+source)
@@ -48,8 +49,10 @@ Rectangle {
         //radius: 10
         onClicked: {
             console.log("clicked on"+actionIconName)
-            console.log(source)
+            console.log("The source is"+source)
+            console.log("The index is"+index)
             invokeSource(source)
+            invokeIndex(index)
             test()
             //clickedButton(index)
         }

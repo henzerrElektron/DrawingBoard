@@ -28,8 +28,9 @@ GridView {
     property alias crossColCellWidth: gridColView.cellWidth
     property alias crossColCellHeight: gridColView.cellHeight
     property alias crossColModel: gridColView.model
+    property bool testOrReport: false//true = test false = report
     cellWidth: gridColView.width/(IntegerConstants.numGridCol); cellHeight: gridColView.height/2
-    footer: footerItem2
+    footer: testOrReport?footerItem1:footerItem2
 
 
     XYColFooter {

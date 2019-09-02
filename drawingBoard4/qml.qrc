@@ -145,5 +145,6 @@
         <file>page/test/XYCrossMouseArea.qml</file>
         <file>page/test/XYReportRowDelegate.qml</file>
         <file>page/test/XYReportColFooter.qml</file>
+        <file>common/ItemLoader.qml</file>
     </qresource>
 </RCC>

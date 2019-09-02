@@ -25,8 +25,12 @@ import ApplicationConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
 Rectangle {
-    id: rectangle
+    id: hmPageLabel
     color: StringConstants.testPage_backgroundColor
+    signal invokeSource(string source)
+    onInvokeSource: {
+        console.log("I am reaching here")
+    }
     GridLayout{
         id: mainRow
         anchors.fill: parent
@@ -60,6 +64,9 @@ Rectangle {
                 // Layout.fillWidth: true
                 // Layout.row: 1
                 // Layout.rowSpan: 1
+                Component.onCompleted: {
+                invokeSource.connect(hmPageLabel.invokeSource)
+                }
 
             }
         }

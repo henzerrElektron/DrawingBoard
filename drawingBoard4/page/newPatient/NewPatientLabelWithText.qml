@@ -42,6 +42,7 @@ Rectangle {
     property alias lblVisible: label.visible
     property alias lblValueVisible: labelValue.visible
     property alias lblValueText: labelValue.text
+    property alias lblHorizontalAlignment: label.horizontalAlignment
     property int index: 0
     property color commonColor: "white"
     onLblValueVisibleChanged: {

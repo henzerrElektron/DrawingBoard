@@ -25,6 +25,7 @@ GridView {
     property alias crossCellWidth: gridView.cellWidth
     property alias crossCellHeight: gridView.cellHeight
     property alias crossCellModel: gridView.model
+    property bool testOrReport: false//true = test false = report
     delegate: gridCrossDelegate
     cellWidth: gridView.width/IntegerConstants.numGridCol; cellHeight:gridView.height/IntegerConstants.numGridRow
     //cellWidth: 1
@@ -36,5 +37,6 @@ GridView {
     GridCrossDelegate {
         id: gridCrossDelegate
     }
+      Loader { sourceComponent: gridCrossDelegate;width: parent.width/(testOrReport?IntegerConstants.numGridCol:IntegerConstants.numReportGridCol);height: parent.height/(testOrReport?IntegerConstants.numGridRow:IntegerConstants.numReportGridCol) }
     model:IntegerConstants.numGridRow*IntegerConstants.numGridCol
 }
