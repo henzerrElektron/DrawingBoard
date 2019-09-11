@@ -17,18 +17,30 @@ import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
 import "./../test/"
+import "./../newPatient/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
 
 Item {
+    id:patientPage
     width: 960
     height: 640
+    signal invokeSource(var source)
+    onInvokeSource: {
+        console.log("Source invoked"+source)
+    }
+
+    signal invokeIndex(int index)
+    onInvokeIndex: {
+        console.log("Index invoked"+index)
+    }
     GridLayout {
         id: gridLayout
         anchors.fill: parent
         rows:3
+
         //columns: 2
         //RowLayout{
         //    id: row
@@ -37,7 +49,7 @@ Item {
         //    Layout.alignment: Qt.AlignLeft | Qt.AlignTop
         Rectangle{
             id:rectangle1
-            color:"green"// "transparent"
+            color: "transparent"
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.row: 1
@@ -48,10 +60,16 @@ Item {
             anchors.rightMargin: 0
             anchors.top: parent.top
             anchors.topMargin: 0
+            Layout.minimumHeight:  parent.height/4
+            Layout.preferredHeight: parent.height/4
             Layout.maximumHeight: parent.height/4
             NewPatientHeader{
                 id:newPatientLbl
                 anchors.fill: parent
+                Component.onCompleted: {
+                    newPatientLbl.invokeSource.connect(patientPage.invokeSource)
+                    newPatientLbl.invokeIndex.connect(patientPage.invokeIndex)
+                }
             }
 
 //            PatientLabel{

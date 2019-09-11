@@ -44,6 +44,7 @@ Rectangle {
     property alias firstTumblerVisibility: firstTumblerRec.allTumblerVisibility
     property alias secTumblerVisibility: secTumblerRec.allTumblerVisibility
     property alias comboBoxModel: topTextArea.model
+    //property alias comboModelData: topTextArea.modelData
     property alias firstTumblerStopped: firstTumblerRec.stopped
     //property alias comboBoxModelCount: topTextArea.model.modelData.count
     onComboBoxModelChanged: {
@@ -222,8 +223,7 @@ Rectangle {
             }
             ComboBox {
                 id: topTextArea
-
-
+                visible: true
                 signal tumblerIndexRecord(int index)
                 onTumblerIndexRecord: {
                     currentIndex = index
@@ -240,51 +240,6 @@ Rectangle {
                     }
                     highlighted: topTextArea.highlightedIndex === index
                 }
-
-                //                      indicator: Canvas {
-                //                          id: canvas
-                //                          x: topTextArea.width - width - topTextArea.rightPadding
-                //                          y: topTextArea.topPadding + (topTextArea.availableHeight - height) / 2
-                //                          width: 12
-                //                          height: 8
-                //                          contextType: "2d"
-
-                //                          Connections {
-                //                              target: topTextArea
-                //                              onPressedChanged: canvas.requestPaint()
-                //                          }
-
-                //                          onPaint: {
-                //                              context.reset();
-                //                              context.moveTo(0, 0);
-                //                              context.lineTo(width, 0);
-                //                              context.lineTo(width / 2, height);
-                //                              context.closePath();
-                //                              context.fillStyle = topTextArea.pressed ? "green" : "red";
-                //                              context.fill();
-                //                          }
-                //                      }
-
-                //                      contentItem: Text {
-                //                         // leftPadding: 0
-                //                        //  rightPadding: topTextArea.indicator.width + topTextArea.spacing
-
-                //                          text: topTextArea.displayText
-                //                          font: topTextArea.font
-                //                          color: "black"//topTextArea.pressed ? "green" : "red"
-                //                          verticalAlignment: Text.AlignVCenter
-                //                          horizontalAlignment: Text.AlignHCenter
-                //                          elide: Text.ElideRight
-                //                      }
-
-                //                      background: Rectangle {
-                //                          implicitWidth: 200
-                //                          implicitHeight: 40
-                //                          color: StringConstants.actionBtnBackgroundColor
-                //                          //border.color: topTextArea.pressed ? "green" : "red"
-                //                         // border.width: topTextArea.visualFocus ? 2 : 1
-                //                         // radius: 2
-                //                      }
 
                 popup: Popup {
                     y: topTextArea.height - 1
@@ -334,6 +289,47 @@ Rectangle {
 
                 //model: firstTumblerModel
             }
+//            SpinBox{
+//                id:tumblerSpinner
+//                Layout.row: lbl.visible?2:1
+//                Layout.rowSpan: 1
+//                anchors.left: parent.left
+//                anchors.right: parent.right
+//                Layout.fillWidth: true
+//                //Layout.minimumWidth: 50
+//                //anchors.right: topLabel.left
+//                //anchors.rightMargin: 0
+//                // anchors.verticalCenter: lbl.verticalCenter
+//                anchors.horizontalCenter: lbl.horizontalCenter
+//                anchors.top: lbl.visible?lbl.bottom:parent.top
+//                anchors.topMargin: 0
+//                from:0
+//                to:comboBoxModel.length -1
+//                value:1
+//                visible: true
+//                validator: RegExpValidator{
+//                    regExp: new RegExp(OtherConstants.modelToRegext(comboBoxModel),"i")
+//                }
+//                textFromValue: function(value){
+//                    return comboBoxModel[value];
+//                }
+//                valueFromText: function(text){
+//                    for(var i = 0;i <comboBoxModel.count;++i){
+//                      if(comboBoxModel[i].toLowerCase().indexOf(text.toLowerCase()) === 0)
+//                          return i
+//                    }
+//                    return tumblerSpinner.value
+//                }
+//                onValueChanged: {
+//                      comboIndexChange(value)
+//                }
+//                onValueFromTextChanged: {
+//                    comboIndexChange(value)
+//                }
+//                onValueModified: {
+//                        comboIndexChange(value)
+//                }
+//            }
 
             TumberRec {
                 id: firstTumblerRec

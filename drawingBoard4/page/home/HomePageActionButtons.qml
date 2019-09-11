@@ -42,11 +42,16 @@ Rectangle {
     property alias group: allPageModel1.filterOnGroup
     property bool actionOrHome: true
     signal componentTriggered(string name)
+    signal invokeSource(string source)
     signal tested
     onTested: {"I am tested in TestActionsButtons"}
     onComponentTriggered: {
             console.log(" component was triggered"+name)
         }
+    onInvokeSource: {
+        console.log("I am triggered"+source)
+    }
+
     //signal clicked
     //color: "black"
 //    HomePageBodyDelegate{
@@ -59,11 +64,11 @@ Rectangle {
         id: allPageModel1
         delegate: HomePageBodyDelegate{
             Component.onCompleted: {
-            invokeSource.connect(rectangle3.componentTriggered)
+            invokeSource.connect(rectangle3.invokeSource)
             test.connect(rectangle3.tested)
             }
         }//actionHeaderDelegate
-        filterOnGroup: "homeMainItems"
+        filterOnGroup: StringConstants.modelHomeItems//"homeMainItems"
         model: actionDelegateModel//actionDelegateModel//homePageBodyDelegate
 
     }

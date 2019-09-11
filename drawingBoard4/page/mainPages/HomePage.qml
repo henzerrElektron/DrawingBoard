@@ -20,6 +20,7 @@ import "./../../images/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
+import "./../home/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
@@ -29,7 +30,15 @@ Rectangle {
     id: homePage
     color: "white"//StringConstants.testPage_backgroundColor
     signal invokeSource(string source)
+    onInvokeSource: {
+        console.log("Source invoked"+source)
+    }
+
     signal invokeIndex(int index)
+    onInvokeIndex: {
+        console.log("Index invoked"+index)
+    }
+
     GridLayout{
         id: mainRow
         anchors.fill: parent
@@ -52,7 +61,9 @@ Rectangle {
                 // Layout.fillHeight: true
                 // Layout.fillWidth: true
                 Component.onCompleted: {
-                    invokeSource.connect(homePage.invokeSource)
+                    homePageLabel.invokeSource.connect(homePage.invokeSource)
+                    homePageLabel.invokeIndex.connect(homePage.invokeIndex)
+                   // homePageLabel.invokeSource.connect(homePage.invokeSource)
                 }
             }
         }
@@ -85,13 +96,18 @@ Rectangle {
                 onComponentTriggered: {
                     console.log("I am reaching here")
                 }
+                onInvokeSource: {
+                    console.log("I am reaching here"+source)
+                }
+
                 onInvokeIndex: {
                     console.log("Invoke index value is"+index)
                 }
 
                 Component.onCompleted: {
-                    componentTriggered.connect(homePage.invokeSource)
-                    invokeIndex.connect(homePage.invokeIndex)
+                    image2.invokeSource.connect(homePage.invokeSource)
+                    //image2.invokeSoure.connect(homePage.invokeSource)
+                    image2.invokeIndex.connect(homePage.invokeIndex)
                 }
 
                 //anchors.leftMargin: parent.width/2 - 200

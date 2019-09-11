@@ -23,11 +23,20 @@ import "./../test/"
 import "./../../common/"
 
 Rectangle {
-    id: rectangle
+    id: rpHeader
     color: StringConstants.testPage_backgroundColor
     //color: StringConstants.actionBtnBackgroundColor////StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor
     anchors.fill: parent
     signal openDateRange()
+    signal invokeSource(var source)
+    onInvokeSource: {
+        console.log("Source invoked"+source)
+    }
+
+    signal invokeIndex(int index)
+    onInvokeIndex: {
+        console.log("Index invoked"+index)
+    }
     GridLayout{
         id: mainRow
         anchors.fill: parent
@@ -39,11 +48,17 @@ Rectangle {
             height:75// pgTitle.height
             Layout.fillWidth: true
             Layout.row: 1
+
+
             PageTitle{
                 id:pgTitle
                 anchors.fill: parent
                 actionGridGroup:StringConstants.modelReportPageItems//"newPatientItems"
                 labelText: StringConstants.lbl_rpPageHeader
+                Component.onCompleted: {
+                    pgTitle.invokeSource.connect(rpHeader.invokeSource)
+                    pgTitle.invokeIndex.connect(rpHeader.invokeIndex)
+                }
             }//TestPageTitle
         }//TestPageTitle
         Rectangle {

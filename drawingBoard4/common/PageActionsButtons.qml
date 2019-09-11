@@ -69,12 +69,20 @@ GridView {
     //height: theListView.height
     // flow: GridView.FlowLeftToRight
     signal componentTriggered(string name)
+    signal invokeSource(string source)
     signal invokeIndex(int index)
     signal tested()
     onTested: {"I am tested in TestActionsButtons"}
     onComponentTriggered: {
         console.log(" component was triggered"+name)
     }
+    onInvokeSource: {
+        console.log("The string is"+source)
+    }
+    onInvokeIndex: {
+        console.log("The invokeIndex is"+index)
+    }
+
     cellWidth: actionOrHome ?75:175
     cellHeight: actionOrHome ?75:175
     //width: parent.width
@@ -98,7 +106,7 @@ GridView {
         id: allPageModel1
         delegate: HomePageBodyDelegate{
             Component.onCompleted: {
-                invokeSource.connect(theListView.componentTriggered)//theListView//actionGridView
+                invokeSource.connect(theListView.invokeSource)//theListView//actionGridView
                 invokeIndex.connect(theListView.invokeIndex)
                 test.connect(theListView.tested)
             }
@@ -111,7 +119,7 @@ GridView {
         id: allPageModel
         delegate: ActionHeaderDelegate{
             Component.onCompleted: {
-                invokeSource.connect(theListView.componentTriggered)
+                invokeSource.connect(theListView.invokeSource)
                 invokeIndex.connect(theListView.invokeIndex)
                 test.connect(theListView.tested)
             }

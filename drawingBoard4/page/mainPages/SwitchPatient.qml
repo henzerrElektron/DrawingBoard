@@ -17,15 +17,25 @@ import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
 import "./../test/"
+import "./../changePatient/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
 Rectangle {
-    id:mainRec
+    id:swPatient
     anchors.fill: parent
     //color: StringConstants.testPage_backgroundColor
     color: "transparent"
+    signal invokeSource(var source)
+    onInvokeSource: {
+        console.log("Source invoked"+source)
+    }
+
+    signal invokeIndex(int index)
+    onInvokeIndex: {
+        console.log("Index invoked"+index)
+    }
     //width: 960
     //height: 640
     GridLayout {
@@ -51,6 +61,8 @@ Rectangle {
             anchors.rightMargin: 0
             anchors.top: parent.top
             anchors.topMargin: 0
+            Layout.preferredHeight: parent.height/3
+            Layout.minimumHeight: parent.height/3
             Layout.maximumHeight: parent.height/3
             SwitchPatientLabel{
                 id:ptLabel
@@ -58,6 +70,11 @@ Rectangle {
                 //Layout.column: 1
                 //Layout.columnSpan: 2
                 //Layout.fillHeight: true
+                Component.onCompleted: {
+                    invokeSource.connect(swPatient.invokeSource)
+                    invokeIndex.connect(swPatient.invokeIndex)
+                    ptLabel.selectedText.connect(curTestTabs1.setFilterString)
+                }
             }
         }
         Rectangle{
@@ -65,6 +82,7 @@ Rectangle {
             color: "transparent"
             // color: StringConstants.testPage_backgroundColor
             anchors.top: rectangle1.bottom
+           //////////////// anchors.topMargin: 50
             anchors.left: gridLayout.left
             anchors.bottom: parent.bottom//rectangle6.top
             //anchors.right: rectangle2.left
@@ -74,6 +92,9 @@ Rectangle {
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.row: 2
+            Layout.preferredHeight: parent.height - rectangle1.height - 50
+            Layout.minimumHeight: parent.height - rectangle1.height - 50
+            Layout.maximumHeight:  parent.height - rectangle1.height  -50
             //Layout.minimumHeight: 400
             Layout.minimumWidth: parent.width/2 + parent.width/4
             //Layout.preferredHeight:400

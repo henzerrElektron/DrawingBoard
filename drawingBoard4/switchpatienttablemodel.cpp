@@ -180,6 +180,21 @@ QVariant SwitchPatientTableModel::data(const QModelIndex &index, int role) const
     if(role == HeadingRole)
     {
         if( index.row()==0){
+            //            switch(index.column())
+            //            {
+            //            case 0:
+            //                return tr("First name");
+            //            case 1:
+            //                return tr("Surname");
+            //            case 2:
+            //                return  tr("Date of Birth");
+            //            case 3:
+            //                return  tr("Test results");
+            //            case 4:
+            //                return  tr("Medical Reference");
+            //            case 5:
+            //                return  tr("Address");
+            //            }
             return true;
         }else{
             return false;
@@ -233,19 +248,20 @@ QVariant SwitchPatientTableModel::data(const QModelIndex &index, int role) const
         case 5:
             return  existingPatient.address();
         default:   break;}
-    break;
+        break;
     case FirstNameRole:  return existingPatient.firstName() ;
     case SecNameRole: return existingPatient.secName();
     case DobRole:return existingPatient.dob();
     case MedRefRole: return existingPatient.medRef();
     case AddressRole: return existingPatient.address();
     case TestResultsRole:return existingPatient.testResult();
+
     default: break;
         //    default:
         //        qDebug() << "Not supposed to happen";
         //        return QVariant();
     }
-   // if((role == Qt::DisplayRole)||(role == HeadingRole))
+    // if((role == Qt::DisplayRole)||(role == HeadingRole))
     {
         switch(index.column())
         {
@@ -264,11 +280,11 @@ QVariant SwitchPatientTableModel::data(const QModelIndex &index, int role) const
         case 5:
             return  existingPatient.address();
         default:   break;
-        //case 6:
-        //    return  tr("arRole");
-        //default:
-       //     qDebug() << "Not supposed to happen";
-        //    return QVariant();
+            //case 6:
+            //    return  tr("arRole");
+            //default:
+            //     qDebug() << "Not supposed to happen";
+            //    return QVariant();
         }
     }
     return QVariant();
@@ -278,27 +294,27 @@ QVariant SwitchPatientTableModel::data(const QModelIndex &index, int role) const
 }
 QVariant SwitchPatientTableModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if (role != Qt::DisplayRole)
+    if (role != Qt::DisplayRole)//HeadingRole)//
         return QVariant();
 
     if (orientation == Qt::Horizontal) {
         switch (section) {
+       // case 0:
+       //     return tr("heading");
         case 0:
-            return tr("heading");
-        case 1:
             return tr("First name");
-        case 2:
+        case 1:
             return tr("Surname");
-        case 3:
+        case 2:
             return  tr("Date of Birth");
-        case 4:
+        case 3:
             return  tr("Test results");
-        case 5:
+        case 4:
             return  tr("Medical Reference");
-        case 6:
+        case 5:
             return  tr("Address");
-        case 7:
-            return  tr("arRole");
+       // case 7:
+       //     return  tr("arRole");
         default:
             return QVariant();
         }
@@ -329,3 +345,34 @@ QHash<int, QByteArray> SwitchPatientTableModel::roleNames() const
     // roles[AcceptRejectRole] = "arRole";
     return  roles;
 }
+/******************** FilterProxyModel **************************/
+FilterProxyModel::FilterProxyModel(QObject *parent)
+    : QSortFilterProxyModel(parent)
+{
+    setSortOrder(false);
+}
+
+FilterProxyModel::~FilterProxyModel()
+{
+
+}
+
+void FilterProxyModel::setFilterString(QString string)
+{
+    this->setFilterCaseSensitivity(Qt::CaseInsensitive);
+    this->setFilterFixedString(string);
+
+}
+
+void FilterProxyModel::setSortOrder(bool checked)
+{
+    if(checked)
+    {
+        this->sort(0, Qt::DescendingOrder);
+    }
+    else
+    {
+        this->sort(0, Qt::AscendingOrder);
+    }
+}
+/******************** FilterProxyModel **************************/

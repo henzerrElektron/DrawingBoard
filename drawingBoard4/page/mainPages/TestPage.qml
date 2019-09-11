@@ -16,6 +16,7 @@ import "."
 import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
+import "./../test/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
@@ -26,7 +27,15 @@ Rectangle {
     id:testPage
     //width: 960
     //height: 640
-    signal invokeSource(string source)
+    signal invokeSource(var source)
+    onInvokeSource: {
+        console.log("Source invoked"+source)
+    }
+
+    signal invokeIndex(int index)
+    onInvokeIndex: {
+        console.log("Index invoked"+index)
+    }
     GridLayout {
         id: gridLayout
         anchors.fill: parent
@@ -49,6 +58,8 @@ Rectangle {
             anchors.rightMargin: 0
             anchors.top: parent.top
             anchors.topMargin: 0
+            Layout.minimumHeight: parent.height/5
+            Layout.preferredHeight: parent.height/5
             Layout.maximumHeight: parent.height/5
             PatientLabel{
                 id:ptLabel
@@ -56,6 +67,10 @@ Rectangle {
                 //Layout.column: 1
                 //Layout.columnSpan: 2
                 //Layout.fillHeight: true
+                Component.onCompleted: {
+                    invokeSource.connect(testPage.invokeSource)
+                    invokeIndex.connect(testPage.invokeIndex)
+                }
             }
         }
         Rectangle{
@@ -72,6 +87,9 @@ Rectangle {
             Layout.fillWidth: true
             Layout.row: 2
             //Layout.minimumHeight: 400
+            Layout.minimumHeight: parent.height - rectangle1.height
+            Layout.maximumHeight: parent.height - rectangle1.height
+            Layout.preferredHeight: parent.height - rectangle1.height
             Layout.minimumWidth: parent.width/2 + parent.width/4
             //Layout.preferredHeight:400
             //Layout.preferredWidth:400

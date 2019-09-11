@@ -28,10 +28,10 @@ import ApplicationConstants 1.0
         delegate: Rectangle {
             implicitWidth: 150
             implicitHeight: 50
-            border.color: "black"
-            border.width: 2
+            //border.color: "black"
+            //border.width: 2
             //color: (heading==true)?"red":"green"
-            color: ( heading === true || arRole === true ) ? ( heading === true ? "white":"green" ) : ( arRole === true ? "blue":"transparent" );
+            //color: ( heading === true || arRole === true ) ? ( heading === true ? "white":"green" ) : ( arRole === true ? "blue":"transparent" );
             //color:  heading === true ? "red":"green"
             onColorChanged: console.log("Color changed")
             TableView.onPooled: console.log(Dosage + " pooled")

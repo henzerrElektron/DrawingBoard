@@ -4,6 +4,17 @@
 #include <QDate>
 #include <QAbstractListModel>
 #include <QAbstractTableModel>
+#include <QSortFilterProxyModel>
+enum Roles{
+    HeadingRole = Qt::UserRole + 1,
+    FirstNameRole,
+    SecNameRole,
+    DobRole,
+    TestResultsRole,
+    MedRefRole,
+    AddressRole,
+    AcceptRejectRole
+};
 class ExistingPatients{
 public:
     QVariant firstName() const;
@@ -36,18 +47,9 @@ private:
 class SwitchPatientTableModel : public QAbstractTableModel
 {
     Q_OBJECT
-    Q_ENUMS(ExistingPatientRoles)
+    Q_ENUMS(Roles)
 public:
-    enum ExistingPatientRoles{
-        HeadingRole = Qt::UserRole + 1,
-        FirstNameRole,
-        SecNameRole,
-        DobRole,
-        TestResultsRole,
-        MedRefRole,
-        AddressRole,
-        AcceptRejectRole
-    };
+
     explicit SwitchPatientTableModel(QObject *parent = 0);
     explicit SwitchPatientTableModel(QList<ExistingPatients> existingPatients, QObject *parent = 0);
     void addExistingPatient(const ExistingPatients &existingPatients);
@@ -67,5 +69,18 @@ public slots:
 private:
 QList<ExistingPatients> m_existingPatients;
 };
+//Filter proxy model
+class FilterProxyModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+public:
 
+    FilterProxyModel(QObject* parent = 0);
+
+    ~FilterProxyModel();
+
+    Q_INVOKABLE void setFilterString(QString string);
+
+    Q_INVOKABLE void setSortOrder(bool checked);
+};
 #endif // SWITCHPATIENTTABLEMODEL_H

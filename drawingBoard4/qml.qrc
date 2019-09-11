@@ -1,14 +1,18 @@
 <RCC>
     <qresource prefix="/">
+        <file>page/notUsed/ResultOldStyleTableGrid.qml</file>
+        <file>page/notUsed/ResultOldStyleParametersTableView.qml</file>
+        <file>page/notUsed/ResultOldStyleMpValue.qml</file>
+        <file>page/notUsed/ResultOldStyleConfidenceTableView.qml</file>
+        <file>page/notUsed/NewPatientRecommendations.qml</file>
+        <file>page/notUsed/WeightKgModel.qml</file>
+        <file>page/notUsed/ColorTumbler.qml</file>
+        <file>page/notUsed/NewPatientTitleGender.qml</file>
+        <file>page/notUsed/NewPatientDateCalendar.qml</file>
+        <file>page/notUsed/NewPatientDateChooser.qml</file>
         <file>common/BoxLabel.qml</file>
         <file>main.qml</file>
-        <file>mpIndicator.qml</file>
-        <file>mpodDisplayItem.qml</file>
-        <file>MpodDisplayer.qml</file>
-        <file>plotPointers.qml</file>
-        <file>VerticalLineComponent.qml</file>
         <file>page/test/TestTabs.qml</file>
-        <file>HeaderTitleItem.qml</file>
         <file>imports/ApplicationConstants/Constants.qml</file>
         <file>imports/ApplicationConstants/IntegerConstants.qml</file>
         <file>imports/ApplicationConstants/OtherConstants.qml</file>
@@ -18,8 +22,6 @@
         <file>imports/ApplicationConstants/fontAwesome/Font Awesome 5 Brands-Regular-400.otf</file>
         <file>imports/ApplicationConstants/fontAwesome/Font Awesome 5 Free-Regular-400.otf</file>
         <file>imports/ApplicationConstants/fontAwesome/Font Awesome 5 Free-Solid-900.otf</file>
-        <file>TestPageTabs.qml</file>
-        <file>HomePageHeader.qml</file>
         <file>models/qmldir</file>
         <file>models/ActionDelegateModel.qml</file>
         <file>models/HomeDelegateModel.qml</file>
@@ -30,18 +32,12 @@
         <file>models/OperatorPageDelegateModel.qml</file>
         <file>models/AllPageModel.qml</file>
         <file>delegates/ActionHeaderDelegate.qml</file>
-        <file>TestPageNewTable.qml</file>
         <file>page/test/ResultsTableView.qml</file>
-        <file>page/test/ResultOldStyleConfidenceTableView.qml</file>
         <file>page/test/ResultTableGrid.qml</file>
-        <file>page/test/ResultOldStyleParametersTableView.qml</file>
-        <file>page/test/ResultOldStyleMpValue.qml</file>
-        <file>page/test/ResultOldStyleTableGrid.qml</file>
         <file>delegates/TestControlDelegate.qml</file>
         <file>models/TestControlModel.qml</file>
         <file>page/test/TestItems.qml</file>
         <file>page/test/TestController.qml</file>
-        <file>page/test/TestingAllPageHeaderActions.qml</file>
         <file>page/test/XYPlot.qml</file>
         <file>page/test/HorizontalLineComponent.qml</file>
         <file>page/test/PlotRecComponent.qml</file>
@@ -52,7 +48,6 @@
         <file>page/test/TestPageLabel.qml</file>
         <file>page/test/TestPagePatientResultIndex.qml</file>
         <file>common/FontAwesomeToolButton.qml</file>
-        <file>page/test/TestPage.qml</file>
         <file>page/test/TestPageAllLabels.qml</file>
         <file>page/test/TestPageActionButtons.qml</file>
         <file>page/test/TestPageSwitchButtons.qml</file>
@@ -66,7 +61,6 @@
         <file>common/IconOnlyButtons.qml</file>
         <file>page/test/TestPageNotesTabPage.qml</file>
         <file>page/changePatient/changePatient.qml</file>
-        <file>page/home/HomePage.qml</file>
         <file>page/home/HomePageLabel.qml</file>
         <file>page/home/HomePageTitle.qml</file>
         <file>page/home/HomePageActionButtons.qml</file>
@@ -76,18 +70,15 @@
         <file>page/home/HomePageLogo.qml</file>
         <file>page/home/HomePageBody.qml</file>
         <file>delegates/HomePageBodyDelegate.qml</file>
-        <file>page/changePatient/SwitchPatient.qml</file>
         <file>page/changePatient/SwitchPatientLabel.qml</file>
         <file>page/changePatient/SwitchSearchBox.qml</file>
         <file>page/changePatient/SwitchSearchItems.qml</file>
         <file>page/changePatient/ExistingPatientTableGrid.qml</file>
         <file>page/changePatient/ExistingPatientTableView.qml</file>
-        <file>page/newPatient/NewPatientPage.qml</file>
         <file>page/newPatient/NewPatientLabel.qml</file>
         <file>page/newPatient/NewPatientMedicalDetails.qml</file>
         <file>page/newPatient/NewPatientContactDetails.qml</file>
         <file>page/newPatient/NewPatientRiskFactors.qml</file>
-        <file>page/newPatient/NewPatientRecommendations.qml</file>
         <file>page/newPatient/NewPatientLabelWithText.qml</file>
         <file>page/newPatient/NewPatientGroupLabel.qml</file>
         <file>page/newPatient/NewPatientRiskFactorSwitchSlide.qml</file>
@@ -101,12 +92,7 @@
         <file>page/newPatient/ColordelegateComponent.qml</file>
         <file>page/newPatient/NewPatientDataTumblerHorizontal.qml</file>
         <file>page/newPatient/NewPatientRiskFactorSwitchSliderHorizontal.qml</file>
-        <file>page/newPatient/WeightKgModel.qml</file>
-        <file>page/newPatient/ColorTumbler.qml</file>
         <file>page/newPatient/NewPatientPersonalDetails.qml</file>
-        <file>page/newPatient/NewPatientTitleGender.qml</file>
-        <file>page/newPatient/NewPatientDateCalendar.qml</file>
-        <file>page/newPatient/NewPatientDateChooser.qml</file>
         <file>page/newPatient/TumberRec.qml</file>
         <file>page/newPatient/YearDelegateComponent.qml</file>
         <file>page/newPatient/CalendarYearModel.qml</file>
@@ -114,12 +100,10 @@
         <file>page/newPatient/NewPatientTabs.qml</file>
         <file>page/newPatient/NewPatientHeader.qml</file>
         <file>page/newPatient/NewPatientDobTumbler.qml</file>
-        <file>page/newPatient/SliderTumbler.qml</file>
         <file>imports/qmldir</file>
         <file>imports/ApplicationConstants/qmldir</file>
         <file>common/PageLabel.qml</file>
         <file>common/PageTitle.qml</file>
-        <file>page/reports/ReportPage.qml</file>
         <file>page/reports/ReportDetails.qml</file>
         <file>page/reports/ReportDetailDateRange.qml</file>
         <file>page/reports/ReportPageHeader.qml</file>
@@ -146,5 +130,12 @@
         <file>page/test/XYReportRowDelegate.qml</file>
         <file>page/test/XYReportColFooter.qml</file>
         <file>common/ItemLoader.qml</file>
+        <file>page/mainPages/HomePage.qml</file>
+        <file>page/mainPages/NewPatientPage.qml</file>
+        <file>page/mainPages/ReportPage.qml</file>
+        <file>page/mainPages/SwitchPatient.qml</file>
+        <file>page/mainPages/TestPage.qml</file>
+        <file>page/mainPages/MainStack.qml</file>
+        <file>page/mainPages/MainSwipe.qml</file>
     </qresource>
 </RCC>

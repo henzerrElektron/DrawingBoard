@@ -26,6 +26,11 @@ import ApplicationConstants 1.0
 
 Rectangle{
     id:rectangle1
+    signal invokeSource(string source)
+
+    onInvokeSource: {
+        console.log("I am reaching here")
+    }
     //color: "black"
     color: StringConstants.testPage_backgroundColor//"transparent"
     anchors.fill: parent
@@ -92,6 +97,9 @@ Rectangle{
                 anchors.right: parent.right
                 group: "testPageItems"
                 actionOrHome: true
+                Component.onCompleted: {
+                    actionGridView.invokeIndex.connect(rectangle1.invokeSource)
+                }
             }//TestPageActionButtons//Rectangle//PageActionsButtons
         }
     }

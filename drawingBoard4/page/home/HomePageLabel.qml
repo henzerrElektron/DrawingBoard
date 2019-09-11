@@ -28,9 +28,14 @@ Rectangle {
     id: hmPageLabel
     color: StringConstants.testPage_backgroundColor
     signal invokeSource(string source)
+    signal invokeIndex(int index)
     onInvokeSource: {
         console.log("I am reaching here")
     }
+    onInvokeIndex: {
+        console.log("The current Index is"+index)
+    }
+
     GridLayout{
         id: mainRow
         anchors.fill: parent
@@ -55,7 +60,7 @@ Rectangle {
             PageTitle{
                 id:homePageTitleRec
                 anchors.fill: parent
-                actionGridGroup:"newPatientItems"
+                actionGridGroup:StringConstants.modelHomeItems//"newPatientItems"
                 labelText: ""//StringConstants.label_newPtPgHeader
                 //anchors.top: parent.top
                 //anchors.left: parent.left
@@ -65,7 +70,8 @@ Rectangle {
                 // Layout.row: 1
                 // Layout.rowSpan: 1
                 Component.onCompleted: {
-                invokeSource.connect(hmPageLabel.invokeSource)
+                homePageTitleRec.invokeSource.connect(hmPageLabel.invokeSource)
+                homePageTitleRec.invokeIndex.connect(hmPageLabel.invokeIndex)
                 }
 
             }

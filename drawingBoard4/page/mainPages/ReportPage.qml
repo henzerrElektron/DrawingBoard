@@ -21,6 +21,7 @@ import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
 import "./../../common/"
+import "./../reports/"
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
@@ -29,11 +30,20 @@ import "./../../common/"
 //  height: 275
 
 Rectangle {
-    id: rectangle
+    id: rpPage
     color: StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor
     anchors.fill: parent
     //height: 400
     // width: 800
+    signal invokeSource(string source)
+    onInvokeSource: {
+        console.log("Source invoked"+source)
+    }
+
+    signal invokeIndex(int index)
+    onInvokeIndex: {
+        console.log("Index invoked"+index)
+    }
     GridLayout{
         id: mainRow
         // width: 700
@@ -51,17 +61,25 @@ Rectangle {
             ReportPageHeader{
                 id:pageHeader
                 anchors.fill: parent
+                Component.onCompleted: {
+                    //pageSlider.dateFromChange.connect(pageStartTumbler.setTumblerDate)
+                    pageHeader.openDateRange.connect(popup.open)
+                    pageHeader.invokeSource.connect(rpPage.invokeSource)
+                    pageHeader.invokeIndex.connect(rpPage.invokeIndex)
+                }
             }
-            Component.onCompleted: {
-                //pageSlider.dateFromChange.connect(pageStartTumbler.setTumblerDate)
-                pageHeader.openDateRange.connect(popup.open)
-            }
+
         }
         Rectangle{
             id:subRec
             Layout.row: 2
             Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.preferredHeight: parent.height - mainRec
+            Layout.minimumHeight: parent.height - mainRec
+            Layout.maximumHeight: parent.height - mainRec
+            Layout.minimumWidth: parent.width
+
             ReportTabs{
                 id:mainTab
                 anchors.fill: parent

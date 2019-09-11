@@ -32,6 +32,7 @@ import "."
         signal invokeSource(string source)
         signal invokeIndex(int index)
         signal test()
+        onInvokeIndex: console.log("The invoke index is"+index)
         onTest: console.log("I am tested")
         onInvokeSource: console.log("I am the soure"+source)
         ToolButton {
@@ -53,7 +54,7 @@ import "."
                 console.log(source)
                 invokeSource(source)
                 invokeIndex(index)
-                test()
+               // test()
                 //clickedButton(index)
             }
         }

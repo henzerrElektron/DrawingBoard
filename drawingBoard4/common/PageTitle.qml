@@ -32,8 +32,12 @@ Rectangle{
     property alias labelText: label_testPageHeading.text
     property alias actionGridGroup: actionGridView.group
     signal invokeSource(string source)
+    signal invokeIndex(int index)
     onInvokeSource: {
         console.log("I am reaching here")
+    }
+    onInvokeIndex: {
+        console.log("The current index is"+index)
     }
 
     GridLayout
@@ -98,12 +102,15 @@ Rectangle{
                 group: "testPageItems"
                 actionOrHome: true
                 Component.onCompleted: {
-                   actionGridView.componentTriggered.connect(pgTitle.invokeSource)
+                   invokeSource.connect(pgTitle.invokeSource)
+                    invokeIndex.connect(pgTitle.invokeIndex)
                 }
             }//TestPageActionButtons//Rectangle//PageActionsButtons
         }
     }
+Component.onCompleted: {
 
+}
 }
 
 

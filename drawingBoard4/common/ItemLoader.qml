@@ -23,10 +23,14 @@ Loader {
     signal pgInvokeSource(string source)
     signal pgInvokeIndex(int index)
     property bool loadedInfoOnce: false
-    visible: false
-    source:modelData.source
+    visible: status == Loader.Ready
+    active: false
+    asynchronous: true
+    //source:modelData.source
     onLoaded: {
         console.log(modelData.actionName)
+        active = true
+        visible = true
         if(modelData.index === 1)
         {
             item.invokeIndex.connect(pageLoader.pgInvokeIndex)
@@ -37,4 +41,6 @@ Loader {
         //item.invokeIndex.connect(pageLoader.pgInvokeIndex)
         //item.invokeSource.connect(pageLoader.pgInvokeSource)
     }
+
 }
+

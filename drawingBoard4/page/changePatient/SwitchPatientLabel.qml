@@ -31,9 +31,22 @@ import ApplicationConstants 1.0
 //    height: 275
 
 Rectangle {
-    id: rectangle
+    id: spLabel
     color: StringConstants.testPage_backgroundColor
     anchors.fill: parent
+    signal selectedText(string curText,string role)
+    onSelectedText: {
+        console.log("The selected Text is"+curText+role)
+    }
+    signal invokeSource(var source)
+    onInvokeSource: {
+        console.log("Source invoked"+source)
+    }
+
+    signal invokeIndex(int index)
+    onInvokeIndex: {
+        console.log("Index invoked"+index)
+    }
     GridLayout{
         id: mainRow
         width: 700
@@ -53,6 +66,10 @@ Rectangle {
                 anchors.fill: parent
                 actionGridGroup:"existingPatientItems"
                 labelText: StringConstants.label_searchPatientTitle
+                Component.onCompleted: {
+                    pgTitle.invokeSource.connect(spLabel.invokeSource)
+                    pgTitle.invokeIndex.connect(spLabel.invokeIndex)
+                }
             }//TestPageTitle
         }//TestPageTitle
         //            PageTitle {
@@ -87,6 +104,14 @@ Rectangle {
                 anchors.rightMargin: 0
                 anchors.left: parent.left
                 anchors.leftMargin: 0
+                //gridRow: IntegerConstants.rowCount5
+//                lbl1Visible:true
+//                lbl2Visible: true
+//                lbl3Visible: true
+//                lbl4Visible: true
+//                lbl5Visible: true
+//                lbl6Vislbe: false
+//                lbl7Visible: false
                 pageSpOrNp:true
                 pageNpSpTp:2
             }
@@ -119,7 +144,9 @@ Rectangle {
             SwitchSearchItems{
                 id:rectangleSwitchPatientLabel
                 anchors.fill: parent
-
+                Component.onCompleted: {
+                    rectangleSwitchPatientLabel.selectedText.connect(spLabel.selectedText)
+                }
             }
         }
 

@@ -51,6 +51,7 @@ Rectangle{
                 labelText:StringConstants.lbl_npContactMobile
                 tfReadOnly:false
                 tfPlaceHolderText:StringConstants.lbl_npContactMobilePh
+                textValidator:RegExpValidator{regExp:/^\+?\d+$/}
                 Layout.row: 1
                 Layout.rowSpan: 1
                 Layout.fillHeight: true
@@ -64,6 +65,7 @@ Rectangle{
                 id:twoLabel
                 labelText:StringConstants.lbl_npContactAddr1
                 tfPlaceHolderText:StringConstants.lbl_npContactAddr1Ph
+                textValidator:RegExpValidator{regExp:/^\w+$/ }
                 tfReadOnly:false
                 Layout.row: 2
                 Layout.rowSpan: 1
@@ -78,6 +80,7 @@ Rectangle{
                 id:threeLabel
                 labelText:StringConstants.lbl_npContactAddr2
                 tfPlaceHolderText:StringConstants.lbl_npContactAddr1Ph
+                textValidator:RegExpValidator{regExp:/^\w+$/ }
                 tfReadOnly:false
                 Layout.row: 3
                 Layout.rowSpan: 1
@@ -93,6 +96,7 @@ Rectangle{
                 id:fourLabel
                 labelText:StringConstants.lbl_npContactCity
                 tfPlaceHolderText:StringConstants.lbl_npContactCityPh
+                textValidator:RegExpValidator{regExp:/^[A-Za-z]+$/ }
                 tfReadOnly:false
                 Layout.row: 4
                 Layout.rowSpan: 1
@@ -108,6 +112,7 @@ Rectangle{
                 id:fiveLabel
                 labelText:StringConstants.lbl_npContactCountry
                 tfPlaceHolderText:StringConstants.lbl_npContactCountryPh
+                textValidator:RegExpValidator{regExp:/^[A-Za-z]+$/ }
                 tfReadOnly:false
                 Layout.row: 5
                 Layout.rowSpan: 1
@@ -123,6 +128,7 @@ Rectangle{
                 id:sixLabel
                 labelText:StringConstants.lbl_npContactEmail
                 tfPlaceHolderText:StringConstants.lbl_npContactEmailPh
+                textValidator:RegExpValidator{regExp:/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/}
                 tfReadOnly:false
                 Layout.row: 6
                 Layout.rowSpan: 1
@@ -137,6 +143,7 @@ Rectangle{
                 id:sevenLabel
                 labelText:StringConstants.lbl_npContactPostalCodePh
                 tfPlaceHolderText:StringConstants.lbl_npContactPostalCode
+                textValidator:RegExpValidator{regExp:/^\w+$/ }
                 tfReadOnly:false
                 Layout.row: 7
                 Layout.rowSpan: 1
@@ -151,6 +158,7 @@ Rectangle{
                 id:eightLabel
                 labelText:StringConstants.lbl_npContactCounty
                 tfPlaceHolderText:StringConstants.lbl_npContactCountyPh
+                textValidator:RegExpValidator{regExp:/^[A-Za-z]+$/ }
                 tfReadOnly:false
                 Layout.row: 8
                 Layout.rowSpan: 1

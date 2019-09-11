@@ -27,6 +27,7 @@ Rectangle {
     color: IntegerConstants.homePageBodyColor//"#5EBDC3"//Constants.headerBackgroundColor//"transparent"//"#5EBDC3"//
     border.color: IntegerConstants.homePageBodyBorder//Constants.actionBtnBorderColor
     border.width: 5
+
     signal invokeSource(string source)
     signal invokeIndex(int index)
     signal test()

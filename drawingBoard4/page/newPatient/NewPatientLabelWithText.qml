@@ -28,6 +28,7 @@ Rectangle {
 
     id:mainRec
     color: "transparent"
+    //anchors.fill: parent
     // color: "black"
     // color: "transparent"
     // border.width: 3
@@ -43,6 +44,7 @@ Rectangle {
     property alias lblValueVisible: labelValue.visible
     property alias lblValueText: labelValue.text
     property alias lblHorizontalAlignment: label.horizontalAlignment
+    property alias textValidator: textField.validator
     property int index: 0
     property color commonColor: "white"
     onLblValueVisibleChanged: {
@@ -62,23 +64,34 @@ Rectangle {
         id:mainGrid
         anchors.fill: parent
         columns:3
-        Rectangle{
-            id:labelRec1
-            Layout.column: 1
-            Layout.columnSpan: 1
-            //Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.preferredWidth: addSpace?parent.width/2:parent.width/4
-            color: "transparent"
-            //color: "red"
-            anchors.left: parent.left
+//        Rectangle{
+//            id:labelRec1
+//            //color: "pink"
+//            Layout.column: 1
+//            Layout.columnSpan: 1
+//            //Layout.fillWidth: true
+//            Layout.fillHeight: true
+//            Layout.preferredWidth:addSpace?parent.width/2:parent.width/4
+//            Layout.minimumWidth: addSpace?parent.width/2:parent.width/4
+//            color: "transparent"
+//            //color: "red"
+//            anchors.left: parent.left
             Label {
                 id: label
                 visible: true
                 text: qsTr("Label")
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment:textAlignLeftOrCenter? Text.AlignHCenter:Text.AlignLeft
-                anchors.fill: parent
+                //anchors.fill: parent
+                Layout.column: 1
+                Layout.columnSpan: 1
+                //Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.preferredWidth:addSpace?parent.width/2:parent.width/4
+                Layout.minimumWidth: addSpace?parent.width/2:parent.width/4
+                //color: "transparent"
+                //color: "red"
+                anchors.left: parent.left
                 font.bold: true
                 font.pixelSize:25// Constants.testPage_lblFontSize//25
                 font.weight: Font.ExtraBold
@@ -99,23 +112,34 @@ Rectangle {
                 //            color: "black"
                 //        }
             }
-        }
-        Rectangle{
-            id:labelRec2
-            Layout.column: txtVisible?3:2
-            Layout.columnSpan: 2
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.preferredWidth: parent.width/4
-            color: "transparent"
-            //color: "green"
-            anchors.left: labelRec1.right
-            anchors.right: parent.right
+//        }
+//        Rectangle{
+//            id:labelRec2
+//            Layout.column: txtVisible?3:2
+//            Layout.columnSpan: 2
+//            Layout.fillWidth: true
+//            Layout.fillHeight: true
+//            Layout.preferredWidth: parent.width/4
+//            Layout.minimumWidth: parent.width/4
+//            color: "transparent"
+//            //color: "green"
+//            anchors.left: labelRec1.right
+//            anchors.right: parent.right
             Label {
                 id: labelValue
                 //text: qsTr("Text Field")
                 horizontalAlignment: Text.AlignLeft
-                anchors.fill: parent
+                //anchors.fill: parent
+                Layout.column: txtVisible?3:2
+                Layout.columnSpan: 2
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.preferredWidth: parent.width/4
+                Layout.minimumWidth: parent.width/4
+                //color: "transparent"
+                //color: "green"
+                anchors.left: label.right
+                anchors.right: parent.right
                 color: commonColor//"white"
                 font.bold: true
                 font.pixelSize:25// Constants.testPage_lblFontSize//25
@@ -145,35 +169,36 @@ Rectangle {
                 //            color: "green"
                 //        }
             }
-        }
-        Rectangle{
-            id:textFieldRec3
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.column:2//txtVisible?2:3
-            Layout.columnSpan: 2
-            Layout.preferredWidth: parent.width/4
-            color: "transparent"
-            //color: "blue"
-            anchors.right: parent.right
-            anchors.left: labelRec1.right
-            TextArea {
+//        }
+//       Rectangle{
+//            id:textFieldRec3
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
+//            Layout.column:2//txtVisible?2:3
+//            Layout.columnSpan: 2
+//            Layout.preferredWidth: parent.width/4
+//            Layout.minimumWidth: parent.width/4
+//            color: "transparent"
+//            //color: "blue"
+//            anchors.right: parent.right
+//            anchors.left: labelRec1.right
+            //TextArea {
+            TextField{
                 id: textField
-                anchors.fill: parent
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.column:2//txtVisible?2:3
+                Layout.columnSpan: 2
+                Layout.preferredWidth: parent.width/4
+                Layout.minimumWidth: parent.width/4
+                //color: "transparent"
+                //color: "blue"
+                anchors.right: parent.right
+                anchors.left: label.right//labelRec1.right
                 //text: qsTr("Text Field")
                 horizontalAlignment: Text.AlignHCenter
-                //anchors.left: label.right
-                //anchors.leftMargin: 100//parent.width/10
-                //anchors.bottom: parent.bottom
-                //anchors.bottomMargin: 0
-                //anchors.top: parent.top
-                //anchors.topMargin: 0
-                //anchors.right: parent.right
-                //anchors.rightMargin: 0
+                placeholderText: "I am testing"
                 readOnly: false
-                //canPaste: true
-                //canUndo: true
-                //canRedo: true
                 width: parent.width - label.width
                 text: ""
                 verticalAlignment: Text.AlignVCenter
@@ -183,14 +208,8 @@ Rectangle {
                 font.weight: Font.ExtraBold
                 renderType: Text.QtRendering
                 color: commonColor//"white"
-                //placeholderText: "please enter some data"
-                //width: 300//(parent.width - label.width)//(parent.width/10))/2
-                //height: 100
-                //        background: Rectangle{
-                //            color: "green"
-                //        }
             }
-        }
+       // }
     }
 
 

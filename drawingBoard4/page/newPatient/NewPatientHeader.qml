@@ -34,6 +34,15 @@ Rectangle {
     anchors.fill: parent
     //height: 400
     // width: 800
+    signal invokeSource(var source)
+    onInvokeSource: {
+        console.log("Source invoked"+source)
+    }
+
+    signal invokeIndex(int index)
+    onInvokeIndex: {
+        console.log("Index invoked"+index)
+    }
     GridLayout{
         id: mainRow
         // width: 700
@@ -53,7 +62,8 @@ Rectangle {
                 actionGridGroup:"newPatientItems"
                 labelText: StringConstants.label_newPtPgHeader
                 Component.onCompleted: {
-
+                    pgTitle.invokeSource.connect(rectangle.invokeSource)
+                    pgTitle.invokeIndex.connect(rectangle.invokeIndex)
                 }
             }//TestPageTitle
         }//TestPageTitle
@@ -172,15 +182,23 @@ Rectangle {
 
                 Rectangle {
                     id: rectangleSub3
-                    color: StringConstants.testPage_backgroundColor
+                    color:StringConstants.testPage_backgroundColor
                     Layout.column: 3
                     //Layout.row: 3
                     Layout.rowSpan: 1
                     Layout.fillHeight: true
                     Layout.fillWidth: true
+                    Layout.minimumWidth: parent.width/2
                     Layout.maximumWidth: parent.width/2
+
+
+
+                    //Layout.minimumHeight: parent.height// - rectangle1.height
+                    // Layout.maximumHeight: parent.height //- rectangle1.height
+                    // Layout.preferredHeight: parent.height
                     NewPatientPersonalDetails{
                         id:pageLabels
+                        //anchors.fill: parent
                         anchors.top: parent.top
                         anchors.topMargin: IntegerConstants.margin10
                         anchors.bottom: parent.bottom
@@ -189,8 +207,19 @@ Rectangle {
                         anchors.rightMargin: 0
                         anchors.left: parent.left
                         anchors.leftMargin: 0
+                        //gridRow:IntegerConstants.rowCount3
+                        //                        lbl1Visible:false
+                        //                        lbl2Visible: false
+                        //                        lbl3Visible: false
+                        //                        lbl4Visible: false
+                        //                        lbl5Visible: false
+                        //                        lbl6Vislbe: false
+                        //                        lbl7Visible: false
                         pageSpOrNp:false
                         pageNpSpTp:1
+                        Component.onCompleted: {
+                            console.log("I am completed")
+                        }
                     }
                 }
                 Rectangle {

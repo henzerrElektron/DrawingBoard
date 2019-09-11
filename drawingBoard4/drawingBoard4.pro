@@ -31,6 +31,8 @@ SOURCES += \
         patientresultmodel.cpp \
         plotdatapoint.cpp \
         plotpoints.cpp \
+        signalinvoker.cpp \
+        sortfiltermodel.cpp \
         supplementpagepatienttablemodel.cpp \
         switchpatienttablemodel.cpp \
         testpagesupplementationmodel.cpp \
@@ -95,13 +97,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    MpodDisplayer.qml \
+    #MpodDisplayer.qml \
     PlotterPointers.qml \
     XYPlot.qml \
     icons/all/32x32/Test.png \
-    mpIndicator.qml \
-    mpodDisplayItem.qml \
-    plotPointers.qml \
+    #mpIndicator.qml \
+    #mpodDisplayItem.qml \
+    #plotPointers.qml \
     supplementPagePatientTableModel.qml
 
 HEADERS += \
@@ -110,6 +112,8 @@ HEADERS += \
     patientresultmodel.h \
     plotdatapoint.h \
     plotpoints.h \
+    signalinvoker.h \
+    sortfiltermodel.h \
     supplementpagepatienttablemodel.h \
     switchpatienttablemodel.h \
     testpagesupplementationmodel.h \

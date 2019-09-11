@@ -30,10 +30,19 @@ import ApplicationConstants 1.0
 //  height: 275
 
 Rectangle {
-    id: rectangle
+    id: ptLabel
     color: StringConstants.testPage_backgroundColor
     property alias titleGroup: pgTitle.actionGridGroup
     anchors.fill: parent
+    signal invokeSource(var source)
+    onInvokeSource: {
+        console.log("Source invoked"+source)
+    }
+
+    signal invokeIndex(int index)
+    onInvokeIndex: {
+        console.log("Index invoked"+index)
+    }
     //height: 400
     //width: 800
     GridLayout{
@@ -64,6 +73,10 @@ Rectangle {
                 id:pgTitle
                 anchors.fill: parent
                 actionGridGroup:"testPageItems"//"newPatientItems"
+                Component.onCompleted: {
+                    pgTitle.invokeSource.connect(ptLabel.invokeSource)
+                    pgTitle.invokeIndex.connect(ptLabel.invokeIndex)
+                }
             }//TestPageTitle
 
             //Layout.rowSpan: 2
@@ -105,6 +118,14 @@ Rectangle {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.horizontalCenter: parent.horizontalCenter
+                //gridRow: IntegerConstants.rowCount5
+//                lbl1Visible:true
+//                lbl2Visible: true
+//                lbl3Visible: true
+//                lbl4Visible: true
+//                lbl5Visible: false
+//                lbl6Vislbe: true
+//                lbl7Visible: true
                 pageSpOrNp:true
                 pageNpSpTp:3
                 //anchors.left: parent.left
