@@ -12,9 +12,6 @@ TableView {
     topMargin: columnHeader.implicitHeight//+columnHeader.implicitHeight/2
     property alias tableModel: supplementTableView.model
     property alias colProvider: supplementTableView.columnWidthProvider
-   // property alias space: columnHeader.height
-    //contentX: columnHeader.x
-    //contentY: columnHeader.y+100
     onWidthChanged: {
         console.log("The width is"+width)
         //forceLayout()
@@ -44,30 +41,13 @@ TableView {
         }
     }
 
-
-    //        rowHeightProvider: function (row)
-    //        {
-    //            return ((parent.height/1) / rows);
-    //        }
     rowHeightProvider: function (row){
         console.log("The height is"+supplementTableView.height)
         return parent.height/(rows>10?rows/10:10)}//rowHeights[row]}
-    //property var columnWidths: [100, 50, 80, 150]
-    //      columnWidthProvider: function (column) { return columnWidths[column] }
     delegate: Rectangle {
-       /// implicitWidth: 150
-       // implicitHeight: 50
-        //border.color: "black"
-        // border.width: 2
-        //color: (heading==true)?"red":"green"
-        //color: ( heading === true || arRole === true ) ? ( heading === true ? "red":"green" ) : ( arRole === true ? "blue":"transparent" );
-        //color:  heading === true ? "red":"green"
-
         onColorChanged: console.log("Color changed")
         TableView.onPooled: console.log(display + " pooled")
         TableView.onReused: console.log(display + " resused")
-
-
         Text {
             text:display
             font.pointSize: 12
@@ -75,7 +55,7 @@ TableView {
         }
     }
         Rectangle { // mask the headers
-            id:masker
+            id:tableBackground
             //z: 3
             color: StringConstants.actionBtnBackgroundColor//"white"//"red"//"#222222"
             y: supplementTableView.contentY
@@ -83,36 +63,6 @@ TableView {
             width: supplementTableView.width
             height: supplementTableView.height//supplementTableView.topMargin * 2
         }
-//        Rectangle{
-//            id:newMask
-//            z:1
-//            color: "red"//"transparent"
-//            y:supplementTableView.contentY
-//            x:supplementTableView.contentX
-//            width: columnHeader.width
-//            height: columnHeader.height+100
-//        }
-
-//    Row{
-//        id:columnHeader
-//        y:supplementTableView.contentY
-//        z:2
-//        Repeater{
-//            model: supplementTableView.columns > 0? supplementTableView.columns : 1
-//            Label{
-//                width: supplementTableView.columnWidthProvider(modelData)
-//                height:35
-//                text:theExistingPatientsModel.headerData(modelData,Qt.Horizontal)
-//                color: '#aaaaaa'
-//                font.pixelSize: 15
-//                padding: 10
-//                verticalAlignment: Text.AlignVCenter
-//                horizontalAlignment: Text.AlignHCenter
-//                background: Rectangle {color:"#333333"}
-//            }
-//        }
-
-//    }
     ScrollIndicator.horizontal: ScrollIndicator { }
     ScrollIndicator.vertical: ScrollIndicator { }
 
