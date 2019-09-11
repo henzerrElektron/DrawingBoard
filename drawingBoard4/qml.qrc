@@ -137,5 +137,7 @@
         <file>page/mainPages/TestPage.qml</file>
         <file>page/mainPages/MainStack.qml</file>
         <file>page/mainPages/MainSwipe.qml</file>
+        <file>tables/CommonTableGrid.qml</file>
+        <file>tables/CommonTableView.qml</file>
     </qresource>
 </RCC>

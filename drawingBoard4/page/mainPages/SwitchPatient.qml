@@ -18,6 +18,7 @@ import "./../../delegates/"
 import "./../../models/"
 import "./../test/"
 import "./../changePatient/"
+import "./../../tables/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
@@ -70,10 +71,13 @@ Rectangle {
                 //Layout.column: 1
                 //Layout.columnSpan: 2
                 //Layout.fillHeight: true
+                onSelectedText: curTestTabs1.logString(curText,role)
                 Component.onCompleted: {
                     invokeSource.connect(swPatient.invokeSource)
                     invokeIndex.connect(swPatient.invokeIndex)
-                    ptLabel.selectedText.connect(curTestTabs1.setFilterString)
+                    selectedText.connect(curTestTabs1.setFilterString)
+                    selectedText.connect(curTestTabs1.logString)
+
                 }
             }
         }
@@ -109,11 +113,19 @@ Rectangle {
             //                anchors.top: rectangle1.top
             //                anchors.bottom: rectangle1.bottom
             //            }
-            ExistingPatientTableGrid{
+           // ExistingPatientTableGrid{
+            CommonTableGrid{
                 id:curTestTabs1
                 anchors.fill: parent
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                repeaterModel: theExistingPatientsModel
+                //tableModel: theExistingPatientsModel
+                proxySoure: theExistingPatientsModel
+                function logString(str,role)
+                {
+                    console.log("The values are"+str+"and is"+role)
+                }
             }
             //            TestPlotTabs{
             //                id:testpagePlotTabs

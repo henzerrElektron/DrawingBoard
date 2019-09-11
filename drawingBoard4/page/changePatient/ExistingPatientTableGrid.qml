@@ -40,6 +40,9 @@ GridLayout{
     property bool testOrSwitch: false
     property alias proxyFilterString: proxyModel.filterString
     property alias proxyFilterSortRole: proxyModel.sortRole
+    property alias repeaterModel: repeaterHeader.model
+    property alias tableModel: existingPatientTable.model
+    property alias proxySoure: proxyModel.source
     function setFilterString(str,role){
         proxyModel.filterRole = role
         proxyModel.sortRole = role
@@ -60,9 +63,10 @@ GridLayout{
             id:rfwww
             anchors.fill: parent
         Repeater{
+            id:repeaterHeader
             model: theExistingPatientsModel//.index(0,0,table11)//table11.columns > 0? table11.columns : 1
             Label{
-                width: table11.columnWidthProvider(index)
+                width: existingPatientTable.columnWidthProvider(index)
                 height:35
                 text:theExistingPatientsModel.headerData(index,Qt.Horizontal,"heading")
                 color: '#aaaaaa'
@@ -77,7 +81,7 @@ GridLayout{
 
     }
     ExistingPatientTableView{
-        id:table11
+        id:existingPatientTable
         width: parent.width
         onWidthChanged: forceLayout()
         // contentWidth: parent.width
@@ -98,8 +102,8 @@ GridLayout{
         model: SortFilterModel{
             id:proxyModel
             source: theExistingPatientsModel//.headerData(0,Qt.Horizontal,HeadingRole)
-            //sortOrder: table11.view.sortIndicatorOrder
             sortRole: "display"//"display"//"HeadingRole"//"Surname"//"DisplayRole"//theExistingPatientsModel.count > 0 ? table11.getColumn(table11.sortIndicatorColumn).role:""
+            //sortOrder: table11.view.sortIndicatorOrder
             // filterString: "*"+"f"+"*"
             filterSyntax: SortFilterModel.Wildcard
             filterCaseSensitivity:  Qt.CaseInsensitive

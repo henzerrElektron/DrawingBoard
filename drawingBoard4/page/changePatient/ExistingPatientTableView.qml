@@ -7,11 +7,11 @@ import ApplicationConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
 TableView {
-    id: supplementTableView
+    id: patientTableView
 
     topMargin: columnHeader.implicitHeight//+columnHeader.implicitHeight/2
-    property alias tableModel: supplementTableView.model
-    property alias colProvider: supplementTableView.columnWidthProvider
+    property alias tableModel: patientTableView.model
+    property alias colProvider: patientTableView.columnWidthProvider
     onWidthChanged: {
         console.log("The width is"+width)
         //forceLayout()
@@ -42,7 +42,7 @@ TableView {
     }
 
     rowHeightProvider: function (row){
-        console.log("The height is"+supplementTableView.height)
+        console.log("The height is"+patientTableView.height)
         return parent.height/(rows>10?rows/10:10)}//rowHeights[row]}
     delegate: Rectangle {
         onColorChanged: console.log("Color changed")
@@ -58,10 +58,10 @@ TableView {
             id:tableBackground
             //z: 3
             color: StringConstants.actionBtnBackgroundColor//"white"//"red"//"#222222"
-            y: supplementTableView.contentY
-            x: supplementTableView.contentX
-            width: supplementTableView.width
-            height: supplementTableView.height//supplementTableView.topMargin * 2
+            y: patientTableView.contentY
+            x: patientTableView.contentX
+            width: patientTableView.width
+            height: patientTableView.height//supplementTableView.topMargin * 2
         }
     ScrollIndicator.horizontal: ScrollIndicator { }
     ScrollIndicator.vertical: ScrollIndicator { }
