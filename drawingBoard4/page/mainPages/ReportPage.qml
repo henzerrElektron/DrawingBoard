@@ -44,6 +44,10 @@ Rectangle {
     onInvokeIndex: {
         console.log("Index invoked"+index)
     }
+    function closePopup(){
+        popup.close()
+    }
+
     GridLayout{
         id: mainRow
         // width: 700
@@ -58,6 +62,7 @@ Rectangle {
             Layout.preferredHeight: parent.height/3
             Layout.minimumHeight: parent.height/3
             Layout.maximumHeight: parent.height/3
+            color: StringConstants.testPage_backgroundColor
             ReportPageHeader{
                 id:pageHeader
                 anchors.fill: parent
@@ -75,6 +80,7 @@ Rectangle {
             Layout.row: 2
             Layout.fillHeight: true
             Layout.fillWidth: true
+            color: StringConstants.testPage_backgroundColor
             Layout.preferredHeight: parent.height - mainRec
             Layout.minimumHeight: parent.height - mainRec
             Layout.maximumHeight: parent.height - mainRec
@@ -87,17 +93,34 @@ Rectangle {
         }
         Popup {
             id: popup
-            x: parent.width/2 - parent.width/4
-            y: parent.height/2 - parent.height/4
+            //x: parent.width/2 - parent.width/4
+            //y: parent.height/2 - parent.height/4
+            anchors.centerIn: parent
+
             width: parent.width/2
-            height: pageDateRange.height
+            height: 750//pageDateRange.height+200
             modal: true
             focus: true
-            ReportDetailDateRange{
-                id:pageDateRange
+            background: Rectangle{
                 anchors.fill: parent
+                color: StringConstants.testPage_backgroundColor
+            }
+            Rectangle{
+                id:mainPopupRec
+                anchors.fill: parent
+                color: StringConstants.testPage_backgroundColor
+                ReportDetailDateRange{
+                    id:pageDateRange
+                    anchors.fill: parent
+                    Component.onCompleted: {
+                        pageDateRange.okClicked.connect(popup.closePopup)
+                        pageDateRange.cancelClicked.connect(popup.closePopup)
+                    }
+
+                }
             }
             closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+
         }
         //                    ReportDetailDateRange{
         //                        id:pageDateRange

@@ -50,7 +50,7 @@ Rectangle {
         //    Layout.fillWidth: true
         //    Layout.alignment: Qt.AlignLeft | Qt.AlignTop
         Rectangle{
-            id:rectangle1
+            id:labelRec
             color: StringConstants.testPage_backgroundColor
             // color: "transparent"
             Layout.fillWidth: true
@@ -62,21 +62,21 @@ Rectangle {
             anchors.rightMargin: 0
             anchors.top: parent.top
             anchors.topMargin: 0
-            Layout.preferredHeight: parent.height/3
-            Layout.minimumHeight: parent.height/3
-            Layout.maximumHeight: parent.height/3
+            Layout.preferredHeight: parent.height/4
+            Layout.minimumHeight: parent.height/4
+            Layout.maximumHeight: parent.height/4
             SwitchPatientLabel{
                 id:ptLabel
                 anchors.fill: parent
-                //Layout.column: 1
-                //Layout.columnSpan: 2
-                //Layout.fillHeight: true
                 onSelectedText: curTestTabs1.logString(curText,role)
+                //titleVisibility: false
+                //labelVisiblity: false
+                //searchVisiblity: true
                 Component.onCompleted: {
                     invokeSource.connect(swPatient.invokeSource)
                     invokeIndex.connect(swPatient.invokeIndex)
-                    selectedText.connect(curTestTabs1.setFilterString)
-                    selectedText.connect(curTestTabs1.logString)
+                    //selectedText.connect(curTestTabs1.setFilterString)
+                    //selectedText.connect(curTestTabs1.logString)
 
                 }
             }
@@ -84,36 +84,19 @@ Rectangle {
         Rectangle{
             id:rectangle2
             color: "transparent"
-            // color: StringConstants.testPage_backgroundColor
-            anchors.top: rectangle1.bottom
-           //////////////// anchors.topMargin: 50
+            anchors.top: labelRec.bottom
             anchors.left: gridLayout.left
             anchors.bottom: parent.bottom//rectangle6.top
-            //anchors.right: rectangle2.left
-            //anchors.fill: parent
             Layout.column: 1
             Layout.columnSpan: 1
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.row: 2
-            Layout.preferredHeight: parent.height - rectangle1.height - 50
-            Layout.minimumHeight: parent.height - rectangle1.height - 50
-            Layout.maximumHeight:  parent.height - rectangle1.height  -50
-            //Layout.minimumHeight: 400
+            Layout.preferredHeight: parent.height - labelRec.height - 50
+            Layout.minimumHeight: parent.height - labelRec.height - 50
+            Layout.maximumHeight:  parent.height - labelRec.height  -50
             Layout.minimumWidth: parent.width/2 + parent.width/4
-            //Layout.preferredHeight:400
-            //Layout.preferredWidth:400
-            //            XYPlot{
-            //                id:xyplotgrid
-            //                width: 500
-            //                //height: 500
-            //                //anchors.fill: parent
-            //                anchors.left: rectangle1.left
-            //                anchors.right: rectangle2.left
-            //                anchors.top: rectangle1.top
-            //                anchors.bottom: rectangle1.bottom
-            //            }
-           // ExistingPatientTableGrid{
+
             CommonTableGrid{
                 id:curTestTabs1
                 anchors.fill: parent
@@ -122,110 +105,11 @@ Rectangle {
                 repeaterModel: theExistingPatientsModel
                 //tableModel: theExistingPatientsModel
                 proxySoure: theExistingPatientsModel
-                function logString(str,role)
-                {
-                    console.log("The values are"+str+"and is"+role)
-                }
+
             }
-            //            TestPlotTabs{
-            //                id:testpagePlotTabs
-            //                Layout.fillHeight: true
-            //                Layout.fillWidth: true
-            //                anchors.fill: parent
-            //                //                anchors.left: rectangle1.left
-            //                //                anchors.right: rectangle2.left
-            //                //                anchors.top: rectangle1.top
-            //                //                anchors.bottom: rectangle1.bottom
-            //                //            }
-            //            }
+
         }
-        //        Rectangle{
-        //            id:rectangle3
-        //            color: "transparent"
-        //            anchors.top: rectangle1.bottom
-        //            anchors.left: rectangle2.right
-        //            anchors.bottom: rectangle6.top
-        //            anchors.right: parent.right
-        //            //anchors.fill: parent
-        //            Layout.column: 3
-        //            Layout.columnSpan: 1
-        //            Layout.fillHeight: true
-        //            Layout.fillWidth: true
-        //            Layout.row: 2
-        //            //Layout.minimumHeight: 400
-        //            Layout.minimumWidth: parent.width -rectangle2.width
-        //            //width: 100
-        //            //height: parent.height
-        //            GridLayout {
-        //                id: subgridLayout
-        //                anchors.fill: parent
-        //                rows:2
-        //                columns: 1
-        //                Rectangle{
-        //                    id:rectangle4
-        //                    color: "transparent"
-        //                    Layout.column: 1
-        //                    Layout.columnSpan: 1
-        //                    Layout.fillHeight: true
-        //                    Layout.fillWidth: true
-        //                    Layout.maximumHeight: parent.height/6
-        //                    Layout.row: 1
-        //                    TestController{
-        //                        id:curTestControl
-        //                        anchors.fill: parent
-        //                        Layout.fillHeight: true
-        //                        Layout.fillWidth: true
-        //                    }
-        //                }
-        //                Rectangle{
-        //                    id:rectangle5
-        //                    //color: "black"
-        //                    color: "transparent"
-        //                    Layout.column: 1
-        //                    Layout.columnSpan: 1
-        //                    Layout.fillHeight: true
-        //                    Layout.fillWidth: true
-        //                    Layout.row: 2
-        //                    anchors.top: rectangle4.bottom
-        //                    anchors.bottom: parent.bottom
-        //                    //anchors.left: parent
-        //                    TestTabs{
-        //                        id:curTestTabs
-        //                        anchors.fill: parent
-        //                        Layout.fillHeight: true
-        //                        Layout.fillWidth: true
-        //                    }
-        //                }
-        //            }
 
-        //        }
-        //        Rectangle{
-        //            id:rectangle6
-        //            color: "black"
-        //            //anchors.top: rectangle3.bottom
-        //            anchors.left: parent.left
-        //            anchors.bottom: parent.bottom
-        //            anchors.right: parent.right
-        //            //anchors.fill: parent
-        //            Layout.column: 1
-        //            Layout.columnSpan: 1
-        //            //Layout.fillHeight: true
-        //            //Layout.fillWidth: true
-        //            Layout.row:3
-        //            width: parent.width
-        //            height: 100
-        //            TestPagePatientResultIndex
-        //            {
-        //                //Layout.fillHeight: true
-        //                //height: 100
-        //                //: parent.width
-        //                //Layout.fillWidth: true
-        //                anchors.fill: parent
-        //            }
-        //        }
-
-        //           }
-        //}
     }
 
 }

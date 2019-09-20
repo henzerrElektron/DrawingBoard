@@ -17,6 +17,7 @@ import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
 import "./../newPatient/"
+import "./../../common/"
 import ApplicationConstants 1.0
 Rectangle{
     id:mainGridRec
@@ -26,6 +27,8 @@ Rectangle{
     height: mainRec.height
     //color: "black"
     color: StringConstants.actionBtnBackgroundColor
+    property real prevSliderTo: sliderDay.secValue
+    property real prevSliderFrom: sliderDay.firstValue
     property alias dateSliderTo: sliderDay.sliderTo
     property alias sliderDayVisible: slider1Rec.visible
     onSliderDayVisibleChanged: {
@@ -49,11 +52,27 @@ Rectangle{
 
     signal setFromDate(int index)
     onSetFromDate: {
-        sliderDay.changeFirstValue(incrementValue(index+1))
+        prevSliderFrom = sliderDay.firstValue//index
+        console.log("The value of the index is"+prevSliderFrom)
+        if(!(prevSliderFrom === index))
+        {
+            console.log("The value of the index is"+index)
+            sliderDay.changeFirstValue(incrementValue(index+1))
+        }
+        //        if(index > prevSliderTo)
+        //        {
+        //            setToDate(index+1)
+        //        }
     }
     signal setToDate(int index)
     onSetToDate: {
-        sliderDay.changeSecValue(incrementValue(index+1))
+        prevSliderTo = sliderDay.secValue//index
+        console.log("The value of the index is"+prevSliderTo)
+        if(!(prevSliderTo === index))
+        {
+            console.log("The value of the index is "+index)
+            sliderDay.changeSecValue(incrementValue(index+1))
+        }
     }
 
     signal setFromMonth(int index)
@@ -75,8 +94,8 @@ Rectangle{
         var value =  (IntegerConstants.dobStartDate+index)
         // checkEqualYear(value)
         sliderYear.changeFirstValue(incrementValue(IntegerConstants.dobStartDate+index))
-        dateFromChange(sliderDay.firstValue)
-        dateToChange(sliderDay.secValue)
+        //dateFromChange(sliderDay.firstValue)
+        //dateToChange(sliderDay.secValue)
         // checkEqualYear(value)
 
     }
@@ -102,17 +121,30 @@ Rectangle{
 
     signal monthFromChange(int value)
     onMonthFromChange: {
-        dateFromChange(sliderDay.firstValue)
-        dateToChange(sliderDay.secValue)
+        console.log("The date from values are"+sliderDay.firstValue)
+        console.log("The date to values are"+sliderDay.secValue)
+        console.log("The index is"+prevSliderFrom+prevSliderTo)
+        prevSliderFrom = sliderDay.firstValue
+        prevSliderTo = sliderDay.secValue
+       // dateFromChange(prevSliderFrom)//dateFromChange(sliderDay.firstValue)
+       // dateToChange(prevSliderTo)//dateToChange(sliderDay.secValue)
+        console.log("The date from values are"+sliderDay.firstValue)
+        console.log("The date to values are"+sliderDay.secValue)
+        console.log("The index is"+prevSliderFrom+prevSliderTo)
         console.log("The index is"+value)
         console.log("The index is"+value)
     }
 
     signal monthToChange(int value)
     onMonthToChange: {
+        console.log("The date from values are"+sliderDay.firstValue)
+        console.log("The date to values are"+sliderDay.secValue)
         sliderDay.changeDayValue(value,sliderYear.secValue)
-        dateFromChange(sliderDay.firstValue)
-        dateToChange(sliderDay.secValue)
+        console.log("The index is"+prevSliderFrom+prevSliderTo)
+        prevSliderFrom = sliderDay.firstValue
+        prevSliderTo = sliderDay.secValue
+        //dateFromChange(prevSliderFrom)//sliderDay.firstValue
+        //dateToChange(prevSliderTo)//sliderDay.secValue
         console.log("The index is"+value)
     }
     signal calcYearFromChange(int value)
@@ -157,10 +189,10 @@ Rectangle{
         {
             if(sliderMonthVisible === true)
             {
-                sliderMonthVisible  = false
-                sliderMonth.visible = false
-                sliderDayVisible = false
-                sliderDay.visible = false
+                 sliderMonthVisible  = false
+                 sliderMonth.visible = false
+                 sliderDayVisible = false
+                  sliderDay.visible = false
             }
             if(sliderDayVisible === true)
             {
@@ -201,18 +233,20 @@ Rectangle{
         height: slider1Rec.height+slider2Rec.height+slider3Rec.height
         Rectangle{
             id:slider3Rec
-            color: "red"
-            Layout.alignment: Qt.AlignTop
             //anchors.top: sliderMonth.bottom
             //Layout.alignment: Qt.AlignBottom
+            //Layout.fillHeight: true
+            // color: "transparent"
+            color: "red"
+            Layout.alignment: Qt.AlignTop
+            //anchors.top: parent.top
             Layout.row: IntegerConstants.rowCount1
             Layout.rowSpan: IntegerConstants.rowSpan1
-            //Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.preferredHeight: 75// sliderYear.height
             Layout.maximumHeight:75// sliderYear.height
             Layout.minimumHeight: 0//sliderYear.height
-            // color: "transparent"
+
             ReportRangeSlider {
                 id: sliderYear
                 anchors.fill: slider3Rec
@@ -235,18 +269,20 @@ Rectangle{
         }
         Rectangle{
             id:slider2Rec
+            anchors.top: slider3Rec.bottom
             //Layout.alignment: Qt.AlignTop
             //Layout.alignment: Qt.AlignVCenter
+            //Layout.fillHeight: true
+            //anchors.top: sliderDay.bottom
+            //color: "black"
             Layout.row: IntegerConstants.rowCount2
             Layout.rowSpan: IntegerConstants.rowSpan1
-            //Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.preferredHeight: 75//sliderMonth.height
             Layout.maximumHeight: 75//sliderMonth.height
             Layout.minimumHeight: 0//sliderMonth.height
-            //anchors.top: sliderDay.bottom
             color: "transparent"
-            //color: "black"
+
             ReportRangeSlider {
                 id: sliderMonth
                 anchors.fill: slider2Rec
@@ -256,7 +292,7 @@ Rectangle{
                 alterValues:true
                 allowSameFirstSec:true
                 onFirst1RangeValue: {
-                    sliderDay.sliderTo=getDaysInMonth(sliderMonth.secValue,sliderYear.secValue)
+                    //  sliderDay.sliderTo=getDaysInMonth(sliderMonth.secValue,sliderYear.secValue)
                 }
                 onFirst2RangeValue: {
                     sliderDay.sliderTo=getDaysInMonth(sliderMonth.secValue,sliderYear.secValue)
@@ -279,17 +315,19 @@ Rectangle{
         }
         Rectangle{
             id:slider1Rec
+            anchors.top: slider2Rec.bottom
             //Layout.alignment: Qt.AlignTop
+            //Layout.fillHeight: true
+            //anchors.top:parent.top
+            //color: "green"
             Layout.row: IntegerConstants.rowCount3
             Layout.rowSpan: IntegerConstants.rowSpan1
-            //Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.preferredHeight: 75//sliderDay.height
             Layout.maximumHeight: 75//sliderDay.height
             Layout.minimumHeight: 0//sliderDay.height
-            //anchors.top:parent.top
             color: "transparent"
-            //color: "green"
+
             ReportRangeSlider {
                 id: sliderDay
                 anchors.fill: slider1Rec
@@ -300,13 +338,38 @@ Rectangle{
                 secValue: getDaysInMonth(sliderMonth.secValue,sliderYear.secValue)
                 alterValues:true//false
                 allowSameFirstSec:false
+                //onFirstValueChanged: checkEqualMonth(0)
+                //onSecValueChanged: checkEqualMonth(0)
                 Component.onCompleted: {
                     sliderDay.first1RangeValue.connect(dateFromChange)
                     sliderDay.first2RangeValue.connect(dateToChange)
+                    sliderDay.equalFirstSec.connect(checkEqualMonth)
                 }
 
             }
         }
+//        Rectangle{
+//            id:okCancelRec
+//            anchors.top: slider1Rec.visible?slider1Rec.bottom:slider2Rec.visible?slider2Rec.bottom:slider3Rec.bottom
+//            Layout.row: IntegerConstants.rowCount4
+//            Layout.rowSpan: IntegerConstants.rowSpan1
+//            Layout.fillWidth: true
+//            Layout.preferredHeight: 120//75
+//            Layout.maximumHeight: 120//75
+//            Layout.minimumHeight: 120
+//            color: "transparent"
+//            ReportOkCancelGroup{
+//                id:pgOkCancel
+//                //anchors.left: parent.left
+//                //anchors.right: parent.right
+//                anchors.centerIn: parent
+//                //height: 100
+//                Component.onCompleted: {
+//                    pgOkCancel.okClicked.connect(mainRec.pgOkCancel)
+//                    pgOkCancel.cancelClicked.connect(mainRec.pgOkCancel)
+//                }
+//            }
+//        }
 
 
 

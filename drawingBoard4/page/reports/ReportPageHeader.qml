@@ -83,6 +83,7 @@ Rectangle {
                     //Layout.row: 2
                     Layout.fillHeight: true
                     Layout.fillWidth: true
+                    Layout.leftMargin: 10
                     //Layout.preferredWidth:parent.width/3//500//
                     //Layout.minimumWidth: parent.width/3//500//
                     //Layout.maximumWidth: parent.width/3//500//
@@ -106,17 +107,26 @@ Rectangle {
                     Layout.columnSpan: 1
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    Button{
-                        id:btnId
-                        text: "Date Range"
-                        width: 200
-                        height: 100
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        //anchors.fill: parent
-                        onClicked: {
-                            openDateRange()
+                    Layout.rightMargin: 10
+                    ReportDateGrid{
+                        id:btnGrd
+                        anchors.fill: parent
+                        Component.onCompleted: {
+                           openDateRange.connect(rpHeader.openDateRange)
                         }
                     }
+
+//                    Button{
+//                        id:btnId
+//                        text: "Date Range"
+//                        width: 200
+//                        height: 100
+//                        anchors.horizontalCenter: parent.horizontalCenter
+//                        //anchors.fill: parent
+//                        onClicked: {
+//                            openDateRange()
+//                        }
+//                    }
 
                     //                    ReportDetailDateRange{
                     //                        id:pageDateRange

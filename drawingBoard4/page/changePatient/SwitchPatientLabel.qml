@@ -47,6 +47,9 @@ Rectangle {
     onInvokeIndex: {
         console.log("Index invoked"+index)
     }
+   // property alias titleVisibility: titleRec.visible
+   // property alias labelVisiblity: labelRec.visible
+   // property alias searchVisiblity: searchRec.visible
     GridLayout{
         id: mainRow
         width: 700
@@ -54,13 +57,14 @@ Rectangle {
         columns: 3
         rows:10
         Rectangle {
-            id: rectangle1
+            id: titleRec
             color: StringConstants.testPage_backgroundColor
             height:75// pgTitle.height
             Layout.fillWidth: true
             Layout.row: 1
             Layout.column: 1
             Layout.columnSpan: 3
+
             PageTitle{
                 id:pgTitle
                 anchors.fill: parent
@@ -72,22 +76,9 @@ Rectangle {
                 }
             }//TestPageTitle
         }//TestPageTitle
-        //            PageTitle {
-        //                id: rectangle1
-        //                labelText:StringConstants.label_searchPatientTitle
-        //                actionGridGroup:"existingPatientItems"
-        //                anchors.top: parent.top
-        //                anchors.left: parent.left
-        //                Layout.column: 1
-        //                Layout.columnSpan: 3
-        //                Layout.fillHeight: true
-        //                Layout.fillWidth: true
-        //                Layout.row: 1
-        //                //Layout.rowSpan: 10
-        //                Layout.maximumHeight: parent.height/5
-        //            }
+
         Rectangle{
-            id: rectangle2
+            id: labelRec
             color: StringConstants.testPage_backgroundColor
             Layout.column: 1
             Layout.columnSpan: 3
@@ -104,68 +95,26 @@ Rectangle {
                 anchors.rightMargin: 0
                 anchors.left: parent.left
                 anchors.leftMargin: 0
-                //gridRow: IntegerConstants.rowCount5
-//                lbl1Visible:true
-//                lbl2Visible: true
-//                lbl3Visible: true
-//                lbl4Visible: true
-//                lbl5Visible: true
-//                lbl6Vislbe: false
-//                lbl7Visible: false
                 pageSpOrNp:true
                 pageNpSpTp:2
             }
-            //Layout.rowSpan: 5
-            //anchors.bottom: rectangleSwitchPatientLabel.top
-            //anchors.top: rectangle1.bottom
-            //            TestPageAllLabels {
-            //                anchors.fill: parent
-            //            }
+
         }
-
-
-
-        //            TestPageActionButtons {
-        //                id: rectangle3
-        //                Layout.column: 3
-        //                Layout.columnSpan: 1
-        //                Layout.fillHeight: true
-        //                Layout.fillWidth: true
-        //                Layout.row: 1
-        //                Layout.rowSpan: 7
-        //            }
-        Rectangle{
-            id: rectangle3
-            Layout.column: 1
-            Layout.columnSpan: 3
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.row: 3
-            SwitchSearchItems{
-                id:rectangleSwitchPatientLabel
-                anchors.fill: parent
-                Component.onCompleted: {
-                    rectangleSwitchPatientLabel.selectedText.connect(spLabel.selectedText)
-                }
-            }
-        }
-
-        //            TestPageSwitchButtons {
-        //                id: rectangle4
-        //                Layout.column: 2
-        //                Layout.columnSpan: 1
-        //                Layout.fillHeight: true
-        //                Layout.fillWidth: true
-        //                Layout.row: 3
-        //                Layout.rowSpan: 4
-        //                //anchors.centerIn: rectangle1
-        //                anchors.left: rectangle1.right
-        //                //anchors.leftMargin: 0
-        //                Layout.leftMargin: 0
-        //                //anchors.top: rectangle3.bottom
-        //            }
-
-
+//        Rectangle{
+//            id: searchRec
+//            Layout.column: 1
+//            Layout.columnSpan: 3
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
+//            Layout.row: 3
+//            SwitchSearchItems{
+//                id:rectangleSwitchPatientLabel
+//                anchors.fill: parent
+//                Component.onCompleted: {
+//                    rectangleSwitchPatientLabel.selectedText.connect(spLabel.selectedText)
+//                }
+//            }
+//        }
     }
 
 

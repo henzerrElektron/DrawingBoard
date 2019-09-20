@@ -24,7 +24,7 @@ import "./../../common/"
 import "./../newPatient/"
 Rectangle {
     id: rectangle2
-    color: "white"//StringConstants.testPage_backgroundColor
+    color: StringConstants.testPage_backgroundColor//"blue"//"white"
     anchors.fill: parent
     GridLayout{
         id: mainCol
@@ -33,16 +33,21 @@ Rectangle {
         rows: 2
         Rectangle{
             id:rectangleSub1
-            color: StringConstants.testPage_backgroundColor
+            color: "white"
+            Layout.topMargin: 10//StringConstants.testPage_backgroundColor
             //Layout.column: 1
             Layout.row: 1
             //Layout.fillHeight: true
             Layout.fillWidth: true
+            //Layout.rightMargin: 20
+            //Layout.topMargin: 10
+            //Layout.bottomMargin: 10
             //width: 100
             height: 50//150
             NewPatientDataTumbler{
                 id:pageOperators
                 anchors.fill: parent
+                labelHorizontal:true
                 labelText: StringConstants.lbl_rpSelectOperator
                 firstTumblerVisibility: false
                 secTumblerVisibility: false
@@ -54,12 +59,14 @@ Rectangle {
 
         Rectangle{
             id:rectangleSub2
-            color: StringConstants.testPage_backgroundColor//"green"///
+            color: StringConstants.testPage_backgroundColor//"red"//
+            Layout.topMargin: 20//"green"///
             //Layout.column: 2
              Layout.row: 2
             Layout.fillHeight: true
             //Layout.alignment: Qt.AlignLeft
             Layout.fillWidth: true
+            //Layout.rightMargin: 20
             ReportPraticeTableGrid{
                 id:praticeTable
                 anchors.fill: parent
@@ -81,3 +88,10 @@ Rectangle {
         }
     }
 }
+
+
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+ ##^##*/

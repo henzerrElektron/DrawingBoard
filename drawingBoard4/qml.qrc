@@ -139,5 +139,10 @@
         <file>page/mainPages/MainSwipe.qml</file>
         <file>tables/CommonTableGrid.qml</file>
         <file>tables/CommonTableView.qml</file>
+        <file>page/newPatient/NewPatientDataComboBox.qml</file>
+        <file>page/reports/ReportDateGrid.qml</file>
+        <file>common/ReportPageBtn.qml</file>
+        <file>common/ReportTabButton.qml</file>
+        <file>common/ReportOkCancelGroup.qml</file>
     </qresource>
 </RCC>

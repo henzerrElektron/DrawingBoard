@@ -302,7 +302,7 @@ QVariant SwitchPatientTableModel::headerData(int section, Qt::Orientation orient
        // case 0:
        //     return tr("heading");
         case 0:
-            return tr("First name");
+            return tr("FirstName");
         case 1:
             return tr("Surname");
         case 2:
@@ -310,7 +310,7 @@ QVariant SwitchPatientTableModel::headerData(int section, Qt::Orientation orient
         case 3:
             return  tr("Test results");
         case 4:
-            return  tr("Medical Reference");
+            return  tr("MedicalReference");
         case 5:
             return  tr("Address");
        // case 7:
@@ -336,12 +336,12 @@ QHash<int, QByteArray> SwitchPatientTableModel::roleNames() const
     roles[Qt::DisplayRole]= "display";
     roles[AcceptRejectRole]="arRole";
     roles[HeadingRole] = "heading";
-    roles[FirstNameRole] = "First name";
+    roles[FirstNameRole] = "FirstName";
     roles[SecNameRole] = "Surname";
     roles[DobRole] = "Date of Birth";
     roles[TestResultsRole] = "Test Results";
     roles[AddressRole] = "Address";
-    roles[MedRefRole] = "Medical Reference";
+    roles[MedRefRole] = "MedicalReference";
     // roles[AcceptRejectRole] = "arRole";
     return  roles;
 }

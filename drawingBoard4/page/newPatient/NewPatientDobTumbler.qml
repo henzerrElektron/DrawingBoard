@@ -27,42 +27,28 @@ import Qt.labs.calendar 1.0
 
 
 Rectangle {
-    id: rectangle
+    id: mainRec
     //color: StringConstants.label_NewPatientLabelBgColor//
     color: "transparent"
     width: mainGrid.width+3*(2* mainGrid.columnSpacing)
     height: mainGrid.height
-    // border.color: OtherConstants.borderColorBlack
-    // border.width: IntegerConstants.borderWidth1
     property int curSetDate: 0
-    onCurSetDateChanged: {
-
-        otherTumblerInfo(curSetDate,cursetIntMonth,curSetYear)
-        console.log("The values are"+prevSetDate+curSetDate)
+    property int prevSetDate: -1
+    onPrevSetDateChanged: {
+        if(prevSetDate === 0)
+        {
+            console.log("Something changed the previous set date"+prevSetDate)
+        }
+        setPreviousIndex(prevSetDate)
     }
 
-    property int prevSetDate: 0
     property int curSetYear: 0//firstOrLast?IntegerConstants.dobEndDate:IntegerConstants.dobStartDate
-    onCurSetYearChanged: {
-        otherTumblerInfo(curSetDate,cursetIntMonth,curSetYear)
-        console.log("The values are"+prevSetDate+curSetDate)
-    }
-
     property int prevSetYear: firstOrLast?IntegerConstants.dobEndDate:IntegerConstants.dobStartDate
     property int startDate: IntegerConstants.dobStartDate
     property int endDate: IntegerConstants.dobEndDate
-    //    property int stopDateIndex: 0
-    //    property int stopMonthIndex: 0
-    //    property int stopYearIndex: 0
     property bool firstOrLast: false//false == first//startTumbler true == second//means stopTumbler
-
     property string curSetYearString: ""
     property int cursetIntMonth:0
-    onCursetIntMonthChanged: {
-
-        otherTumblerInfo(curSetDate,cursetIntMonth,curSetYear)
-    }
-
     property string curSetMonth: ""
     property string curDateMonthYear: ""
     property alias dateModel: dateTumbler.firstTumblerModel
@@ -71,6 +57,31 @@ Rectangle {
     property alias recTextVisible: recText.visible
     property alias lblText: lbl.text
     property bool sortLeapYears: false//true//
+    signal setTumblerDate(int index)
+    signal setTumblerMonth(int index)
+    signal setTumblerYear(int index)
+    signal setPrevSetDate(int index)
+    signal setDate(int index)
+    signal setMonth(int index)
+    signal setYear(int index)
+    signal setYearString(string value)
+    signal resetYear()
+    signal informOtherTumbler(int index)
+    signal otherTumblerInfo(int day,int month,int year)
+    signal setNoDateInMonthYear()
+    signal setPreviousIndex(int index)
+    property int otherTumblerDay: 0
+    property int otherTumblerMonth: 0
+    property int otherTumblerYear: 0
+    onSetPrevSetDate: {
+        prevSetDate = index
+    }
+
+    // border.color: OtherConstants.borderColorBlack
+    // border.width: IntegerConstants.borderWidth1
+    //    property int stopDateIndex: 0
+    //    property int stopMonthIndex: 0
+    //    property int stopYearIndex: 0
     //    property alias dateTumblerModel: dateTumbler.firstTumblerModel
     //    property alias dateComboModel: dateTumbler.comboBoxModel
     //    property alias monthTumblerModel: dateTumbler.firstTumblerModel
@@ -82,18 +93,29 @@ Rectangle {
         console.log("The datevalue is "+dateValue+year+month)
         return dateValue;
     }
-    signal setTumblerDate(int index)
     onSetTumblerDate: {
+        console.log("The value of the settumblerDateIndex  index is"+index)
+        prevSetDate = curSetDate
         curSetDate = index
         dateTumbler.changeTumblerComboValue(index)
     }
+    onCurSetDateChanged: {
+        console.log("The currentSetDate are and other stuff are"+curSetDate+cursetIntMonth+curSetYear)
+        otherTumblerInfo(curSetDate,cursetIntMonth,curSetYear)
+        console.log("Thecurrent and the previous of all the values oare values are"+prevSetDate+curSetDate)
+    }
+    onCurSetYearChanged: {
+        otherTumblerInfo(curSetDate,cursetIntMonth,curSetYear)
+        console.log("The values are"+prevSetDate+curSetDate)
+    }
+    onCursetIntMonthChanged: {
 
-
-    signal setTumblerMonth(int index)
+        otherTumblerInfo(curSetDate,cursetIntMonth,curSetYear)
+    }
     onSetTumblerMonth: {
         cursetIntMonth = index
-        monthTumbler.changeTumblerComboValue(index)
-        //monthTumbler.topTextArea.currentIndex = index
+        //monthTumbler.changeTumblerComboValue(index)
+        monthTumbler.comboBox.currentIndex = index
         //        if(sortLeapYears === false)
         //        {
         //            var totaldays = getDaysInMonth(index,yearTumbler.comboBoxIndex)//-1
@@ -106,8 +128,6 @@ Rectangle {
         //        }
 
     }
-
-    signal setTumblerYear(int index)
     onSetTumblerYear: {
         curSetYear = index
         console.log("The year index is"+index)
@@ -123,21 +143,17 @@ Rectangle {
         //            }
         //        }
     }
-    signal setNoDateInMonthYear()
+
     onSetNoDateInMonthYear: {
-        dateTumbler.comboBoxIndex = prevSetDate
+        console.log("The current value of the prevSetDate is"+prevSetDate+"the index is"+dateTumbler.comboBoxIndex+"OtherDate is"+dateTumbler.curSetDate)
         dateTumbler.curSetDate = prevSetDate
+        dateTumbler.comboBoxIndex = prevSetDate
+
         // dateTumbler.comboBoxModel = getDaysInMonth(curSetMonth,curSetYear)
         // dateTumbler.firstTumblerModel = getDaysInMonth(curSetMonth,curSetYear)
     }
 
-    signal setDate(int index)
-    signal setMonth(int index)
-    signal setYear(int index)
-    signal setYearString(string value)
-    signal resetYear()
-    signal informOtherTumbler(int index)
-    signal otherTumblerInfo(int day,int month,int year)
+
     onOtherTumblerInfo: {
         otherTumblerDay = day
         otherTumblerMonth = month
@@ -146,6 +162,11 @@ Rectangle {
     }
     function setOtherTumblerInfo(day,month,year){
         otherTumblerDay = day
+        if(otherTumblerDay === 0)
+        {
+            console.log("I reached here")
+        }
+
         otherTumblerMonth = month
         otherTumblerYear = year
         if(firstOrLast === true)
@@ -167,6 +188,7 @@ Rectangle {
                 if(cursetIntMonth === otherTumblerMonth){
                     if(curSetDate <otherTumblerDay)
                     {
+                        //prevSetDate = curSetDate
                         console.log("The current number of days in a month is"+getDaysInMonth(otherTumblerMonth,otherTumblerYear))
                         if((otherTumblerDay+1) !== getDaysInMonth(otherTumblerMonth,otherTumblerYear))
                         {
@@ -174,6 +196,11 @@ Rectangle {
                         }
                         else
                         {
+                            if(otherTumblerDay === 0)
+                            {
+                                console.log("I am logging Other Tumbler Day index to be 0")
+                            }
+
                             setTumblerDate(otherTumblerDay)
                         }
                     }
@@ -207,15 +234,30 @@ Rectangle {
                 }
                 if(cursetIntMonth === otherTumblerMonth){
                     if(curSetDate > otherTumblerDay){
+                        //prevSetDate = curSetDate
                         if((otherTumblerDay !== 0))//||(curSetDate != 0))
                         {
                             setTumblerDate(otherTumblerDay-1)
                         }
-                        else
-                        {
-                            setTumblerDate(otherTumblerDay)
-                        }
+//                        else
+//                        {
+//                            setTumblerDate(prevSetDate)//setTumblerDate(otherTumblerDay)
+//                        }
 
+                    }
+                    else
+                    {
+//                        if((prevSetDate !== -1))//||(curSetDate != 0))
+//                        {
+//                            setTumblerDate(prevSetDate)
+//                        }
+//                        else
+//                        {
+//                            if((otherTumblerDay !== 0))
+//                            {
+//                                setTumblerDate(otherTumblerDay-1)
+//                            }
+//                        }
                     }
                 }
             }
@@ -232,9 +274,7 @@ Rectangle {
         }
     }
 
-    property int otherTumblerDay: 0
-    property int otherTumblerMonth: 0
-    property int otherTumblerYear: 0
+
     onResetYear: {
         console.log("The prevsetYesar"+prevSetYear)
         setYear(prevSetYear)
@@ -312,9 +352,14 @@ Rectangle {
         console.log("The first or last is"+firstOrLast+"Test"+curSetYear+"PrevSetYear"+prevSetYear+"AllIndex"+index)
     }
     onSetDate: {
-        // prevSetDate = curSetDate
-        console.log("The values are"+prevSetDate+curSetDate)
+        prevSetDate = curSetDate
+        if(index === 0)
+        {
+            console.log("The index has reached zero value")
+        }
+
         curSetDate = index
+        console.log("The values are"+prevSetDate+curSetDate)
         curDateMonthYear = curSetDate.toString()+"/"+curSetMonth+"/"+curSetYear.toString()//curSetYearString//
     }
     // onCurSetDateChanged: {
@@ -322,11 +367,12 @@ Rectangle {
     // }
 
     onSetMonth: {
+        console.log("The previos dates are"+prevSetDate+"the prev other date is"+curSetDate)
         prevSetDate = curSetDate
         cursetIntMonth = index
         curSetMonth = OtherConstants.dobCalAllMonths[index]
         curDateMonthYear = curSetDate.toString()+"/"+curSetMonth+"/"+curSetYear.toString()//curSetYearString//
-        ////////////setNoDateInMonthYear()
+        //setNoDateInMonthYear()
     }
     onSetYear: {
 
@@ -448,15 +494,15 @@ Rectangle {
                 firstTumblerModel:calModel.calculateRange(1,getDaysInMonth(monthTumbler.firstTumblerIndex,yearTumbler.firstTumblerIndex))//calModel.calculateRange(1,IntegerConstants.dobCalNoOfDays)//getDaysInMonth(monthTumbler.firstTumblerIndex,yearTumbler.firstTumblerIndex)//calModel.calculateRange(1,IntegerConstants.dobCalNoOfDays)//calModel.calculateRange(1,(getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex)))//IntegerConstants.dobCalNoOfDays//(getDaysInMonth(index,yearTumbler.comboBoxIndex)-1//Constants.dobCalNoOfDays//[0,1,2,3]
                 comboBoxModel: calModel.calculateRange(1,getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex))//calModel.calculateRange(1,IntegerConstants.dobCalNoOfDays)//getDaysInMonth(monthTumbler.firstTumblerIndex,yearTumbler.firstTumblerIndex)//calModel.calculateRange(1,IntegerConstants.dobCalNoOfDays)
                 onComboBoxModelChanged: {
-                    firstTumblerModel = comboBoxModel
                     console.log("The index value is"+prevSetDate+getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex))
                     if((prevSetDate+1) > getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex))
                     {
                         prevSetDate = getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex) -1
                     }
-
-                    comboBoxIndex = prevSetDate
+                    firstTumblerModel = comboBoxModel
+                    console.log("The all together naofther index value is"+prevSetDate+getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex))
                     curSetDate = prevSetDate
+                    comboBoxIndex = prevSetDate
                 }
 
 
@@ -466,12 +512,14 @@ Rectangle {
                     {
                         prevSetDate =  getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex) - 1
                     }
-                    comboBoxIndex = prevSetDate
+                    console.log("The index value is"+prevSetDate+getDaysInMonth(monthTumbler.comboBoxIndex,yearTumbler.comboBoxIndex))
                     curSetDate = prevSetDate
+                    comboBoxIndex = prevSetDate
                 }
 
                 Component.onCompleted: {
                     dateTumbler.comboIndexChange.connect(setDate)
+                    mainRec.setPreviousIndex.connect(dateTumbler.setPrevIndex)
                 }
             }
         }
@@ -559,169 +607,4 @@ Rectangle {
     }
 
 }
-//old one without any text entry possibl e
-//if this is needed we can make the label a
-// and text hidden but this can be done
-//anyways
-//Rectangle {
-//    id: rectangle
-//    height: 1000
 
-//    anchors.fill: parent
-//    border.color: "black"
-//    border.width: 1
-//    GridLayout{
-//        id:mainGrid
-//        anchors.fill: parent
-//        columns: 3
-//        rows: 3
-//        columnSpacing: 20
-//        Rectangle{
-//            id:rec1
-//            Layout.row: 1
-//            Layout.column: 1
-//            anchors.top: parent.top
-//            anchors.left: parent.left
-//            height:210
-//            width: 70
-//            NewPatientDataTumbler{
-//                id:dateTumbler
-//                labelText: "Day"
-//                firstTumblerVisibility: true
-//                secTumblerVisibility: false
-//                thirdTumblerVisibility: false
-//                firstTumblerModel:32
-//                Component.onCompleted: {
-//                }
-//            }
-//        }
-//        Rectangle{
-//            id:rec2
-//            anchors.top: parent.top
-//            anchors.left:  rec1.right
-//            anchors.leftMargin: 10
-//            Layout.row: 1
-//            Layout.column: 2
-//            height:210
-//            width: 70
-//            NewPatientDataTumbler{
-//                id:monthTumbler
-//                labelText:"Month"
-//                firstTumblerVisibility: true
-//                secTumblerVisibility: false
-//                thirdTumblerVisibility: false
-//                firstTumblerModel:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-//                onRearrangeModelChanged: {
-//                    update()
-//                }
-//                Component.onCompleted: {
-//                }
-//            }
-//        }
-
-
-//        Rectangle{
-//            id:rec3
-//            anchors.top: parent.top
-//            anchors.left:  rec2.right
-//            anchors.leftMargin: 10
-//            Layout.row: 1
-//            Layout.column: 2
-//            height:210
-//            width: 100
-//            NewPatientDataTumbler{
-//                id:yearTumbler
-//                CalendarYearModel{
-//                    id:calModel
-//                }
-//                CalyearDelegateComponent{
-//                    id:calYearCom
-//                }
-//                labelText:"Year"
-//                firstTumblerVisibility: true
-//                secTumblerVisibility: false
-//                thirdTumblerVisibility: false
-//                donotUpdateMovingTumbler: true
-//                firstTumblerModel:calModel.calculateYears()
-//                comboBoxModel: calModel.calculateRange(1900,2019)
-//                firstTumblerDelegate:calYearCom
-//                onRearrangeModelChanged: {
-//                    update()
-//                }
-//                Component.onCompleted: {
-//                    // yearTumbler.firstTumblerValue.connect(monthTumbler.rearrangeValues)
-//                }
-//            }
-//        }
-//    }
-
-//}
-
-
-
-//    function checkStopDateIndex(index)
-//    {
-//        var setDateValue;
-//        if(firstOrLast === false)
-//        {
-//            if(index> stopDateIndex)
-//            {
-//                console.log("StopDateIndex"+stopDateIndex+index+setDateValue)
-//                curSetDate = stopDateIndex;
-//            }
-//        }
-//        if(firstOrLast === true)
-//        {
-
-//            if(stopDateIndex < index)
-//            {
-//                console.log("StopDateIndex"+stopDateIndex+index+setDateValue)
-//                curSetDate = stopDateIndex;
-//            }
-//        }
-//        console.log("StopDateIndex"+stopDateIndex+index)
-//        //curSetDate = setDateValue
-//        //setDate(setDateValue);
-//        //return setDateValue;
-
-//    }
-//    function checkStopMonthIndex(index)
-//    {
-//        var setMonthValue;
-//        if(firstOrLast === false)
-//        {
-//            if(index> stopMonthIndex)
-//            {
-//                setMonthValue = stopMonthIndex;
-//            }
-//        }
-//        else
-//        {
-//            if(stopMonthIndex < index)
-//            {
-//                setMonthValue = stopMonthIndex;
-//            }
-//        }
-//        setMonth(setMonthValue);
-//        //return setMonthValue;
-//    }
-//    function checkStopYearIndex(index)
-//    {
-//        var setYearValue;
-//        if(firstOrLast === false)
-//        {
-//            if(index> stopYearIndex)
-//            {
-//                setYearValue = stopYearIndex;
-//            }
-//        }
-//        else
-//        {
-//            if(stopYearIndex < index)
-//            {
-//                setYearValue = stopYearIndex;
-//            }
-//        }
-//        //return setYearValue;
-//        setYear(setYearValue)
-//    }

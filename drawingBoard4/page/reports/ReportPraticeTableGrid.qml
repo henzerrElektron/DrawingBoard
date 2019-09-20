@@ -28,50 +28,55 @@ import SwitchPatientTableModel 0.1
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
-GridLayout{
-    id:gridLayout
-    columns: 1
-    flow: Grid.TopToBottom
-    rowSpacing: 0
-    columnSpacing: 0
-    rows: 1
+Rectangle{
+    id:mainRec
+    color: "transparent"
     anchors.fill: parent
-    property int rowTabHeight: height/rows
-    property bool testOrSwitch: false
-    ReportPraticeTable{
-        id:table11
-        width: parent.width
-        contentWidth: parent.width
-        columnWidthProvider: function(column)
-        {
-            return (parent.width/columns) -(((parent.width/columns)/columns)/4);
+    GridLayout{
+        id:gridLayout
+        columns: 1
+        flow: Grid.TopToBottom
+        rowSpacing: 0
+        columnSpacing: 0
+        rows: 1
+        anchors.fill: parent
+        property int rowTabHeight: height/rows
+        property bool testOrSwitch: false
+        ReportPraticeTable{
+            id:table11
+            width: parent.width
+            contentWidth: parent.width
+            columnWidthProvider: function(column)
+            {
+                //return (parent.width/columns) -(((parent.width/columns)/columns)/4);
 
-            //            if(column === 0)
-            //            {
-            //                return ((parent.width)-((columns-1)*((parent.width) - parent.width/(columns-1))/(columns-1)));
-            //            }
-            //            else
-            //            {
-            //                return ((parent.width) - parent.width/(columns-1))/(columns-1);
-            //            }
+                if(column === 0)
+                {
+                    return ((parent.width)-((columns-1)*((parent.width) - parent.width/(columns-1))/(columns-1)));
+                }
+                else
+                {
+                    return ((parent.width) - parent.width/(columns-1))/(columns-1);
+                }
+            }
+            onWidthChanged: forceLayout()
+            rowHeightProvider: function (row)
+            {
+                return ((parent.height/1) / rows);
+            }
+            onHeightChanged: forceLayout()
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.row: 1
+            anchors.left: parent.left
+            anchors.leftMargin: 0
+            anchors.right: parent.right
+            anchors.rightMargin: 0
+            anchors.top: parent.top
+            anchors.topMargin: 0
+            //anchors.fill: parent
+            model: theMedicalTestModel//theSupplementModel//theMedicalTestModel//theExistingPatientsModel//theModel//theSupplementModel//theExistingPatientsModel
         }
-        onWidthChanged: forceLayout()
-        rowHeightProvider: function (row)
-        {
-            return ((parent.height/1) / rows);
-        }
-        onHeightChanged: forceLayout()
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        Layout.row: 1
-        anchors.left: parent.left
-        anchors.leftMargin: 0
-        anchors.right: parent.right
-        anchors.rightMargin: 0
-        anchors.top: parent.top
-        anchors.topMargin: 0
-        //anchors.fill: parent
-        model: theMedicalTestModel//theSupplementModel//theMedicalTestModel//theExistingPatientsModel//theModel//theSupplementModel//theExistingPatientsModel
+
     }
-
 }

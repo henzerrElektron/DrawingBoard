@@ -25,6 +25,7 @@ import ApplicationConstants 1.0
 //import ApplicationOtherConstants 1.0
 
 Rectangle {
+    id:mainTumbler
     // width: frame.implicitWidth + 10
     // height: frame.implicitHeight + 10
     //width: frame.width+10
@@ -35,6 +36,51 @@ Rectangle {
     color: "transparent"//StringConstants.actionBtnBackgroundColor//"transparent"//
     //width: frame.width
     // color: "black"
+
+    ////////////////////////////////////////////////////////////////////
+    ////////////ComboBox Items/////////////////////////////////////////
+    property alias comboBox: topTextArea
+    property alias comboBoxModel: topTextArea.model
+    property alias comboBoxText: topTextArea.displayText
+    property alias comboBoxCurText: topTextArea.currentText
+    property alias comboBoxIndex: topTextArea.currentIndex
+    property alias comboBoxTextRole: topTextArea.comboBoxTextRole
+    property alias comboBoxInputHints: topTextArea.comboBoxInputHints
+    property alias comboBoxValidator: topTextArea.comboBoxValidator
+    property alias comboBoxRoleOrModelFlag: topTextArea.roleOrModel
+    function setPrevIndex(index)
+    {
+        topTextArea.comboBoxPreviousIndex = index
+    }
+
+    //property alias comboBoxModelCount: topTextArea.model.modelData.count
+     //property alias comboModelData: topTextArea.modelData
+    onComboBoxModelChanged: {
+        console.log("The model is"+topTextArea.model)
+    }
+
+    signal comboIndexChange(int value)
+    onComboIndexChange: {
+        firstTumblerRec.allTumblerIndex = value
+    }
+
+    signal comboCurTextChange(string value)
+    onComboCurTextChange: {
+
+    }
+    signal comboDisplayTextChange(string value)
+    onComboDisplayTextChange: {
+
+    }
+    signal selectedText(string curText,string role)
+    onSelectedText: {
+        console.log("The selected Text is"+curText+role)
+    }
+
+
+    //////////////////////////////////////////////////////////////////////
+
+
     property alias firstTumblerModel: firstTumblerRec.allTumblerModel
     property alias firstTumblerDelegate: firstTumblerRec.allTumblerDelegate
     property alias secTumblerModel: secTumblerRec.allTumblerModel
@@ -43,21 +89,11 @@ Rectangle {
     property alias thirdTumblerDelegate: thirdTumblerRec.allTumblerDelegate
     property alias firstTumblerVisibility: firstTumblerRec.allTumblerVisibility
     property alias secTumblerVisibility: secTumblerRec.allTumblerVisibility
-    property alias comboBoxModel: topTextArea.model
-    //property alias comboModelData: topTextArea.modelData
     property alias firstTumblerStopped: firstTumblerRec.stopped
-    //property alias comboBoxModelCount: topTextArea.model.modelData.count
-    onComboBoxModelChanged: {
-        console.log("The model is"+topTextArea.model)
-    }
-
     onFirstTumblerModelChanged: {
         console.log("The first tumbler model is"+firstTumblerRec.allTumblerModel)
     }
 
-    property alias comboBoxText: topTextArea.displayText
-    property alias comboBoxCurText: topTextArea.currentText
-    property alias comboBoxIndex: topTextArea.currentIndex
     property alias donotUpdateMovingTumbler: firstTumblerRec.donotUpdateWhileMoving
     onSecTumblerVisibilityChanged: {
         secTumblerRec.visible = secTumblerRec.allTumblerVisibility
@@ -69,7 +105,7 @@ Rectangle {
         thirdTumblerRec.visible = thirdTumblerRec.allTumblerVisibility
         //firstTumberRec.anchors.fill.parent
     }
-
+    property bool labelHorizontal: false
     property alias labelText: lbl.text
     property alias labelVisible:  lbl.visible
     property bool numberOrColorDelegate: false
@@ -83,7 +119,12 @@ Rectangle {
     property alias  firstTumblerCount: firstTumblerRec.allTumblerVisibleItemCount
     signal changeTumblerComboValue(int index)
     onChangeTumblerComboValue: {
-        console.log("The value of the index is"+index)
+        if(index === 0)
+        {
+            console.log("THe index has become zero for no known reason")
+        }
+
+        console.log("The value of the index is of the toptextArea in the current Index is"+index)
         topTextArea.currentIndex = index
 
     }
@@ -104,19 +145,8 @@ Rectangle {
     signal rearrangeThrirdModel(int value)
     signal firstSecThirdTumblerValue(int index)
 
-    signal comboIndexChange(int value)
-    onComboIndexChange: {
-        firstTumblerRec.allTumblerIndex = value
-    }
 
-    signal comboCurTextChange(string value)
-    onComboCurTextChange: {
 
-    }
-    signal comboDisplayTextChange(string value)
-    onComboDisplayTextChange: {
-
-    }
 
     property int firstTumblerIndex: 0
     property int secTumblerIndex: 0
@@ -185,6 +215,7 @@ Rectangle {
     FontMetrics {
         id: fontMetrics
     }
+
     DelegateComponent {
         id: delegateComponent
     }
@@ -199,7 +230,7 @@ Rectangle {
         id: frame
         // padding: 0
         anchors.fill: parent
-        color: "transparent"
+        color: "transparent"//"red"//"black"//
         GridLayout {
             id: row
             columns: 3
@@ -210,126 +241,91 @@ Rectangle {
             Label {
                 id:lbl
                 Layout.row: 1
-                Layout.rowSpan: 1
+                Layout.rowSpan: labelHorizontal?0:1
                 Layout.column: secTumblerVisibility?2:1
                 Layout.columnSpan: secTumblerVisibility?3:1
                 Layout.fillWidth: true
                 anchors.top: parent.top
                 anchors.horizontalCenter: secTumblerVisibility?parent.horizontalCenter:firstTumbler.horizontalCenter
                 text: ""
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
+                font: OtherConstants.fontFamily
+                height: labelHorizontal?topTextArea.height:20
+                verticalAlignment: Text.AlignVCenter//labelHorizontal?Text.AlignBottom:Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter//labelHorizontal?Text.AlignRight:Text.AlignHCenter
                 Layout.alignment: secTumblerVisibility?Qt.AlignHCenter | Qt.AlignVCenter:Qt.AlignLeft
+//                background: Rectangle{
+//                    id:bgRec
+//                    color: "Red"
+//                }
             }
-            ComboBox {
+            NewPatientDataComboBox  {
                 id: topTextArea
-                visible: true
-                signal tumblerIndexRecord(int index)
-                onTumblerIndexRecord: {
-                    currentIndex = index
-                }
-                ////
-                delegate: ItemDelegate {
-                    width: topTextArea.width
-                    contentItem: Text {
-                        text: modelData
-                        color: "White"//"red"
-                        font: topTextArea.font
-                        elide: Text.ElideRight
-                        verticalAlignment: Text.AlignVCenter
-                    }
-                    highlighted: topTextArea.highlightedIndex === index
-                }
-
-                popup: Popup {
-                    y: topTextArea.height - 1
-                    width: topTextArea.width
-                    implicitHeight: contentItem.implicitHeight
-                    padding: 1
-
-                    contentItem: ListView {
-                        clip: true
-                        implicitHeight: contentHeight
-                        model: topTextArea.popup.visible ? topTextArea.delegateModel : null
-                        currentIndex: topTextArea.highlightedIndex
-
-                        ScrollIndicator.vertical: ScrollIndicator { }
-                    }
-
-                    background: Rectangle {
-                        anchors.fill: parent
-                        color:StringConstants.actionBtnBackgroundColor
-                        border.color: StringConstants.actionBtnBackgroundColor
-                        radius: 2
-                    }
-                }
-                ////
-                Layout.row: lbl.visible?2:1
-                Layout.rowSpan: 1
-                anchors.left: parent.left
+                Layout.row: lbl.visible?labelHorizontal?1:2:1
+                Layout.rowSpan: labelHorizontal?0:1
+                Layout.column: labelHorizontal?2:1
+                Layout.columnSpan: labelHorizontal?1:3
+                anchors.left: labelHorizontal?lbl.right:parent.left
+                anchors.leftMargin: labelHorizontal?15:0//(parent.width-lbl.width)/8:0
                 anchors.right: parent.right
-                Layout.fillWidth: true
-                //Layout.minimumWidth: 50
-                //anchors.right: topLabel.left
-                //anchors.rightMargin: 0
-                // anchors.verticalCenter: lbl.verticalCenter
+                anchors.rightMargin: labelHorizontal?(parent.width-lbl.width)/4:0
+                Layout.fillWidth: labelHorizontal?false:true
+                //Layout.fillHeight: true
                 anchors.horizontalCenter: lbl.horizontalCenter
-                anchors.top: lbl.visible?lbl.bottom:parent.top
+                anchors.top: lbl.visible?labelHorizontal?parent.top:lbl.bottom:parent.top
                 anchors.topMargin: 0
+                font: OtherConstants.fontFamily
+                visible: true
                 editable: true
-                onCurrentIndexChanged: {
-                    comboIndexChange(currentIndex)
-                }
-                onCurrentTextChanged: {
-                    comboCurTextChange(currentText)
-                }
-                onDisplayTextChanged: {
-                    comboDisplayTextChange(currentText)
+                //model: firstTumblerModel
+                Component.onCompleted: {
+                    topTextArea.comboIndexChange.connect(mainTumbler.comboIndexChange)
+                    topTextArea.comboCurTextChange.connect(mainTumbler.comboCurTextChange)
+                    topTextArea.comboDisplayTextChange.connect(mainTumbler.comboDisplayTextChange)
+                    topTextArea.selectedText.connect(mainTumbler.selectedText)
                 }
 
-                //model: firstTumblerModel
             }
-//            SpinBox{
-//                id:tumblerSpinner
-//                Layout.row: lbl.visible?2:1
-//                Layout.rowSpan: 1
-//                anchors.left: parent.left
-//                anchors.right: parent.right
-//                Layout.fillWidth: true
-//                //Layout.minimumWidth: 50
-//                //anchors.right: topLabel.left
-//                //anchors.rightMargin: 0
-//                // anchors.verticalCenter: lbl.verticalCenter
-//                anchors.horizontalCenter: lbl.horizontalCenter
-//                anchors.top: lbl.visible?lbl.bottom:parent.top
-//                anchors.topMargin: 0
-//                from:0
-//                to:comboBoxModel.length -1
-//                value:1
-//                visible: true
-//                validator: RegExpValidator{
-//                    regExp: new RegExp(OtherConstants.modelToRegext(comboBoxModel),"i")
-//                }
-//                textFromValue: function(value){
-//                    return comboBoxModel[value];
-//                }
-//                valueFromText: function(text){
-//                    for(var i = 0;i <comboBoxModel.count;++i){
-//                      if(comboBoxModel[i].toLowerCase().indexOf(text.toLowerCase()) === 0)
-//                          return i
-//                    }
-//                    return tumblerSpinner.value
-//                }
-//                onValueChanged: {
-//                      comboIndexChange(value)
-//                }
-//                onValueFromTextChanged: {
-//                    comboIndexChange(value)
-//                }
-//                onValueModified: {
-//                        comboIndexChange(value)
-//                }
-//            }
+            //            SpinBox{
+            //                id:tumblerSpinner
+            //                Layout.row: lbl.visible?2:1
+            //                Layout.rowSpan: 1
+            //                anchors.left: parent.left
+            //                anchors.right: parent.right
+            //                Layout.fillWidth: true
+            //                //Layout.minimumWidth: 50
+            //                //anchors.right: topLabel.left
+            //                //anchors.rightMargin: 0
+            //                // anchors.verticalCenter: lbl.verticalCenter
+            //                anchors.horizontalCenter: lbl.horizontalCenter
+            //                anchors.top: lbl.visible?lbl.bottom:parent.top
+            //                anchors.topMargin: 0
+            //                from:0
+            //                to:comboBoxModel.length -1
+            //                value:1
+            //                visible: true
+            //                validator: RegExpValidator{
+            //                    regExp: new RegExp(OtherConstants.modelToRegext(comboBoxModel),"i")
+            //                }
+            //                textFromValue: function(value){
+            //                    return comboBoxModel[value];
+            //                }
+            //                valueFromText: function(text){
+            //                    for(var i = 0;i <comboBoxModel.count;++i){
+            //                      if(comboBoxModel[i].toLowerCase().indexOf(text.toLowerCase()) === 0)
+            //                          return i
+            //                    }
+            //                    return tumblerSpinner.value
+            //                }
+            //                onValueChanged: {
+            //                      comboIndexChange(value)
+            //                }
+            //                onValueFromTextChanged: {
+            //                    comboIndexChange(value)
+            //                }
+            //                onValueModified: {
+            //                        comboIndexChange(value)
+            //                }
+            //            }
 
             TumberRec {
                 id: firstTumblerRec
@@ -349,14 +345,15 @@ Rectangle {
                     //                        topTextArea.currentIndex = currentIndex
                     //                    }
                     //firstTumblerIndex=firstTumblerModel[firstTumblerIndex]//allTumblerModel[allTumblerIndex]//allTumblerModel[currentIndex]//allTumblerModel[currentIndex]//firstTumbler.model[firstTumbler.currentIndex]
-                    console.log("The value is"+firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)//secTumbler.model[secTumbler.currentIndex]//thirdTumbler.currentIndex
                     //firstTumblerIndex
+                    //totalIndex=parseInt(""+firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)
+                    //firstSecThirdTumblerValue(totalIndex)//(firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)//secTumbler.model[secTumbler.currentIndex]
+                    console.log("The value is"+firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)//secTumbler.model[secTumbler.currentIndex]//thirdTumbler.currentIndex
                     firstTumblerValue(currentIndex)
                     rearrangeSecondModel(currentIndex)
                     rearrangeThrirdModel(currentIndex)
-                    //totalIndex=parseInt(""+firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)
                     console.log("The value of the index is"+totalIndex)
-                    //firstSecThirdTumblerValue(totalIndex)//(firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)//secTumbler.model[secTumbler.currentIndex]
+
 
                 }
                 Component.onCompleted: {
@@ -376,12 +373,13 @@ Rectangle {
                 allTumblerModel:100
                 onTumblerIndexChanged: {
                     //secTumblerIndex = secTumblerModel[secTumblerIndex]//secTumbler.model[secTumbler.currentIndex]
-                    console.log("The value is"+firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)//thirdTumbler.currentIndex
-                    secondTumblerValue(currentIndex)
                     //totalIndex=parseInt(""+firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)
-                    console.log("The value of the index is"+currentIndex)
                     //firstSecThirdTumblerValue(totalIndex)
                     //firstSecThirdTumblerValue(firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)//thirdTumbler.currentIndex
+                    console.log("The value is"+firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)//thirdTumbler.currentIndex
+                    secondTumblerValue(currentIndex)
+                    console.log("The value of the index is"+currentIndex)
+
 
                 }
 
@@ -402,16 +400,17 @@ Rectangle {
                 anchors.leftMargin: 10
                 onTumblerIndexChanged: {
                     //thirdTumblerIndex = thirdTumbler.model[thirdTumbler.currentIndex]
+                    // totalIndex=parseInt(""+firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)
+                    // firstSecThirdTumblerValue(totalIndex)
+                    //firstSecThirdTumblerValue(firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)
                     thirdTumblerIndex = parseInt( (currentIndex).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false}))//currentIndex//thirdTumbler.model[thirdTumbler.currentIndex]
                     console.log("The first value is "+firstTumblerModel[firstTumblerIndex]+"the first index is" + firstTumblerIndex)
                     console.log("The second value is"+secTumblerModel[secTumblerIndex]+"the second index is"+secTumblerIndex)
                     console.log("The third tumbler value is"+thirdTumblerModel[thirdTumblerIndex]+"The third index is"+thirdTumblerIndex)
                     console.log("The value is"+firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)
                     thirdTumblerValue(currentIndex)
-                    // totalIndex=parseInt(""+firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)
                     console.log("The value of the index is"+totalIndex)
-                    // firstSecThirdTumblerValue(totalIndex)
-                    //firstSecThirdTumblerValue(firstTumblerIndex+secTumblerIndex+thirdTumblerIndex)
+
                 }
 
             }
@@ -434,3 +433,8 @@ Rectangle {
 
 
 
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+ ##^##*/

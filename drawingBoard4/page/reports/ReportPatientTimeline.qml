@@ -22,6 +22,7 @@ import "./../../delegates/"
 import "./../test/"
 import "./../../common/"
 import "./../newPatient/"
+import "./../changePatient/"
 Rectangle {
     id: rectangle2
     color: "white"//StringConstants.testPage_backgroundColor
@@ -42,17 +43,26 @@ Rectangle {
             //Layout.fillHeight: true
             Layout.fillWidth: true
             //width: 100
-            height: 50//150
-            NewPatientDataTumbler{
-                id:pagePatients
+            height: 100//150
+            SwitchSearchItems{
+                id:switchItems
                 anchors.fill: parent
-                labelText: StringConstants.lbl_rpSelectPatient
-                firstTumblerVisibility: false
-                secTumblerVisibility: false
-                thirdTumblerVisibility: false
-                firstTumblerModel:OtherConstants.modelSamplePatients
-                comboBoxModel: OtherConstants.modelSamplePatients
+                pageHeader: StringConstants.lbl_rpSelectPatient//StringConstants.label_searchQuestion
+                patientFirstNameModel:theExistingPatientsModel
+                patientSurNameModel:theExistingPatientsModel
+                medicalRefModel: theExistingPatientsModel
             }
+
+            //            NewPatientDataTumbler{
+            //                id:pagePatients
+            //                anchors.fill: parent
+            //                labelText: StringConstants.lbl_rpSelectPatient
+            //                firstTumblerVisibility: false
+            //                secTumblerVisibility: false
+            //                thirdTumblerVisibility: false
+            //                firstTumblerModel:OtherConstants.modelSamplePatients
+            //                comboBoxModel: OtherConstants.modelSamplePatients
+            //            }
         }
         Rectangle{
             id:rectanglelabel1

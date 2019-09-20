@@ -196,12 +196,13 @@ Rectangle {
                 anchors.right: parent.right
                 anchors.left: label.right//labelRec1.right
                 //text: qsTr("Text Field")
-                horizontalAlignment: Text.AlignHCenter
+                horizontalAlignment: Text.AlignRight
+                verticalAlignment: Text.AlignVCenter
                 placeholderText: "I am testing"
                 readOnly: false
                 width: parent.width - label.width
                 text: ""
-                verticalAlignment: Text.AlignVCenter
+
                 //font: StringConstants.fontFamily
                 font.bold: true
                 font.pixelSize:25// Constants.testPage_lblFontSize//25

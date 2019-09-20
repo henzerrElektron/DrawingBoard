@@ -24,22 +24,29 @@ Rectangle{
     id:mainGridRec
     anchors.fill: parent
     color: StringConstants.actionBtnBackgroundColor
+    NewPatientGroupLabel{
+        id:contactDetailLabel1
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        //Layout.fillWidth: true
+        //Layout.row: IntegerConstants.rowCount1
+        //Layout.rowSpan: IntegerConstants.rowSpan1
+        //Layout.column: IntegerConstants.columnCount1
+        //Layout.columnSpan:IntegerConstants.columnSpan2
+        text: StringConstants.lbl_rpDetails
+        //Layout.preferredHeight: 30
+        //Layout.minimumHeight: 30
+        //Layout.maximumHeight: 30
+        height: 30
+    }
     GridLayout{
         id:grid
+        anchors.top: contactDetailLabel1.bottom
+        anchors.topMargin: contactDetailLabel1.height
         anchors.fill: parent
-        rows: IntegerConstants.rowCount5
-        NewPatientGroupLabel{
-            id:contactDetailLabel1
-            Layout.fillWidth: true
-            Layout.row: IntegerConstants.rowCount1
-            Layout.rowSpan: IntegerConstants.rowSpan1
-            //Layout.column: IntegerConstants.columnCount1
-            //Layout.columnSpan:IntegerConstants.columnSpan2
-            text: StringConstants.lbl_rpDetails
-            Layout.preferredHeight: 30
-            Layout.minimumHeight: 30
-            Layout.maximumHeight: 30
-        }
+        //rows: IntegerConstants.rowCount5
+
         NewPatientLabelWithText{
             id:oneLabel
             index:1
@@ -52,6 +59,8 @@ Rectangle{
             Layout.rowSpan: IntegerConstants.rowSpan1
             Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.leftMargin: parent.width/10
+            Layout.rightMargin: parent.width/10
             addSpace: true
             //lblVisible: true
             lblValueVisible: true//pageNpSpTp===1?false:true//pageSpOrNp
@@ -71,6 +80,8 @@ Rectangle{
             Layout.rowSpan: IntegerConstants.rowSpan1
             Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.leftMargin: parent.width/10
+            Layout.rightMargin: parent.width/10
             addSpace: true
             //lblVisible: true
             lblValueVisible: true//pageNpSpTp===1?false:true//pageSpOrNp
@@ -90,6 +101,8 @@ Rectangle{
             Layout.rowSpan: IntegerConstants.rowSpan1
             Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.leftMargin: parent.width/10
+            Layout.rightMargin: parent.width/10
             addSpace: true
             //lblVisible: true
             lblValueVisible: true//pageNpSpTp===1?false:true//pageSpOrNp
@@ -109,6 +122,8 @@ Rectangle{
             textAlignLeftOrCenter: false
             Layout.row: IntegerConstants.rowCount5
             Layout.rowSpan: IntegerConstants.rowSpan1
+            Layout.leftMargin: parent.width/10
+            Layout.rightMargin: parent.width/10
             //lblVisible: pageSpOrNp
             lblValueVisible: true//pageNpSpTp===1?false:true//pageSpOrNp
             txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
@@ -129,6 +144,8 @@ Rectangle{
             textAlignLeftOrCenter: false
             //lblHorizontalAlignment:Text.AlignRight
             Layout.row: IntegerConstants.rowCount6
+            Layout.leftMargin: parent.width/10
+            Layout.rightMargin: parent.width/10
             //lblVisible:  pageNpSpTp===2?true:false//iSVisible(5)//pageSpOrNp
             lblValueVisible: true//pageNpSpTp===1?false:true//pageSpOrNp
             txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp

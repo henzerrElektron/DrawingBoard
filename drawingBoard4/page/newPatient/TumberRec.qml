@@ -58,7 +58,7 @@ Rectangle{
             height: (firstTumbler.height * 0.6) - (firstTumbler.height * 0.4)//40//parent.height/10//
             //border.color: "black"
             //border.width: 1
-            color:StringConstants.actionBtnBackgroundColor//"black"//
+            color:StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor//"black"//
             //radius: 20
             opacity: 0.5
         }
@@ -75,6 +75,7 @@ Rectangle{
             {
                 if(moving === false)
                 {
+                    console.log("The current index is"+currentIndex)
                     tumblerIndexChanged(currentIndex)
                     stopped = true
                 }

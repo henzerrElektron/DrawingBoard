@@ -14,6 +14,7 @@ import Qt.labs.settings 1.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
 import "."
+import "./../../common/"
 import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
@@ -28,27 +29,39 @@ Page {
     anchors.fill: parent
     Layout.fillHeight: true
     Layout.fillWidth: true
+    anchors.leftMargin: 10
+    anchors.rightMargin: 10
+    anchors.bottomMargin: 10
+    //Layout.leftMargin: 10
+    //Layout.rightMargin: 10
     header:  TabBar {
         id: bar
+        background: Rectangle {
+            color: StringConstants.borderColorBlack
+        }
         width: parent.width
         currentIndex: swipeView.currentIndex
         //onCurrentIndexChanged:
-        TabButton {
+        ReportTabButton {
+            id:praticeBtn
             text: qsTr("Pratice Timeline")
             onClicked: {
                 page1.visible = true;
                 page2.visible = false;
-
-
+                patientBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+                backColor=StringConstants.actionBtnBackgroundColor
             }
         }
-        TabButton {
+        ReportTabButton {
+            id:patientBtn
             text: qsTr("Patient Timeline")
             onClicked: {
                 page1.visible = false;
                 page2.visible = true;
-
+                backColor=StringConstants.actionBtnBackgroundColor
+                praticeBtn. backColor=StringConstants.label_NewPatientLabelBgColor
             }
+
         }
 
     }
@@ -73,7 +86,7 @@ Page {
             visible: true;
             Rectangle{
                 id:contactTabPage1
-                color: "white"
+                color: StringConstants.headerBackgroundColor
                 anchors.fill: parent
                 Layout.fillHeight: true
                 Layout.fillWidth: true
@@ -88,7 +101,7 @@ Page {
             visible: true;
             Rectangle{
                 id:medicaltTabPage
-                color: "white"
+                color: StringConstants.headerBackgroundColor
                 anchors.fill: parent
                 Layout.fillHeight: true
                 Layout.fillWidth: true

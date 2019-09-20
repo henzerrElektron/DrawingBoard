@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     QGuiApplication::setApplicationName("MPSRewrite");
-     QGuiApplication::setOrganizationName("EET");
+    QGuiApplication::setOrganizationName("EET");
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QIcon::setThemeName("all");
     QQuickStyle::setStyle("Material");
@@ -33,12 +33,12 @@ int main(int argc, char *argv[])
     for (auto entry : dir.entryList()) {
         qWarning() << "Found entry in resources:" << entry;
     }
-//    QSettings settings;
-//    QString style = QQuickStyle::name();
-//    if (!style.isEmpty())
-//        settings.setValue("style", style);
-//    else
-//        QQuickStyle::setStyle(settings.value("style").toString());
+    //    QSettings settings;
+    //    QString style = QQuickStyle::name();
+    //    if (!style.isEmpty())
+    //        settings.setValue("style", style);
+    //    else
+    //        QQuickStyle::setStyle(settings.value("style").toString());
     MedicalTestModel medTestModel;
     medTestModel.addMedicalResult(MedicalResult("TestResultNo","TestDate","TestTime","PatientId","RE MP Estimate","RE  MP Absolute","RE MP Adjusted","RE Central Confidence Level","RE Peripheral Confidence Level","LE MP Estimate","LE MP Absolute","LE MP Adjusted","LE Central Confidence Level","LE Peripheral Confidence Level"));
     medTestModel.addMedicalResult(MedicalResult(1,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),1,1.01,2.02,3.03,4.05,5.06,7.07,8.07,3.56,2.69,3.34));
@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 
 
     SwitchPatientTableModel existingPatientModel;
-   // existingPatientModel.addExistingPatient(ExistingPatients("FirstName","SurName","Date","TestResults(R/L)","MedicalReference","Address"));
+    // existingPatientModel.addExistingPatient(ExistingPatients("FirstName","SurName","Date","TestResults(R/L)","MedicalReference","Address"));
     existingPatientModel.addExistingPatient(ExistingPatients("Abc","vm0",QDate::currentDate(),1.857,"5632fggf424","Address1"));
     existingPatientModel.addExistingPatient(ExistingPatients("Bat","vm1",QDate::currentDate(),1.857,"5632fggf424","Address1"));
     existingPatientModel.addExistingPatient(ExistingPatients("Bcd","vm2",QDate::currentDate(),1.857,"5632fggf424","Address1"));
@@ -135,15 +135,15 @@ int main(int argc, char *argv[])
     model.addResult(Result("ConfidenceLevel","Right","Left"));
     model.addResult(Result("Central","Accept","Reject"));
     model.addResult(Result("Peripheral","Accept","Reject"));
-//    model.addResult(Result("Mp Value","",""));
-//    model.addResult(Result("Estimated",0.67,0.57));
-//    model.addResult(Result("Absolute",0.78,0.49));
-//    model.addResult(Result("Graph Adjusted",0.78,0.49));
-//    model.addResult(Result("Parameters","",""));
-//    model.addResult(Result("Central Sensitivity (Hz)",33.67,0.57));
-//    model.addResult(Result("Central Minima (dB)",7.78,0.49));
-//    model.addResult(Result("Graph Adjusted",28.78,0.49));
-//    model.addResult(Result("PeripheralMinima (dB)",5.18,3.17));
+    //    model.addResult(Result("Mp Value","",""));
+    //    model.addResult(Result("Estimated",0.67,0.57));
+    //    model.addResult(Result("Absolute",0.78,0.49));
+    //    model.addResult(Result("Graph Adjusted",0.78,0.49));
+    //    model.addResult(Result("Parameters","",""));
+    //    model.addResult(Result("Central Sensitivity (Hz)",33.67,0.57));
+    //    model.addResult(Result("Central Minima (dB)",7.78,0.49));
+    //    model.addResult(Result("Graph Adjusted",28.78,0.49));
+    //    model.addResult(Result("PeripheralMinima (dB)",5.18,3.17));
     TestResultModels model1;// = nullptr;
     model1.addResult(Result("Mp Value","",""));
     model1.addResult(Result("Estimated",0.67,0.57));
@@ -170,6 +170,11 @@ int main(int argc, char *argv[])
     //QGuiApplication app(argc, argv);
     plotDataPoint PlotPoint;
     QQmlApplicationEngine engine;
+    QStringList dataList;
+    dataList.append("Item 1");
+    dataList.append("Item 2");
+    dataList.append("Item 3");
+    dataList.append("Item 4");
     //engine.rootContext()->setContextProperty("availableStyles", QQuickStyle::availableStyles());
     engine.rootContext()->setContextProperty("theModel", &model);
     engine.rootContext()->setContextProperty("theModel1", &model1);
@@ -182,6 +187,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("filterModel",&filterModel);
     engine.rootContext()->setContextProperty("filterModel",&filterModel1);
     engine.rootContext()->setContextProperty("filterModel",&filterModel2);
+    engine.rootContext()->setContextProperty("myModel", QVariant::fromValue(dataList));
     qmlRegisterType<TestResultModels>("TestResultModels",0,1,"TestResultModels");
     qmlRegisterType<TestPageSupplementationModel>("TestPageSupplementationModel",0,1,"TestPageSupplementationModel");
     qmlRegisterType<SwitchPatientTableModel>("SwitchPatientTableModel",0,1,"SwitchPatientTableModel");

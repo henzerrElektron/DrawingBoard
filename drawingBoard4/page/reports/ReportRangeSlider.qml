@@ -72,6 +72,7 @@ Rectangle{
     signal first2RangeValue(int value)
     signal changeDayValue(int month,int year)
     signal changeToPosition()
+    signal equalFirstSec(int index)
     function getDaysInMonth(month,year) {
         var dateValue =  new Date(year, month+1, 0).getDate();
         console.log("The datevalue is "+dateValue+year+month)
@@ -168,6 +169,13 @@ Rectangle{
                             secChanged = true
                         }
                     }
+                    else
+                    {
+                        if(firstValue === secValue)
+                        {
+                             equalFirstSec(secValue)
+                        }
+                    }
 
                     if((firstValue) > (secValue))
                     {
@@ -182,6 +190,7 @@ Rectangle{
                     {
                         console.log("The first and second values are"+firstValue+"SEC"+secValue+"to"+slider1.to+"from"+slider1.from)
                     }
+
 
                     if(alterValues === true)
                     {
@@ -222,6 +231,13 @@ Rectangle{
                             firstValue = firstValue -1
                             first.value = firstValue
                             firstchanged = true;
+                        }
+                    }
+                    else
+                    {
+                        if(firstValue === secValue)
+                        {
+                           equalFirstSec(secValue)
                         }
                     }
 

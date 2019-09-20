@@ -13,6 +13,7 @@ import Qt.labs.settings 1.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
 import "."
+import "./../../common/"
 import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
@@ -23,12 +24,24 @@ import ApplicationConstants 1.0
 Rectangle{
     id:mainRec
     anchors.fill: parent
-    color: StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor
-    width:  rectangleSub4.width+rectangleSub5.width
+    color: StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor
+    width:  rectangleSub4.width+rectangleSub5.width+60//rectangleSub5.rightMargin
+    //height: mainGrid.height//rectangleSub4.height+rectangleSub5.height+rectangleSub6.height+rectangleSub7.height
+    signal okClicked()
+    signal cancelClicked()
+    onOkClicked: {
+        close()
+    }
+    onCancelClicked: {
+        close()
+    }
+
     GridLayout{
         id:mainGrid
+        //anchors.rightMargin: 10
+        //anchors.leftMargin: 10
         anchors.fill: parent
-        rows: IntegerConstants.rowCount3
+        rows: IntegerConstants.rowCount4
         columns: IntegerConstants.columnCount2
         NewPatientGroupLabel{
             id:contactDetailLabel1
@@ -38,13 +51,15 @@ Rectangle{
             Layout.column: IntegerConstants.columnCount1
             Layout.columnSpan:IntegerConstants.columnSpan2
             text: StringConstants.lbl_rpDateRange
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.preferredHeight: 30
+            //Layout.fillWidth: true
             Layout.minimumHeight: 30
             Layout.maximumHeight: 30
         }
         Rectangle {
             id: rectangleSub4
-            color:StringConstants.testPage_backgroundColor// "black"//StringConstants.actionBtnBackgroundColor//
+            color:StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor// "black"//StringConstants.actionBtnBackgroundColor//
             Layout.row: IntegerConstants.rowCount2
             //Layout.rowSpan: IntegerConstants.rowSpan2
             Layout.column: IntegerConstants.columnCount1
@@ -67,14 +82,13 @@ Rectangle{
                 lblText:StringConstants.lbl_rpStartDate
                 sortLeapYears:true
                 firstOrLast: false
-
                 anchors.right: parent.right
 
                 Component.onCompleted: {
                     pageStartTumbler.setDate.connect(pageSlider.setFromDate)
                     pageStartTumbler.setMonth.connect(pageSlider.setFromMonth)
                     pageStartTumbler.setYear.connect(pageSlider.setFromYear)
-                     pageStartTumbler.setYear.connect(pageSlider.checkEqualYear)
+                    pageStartTumbler.setYear.connect(pageSlider.checkEqualYear)
                     //pageStartTumbler.informOtherTumbler.connect(pageEndTumbler.maxYear)
                     pageStartTumbler.otherTumblerInfo.connect(pageEndTumbler.setOtherTumblerInfo)
                     //pageStartTumbler.informOtherTumbler.connect(pageEndTumbler.minYear)
@@ -88,7 +102,7 @@ Rectangle{
         }
         Rectangle {
             id: rectangleSub5
-            color:StringConstants.testPage_backgroundColor
+            color:StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor
             anchors.left: rectangleSub4.right
             anchors.leftMargin: IntegerConstants.margin10
             //anchors.right: parent.right
@@ -113,6 +127,8 @@ Rectangle{
                 sortLeapYears:true
                 firstOrLast: true
                 anchors.right: parent.right
+
+
                 Component.onCompleted: {
                     pageEndTumbler.setDate.connect(pageSlider.setToDate)
                     pageEndTumbler.setMonth.connect(pageSlider.setToMonth)
@@ -124,35 +140,50 @@ Rectangle{
                     pageEndTumbler.resetYear.connect(pageStartTumbler.resetYear)
                     setTumblerYear(IntegerConstants.dobEndDate - IntegerConstants.dobStartDate)
                     setTumblerMonth(11)
-                    setTumblerDate(30)
+                    setPrevSetDate(30)
+                    setTumblerDate(30)//getDaysInMonth(11,IntegerConstants.dobEndDate)
                 }
             }//TestPageSwitchButtons
         }
         Rectangle {
             id: rectangleSub6
-            color:StringConstants.actionBtnBackgroundColor
-            Layout.rightMargin: 10
-            Layout.leftMargin: 10//StringConstants.testPage_backgroundColor// "black"//
+            color:StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor
             Layout.row: IntegerConstants.rowCount3
+            Layout.rowSpan: IntegerConstants.rowCount1
             Layout.column: IntegerConstants.columnCount1
             Layout.columnSpan:IntegerConstants.columnSpan2
-            //Layout.alignment: Qt.AlignTop
-            anchors.top: rectangleSub5.bottom
-            //Layout.fillHeight: true
+            //            anchors.top: rectangleSub5.bottom
+            //            anchors.right: parent.right
+            //            anchors.left: parent.left
+            //            anchors.topMargin: 10
+            //            anchors.rightMargin: 15
+            //            anchors.leftMargin: 15
+            //Layout.leftMargin: 15//20
+            //Layout.rightMargin: 15//20
+            //Layout.topMargin: 15//20
+            //Layout.bottomMargin: 10
+            //Layout.bottomMargin: 15
             Layout.fillWidth: true
-
-
+            Layout.fillHeight: true
+            anchors.left: rectangleSub4.left
+            anchors.right: rectangleSub5.right
+            //anchors.rightMargin: 10
+            //anchors.leftMargin: 10
+            //Layout.rightMargin: 10
+            //Layout.leftMargin: 10//StringConstants.testPage_backgroundColor// "black"//
+            //Layout.alignment: Qt.AlignTop
+            //Layout.fillHeight: true
             ReportDateRangeSlider{
                 id:pageSlider
-                //anchors.fill: parent
                 anchors.left: parent.left
-                ///anchors.leftMargin: 10
-                //anchors.rightMargin: 10
                 anchors.right: parent.right
                 height:100
-                sliderDayVisible: false
-                sliderMonthVisible: false
+                sliderDayVisible: false//true//
+                sliderMonthVisible: false//true//
                 sliderYearVisible: true
+                //anchors.fill: parent
+                ///anchors.leftMargin: 10
+                //anchors.rightMargin: 10
                 Component.onCompleted: {
                     pageSlider.dateFromChange.connect(pageStartTumbler.setTumblerDate)
                     pageSlider.dateToChange.connect(pageEndTumbler.setTumblerDate)
@@ -164,8 +195,42 @@ Rectangle{
                     pageSlider.calcYearToChange.connect(checkEqualYear)
                     pageSlider.monthFromChange.connect(checkEqualMonth)
                     pageSlider.monthToChange.connect(checkEqualMonth)
+
                 }
             }
+        }
+        Rectangle{
+            id:rectangleSub7
+            color:StringConstants.testPage_backgroundColor
+            Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
+            Layout.row: IntegerConstants.rowCount4
+            Layout.rowSpan: IntegerConstants.rowCount1
+            Layout.column: IntegerConstants.columnCount1
+            Layout.columnSpan:IntegerConstants.columnSpan2
+            anchors.top: rectangleSub6.bottom
+            anchors.topMargin: 10
+            anchors.left: rectangleSub6.left
+            anchors.right: rectangleSub6.right
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 5
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.preferredHeight:100//(parent.height -  (rectangleSub6.height+rectangleSub5.height+rectangleSub4.height+contactDetailLabel1.height+50))
+            Layout.minimumHeight: 100
+            Layout.maximumHeight: 100
+            ReportOkCancelGroup{
+                id:pgOkCancel
+                //anchors.left: parent.left
+                //anchors.right: parent.right
+                anchors.centerIn: parent
+                //height: 100
+
+                Component.onCompleted: {
+                    pgOkCancel.okClicked.connect(mainRec.pgOkCancel)
+                    pgOkCancel.cancelClicked.connect(mainRec.pgOkCancel)
+                }
+            }
+
         }
 
     }
