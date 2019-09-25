@@ -29,10 +29,10 @@ Rectangle{
     border.color: "black"
     NewPatientGroupLabel{
         id:medicalDetailsLabel
-        anchors.left: parent.left
-        anchors.right: parent.right
-        height: 30//100
-        text: "MedicalDetails"
+        //anchors.left: parent.left
+        //anchors.right: parent.right
+        //height: 30//100
+        text: StringConstants.lbl_medicalDetails//"MedicalDetails"
     }
 
     Label  {

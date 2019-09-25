@@ -33,7 +33,7 @@ Rectangle {
     anchors.fill: parent
     anchors.top: parent.top
     anchors.bottom: parent.bottom
-    color: "transparent"//StringConstants.actionBtnBackgroundColor//"transparent"//
+    color: "transparent"//StringConstants.actionBtnBackgroundColor//
     //width: frame.width
     // color: "black"
 
@@ -54,7 +54,7 @@ Rectangle {
     }
 
     //property alias comboBoxModelCount: topTextArea.model.modelData.count
-     //property alias comboModelData: topTextArea.modelData
+    //property alias comboModelData: topTextArea.modelData
     onComboBoxModelChanged: {
         console.log("The model is"+topTextArea.model)
     }
@@ -240,35 +240,40 @@ Rectangle {
             Layout.minimumWidth: firstTumblerRec.width+secTumblerRec.width+thirdTumblerRec.width+3*rowSpacing
             Label {
                 id:lbl
+                width: labelHorizontal?(parent.width/4):parent.width
                 Layout.row: 1
                 Layout.rowSpan: labelHorizontal?0:1
                 Layout.column: secTumblerVisibility?2:1
                 Layout.columnSpan: secTumblerVisibility?3:1
+                //Layout.rightMargin: 20
                 Layout.fillWidth: true
                 anchors.top: parent.top
                 anchors.horizontalCenter: secTumblerVisibility?parent.horizontalCenter:firstTumbler.horizontalCenter
                 text: ""
                 font: OtherConstants.fontFamily
+                color: labelHorizontal?"white":"white"//StringConstants.actionBtnBackgroundColor
                 height: labelHorizontal?topTextArea.height:20
                 verticalAlignment: Text.AlignVCenter//labelHorizontal?Text.AlignBottom:Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter//labelHorizontal?Text.AlignRight:Text.AlignHCenter
+                horizontalAlignment: labelHorizontal?Text.AlignLeft:Text.AlignHCenter//Text.AlignHCenter//
                 Layout.alignment: secTumblerVisibility?Qt.AlignHCenter | Qt.AlignVCenter:Qt.AlignLeft
-//                background: Rectangle{
-//                    id:bgRec
-//                    color: "Red"
-//                }
+                background: Rectangle{
+                    id:bgRec
+                    color: labelHorizontal?StringConstants.testPage_backgroundColor:"transparent"//StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor
+                }
             }
             NewPatientDataComboBox  {
                 id: topTextArea
+                Layout.fillWidth: false
+                //width: labelHorizontal?(parent.width - ((parent.width/7))):parent.width
+                // width: labelHorizontal?(parent.width - lbl.width):parent.width
                 Layout.row: lbl.visible?labelHorizontal?1:2:1
                 Layout.rowSpan: labelHorizontal?0:1
                 Layout.column: labelHorizontal?2:1
                 Layout.columnSpan: labelHorizontal?1:3
                 anchors.left: labelHorizontal?lbl.right:parent.left
-                anchors.leftMargin: labelHorizontal?15:0//(parent.width-lbl.width)/8:0
+                anchors.leftMargin: labelHorizontal?50:0//(parent.width-lbl.width)/8:0
                 anchors.right: parent.right
-                anchors.rightMargin: labelHorizontal?(parent.width-lbl.width)/4:0
-                Layout.fillWidth: labelHorizontal?false:true
+                anchors.rightMargin: 0//labelHorizontal?(parent.width-lbl.width)/4:0
                 //Layout.fillHeight: true
                 anchors.horizontalCenter: lbl.horizontalCenter
                 anchors.top: lbl.visible?labelHorizontal?parent.top:lbl.bottom:parent.top
@@ -417,6 +422,10 @@ Rectangle {
         }
     }
 }
+
+
+
+
 
 
 

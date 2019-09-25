@@ -144,5 +144,10 @@
         <file>common/ReportPageBtn.qml</file>
         <file>common/ReportTabButton.qml</file>
         <file>common/ReportOkCancelGroup.qml</file>
+        <file>page/newPatient/NewPatientMedicalRiskFactors.qml</file>
+        <file>page/newPatient/NewPatientNotes.qml</file>
+        <file>page/test/TestPageSupplementTableGrid.qml</file>
+        <file>page/reports/ReportPatientDetails.qml</file>
+        <file>page/reports/ReportPraticeDetails.qml</file>
     </qresource>
 </RCC>

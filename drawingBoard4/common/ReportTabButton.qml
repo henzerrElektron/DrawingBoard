@@ -46,4 +46,7 @@ TabButton {
         border.width: 1
         radius: 2
     }
+   onClicked: {
+       backColor = StringConstants.actionBtnBackgroundColor
+   }
 }

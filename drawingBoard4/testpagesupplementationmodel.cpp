@@ -120,19 +120,36 @@ bool TestPageSupplementationModel::setData(const QModelIndex &index, const QVari
 }
 int TestPageSupplementationModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    //Q_UNUSED(parent);
+    if (parent.isValid())
+        return 0;
     return m_supplement.count();
 }
 
 int TestPageSupplementationModel::columnCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    //Q_UNUSED(parent);
+    if (parent.isValid())
+        return 0;
     return 4;//m_supplement.count();//3
 }
 QVariant TestPageSupplementationModel::data(const QModelIndex &index, int role) const
 {
     int row = index.row();
     int col = index.column();
+    // index is valid
+    Q_ASSERT(index.isValid());
+    // index is right below the root
+    Q_ASSERT(!index.parent().isValid());
+    // index is for this model
+    Q_ASSERT(index.model() == this);
+    // the row is legal
+    Q_ASSERT(index.row() >= 0);
+    Q_ASSERT(index.row() < rowCount(index.parent()));
+    // the column is legal
+    Q_ASSERT(index.column() >= 0);
+    Q_ASSERT(index.column() < columnCount(index.parent()));
+    Q_ASSERT(checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid | QAbstractItemModel::CheckIndexOption::ParentIsInvalid));
     qDebug()<<QString("row %1,col%2, role%3").arg(row).arg(col).arg(role);
     if (index.row() < 0 || index.row() >= m_supplement.count())
         return QVariant();
@@ -173,6 +190,22 @@ QVariant TestPageSupplementationModel::data(const QModelIndex &index, int role) 
         }
 
     }
+    switch (role) {
+    case Qt::DisplayRole:
+        switch (index.column()) {
+        case 0: return  supplement.date();
+        case 1: return  supplement.dosage();
+        case 2: return  supplement.perDay();
+        case 3: return  supplement.description();
+        default: break;
+        }
+        break;
+    case DateRole: return  supplement.date();
+    case DosageRole : return  supplement.dosage();
+    case PerDayRole: return  supplement.perDay();
+    case DescRole: return  supplement.description();
+    default: break;
+    }
     switch(index.column())
     {
     case 0:
@@ -201,9 +234,9 @@ QVariant TestPageSupplementationModel::headerData(int section, Qt::Orientation o
         case 1:
             return tr("Dosage");
         case 2:
-            return  tr("PerDay");
+            return tr("PerDay");
         case 3:
-            return  tr("Description");
+            return tr("Description");
         default:
             return QVariant();
         }
@@ -222,6 +255,8 @@ Qt::ItemFlags TestPageSupplementationModel::flags(const QModelIndex &index) cons
 QHash<int, QByteArray> TestPageSupplementationModel::roleNames() const
 {
     QHash<int,QByteArray> roles;
+    roles[Qt::DisplayRole] = "display";
+    roles[HeadingRole] = "heading";
     roles[DateRole] = "Dates";
     roles[DosageRole] = "Dosage";
     roles[PerDayRole] = "PerDay";

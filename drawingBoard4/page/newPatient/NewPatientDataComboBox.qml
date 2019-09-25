@@ -26,6 +26,9 @@ import ApplicationConstants 1.0
 
 ComboBox {
     id: topTextArea
+    //anchors.fill: parent
+    anchors.left: parent.left
+    anchors.right: parent.right
     property alias comboBoxModel: topTextArea.model
     property alias comboBoxText: topTextArea.displayText
     property alias comboBoxCurText: topTextArea.currentText
@@ -39,7 +42,7 @@ ComboBox {
     function setComboPrevIndex(index){
         comboBoxPreviousIndex = index
     }
-
+    editable: true
     onComboBoxModelChanged: {
         console.log("The model is"+topTextArea.model)
     }
@@ -65,7 +68,12 @@ ComboBox {
     onSelectedText: {
         console.log("The selected Text is"+curText+role)
     }
-    displayText: textRole
+    function getDisplayText(flag)
+    {
+        return flag?modelData:topTextArea.textRole==="Surname"?model.Surname:topTextArea.textRole==="FirstName"?model.FirstName:model.MedicalReference
+    }
+
+    displayText:getDisplayText(roleOrModel)//roleOrModel?modelData:topTextArea.textRole==="Surname"?model.Surname:topTextArea.textRole==="FirstName"?model.FirstName:model.MedicalReference
     delegate: ItemDelegate{
         id:textValueData
         width: topTextArea.width
@@ -80,45 +88,70 @@ ComboBox {
             verticalAlignment: Text.AlignVCenter
         }
 
-//        background: Rectangle {
-//            anchors.fill: parent
-//            color:StringConstants.actionBtnBackgroundColor
-//            border.color: StringConstants.actionBtnBackgroundColor
-//            radius: 2
-//        }
+        //        background: Rectangle {
+        //            anchors.fill: parent
+        //            color:StringConstants.actionBtnBackgroundColor
+        //            border.color: StringConstants.actionBtnBackgroundColor
+        //            radius: 2
+        //        }
 
 
         highlighted: topTextArea.highlightedIndex === index
     }
+
+
+    contentItem: TextInput {
+        //leftPadding: 0
+        //rightPadding: topTextArea.indicator.width + topTextArea.spacing
+        selectByMouse: true
+        text: topTextArea.displayText
+        //onTextChanged: topTextArea.currentText = text//base.currentText = text
+        font: topTextArea.font
+        color: StringConstants.actionBtnBackgroundColor//"blue"//topTextArea.pressed ? Qt.darker(base.textColor) : base.textColor
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+    }
+
+
+
+    background: Rectangle {
+        //implicitWidth:150// 120
+        implicitHeight: 40
+        //anchors.fill: parent
+        //color: "transparent"
+        border.color: control.pressed ? "#17a81a" : "#21be2b"
+        border.width: control.visualFocus ? 2 : 1
+        radius: 2
+    }
     //
-        popup: Popup {
-            y: topTextArea.height - 1
-            width: topTextArea.width
-            implicitHeight: contentItem.implicitHeight
-            padding: 1
-            onVisibleChanged: {
+    popup: Popup {
+        y: topTextArea.height - 1
+        width: topTextArea.width
+        implicitHeight: contentItem.implicitHeight
+        padding: 1
+        onVisibleChanged: {
+            console.log("The model values are"+topTextArea.delegateModel+ "The model is"+topTextArea.model)
+        }
+        contentItem: ListView {
+            clip: true
+            implicitHeight: contentHeight
+            model: topTextArea.popup.visible ? topTextArea.delegateModel:null
+            onModelChanged: {
                 console.log("The model values are"+topTextArea.delegateModel+ "The model is"+topTextArea.model)
             }
-            contentItem: ListView {
-                clip: true
-                implicitHeight: contentHeight
-                model: topTextArea.popup.visible ? topTextArea.delegateModel:null
-                onModelChanged: {
-                    console.log("The model values are"+topTextArea.delegateModel+ "The model is"+topTextArea.model)
-                }
 
-                currentIndex: topTextArea.highlightedIndex
+            currentIndex: topTextArea.highlightedIndex
 
-                ScrollIndicator.vertical: ScrollIndicator { }
-            }
-
-            background: Rectangle {
-                anchors.fill: parent
-                color:StringConstants.actionBtnBackgroundColor
-                border.color: StringConstants.actionBtnBackgroundColor
-                radius: 2
-            }
+            ScrollIndicator.vertical: ScrollIndicator { }
         }
+
+        background: Rectangle {
+            anchors.fill: parent
+            color:StringConstants.actionBtnBackgroundColor
+            border.color: StringConstants.actionBtnBackgroundColor
+            radius: 2
+        }
+    }
     //
     Layout.row: lbl.visible?2:1
     //Layout.minimumWidth: 50

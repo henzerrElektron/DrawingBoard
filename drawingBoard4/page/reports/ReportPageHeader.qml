@@ -90,6 +90,7 @@ Rectangle {
                     //width: 100
                     //height: 150
                     ReportDetails{
+                    //ReportPatientDetails{
                         id:pageTitle
                         anchors.fill: parent
                         //                        labelText: StringConstants.lbl_npPatientTitle

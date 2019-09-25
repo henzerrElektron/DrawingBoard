@@ -61,7 +61,7 @@ public:
     bool insertRows(int position, int rows, const QModelIndex &index=QModelIndex()) override;
     bool removeRows(int position, int rows, const QModelIndex &index=QModelIndex()) override;
     bool setData(const QModelIndex &index, const QVariant &value, int role=Qt::EditRole) override;
-    protected:
+protected:
     QHash<int, QByteArray> roleNames() const override;
 signals:
 

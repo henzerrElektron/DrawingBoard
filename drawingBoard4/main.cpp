@@ -128,9 +128,26 @@ int main(int argc, char *argv[])
     existingPatientModel.addExistingPatient(ExistingPatients("FGDDFGREnegala","vm13",QDate::currentDate(),1.857,"5632fggf424","Address1"));
 
     TestPageSupplementationModel supplementModel;
-    supplementModel.addSupplement(Supplementation("Date","Dosage","PerDay","Description"));
-    supplementModel.addSupplement(Supplementation(QDate::currentDate(),"test",1,"testing"));
-    supplementModel.addSupplement(Supplementation(QDate::currentDate(),"test",1,"testing"));
+    //supplementModel.addSupplement(Supplementation("Date","Dosage","PerDay","Description"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+
     TestResultModels model;// = nullptr;
     model.addResult(Result("ConfidenceLevel","Right","Left"));
     model.addResult(Result("Central","Accept","Reject"));

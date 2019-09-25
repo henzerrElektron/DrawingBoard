@@ -16,6 +16,7 @@ import "."
 import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
+import "./../../common/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
@@ -26,6 +27,9 @@ import ApplicationConstants 1.0
 //    id:headerDelegate
     Rectangle{
         property alias switchMetricsChecked: switchMetrics.checked
+        property alias switchMetricsVisible: switchMetrics.visible
+        property alias addSupplementVisible: addSupplement.visible
+        property alias riskFactorLabel: riskFactorLabel.text
         anchors.left: parent.left
         anchors.right: parent.right
         Layout.fillWidth: true
@@ -34,7 +38,7 @@ import ApplicationConstants 1.0
         color: "transparent"
         NewPatientGroupLabel{
             id:riskFactorLabel
-            text: "RiskFactors"
+            text: StringConstants.lbl_riskFactors
             
         }
         Switch {
@@ -42,18 +46,33 @@ import ApplicationConstants 1.0
             anchors.right: parent.right
             anchors.rightMargin: 10
             Layout.fillWidth: true
+            visible: true
             text: qsTr("Metric")
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             onCheckedChanged: {
-                if(text === "Us/Imperial")
+                if(text === "US/Imperial")
                 {
                     text = qsTr("Metric")
                 }
                 else
                 {
-                    text = qsTr("Metric")
+                    text = qsTr("US/Imperial")
                 }
             }
         }
+        IconOnlyButtons{
+            id:addSupplement
+            visible: true
+            anchors.right: parent.right
+            anchors.rightMargin: 10
+            Layout.fillWidth: true
+            width: 50
+            height: 50
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            icon.name:   "add_supplement"
+            icon.source:   "qrc:/images/add_supplement.png"
+            icon.color:  "transparent"
+        }
+
     }
 //}

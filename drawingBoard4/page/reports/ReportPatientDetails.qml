@@ -24,13 +24,20 @@ Rectangle{
     id:mainGridRec
     anchors.fill: parent
     color: StringConstants.actionBtnBackgroundColor
-    property bool patientOrOperator: false//true means patient // false means operator
     NewPatientGroupLabel{
         id:contactDetailLabel1
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
+        //Layout.fillWidth: true
+        //Layout.row: IntegerConstants.rowCount1
+        //Layout.rowSpan: IntegerConstants.rowSpan1
+        //Layout.column: IntegerConstants.columnCount1
+        //Layout.columnSpan:IntegerConstants.columnSpan2
         text: StringConstants.lbl_rpDetails
+        //Layout.preferredHeight: 30
+        //Layout.minimumHeight: 30
+        //Layout.maximumHeight: 30
         height: 30
     }
     GridLayout{
@@ -38,32 +45,12 @@ Rectangle{
         anchors.top: contactDetailLabel1.bottom
         anchors.topMargin: contactDetailLabel1.height
         anchors.fill: parent
+        //rows: IntegerConstants.rowCount5
 
         NewPatientLabelWithText{
             id:oneLabel
             index:1
-            labelText:StringConstants.lbl_rpGenerate
-            tfReadOnly:false
-            textAlignLeftOrCenter: false
-            //tfPlaceHolderText:StringConstants.lbl_npRequestSurName
-            lblValueText:StringConstants.lbl_rpGenerateValue
-            Layout.row: IntegerConstants.rowCount1
-            Layout.rowSpan: IntegerConstants.rowSpan1
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.leftMargin: parent.width/10
-            Layout.rightMargin: parent.width/10
-            addSpace: true
-            //lblVisible: true
-            lblValueVisible: true//pageNpSpTp===1?false:true//pageSpOrNp
-            txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
-            itemVisible: true
-
-        }
-        NewPatientLabelWithText{
-            id:twoLabel
-            index:2
-            labelText:patientOrOperator?StringConstants.lbl_ReportForPatient:StringConstants.lbl_ReportForPratice
+            labelText:StringConstants.lbl_ReportForPatient
             tfReadOnly:false
             textAlignLeftOrCenter: false
             //tfPlaceHolderText:StringConstants.lbl_npRequestSurName
@@ -82,8 +69,8 @@ Rectangle{
 
         }
         NewPatientLabelWithText{
-            id:threeLabel
-            index:3
+            id:twoLabel
+            index:2
             labelText:StringConstants.lbl_ReportFrom
             //tfPlaceHolderText:StringConstants.lbl_npRequestFirstName
             lblValueText:StringConstants.lbl_rpFromDate
@@ -103,8 +90,8 @@ Rectangle{
 
         }
         NewPatientLabelWithText{
-            id:fourLabel
-            index:4
+            id:threeLabel
+            index:3
             labelText:StringConstants.lbl_reportTo
             //tfPlaceHolderText:StringConstants.lbl_npRequestMedicalReference
             lblValueText:StringConstants.lbl_rpToDate
@@ -123,59 +110,17 @@ Rectangle{
             itemVisible: true
 
         }
+
         NewPatientLabelWithText{
-            id:fiveLabel
-            index:5
-            labelText:StringConstants.lbl_rpTotalTests
-            //tfPlaceHolderText:StringConstants.lbl_npRequestFirstName
-            lblValueText:StringConstants.lbl_rpTotalTestsValue
+            id:fourLabel
+            index:4
+            labelText:StringConstants.lbl_rpGenerate
+            tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
+            lblValueText:StringConstants.lbl_rpGenerateValue
             tfReadOnly:false
+            addSpace: true
             textAlignLeftOrCenter: false
             Layout.row: IntegerConstants.rowCount5
-            Layout.rowSpan: IntegerConstants.rowSpan1
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.leftMargin: parent.width/10
-            Layout.rightMargin: parent.width/10
-            addSpace: true
-            //lblVisible: true
-            lblValueVisible: true//pageNpSpTp===1?false:true//pageSpOrNp
-            txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
-            itemVisible: true
-
-        }
-        NewPatientLabelWithText{
-            id:sixLabel
-            index:6
-            labelText:StringConstants.lbl_rpNoOfRETests
-            //tfPlaceHolderText:StringConstants.lbl_npRequestMedicalReference
-            lblValueText:StringConstants.lbl_rpNoOfRETestsValue
-            tfReadOnly:false
-            textAlignLeftOrCenter: false
-            Layout.row: IntegerConstants.rowCount6
-            Layout.rowSpan: IntegerConstants.rowSpan1
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.leftMargin: parent.width/10
-            Layout.rightMargin: parent.width/10
-            addSpace: true
-            //lblVisible: true
-            lblValueVisible: true//pageNpSpTp===1?false:true//pageSpOrNp
-            txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
-            itemVisible: true
-
-        }
-
-        NewPatientLabelWithText{
-            id:sevenLabel
-            index:7
-            labelText:StringConstants.lbl_rpNoOfLETests
-            tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
-            lblValueText:StringConstants.lbl_rpNoOfLETestsValue
-            tfReadOnly:false
-            addSpace: true
-            textAlignLeftOrCenter: false
-            Layout.row: IntegerConstants.rowCount7
             Layout.rowSpan: IntegerConstants.rowSpan1
             Layout.leftMargin: parent.width/10
             Layout.rightMargin: parent.width/10
@@ -189,16 +134,38 @@ Rectangle{
         }
 
         NewPatientLabelWithText{
-            id:eightLabel
-            index:8
-            labelText:StringConstants.lbl_rpNoOfCombinedTests
+            id:fiveLabel
+            index:5
+            labelText:StringConstants.lbl_rpNoOfRETests
             tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
-            lblValueText:StringConstants.lbl_rpNoOfCombinedTestsValue
+            lblValueText:StringConstants.lbl_rpNoOfRETestsValue
             tfReadOnly:false
             addSpace: true
             textAlignLeftOrCenter: false
             //lblHorizontalAlignment:Text.AlignRight
-            Layout.row: IntegerConstants.rowCount8
+            Layout.row: IntegerConstants.rowCount6
+            Layout.leftMargin: parent.width/10
+            Layout.rightMargin: parent.width/10
+            //lblVisible:  pageNpSpTp===2?true:false//iSVisible(5)//pageSpOrNp
+            lblValueVisible: true//pageNpSpTp===1?false:true//pageSpOrNp
+            txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
+            itemVisible: pageNpSpTp===2?true:false //pageSpOrNp
+            Layout.rowSpan: IntegerConstants.rowSpan1
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+
+        }
+        NewPatientLabelWithText{
+            id:sixLabel
+            index:6
+            labelText:StringConstants.lbl_rpNoOfLETests
+            tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
+            lblValueText:StringConstants.lbl_rpNoOfLETestsValue
+            tfReadOnly:false
+            addSpace: true
+            textAlignLeftOrCenter: false
+            //lblHorizontalAlignment:Text.AlignRight
+            Layout.row: IntegerConstants.rowCount7
             Layout.leftMargin: parent.width/10
             Layout.rightMargin: parent.width/10
             //lblVisible:  pageNpSpTp===2?true:false//iSVisible(5)//pageSpOrNp
@@ -214,8 +181,3 @@ Rectangle{
 }
 
 
-
-/*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
- ##^##*/

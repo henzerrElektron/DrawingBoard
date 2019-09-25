@@ -49,7 +49,7 @@ Page {
                 page1.visible = true;
                 page2.visible = false;
                 patientBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-                backColor=StringConstants.actionBtnBackgroundColor
+               // backColor=StringConstants.actionBtnBackgroundColor
             }
         }
         ReportTabButton {
@@ -58,7 +58,7 @@ Page {
             onClicked: {
                 page1.visible = false;
                 page2.visible = true;
-                backColor=StringConstants.actionBtnBackgroundColor
+                //backColor=StringConstants.actionBtnBackgroundColor
                 praticeBtn. backColor=StringConstants.label_NewPatientLabelBgColor
             }
 

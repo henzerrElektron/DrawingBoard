@@ -39,12 +39,15 @@ Rectangle {
     property alias tfReadOnly: textField.readOnly
     property alias tfPlaceHolderText: textField.placeholderText
     property bool textAlignLeftOrCenter: true
+    property bool lblAlignLeftOrCenter: true
+    property bool textEntryAlignLeftOrCenter: true
     property bool addSpace: false
     property alias lblVisible: label.visible
     property alias lblValueVisible: labelValue.visible
     property alias lblValueText: labelValue.text
     property alias lblHorizontalAlignment: label.horizontalAlignment
     property alias textValidator: textField.validator
+    property alias lblLeftPadding: label.leftPadding
     property int index: 0
     property color commonColor: "white"
     onLblValueVisibleChanged: {
@@ -80,6 +83,7 @@ Rectangle {
                 id: label
                 visible: true
                 text: qsTr("Label")
+                leftPadding: 0
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment:textAlignLeftOrCenter? Text.AlignHCenter:Text.AlignLeft
                 //anchors.fill: parent
@@ -93,7 +97,7 @@ Rectangle {
                 //color: "red"
                 anchors.left: parent.left
                 font.bold: true
-                font.pixelSize:25// Constants.testPage_lblFontSize//25
+                font.pixelSize:15//25// Constants.testPage_lblFontSize//25
                 font.weight: Font.ExtraBold
                 renderType: Text.QtRendering
                 fontSizeMode: Text.VerticalFit
@@ -128,7 +132,7 @@ Rectangle {
             Label {
                 id: labelValue
                 //text: qsTr("Text Field")
-                horizontalAlignment: Text.AlignLeft
+                horizontalAlignment: lblAlignLeftOrCenter?Text.AlignHCenter:Text.AlignLeft
                 //anchors.fill: parent
                 Layout.column: txtVisible?3:2
                 Layout.columnSpan: 2
@@ -142,7 +146,7 @@ Rectangle {
                 anchors.right: parent.right
                 color: commonColor//"white"
                 font.bold: true
-                font.pixelSize:25// Constants.testPage_lblFontSize//25
+                font.pixelSize:15//25// Constants.testPage_lblFontSize//25
                 font.weight: Font.ExtraBold
                 renderType: Text.QtRendering
                 fontSizeMode: Text.VerticalFit
@@ -196,7 +200,7 @@ Rectangle {
                 anchors.right: parent.right
                 anchors.left: label.right//labelRec1.right
                 //text: qsTr("Text Field")
-                horizontalAlignment: Text.AlignRight
+                horizontalAlignment: textEntryAlignLeftOrCenter?Text.AlignHCenter:Text.AlignRight
                 verticalAlignment: Text.AlignVCenter
                 placeholderText: "I am testing"
                 readOnly: false
@@ -228,8 +232,10 @@ Rectangle {
 
 
 
+
+
 /*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:2;anchors_x:145;anchors_y:51}D{i:1;anchors_x:64;anchors_y:64}
-D{i:3;anchors_x:145;anchors_y:51}
+    D{i:0;autoSize:true;height:480;width:640}D{i:2;anchors_x:145;anchors_y:51}D{i:3;anchors_x:145;anchors_y:51}
+D{i:1;anchors_x:64;anchors_y:64}
 }
  ##^##*/

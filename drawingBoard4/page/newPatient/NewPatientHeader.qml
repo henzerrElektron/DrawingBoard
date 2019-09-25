@@ -59,7 +59,7 @@ Rectangle {
             PageTitle{
                 id:pgTitle
                 anchors.fill: parent
-                actionGridGroup:"newPatientItems"
+                actionGridGroup:StringConstants.modelNewPatientItems//"newPatientItems"
                 labelText: StringConstants.label_newPtPgHeader
                 Component.onCompleted: {
                     pgTitle.invokeSource.connect(rectangle.invokeSource)
@@ -74,6 +74,8 @@ Rectangle {
             Layout.fillWidth: true
             Layout.row: 2
             Layout.rowSpan: 2
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
             GridLayout{
                 id: mainCol
                 anchors.fill: parent
