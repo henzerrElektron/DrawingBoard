@@ -117,6 +117,7 @@ Rectangle {
     property int secModelReArrangeCondition: 0
     property int thirdModelReArrangeCondition: 0
     property alias  firstTumblerCount: firstTumblerRec.allTumblerVisibleItemCount
+    property bool lblAlignCentre: false
     signal changeTumblerComboValue(int index)
     onChangeTumblerComboValue: {
         if(index === 0)
@@ -245,27 +246,31 @@ Rectangle {
                 Layout.rowSpan: labelHorizontal?0:1
                 Layout.column: secTumblerVisibility?2:1
                 Layout.columnSpan: secTumblerVisibility?3:1
+                Layout.rightMargin:labelHorizontal?50:0
                 //Layout.rightMargin: 20
-                Layout.fillWidth: true
+                //Layout.fillWidth: true
                 anchors.top: parent.top
+                //anchors.bottom: labelHorizontal?topTextArea.bottom:firstTumblerRec.top
                 anchors.horizontalCenter: secTumblerVisibility?parent.horizontalCenter:firstTumbler.horizontalCenter
                 text: ""
                 font: OtherConstants.fontFamily
                 color: labelHorizontal?"white":"white"//StringConstants.actionBtnBackgroundColor
-                height: labelHorizontal?topTextArea.height:20
+                height: labelHorizontal?topTextArea.height-2:20
                 verticalAlignment: Text.AlignVCenter//labelHorizontal?Text.AlignBottom:Text.AlignVCenter
-                horizontalAlignment: labelHorizontal?Text.AlignLeft:Text.AlignHCenter//Text.AlignHCenter//
-                Layout.alignment: secTumblerVisibility?Qt.AlignHCenter | Qt.AlignVCenter:Qt.AlignLeft
+                horizontalAlignment: Text.AlignHCenter//labelHorizontal?Text.AlignLeft:Text.AlignHCenter//Text.AlignHCenter//
+                Layout.alignment: secTumblerVisibility?Qt.AlignHCenter | Qt.AlignVCenter:lblAlignCentre?Qt.AlignHCenter:Qt.AlignLeft
                 background: Rectangle{
                     id:bgRec
                     color: labelHorizontal?StringConstants.testPage_backgroundColor:"transparent"//StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor
                 }
             }
+
             NewPatientDataComboBox  {
                 id: topTextArea
+                Layout.leftMargin: labelHorizontal?50:0
                 Layout.fillWidth: false
                 //width: labelHorizontal?(parent.width - ((parent.width/7))):parent.width
-                // width: labelHorizontal?(parent.width - lbl.width):parent.width
+                //width: labelHorizontal?(parent.width - (lbl.width + 100)):parent.width
                 Layout.row: lbl.visible?labelHorizontal?1:2:1
                 Layout.rowSpan: labelHorizontal?0:1
                 Layout.column: labelHorizontal?2:1
@@ -273,7 +278,7 @@ Rectangle {
                 anchors.left: labelHorizontal?lbl.right:parent.left
                 anchors.leftMargin: labelHorizontal?50:0//(parent.width-lbl.width)/8:0
                 anchors.right: parent.right
-                anchors.rightMargin: 0//labelHorizontal?(parent.width-lbl.width)/4:0
+                anchors.rightMargin: labelHorizontal?10:0//labelHorizontal?(parent.width-lbl.width)/4:0
                 //Layout.fillHeight: true
                 anchors.horizontalCenter: lbl.horizontalCenter
                 anchors.top: lbl.visible?labelHorizontal?parent.top:lbl.bottom:parent.top
@@ -340,7 +345,7 @@ Rectangle {
                 Layout.columnSpan: 1//secTumblerVisibility?1:3
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                Layout.leftMargin: 10
+                ////////////////////////////Layout.leftMargin: 10
                 Layout.row: 3
                 allTumblerModel:100
                 onTumblerIndexChanged: {
@@ -422,6 +427,10 @@ Rectangle {
         }
     }
 }
+
+
+
+
 
 
 

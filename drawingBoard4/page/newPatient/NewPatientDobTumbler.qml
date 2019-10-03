@@ -437,6 +437,7 @@ Rectangle {
             Label{
                 id:lbl
                 text: StringConstants.dobTitle
+                color: StringConstants.barBackgroundColor
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
                 //anchors.centerIn: parent

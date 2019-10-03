@@ -27,7 +27,7 @@ import "."
         id: actionHeaderDelegateRec
         height: IntegerConstants.actionBtnHeight//75
         width: IntegerConstants.actionBtnWidth//75
-        color: "#5EBDC3"//Constants.headerBackgroundColor//"transparent"//"#5EBDC3"//
+        color: StringConstants.testPage_backgroundColor//"#5EBDC3"//Constants.headerBackgroundColor//"transparent"//"#5EBDC3"//
         //border.color: "black"//Constants.actionBtnBorderColor
         signal invokeSource(string source)
         signal invokeIndex(int index)

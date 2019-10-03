@@ -149,5 +149,13 @@
         <file>page/test/TestPageSupplementTableGrid.qml</file>
         <file>page/reports/ReportPatientDetails.qml</file>
         <file>page/reports/ReportPraticeDetails.qml</file>
+        <file>page/reports/ReportPraticeDateGrid.qml</file>
+        <file>page/reports/ReportPatientDateGrid.qml</file>
+        <file>common/CommonBorder.qml</file>
+        <file>page/reports/ReportPatientResultTabs.qml</file>
+        <file>page/reports/ReportPatientLeftResult.qml</file>
+        <file>page/reports/ReportPatientRightResult.qml</file>
+        <file>page/reports/ReportPatientBothResult.qml</file>
+        <file>page/test/ResultCommonTableGrids.qml</file>
     </qresource>
 </RCC>

@@ -73,7 +73,7 @@ ComboBox {
         return flag?modelData:topTextArea.textRole==="Surname"?model.Surname:topTextArea.textRole==="FirstName"?model.FirstName:model.MedicalReference
     }
 
-    displayText:getDisplayText(roleOrModel)//roleOrModel?modelData:topTextArea.textRole==="Surname"?model.Surname:topTextArea.textRole==="FirstName"?model.FirstName:model.MedicalReference
+    displayText:roleOrModel?modelData:getDisplayText(roleOrModel)//roleOrModel?modelData:topTextArea.textRole==="Surname"?model.Surname:topTextArea.textRole==="FirstName"?model.FirstName:model.MedicalReference
     delegate: ItemDelegate{
         id:textValueData
         width: topTextArea.width
@@ -143,6 +143,7 @@ ComboBox {
             currentIndex: topTextArea.highlightedIndex
 
             ScrollIndicator.vertical: ScrollIndicator { }
+             ScrollBar.vertical: ScrollBar{}
         }
 
         background: Rectangle {

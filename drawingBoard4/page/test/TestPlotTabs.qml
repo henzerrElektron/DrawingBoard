@@ -9,45 +9,195 @@ import QtQuick.Controls.Universal 2.0
 import Qt.labs.calendar 1.0
 import QtQuick.Controls.Material 2.0
 import QtQuick.Controls 2.3
-import QtQuick.Controls 1.4
+//import QtQuick.Controls 1.4
 import Qt.labs.settings 1.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
 import ApplicationConstants 1.0
+import "./../../common/"
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
 Page {
     id: tabsPage
+    anchors.fill: parent
+    Layout.fillHeight: true
+    Layout.fillWidth: true
+    anchors.topMargin: 10
+    property int prevTestBtnHeight: 0
+    property int prevReportBtnHeight: 0
+    property int prevTimelineBtnHeight: 0
+    property alias tabCurrentIndex: bar.currentIndex
+    onVisibleChanged: {
+        if(visible === true)
+        {
+            bar.checkIndex(tabCurrentIndex)
+        }
+    }
     header:  TabBar {
         id: bar
         width: parent.width
+        background: Rectangle {
+            anchors.fill: parent
+            color: StringConstants.headerBackgroundColor
+            //border.width: 2
+            //border.color: StringConstants.barBackgroundColor
+            CommonBorder
+            {
+                anchors.fill: parent
+                anchors.leftMargin: 25
+                anchors.rightMargin: 25
+                customBorder:  false
+                lBorderWidth: 0
+                rBorderWidth: 0
+                tBorderWidth: 0
+                bBorderWidth: 2
+                borderColor: StringConstants.barBorderColor
+            }
+        }
         //height: parent.height
         currentIndex: view.currentIndex
-        TabButton {
-            text: qsTr("Test")
-            //            onClicked:{
-            //                currentIndex = 2
-            //            }
+        onCurrentIndexChanged: {
+            checkIndex(currentIndex)
         }
-        TabButton {
-            text: qsTr("Report")
-            //            onClicked:{
-            //                currentIndex = 3
-            //            }
+        function checkIndex(index)
+        {
+            if(currentIndex === 0)
+            {
+                testBtnClicked()//praticeBtnClicked()
+            }
+            if(currentIndex === 1)
+            {
+                reportBtnClicked()//patientBtnClicked()
+            }
+            if(currentIndex === 2)
+            {
+                timelineBtnClicked()
+            }
         }
-        TabButton {
-            text: qsTr("Timeline")
-            //            onClicked:{
-            //                currentIndex = 3
-            //            }
+        function testBtnClicked()//praticeBtnClicked()
+        {
+
+            page2.visible = false;//rightTabBtn//bothTabBtn//leftTabBtn
+            page3.visible = false;
+            if(page1.visible === false)
+            {
+                page1.visible = true;
+            }
+            reportBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            timelineBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            testBtn.backColor=StringConstants.actionBtnBackgroundColor
+            if(prevTestBtnHeight !== 0)
+            {
+                testBtn.height = prevTestBtnHeight
+                reportBtn.height = prevReportBtnHeight
+                timelineBtn.height = prevTimelineBtnHeight
+            }
+            else
+            {
+                prevTestBtnHeight =   testBtn.height
+                prevReportBtnHeight =  reportBtn.height
+                prevTimelineBtnHeight = timelineBtn.height
+            }
+
+            timelineBtn.height = timelineBtn.height - 10
+            reportBtn.height =  reportBtn.height - 10
+            testBtn.height =  testBtn.height + 3
+            /////////////////////////////////////////////////////////reportTimeline.setState()
+        }
+        function  reportBtnClicked()//patientBtnClicked()
+        {
+
+
+            page1.visible = false;
+            page3.visible = false;
+            if(page2.visible === false)
+            {
+                page2.visible = true;
+            }
+            testBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            timelineBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            reportBtn.backColor=StringConstants.actionBtnBackgroundColor
+            if(prevReportBtnHeight !== 0)
+            {
+                testBtn.height = prevTestBtnHeight
+                reportBtn.height = prevReportBtnHeight
+                timelineBtn.height = prevTimelineBtnHeight
+            }
+            else
+            {
+                prevReportBtnHeight =  reportBtn.height
+                prevTestBtnHeight =  testBtn.height
+                prevTimelineBtnHeight =  timelineBtn.height
+            }
+            timelineBtn.height =  timelineBtn.height - 10
+            testBtn.height = testBtn.height - 10
+            reportBtn.height = reportBtn.height + 3
+            ///////////////////////////////////mainTime.setState()
+        }
+
+        function  timelineBtnClicked()
+        {
+
+            page1.visible = false;
+            page2.visible = false;
+            if(page3.visible === false)
+            {
+                page3.visible = true;
+            }
+            testBtn.backColor = StringConstants.label_NewPatientLabelBgColor
+            reportBtn.backColor = StringConstants.label_NewPatientLabelBgColor
+            timelineBtn.backColor = StringConstants.actionBtnBackgroundColor
+            if(prevTimelineBtnHeight !== 0)
+            {
+                testBtn.height = prevTestBtnHeight
+                reportBtn.height = prevReportBtnHeight
+                timelineBtn.height = prevTimelineBtnHeight
+            }
+            else{
+                prevTimelineBtnHeight =  timelineBtn.height
+                prevReportBtnHeight =  reportBtn.height
+                prevTestBtnHeight =  testBtn.height
+            }
+
+            testBtn.height = testBtn.height - 10
+            reportBtn.height = reportBtn.height -10
+            timelineBtn.height =  timelineBtn.height +3
+        }
+        ReportTabButton {
+            id:testBtn
+            width: implicitWidth
+            anchors.bottom: parent.bottom
+            text: StringConstants.lbl_testTabTestBtn//qsTr("Test")
+            onClicked: {
+                testBtnClicked()
+            }
+        }
+        ReportTabButton {
+            id:reportBtn
+            width: implicitWidth
+            anchors.bottom: parent.bottom
+            text: StringConstants.lbl_testTabReportBtn//qsTr("Report")
+            onClicked: {
+                reportBtnClicked()
+            }
+        }
+        ReportTabButton {
+            id:timelineBtn
+            width: implicitWidth
+            anchors.bottom: parent.bottom
+            text: StringConstants.lbl_testTabTimelineBtn//qsTr("Timeline")
+            onClicked: {
+                timelineBtnClicked
+            }
         }
     }
 
     SwipeView {
-        id: view//swipeView
+        id: swipeView//swipeView
         anchors.fill: parent
         currentIndex: bar.currentIndex
+        clip: true
         function addPage(page) {
             addItem(page)
             page.visible = true
@@ -69,16 +219,35 @@ Page {
         Page {
             id: page1
             visible: true;
+
             //anchors.fill: parent
-            XYPlot{
-                id:xyplotgrid
-                //width: 500
-                //height: 500
+            Rectangle{
+                id:xyPlotRec
+                color: StringConstants.testPage_backgroundColor
                 anchors.fill: parent
-                //anchors.left: rectangle1.left
-                //anchors.right: rectangle2.left
-                //anchors.top: rectangle1.top
-                //anchors.bottom: rectangle1.bottom
+                //                anchors.leftMargin: 25
+                //                anchors.rightMargin: 25
+                //                anchors.bottomMargin: 25
+                //                anchors.topMargin: 25
+                XYPlot{
+                    id:xyplotgrid
+                    //width: 500
+                    //height: 500
+                    anchors.fill: parent
+                    anchors.leftMargin: 25
+                    anchors.rightMargin: 25
+                    anchors.bottomMargin: 25
+                    anchors.topMargin: 25
+                    //anchors.left: rectangle1.left
+                    //anchors.right: rectangle2.left
+                    //anchors.top: rectangle1.top
+                    //anchors.bottom: rectangle1.bottom
+                }
+            }
+
+
+            onVisibleChanged: {
+                bar.praticeBtnClicked()
             }
             //           background: Rectangle { color: "yellow" }
             //            Label {
@@ -108,13 +277,15 @@ Page {
     PageIndicator {
         id: indicator
 
-        count: view.count
-        currentIndex: view.currentIndex
+        count: swipeView.count
+        currentIndex: swipeView.currentIndex
 
-        anchors.bottom: view.bottom
+        anchors.bottom: swipeView.bottom
         anchors.horizontalCenter: parent.horizontalCenter
     }
-
+    Component.onCompleted: {
+        page1.visible = true
+    }
 
 }
 

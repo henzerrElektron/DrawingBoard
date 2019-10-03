@@ -76,6 +76,7 @@ Rectangle {
             Layout.rowSpan: 2
             Layout.leftMargin: 10
             Layout.rightMargin: 10
+            Layout.bottomMargin: 10
             GridLayout{
                 id: mainCol
                 anchors.fill: parent
@@ -83,16 +84,19 @@ Rectangle {
                 //rows: 3
                 Rectangle{
                     id:rectangleSub1
-                    color: StringConstants.testPage_backgroundColor
+                    color: StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor
                     Layout.column: 1
                     //Layout.row: 2
                     Layout.fillHeight: true
                     //Layout.fillWidth: true
                     width: 100
+                    border.width: 1
+                    border.color: StringConstants.barBackgroundColor
                     //height: 150
                     NewPatientDataTumbler{
                         id:pageTitle
                         anchors.fill: parent
+                        lblAlignCentre:true
                         labelText: StringConstants.lbl_npPatientTitle
                         firstTumblerVisibility: true
                         secTumblerVisibility: false
@@ -104,18 +108,21 @@ Rectangle {
 
                 Rectangle{
                     id:rectangleSub2
-                    color: StringConstants.testPage_backgroundColor//"green"///
+                    color: StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor//"green"///
                     Layout.column: 2
                     // Layout.row: 3
                     Layout.fillHeight: true
                     Layout.alignment: Qt.AlignLeft
                     //Layout.fillWidth: true
                     width: 100
+                    border.width: 1
+                    border.color: StringConstants.barBackgroundColor
                     //height: 150
                     NewPatientDataTumbler{
                         id:pageGender
                         //anchors.fill: parent
                         anchors.left: parent.left
+                        lblAlignCentre:true
                         labelText: StringConstants.lbl_npPatientGender
                         firstTumblerVisibility: true
                         secTumblerVisibility: false
@@ -218,7 +225,7 @@ Rectangle {
                         //                        lbl6Vislbe: false
                         //                        lbl7Visible: false
                         pageSpOrNp:false
-                        pageNpSpTp:1
+                        pageNpSpTp:0
                         Component.onCompleted: {
                             console.log("I am completed")
                         }
@@ -226,12 +233,16 @@ Rectangle {
                 }
                 Rectangle {
                     id: rectangleSub4
-                    color:StringConstants.testPage_backgroundColor// "black"//
+                    color:StringConstants.actionBtnBackgroundColor//testPage_backgroundColor// "black"//
                     Layout.column: 4
+                    border.color: StringConstants.barBackgroundColor
+                    border.width: 1
                     // Layout.row: 1
                     // Layout.rowSpan: 3
                     Layout.fillHeight: true
-                    Layout.maximumWidth: 300//parent.width/4
+                    Layout.topMargin: 10
+                    Layout.preferredWidth: pageSwitchButtons.width//pageSwitchButtons.width
+                    Layout.maximumWidth: pageSwitchButtons.width//parent.width/4
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignRight
                     NewPatientDobTumbler{
@@ -339,7 +350,8 @@ Rectangle {
 
 
 
-/*##^## Designer {
+/*##^##
+Designer {
     D{i:1;anchors_height:200;anchors_width:200;anchors_x:107;anchors_y:66}
 }
- ##^##*/
+##^##*/

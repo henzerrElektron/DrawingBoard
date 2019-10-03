@@ -28,8 +28,24 @@ import SwitchPatientTableModel 0.1
 
 Rectangle {
     id: searchTable
-    color: "white"//"transparent"
+    color: StringConstants.testPage_backgroundColor//"white"//"transparent"
     signal selectedText(string curText,string role)
+    height: searchLabel.height
+    NewPatientGroupLabel{
+        id:searchLabel
+        text: StringConstants.label_searchQuestion
+        //color: StringConstants.actionBtnBackgroundColor
+        Layout.alignment: Qt.AlignTop |Qt.AlignLeft
+        font: OtherConstants.fontFamily
+        anchors.left: parent.left
+        anchors.right: parent.right
+        //Layout.fillWidth: true
+        //Layout.column: 1
+        //Layout.columnSpan: 3
+        //Layout.rowSpan: 1
+        //Layout.row: 1
+         height: 30
+    }
     onSelectedText: {
         console.log("The selected Text is"+curText+role)
     }
@@ -39,36 +55,25 @@ Rectangle {
     property alias pageHeader: searchLabel.text
     GridLayout{
         id: mainGridRow
+        anchors.top: searchLabel.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.leftMargin: 10
-        anchors.rightMargin: 10
+        //anchors.leftMargin: 10
+        //anchors.rightMargin: 10
         columns: 3
         rows:2
-        Label{
-            id:searchLabel
-            text: StringConstants.label_searchQuestion
-            color: StringConstants.actionBtnBackgroundColor
-            Layout.alignment: Qt.AlignTop |Qt.AlignLeft
-            font: OtherConstants.fontFamily
-            Layout.fillWidth: true
-            Layout.column: 1
-            Layout.columnSpan: 3
-            Layout.rowSpan: 1
-            Layout.row: 1
-            //height: 100
-        }
+        //Label{
         //SwitchPatientTableModel{id:theGreatModel}
         Rectangle{
             id:rectangleSub1
-            color: StringConstants.testPage_backgroundColor
+            color: StringConstants.actionBtnBackgroundColor//testPage_backgroundColor
             Layout.fillHeight: true
             Layout.fillWidth: true
             anchors.top: searchLabel.bottom
             Layout.column: 1
             Layout.columnSpan: 1
             Layout.rowSpan: 1
-            Layout.row: 2
+            Layout.row: 1
             Layout.minimumHeight: 75
             SwitchSearchBox {
                 id: label_lblPatientName
@@ -95,14 +100,14 @@ Rectangle {
         }
         Rectangle{
             id:rectangleSub2
-            color: StringConstants.testPage_backgroundColor
+            color:StringConstants.actionBtnBackgroundColor//testPage_backgroundColor
             anchors.top: searchLabel.bottom
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.column: 2
             Layout.columnSpan: 1
             Layout.rowSpan: 1
-            Layout.row: 2
+            Layout.row: 1
             Layout.minimumHeight: 75
 
             SwitchSearchBox {
@@ -128,14 +133,14 @@ Rectangle {
 
         Rectangle{
             id:rectangleSub3
-            color: StringConstants.testPage_backgroundColor
+            color: StringConstants.actionBtnBackgroundColor//testPage_backgroundColor
             anchors.top: searchLabel.bottom
             Layout.fillWidth: true
             Layout.minimumHeight: 75
             Layout.column: 3
             Layout.columnSpan: 1
             Layout.rowSpan: 1
-            Layout.row: 2
+            Layout.row: 1
 
             SwitchSearchBox {
                 id: label_lblmedicalRef

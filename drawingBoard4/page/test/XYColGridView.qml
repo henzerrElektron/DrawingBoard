@@ -20,32 +20,47 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
-GridView {
-    id: gridColView
-    //rotation: 180
-    //rows: 1
-    //columns: numGridCol
+Rectangle{
+    id:backgroundRec
+    anchors.fill: parent
+    // z:-1
+    color: "transparent"
     property alias crossColCellWidth: gridColView.cellWidth
     property alias crossColCellHeight: gridColView.cellHeight
     property alias crossColModel: gridColView.model
     property bool testOrReport: false//true = test false = report
-    cellWidth: gridColView.width/(IntegerConstants.numGridCol); cellHeight: gridColView.height/2
-    footer: testOrReport?footerItem1:footerItem2
+    GridView {
+        id: gridColView
+        anchors.fill: parent
+        //rotation: 180
+        //rows: 1
+        //columns: numGridCol
+
+        cellWidth: gridColView.width/(IntegerConstants.numGridCol); cellHeight: gridColView.height/2
+        footer: testOrReport?footerItem1:footerItem2
 
 
-    XYColFooter {
-        id: footerItem1
+        XYColFooter {
+            id: footerItem1
+        }
+        XYReportColFooter{
+            id:footerItem2
+        }
+
+
+        XYColDelegate {
+            id: colDelegate
+            //colWidth:gridColView.width/IntegerConstants/numGridCol
+            //colHeight: gridColView.height/2
+        }
+        model: 1*IntegerConstants.numGridCol
+        delegate: colDelegate
     }
-    XYReportColFooter{
-        id:footerItem2
-    }
-
-
-    XYColDelegate {
-        id: colDelegate
-        //colWidth:gridColView.width/IntegerConstants/numGridCol
-        //colHeight: gridColView.height/2
-    }
-    model: 1*IntegerConstants.numGridCol
-    delegate: colDelegate
 }
+
+
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+ ##^##*/

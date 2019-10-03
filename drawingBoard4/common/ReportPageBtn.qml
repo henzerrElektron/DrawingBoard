@@ -39,7 +39,7 @@ Button {
     background: Rectangle {
         id:backRec
         implicitWidth: 120
-        implicitHeight: 75
+        implicitHeight: 50
         //opacity: enabled ? 1 : 0.3
         color: control.down ? StringConstants.actionBtnBackgroundColor:StringConstants.headerBackgroundColor//
         border.color: control.down ? StringConstants.actionBtnBackgroundColor:StringConstants.headerBackgroundColor//"#17a81a" : "#21be2b"

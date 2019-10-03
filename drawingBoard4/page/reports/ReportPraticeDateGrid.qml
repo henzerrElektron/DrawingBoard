@@ -39,6 +39,12 @@ Rectangle{
     signal btn4Clicked()
     signal btn5Clicked()
     signal btn6Clicked()
+    onBtn1Clicked:  console.log("Btn1 clicked Report Pratice")
+    onBtn2Clicked:  console.log("Btn2 clicked Report Pratice")
+    onBtn3Clicked: console.log("Btn3 clicked Report Pratice")
+    onBtn4Clicked:  console.log("Btn4 clicked Report Pratice")
+    onBtn5Clicked:  console.log("Btn5 clicked Report Pratice")
+    onBtn6Clicked: console.log("Btn6 clicked Report Pratice")
     NewPatientGroupLabel{
         id:contactDetailLabel1
         anchors.left: parent.left
@@ -86,7 +92,7 @@ Rectangle{
                 id:todayBtn
                 text: StringConstants.btn_reportPageDateToday
                 onClicked: {
-                    todayClicked()
+                   // todayClicked()
                     btn1Clicked()
                     console.log("Today Clicked")
                 }
@@ -95,7 +101,7 @@ Rectangle{
                 id:thisWeekBtn
                 text: StringConstants.btn_reportPageDateThisWeek
                 onClicked: {
-                    thisWeekClicked()
+                   // thisWeekClicked()
                     btn2Clicked()
                     console.log("This Week")
                 }
@@ -104,7 +110,7 @@ Rectangle{
                 id:thisMonthBtn
                 text: StringConstants.btn_reportPageDateThisMonth
                 onClicked: {
-                    thisMonthClicked()
+                   // thisMonthClicked()
                     btn3Clicked()
                     console.log("This Month")
                 }
@@ -113,7 +119,7 @@ Rectangle{
                 id:sixMonthBtn
                 text:StringConstants.btn_reportPageDateSixMonths
                 onClicked: {
-                    sixMonthClicked()
+                   // sixMonthClicked()
                     btn4Clicked()
                     console.log("Six Month")
                 }
@@ -122,7 +128,7 @@ Rectangle{
                 id:thisYearBtn
                 text: StringConstants.btn_reportPageDateThisYear
                 onClicked: {
-                    thisYearClicked()
+                    //thisYearClicked()
                     btn5Clicked()
                     console.log("This year")
                 }
@@ -133,7 +139,7 @@ Rectangle{
                 onClicked: {
                     console.log("Custom Dates")
                     openDateRange()
-                    btn6Clicked()
+                   btn6Clicked()
                 }
             }
         }

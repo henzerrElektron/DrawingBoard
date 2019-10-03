@@ -123,6 +123,10 @@ int TestPageSupplementationModel::rowCount(const QModelIndex &parent) const
     //Q_UNUSED(parent);
     if (parent.isValid())
         return 0;
+    if(m_supplement.count() <4)
+    {
+        return  4;
+    }
     return m_supplement.count();
 }
 

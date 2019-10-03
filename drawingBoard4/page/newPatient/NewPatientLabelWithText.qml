@@ -51,14 +51,14 @@ Rectangle {
     property int index: 0
     property color commonColor: "white"
     onLblValueVisibleChanged: {
-        labelRec2.visible = labelValue.visible
+       /////////////////////////////////////// labelRec2.visible = labelValue.visible
     }
     onLblVisibleChanged: {
-        labelRec1.visible = lblVisible
+       ////////////////////////////////////// labelRec1.visible = lblVisible
     }
     property alias txtVisible: textField.visible
     onTxtVisibleChanged: {
-        textFieldRec3.visible = txtVisible
+      ///////////////////  textFieldRec3.visible = txtVisible
     }
     property alias itemVisible: mainRec.visible
     //height: 50

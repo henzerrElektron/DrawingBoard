@@ -102,6 +102,7 @@ Rectangle {
             //Layout.column: 1
             //Layout.fillHeight: true
             //Layout.minimumWidth: 50
+            color: StringConstants.headerBackgroundColor
             Layout.fillWidth: true
             Layout.row: 1
             Layout.rowSpan: 1

@@ -75,7 +75,7 @@ RESOURCES += qml.qrc \
 #QML_IMPORT_PATH =
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
-#QML_DESIGNER_IMPORT_PATH =
+QML_DESIGNER_IMPORT_PATH =C:\Qt\Qt5.13\5.13.1\mingw73_32\bin
 QML_IMPORT_TRACE = 1
 QML_IMPORT_PATH += ./imports
 QML_IMPORT_PATH += ./imports/

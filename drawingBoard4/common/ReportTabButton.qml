@@ -30,7 +30,7 @@ TabButton {
         text: control.text
         font: control.font
         opacity: enabled ? 1.0 : 0.3
-        color: control.down ? "blue" : "white"//"#17a81a":"#21be2b"
+        color: control.down ? StringConstants.barAlternateColor : StringConstants.barBackgroundColor//"#17a81a":"#21be2b"
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
@@ -39,12 +39,21 @@ TabButton {
     background: Rectangle {
         id:bg
         implicitWidth: 120
-        implicitHeight: 75
+        implicitHeight: 50//75
         //opacity: enabled ? 1 : 0.3
         color: control.down ? StringConstants.actionBtnBackgroundColor:StringConstants.label_NewPatientLabelBgColor//StringConstants.actionBtnBackgroundColor//:"#eeeeee"//
-        border.color: control.down ?  "#eeeeee":StringConstants.headerBackgroundColor//"#17a81a" : "#21be2b"
+        border.color: control.down ?  StringConstants.barBorderColor:StringConstants.headerBackgroundColor//"#17a81a" : "#21be2b"
         border.width: 1
         radius: 2
+        CommonBorder
+                {
+                    customBorder:  false
+                    lBorderWidth: 2
+                    rBorderWidth: 2
+                    tBorderWidth: 0
+                    bBorderWidth: 0
+                    borderColor: StringConstants.barBorderColor
+                }
     }
    onClicked: {
        backColor = StringConstants.actionBtnBackgroundColor

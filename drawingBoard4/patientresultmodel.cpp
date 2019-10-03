@@ -159,13 +159,17 @@ bool PatientResultModel::setData(const QModelIndex &index, const QVariant &value
 int PatientResultModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
+    if(m_results.count()<6)
+    {
+        return  6;
+    }
     return m_results.count();
 }
 
 int PatientResultModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return 5;//m_results.count();
+    return 6;//m_results.count();
 }
 
 

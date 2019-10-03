@@ -33,7 +33,9 @@ void Result::setRightValue(QVariant rightValue)
 Result::Result(const QString &title, const QVariant &leftValue, const QVariant &rightValue)
     :m_title(title),m_leftValue(leftValue),m_rightValue(rightValue)
 {
-
+    qDebug()<<"The value for title is"<<m_title;
+    qDebug()<<"The value of left value is"<<m_leftValue;
+    qDebug()<<"The value of right value is"<<m_rightValue;
 }
 
 TestResultModels::TestResultModels(QList<Result> results, QObject *parent): QAbstractTableModel(parent)
@@ -98,6 +100,10 @@ bool TestResultModels::setData(const QModelIndex &index, const QVariant &value, 
 int TestResultModels::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
+    if(m_results.count()<3)
+    {
+        return  3;
+    }
     return m_results.count();
 }
 
@@ -121,6 +127,19 @@ QVariant TestResultModels::data(const QModelIndex &index, int role) const
 {
     int row = index.row();
     int col = index.column();
+    // index is valid
+    Q_ASSERT(index.isValid());
+    // index is right below the root
+    Q_ASSERT(!index.parent().isValid());
+    // index is for this model
+    Q_ASSERT(index.model() == this);
+    // the row is legal
+    Q_ASSERT(index.row() >= 0);
+    Q_ASSERT(index.row() < rowCount(index.parent()));
+    // the column is legal
+    Q_ASSERT(index.column() >= 0);
+    Q_ASSERT(index.column() < columnCount(index.parent()));
+    Q_ASSERT(checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid | QAbstractItemModel::CheckIndexOption::ParentIsInvalid));
     qDebug()<<QString("row %1,col%2, role%3").arg(row).arg(col).arg(role);
     if (index.row() < 0 || index.row() >= m_results.count())
         return QVariant();
@@ -192,6 +211,23 @@ QVariant TestResultModels::data(const QModelIndex &index, int role) const
         }
 
     }
+    switch (role) {
+    case Qt::DisplayRole:
+        switch (index.column()) {
+        case 0:
+            return  result.title();
+        case 1:
+            return result.leftValue();
+        case 2:
+            return  result.rightValue();
+        default: break;}
+        break;
+    case TitleRole: return  result.title();
+    case LeftRole: return  result.leftValue();
+    case RightRole : return  result.rightValue();
+    default: break;
+    }
+
     switch(index.column())
     {
     case 0:
@@ -211,6 +247,7 @@ QVariant TestResultModels::data(const QModelIndex &index, int role) const
     //    else if(role == RightRole)
     //        return  result.rightValue();
     //    return  QVariant();
+
 }
 
 QVariant TestResultModels::headerData(int section, Qt::Orientation orientation, int role) const
@@ -248,6 +285,7 @@ Qt::ItemFlags TestResultModels::flags(const QModelIndex &index) const
 QHash<int, QByteArray> TestResultModels::roleNames() const
 {
     QHash<int,QByteArray> roles;
+    roles[Qt::DisplayRole]= "display";
     roles[TitleRole] = "TestResults";
     roles[LeftRole] = "Left";
     roles[RightRole] = "Right";

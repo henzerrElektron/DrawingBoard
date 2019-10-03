@@ -9,11 +9,12 @@ import QtQuick.Controls.Universal 2.0
 import Qt.labs.calendar 1.0
 import QtQuick.Controls.Material 2.0
 import QtQuick.Controls 2.3
-import QtQuick.Controls 1.4
+//import QtQuick.Controls 1.4
 import Qt.labs.settings 1.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
 import "."
+import "./../../common/"
 import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
@@ -27,28 +28,167 @@ Page {
     anchors.fill: parent
     Layout.fillHeight: true
     Layout.fillWidth: true
+    anchors.topMargin: 10
+    property int prevResultBtnHeight: 0
+    property int prevNotesBtnHeight: 0
+    property int prevSupplementationBtnHeight: 0
+    property alias tabCurrentIndex: bar.currentIndex
+    onVisibleChanged: {
+        if(visibile === true)
+        {
+            bar.checkIndex(tabCurrentIndex)
+        }
+    }
+
     header:  TabBar {
         id: bar
         width: parent.width
+        background: Rectangle {
+            color: StringConstants.headerBackgroundColor
+            //border.width: 2
+            //border.color: StringConstants.barBackgroundColor
+            CommonBorder
+            {
+                customBorder:  false
+                lBorderWidth: 0
+                rBorderWidth: 0
+                tBorderWidth: 0
+                bBorderWidth: 2
+                borderColor: StringConstants.barBorderColor
+            }
+        }
         currentIndex: swipeView.currentIndex
+        onCurrentIndexChanged: {
+            checkIndex(currentIndex)
+        }
         //onCurrentIndexChanged:
-        TabButton {
-            text: qsTr("Results")
-            onClicked: {page1.visible = true;
-            page2.visible = false;
-            page3.visible = false;}
+        function checkIndex(index)
+        {
+            if(currentIndex === 0)
+            {
+                resultBtnClicked()//praticeBtnClicked()
+            }
+            if(currentIndex === 1)
+            {
+                notesBtnClicked()//patientBtnClicked()
+            }
+            if(currentIndex === 2)
+            {
+                supplementationBtnClicked()
+            }
         }
-        TabButton {
-            text: qsTr("Notes")
-            onClicked: {page1.visible = false;
-            page2.visible = true;
-            page3.visible = false;}
+        function resultBtnClicked()//praticeBtnClicked()
+        {
+
+            page2.visible = false;//rightTabBtn//bothTabBtn//leftTabBtn
+            page3.visible = false;
+            if(page1.visible === false)
+            {
+                page1.visible = true;
+            }
+            notesBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            supplementationBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            resultBtn.backColor=StringConstants.actionBtnBackgroundColor
+            if(prevResultBtnHeight !== 0)
+            {
+                resultBtn.height = prevResultBtnHeight
+                notesBtn.height = prevNotesBtnHeight
+                supplementationBtn.height = prevSupplementationBtnHeight
+            }
+            else
+            {
+                prevResultBtnHeight =   resultBtn.height
+                prevNotesBtnHeight =  notesBtn.height
+                prevSupplementationBtnHeight = supplementationBtn.height
+            }
+
+            supplementationBtn.height = supplementationBtn.height - 10
+            notesBtn.height =  notesBtn.height - 10
+            resultBtn.height =  resultBtn.height + 3
+            /////////////////////////////////////////////////////////reportTimeline.setState()
         }
-        TabButton {
-            text: qsTr("Supplementation")
-            onClicked: {page1.visible = false;
+        function  notesBtnClicked()//patientBtnClicked()
+        {
+
+
+            page1.visible = false;
+            page3.visible = false;
+            if(page2.visible === false)
+            {
+                page2.visible = true;
+            }
+            resultBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            supplementationBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            notesBtn.backColor=StringConstants.actionBtnBackgroundColor
+            if(prevNotesBtnHeight !== 0)
+            {
+                resultBtn.height = prevResultBtnHeight
+                notesBtn.height = prevNotesBtnHeight
+                supplementationBtn.height = prevSupplementationBtnHeight
+            }
+            else
+            {
+                prevNotesBtnHeight =  notesBtn.height
+                prevResultBtnHeight =  resultBtn.height
+                prevSupplementationBtnHeight =  supplementationBtn.height
+            }
+            supplementationBtn.height =  supplementationBtn.height - 10
+            resultBtn.height = resultBtn.height - 10
+            notesBtn.height = notesBtn.height + 3
+            ///////////////////////////////////mainTime.setState()
+        }
+
+        function supplementationBtnClicked()
+        {
+
+            page1.visible = false;
             page2.visible = false;
-            page3.visible = true;}
+            if(page3.visible === false)
+            {
+                page3.visible = true;
+            }
+            resultBtn.backColor = StringConstants.label_NewPatientLabelBgColor
+            notesBtn.backColor = StringConstants.label_NewPatientLabelBgColor
+            timelineBtn.backColor = StringConstants.actionBtnBackgroundColor
+            if(prevSupplementationBtnHeight !== 0)
+            {
+                resultBtn.height = prevResultBtnHeight
+                notesBtn.height = prevNotesBtnHeight
+                supplementationBtn.height = prevSupplementationBtnHeight
+            }
+            else{
+                prevSupplementationBtnHeight =  supplementationBtn.height
+                prevReportBtnHeight =  notesBtn.height
+                prevResultBtnHeight =  resultBtn.height
+            }
+
+            resultBtn.height = resultBtn.height - 10
+            notesBtn.height = notesBtn.height -10
+            supplementationBtn.height =  supplementationBtn.height +3
+        }
+        ReportTabButton {
+            id:resultBtn
+            text: StringConstants.lbl_testTabResultBtn//qsTr("Results")
+            onClicked: {
+                page1.visible = true;
+                page2.visible = false;
+                page3.visible = false;}
+        }
+        ReportTabButton {
+            id:notesBtn
+            text: StringConstants.lbl_testTabNotesBtn//qsTr("Notes")
+            onClicked: {
+                page1.visible = false;
+                page2.visible = true;
+                page3.visible = false;}
+        }
+        ReportTabButton {
+            id:supplementationBtn
+            text: StringConstants.lbl_testTabSupplementationBtn//qsTr("Supplementation")
+            onClicked: {
+                page1.visible = false;
+                page2.visible = false;
+                page3.visible = true;}
         }
     }
 
@@ -57,6 +197,7 @@ Page {
         anchors.fill: parent
         //initialItem: page1//bar.currentIndex
         currentIndex: bar.currentIndex
+        clip: true
         function addPage(page) {
             addItem(page)
             page.visible = true
@@ -80,7 +221,8 @@ Page {
             visible: true;
 
             //anchors.fill: parent
-            ResultTableGrid {
+            //ResultTableGrid {
+            ResultCommonTableGrids{
                 id: resultGrid
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -135,9 +277,9 @@ Page {
             }
 
             //background: Rectangle { color: "magenta" }
-//            Label {
-//                text: "Page3"
-//            }
+            //            Label {
+            //                text: "Page3"
+            //            }
         }
     }
     PageIndicator {

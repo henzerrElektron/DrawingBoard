@@ -60,9 +60,9 @@ Item {
             anchors.rightMargin: 0
             anchors.top: parent.top
             anchors.topMargin: 0
-            Layout.minimumHeight:  parent.height/4
-            Layout.preferredHeight: parent.height/4
-            Layout.maximumHeight: parent.height/4
+            Layout.minimumHeight:  parent.height/3
+            Layout.preferredHeight: parent.height/3
+            Layout.maximumHeight: parent.height/3
             NewPatientHeader{
                 id:newPatientLbl
                 anchors.fill: parent

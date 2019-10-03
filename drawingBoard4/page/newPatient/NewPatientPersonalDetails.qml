@@ -104,14 +104,15 @@ Rectangle{
     GridLayout{
         id:grid
         anchors.fill: parent
-        rows: pageSpOrNp?IntegerConstants.rowCount5:IntegerConstants.rowCount3
+        rows: pageSpOrNp?IntegerConstants.rowCount5:IntegerConstants.rowCount2
         NewPatientLabelWithText{
             id:oneLabel
             index:1
+            height: parent.height/(grid.rows+1)
             labelText:StringConstants.lbl_npSurName
             tfReadOnly:false
             tfPlaceHolderText:StringConstants.lbl_npRequestSurName
-            textValidator:RegExpValidator{regExp:/^[A-Za-z]+$/ }//RegExpValidator{regExp:/^\+?\d+$/}///{regExp:/^\+?([0-9]\d*)$///{regExp:/^\+?(0|[1-9]\d*)$/ }
+            textValidator:RegExpValidator{regExp:StringConstants.txtValidatorWordsOnly}///^[A-Za-z]+$/ }//RegExpValidator{regExp:/^\+?\d+$/}///{regExp:/^\+?([0-9]\d*)$///{regExp:/^\+?(0|[1-9]\d*)$/ }
             lblValueText:StringConstants.lbl_npRequestSurName
             Layout.row: IntegerConstants.rowCount1
             Layout.rowSpan: IntegerConstants.rowSpan1
@@ -119,17 +120,19 @@ Rectangle{
             Layout.fillWidth: true
             //Layout.leftMargin: 10
             //lblVisible: true
-            lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp
-            txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
-            itemVisible: true
-
+            textAlignLeftOrCenter:true
+            lblValueVisible:pageNpSpTp===1?false:true//pageSpOrNp
+            txtVisible:pageNpSpTp===1?true:false//!lblValueVisible //!pageNpOrSp//!lblValueVisible//
+            itemVisible:pageNpSpTp===1?false:true
+           // commonColor: StringConstants.label_NewPatientLabelBgColor
         }
         NewPatientLabelWithText{
             id:twoLabel
             index:2
+            height: parent.height/(grid.rows+1)
             labelText:StringConstants.lbl_npFirstName
             tfPlaceHolderText:StringConstants.lbl_npRequestFirstName
-            textValidator:RegExpValidator{regExp:/^[A-Za-z]+$/ }
+            textValidator:RegExpValidator{regExp:StringConstants.txtValidatorWordsOnly}///^[A-Za-z]+$/ }
             lblValueText:StringConstants.lbl_npRequestFirstName
             tfReadOnly:false
             Layout.row: IntegerConstants.rowCount2
@@ -138,44 +141,49 @@ Rectangle{
             Layout.fillWidth: true
             //Layout.leftMargin: 10
             //lblVisible: true
+            textAlignLeftOrCenter:true
             lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp
             txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
-            itemVisible: true
+            itemVisible:pageNpSpTp===1?false:true
 
         }
         NewPatientLabelWithText{
             id:threeLabel
             index:3
+            height: parent.height/(grid.rows+1)
             labelText:StringConstants.lbl_npMedicalReference
             tfPlaceHolderText:StringConstants.lbl_npRequestMedicalReference
-            textValidator:RegExpValidator{regExp:/^\w+$/ }
+            textValidator:RegExpValidator{regExp:StringConstants.txtValidatorWordsNumbersOnly}///^\w+$/ }
             lblValueText:StringConstants.lbl_npRequestMedicalReference
             tfReadOnly:false
             Layout.row: IntegerConstants.rowCount3
             Layout.rowSpan: IntegerConstants.rowSpan1
             //Layout.fillHeight: true
             Layout.fillWidth: true
+            textAlignLeftOrCenter:true
             //lblVisible: true
             lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp
             txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
-            itemVisible: true
+            itemVisible:pageNpSpTp===1?false:true
 
         }
 
         NewPatientLabelWithText{
             id:fourLabel
             index:4
+             height: parent.height/(grid.rows+1)
             labelText:StringConstants.label_testPgDOB
             tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
-            textValidator:RegExpValidator{regExp:/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/ }
+            textValidator:RegExpValidator{regExp:StringConstants.txtValidatorDobOnly}///^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/ }
             lblValueText:""
             tfReadOnly:false
             Layout.row: IntegerConstants.rowCount4
             Layout.rowSpan: IntegerConstants.rowSpan1
             //lblVisible: pageSpOrNp
+            textAlignLeftOrCenter:true
             lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp
             txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
-            itemVisible:pageNpSpTp===1?false:true
+            itemVisible:pageNpSpTp===2?true:false
             //Layout.fillHeight: true
             Layout.fillWidth: true
 
@@ -184,9 +192,10 @@ Rectangle{
         NewPatientLabelWithText{
             id:fiveLabel
             index:5
+            height: parent.height/(grid.rows+1)
             labelText:StringConstants.lbl_npContactAddr
             tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
-            textValidator:RegExpValidator{regExp:/^\w+$/ }
+            textValidator:RegExpValidator{regExp:StringConstants.txtValidatorWordsNumbersOnly}///^\w+$/ }
             lblValueText:""
             tfReadOnly:false
             Layout.row: IntegerConstants.rowCount5
@@ -202,9 +211,10 @@ Rectangle{
         NewPatientLabelWithText{
             id:sixLabel
             index:6
+            height: parent.height/(grid.rows+1)
             labelText:StringConstants.label_testPgIOLAge
             tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
-            textValidator:RegExpValidator{regExp:/\s[0-1]{1}[0-9]{0,2}/ }
+            textValidator:RegExpValidator{regExp:StringConstants.txtValidatorAgeOnly}//\s[0-1]{1}[0-9]{0,2}/ }
             lblValueText:""
             tfReadOnly:false
             Layout.row: IntegerConstants.rowCount6
@@ -220,9 +230,10 @@ Rectangle{
         NewPatientLabelWithText{
             id:sevenLabel
             index:7
+            height: parent.height/(grid.rows+1)
             labelText:StringConstants.label_testPgIOLAge
             tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
-            textValidator:RegExpValidator{regExp:/\s[0-1]{1}[0-9]{0,2}/ }
+            textValidator:RegExpValidator{regExp:StringConstants.txtValidatorAgeOnly}///\s[0-1]{1}[0-9]{0,2}/ }
             lblValueText:""
             tfReadOnly:false
             Layout.row: IntegerConstants.rowCount7

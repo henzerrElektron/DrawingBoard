@@ -274,13 +274,17 @@ bool MedicalTestModel::setData(const QModelIndex &index, const QVariant &value, 
 int MedicalTestModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
+    if(m_results.count()< 14)
+    {
+        return 14;
+    }
     return m_results.count();
 }
 
 int MedicalTestModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return 13;//m_results.count();
+    return 14;//m_results.count();
 }
 
 QVariant MedicalTestModel::data(const QModelIndex &index, int role) const
@@ -372,35 +376,35 @@ QVariant MedicalTestModel::headerData(int section, Qt::Orientation orientation, 
         switch (section) {
 
 
+       // case 0:
+       //     return tr("TestResults");
         case 0:
-            return tr("TestResults");
+            return tr("Test Result Number");
         case 1:
-            return tr("TestResultNumber");
-        case 2:
             return tr("TestDate");
-        case 3:
+        case 2:
             return tr( "TestTime");
-        case 4:
+        case 3:
             return tr("PatientId");
-        case 5:
+        case 4:
             return tr( "RE MP Estimate");
-        case 6:
+        case 5:
             return tr("RE MP Absolute");
-        case 7:
+        case 6:
             return tr("RE MP Adjusted");
-        case 8:
+        case 7:
             return tr( "RE Confidence Level");
-        case 9:
+        case 8:
             return tr( "RE Peripheral Confidence Level");
-        case 10:
+        case 9:
             return tr( "LE MP Estimate");
-        case 11:
+        case 10:
             return tr( "LE MP Absolute");
-        case 12:
+        case 11:
             return tr( "LE MP Adjusted");
-        case 13:
+        case 12:
             return tr( "LE Central Confidence Level");
-        case 14:
+        case 13:
             return tr( "LE Peripheral Confidence Level");
         default:
             return QVariant();

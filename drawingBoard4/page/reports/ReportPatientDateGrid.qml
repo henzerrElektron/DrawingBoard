@@ -28,17 +28,24 @@ Rectangle{
     anchors.fill: parent
     color: StringConstants.actionBtnBackgroundColor
     signal openDateRange()
-    signal todayClicked()
-    signal thisWeekClicked()
-    signal thisMonthClicked()
+    signal allRecordClicked()
     signal sixMonthClicked()
-    signal thisYearClicked()
+    signal oneYearClicked()
+    signal twoYearClicked()
+    signal threeYearClicked()
     signal btn1Clicked()
     signal btn2Clicked()
     signal btn3Clicked()
     signal btn4Clicked()
     signal btn5Clicked()
     signal btn6Clicked()
+    //    onBtn1Clicked: console.log("Btn1 Clicked Report Patient DateGrid")
+    //    onBtn2Clicked: console.log("Btn2 Clicked Report Patient Date Grid ")
+    //    onBtn3Clicked: console.log("Btn3 Clicked Report Patient DateGrid")
+    //    onBtn4Clicked: console.log("Btn3 Clicked Report Patient Date Grid")
+    //    onBtn5Clicked: console.log("Btn5 Clicked Report Patient DateGrid")
+    //    onBtn6Clicked: console.log("Btn6 clicked Report Patient DateGrid")
+
     NewPatientGroupLabel{
         id:contactDetailLabel1
         anchors.left: parent.left
@@ -63,8 +70,9 @@ Rectangle{
         //anchors.fill: parent
         anchors.centerIn: parent
         width: parent.width - parent.width/4//mainRow.width
-        height: (parent.height- (2*contactDetailLabel1.height))// - (2*contactDetailLabel1.height)// - (parent.height- contactDetailLabel1.height)/4//mainRow.height+contactDetailLabel1.height
-        color: StringConstants.actionBtnBackgroundColor
+        height: ((parent.height)- (contactDetailLabel1.height))// - (2*contactDetailLabel1.height)// - (parent.height- contactDetailLabel1.height)/4//mainRow.height+contactDetailLabel1.height
+        color: "transparent"
+        //color: StringConstants.actionBtnBackgroundColor
 
 
         GridLayout{
@@ -83,57 +91,70 @@ Rectangle{
             rows: 2
 
             ReportPageBtn{
-                id:todayBtn
-                text: StringConstants.btn_reportPageDateToday
+                id:allRecordBtn
+                text: StringConstants.btn_reportAllRecord
+                height: parent.height/4
+                width: parent.width/4
                 onClicked: {
-                    todayClicked()
+                    allRecordClicked()
                     btn1Clicked()
-                    console.log("Today Clicked")
-                }
-            }
-            ReportPageBtn{
-                id:thisWeekBtn
-                text: StringConstants.btn_reportPageDateThisWeek
-                onClicked: {
-                    thisWeekClicked()
-                    btn2Clicked()
-                    console.log("This Week")
-                }
-            }
-            ReportPageBtn{
-                id:thisMonthBtn
-                text: StringConstants.btn_reportPageDateThisMonth
-                onClicked: {
-                    thisMonthClicked()
-                    btn3Clicked()
-                    console.log("This Month")
+                    console.log("AllRecordBtn Clicked")
                 }
             }
             ReportPageBtn{
                 id:sixMonthBtn
-                text:StringConstants.btn_reportPageDateSixMonths
+                text: StringConstants.btn_reportSixMonth
+                height: parent.height/4
+                width: parent.width/4
                 onClicked: {
                     sixMonthClicked()
-                    btn4Clicked()
-                    console.log("Six Month")
+                    btn2Clicked()
+                    console.log("Six month Clicked")
                 }
             }
             ReportPageBtn{
-                id:thisYearBtn
-                text: StringConstants.btn_reportPageDateThisYear
+                id:oneYearBtn
+                text: StringConstants.btn_oneYear
+                height: parent.height/4
+                width: parent.width/4
                 onClicked: {
-                    thisYearClicked()
+                    oneYearClicked()
+                    btn3Clicked()
+                    console.log("One year clicked")
+                }
+            }
+            ReportPageBtn{
+                id:twoYearBtn
+                text:StringConstants.btn_twoyear
+                height: parent.height/4
+                width: parent.width/4
+                onClicked: {
+                    twoYearClicked()
+                    btn4Clicked()
+                    console.log("Two year clicked")
+                }
+            }
+            ReportPageBtn{
+                id:threeYearBtn
+                text: StringConstants.btn_threeYear
+                height: parent.height/4
+                width: parent.width/4
+                onClicked: {
+                    threeYearClicked()
                     btn5Clicked()
-                    console.log("This year")
+                    console.log("Three year clicked")
                 }
             }
             ReportPageBtn{
                 id:customDatesBtn
                 text: StringConstants.btn_reportPageDateCustoms
+                height: parent.height/4
+                width: parent.width/4
                 onClicked: {
                     console.log("Custom Dates")
                     openDateRange()
                     btn6Clicked()
+
                 }
             }
         }

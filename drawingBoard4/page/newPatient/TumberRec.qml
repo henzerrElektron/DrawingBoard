@@ -54,10 +54,10 @@ Rectangle{
         Rectangle {
             anchors.horizontalCenter: firstTumbler.horizontalCenter
             y: firstTumbler.height * 0.4
-            width: parent.width//40
+            width: parent.width-2//40
             height: (firstTumbler.height * 0.6) - (firstTumbler.height * 0.4)//40//parent.height/10//
-            //border.color: "black"
-            //border.width: 1
+            border.color: "transparent"//"black"
+            border.width: 1
             color:StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor//"black"//
             //radius: 20
             opacity: 0.5
@@ -65,7 +65,7 @@ Rectangle{
         delegate: Text {
             text: qsTr("%1").arg(modelData)
             font: StringConstants.fontFamily
-            color: "white"
+            color: StringConstants.barBackgroundColor//barBackgroundColor//"white"
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             opacity: 1.0 - Math.abs(Tumbler.displacement) / (firstTumbler.visibleItemCount / 2)

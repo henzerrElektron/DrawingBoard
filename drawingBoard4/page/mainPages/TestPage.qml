@@ -75,7 +75,7 @@ Rectangle {
         }
         Rectangle{
             id:rectangle2
-            color: "transparent"
+            color: StringConstants.testPage_backgroundColor//"transparent"
             anchors.top: rectangle1.bottom
             anchors.left: gridLayout.left
             anchors.bottom: rectangle6.top
@@ -105,8 +105,8 @@ Rectangle {
             //            }
             TestPlotTabs{
                 id:testpagePlotTabs
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+                //Layout.fillHeight: true
+               // Layout.fillWidth: true
                 anchors.fill: parent
                 //                anchors.left: rectangle1.left
                 //                anchors.right: rectangle2.left
@@ -156,7 +156,7 @@ Rectangle {
                 Rectangle{
                     id:rectangle5
                     //color: "black"
-                    color: "transparent"
+                     color: StringConstants.testPage_backgroundColor//"transparent" "transparent"
                     Layout.column: 1
                     Layout.columnSpan: 1
                     Layout.fillHeight: true
@@ -211,3 +211,9 @@ Rectangle {
 
 
 
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/

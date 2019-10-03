@@ -147,6 +147,10 @@ int SwitchPatientTableModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid())
         return 0;
+    if(m_existingPatients.count()<6)
+    {
+        return 6;
+    }
     return m_existingPatients.count();
 }
 

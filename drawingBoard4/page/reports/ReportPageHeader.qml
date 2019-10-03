@@ -24,11 +24,50 @@ import "./../../common/"
 
 Rectangle {
     id: rpHeader
+    //border.width: 15
+    //border.color: "white"
     color: StringConstants.testPage_backgroundColor
     //color: StringConstants.actionBtnBackgroundColor////StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor
     anchors.fill: parent
+    signal openBtn1()
+    signal openBtn2()
+    signal openBtn3()
+    signal openBtn4()
+    signal openBtn5()
+    signal openBtn6()
     signal openDateRange()
     signal invokeSource(var source)
+    onOpenBtn5: console.log("OpenBtn5 clicked")
+    //    onBtn1Clicked: console.log("Button 1 Report Patient Timeline clicked")
+    //    onBtn2Clicked: console.log("Button 2 Report Patient Timeline Clicked")
+    //    onBtn3Clicked: console.log("Button 3 Report Patient Timeline clicked")
+    //    onBtn4Clicked: console.log("Button 4 Report Patient Timeline Clicked")
+    //    onBtn5Clicked: console.log("Button 5 Report Patient Timeline clicked")
+    //    onBtn6Clicked: console.log("Button 6 Report Patient Timeline Clicked")
+    function setDetailDateRangeSource(source)
+    {
+        //rpHeader.state = source//"pratice"
+        //console.log("The value of the source is"+source)
+        if(source === "pratice")
+        {
+            mainLoader.source = "ReportPraticeDateGrid.qml"
+            detailsLoader.source = "ReportPraticeDetails.qml"
+        }
+        else
+        {
+            mainLoader.source = "ReportPatientDateGrid.qml"
+            detailsLoader.source = "ReportPatientDetails.qml"
+        }
+
+        mainLoader.update()
+
+    }
+    function recevSignal1()
+    {
+        console.log("Recevie signal 1")
+        rpHeader.btn1Clicked()
+    }
+
     onInvokeSource: {
         console.log("Source invoked"+source)
     }
@@ -40,27 +79,9 @@ Rectangle {
     GridLayout{
         id: mainRow
         anchors.fill: parent
-        rows:2//3
-
-        Rectangle {
-            id: rectangle1
-            color: StringConstants.testPage_backgroundColor
-            height:75// pgTitle.height
-            Layout.fillWidth: true
-            Layout.row: 1
+        rows:1//3
 
 
-            PageTitle{
-                id:pgTitle
-                anchors.fill: parent
-                actionGridGroup:StringConstants.modelReportPageItems//"newPatientItems"
-                labelText: StringConstants.lbl_rpPageHeader
-                Component.onCompleted: {
-                    pgTitle.invokeSource.connect(rpHeader.invokeSource)
-                    pgTitle.invokeIndex.connect(rpHeader.invokeIndex)
-                }
-            }//TestPageTitle
-        }//TestPageTitle
         Rectangle {
             id: rectangle2
             color: StringConstants.testPage_backgroundColor
@@ -72,6 +93,7 @@ Rectangle {
                 id: mainCol
                 anchors.fill: parent
                 columns: 2
+                columnSpacing: 10
                 //rows: 3
                 Rectangle{
                     id:rectangleSub1
@@ -83,23 +105,27 @@ Rectangle {
                     //Layout.row: 2
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    Layout.leftMargin: 10
+                    //Layout.leftMargin: 10
                     //Layout.preferredWidth:parent.width/3//500//
                     //Layout.minimumWidth: parent.width/3//500//
                     //Layout.maximumWidth: parent.width/3//500//
                     //width: 100
                     //height: 150
-                    ReportDetails{
-                    //ReportPatientDetails{
-                        id:pageTitle
+                    Loader{
+                        id:detailsLoader
                         anchors.fill: parent
-                        //                        labelText: StringConstants.lbl_npPatientTitle
-                        //                        firstTumblerVisibility: true
-                        //                        secTumblerVisibility: false
-                        //                        thirdTumblerVisibility: false
-                        //                        firstTumblerModel:OtherConstants.modelTitle
+                        Connections{
+                            target: detailsLoader.item
+                        }
                     }
+
                 }
+
+
+
+
+
+
                 Rectangle{
                     id:rectangleSub2
                     color: StringConstants.testPage_backgroundColor
@@ -108,40 +134,33 @@ Rectangle {
                     Layout.columnSpan: 1
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    Layout.rightMargin: 10
-                    ReportDateGrid{
-                        id:btnGrd
+                    //Layout.rightMargin: 10
+                    Loader{
+                        id:mainLoader
                         anchors.fill: parent
-                        Component.onCompleted: {
-                           openDateRange.connect(rpHeader.openDateRange)
+                        Connections{
+                            target: mainLoader.item
+                            onOpenDateRange:rpHeader.openDateRange()
+                            onBtn1Clicked:rpHeader.openBtn1()
+                            onBtn2Clicked:rpHeader.openBtn2()
+                            onBtn3Clicked:rpHeader.openBtn3()
+                            onBtn4Clicked:rpHeader.openBtn4()
+                            onBtn5Clicked:rpHeader.openBtn5()
+                            onBtn6Clicked:rpHeader.openBtn6()
                         }
                     }
 
-//                    Button{
-//                        id:btnId
-//                        text: "Date Range"
-//                        width: 200
-//                        height: 100
-//                        anchors.horizontalCenter: parent.horizontalCenter
-//                        //anchors.fill: parent
-//                        onClicked: {
-//                            openDateRange()
-//                        }
-//                    }
-
-                    //                    ReportDetailDateRange{
-                    //                        id:pageDateRange
-                    //                        anchors.fill: parent
-                    //                    }
                 }
             }
         }
+    //}
+
+    Component.onCompleted: {
+        setDetailDateRangeSource("Pratice")
     }
-
-
 }
 
-//}
+}
 
 
 

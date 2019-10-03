@@ -44,6 +44,11 @@ Rectangle {
     onInvokeIndex: {
         console.log("Index invoked"+index)
     }
+    function printTest()
+    {
+        console.log("I am printing a test here")
+    }
+
     function closePopup(){
         popup.close()
     }
@@ -54,27 +59,46 @@ Rectangle {
         anchors.fill: parent
         //columns: 3
         rows:2//3
-        Rectangle{
-            id:mainRec
-            Layout.row: 1
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.preferredHeight: parent.height/3
-            Layout.minimumHeight: parent.height/3
-            Layout.maximumHeight: parent.height/3
-            color: StringConstants.testPage_backgroundColor
-            ReportPageHeader{
-                id:pageHeader
-                anchors.fill: parent
-                Component.onCompleted: {
-                    //pageSlider.dateFromChange.connect(pageStartTumbler.setTumblerDate)
-                    pageHeader.openDateRange.connect(popup.open)
-                    pageHeader.invokeSource.connect(rpPage.invokeSource)
-                    pageHeader.invokeIndex.connect(rpPage.invokeIndex)
-                }
-            }
+//        Rectangle{
+//            id:mainRec
+//            Layout.row: 1
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
+//            Layout.preferredHeight: parent.height/3
+//            Layout.minimumHeight: parent.height/3
+//            Layout.maximumHeight: parent.height/3
+//            color: StringConstants.testPage_backgroundColor
+//            ReportPageHeader{
+//                id:pageHeader
+//                anchors.fill: parent
+//                Component.onCompleted: {
+//                    //pageSlider.dateFromChange.connect(pageStartTumbler.setTumblerDate)
+//                    pageHeader.openDateRange.connect(popup.open)
+//                    pageHeader.invokeSource.connect(rpPage.invokeSource)
+//                    pageHeader.invokeIndex.connect(rpPage.invokeIndex)
+//                }
+//            }
 
-        }
+//        }
+        Rectangle {
+            id: rectangle1
+            color: StringConstants.testPage_backgroundColor
+            height:75// pgTitle.height
+            Layout.fillWidth: true
+            Layout.row: 1
+
+
+            PageTitle{
+                id:pgTitle
+                anchors.fill: parent
+                actionGridGroup:StringConstants.modelReportPageItems//"newPatientItems"
+                labelText: StringConstants.lbl_rpPageHeader
+                Component.onCompleted: {
+                    pgTitle.invokeSource.connect(rpPage.invokeSource)
+                    pgTitle.invokeIndex.connect(rpPage.invokeIndex)
+                }
+            }//TestPageTitle
+        }//TestPageTitle
         Rectangle{
             id:subRec
             Layout.row: 2
@@ -89,6 +113,16 @@ Rectangle {
             ReportTabs{
                 id:mainTab
                 anchors.fill: parent
+                Component.onCompleted: {
+                    mainTab.popupOpen.connect(popup.open)
+                    mainTab.btn1Clicked.connect(popup.open)
+                    mainTab.btn2Clicked.connect(popup.open)
+                    mainTab.btn3Clicked.connect(popup.open)
+                    mainTab.btn4Clicked.connect(popup.open)
+                    mainTab.btn5Clicked.connect(popup.open)//poup.open
+                    mainTab.popupInvokeIndex.connect(rpPage.popupInvokeIndex)
+                    mainTab.popupInvokeSource.connect(rpPage.popupInvokeSource)
+                }
             }
         }
         Popup {

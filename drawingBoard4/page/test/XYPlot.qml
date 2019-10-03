@@ -20,8 +20,11 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
-Item {
+Rectangle {
     id:xyplotter
+    anchors.fill: parent
+    color: StringConstants.barBackgroundColor
+
 
     //property int numGridRow: 6
     //property int numGridCol: 10
@@ -56,33 +59,37 @@ Item {
     ColumnLayout {
         id: column
         y: 410
-        height: 70
+        height: 70//mainRec.height
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
         anchors.right: parent.right
         anchors.rightMargin: 0
         anchors.left: row.right
         anchors.leftMargin: 0
-        //        Rectangle{
-        //            id:mainRec
-        //            Layout.fillHeight: true
-        //            Layout.fillWidth: true
-        //            color: "white"
-        XYColGridView {
-            id: gridColView
+
+        Rectangle{
+            id:mainRec
             Layout.fillHeight: true
             Layout.fillWidth: true
-            anchors.bottomMargin: 0
-            anchors.leftMargin: 0
-            anchors.rightMargin: 0
-            anchors.topMargin: 0
-            focus: true
-            testOrReport:crossTestOrReport
-            crossColCellWidth:gridColView.width/(IntegerConstants.numGridCol)
-            crossColCellHeight: gridColView.height/2
-            crossColModel: 1 * IntegerConstants.numGridCol
+            height: gridColView.height
+            color: "transparent"//"black"//"white"
+
+            XYColGridView {
+                id: gridColView
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                anchors.bottomMargin: 0
+                anchors.leftMargin: 0
+                anchors.rightMargin: 0
+                anchors.topMargin: 0
+                anchors.fill: parent
+                focus: true
+                testOrReport:crossTestOrReport
+                crossColCellWidth:gridColView.width/(IntegerConstants.numGridCol)
+                crossColCellHeight: gridColView.height/2
+                crossColModel: 1 * IntegerConstants.numGridCol
+            }
         }
-        //        }
 
 
     }
@@ -121,3 +128,32 @@ Item {
     PlotTriComponent {        id: plotTriComponent    }
     HorizontalLineComponent { id: lineItem }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+ ##^##*/

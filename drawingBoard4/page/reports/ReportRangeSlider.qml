@@ -58,13 +58,13 @@ Rectangle{
 
 
     onSliderFromChanged: {
-        var curValue = first.value.toFixed(0) -1
+        var curValue = slider1.first.value.toFixed(0) -1
         console.log("The curvalue is"+curValue)
     }
 
 
     onSliderToChanged: {
-        var curValue = second.value.toFixed(0) -1
+        var curValue = slider1.second.value.toFixed(0) -1
         console.log("The curvalue is"+curValue)
     }
 
