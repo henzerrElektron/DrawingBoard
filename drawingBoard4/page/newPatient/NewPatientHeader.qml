@@ -225,7 +225,7 @@ Rectangle {
                         //                        lbl6Vislbe: false
                         //                        lbl7Visible: false
                         pageSpOrNp:false
-                        pageNpSpTp:0
+                        pageNpSpTp:1
                         Component.onCompleted: {
                             console.log("I am completed")
                         }

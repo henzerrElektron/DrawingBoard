@@ -34,7 +34,7 @@ Rectangle{
     //height: 400
     color: StringConstants.testPage_backgroundColor
     property bool pageSpOrNp: false//true means search patient page  false means New Patient Page Np means New patient page Sp means search patient Page
-    property int pageNpSpTp: 0//Np =1 //Sp = 2 //TP == 3
+    property int pageNpSpTp: 1//Np =1 //Sp = 2 //TP == 3
     property bool pageSpOrTp: false//true means search patient page false means New Patient Page
     property int lblIndex: 0
     //property alias gridRow: grid.rows
@@ -109,22 +109,22 @@ Rectangle{
             id:oneLabel
             index:1
             height: parent.height/(grid.rows+1)
+            Layout.row: IntegerConstants.rowCount1
+            Layout.rowSpan: IntegerConstants.rowSpan1
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            //Layout.leftMargin: 10
+            //lblVisible: true
             labelText:StringConstants.lbl_npSurName
             tfReadOnly:false
             tfPlaceHolderText:StringConstants.lbl_npRequestSurName
             textValidator:RegExpValidator{regExp:StringConstants.txtValidatorWordsOnly}///^[A-Za-z]+$/ }//RegExpValidator{regExp:/^\+?\d+$/}///{regExp:/^\+?([0-9]\d*)$///{regExp:/^\+?(0|[1-9]\d*)$/ }
-            lblValueText:StringConstants.lbl_npRequestSurName
-            Layout.row: IntegerConstants.rowCount1
-            Layout.rowSpan: IntegerConstants.rowSpan1
-            //Layout.fillHeight: true
-            Layout.fillWidth: true
-            //Layout.leftMargin: 10
-            //lblVisible: true
-            textAlignLeftOrCenter:true
             lblValueVisible:pageNpSpTp===1?false:true//pageSpOrNp
+            textAlignLeftOrCenter:true
             txtVisible:pageNpSpTp===1?true:false//!lblValueVisible //!pageNpOrSp//!lblValueVisible//
-            itemVisible:pageNpSpTp===1?false:true
-           // commonColor: StringConstants.label_NewPatientLabelBgColor
+            itemVisible:pageNpSpTp===1?true:false
+            commonColor: StringConstants.barBackgroundColor//label_NewPatientLabelBgColor
+            lblValueText:StringConstants.lbl_npRequestSurName
         }
         NewPatientLabelWithText{
             id:twoLabel
@@ -139,13 +139,14 @@ Rectangle{
             Layout.rowSpan: IntegerConstants.rowSpan1
             //Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.fillHeight: true
             //Layout.leftMargin: 10
             //lblVisible: true
             textAlignLeftOrCenter:true
             lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp
             txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
-            itemVisible:pageNpSpTp===1?false:true
-
+            itemVisible:pageNpSpTp===1?true:false
+            commonColor: StringConstants.barBackgroundColor//label_NewPatientLabelBgColor
         }
         NewPatientLabelWithText{
             id:threeLabel
@@ -159,19 +160,20 @@ Rectangle{
             Layout.row: IntegerConstants.rowCount3
             Layout.rowSpan: IntegerConstants.rowSpan1
             //Layout.fillHeight: true
+            Layout.fillHeight: true
             Layout.fillWidth: true
             textAlignLeftOrCenter:true
             //lblVisible: true
             lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp
             txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
-            itemVisible:pageNpSpTp===1?false:true
-
+            itemVisible:pageNpSpTp===1?true:false
+            commonColor: StringConstants.barBackgroundColor//label_NewPatientLabelBgColor
         }
 
         NewPatientLabelWithText{
             id:fourLabel
             index:4
-             height: parent.height/(grid.rows+1)
+            height: parent.height/(grid.rows+1)
             labelText:StringConstants.label_testPgDOB
             tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
             textValidator:RegExpValidator{regExp:StringConstants.txtValidatorDobOnly}///^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/ }

@@ -50,16 +50,16 @@ Rectangle{
             columns: 2
             NewPatientLabelWithText{
                 id:oneLabel
-                labelText:StringConstants.lbl_npContactMobile
-                tfReadOnly:false
-                tfPlaceHolderText:StringConstants.lbl_npContactMobilePh
-                textValidator:RegExpValidator{regExp:StringConstants.txtValidatorNumbersOnly}///^\+?\d+$/
                 Layout.row: IntegerConstants.rowCount1
                 Layout.rowSpan: IntegerConstants.rowSpan1
                 Layout.column: IntegerConstants.columnCount1
                 Layout.columnSpan: IntegerConstants.columnSpan2
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                labelText:StringConstants.lbl_npContactMobile
+                tfReadOnly:false
+                tfPlaceHolderText:StringConstants.lbl_npContactMobilePh
+                textValidator:RegExpValidator{regExp:StringConstants.txtValidatorNumbersOnly}///^\+?\d+$/
                 lblValueVisible: false
                 textAlignLeftOrCenter:false
                 lblLeftPadding:75
