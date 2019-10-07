@@ -1,29 +1,16 @@
 <RCC>
     <qresource prefix="/">
         <!--<file>images/icon_backup.png</file>-->
-        <file>images/icon_current_operator.png</file>
-        <file>images/icon_edit_patient.png</file>
-        <file>images/icon_eet.png</file>
-        <file>images/icon_existing_patient.png</file>
-        <file>images/icon_help.png</file>
-        <file>images/icon_home.png</file>
-        <file>images/icon_new_patient.png</file>
-        <file>images/icon_patient_timeline.png</file>
-        <file>images/icon_pause.png</file>
-        <file>images/icon_play_detailed.png</file>
-        <file>images/icon_save.png</file>
-        <file>images/icon_setting.png</file>
-        <file>images/icon_stop.png</file>
-        <file>images/icon_switch_operator.png</file>
-        <file>images/icon_switch_patient.png</file>
-        <file>images/icon_test_patient.png</file>
-        <file>images/icon_test_standard.png</file>
-        <file>images/icon_view_report.png</file>
        <!-- adding image files -->
         <file>images/add_supplement.png</file>
         <file>images/add_supplement@2x.png</file>
         <file>images/add_supplement@3x.png</file>
         <file>images/add_supplement@4x.png</file>
+        <!-- adding image files -->
+         <file>images/eet_logo.png</file>
+         <file>images/eet_logo@2x.png</file>
+         <file>images/eet_logo@3x.png</file>
+         <file>images/eet_logo@4x.png</file>
         <!-- adding image files -->
         <file>images/icon_add_operator.png</file>
         <file>images/icon_add_operator@2x.png</file>
@@ -80,21 +67,6 @@
          <file>images/icon_home@3x.png</file>
          <file>images/icon_home@4x.png</file>
          <!-- adding image files -->
-         <file>images/icon_home.png</file>
-         <file>images/icon_home@2x.png</file>
-         <file>images/icon_home@3x.png</file>
-         <file>images/icon_home@4x.png</file>
-         <!-- adding image files -->
-         <file>images/icon_home_disabled.png</file>
-         <file>images/icon_home_disabled@2x.png</file>
-         <file>images/icon_home_disabled@3x.png</file>
-         <file>images/icon_home_disabled@4x.png</file>
-         <!-- adding image files -->
-         <file>images/icon_home_disabled.png</file>
-         <file>images/icon_home_disabled@2x.png</file>
-         <file>images/icon_home_disabled@3x.png</file>
-         <file>images/icon_home_disabled@4x.png</file>
-         <!-- adding image files -->
          <file>images/icon_home_disabled.png</file>
          <file>images/icon_home_disabled@2x.png</file>
          <file>images/icon_home_disabled@3x.png</file>
@@ -135,6 +107,16 @@
          <file>images/icon_play_detailed_disabled@3x.png</file>
          <file>images/icon_play_detailed_disabled@4x.png</file>
          <!-- adding image files -->
+         <file>images/icon_print_pdf.png</file>
+         <file>images/icon_print_pdf@2x.png</file>
+         <file>images/icon_print_pdf@3x.png</file>
+         <file>images/icon_print_pdf@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_print_pdf_disabled.png</file>
+         <file>images/icon_print_pdf_disabled@2x.png</file>
+         <file>images/icon_print_pdf_disabled@3x.png</file>
+         <file>images/icon_print_pdf_disabled@4x.png</file>
+         <!-- adding image files -->
          <file>images/icon_save.png</file>
          <file>images/icon_save@2x.png</file>
          <file>images/icon_save@3x.png</file>
@@ -174,11 +156,7 @@
          <file>images/icon_switch_patient@2x.png</file>
          <file>images/icon_switch_patient@3x.png</file>
          <file>images/icon_switch_patient@4x.png</file>
-         <!-- adding image files -->
-         <file>images/icon_switch_patient.png</file>
-         <file>images/icon_switch_patient@2x.png</file>
-         <file>images/icon_switch_patient@3x.png</file>
-         <file>images/icon_switch_patient@4x.png</file>
+
          <!-- adding image files -->
          <file>images/icon_test_patient.png</file>
          <file>images/icon_test_patient@2x.png</file>
@@ -225,10 +203,20 @@
          <file>images/icon_to_next@3x.png</file>
          <file>images/icon_to_next@4x.png</file>
          <!-- adding image files -->
+         <file>images/icon_to_next_disabled.png</file>
+         <file>images/icon_to_next_disabled@2x.png</file>
+         <file>images/icon_to_next_disabled@3x.png</file>
+         <file>images/icon_to_next_disabled@4x.png</file>
+         <!-- adding image files -->
          <file>images/icon_to_previous.png</file>
          <file>images/icon_to_previous@2x.png</file>
          <file>images/icon_to_previous@3x.png</file>
          <file>images/icon_to_previous@4x.png</file>
+         <!-- adding image files -->
+         <file>images/icon_to_previous_disabled.png</file>
+         <file>images/icon_to_previous_disabled@2x.png</file>
+         <file>images/icon_to_previous_disabled@3x.png</file>
+         <file>images/icon_to_previous_disabled@4x.png</file>
          <!-- adding image files -->
          <file>images/icon_view_report.png</file>
          <file>images/icon_view_report@2x.png</file>
@@ -280,14 +268,19 @@
          <file>images/test_tab_selected@3x.png</file>
          <file>images/test_tab_selected@4x.png</file>
          <!-- adding image files -->
-         <file>images/timeline_tab_selected.png</file>
-         <file>images/timeline_tab_selected@2x.png</file>
-         <file>images/timeline_tab_selected@3x.png</file>
-         <file>images/timeline_tab_selected@4x.png</file>
+         <file>images/test_tab_unselected.png</file>
+         <file>images/test_tab_unselected@2x.png</file>
+         <file>images/test_tab_unselected@3x.png</file>
+         <file>images/test_tab_unselected@4x.png</file>
          <!-- adding image files -->
          <file>images/timeline_tab_selected.png</file>
          <file>images/timeline_tab_selected@2x.png</file>
          <file>images/timeline_tab_selected@3x.png</file>
          <file>images/timeline_tab_selected@4x.png</file>
+         <!-- adding image files -->
+         <file>images/timeline_tab_unselected.png</file>
+         <file>images/timeline_tab_unselected@2x.png</file>
+         <file>images/timeline_tab_unselected@3x.png</file>
+         <file>images/timeline_tab_unselected@4x.png</file>
     </qresource>
 </RCC>
