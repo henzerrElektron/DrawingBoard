@@ -68,6 +68,7 @@ Rectangle {
             PageTitle{
                 id:pgTitle
                 anchors.fill: parent
+                logoVisible: false
                 actionGridGroup:"existingPatientItems"
                 labelText: StringConstants.label_searchPatientTitle
                 Component.onCompleted: {

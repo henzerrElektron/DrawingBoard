@@ -23,11 +23,16 @@ import ApplicationConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
 
-Item {
+Page {
     id:patientPage
     width: 960
     height: 640
     signal invokeSource(var source)
+//    background: Rectangle{
+//        id:mainRec
+//        color: "black"//StringConstants.testPage_backgroundColor//"black"
+//        anchors.fill: parent
+//    }
     onInvokeSource: {
         console.log("Source invoked"+source)
     }
@@ -83,7 +88,7 @@ Item {
         }
         Rectangle{
             id:rectangle2
-            color: "black"//"transparent"
+            color: "black"//StringConstants.testPage_backgroundColor//"black"//"transparent"
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.row: 2
@@ -93,6 +98,7 @@ Item {
             anchors.right: parent.right
             anchors.rightMargin: 0
             anchors.top: rectangle1.bottom
+            anchors.bottom: parent.bottom
             anchors.topMargin: 0
             Layout.maximumHeight:parent.height - parent.height/4
             NewPatientTabs{

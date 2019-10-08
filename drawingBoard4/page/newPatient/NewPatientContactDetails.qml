@@ -25,8 +25,10 @@ import ApplicationConstants 1.0
 Rectangle{
     id:mainRec
     anchors.fill: parent
+    color:StringConstants.testPage_backgroundColor
     NewPatientGroupLabel{
         id:contactDetailLabel
+        isTabHeader:true
         text: StringConstants.lbl_npContactDetails
 
     }
@@ -34,7 +36,7 @@ Rectangle{
 
     Rectangle{
         id:testRec
-        color: StringConstants.color_gbTransparent//"transparent"
+        color: StringConstants.testPage_backgroundColor//color_gbTransparent//"transparent"
         anchors.top: contactDetailLabel.bottom
         anchors.topMargin: 10
         anchors.bottom: parent.bottom

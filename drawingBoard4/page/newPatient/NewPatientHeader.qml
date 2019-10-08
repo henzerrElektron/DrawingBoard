@@ -33,7 +33,7 @@ Rectangle {
     color: StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor
     anchors.fill: parent
     //height: 400
-    // width: 800
+     width: 1000
     signal invokeSource(var source)
     onInvokeSource: {
         console.log("Source invoked"+source)
@@ -45,7 +45,7 @@ Rectangle {
     }
     GridLayout{
         id: mainRow
-        // width: 700
+        width: 700
         anchors.fill: parent
         //columns: 3
         rows:2//3
@@ -61,6 +61,7 @@ Rectangle {
                 anchors.fill: parent
                 actionGridGroup:StringConstants.modelNewPatientItems//"newPatientItems"
                 labelText: StringConstants.label_newPtPgHeader
+                logoVisible: false
                 Component.onCompleted: {
                     pgTitle.invokeSource.connect(rectangle.invokeSource)
                     pgTitle.invokeIndex.connect(rectangle.invokeIndex)
@@ -97,8 +98,9 @@ Rectangle {
                         id:pageTitle
                         anchors.fill: parent
                         lblAlignCentre:true
+                        labelVisible:false
                         labelText: StringConstants.lbl_npPatientTitle
-                        firstTumblerVisibility: true
+                        firstTumblerVisibility: false
                         secTumblerVisibility: false
                         thirdTumblerVisibility: false
                         firstTumblerModel:OtherConstants.modelTitle
@@ -123,8 +125,9 @@ Rectangle {
                         //anchors.fill: parent
                         anchors.left: parent.left
                         lblAlignCentre:true
+                        labelVisible:false
                         labelText: StringConstants.lbl_npPatientGender
-                        firstTumblerVisibility: true
+                        firstTumblerVisibility: false
                         secTumblerVisibility: false
                         thirdTumblerVisibility: false
                         firstTumblerModel:OtherConstants.modelGender
@@ -199,9 +202,8 @@ Rectangle {
                     Layout.fillWidth: true
                     Layout.minimumWidth: parent.width/2
                     Layout.maximumWidth: parent.width/2
-
-
-
+                    width: 200
+                    height: 100
                     //Layout.minimumHeight: parent.height// - rectangle1.height
                     // Layout.maximumHeight: parent.height //- rectangle1.height
                     // Layout.preferredHeight: parent.height
@@ -239,6 +241,7 @@ Rectangle {
                     border.width: 1
                     // Layout.row: 1
                     // Layout.rowSpan: 3
+                    //anchors.left: rectangleSub3.right
                     Layout.fillHeight: true
                     Layout.topMargin: 10
                     Layout.preferredWidth: pageSwitchButtons.width//pageSwitchButtons.width
@@ -355,3 +358,8 @@ Designer {
     D{i:1;anchors_height:200;anchors_width:200;anchors_x:107;anchors_y:66}
 }
 ##^##*/
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}D{i:1;anchors_height:200;anchors_width:200;anchors_x:107;anchors_y:66}
+}
+ ##^##*/

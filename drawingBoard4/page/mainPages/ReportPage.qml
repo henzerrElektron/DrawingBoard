@@ -91,6 +91,7 @@ Rectangle {
             PageTitle{
                 id:pgTitle
                 anchors.fill: parent
+                logoVisible: false
                 actionGridGroup:StringConstants.modelReportPageItems//"newPatientItems"
                 labelText: StringConstants.lbl_rpPageHeader
                 Component.onCompleted: {

@@ -29,6 +29,7 @@ TabButton {
     contentItem: Text {
         text: control.text
         font: control.font
+        leftPadding: 10
         opacity: enabled ? 1.0 : 0.3
         color: control.down ? StringConstants.barAlternateColor : StringConstants.barBackgroundColor//"#17a81a":"#21be2b"
         horizontalAlignment: Text.AlignHCenter

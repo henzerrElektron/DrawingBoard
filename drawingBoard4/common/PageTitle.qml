@@ -31,6 +31,11 @@ Rectangle{
     anchors.fill: parent
     property alias labelText: label_testPageHeading.text
     property alias actionGridGroup: actionGridView.group
+    property alias logoVisible: rec1.visible
+    onLogoVisibleChanged: {
+        image.visible = logoVisible
+    }
+
     signal invokeSource(string source)
     signal invokeIndex(int index)
     onInvokeSource: {
@@ -68,17 +73,20 @@ Rectangle{
         Rectangle{
             id:rec2
             Layout.row: IntegerConstants.rowCount1
-            Layout.column: IntegerConstants.columnCount2
+            Layout.column: logoVisible?IntegerConstants.columnCount2:IntegerConstants.columnCount1
             color: "transparent"
             Layout.fillWidth: true
-            height: parent.height
-            anchors.left: rec1.right
+            Layout.fillHeight: true
+            //height: parent.height
+            anchors.left: logoVisible?rec1.right:parent.left
+            //anchors.leftMargin: 25
             PageLabel {
                 id: label_testPageHeading
+                pixelSize: logoVisible?IntegerConstants.page_fontSize:30
                 text: StringConstants.label_testPgHeader
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                anchors.verticalCenter: parent.verticalCenter
+               // horizontalAlignment: Text.AlignHCenter
+                //verticalAlignment: Text.AlignVCenter
+                //anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left
 
             }
@@ -102,16 +110,18 @@ Rectangle{
                 group: "testPageItems"
                 actionOrHome: true
                 Component.onCompleted: {
-                   invokeSource.connect(pgTitle.invokeSource)
+                    invokeSource.connect(pgTitle.invokeSource)
                     invokeIndex.connect(pgTitle.invokeIndex)
                 }
             }//TestPageActionButtons//Rectangle//PageActionsButtons
         }
     }
-Component.onCompleted: {
+    Component.onCompleted: {
 
+    }
 }
-}
+
+
 
 
 

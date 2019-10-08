@@ -38,6 +38,7 @@ import ApplicationConstants 1.0
         color: "transparent"
         NewPatientGroupLabel{
             id:riskFactorLabel
+              isTabHeader:true
             text: StringConstants.lbl_riskFactors
             
         }

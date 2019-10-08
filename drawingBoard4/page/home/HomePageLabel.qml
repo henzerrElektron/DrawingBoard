@@ -60,6 +60,7 @@ Rectangle {
             PageTitle{
                 id:homePageTitleRec
                 anchors.fill: parent
+                logoVisible: false
                 actionGridGroup:StringConstants.modelHomeItems//"newPatientItems"
                 labelText: ""//StringConstants.label_newPtPgHeader
                 //anchors.top: parent.top

@@ -119,7 +119,7 @@ QtObject {
     readonly property string testPage_ResultIndexTitleBgColor: "#4A4A4A"
     readonly property string testPage_ResultIndexEyeBgColor: "#774013"
     readonly property int testPage_lblFontSize: 20//25
-
+    readonly property int page_fontSize: 25
     readonly property string lbl_npContactMobile: qsTr("Mobile")
     readonly property string lbl_npContactAddr1: qsTr("Address Line 1")
     readonly property string lbl_npContactAddr2: qsTr("Address Line 2")

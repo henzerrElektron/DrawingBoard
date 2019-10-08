@@ -72,6 +72,7 @@ Rectangle {
             PageTitle{
                 id:pgTitle
                 anchors.fill: parent
+                logoVisible: false
                 actionGridGroup:"testPageItems"//"newPatientItems"
                 Component.onCompleted: {
                     pgTitle.invokeSource.connect(ptLabel.invokeSource)

@@ -26,9 +26,10 @@ import ApplicationConstants 1.0
 
     Label {
         id: label
+        property bool isTabHeader: false
         //property ali name: value
         //text: qsTr("Label")
-        leftPadding: 10
+        leftPadding: isTabHeader?85:10
         topPadding: 0
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter

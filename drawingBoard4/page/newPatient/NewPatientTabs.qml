@@ -29,6 +29,8 @@ Page {
     anchors.fill: parent
     Layout.fillHeight: true
     Layout.fillWidth: true
+
+
     header:  TabBar {
         id: bar
         width: parent.width

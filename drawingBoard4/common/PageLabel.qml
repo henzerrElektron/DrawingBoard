@@ -23,14 +23,16 @@ import ApplicationConstants 1.0
 
 Label {
     id: label_lblPatientName
+    anchors.fill: parent
     property bool lblOrText: false
+    property int pixelSize: IntegerConstants.page_fontSize
     onLblOrTextChanged: {console.log("The flag is"+lblOrText)}
     width: IntegerConstants.testPage_lblWidth
     height: IntegerConstants.testPage_lblHeight
     color: lblOrText ? "White":StringConstants.testPage_lblFontColor
     //font: Constants.fontFamily
     font.bold: true
-    font.pixelSize:25// Constants.testPage_lblFontSize//25
+    font.pixelSize:pixelSize
     font.weight: Font.ExtraBold
     renderType: Text.QtRendering
     fontSizeMode: Text.HorizontalFit

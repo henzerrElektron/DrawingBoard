@@ -35,6 +35,7 @@ Page{
         NewPatientGroupLabel{
             id:leftLabel
             text: StringConstants.lbl_npNotes
+            isTabHeader:true
             anchors.fill: parent
             //anchors.centerIn: parent
         }

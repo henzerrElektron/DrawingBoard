@@ -31,7 +31,7 @@ Rectangle{
     id:testRec
     anchors.fill: parent
     //width: 500
-    //height: 400
+    //height: 100
     color: StringConstants.testPage_backgroundColor
     property bool pageSpOrNp: false//true means search patient page  false means New Patient Page Np means New patient page Sp means search patient Page
     property int pageNpSpTp: 1//Np =1 //Sp = 2 //TP == 3

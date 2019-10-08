@@ -90,6 +90,7 @@ Rectangle {
     property alias firstTumblerVisibility: firstTumblerRec.allTumblerVisibility
     property alias secTumblerVisibility: secTumblerRec.allTumblerVisibility
     property alias firstTumblerStopped: firstTumblerRec.stopped
+
     onFirstTumblerModelChanged: {
         console.log("The first tumbler model is"+firstTumblerRec.allTumblerModel)
     }

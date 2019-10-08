@@ -29,6 +29,7 @@ Rectangle{
     border.color: "black"
     NewPatientGroupLabel{
         id:medicalDetailsLabel
+          isTabHeader:true
         //anchors.left: parent.left
         //anchors.right: parent.right
         //height: 30//100
