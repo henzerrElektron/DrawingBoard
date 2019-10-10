@@ -33,7 +33,7 @@ Rectangle {
     color: StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor
     anchors.fill: parent
     //height: 400
-     width: 1000
+    width: 1000
     signal invokeSource(var source)
     onInvokeSource: {
         console.log("Source invoked"+source)
@@ -82,58 +82,73 @@ Rectangle {
                 id: mainCol
                 anchors.fill: parent
                 columns: 4
-                //rows: 3
+                rows: 2
                 Rectangle{
                     id:rectangleSub1
-                    color: StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor
+                    color: StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor
                     Layout.column: 1
-                    //Layout.row: 2
-                    Layout.fillHeight: true
-                    //Layout.fillWidth: true
-                    width: 100
-                    border.width: 1
-                    border.color: StringConstants.barBackgroundColor
-                    //height: 150
-                    NewPatientDataTumbler{
-                        id:pageTitle
+                    Layout.row:1
+                    anchors.top: parent.top
+                    //Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    //width: 100
+                    height: 75//pageTitle.height<30?30:pageTitle.height
+                   // border.width: 1
+                  //  border.color: StringConstants.barBackgroundColor
+                    anchors.left: rectangleSub3.left
+                    anchors.leftMargin: 30
+                    anchors.right: rectangeSub3.right
+                    anchors.rightMargin: 30
+                    NewPatientTitleGender{
+                        id:pgTitleGender
                         anchors.fill: parent
-                        lblAlignCentre:true
-                        labelVisible:false
-                        labelText: StringConstants.lbl_npPatientTitle
-                        firstTumblerVisibility: false
-                        secTumblerVisibility: false
-                        thirdTumblerVisibility: false
-                        firstTumblerModel:OtherConstants.modelTitle
-                        comboBoxModel: OtherConstants.modelTitle
                     }
+
+                    //height: 150
+                    //                    NewPatientDataTumbler{
+                    //                        id:pageTitle
+                    //                        anchors.fill: parent
+                    //                        labelHorizontal: true
+                    //                        //lblAlignCentre:true
+                    //                        //labelVisible:false
+                    //                        labelText: StringConstants.lbl_npPatientTitle
+                    //                        firstTumblerVisibility: false
+                    //                        secTumblerVisibility: false
+                    //                        thirdTumblerVisibility: false
+                    //                        firstTumblerModel:OtherConstants.modelTitle
+                    //                        comboBoxModel: OtherConstants.modelTitle
+                    //                    }
                 }
 
-                Rectangle{
-                    id:rectangleSub2
-                    color: StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor//"green"///
-                    Layout.column: 2
-                    // Layout.row: 3
-                    Layout.fillHeight: true
-                    Layout.alignment: Qt.AlignLeft
-                    //Layout.fillWidth: true
-                    width: 100
-                    border.width: 1
-                    border.color: StringConstants.barBackgroundColor
-                    //height: 150
-                    NewPatientDataTumbler{
-                        id:pageGender
-                        //anchors.fill: parent
-                        anchors.left: parent.left
-                        lblAlignCentre:true
-                        labelVisible:false
-                        labelText: StringConstants.lbl_npPatientGender
-                        firstTumblerVisibility: false
-                        secTumblerVisibility: false
-                        thirdTumblerVisibility: false
-                        firstTumblerModel:OtherConstants.modelGender
-                        comboBoxModel: OtherConstants.modelGender
-                    }
-                }
+                //                Rectangle{
+                //                    id:rectangleSub2
+                //                    color: StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor//"green"///
+                //                    Layout.column: 2
+                //                    Layout.row: 1
+                //                    //Layout.fillHeight: true
+                //                    Layout.alignment: Qt.AlignLeft
+                //                    anchors.top: parent.top
+                //                    //Layout.fillWidth: true
+                //                    width: 100
+                //                    height: pageGender.height<30?30:pageGender.height
+                //                    border.width: 1
+                //                    border.color: StringConstants.barBackgroundColor
+                //                    //height: 150
+                //                    NewPatientDataTumbler{
+                //                        id:pageGender
+                //                        //anchors.fill: parent
+                //                        anchors.left: parent.left
+                //                        labelHorizontal: true
+                //                        //lblAlignCentre:true
+                //                        //labelVisible:false
+                //                        labelText: StringConstants.lbl_npPatientGender
+                //                        firstTumblerVisibility: false
+                //                        secTumblerVisibility: false
+                //                        thirdTumblerVisibility: false
+                //                        firstTumblerModel:OtherConstants.modelGender
+                //                        comboBoxModel: OtherConstants.modelGender
+                //                    }
+                //                }
                 //                Rectangle {
                 //                    id: rectangleSub5
                 //                    color: Constants.testPage_backgroundColor
@@ -195,15 +210,18 @@ Rectangle {
                 Rectangle {
                     id: rectangleSub3
                     color:StringConstants.testPage_backgroundColor
-                    Layout.column: 3
-                    //Layout.row: 3
+                    Layout.column: 1//3
+                    Layout.row: 2
                     Layout.rowSpan: 1
                     Layout.fillHeight: true
                     Layout.fillWidth: true
+                    anchors.top:  rectangleSub1.bottom
+                    anchors.bottom: parent.bottom
                     Layout.minimumWidth: parent.width/2
                     Layout.maximumWidth: parent.width/2
+                    Layout.leftMargin:40
                     width: 200
-                    height: 100
+                    height: 300
                     //Layout.minimumHeight: parent.height// - rectangle1.height
                     // Layout.maximumHeight: parent.height //- rectangle1.height
                     // Layout.preferredHeight: parent.height
@@ -358,6 +376,8 @@ Designer {
     D{i:1;anchors_height:200;anchors_width:200;anchors_x:107;anchors_y:66}
 }
 ##^##*/
+
+
 
 /*##^## Designer {
     D{i:0;autoSize:true;height:480;width:640}D{i:1;anchors_height:200;anchors_width:200;anchors_x:107;anchors_y:66}

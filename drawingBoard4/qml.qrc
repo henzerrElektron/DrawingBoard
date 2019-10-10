@@ -157,5 +157,7 @@
         <file>page/reports/ReportPatientRightResult.qml</file>
         <file>page/reports/ReportPatientBothResult.qml</file>
         <file>page/test/ResultCommonTableGrids.qml</file>
+        <file>page/newPatient/NewPatientTitleGender.qml</file>
+        <file>page/newPatient/NewPatientCustomSlider.qml</file>
     </qresource>
 </RCC>

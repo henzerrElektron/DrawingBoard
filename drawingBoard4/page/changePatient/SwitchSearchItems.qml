@@ -44,7 +44,7 @@ Rectangle {
         //Layout.columnSpan: 3
         //Layout.rowSpan: 1
         //Layout.row: 1
-         height: 30
+        height: 30
     }
     onSelectedText: {
         console.log("The selected Text is"+curText+role)
@@ -88,8 +88,9 @@ Rectangle {
                 onComboBoxModelChanged: {
                     console.log("the mode is"+comboBoxModel)
                 }
-
+                comboBoxLabel:"FirstName"
                 comboBoxTextRole: "FirstName"
+                comboDelegateRoleOrModel:false
                 comboBoxInputHints:Qt.ImhUppercaseOnly|Qt.ImhLowercaseOnly
                 comboBoxValidator:RegExpValidator{regExp:/^[A-Za-z]+$/ }
                 Component.onCompleted: {
@@ -120,6 +121,8 @@ Rectangle {
                 anchors.rightMargin: 10
                 comboBoxModel: theExistingPatientsModel//["First", "Second", "Third"]//theExistingPatientsModel
                 comboBoxTextRole: "Surname"
+                comboBoxLabel:"Surname"
+                comboDelegateRoleOrModel:false
                 comboBoxtypes:theExistingPatientsModel.SecNameRole
                 comboBoxInputHints:Qt.ImhUppercaseOnly|Qt.ImhLowercaseOnly
                 comboBoxValidator:RegExpValidator{regExp:/^[A-Za-z]+$/ }
@@ -152,6 +155,8 @@ Rectangle {
                 anchors.rightMargin: 10
                 comboBoxModel: theExistingPatientsModel//["First", "Second", "Third"]//theExistingPatientsModel
                 comboBoxTextRole: "MedicalReference"
+                comboBoxLabel:"MedicalReference"
+                comboDelegateRoleOrModel:false
                 comboBoxtypes:theExistingPatientsModel.MedRefRole
                 comboBoxInputHints:Qt.ImhUppercaseOnly|Qt.ImhLowercaseOnly
                 comboBoxValidator:RegExpValidator{regExp:/^\w+$/ }

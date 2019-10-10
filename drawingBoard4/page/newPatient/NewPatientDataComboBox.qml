@@ -39,6 +39,7 @@ ComboBox {
     property alias comboBoxInputHints: topTextArea.inputMethodHints
     property alias comboBoxValidator: topTextArea.validator
     property bool roleOrModel: true
+    property bool delegateRoleOrModel: true
     function setComboPrevIndex(index){
         comboBoxPreviousIndex = index
     }
@@ -70,7 +71,7 @@ ComboBox {
     }
     function getDisplayText(flag)
     {
-        return flag?modelData:topTextArea.textRole==="Surname"?model.Surname:topTextArea.textRole==="FirstName"?model.FirstName:model.MedicalReference
+        return flag?modelData:topTextArea.textRole==="Surname"?model.Surname:topTextArea.textRole==="FirstName"?model.FirstName:topTextArea.textRole==="key"?model.key:model.MedicalReference
     }
 
     displayText:roleOrModel?modelData:getDisplayText(roleOrModel)//roleOrModel?modelData:topTextArea.textRole==="Surname"?model.Surname:topTextArea.textRole==="FirstName"?model.FirstName:model.MedicalReference
@@ -81,7 +82,7 @@ ComboBox {
         contentItem:
             Text {
             id:valueText
-            text: roleOrModel?modelData:topTextArea.textRole==="Surname"?model.Surname:topTextArea.textRole==="FirstName"?model.FirstName:model.MedicalReference
+            text:delegateRoleOrModel?modelData:topTextArea.textRole==="Surname"?model.Surname:topTextArea.textRole==="FirstName"?model.FirstName:topTextArea.textRole==="key"?modelData.key:model.MedicalReference
             color: "White"//
             font: topTextArea.font
             elide: Text.ElideRight

@@ -32,6 +32,7 @@ Rectangle{
     height: mainGrid.height
     //width: mainGrid.width
     property alias labelText: label.text
+    property alias tumblerVisibility: subRec0.visible
     property alias dataTumblerFirstModel: dataTumbler.firstTumblerModel
     property alias dataTumblerSecModel: dataTumbler.secTumblerModel
     property alias dataTumblerThirdModel: dataTumbler.thirdTumblerModel
@@ -58,6 +59,8 @@ Rectangle{
     property alias dataTumblerNoOrColorDelegate: dataTumbler.numberOrColorDelegate
     property alias topSliderModel: topSliderUnit.topTextAreaModel
     property alias btmSliderModel: btmSliderUnit.topTextAreaModel
+    property alias secondSwitchVisible :dataSwitches.secondSwitchVisible
+    property alias firstSwitchVisible: dataSwitches.firstSwitchVisible
     onTopSliderVisibleChanged: {
         if(subRec.visible === false)
         {
@@ -104,18 +107,23 @@ Rectangle{
         Label {
             id: label
             text: qsTr("Label")
-            Layout.topMargin: dataTumblerVisibility?(dataSwitchesVisible?50:25):10
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+            bottomPadding: 10
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+            //Layout.topMargin: dataTumblerVisibility?(dataSwitchesVisible?50:25):10
+           // Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             //Layout.alignment:dataSwitchesVisible?Qt.AlignTop|Qt.AlignHCenter: Qt.AlignTop|Qt.AlignHCenter
             Layout.column: labelCol1or2?1:2
             Layout.columnSpan: 1
             Layout.row: 1
-            Layout.minimumWidth: 50
-            Layout.minimumHeight: 20
+            wrapMode: Text.WordWrap
+            Layout.minimumWidth: 100//50
+            Layout.maximumWidth: 100
+            Layout.minimumHeight: 50//0
             //Layout.fillWidth: true
-            height: 20//100//mainRec.height/15
+            height: 50//100//mainRec.height/15
             horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
+            anchors.verticalCenter: eyeColorDialVisibilty?dialRect.verticalCenter:parent.verticalCenter
+            verticalAlignment: Text.AlignVCenter//Text.AlignVCenter
         }
         Rectangle{
             id:dataSwitchRec
@@ -123,7 +131,7 @@ Rectangle{
             Layout.columnSpan: 1
             Layout.row: 1
             Layout.fillHeight: true
-            Layout.minimumWidth: dataTumblerVisibility?125:250
+            Layout.minimumWidth:125// dataTumblerVisibility?125:250
             Layout.minimumHeight:dataTumblerVisibility?40:35
             Layout.alignment:  Qt.AlignLeft | Qt.AlignTop//Qt.AlignLeft |
             Layout.topMargin:dataTumblerVisibility?25: 5
@@ -237,12 +245,14 @@ Rectangle{
                     //anchors.right: parent.right
                     Layout.fillWidth: true
                     anchors.top:subRec1.visible? subRec1.bottom:subRec.visible?subRec.bottom:parent.top
-                    anchors.topMargin: 10
+                    anchors.topMargin: eyeColorDialVisibilty?25:10
                     //anchors.bottom: parent.bottom
                     //anchors.bottomMargin: 10
                     //Layout.fillHeight: true
-                    Layout.minimumHeight: dataTumblersecVisibility?75:50
+                    //visible: dataTumblersecVisibility?true:dataTumblerfirstVisibility?true:false
+                    Layout.minimumHeight:dataTumblerfirstVisibility?dataTumblersecVisibility?75:50:eyeColorDialVisibilty?parent.height:0
                     Layout.maximumHeight: dataTumblersecVisibility?75:50
+                    //anchors.verticalCenter: parent.verticalCenter
                     //Layout.fillWidth: true
                     NewPatientDataTumblerHorizontal{
                         id:dataTumbler
@@ -274,6 +284,7 @@ Rectangle{
             width:  dialUnit.width
             //anchors.top: parent.top
             Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+
             //Layout.fillHeight: false
             //color: "red"
             //Layout.fillHeight: true
@@ -292,7 +303,7 @@ Rectangle{
             NewPatientDataDial{
                 id:dialUnit
                 anchors.fill: parent
-                anchors.topMargin: 10
+                //anchors.topMargin: 10
                 //height: 100
                 Component.onCompleted: {
                     dialUnit.firstDialValue.connect(dataTumbler.firstDialValue)
@@ -312,6 +323,10 @@ Rectangle{
     }
 
 }
+
+
+
+
 
 
 

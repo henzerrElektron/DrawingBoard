@@ -108,13 +108,14 @@ Rectangle{
         NewPatientLabelWithText{
             id:oneLabel
             index:1
-            height: parent.height/(grid.rows+1)
-            Layout.row: IntegerConstants.rowCount1
-            Layout.rowSpan: IntegerConstants.rowSpan1
-            Layout.fillHeight: true
+            height:pageNpSpTp===1?45:parent.height/(grid.rows+1)
+            ///////////////////Layout.row: IntegerConstants.rowCount1
+            //////////////////Layout.rowSpan: IntegerConstants.rowSpan1
+            //Layout.fillHeight: true
             Layout.fillWidth: true
             //Layout.leftMargin: 10
             //lblVisible: true
+            textLeftMargin: 70
             labelText:StringConstants.lbl_npSurName
             tfReadOnly:false
             tfPlaceHolderText:StringConstants.lbl_npRequestSurName
@@ -129,17 +130,18 @@ Rectangle{
         NewPatientLabelWithText{
             id:twoLabel
             index:2
-            height: parent.height/(grid.rows+1)
+            height:pageNpSpTp===1?45: parent.height/(grid.rows+1)
             labelText:StringConstants.lbl_npFirstName
             tfPlaceHolderText:StringConstants.lbl_npRequestFirstName
             textValidator:RegExpValidator{regExp:StringConstants.txtValidatorWordsOnly}///^[A-Za-z]+$/ }
             lblValueText:StringConstants.lbl_npRequestFirstName
             tfReadOnly:false
-            Layout.row: IntegerConstants.rowCount2
-            Layout.rowSpan: IntegerConstants.rowSpan1
+            ////////////////////////////Layout.row: IntegerConstants.rowCount2
+            ///////////////////////////Layout.rowSpan: IntegerConstants.rowSpan1
             //Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.fillHeight: true
+            //Layout.fillHeight: true
+            textLeftMargin: 70
             //Layout.leftMargin: 10
             //lblVisible: true
             textAlignLeftOrCenter:true
@@ -151,7 +153,7 @@ Rectangle{
         NewPatientLabelWithText{
             id:threeLabel
             index:3
-            height: parent.height/(grid.rows+1)
+            height: pageNpSpTp===1?45:parent.height/(grid.rows+1)
             labelText:StringConstants.lbl_npMedicalReference
             tfPlaceHolderText:StringConstants.lbl_npRequestMedicalReference
             textValidator:RegExpValidator{regExp:StringConstants.txtValidatorWordsNumbersOnly}///^\w+$/ }
@@ -160,8 +162,9 @@ Rectangle{
             Layout.row: IntegerConstants.rowCount3
             Layout.rowSpan: IntegerConstants.rowSpan1
             //Layout.fillHeight: true
-            Layout.fillHeight: true
+            //Layout.fillHeight: true
             Layout.fillWidth: true
+            textLeftMargin: 70
             textAlignLeftOrCenter:true
             //lblVisible: true
             lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp
@@ -173,14 +176,14 @@ Rectangle{
         NewPatientLabelWithText{
             id:fourLabel
             index:4
-            height: parent.height/(grid.rows+1)
+            height: pageNpSpTp===1?45:parent.height/(grid.rows+1)
             labelText:StringConstants.label_testPgDOB
             tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
             textValidator:RegExpValidator{regExp:StringConstants.txtValidatorDobOnly}///^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/ }
             lblValueText:""
             tfReadOnly:false
-            Layout.row: IntegerConstants.rowCount4
-            Layout.rowSpan: IntegerConstants.rowSpan1
+            /////////////////////////////////Layout.row: IntegerConstants.rowCount4
+            ////////////////////////////////Layout.rowSpan: IntegerConstants.rowSpan1
             //lblVisible: pageSpOrNp
             textAlignLeftOrCenter:true
             lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp

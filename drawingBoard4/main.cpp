@@ -15,6 +15,10 @@
 #include "medicaltestmodel.h"
 #include "patientresultmodel.h"
 #include "sortfiltermodel.h"
+#ifdef QT_DEBUG
+#include "../qt-apps-qmllive-dev/src/livenodeengine.h"
+#include "../qt-apps-qmllive-dev/src/remotereceiver.h"
+#endif
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
@@ -274,15 +278,43 @@ int main(int argc, char *argv[])
     engine.addImportPath( "qrc:/common/" );
     engine.rootContext()->setContextProperty("PlotPoint",&PlotPoint);
     //engine.rootContext()->setContextProperty("PlotList",QVariant::fromValue&PlotPoint.xyPlotPoints()))
-    const QUrl url(QStringLiteral("qrc:/main.qml"));
+    const QUrl qmlFile = QUrl(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
-                     &app, [url](QObject *obj, const QUrl &objUrl) {
-        if (!obj && url == objUrl)
+                     &app, [qmlFile](QObject *obj, const QUrl &objUrl) {
+        if (!obj && qmlFile == objUrl)
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
-    engine.load(url);
+    engine.load(qmlFile);
     //QTableView view;
     //view.setModel(&leftpatResultModel);//&medTestModel//(&supplementModel);//(&supplementModel);//(&model2);//Also test for other model1 and model
     //view.show();
+
+
+#ifdef QT_DEBUG
+//    LiveNodeEngine node;
+
+//    // Let QmlLive know your runtime
+//    node.setQmlEngine(&engine);
+
+//    // Allow it to display QML components with non-QQuickWindow root object
+//    QQuickView fallbackView(&engine, 0);
+//    node.setFallbackView(&fallbackView);
+
+//    // Tell it where file updates should be stored relative to
+//    node.setWorkspace(SRCDIR,
+//                      LiveNodeEngine::AllowUpdates | LiveNodeEngine::UpdatesAsOverlay);
+
+//    // Listen to IPC call from remote QmlLive Bench
+//    RemoteReceiver receiver;
+//    receiver.registerNode(&node);
+//    receiver.listen(10234);
+
+//    QQuickWindow* window = qobject_cast<QQuickWindow *>(engine.rootObjects().first());
+
+//    // Advanced use: let it know the initially loaded QML component (do this
+//    // only after registering to receiver!)
+//    QList<QQmlError> warnings;
+//    node.usePreloadedDocument(qmlFile.toString(), window, warnings);
+#endif
     return app.exec();
 }

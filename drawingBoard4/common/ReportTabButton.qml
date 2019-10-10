@@ -26,12 +26,14 @@ TabButton {
     id: control
     text: qsTr("Button")
     property alias backColor: bg.color
+    property alias txtColor: txt.color
     contentItem: Text {
+        id:txt
         text: control.text
         font: control.font
         leftPadding: 10
         opacity: enabled ? 1.0 : 0.3
-        color: control.down ? StringConstants.barAlternateColor : StringConstants.barBackgroundColor//"#17a81a":"#21be2b"
+        color: StringConstants.barBorderColor//control.down ?  StringConstants.barBackgroundColor:StringConstants.barBorderColor //"#17a81a":"#21be2b"
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
@@ -42,9 +44,9 @@ TabButton {
         implicitWidth: 120
         implicitHeight: 50//75
         //opacity: enabled ? 1 : 0.3
-        color: control.down ? StringConstants.actionBtnBackgroundColor:StringConstants.label_NewPatientLabelBgColor//StringConstants.actionBtnBackgroundColor//:"#eeeeee"//
-        border.color: control.down ?  StringConstants.barBorderColor:StringConstants.headerBackgroundColor//"#17a81a" : "#21be2b"
-        border.width: 1
+        //color: StringConstants.testPage_backgroundColor//control.down ? StringConstants.label_NewPatientLabelBgColor:StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor//:"#eeeeee"//
+        //border.color: control.down ?  StringConstants.headerBackgroundColor:StringConstants.barBorderColor//"#17a81a" : "#21be2b"
+        //border.width: 1
         radius: 2
         CommonBorder
                 {
@@ -57,6 +59,7 @@ TabButton {
                 }
     }
    onClicked: {
-       backColor = StringConstants.actionBtnBackgroundColor
+       backColor = StringConstants.label_NewPatientLabelBgColor
+       txtColor =  StringConstants.barBackgroundColor
    }
 }

@@ -118,7 +118,9 @@ Rectangle {
                 onComboBoxModelChanged: {
                     console.log("The mode is"+comboBoxModel)
                 }
-                comboBoxTextRole: StringConstants.lbl_rpOperatorName
+                comboBoxTextRole: "key"
+                comboBoxLabel:StringConstants.lbl_rpOperatorName
+                //comboBoxTextRole: StringConstants.lbl_rpOperatorName
                 comboBoxInputHints:Qt.ImhUppercaseOnly|Qt.ImhLowercaseOnly
                 comboBoxValidator:RegExpValidator{regExp:/^[A-Za-z]+$/ }
             }

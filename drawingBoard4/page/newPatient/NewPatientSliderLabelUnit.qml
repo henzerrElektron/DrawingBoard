@@ -34,6 +34,7 @@ Rectangle{
     property alias topSliderMinValue: topSlider.from
     property alias topSliderMaxValue: topSlider.to
     property alias topTextAreaModel: topTextArea.model
+    //property alias labelText: leftLabel.text
     //height: 100
     //width: topSlider.width+ topLabel.width+topTextArea.width+10+20
     //height: topSlider.height+topLabel.height+topTextArea.height
@@ -71,15 +72,29 @@ Rectangle{
     Row{
         id:mainCol
         anchors.fill: parent
-        Slider {
+//        Label{
+//            id:leftLabel
+//            text:qsTr("Label")
+//            horizontalAlignment: Text.AlignHCenter
+//            verticalAlignment: Text.AlignVCenter
+//            anchors.verticalCenter: topSlider.verticalCenter
+//            width: 100
+//            height: parent.height
+//            wrapMode: Text.WordWrap
+//            anchors.left: parent.left
+//            anchors.leftMargin: 10
+//        }
+
+        // Slider {
+        NewPatientCustomSlider{
             id: topSlider
             anchors.top: parent.top
             //anchors.verticalCenter: parent.verticalCenter
-            anchors.left:  parent.left
+            anchors.left:  topLabel.right//parent.left
             anchors.rightMargin: 0
-            anchors.right:  topTextArea.left
+            anchors.right:  parent.right//topTextArea.left
             anchors.leftMargin: 0
-            width: 20
+            //width: 40//20
             //anchors.bottom: parent.bottom
             value: 0.5
             onValueChanged: {
@@ -92,23 +107,32 @@ Rectangle{
         Label {
             id: topLabel
             text: qsTr("Label")
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
             anchors.verticalCenter: topSlider.verticalCenter
-            anchors.right: parent.right
-            anchors.rightMargin: 10
+            anchors.left: topTextArea.right
+            width: 100
+            height: parent.height
+            wrapMode: Text.WordWrap
+            anchors.leftMargin: 10
+            //anchors.right: parent.right
+            //anchors.rightMargin: 10
             //anchors.bottom: parent.bottom
         }
         ComboBox {
             id: topTextArea
             //text: topSlider.value//qsTr("Text Area")
             //currentText:model.modelData
-            anchors.right: topLabel.left
-            anchors.rightMargin: 0
+            //anchors.right: topLabel.left
+            //anchors.rightMargin: 0
             // horizontalAlignment: Text.AlignHCenter
             // verticalAlignment: Text.AlignVCenter
+            anchors.left: parent.left//leftLabel.right//parent.left
+            anchors.leftMargin: 10
             anchors.verticalCenter: topLabel.verticalCenter
             ////anchors.left: slider.right
             //anchors.leftMargin: 0
-            anchors.top: label.bottom
+            //anchors.top: label.bottom
             anchors.topMargin: 0
             editable: true
             onCurrentIndexChanged: {

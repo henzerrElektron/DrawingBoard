@@ -26,7 +26,7 @@ Rectangle{
     height: 1225
     anchors.fill: parent
     border.width: 1
-    border.color: "black"
+    border.color: StringConstants.borderColorBlack
     NewPatientGroupLabel{
         id:medicalDetailsLabel
           isTabHeader:true
@@ -44,7 +44,7 @@ Rectangle{
         //anchors.topMargin: 60
         width: parent.width
         height: 15
-        text: qsTr("Intraocular Lens")
+        text: StringConstants.lbl_intraocularLens//qsTr("Intraocular Lens")
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         anchors.horizontalCenter: parent.horizontalCenter
@@ -63,17 +63,19 @@ Rectangle{
             id:rightFittedOperator
             anchors.fill: parent
             //height: 150
-            labelText: "Right Fitted"
+            labelText: StringConstants.lbl_RightFitted//"Right Fitted"
             dataTumblersecVisibility: false
             dataTumblerthirdVisibility: false
-            dataTumblerfirstVisibility: true
+            dataTumblerfirstVisibility: false//true
+            firstSwitchVisible: false
             topSliderMinValue: 0
             topSliderMaxValue:100
             dataTumblerNoOrColorDelegate:false
             dataTumblerFirstModel: 100
             topSliderModel: 100
-            topSliderLabelText: "yrs"
+            topSliderLabelText: StringConstants.lbl_yrs//"yrs"
             btmSliderVisible:false
+            tumblerVisibility:false
             eyeColorDialVisibilty: false
         }
     }
@@ -88,12 +90,14 @@ Rectangle{
         // height:headerDelegate1.switchMetricsChecked? parent.height/10:parent.height/7
         NewPatientRiskFactorSwitchSliderHorizontal{
             id:leftFittedOperator
-            labelText: "Left Fitted"
+            labelText: StringConstants.lbl_leftFitted//"Left Fitted"
             dataTumblersecVisibility: false
-            dataTumblerfirstVisibility: true
+            dataTumblerfirstVisibility: false//true
             dataTumblerthirdVisibility: false
+            firstSwitchVisible: false
             topSliderMinValue: 0
             topSliderMaxValue: 100
+            tumblerVisibility:false
             //btmSliderMinValue: 0
             //btmSliderMaxValue: headerDelegate1.switchMetricsChecked ? 13: 13
             dataTumblerNoOrColorDelegate:false
@@ -101,7 +105,7 @@ Rectangle{
             //dataTumblerSecModel: headerDelegate1.switchMetricsChecked ? 13: 13
             topSliderModel: 100//headerDelegate1.switchMetricsChecked ? 150: 13
             //btmSliderModel: headerDelegate1.switchMetricsChecked ? 13: 13
-            topSliderLabelText: "yrs"//headerDelegate1.switchMetricsChecked? "m": "feet"
+            topSliderLabelText: StringConstants.lbl_yrs//"yrs"//headerDelegate1.switchMetricsChecked? "m": "feet"
             //btmSliderLabelText: headerDelegate1.switchMetricsChecked? "m": "inch"
             btmSliderVisible:false//headerDelegate1.switchMetricsChecked ?true:false
             eyeColorDialVisibilty: false
@@ -117,11 +121,13 @@ Rectangle{
         height: parent.height/8<100?100:parent.height/8//weightOperator.height
         NewPatientRiskFactorSwitchSliderHorizontal{
             id:diabeticsOperator
-            labelText: "Diabetic"
+            labelText: StringConstants.lbl_diabetic//"Diabetic"
             dataTumblerVisibility: false
             dataTumblersecVisibility: false
             dataTumblerfirstVisibility: false
             dataTumblerthirdVisibility: false
+            tumblerVisibility:false
+            firstSwitchVisible: false
             //topSliderMinValue: 0
             //topSliderMaxValue:100
             dataTumblerNoOrColorDelegate:false

@@ -206,6 +206,7 @@ Rectangle{
                 dataTumblersecVisibility: false
                 dataTumblerfirstVisibility: true
                 dataTumblerthirdVisibility: false
+                tumblerVisibility:false
                 topSliderMinValue: 0
                 topSliderMaxValue:100
                 dataTumblerNoOrColorDelegate:false
@@ -260,6 +261,7 @@ Rectangle{
                 dataTumblerfirstVisibility: false
                 dataTumblerthirdVisibility: false
                 dataTumblerVisibility:false
+                tumblerVisibility:false
                 //topSliderMinValue: 0
                 //topSliderMaxValue:100
                 dataTumblerNoOrColorDelegate:false
@@ -294,6 +296,7 @@ Rectangle{
                 dataTumblerFirstModel: ColorModel{}
                 topSliderVisible: false
                 btmSliderVisible: false
+                tumblerVisibility:true
                 //topSliderModel:100
                 //topSliderLabelText: "eyeColor"
                 //btmSliderVisible:false

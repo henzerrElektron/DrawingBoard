@@ -28,11 +28,12 @@ import ApplicationConstants 1.0
 Rectangle {
     id: searchRec
     anchors.fill: parent
-    border.color: StringConstants.actionBtnBackgroundColor
-    border.width: 1
+
     // width: label.width+comboBox.width
     //height:label.height+comboBox.height
     //property alias labelText: label.text
+    property bool hideBorder: false
+    property alias comboBoxLabel: comboBox.labelText
     property alias comboBoxModel: comboBox.comboBoxModel
     property alias  comboBoxTextRole: comboBox.comboBoxTextRole
     property alias comboBoxInputHints: comboBox.comboBoxInputHints
@@ -40,7 +41,11 @@ Rectangle {
     property alias  comboBoxIndex: comboBox.comboBoxIndex
     property alias  comboBoxText: comboBox.comboBoxText
     property alias  comboBoxRoleOrModelFlag:comboBox.comboBoxRoleOrModelFlag
+    property alias comboDelegateRoleOrModel: comboBox.comboBoxDelegateRoleOrModel
+    property alias comboBoxMargin: comboBox.comboBoxMargin
     property var comboBoxtypes:theExistingPatientsModel.FirstNameRole
+    border.color: hideBorder?"transparent":StringConstants.actionBtnBackgroundColor
+    border.width: hideBorder?0:1
     //        function(){
     //        if(comboBoxTextRole === "Surname"){
     //            return model.Surname
@@ -113,7 +118,7 @@ Rectangle {
                 id:comboBox//pageOperators
                 anchors.fill: parent
                 labelHorizontal:true
-                labelText: comboBoxTextRole//StringConstants.lbl_rpSelectOperator
+                labelText: ""//comboBoxTextRole//StringConstants.lbl_rpSelectOperator
                 firstTumblerVisibility: false
                 secTumblerVisibility: false
                 thirdTumblerVisibility: false

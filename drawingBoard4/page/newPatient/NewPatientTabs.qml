@@ -29,12 +29,32 @@ Page {
     anchors.fill: parent
     Layout.fillHeight: true
     Layout.fillWidth: true
-
+    property int prevBtn1Height: 0
+    property int prevBtn2Height: 0
+    property int prevBtn3Height: 0
+    property int prevBtn4Height: 0
+    property int prevBtn5Height: 0
+    property int prevBtn6Height: 0
 
     header:  TabBar {
         id: bar
         width: parent.width
         currentIndex: testview.currentIndex
+
+        background: Rectangle {
+            color: StringConstants.barBackgroundColor//StringConstants.headerBackgroundColor
+            //border.width: 2
+            //border.color: StringConstants.barBackgroundColor
+            CommonBorder
+            {
+                customBorder:  false
+                lBorderWidth: 0
+                rBorderWidth: 0
+                tBorderWidth: 0
+                bBorderWidth: 10
+                borderColor: StringConstants.label_NewPatientLabelBgColor//StringConstants.barBorderColor
+            }
+        }
         onCurrentIndexChanged: {
             if(currentIndex === 0)
             {
@@ -48,22 +68,22 @@ Page {
             {
                 btn3Clicked()
             }
+//            if(currentIndex === 3)
+//            {
+//                btn4Clicked()
+//            }
             if(currentIndex === 3)
-            {
-                btn4Clicked()
-            }
-            if(currentIndex === 4)
             {
                 btn5Clicked()
             }
-            if(currentIndex === 5)
+            if(currentIndex === 4)
             {
                 btn6Clicked()
             }
-//            if(currentIndex === 6)
-//            {
-//                btn7Clicked()
-//            }
+            //            if(currentIndex === 6)
+            //            {
+            //                btn7Clicked()
+            //            }
         }
         function btn1Clicked()
         {
@@ -73,15 +93,40 @@ Page {
             }
             page2.visible = false;
             page3.visible = false;
-            page4.visible = false;
+            //page4.visible = false;
             page5.visible = false;
             page6.visible = false;
-            btn6.backColor= StringConstants.label_NewPatientLabelBgColor
-            btn1.backColor = StringConstants.actionBtnBackgroundColor
-            btn2.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn3.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn4.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn5.backColor=StringConstants.label_NewPatientLabelBgColor
+
+            if(prevBtn1Height !== 0)
+            {
+                btn1.height = prevBtn1Height
+                btn2.height = prevBtn2Height
+                btn3.height = prevBtn3Height
+                //btn4.height = prevBtn4Height
+                btn5.height =  prevBtn5Height
+                btn6.height = prevBtn6Height
+            }
+            else
+            {
+                prevBtn1Height=  btn1.height
+                prevBtn2Height=  btn2.height
+                prevBtn3Height=  btn3.height
+                //prevBtn4Height=  btn4.height
+                prevBtn5Height=  btn5.height
+                prevBtn6Height=  btn6.height
+            }
+            btn1.height = btn1.height + 3
+            btn2.height = btn2.height - 10
+            btn3.height = btn3.height - 10
+            //btn4.height = btn4.height - 10
+            btn5.height = btn5.height - 10
+            btn6.height = btn6.height - 10
+            btn6.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn1.backColor = StringConstants.label_NewPatientLabelBgColor
+            btn2.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn3.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            //btn4.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn5.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
         }
         function btn2Clicked()
         {
@@ -91,15 +136,40 @@ Page {
                 page2.visible = true;
             }
             page3.visible = false;
-            page4.visible = false;
+            //page4.visible = false;
             page5.visible = false;
             page6.visible = false;
-            btn6.backColor= StringConstants.label_NewPatientLabelBgColor
-            btn2.backColor = StringConstants.actionBtnBackgroundColor
-            btn1.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn3.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn4.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn5.backColor=StringConstants.label_NewPatientLabelBgColor
+
+            if(prevBtn2Height !== 0)
+            {
+                btn1.height = prevBtn1Height
+                btn2.height = prevBtn2Height
+                btn3.height = prevBtn3Height
+                //btn4.height = prevBtn4Height
+                btn5.height =  prevBtn5Height
+                btn6.height = prevBtn6Height
+            }
+            else
+            {
+                prevBtn1Height=  btn1.height
+                prevBtn2Height=  btn2.height
+                prevBtn3Height=  btn3.height
+                //prevBtn4Height=  btn4.height
+                prevBtn5Height=  btn5.height
+                prevBtn6Height=  btn6.height
+            }
+            btn2.height = btn2.height + 3
+            btn1.height = btn1.height - 10
+            btn3.height = btn3.height - 10
+            //btn4.height = btn4.height - 10
+            btn5.height = btn5.height - 10
+            btn6.height = btn6.height - 10
+            btn6.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn2.backColor = StringConstants.label_NewPatientLabelBgColor//StringConstants.actionBtnBackgroundColor
+            btn1.backColor=StringConstants.testPage_backgroundColor////StringConstants.label_NewPatientLabelBgColor
+            btn3.backColor=StringConstants.testPage_backgroundColor///StringConstants.label_NewPatientLabelBgColor
+            //btn4.backColor=StringConstants.testPage_backgroundColor////StringConstants.label_NewPatientLabelBgColor
+            btn5.backColor=StringConstants.testPage_backgroundColor////StringConstants.label_NewPatientLabelBgColor
         }
         function btn3Clicked()
         {
@@ -109,95 +179,197 @@ Page {
             {
                 page3.visible = true;
             }
-            page4.visible = false;
+            //page4.visible = false;
             page5.visible = false;
             page6.visible = false;
-            btn6.backColor= StringConstants.label_NewPatientLabelBgColor
-            btn3.backColor = StringConstants.actionBtnBackgroundColor
-            btn1.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn2.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn4.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn5.backColor=StringConstants.label_NewPatientLabelBgColor
-        }
-        function btn4Clicked()
-        {
-            page1.visible = false;
-            page2.visible = false;
-            page3.visible = false;
-            if(page4.visible === false)
+
+            if(prevBtn3Height !== 0)
             {
-                page4.visible = true;
+                btn1.height = prevBtn1Height
+                btn2.height = prevBtn2Height
+                btn3.height = prevBtn3Height
+                //btn4.height = prevBtn4Height
+                btn5.height =  prevBtn5Height
+                btn6.height = prevBtn6Height
             }
-            page5.visible = false;
-            page6.visible = false;
-            btn6.backColor= StringConstants.label_NewPatientLabelBgColor
-            btn4.backColor = StringConstants.actionBtnBackgroundColor
-            btn1.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn2.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn3.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn5.backColor=StringConstants.label_NewPatientLabelBgColor
+            else
+            {
+                prevBtn1Height=  btn1.height
+                prevBtn2Height=  btn2.height
+                prevBtn3Height=  btn3.height
+                //prevBtn4Height=  btn4.height
+                prevBtn5Height=  btn5.height
+                prevBtn6Height=  btn6.height
+            }
+            btn3.height = btn3.height + 3
+            btn1.height = btn1.height - 10
+            btn2.height = btn2.height - 10
+            //btn4.height = btn4.height - 10
+            btn5.height = btn5.height - 10
+            btn6.height = btn6.height - 10
+            btn6.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn3.backColor = StringConstants.label_NewPatientLabelBgColor//StringConstants.actionBtnBackgroundColor
+            btn1.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn2.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            //btn4.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn5.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
         }
+//        function btn4Clicked()
+//        {
+//            page1.visible = false;
+//            page2.visible = false;
+//            page3.visible = false;
+//            if(page4.visible === false)
+//            {
+//                page4.visible = true;
+//            }
+//            page5.visible = false;
+//            page6.visible = false;
+
+//            if(prevBtn4Height !== 0)
+//            {
+//                btn1.height = prevBtn1Height
+//                btn2.height = prevBtn2Height
+//                btn3.height = prevBtn3Height
+//                btn4.height = prevBtn4Height
+//                btn5.height =  prevBtn5Height
+//                btn6.height = prevBtn6Height
+//            }
+//            else
+//            {
+//                prevBtn1Height=  btn1.height
+//                prevBtn2Height=  btn2.height
+//                prevBtn3Height=  btn3.height
+//                prevBtn4Height=  btn4.height
+//                prevBtn5Height=  btn5.height
+//                prevBtn6Height=  btn6.height
+//            }
+//            btn4.height = btn4.height + 3
+//            btn1.height = btn1.height - 10
+//            btn2.height = btn2.height - 10
+//            btn3.height = btn3.height - 10
+//            btn5.height = btn5.height - 10
+//            btn6.height = btn6.height - 10
+//            btn6.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+//            btn4.backColor = StringConstants.label_NewPatientLabelBgColor//StringConstants.label_NewPatientLabelBgColor
+//            btn1.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+//            btn2.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+//            btn3.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+//            btn5.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+//        }
         function btn5Clicked()
         {
             page1.visible = false;
             page2.visible = false;
             page3.visible = false;
-            page4.visible = false;
+            //page4.visible = false;
             if(page5.visible === false)
             {
                 page5.visible = true;
             }
             page6.visible = false;
-            btn6.backColor= StringConstants.label_NewPatientLabelBgColor
-            btn5.backColor = StringConstants.actionBtnBackgroundColor
-            btn1.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn2.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn3.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn4.backColor=StringConstants.label_NewPatientLabelBgColor
+
+            if(prevBtn5Height !== 0)
+            {
+                btn1.height = prevBtn1Height
+                btn2.height = prevBtn2Height
+                btn3.height = prevBtn3Height
+                //btn4.height = prevBtn4Height
+                btn5.height =  prevBtn5Height
+                btn6.height = prevBtn6Height
+            }
+            else
+            {
+                prevBtn1Height=  btn1.height
+                prevBtn2Height=  btn2.height
+                prevBtn3Height=  btn3.height
+                //prevBtn4Height=  btn4.height
+                prevBtn5Height=  btn5.height
+                prevBtn6Height=  btn6.height
+            }
+            btn5.height = btn5.height + 3
+            btn1.height = btn1.height - 10
+            btn2.height = btn2.height - 10
+            btn3.height = btn3.height - 10
+            //btn4.height = btn4.height - 10
+            btn6.height = btn6.height - 10
+            btn6.backColor=  StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn5.backColor = StringConstants.label_NewPatientLabelBgColor//StringConstants.actionBtnBackgroundColor
+            btn1.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn2.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn3.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            //btn4.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
         }
         function btn6Clicked()
         {
             page1.visible = false;
             page2.visible = false;
             page3.visible = false;
-            page4.visible = false;
+            //page4.visible = false;
             page5.visible = false;
             if(page6.visible === false)
             {
                 page6.visible = true;
             }
-            btn6.backColor = StringConstants.actionBtnBackgroundColor
-            btn5.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn1.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn2.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn3.backColor=StringConstants.label_NewPatientLabelBgColor
-            btn4.backColor=StringConstants.label_NewPatientLabelBgColor
+
+            if(prevBtn5Height !== 0)
+            {
+                btn1.height = prevBtn1Height
+                btn2.height = prevBtn2Height
+                btn3.height = prevBtn3Height
+                //btn4.height = prevBtn4Height
+                btn5.height =  prevBtn5Height
+                btn6.height = prevBtn6Height
+            }
+            else
+            {
+                prevBtn1Height=  btn1.height
+                prevBtn2Height=  btn2.height
+                prevBtn3Height=  btn3.height
+                //prevBtn4Height=  btn4.height
+                prevBtn5Height=  btn5.height
+                prevBtn6Height=  btn6.height
+            }
+            btn6.height = btn6.height + 3
+            btn1.height = btn1.height - 10
+            btn2.height = btn2.height - 10
+            btn3.height = btn3.height - 10
+            //btn4.height = btn4.height - 10
+            btn5.height = btn5.height - 10
+            btn6.backColor = StringConstants.label_NewPatientLabelBgColor//StringConstants.actionBtnBackgroundColor
+            btn5.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn1.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn2.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn3.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            //btn4.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
         }
-//        function btn7Clicked()
-//        {
-//            page1.visible = false;
-//            page2.visible = false;
-//            page3.visible = false;
-//            page4.visible = false;
-//            page5.visible = false;
-//            page6.visible = false;
-//            if(page7.visible === false)
-//            {
-//                page7.visible = true;
-//            }
-//            btn7.backColor = StringConstants.actionBtnBackgroundColor
-//            btn5.backColor=StringConstants.label_NewPatientLabelBgColor
-//            btn5.backColor=StringConstants.label_NewPatientLabelBgColor
-//            btn1.backColor=StringConstants.label_NewPatientLabelBgColor
-//            btn2.backColor=StringConstants.label_NewPatientLabelBgColor
-//            btn3.backColor=StringConstants.label_NewPatientLabelBgColor
-//            btn4.backColor=StringConstants.label_NewPatientLabelBgColor
-//        }
+        //        function btn7Clicked()
+        //        {
+        //            page1.visible = false;
+        //            page2.visible = false;
+        //            page3.visible = false;
+        //            page4.visible = false;
+        //            page5.visible = false;
+        //            page6.visible = false;
+        //            if(page7.visible === false)
+        //            {
+        //                page7.visible = true;
+        //            }
+        //            btn7.backColor = StringConstants.actionBtnBackgroundColor
+        //            btn5.backColor=StringConstants.label_NewPatientLabelBgColor
+        //            btn5.backColor=StringConstants.label_NewPatientLabelBgColor
+        //            btn1.backColor=StringConstants.label_NewPatientLabelBgColor
+        //            btn2.backColor=StringConstants.label_NewPatientLabelBgColor
+        //            btn3.backColor=StringConstants.label_NewPatientLabelBgColor
+        //            btn4.backColor=StringConstants.label_NewPatientLabelBgColor
+        //        }
 
 
         //onCurrentIndexChanged:
         ReportTabButton {
             id:btn1
+            width: implicitWidth
+            anchors.bottom: parent.bottom
             text: StringConstants.lbl_npContactDetails//qsTr("Contact Details")
             onClicked: {
                 btn1Clicked()
@@ -205,6 +377,8 @@ Page {
         }
         ReportTabButton {
             id:btn2
+            width: implicitWidth
+            anchors.bottom: parent.bottom
             text: StringConstants.lbl_medicalDetails//qsTr("Medical Details")
             onClicked: {
                 btn2Clicked()
@@ -213,22 +387,28 @@ Page {
         }
         ReportTabButton {
             id:btn3
+            width: implicitWidth
+            anchors.bottom: parent.bottom
             text: StringConstants.lbl_riskFactors//qsTr("Risk Factors")
             onClicked: {
                 btn3Clicked()
 
             }
         }
-        ReportTabButton {
-            id:btn4
-            text: StringConstants.lbl_otherRiskFactors//qsTr("Notes")
-            onClicked: {
-                btn4Clicked()
+//        ReportTabButton {
+//            id:btn4
+//            width: implicitWidth
+//            anchors.bottom: parent.bottom
+//            text: StringConstants.lbl_otherRiskFactors//qsTr("Notes")
+//            onClicked: {
+//                btn4Clicked()
 
-            }
-        }
+//            }
+//        }
         ReportTabButton {
             id:btn5
+            width: implicitWidth
+            anchors.bottom: parent.bottom
             text: StringConstants.lbl_notes//qsTr("Supplementation")
             onClicked: {
                 btn5Clicked()
@@ -236,18 +416,20 @@ Page {
         }
         ReportTabButton {
             id:btn6
+            width: implicitWidth
+            anchors.bottom: parent.bottom
             text: StringConstants.lbl_supplementation//qsTr("Supplementation")
             onClicked: {
                 btn6Clicked()
             }
         }
-//        ReportTabButton {
-//            id:btn7
-//            text: StringConstants.lbl_supplementation//qsTr("Supplementation")
-//            onClicked: {
-//                btn7Clicked()
-//            }
-//        }
+        //        ReportTabButton {
+        //            id:btn7
+        //            text: StringConstants.lbl_supplementation//qsTr("Supplementation")
+        //            onClicked: {
+        //                btn7Clicked()
+        //            }
+        //        }
     }
 
     SwipeView {
@@ -341,16 +523,16 @@ Page {
 
 
         }
-        Page{
-            id:page4
-            visible: false
-            NewPatientMedicalRiskFactors{
-                id:medicalRiskFactors
-                anchors.fill: parent
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-            }
-        }
+//        Page{
+//            id:page4
+//            visible: false
+//            NewPatientMedicalRiskFactors{
+//                id:medicalRiskFactors
+//                anchors.fill: parent
+//                Layout.fillWidth: true
+//                Layout.fillHeight: true
+//            }
+//        }
 
         Page {
             id: page5

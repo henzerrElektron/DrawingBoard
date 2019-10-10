@@ -25,7 +25,9 @@ import ApplicationConstants 1.0
 Rectangle{
     id:mainRec
     anchors.fill: parent
-    color:StringConstants.testPage_backgroundColor
+    color:"transparent"//StringConstants.testPage_backgroundColor
+    border.color: StringConstants.borderColorBlack
+    border.width: 2
     NewPatientGroupLabel{
         id:contactDetailLabel
         isTabHeader:true
@@ -36,15 +38,18 @@ Rectangle{
 
     Rectangle{
         id:testRec
-        color: StringConstants.testPage_backgroundColor//color_gbTransparent//"transparent"
+        width: (mainRec.width/2)+30
+        color: "transparent"//StringConstants.testPage_backgroundColor//color_gbTransparent//"transparent"
         anchors.top: contactDetailLabel.bottom
         anchors.topMargin: 10
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
-        anchors.right: parent.right
+        //anchors.right: parent.right
         anchors.rightMargin: 10
         anchors.left: parent.left
         anchors.leftMargin: 10
+        //border.color: StringConstants.borderColorBlack
+        //border.width: 2
         GridLayout{
             id:grid
             anchors.fill: parent
@@ -56,8 +61,9 @@ Rectangle{
                 Layout.rowSpan: IntegerConstants.rowSpan1
                 Layout.column: IntegerConstants.columnCount1
                 Layout.columnSpan: IntegerConstants.columnSpan2
-                Layout.fillHeight: true
+                //Layout.fillHeight: true
                 Layout.fillWidth: true
+                height: 45
                 labelText:StringConstants.lbl_npContactMobile
                 tfReadOnly:false
                 tfPlaceHolderText:StringConstants.lbl_npContactMobilePh
@@ -79,9 +85,10 @@ Rectangle{
                 Layout.rowSpan: IntegerConstants.rowSpan1
                 Layout.column: IntegerConstants.columnCount1
                 Layout.columnSpan: IntegerConstants.columnSpan2
-                Layout.fillHeight: true
+                //Layout.fillHeight: true
                 Layout.fillWidth: true
                 lblValueVisible: false
+                height: 45
                 lblLeftPadding:75
                 textAlignLeftOrCenter:false
                 txtVisible:true
@@ -98,9 +105,10 @@ Rectangle{
                 Layout.rowSpan: IntegerConstants.rowSpan1
                 Layout.column: IntegerConstants.columnCount1
                 Layout.columnSpan: IntegerConstants.columnSpan2
-                Layout.fillHeight: true
+                //Layout.fillHeight: true
                 Layout.fillWidth: true
                 lblValueVisible: false
+                height: 45
                 textAlignLeftOrCenter:false
                 lblLeftPadding:75
                 txtVisible:true
@@ -118,9 +126,10 @@ Rectangle{
                 Layout.rowSpan: IntegerConstants.rowSpan1
                 Layout.column: IntegerConstants.columnCount1
                 Layout.columnSpan: IntegerConstants.columnSpan2
-                Layout.fillHeight: true
+                //Layout.fillHeight: true
                 Layout.fillWidth: true
                 lblValueVisible: false
+                height: 45
                 textAlignLeftOrCenter:false
                 lblLeftPadding:75
                 txtVisible:true
@@ -136,10 +145,11 @@ Rectangle{
                 Layout.row: IntegerConstants.rowCount5
                 //Layout.rowSpan: 1
                 Layout.column: IntegerConstants.columnCount1
-                Layout.columnSpan: IntegerConstants.columnSpan1
-                Layout.fillHeight: true
+                Layout.columnSpan: IntegerConstants.columnSpan2
+                //Layout.fillHeight: true
                 Layout.fillWidth: true
                 lblValueVisible: false
+                height: 45
                 textAlignLeftOrCenter:false
                 lblLeftPadding: 75
                 txtVisible:true
@@ -153,14 +163,16 @@ Rectangle{
                 tfPlaceHolderText:StringConstants.lbl_npContactPostalCodePh
                 textValidator:RegExpValidator{regExp:StringConstants.txtValidatorWordsNumbersOnly }///^\w+$/
                 tfReadOnly:false
-                Layout.row: IntegerConstants.rowCount5
+                Layout.row: IntegerConstants.rowCount6
                 //Layout.rowSpan: 1
-                Layout.column: IntegerConstants.columnCount2
-                Layout.columnSpan: IntegerConstants.columnSpan1
-                Layout.fillHeight: true
+                Layout.column: IntegerConstants.columnCount1
+                Layout.columnSpan: IntegerConstants.columnSpan2
+                //Layout.fillHeight: true
                 Layout.fillWidth: true
                 lblValueVisible: false
-                textAlignLeftOrCenter:true
+                height: 45
+                textAlignLeftOrCenter:false
+                lblLeftPadding: 75
                 txtVisible:true
                 itemVisible: true
                 commonColor: StringConstants.label_NewPatientLabelBgColor
@@ -171,14 +183,16 @@ Rectangle{
                 tfPlaceHolderText:StringConstants.lbl_npContactCountryPh
                 textValidator:RegExpValidator{regExp: StringConstants.txtValidatorWordsOnly}///^[A-Za-z]+$/
                 tfReadOnly:false
-                Layout.row: IntegerConstants.rowCount6
+                Layout.row: IntegerConstants.rowCount8
                 //Layout.rowSpan: 1
                 Layout.column: IntegerConstants.columnCount1
-                Layout.columnSpan: IntegerConstants.columnSpan1
-                Layout.fillHeight: true
+                Layout.columnSpan: IntegerConstants.columnSpan2
+                //Layout.fillHeight: true
                 Layout.fillWidth: true
                 lblValueVisible: false
-                textAlignLeftOrCenter:true
+                textAlignLeftOrCenter:false
+                lblLeftPadding: 75
+                height: 45
                 txtVisible:true
                 itemVisible: true
                 commonColor:StringConstants.label_NewPatientLabelBgColor
@@ -192,14 +206,17 @@ Rectangle{
                 tfPlaceHolderText:StringConstants.lbl_npContactCountyPh
                 textValidator:RegExpValidator{regExp:/^[A-Za-z]+$/ }
                 tfReadOnly:false
-                Layout.row: IntegerConstants.rowCount6
+                Layout.row: IntegerConstants.rowCount7
                 //Layout.rowSpan: 1
-                Layout.column: IntegerConstants.columnCount2
+                Layout.column: IntegerConstants.columnCount1
+                Layout.columnSpan: IntegerConstants.columnSpan2
                 //Layout.columnSpan: 1
-                Layout.fillHeight: true
+                //Layout.fillHeight: true
                 Layout.fillWidth: true
                 lblValueVisible: false
-                textAlignLeftOrCenter:true
+                textAlignLeftOrCenter:false
+                lblLeftPadding: 75
+                height: 45
                 txtVisible:true
                 itemVisible: true
                 commonColor: StringConstants.label_NewPatientLabelBgColor
@@ -207,6 +224,8 @@ Rectangle{
         }
     }
 }
+
+
 
 
 

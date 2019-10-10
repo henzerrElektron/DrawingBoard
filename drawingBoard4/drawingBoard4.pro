@@ -6,7 +6,19 @@ QT += widgets
 # depend on your compiler). Refer to the documentation for the
 # deprecated API to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
-
+#QML Live
+#INCLUDEPATH += $$[QT_INSTALL_HEADERS]/qmllive
+#LIBS += -L$$[QT_INSTALL_LIBS] -lqmllive
+DEFINES += SRCDIR=\\\"$$PWD/\\\"
+LIBDIR = $$PWD/Library
+INCLUDEPATH += "$$_PRO_FILE_PWD_/Library/"
+DEPENDPATH += "$$_PRO_FILE_PWD_/Library/"
+DEPENDPATH += " $$_PRO_FILE_PWD_/qt-apps-qmllive-dev/"
+INCLUDEPATH += " $$_PRO_FILE_PWD_/qt-apps-qmllive-dev/"
+win32:CONFIG(release, debug|release): LIBS += -L"$$_PRO_FILE_PWD_/Library/" -lqmllive5
+else:win32:CONFIG(debug, debug|release): LIBS += -L"$$_PRO_FILE_PWD_/Library/" -lqmllive5
+win32: LIBS += -lqmllive5
+#QML Live
 # You can also make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
@@ -96,6 +108,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+
 DISTFILES += \
     #MpodDisplayer.qml \
     PlotterPointers.qml \
@@ -118,3 +131,4 @@ HEADERS += \
     switchpatienttablemodel.h \
     testpagesupplementationmodel.h \
     testresultmodels.h
+

@@ -65,9 +65,9 @@ Page {
             anchors.rightMargin: 0
             anchors.top: parent.top
             anchors.topMargin: 0
-            Layout.minimumHeight:  parent.height/3
-            Layout.preferredHeight: parent.height/3
-            Layout.maximumHeight: parent.height/3
+            Layout.minimumHeight:  parent.height/3 +50
+            Layout.preferredHeight: parent.height/3 +50
+            Layout.maximumHeight: parent.height/3+50
             NewPatientHeader{
                 id:newPatientLbl
                 anchors.fill: parent
@@ -88,18 +88,21 @@ Page {
         }
         Rectangle{
             id:rectangle2
-            color: "black"//StringConstants.testPage_backgroundColor//"black"//"transparent"
+            color: StringConstants.barBackgroundColor//"black"//StringConstants.testPage_backgroundColor//"black"//"transparent"
+            border.color: "White"
+            border.width: 10
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.row: 2
             Layout.rowSpan: 1
             anchors.left: parent.left
-            anchors.leftMargin: 0
+            anchors.leftMargin: 10
             anchors.right: parent.right
-            anchors.rightMargin: 0
+            anchors.rightMargin: 10
             anchors.top: rectangle1.bottom
             anchors.bottom: parent.bottom
-            anchors.topMargin: 0
+            anchors.bottomMargin: 10
+            anchors.topMargin: 10
             Layout.maximumHeight:parent.height - parent.height/4
             NewPatientTabs{
                 id:newPatientTabs

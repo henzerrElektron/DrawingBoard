@@ -99,9 +99,11 @@ Rectangle {
         id: colordelegateComponent
     }
 
-    Frame {
+    //Frame {
+    Rectangle{
         id: frame
         anchors.fill: parent
+        //visible: firstTumblerVisibility?true:secTumblerVisibility?true:thirdTumblerVisibility?true:false
         //Layout.fillWidth: true
         //width: parent.width
         //anchors.horizontalCenter: parent.horizontalCenter

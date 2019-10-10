@@ -28,6 +28,8 @@ Rectangle{
     //width: (elementKnown.width >= elementYesNo.width)?elementKnown.width:elementYesNo.width
     //height: elementKnown.height + elementYesNo.height +mainLayout.spacing
     property bool horOrVer: false
+    property alias secondSwitchVisible: elementYesNo.visible
+    property alias firstSwitchVisible: elementKnown.visible
     //anchors.fill: parent
     width: mainLayout.width
     height: mainLayout.height

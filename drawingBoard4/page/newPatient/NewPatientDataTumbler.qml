@@ -48,6 +48,7 @@ Rectangle {
     property alias comboBoxInputHints: topTextArea.comboBoxInputHints
     property alias comboBoxValidator: topTextArea.comboBoxValidator
     property alias comboBoxRoleOrModelFlag: topTextArea.roleOrModel
+    property alias comboBoxDelegateRoleOrModel: topTextArea.delegateRoleOrModel
     function setPrevIndex(index)
     {
         topTextArea.comboBoxPreviousIndex = index
@@ -117,6 +118,7 @@ Rectangle {
     property int firstModelReArrangeCondition: 0
     property int secModelReArrangeCondition: 0
     property int thirdModelReArrangeCondition: 0
+    property int comboBoxMargin: 50
     property alias  firstTumblerCount: firstTumblerRec.allTumblerVisibleItemCount
     property bool lblAlignCentre: false
     signal changeTumblerComboValue(int index)
@@ -258,7 +260,7 @@ Rectangle {
                 color: labelHorizontal?"white":"white"//StringConstants.actionBtnBackgroundColor
                 height: labelHorizontal?topTextArea.height-2:20
                 verticalAlignment: Text.AlignVCenter//labelHorizontal?Text.AlignBottom:Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter//labelHorizontal?Text.AlignLeft:Text.AlignHCenter//Text.AlignHCenter//
+                horizontalAlignment: labelHorizontal?Text.AlignLeft:Text.AlignHCenter//Text.AlignHCenter//
                 Layout.alignment: secTumblerVisibility?Qt.AlignHCenter | Qt.AlignVCenter:lblAlignCentre?Qt.AlignHCenter:Qt.AlignLeft
                 background: Rectangle{
                     id:bgRec
@@ -277,7 +279,7 @@ Rectangle {
                 Layout.column: labelHorizontal?2:1
                 Layout.columnSpan: labelHorizontal?1:3
                 anchors.left: labelHorizontal?lbl.right:parent.left
-                anchors.leftMargin: labelHorizontal?50:0//(parent.width-lbl.width)/8:0
+                anchors.leftMargin: labelHorizontal?comboBoxMargin:0//(parent.width-lbl.width)/8:0
                 anchors.right: parent.right
                 anchors.rightMargin: labelHorizontal?10:0//labelHorizontal?(parent.width-lbl.width)/4:0
                 //Layout.fillHeight: true

@@ -36,14 +36,14 @@ Rectangle{
         rowSpacing: 5
         anchors.fill: parent
         //height: 2*subRec1.height+8* subRec2.height
-        rows:6//10
+        rows:10
         Rectangle{
             id:subRec1
             Layout.row: 1
             Layout.rowSpan: 1
             Layout.alignment: Qt.AlignTop
-            Layout.minimumHeight: 50
-            Layout.maximumHeight: 50
+            Layout.minimumHeight: mainRec.height/mainGrid.rows//50
+            Layout.maximumHeight: mainRec.height/mainGrid.rows//50
             //Layout.fillHeight: true
             Layout.fillWidth: true
             RiskFactorHeaderDelegate{
@@ -89,7 +89,7 @@ Rectangle{
                 //width: parent.width
                 //height: 15
                 anchors.fill: parent
-                text: qsTr("Diet and LifeStyle")
+                text: StringConstants.lbl_dietAndLifeStyle//qsTr("Diet and LifeStyle")
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
                 //anchors.horizontalCenter: parent.horizontalCenter
@@ -104,22 +104,25 @@ Rectangle{
             //Layout.fillHeight: true
             Layout.fillWidth: true
             //Layout.fillHeight: true
-            Layout.minimumHeight: 95//100//93
-            Layout.maximumHeight: 95//100//93
+            Layout.minimumHeight: mainRec.height/mainGrid.rows//50//95//100//93
+            Layout.maximumHeight: mainRec.height/mainGrid.rows//50//95//100//93
             NewPatientRiskFactorSwitchSliderHorizontal{
                 id:weightOperator
                 anchors.fill: parent
                 //height: 150
-                labelText: "Weight"
+                labelText: StringConstants.lbl_weight//"Weight"
                 dataTumblersecVisibility: false
                 dataTumblerthirdVisibility: false
                 dataTumblerfirstVisibility: true
+                tumblerVisibility:false
+                firstSwitchVisible:false
+                secondSwitchVisible:false
                 topSliderMinValue: 0
                 topSliderMaxValue: headerDelegate1.switchMetricsChecked ? 150: 1000
                 dataTumblerNoOrColorDelegate:false
                 dataTumblerFirstModel: headerDelegate1.switchMetricsChecked ? 150: 1000
                 topSliderModel: headerDelegate1.switchMetricsChecked ? 150: 1000
-                topSliderLabelText: headerDelegate1.switchMetricsChecked? "kg": "lbs"
+                topSliderLabelText: headerDelegate1.switchMetricsChecked? StringConstants.lbl_kg: StringConstants.lbl_lbs
                 btmSliderVisible:false
                 eyeColorDialVisibilty: false
             }
@@ -131,12 +134,15 @@ Rectangle{
             Layout.rowSpan: 1
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.minimumHeight: headerDelegate1.switchMetricsChecked ?120:95//12093
-            Layout.maximumHeight: headerDelegate1.switchMetricsChecked ?120:95//12093
+            Layout.minimumHeight: headerDelegate1.switchMetricsChecked ?75:mainRec.height/mainGrid.rows//50//120:95//12093
+            Layout.maximumHeight: headerDelegate1.switchMetricsChecked ?75:mainRec.height/mainGrid.rows//50//120:95//12093
             NewPatientRiskFactorSwitchSliderHorizontal{
                 id:heightOperator
                 anchors.fill: parent
-                labelText: "Height"
+                labelText: StringConstants.lbl_Height//"Height"
+                tumblerVisibility:false
+                firstSwitchVisible:false
+                secondSwitchVisible:false
                 dataTumblersecVisibility: headerDelegate1.switchMetricsChecked ?true:false
                 dataTumblerfirstVisibility: true
                 dataTumblerthirdVisibility: false
@@ -149,8 +155,8 @@ Rectangle{
                 dataTumblerSecModel: headerDelegate1.switchMetricsChecked ? 13: 13
                 topSliderModel: headerDelegate1.switchMetricsChecked ? 150: 13
                 btmSliderModel: headerDelegate1.switchMetricsChecked ? 13: 13
-                topSliderLabelText: headerDelegate1.switchMetricsChecked? "m": "feet"
-                btmSliderLabelText: headerDelegate1.switchMetricsChecked? "m": "inch"
+                topSliderLabelText: headerDelegate1.switchMetricsChecked? StringConstants.lbl_meter: StringConstants.lbl_feet
+                btmSliderLabelText: headerDelegate1.switchMetricsChecked? StringConstants.lbl_meter: StringConstants.lbl_inch
                 btmSliderVisible:headerDelegate1.switchMetricsChecked ?true:false
                 eyeColorDialVisibilty: false
             }
@@ -162,20 +168,22 @@ Rectangle{
             Layout.rowSpan: 1
             //Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.minimumHeight: 95//100//93
-            Layout.maximumHeight: 95//100//93
+            Layout.minimumHeight: mainRec.height/mainGrid.rows//50//95//100//93
+            Layout.maximumHeight: mainRec.height/mainGrid.rows//50//95//100//93
             NewPatientRiskFactorSwitchSliderHorizontal{
                 id:cigOperator
-                labelText: "Smoker"
+                labelText: StringConstants.lbl_smoker//"Smoker"
                 dataTumblersecVisibility: false
                 dataTumblerfirstVisibility: true
                 dataTumblerthirdVisibility: false
+                tumblerVisibility:false
+                firstSwitchVisible:false
                 topSliderMinValue: 0
                 topSliderMaxValue:100
                 dataTumblerNoOrColorDelegate:false
                 dataTumblerFirstModel: 100
                 topSliderModel:100
-                topSliderLabelText: "Cigarettes per day"
+                topSliderLabelText: StringConstants.lbl_cigPerDay//"Cigarettes per day"
                 btmSliderVisible:false
                 eyeColorDialVisibilty: false
             }
@@ -186,131 +194,139 @@ Rectangle{
             Layout.rowSpan: 1
             // Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.minimumHeight: 95//100//93
-            Layout.maximumHeight: 95//100//93
+            Layout.minimumHeight: mainRec.height/mainGrid.rows//50//95//100//93
+            Layout.maximumHeight: mainRec.height/mainGrid.rows//50//95//100//93
             NewPatientRiskFactorSwitchSliderHorizontal{
                 id:alcoholOperator
-                labelText: "Alcohol"
+                labelText: StringConstants.lbl_Alcohol//"Alcohol"
                 dataTumblersecVisibility: false
                 dataTumblerfirstVisibility: true
                 dataTumblerthirdVisibility: false
+                tumblerVisibility:false
+                firstSwitchVisible:false
                 topSliderMinValue: 0
                 topSliderMaxValue:100
                 dataTumblerNoOrColorDelegate:false
                 dataTumblerFirstModel: 100
                 topSliderModel:100
-                topSliderLabelText: "units per week"
+                topSliderLabelText: StringConstants.lbl_unitsPerWeek//"units per week"
                 btmSliderVisible:false
                 eyeColorDialVisibilty: false
             }
         }
-//        Rectangle{
-//            id:subRec7
-//            Layout.row: 7
-//            Layout.rowSpan: 1
-//            //Layout.fillHeight: true
-//            Layout.fillWidth: true
-//            Layout.minimumHeight: 95//100//93
-//            Layout.maximumHeight: 95//100//93
-//            NewPatientRiskFactorSwitchSliderHorizontal{
-//                id:medicineOperator
-//                dataTumblersecVisibility: false
-//                dataTumblerfirstVisibility: true
-//                dataTumblerthirdVisibility: false
-//                topSliderMinValue: 0
-//                topSliderMaxValue:100
-//                dataTumblerNoOrColorDelegate:false
-//                dataTumblerFirstModel: 100
-//                topSliderModel:100
-//                topSliderLabelText: "portions per day"
-//                btmSliderVisible:false
-//                eyeColorDialVisibilty: false
-//            }
-//        }
+        Rectangle{
+            id:subRec7
+            Layout.row: 7
+            Layout.rowSpan: 1
+            //Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.minimumHeight: mainRec.height/mainGrid.rows//50//95//100//93
+            Layout.maximumHeight: mainRec.height/mainGrid.rows//50//95//100//93
+            NewPatientRiskFactorSwitchSliderHorizontal{
+                id:medicineOperator
+                labelText:StringConstants.lbl_supplementName
+                dataTumblersecVisibility: false
+                dataTumblerfirstVisibility: false//true
+                dataTumblerthirdVisibility: false
+                tumblerVisibility:false
+                firstSwitchVisible:false
+                topSliderMinValue: 0
+                topSliderMaxValue:100
+                dataTumblerNoOrColorDelegate:false
+                dataTumblerFirstModel: 100
+                topSliderModel:100
+                topSliderLabelText: "portions per day"
+                btmSliderVisible:false
+                eyeColorDialVisibilty: false
+            }
+        }
 
-//        Rectangle{
-//            id:subRec8
-//            Layout.row: 8
-//            Layout.rowSpan: 1
-//            anchors.top: subRec7.bottom
-//            anchors.topMargin: 5//10
-//            //Layout.fillHeight: true
-//            Layout.fillWidth: true
-//            Layout.minimumHeight: 15//20
-//            Layout.maximumHeight: 15//20
-//            Label  {
-//                id:label1
-//                // Layout.row: 1
-//                // Layout.rowSpan: 1
-//                //height: 15
-//                //anchors.top: rec5.bottom
-//                //anchors.topMargin: 0
-//                anchors.left: parent.left
-//                anchors.right: parent.right
-//                text: qsTr("Medical Factors")
-//                horizontalAlignment: Text.AlignHCenter
-//                verticalAlignment: Text.AlignVCenter
-//                Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
-//            }
-//        }
-//        Rectangle{
-//            id:subRec9
-//            Layout.row: 9
-//            Layout.rowSpan: 1
-//            anchors.top: subRec8.bottom
-//            //Layout.fillHeight: true
-//            Layout.fillWidth: true
-//            Layout.minimumHeight:35//94//35// 93
-//            Layout.maximumHeight: 35//94//35//93
-//            NewPatientRiskFactorSwitchSliderHorizontal{
-//                id:amdOperator
-//                anchors.fill: parent
-//                labelText: "AMD family History"
-//                dataSwitchesVisible:true
-//                dataTumblersecVisibility: false
-//                dataTumblerfirstVisibility: false
-//                dataTumblerthirdVisibility: false
-//                dataTumblerVisibility:false
-//                //topSliderMinValue: 0
-//                //topSliderMaxValue:100
-//                dataTumblerNoOrColorDelegate:false
-//                topSliderVisible: false
-//                btmSliderVisible: false
-//                //topSliderModel:100
-//                //topSliderLabelText: "eyeColor"
-//                //btmSliderVisible:false
-//                eyeColorDialVisibilty: false
+        Rectangle{
+            id:subRec8
+            Layout.row: 8
+            Layout.rowSpan: 1
+            anchors.top: subRec7.bottom
+            anchors.topMargin: 5//10
+            //Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.minimumHeight: 15//mainRec.height/mainGrid.rows//50//15//20
+            Layout.maximumHeight: 15//mainRec.height/mainGrid.rows//50//15//20
+            Label  {
+                id:label1
+                // Layout.row: 1
+                // Layout.rowSpan: 1
+                //height: 15
+                //anchors.top: rec5.bottom
+                //anchors.topMargin: 0
+                anchors.left: parent.left
+                anchors.right: parent.right
+                text: StringConstants.lbl_medicalFactors//qsTr("Medical Factors")
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+            }
+        }
+        Rectangle{
+            id:subRec9
+            Layout.row: 9
+            Layout.rowSpan: 1
+            anchors.top: subRec8.bottom
+            //Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.minimumHeight:mainRec.height/mainGrid.rows//94//35// 93
+            Layout.maximumHeight: mainRec.height/mainGrid.rows//94//35//93
+            NewPatientRiskFactorSwitchSliderHorizontal{
+                id:amdOperator
+                anchors.fill: parent
+                labelText: StringConstants.lbl_amdHistory//"AMD family History"
+                dataSwitchesVisible:true
+                dataTumblersecVisibility: false
+                dataTumblerfirstVisibility: false
+                dataTumblerthirdVisibility: false
+                dataTumblerVisibility:false
+                tumblerVisibility:false
+                firstSwitchVisible:false
+                //topSliderMinValue: 0
+                //topSliderMaxValue:100
+                dataTumblerNoOrColorDelegate:false
+                topSliderVisible: false
+                btmSliderVisible: false
+                //topSliderModel:100
+                //topSliderLabelText: "eyeColor"
+                //btmSliderVisible:false
+                eyeColorDialVisibilty: false
 
-//            }
-//        }
-//        Rectangle{
-//            id:subRec10
-//            Layout.row:10
-//            Layout.rowSpan: 1
-//            Layout.fillWidth: true
-//            anchors.top: subRec9.bottom
-//            //Layout.fillHeight: true
-//            Layout.minimumHeight: 65//70
-//            Layout.maximumHeight: 65//70
-//            NewPatientRiskFactorSwitchSliderHorizontal{
-//                id:eyeColorOperator
-//                labelText: "Eye Color"
-//                dataSwitchesVisible:false
-//                dataTumblersecVisibility: false
-//                dataTumblerfirstVisibility: true
-//                dataTumblerthirdVisibility: false
-//                topSliderMinValue: 0
-//                topSliderMaxValue:100
-//                dataTumblerNoOrColorDelegate:true
-//                dataTumblerFirstModel: ColorModel{}
-//                topSliderVisible: false
-//                btmSliderVisible: false
-//                //topSliderModel:100
-//                //topSliderLabelText: "eyeColor"
-//                //btmSliderVisible:false
-//                eyeColorDialVisibilty: true
-//            }
-//        }
+            }
+        }
+        Rectangle{
+            id:subRec10
+            Layout.row:10
+            Layout.rowSpan: 1
+            Layout.fillWidth: true
+            anchors.top: subRec9.bottom
+            //Layout.fillHeight: true
+            Layout.minimumHeight: mainRec.height/mainGrid.rows+35//50//65//70
+            Layout.maximumHeight: mainRec.height/mainGrid.rows+35//50//65//70
+            NewPatientRiskFactorSwitchSliderHorizontal{
+                id:eyeColorOperator
+                labelText: StringConstants.lbl_eyeColor//"Eye Color"
+                dataSwitchesVisible:false
+                dataTumblersecVisibility: false
+                dataTumblerfirstVisibility: true
+                dataTumblerthirdVisibility: false
+                topSliderMinValue: 0
+                topSliderMaxValue:100
+                dataTumblerNoOrColorDelegate:true
+                tumblerVisibility:true
+                dataTumblerFirstModel: ColorModel{}
+                topSliderVisible: false
+                btmSliderVisible: false
+                //topSliderModel:100
+                //topSliderLabelText: "eyeColor"
+                //btmSliderVisible:false
+                eyeColorDialVisibilty: true
+            }
+        }
     }
 
 }

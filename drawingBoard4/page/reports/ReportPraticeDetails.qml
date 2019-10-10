@@ -52,6 +52,7 @@ Rectangle{
             index:1
             labelText:StringConstants.lbl_rpGenerate
             tfReadOnly:false
+            labelOnTop:false
             textAlignLeftOrCenter: false
             //tfPlaceHolderText:StringConstants.lbl_npRequestSurName
             lblValueText:StringConstants.lbl_rpGenerateValue
@@ -75,6 +76,7 @@ Rectangle{
             //tfPlaceHolderText:StringConstants.lbl_npRequestFirstName
             lblValueText:StringConstants.lbl_rpTotalTestsValue
             tfReadOnly:false
+            labelOnTop:false
             textAlignLeftOrCenter: false
             Layout.row: IntegerConstants.rowCount3
             Layout.rowSpan: IntegerConstants.rowSpan1
@@ -96,6 +98,7 @@ Rectangle{
             //tfPlaceHolderText:StringConstants.lbl_npRequestMedicalReference
             lblValueText:StringConstants.lbl_rpNoOfRETestsValue
             tfReadOnly:false
+            labelOnTop:false
             textAlignLeftOrCenter: false
             Layout.row: IntegerConstants.rowCount4
             Layout.rowSpan: IntegerConstants.rowSpan1
@@ -118,6 +121,7 @@ Rectangle{
             tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
             lblValueText:StringConstants.lbl_rpNoOfLETestsValue
             tfReadOnly:false
+            labelOnTop:false
             addSpace: true
             textAlignLeftOrCenter: false
             Layout.row: IntegerConstants.rowCount5
@@ -140,6 +144,7 @@ Rectangle{
             tfPlaceHolderText:""//StringConstants.lbl_npRequestMedicalReference
             lblValueText:StringConstants.lbl_rpNoOfCombinedTestsValue
             tfReadOnly:false
+            labelOnTop:false
             addSpace: true
             textAlignLeftOrCenter: false
             //lblHorizontalAlignment:Text.AlignRight
