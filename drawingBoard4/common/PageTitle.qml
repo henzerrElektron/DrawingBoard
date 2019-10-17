@@ -32,6 +32,7 @@ Rectangle{
     property alias labelText: label_testPageHeading.text
     property alias actionGridGroup: actionGridView.group
     property alias logoVisible: rec1.visible
+    property alias labelVisible: label_testPageHeading.visible
     onLogoVisibleChanged: {
         image.visible = logoVisible
     }

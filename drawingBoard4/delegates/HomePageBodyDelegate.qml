@@ -22,11 +22,12 @@ Rectangle {
     //anchors.right: parent.right
     //height: root.rowHeight
     id: homePageBodyDelegate
-    height: IntegerConstants.homePageBodyBtnHeight//4*testControlBtn.height////75
-    width: IntegerConstants.homePageBodyBtnwidth//4*testControlBtn.width////75
-    color: IntegerConstants.homePageBodyColor//"#5EBDC3"//Constants.headerBackgroundColor//"transparent"//"#5EBDC3"//
-    border.color: IntegerConstants.homePageBodyBorder//Constants.actionBtnBorderColor
-    border.width: 5
+//    anchors.centerIn: parent
+    //height: IntegerConstants.homePageBodyBtnHeight//4*testControlBtn.height////75
+    //width: IntegerConstants.homePageBodyBtnwidth//4*testControlBtn.width////75
+    color: StringConstants.color_gbTransparent//"#5EBDC3"//Constants.headerBackgroundColor//"transparent"//"#5EBDC3"//
+    border.color: StringConstants.homePageBodyBorder//Constants.actionBtnBorderColor
+    border.width: 1
 
     signal invokeSource(string source)
     signal invokeIndex(int index)
@@ -39,11 +40,12 @@ Rectangle {
         icon.name: actionIconName
         icon.source:actionIconSource
         icon.color:actionIconColor
+        //icon.source:"qrc:/images/timeline_tab_selected.png"
         //icon.name: "timeline_tab_selected"
         icon.width: 100
         icon.height: 100
-        width: 2*icon.width
-        height: 2*icon.height
+        width: parent.width//2*icon.width
+        height: parent.height//2*icon.height
         background: Rectangle{ color: StringConstants.homePageBodyColor}//Constants.actionBtnBackgroundColor}
         display: AbstractButton.TextUnderIcon
         text: actionText

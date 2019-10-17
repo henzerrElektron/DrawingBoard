@@ -43,6 +43,7 @@ Rectangle {
         id: mainRow
         anchors.fill: parent
         rows:3
+        columns:2
         Rectangle{
             id:rec1
             color:"black"//StringConstants.testPage_backgroundColor//"transparent"//"black"
@@ -53,6 +54,8 @@ Rectangle {
             Layout.fillWidth: true
             Layout.row: 1
             Layout.rowSpan: 1
+            Layout.column: 1
+            Layout.columnSpan: 2
             Layout.maximumHeight: parent.height/4
             height: parent.height/4
             HomePageLabel{
@@ -63,13 +66,13 @@ Rectangle {
                 Component.onCompleted: {
                     homePageLabel.invokeSource.connect(homePage.invokeSource)
                     homePageLabel.invokeIndex.connect(homePage.invokeIndex)
-                   // homePageLabel.invokeSource.connect(homePage.invokeSource)
+                    // homePageLabel.invokeSource.connect(homePage.invokeSource)
                 }
             }
         }
         Rectangle{
             id:rec2
-            //color:"black"//"green"
+            color:"transparent"//"green"
             //anchors.horizontalCenter: parent.horizontalCenter
             //anchors.verticalCenter: parent.verticalCenter
             //anchors.top: rec1.bottom
@@ -81,18 +84,40 @@ Rectangle {
             //Layout.fillWidth: true
             Layout.row: 2
             Layout.rowSpan: 2
+            Layout.column: 1
+            Layout.columnSpan: 2
             Layout.fillHeight: true
             Layout.fillWidth: true
-            //Layout.alignment: Qt.AlignHCenter|Qt.AlignVCenter
+            Layout.alignment: Qt.AlignHCenter|Qt.AlignVCenter
+
             PageActionsButtons{
                 id:image2
-                anchors.centerIn: parent
-                ////anchors.fill: parent
+                //width: parent.width
+                //height: parent.height
+                //anchors.centerIn: parent
+                //anchors.left: parent.left
+                //anchors.leftMargin: marginWidth
+                //anchors.rightMargin: marginWidth
+                //anchors.right: parent.right
+                //anchors.top: parent.top
+                //anchors.bottom: parent.bottom
+                //anchors.left: parent.left
+                //anchors.right: parent.right
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+                //anchors.fill: parent
+                //horizontalCenter: parent.horizontalCenter
+                //verticalCenter: parent.verticalCenter
                 //Layout.fillHeight: true
                 //Layout.fillWidth: true
                 group1: "homeMainItems"
                 group: ""
+                verticalLayoutDirection: Grid.TopToBottom
+                layoutDirection: Qt.LeftToRight
+                flow: Grid.LeftToRight
+                flickableDirection: Flickable.HorizontalAndVerticalFlick
                 actionOrHome: false
+                //cellSpacing:(parent.width - (175*parent.width/4))/4
                 onComponentTriggered: {
                     console.log("I am reaching here")
                 }

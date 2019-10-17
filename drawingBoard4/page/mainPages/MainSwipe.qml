@@ -18,6 +18,7 @@ import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
 import "./../test/"
+import "./../operator/"
 import ApplicationConstants 1.0
 
 SwipeView {
@@ -52,6 +53,11 @@ SwipeView {
         if((index === 4)||(index === 8))//changePatient
         {
             currentIndex = 2
+        }
+        if((index === 10)||(index === 11)||(index === 12))
+        {
+            opManage.open()
+            //currentIndex = 5
         }
 
         // spView.currentIndex = index
@@ -198,4 +204,16 @@ SwipeView {
         //                text: "Page3"
         //            }
     }
+   //Page{
+   //    id:page5
+   //    visible: false;
+       ManageOperator{
+           id:opManage
+           width: parent.width/2
+           height: parent.height/2
+           anchors.centerIn: parent
+           Layout.fillHeight: true
+           Layout.fillWidth: true
+       }
+  // }
 }

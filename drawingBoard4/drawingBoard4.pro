@@ -40,6 +40,7 @@ SOURCES += \
         lineintersect.cpp \
         main.cpp \
         medicaltestmodel.cpp \
+        operatormodel.cpp \
         patientresultmodel.cpp \
         plotdatapoint.cpp \
         plotpoints.cpp \
@@ -113,6 +114,10 @@ DISTFILES += \
     #MpodDisplayer.qml \
     PlotterPointers.qml \
     XYPlot.qml \
+    icons/all/288x97/eet_logo.png \
+    icons/all/288x97@2/eet_logo.png \
+    icons/all/288x97@3/eet_logo.png \
+    icons/all/288x97@4/eet_logo.png \
     icons/all/32x32/Test.png \
     #mpIndicator.qml \
     #mpodDisplayItem.qml \
@@ -122,6 +127,7 @@ DISTFILES += \
 HEADERS += \
     lineintersect.h \
     medicaltestmodel.h \
+    operatormodel.h \
     patientresultmodel.h \
     plotdatapoint.h \
     plotpoints.h \

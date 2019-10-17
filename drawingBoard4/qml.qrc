@@ -18,6 +18,18 @@
         <file>imports/ApplicationConstants/OtherConstants.qml</file>
         <file>imports/ApplicationConstants/StringConstants.qml</file>
         <file>imports/ApplicationConstants/SegoeFonts/segoeui.ttf</file>
+        <file>imports/ApplicationConstants/SegoeFonts/segoeuib.ttf</file>
+        <file>imports/ApplicationConstants/SegoeFonts/segoeuii.ttf</file>
+        <file>imports/ApplicationConstants/SegoeFonts/segoeuil.ttf</file>
+        <file>imports/ApplicationConstants/SegoeFonts/segoeuisl.ttf</file>
+        <file>imports/ApplicationConstants/SegoeFonts/segoeuiz.ttf</file>
+        <file>imports/ApplicationConstants/SegoeFonts/seguibl.ttf</file>
+        <file>imports/ApplicationConstants/SegoeFonts/seguibli.ttf</file>
+        <file>imports/ApplicationConstants/SegoeFonts/seguihis.ttf</file>
+        <file>imports/ApplicationConstants/SegoeFonts/seguili.ttf</file>
+        <file>imports/ApplicationConstants/SegoeFonts/seguisb.ttf</file>
+        <file>imports/ApplicationConstants/SegoeFonts/seguisbi.ttf</file>
+        <file>imports/ApplicationConstants/SegoeFonts/seguisli.ttf</file>
         <file>imports/ApplicationConstants/fontAwesome/fontawesome-webfont.ttf</file>
         <file>imports/ApplicationConstants/fontAwesome/Font Awesome 5 Brands-Regular-400.otf</file>
         <file>imports/ApplicationConstants/fontAwesome/Font Awesome 5 Free-Regular-400.otf</file>
@@ -159,5 +171,10 @@
         <file>page/test/ResultCommonTableGrids.qml</file>
         <file>page/newPatient/NewPatientTitleGender.qml</file>
         <file>page/newPatient/NewPatientCustomSlider.qml</file>
+        <file>page/allPagefooter/OperatorAndDatabase.qml</file>
+        <file>imports/ApplicationConstants/DateAndLocaleConstants.qml</file>
+        <file>page/operator/EditOperator.qml</file>
+        <file>page/operator/ManageOperator.qml</file>
+        <file>page/operator/AdminOperation.qml</file>
     </qresource>
 </RCC>

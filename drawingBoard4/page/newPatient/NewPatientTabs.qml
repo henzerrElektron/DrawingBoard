@@ -40,20 +40,20 @@ Page {
         id: bar
         width: parent.width
         currentIndex: testview.currentIndex
-
+        Material.accent:"transparent"//Material.Grey//StringConstants.barBorderColor//Material.color
         background: Rectangle {
             color: StringConstants.barBackgroundColor//StringConstants.headerBackgroundColor
             //border.width: 2
             //border.color: StringConstants.barBackgroundColor
-            CommonBorder
-            {
-                customBorder:  false
-                lBorderWidth: 0
-                rBorderWidth: 0
-                tBorderWidth: 0
-                bBorderWidth: 10
-                borderColor: StringConstants.label_NewPatientLabelBgColor//StringConstants.barBorderColor
-            }
+//            CommonBorder
+//            {
+//                customBorder:  false
+//                lBorderWidth: 0
+//                rBorderWidth: 0
+//                tBorderWidth: 0
+//                bBorderWidth: 10
+//                borderColor: StringConstants.barBorderColor//label_NewPatientLabelBgColor//StringConstants.barBorderColor
+//            }
         }
         onCurrentIndexChanged: {
             if(currentIndex === 0)

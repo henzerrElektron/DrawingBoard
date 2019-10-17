@@ -47,6 +47,7 @@ Rectangle {
     property alias lblValueText: labelValue.text
     property alias lblHorizontalAlignment: label.horizontalAlignment
     property alias textValidator: textField.validator
+    property alias textEchoMode: textField.echoMode
     property alias lblLeftPadding: label.leftPadding
     property int textLeftMargin: 100
     property int index: 0

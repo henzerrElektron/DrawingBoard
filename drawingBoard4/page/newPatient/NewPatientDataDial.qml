@@ -67,6 +67,9 @@ Dial {
             color: colorModel.get(idDial.value).value//"white"
             opacity: 0.5
             radius: 50
+
+
+            ColorAnimation on color{to:colorModel.get(idDial.value).value;duration: 1000 }
             //border.width: 1
             //border.color: "#4A4A4A"//colorModel.get(idDial.value).value
 
@@ -76,6 +79,7 @@ Dial {
                 anchors.centerIn: parent
                 color: colorModel.get(idDial.value).value
                 opacity: 0.75
+                ColorAnimation on color{to:colorModel.get(idDial.value).value;duration: 1000 }
                 //border.width: 1
                 //border.color: "black"
             }
@@ -85,6 +89,7 @@ Dial {
                 radius: 15
                 anchors.centerIn: parent
                 color: colorModel.get(idDial.value).value
+                ColorAnimation on color{to:colorModel.get(idDial.value).value;duration: 1000 }
                 opacity: 1
                 //border.width: 1
                 //border.color: "black"

@@ -26,26 +26,60 @@ import ApplicationConstants 1.0
 Rectangle {
     id: rectangle
     color: StringConstants.testPage_backgroundColor
-    height:logoRec.height// + eetLogoRec.height
+    height:rec2.height>rec1.height?rec2.height:rec1.height//logoRec.height// + eetLogoRec.height
     Grid{
         id: mainRow
         anchors.fill: parent
         columns: 2
         rows:1
-        HomePageLeftLogo {
-            id: logoRec
-            anchors.left: parent.left
-            anchors.leftMargin: 0
+        Rectangle{
+            id:rec1
+            color: "transparent"//"black"
+            //anchors.topMargin: 42//"transparent"
+            //anchors.left: parent.left
+            //anchors.right: parent.right
+            //anchors.top: parent.top
+            //anchors.topMargin: 10
+           // anchors.bottom: parent.bottom
+            width: logoRec.width
+            height: logoRec.height
+            anchors.verticalCenter: rec2.verticalCenter
+            HomePageLeftLogo {
+                id: logoRec
+                anchors.fill: parent
+                //                anchors.left: parent.left
+                //                anchors.leftMargin: 0
+                //                anchors.top: parent.top
+                //                //anchors.topMargin: 30
+                //                anchors.bottom: parent.bottom
+                //anchors.verticalCenter: parent.verticalCenter
+            }
         }
-        HomePageRightLogo {
-            id: eetLogoRec
+        Rectangle{
+            id:rec2
+            color: "transparent"
+            //anchors.left: parent.left
+            //anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             anchors.right: parent.right
-            anchors.rightMargin: 0
+            width: eetLogoRec.width
+            HomePageRightLogo {
+                id: eetLogoRec
+                anchors.fill: parent
+                //                anchors.right: parent.right
+                //                anchors.rightMargin: 0
+                //                anchors.top: parent.top
+                //                anchors.bottom: parent.bottom
+                //anchors.verticalCenter: logoRec.verticalCenter
+            }
         }
     }
 }
 
 //}
+
+
 
 
 

@@ -154,7 +154,7 @@ ListModel{
         actionIconSource:"qrc:/images/icon_add_operator.png"
         actionIconColor:"transparent"
         actionImgSource:"qrc:/images/icon_add_operator.png";
-        source:"qrc:/page/mainPages/HomePage.qml"
+        source:"qrc:/page/operator/ManageOperator.qml"//"qrc:/page/mainPages/HomePage.qml"
         index:10;
     }
     ListElement{
@@ -171,7 +171,7 @@ ListModel{
         actionIconColor:"transparent"
         //actionImgSource:"../images/icon_new_patient.png";
         actionImgSource:"qrc:/images/icon_edit_operator.png";//"../images/icon_new_patient.png";
-        source:"qrc:/page/mainPages/HomePage.qml"
+        source:"qrc:/page/operator/ManageOperator.qml"//"qrc:/page/mainPages/HomePage.qml"
         index:11;
     }
     ListElement{
@@ -189,7 +189,7 @@ ListModel{
         actionIconColor:"transparent"
         //actionImgSource:"../images/icon_new_patient.png";
         actionImgSource:"qrc:/images/icon_switch_operator.png";//"../images/icon_new_patient.png";
-        source:"qrc:/page/mainPages/HomePage.qml"
+        source:"qrc:/page/operator/ManageOperator.qml"//"qrc:/page/mainPages/HomePage.qml"
         index:12;
     }
 }

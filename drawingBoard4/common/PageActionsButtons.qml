@@ -63,8 +63,12 @@ GridView {
     property alias group:allPageModel.filterOnGroup//actionOrHome ? allPageModel.filterOnGroup:allPageModel1.filterOnGroup
     property alias group1: allPageModel1.filterOnGroup
     property alias theModel: theListView.model
+    property int marginWidth: (parent.width/count)/count//theListView.cellWidth
     property int curWidth: theListView.width
+    property int  cellSpacing: 0
     property bool actionOrHome: true
+    property var idealCellHeight: 200
+    property var idealCellWidth: 200
     //width: theListView.width
     //height: theListView.height
     // flow: GridView.FlowLeftToRight
@@ -82,9 +86,9 @@ GridView {
     onInvokeIndex: {
         console.log("The invokeIndex is"+index)
     }
-
-    cellWidth: actionOrHome ?75:175
-    cellHeight: actionOrHome ?75:175
+    //marginWidth: (parent.width/count)/count
+    cellWidth: actionOrHome ?75:(parent.width/(count))-marginWidth//count*20//175//(theListView.width / Math.floor(width / idealCellWidth))-count*20
+    cellHeight: actionOrHome ?75:parent.height/3//175
     //width: parent.width
     //height: parent.height
     //anchors.fill: parent
@@ -97,14 +101,16 @@ GridView {
     ////////anchors.leftMargin: actionOrHome ?parent.width - theListView.count * cellWidth - 10:parent.width/2 - theListView.count/2 * cellWidth - 10
     //highlight: highlightComponent
     //focus: true
-    width:count*cellWidth//actionOrHome ?count*cellWidth:700// actionOrHome ?width:theListView.count* cellWidth+10
-    height: actionOrHome ?cellHeight:175//cellHeight+20//
+    width:actionOrHome ?count*cellWidth:count*cellWidth//parent.width//actionOrHome ?count*cellWidth:700// actionOrHome ?width:theListView.count* cellWidth+10
+    height: actionOrHome ?cellHeight:cellHeight//parent.height//175//cellHeight+20//
     ///////////////////cellHeight:actionOrHome ?IntegerConstants.actionBtnHeight:2*IntegerConstants.actionBtnHeight//actionOrHome ?IntegerConstants.actionBtnHeight:2*IntegerConstants.actionBtnHeight//75
     //////////////////cellWidth:actionOrHome ?IntegerConstants.actionBtnWidth:2*IntegerConstants.actionBtnWidth//actionOrHome ?IntegerConstants.actionBtnWidth:2*IntegerConstants.actionBtnWidth//75
     model:actionOrHome ? allPageModel:allPageModel1// allPageModel//nameModel
     AllPageModel {
         id: allPageModel1
         delegate: HomePageBodyDelegate{
+            height: GridView.view.cellHeight
+            width: GridView.view.cellWidth-marginWidth//(4*20)
             Component.onCompleted: {
                 invokeSource.connect(theListView.invokeSource)//theListView//actionGridView
                 invokeIndex.connect(theListView.invokeIndex)

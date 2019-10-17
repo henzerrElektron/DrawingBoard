@@ -15,6 +15,7 @@
 #include "medicaltestmodel.h"
 #include "patientresultmodel.h"
 #include "sortfiltermodel.h"
+#include "operatormodel.h"
 #ifdef QT_DEBUG
 #include "../qt-apps-qmllive-dev/src/livenodeengine.h"
 #include "../qt-apps-qmllive-dev/src/remotereceiver.h"
@@ -43,6 +44,13 @@ int main(int argc, char *argv[])
     //        settings.setValue("style", style);
     //    else
     //        QQuickStyle::setStyle(settings.value("style").toString());
+    OperatorModel opModel;
+    opModel.addOperator(DeviceOperators(false,"Tester"));
+    opModel.addOperator(DeviceOperators(false,"Operator1"));
+    opModel.addOperator(DeviceOperators(false,"Operator2"));
+    opModel.addOperator(DeviceOperators(false,"Operator3"));
+    opModel.addOperator(DeviceOperators(false,"Operators4"));
+
     MedicalTestModel medTestModel;
     //medTestModel.addMedicalResult(MedicalResult("TestResultNo","TestDate","TestTime","PatientId","RE MP Estimate","RE  MP Absolute","RE MP Adjusted","RE Central Confidence Level","RE Peripheral Confidence Level","LE MP Estimate","LE MP Absolute","LE MP Adjusted","LE Central Confidence Level","LE Peripheral Confidence Level"));
     medTestModel.addMedicalResult(MedicalResult(1,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),1,1.01,2.02,3.03,4.05,5.06,7.07,8.07,3.56,2.69,3.34));
@@ -225,6 +233,10 @@ int main(int argc, char *argv[])
     filterModel2.setSourceModel(&existingPatientModel);
     filterModel2.setFilterRole(MedRefRole);
     filterModel2.setSortRole(MedRefRole);
+    //OperatorFilterProxyModel filterModel3;
+    //filterModel3.setSourceModel(&opModel);
+    //filterModel3.setFilterRole(NameRole);
+    //filterModel3.setSortRole(NameRole);
     //QGuiApplication app(argc, argv);
     plotDataPoint PlotPoint;
     QQmlApplicationEngine engine;
@@ -242,10 +254,12 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("theRightPatientResultModel",&rightPatResultModel);
     engine.rootContext()->setContextProperty("theLeftPatientResultModel",&leftpatResultModel);
     engine.rootContext()->setContextProperty("theMedicalTestModel",&medTestModel);
+    engine.rootContext()->setContextProperty("theOperatorModel",&opModel);
     engine.rootContext()->setContextProperty("filterModel",&filterModel);
     engine.rootContext()->setContextProperty("filterModel",&filterModel1);
     engine.rootContext()->setContextProperty("filterModel",&filterModel2);
     engine.rootContext()->setContextProperty("myModel", QVariant::fromValue(dataList));
+    qmlRegisterType<OperatorModel>("OperatorModel",0,1,"OperatorModel");
     qmlRegisterType<TestResultModels>("TestResultModels",0,1,"TestResultModels");
     qmlRegisterType<TestPageSupplementationModel>("TestPageSupplementationModel",0,1,"TestPageSupplementationModel");
     qmlRegisterType<SwitchPatientTableModel>("SwitchPatientTableModel",0,1,"SwitchPatientTableModel");
