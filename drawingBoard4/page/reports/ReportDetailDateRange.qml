@@ -147,7 +147,7 @@ Rectangle{
         }
         Rectangle {
             id: rectangleSub6
-            color:StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor
+            color:"white"//StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor
             Layout.row: IntegerConstants.rowCount3
             Layout.rowSpan: IntegerConstants.rowCount1
             Layout.column: IntegerConstants.columnCount1
@@ -167,6 +167,9 @@ Rectangle{
             Layout.fillHeight: true
             anchors.left: rectangleSub4.left
             anchors.right: rectangleSub5.right
+            anchors.top: rectangleSub5.bottom
+            anchors.topMargin: 25
+            Layout.maximumHeight: pageSlider.height
             //anchors.rightMargin: 10
             //anchors.leftMargin: 10
             //Layout.rightMargin: 10
@@ -199,39 +202,39 @@ Rectangle{
                 }
             }
         }
-        Rectangle{
-            id:rectangleSub7
-            color:StringConstants.testPage_backgroundColor
-            Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
-            Layout.row: IntegerConstants.rowCount4
-            Layout.rowSpan: IntegerConstants.rowCount1
-            Layout.column: IntegerConstants.columnCount1
-            Layout.columnSpan:IntegerConstants.columnSpan2
-            anchors.top: rectangleSub6.bottom
-            anchors.topMargin: 10
-            anchors.left: rectangleSub6.left
-            anchors.right: rectangleSub6.right
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 5
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.preferredHeight:100//(parent.height -  (rectangleSub6.height+rectangleSub5.height+rectangleSub4.height+contactDetailLabel1.height+50))
-            Layout.minimumHeight: 100
-            Layout.maximumHeight: 100
-            ReportOkCancelGroup{
-                id:pgOkCancel
-                //anchors.left: parent.left
-                //anchors.right: parent.right
-                anchors.centerIn: parent
-                //height: 100
+//        Rectangle{
+//            id:rectangleSub7
+//            color:StringConstants.testPage_backgroundColor
+//            Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
+//            Layout.row: IntegerConstants.rowCount4
+//            Layout.rowSpan: IntegerConstants.rowCount1
+//            Layout.column: IntegerConstants.columnCount1
+//            Layout.columnSpan:IntegerConstants.columnSpan2
+//            anchors.top: rectangleSub6.bottom
+//            anchors.topMargin: 10
+//            anchors.left: rectangleSub6.left
+//            anchors.right: rectangleSub6.right
+//            anchors.bottom: parent.bottom
+//            anchors.bottomMargin: 5
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
+//            Layout.preferredHeight:100//(parent.height -  (rectangleSub6.height+rectangleSub5.height+rectangleSub4.height+contactDetailLabel1.height+50))
+//            Layout.minimumHeight: 100
+//            Layout.maximumHeight: 100
+//            ReportOkCancelGroup{
+//                id:pgOkCancel
+//                //anchors.left: parent.left
+//                //anchors.right: parent.right
+//                anchors.centerIn: parent
+//                //height: 100
 
-                Component.onCompleted: {
-                    pgOkCancel.okClicked.connect(mainRec.pgOkCancel)
-                    pgOkCancel.cancelClicked.connect(mainRec.pgOkCancel)
-                }
-            }
+//                Component.onCompleted: {
+//                    pgOkCancel.okClicked.connect(mainRec.pgOkCancel)
+//                    pgOkCancel.cancelClicked.connect(mainRec.pgOkCancel)
+//                }
+//            }
 
-        }
+//        }
 
     }
 }

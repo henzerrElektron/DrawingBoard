@@ -26,7 +26,7 @@ Rectangle{
     //anchors.fill: parent
     height: mainRec.height
     //color: "black"
-    color: StringConstants.actionBtnBackgroundColor
+    color: "white"//StringConstants.actionBtnBackgroundColor
     property real prevSliderTo: sliderDay.secValue
     property real prevSliderFrom: sliderDay.firstValue
     property alias dateSliderTo: sliderDay.sliderTo
@@ -237,20 +237,33 @@ Rectangle{
             //Layout.alignment: Qt.AlignBottom
             //Layout.fillHeight: true
             // color: "transparent"
-            color: "red"
+//            CommonBorder{
+//                customBorder:  false
+//                lBorderWidth: 0
+//                rBorderWidth: 0
+//                tBorderWidth: 0
+//                bBorderWidth: 2
+//                borderColor: StringConstants.barBorderColor
+//            }
+
+//            border.color: StringConstants.barBorderColor
+//            border.width: 2
+            color: "white"
+            //Layout.rightMargin: 10
+            //Layout.leftMargin: 10//"red"
             Layout.alignment: Qt.AlignTop
             //anchors.top: parent.top
             Layout.row: IntegerConstants.rowCount1
             Layout.rowSpan: IntegerConstants.rowSpan1
             Layout.fillWidth: true
-            Layout.preferredHeight: 75// sliderYear.height
-            Layout.maximumHeight:75// sliderYear.height
+            Layout.preferredHeight: 65// sliderYear.height
+            Layout.maximumHeight:65// sliderYear.height
             Layout.minimumHeight: 0//sliderYear.height
 
             ReportRangeSlider {
                 id: sliderYear
                 anchors.fill: slider3Rec
-                labelText: "Year"
+                labelText: StringConstants.sliderYearValue//"Year"
                 sliderFrom:IntegerConstants.dobStartDate
                 sliderTo:IntegerConstants.dobEndDate
                 alterValues:false//false
@@ -270,23 +283,41 @@ Rectangle{
         Rectangle{
             id:slider2Rec
             anchors.top: slider3Rec.bottom
+//            anchors.left: parent.left
+//            anchors.leftMargin: 5
+//            anchors.right: parent.right
+//            anchors.rightMargin: 5
             //Layout.alignment: Qt.AlignTop
             //Layout.alignment: Qt.AlignVCenter
             //Layout.fillHeight: true
             //anchors.top: sliderDay.bottom
             //color: "black"
+            //border.color: StringConstants.barBorderColor
+            //border.width: 2
+//            CommonBorder{
+//                anchors.left: parent.left
+//                anchors.right: parent.right
+//                customBorder:  true
+//                lBorderWidth: 0
+//                rBorderWidth: 0
+//                tBorderWidth: 0
+//                bBorderWidth: 2
+//                borderColor: StringConstants.barBorderColor
+//            }
             Layout.row: IntegerConstants.rowCount2
             Layout.rowSpan: IntegerConstants.rowSpan1
             Layout.fillWidth: true
-            Layout.preferredHeight: 75//sliderMonth.height
-            Layout.maximumHeight: 75//sliderMonth.height
+            Layout.preferredHeight: 65//sliderMonth.height
+            Layout.maximumHeight: 65//sliderMonth.height
             Layout.minimumHeight: 0//sliderMonth.height
-            color: "transparent"
+            color: "white"
+            //Layout.rightMargin: 10
+           // Layout.leftMargin: 10//"red"//color: "transparent"
 
             ReportRangeSlider {
                 id: sliderMonth
                 anchors.fill: slider2Rec
-                labelText: "Month"
+                labelText: StringConstants.sliderMonthValue//"Month"
                 sliderFrom:1
                 sliderTo: 12
                 alterValues:true
@@ -320,18 +351,38 @@ Rectangle{
             //Layout.fillHeight: true
             //anchors.top:parent.top
             //color: "green"
+            //border.color: StringConstants.barBorderColor
+            //border.width: 2
+//            CommonBorder{
+//                customBorder:  false
+//                lBorderWidth: 0
+//                rBorderWidth: 0
+//                tBorderWidth: 0
+//                bBorderWidth: 2
+//                borderColor: StringConstants.barBorderColor
+//            }
             Layout.row: IntegerConstants.rowCount3
             Layout.rowSpan: IntegerConstants.rowSpan1
             Layout.fillWidth: true
-            Layout.preferredHeight: 75//sliderDay.height
-            Layout.maximumHeight: 75//sliderDay.height
+            Layout.preferredHeight: 65//sliderDay.height
+            Layout.maximumHeight: 65//sliderDay.height
             Layout.minimumHeight: 0//sliderDay.height
-            color: "transparent"
-
+            color: "white"
+           // Layout.rightMargin: 10
+          //  Layout.leftMargin: 10//color: "transparent"
+            Layout.bottomMargin: 10
             ReportRangeSlider {
                 id: sliderDay
-                anchors.fill: slider1Rec
-                labelText: "Day"
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                anchors.top: parent.top
+//                anchors.left: parent.left
+//                anchors.leftMargin: 5
+//                anchors.right: parent.right
+//                anchors.rightMargin: 5
+//                anchors.top: parent.top
+//                anchors.bottom: parent.bottom
+                labelText: StringConstants.sliderDayValue//"Day"
                 sliderFrom:1
                 sliderTo: getDaysInMonth(sliderMonth.sliderTo,sliderYear.sliderTo)//31
                 firstValue: 0
@@ -378,7 +429,4 @@ Rectangle{
 
 
 
-/*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
- ##^##*/
+

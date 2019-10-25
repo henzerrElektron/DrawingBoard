@@ -21,7 +21,7 @@ import ApplicationConstants 1.0
 Rectangle{
     id:mainRec
     anchors.fill: parent
-    color: StringConstants.actionBtnBackgroundColor
+    color: "transparent"//StringConstants.actionBtnBackgroundColor
     property bool alterValues: true
     property bool allowSameFirstSec:true
     property alias labelText: titleLbl.text

@@ -127,15 +127,18 @@ Rectangle {
                 }
             }
         }
-        Popup {
+        Dialog {
             id: popup
             //x: parent.width/2 - parent.width/4
             //y: parent.height/2 - parent.height/4
+            modal: true
+            title: StringConstants.lbl_rpDateRange
+            standardButtons: Dialog.Ok | Dialog.Cancel
             anchors.centerIn: parent
 
             width: parent.width/2
             height: 750//pageDateRange.height+200
-            modal: true
+            //modal: true
             focus: true
             background: Rectangle{
                 anchors.fill: parent
