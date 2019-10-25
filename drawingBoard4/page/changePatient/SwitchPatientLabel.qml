@@ -70,6 +70,7 @@ Rectangle {
                 anchors.fill: parent
                 logoVisible: false
                 actionGridGroup:"existingPatientItems"
+                actionFilterName:"existingPatientItems"
                 labelText: StringConstants.label_searchPatientTitle
                 Component.onCompleted: {
                     pgTitle.invokeSource.connect(spLabel.invokeSource)

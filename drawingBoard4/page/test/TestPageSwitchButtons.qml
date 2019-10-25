@@ -32,6 +32,15 @@ Rectangle {
     Layout.alignment: Qt.AlignVCenter| Qt.AlignHCenter
     //Layout.fillHeight: true
     //Layout.fillWidth: true
+    ButtonGroup{
+        id:buttonEyeGroup
+        exclusive: true
+    }
+    ButtonGroup{
+        id:buttonMode
+        exclusive: true
+    }
+
     GridLayout{
         id:subGrid
         anchors.left: parent.left
@@ -52,8 +61,11 @@ Rectangle {
             TestPageButton {
                 id: buttonRight
                 anchors.fill: parent
+                bgGroup:buttonEyeGroup
+                labelText: StringConstants.buttonName_leftEye
+                //ButtonGroup.group: buttonEyeGroup
                 //Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                down:true
+                ////////////////////////////////////////////down:true
                 onClicked: !down
                 //width: 130
                 //height: 50
@@ -68,6 +80,8 @@ Rectangle {
             TestPageButton {
                 id: buttonLeft
                 anchors.fill: parent
+                labelText: StringConstants.buttonName_rightEye
+                bgGroup:buttonEyeGroup
                 //Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 //width: 130
                 //height: 50
@@ -84,6 +98,9 @@ Rectangle {
             TestPageButton {
                 id: buttonStandard
                 anchors.fill: parent
+                labelText: StringConstants.buttonName_standard
+                subLabelText: StringConstants.buttonName_central
+                bgGroup:buttonMode
                 //Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 //width: 160
                 //height: 50
@@ -99,8 +116,11 @@ Rectangle {
             TestPageButton {
                 id: buttonDetailed
                 anchors.fill: parent
+                labelText: StringConstants.buttonName_detailed
+                subLabelText: StringConstants.buttonName_centralPeripheral
+                bgGroup:buttonMode
                 //Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                down:true
+                ////////////////////////////////////////////////////////down:true
                 //width: 160
                 //height: 50
                 //anchors.left: buttonStandard.right

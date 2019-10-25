@@ -147,10 +147,10 @@ int SwitchPatientTableModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid())
         return 0;
-    if(m_existingPatients.count()<6)
-    {
-        return 6;
-    }
+//    if(m_existingPatients.count()<6)
+//    {
+//        return 6;
+//    }
     return m_existingPatients.count();
 }
 
@@ -177,7 +177,7 @@ QVariant SwitchPatientTableModel::data(const QModelIndex &index, int role) const
     Q_ASSERT(index.column() >= 0);
     Q_ASSERT(index.column() < columnCount(index.parent()));
     Q_ASSERT(checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid | QAbstractItemModel::CheckIndexOption::ParentIsInvalid));
-    qDebug()<<QString("row %1,col%2, role%3 role%4 %5").arg(row).arg(col).arg(role).arg(index.row()).arg(index.column());
+    //qDebug()<<QString("row %1,col%2, role%3 role%4 %5").arg(row).arg(col).arg(role).arg(index.row()).arg(index.column());
     if (index.row() < 0 || index.row() >= m_existingPatients.count())
         return QVariant();
     const ExistingPatients &existingPatient = m_existingPatients[index.row()];

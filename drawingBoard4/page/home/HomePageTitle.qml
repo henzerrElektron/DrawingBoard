@@ -82,6 +82,7 @@ Rectangle
             PageActionsButtons{
                 id:image2
                 group: "homeItems"
+                 filterName:"homeItems"
                 actionOrHome: true
             }
         }

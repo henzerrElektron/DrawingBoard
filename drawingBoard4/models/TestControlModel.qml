@@ -10,8 +10,8 @@ ListModel{
     ListElement{
         btnName:"playCentral"
         index:1
-        btnIconName:"icon_play_detailed"
-        btnIconSource:"qrc:/images/icon_play_detailed.png";//"images/icon_new_patient.png"
+        btnIconName:"icon_test_standard"
+        btnIconSource:"qrc:/images/icon_test_standard.png";//"images/icon_new_patient.png"
         btnIconColor:"transparent"
     }
     ListElement{

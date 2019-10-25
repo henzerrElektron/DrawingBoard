@@ -25,9 +25,10 @@ import "."
         //anchors.right: parent.right
         //height: root.rowHeight
         id: actionHeaderDelegateRec
+        //property alias actionHeaderRecColor: actionHeaderDelegateRec.color
         height: IntegerConstants.actionBtnHeight//75
         width: IntegerConstants.actionBtnWidth//75
-        color: StringConstants.testPage_backgroundColor//"#5EBDC3"//Constants.headerBackgroundColor//"transparent"//"#5EBDC3"//
+        color: StringConstants.color_gbTransparent//testPage_backgroundColor//"#5EBDC3"//Constants.headerBackgroundColor//"transparent"//"#5EBDC3"//
         //border.color: "black"//Constants.actionBtnBorderColor
         signal invokeSource(string source)
         signal invokeIndex(int index)
@@ -46,7 +47,7 @@ import "."
             icon.height: 50
             //width: 2*icon.width
             //height: 2*icon.height
-            background: Rectangle{ color: StringConstants.actionBtnBackgroundColor}
+            background: Rectangle{ color: ((actionIconName===StringConstants.icon_editOperator)||(actionIconName===StringConstants.icon_addOperator))?"white":StringConstants.actionBtnBackgroundColor}
             display: AbstractButton.IconOnly
             //radius: 10
             onClicked: {

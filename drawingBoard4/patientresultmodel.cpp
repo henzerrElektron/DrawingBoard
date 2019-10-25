@@ -159,10 +159,10 @@ bool PatientResultModel::setData(const QModelIndex &index, const QVariant &value
 int PatientResultModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    if(m_results.count()<6)
-    {
-        return  6;
-    }
+//    if(m_results.count()<6)
+//    {
+//        return  6;
+//    }
     return m_results.count();
 }
 
@@ -177,7 +177,7 @@ QVariant PatientResultModel::data(const QModelIndex &index, int role) const
 {
     int row = index .row();
     int col = index.column();
-    qDebug()<<QString("row %1,col %2,role %3").arg(row).arg(col).arg(role);
+   // qDebug()<<QString("row %1,col %2,role %3").arg(row).arg(col).arg(role);
     if(index.row() < 0 || index.row() >= m_results.count())
         return  QVariant();
     const PatientResult &result = m_results[index.row()];

@@ -27,7 +27,14 @@ Dialog {
     id: dialog
     modal: true
     title: StringConstants.lbl_adminHeading
-    standardButtons: Dialog.Apply | Dialog.Cancel
+    standardButtons: Dialog.Ok | Dialog.Cancel
+    signal openEdit()
+onAccepted: {
+    openEdit()
+    dialog.close()
+}
+
+    //height: mainRec.height
     Rectangle{
         id:mainRec
         anchors.fill: parent

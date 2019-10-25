@@ -11,13 +11,14 @@ TableView {
 
     topMargin: columnHeader.implicitHeight//+columnHeader.implicitHeight/2
     property alias tableModel: supplementTableView.model
+    property int rowHeightMinValue: 0
     property alias colProvider: supplementTableView.columnWidthProvider
     onWidthChanged: {
-        console.log("The width is"+width)
+      //  console.log("The width is"+width)
         //forceLayout()
     }
     onHeightChanged: {
-        console.log("The height is"+height)
+      //  console.log("The height is"+height)
         //forceLayout()
     }
 
@@ -42,23 +43,37 @@ TableView {
     }
 
     rowHeightProvider: function (row){
-        console.log("The height is"+supplementTableView.height)
+        //console.log("The height is"+supplementTableView.height)
         var value1 = (((parent.height) - parent.height/(rows-1))/(rows-1))
         var value = 25
-        if(value1 > value)
+        if((rowHeightMinValue === 0))
         {
-            return value1
+            if(value1 > value)
+            {
+                return value1
+            }
+            else
+            {
+                return value
+            }
         }
         else
         {
-            return value
+            if( rowHeightMinValue < value1)
+            {
+                return rowHeightMinValue
+            }
+            else
+            {
+                return value1
+            }
         }
 
     }//parent.height/rows}//parent.height/(rows>10?rows/10:10)}//rowHeights[row]}
     delegate: Rectangle {
         onColorChanged: console.log("Color changed")
-        TableView.onPooled: console.log(display + " pooled")
-        TableView.onReused: console.log(display + " resused")
+        //TableView.onPooled: console.log(display + " pooled")
+        //TableView.onReused: console.log(display + " resused")
         Text {
             text:display
             font.pointSize: 12

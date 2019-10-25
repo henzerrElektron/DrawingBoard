@@ -11,6 +11,8 @@ ToolButton {
     id: iconlOnlyButtons
     implicitWidth:  50
     implicitHeight:  50
+    //property alias iconName: iconlOnlyButtons.icon.name//icon.name
+   // property alias iconSource: iconlOnlyButtons.icon.source
     //property alias iconOnlyName: icon.name
     //property alias iconOnlySource: icon.source
     //property alias iconOnlyColor: icon.color

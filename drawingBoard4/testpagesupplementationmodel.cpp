@@ -123,10 +123,10 @@ int TestPageSupplementationModel::rowCount(const QModelIndex &parent) const
     //Q_UNUSED(parent);
     if (parent.isValid())
         return 0;
-    if(m_supplement.count() <4)
-    {
-        return  4;
-    }
+//    if(m_supplement.count() <4)
+//    {
+//        return  4;
+//    }
     return m_supplement.count();
 }
 
@@ -154,7 +154,7 @@ QVariant TestPageSupplementationModel::data(const QModelIndex &index, int role) 
     Q_ASSERT(index.column() >= 0);
     Q_ASSERT(index.column() < columnCount(index.parent()));
     Q_ASSERT(checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid | QAbstractItemModel::CheckIndexOption::ParentIsInvalid));
-    qDebug()<<QString("row %1,col%2, role%3").arg(row).arg(col).arg(role);
+    //qDebug()<<QString("row %1,col%2, role%3").arg(row).arg(col).arg(role);
     if (index.row() < 0 || index.row() >= m_supplement.count())
         return QVariant();
     const Supplementation &supplement = m_supplement[index.row()];

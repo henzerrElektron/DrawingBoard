@@ -22,58 +22,98 @@ Rectangle{
     anchors.fill: parent
     GridLayout {
         id: gridLayout
+        rowSpacing: 0
         anchors.fill: parent
         rows:3
         columns: 1
         Rectangle{
             id:rec1
             color: "transparent"
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.row: 1
             Layout.rowSpan: 1
             Layout.fillHeight: true
             Layout.fillWidth: true
+            //height: 120
+            //Layout.maximumHeight: parent.height/3//row1.height<parent.height/4?row1.height:parent.height/4
+            Layout.maximumHeight: parent.height/5+5//parent.height/5<105?parent.height/5:105//row1.height<parent.height/4?row1.height:parent.height/4
+            //Layout.preferredHeight: parent.height/5//row1.height<parent.height/4?row1.height:parent.height/4//parent.height/4
             CommonTableGrid{
                 id:row1
                 anchors.fill: parent
+                minheaderHeight: true
                 searchRecVisibilty:false
-                repeaterModel: theModel
+                commonTableModel: theModel
+                repeaterModel: 3//theModel
                 //tableModel: theExistingPatientsModel
                 proxySoure: theModel
+                //rowHeightMinValue:25
             }
         }
         Rectangle{
             id:rec2
             color: "transparent"
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.row: 2
             Layout.rowSpan: 1
             Layout.fillHeight: true
             Layout.fillWidth: true
+            //anchors.top: rec1.bottom
+            Layout.maximumHeight:parent.height/3- parent.height/20//parent.height/3<250?parent.height/3:250
+            //Layout.maximumHeight: parent.height/3//row2.height<parent.height/3?row2.height:parent.height/3
+            //Layout.minimumHeight: parent.height/3//row2.height<parent.height/3?row2.height:parent.height/3
+            //Layout.preferredHeight: parent.height/3//row2.height<parent.height/3?row2.height:parent.height/3
             CommonTableGrid{
                 id:row2
                 anchors.fill: parent
                 searchRecVisibilty:false
-                repeaterModel: theModel1
+                minheaderHeight: true
+                commonTableModel: theModel1
+                repeaterModel: 3//theModel1
                 //tableModel: theExistingPatientsModel
                 proxySoure: theModel1
+                rowHeightMinValue:30
             }
         }
         Rectangle{
             id:rec3
             color: "transparent"
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             Layout.row: 3
             Layout.rowSpan: 1
             Layout.fillHeight: true
             Layout.fillWidth: true
+            //anchors.top: rec2.bottom
+            //Layout.maximumHeight:parent.height/3
+            //anchors.bottom: parent.bottom
+            //anchors.bottomMargin: 15
+            //Layout.maximumHeight: //row3.height<parent.height/3?row3.height:parent.height/3
+            //Layout.minimumHeight: //row3.height<parent.height/3?row3.height:parent.height/3
+            //Layout.preferredHeight: //row3.height<parent.height/3?row3.height:parent.height/3
             CommonTableGrid{
                 id:row3
                 anchors.fill: parent
                 searchRecVisibilty:false
-                repeaterModel: theModel2
+                minheaderHeight: true
+                commonTableModel: theModel2
+                repeaterModel: 3//theModel2
                 //tableModel: theExistingPatientsModel
                 proxySoure: theModel2
+                rowHeightMinValue:30
             }
         }
     }
 
 
 }
+
+
+
+
+
+
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+ ##^##*/

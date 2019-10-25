@@ -99,7 +99,8 @@ Page{
                     anchors.fill: parent
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    repeaterModel: theSupplementModel
+                    commonTableModel: theSupplementModel
+                    repeaterModel: 4//theSupplementModel
                     searchRecVisibilty:false
                     //tableModel: theExistingPatientsModel
                     proxySoure: theSupplementModel

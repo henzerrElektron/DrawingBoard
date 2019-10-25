@@ -17,7 +17,7 @@ TableView {
         //forceLayout()
     }
     onHeightChanged: {
-        console.log("The height is"+height)
+        //console.log("The height is"+height)
         //forceLayout()
     }
 
@@ -42,7 +42,7 @@ TableView {
     }
 
     rowHeightProvider: function (row){
-        console.log("The height is"+patientTableView.height)
+       // console.log("The height is"+patientTableView.height)
         return parent.height/(rows>10?rows/10:10)}//rowHeights[row]}
     delegate: Rectangle {
         onColorChanged: console.log("Color changed")

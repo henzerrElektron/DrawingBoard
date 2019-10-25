@@ -92,10 +92,10 @@ int OperatorModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid())
         return 0;
-    if(m_deviceOperators.count()<2)
-    {
-        return 2;
-    }
+//    if(m_deviceOperators.count()<2)
+//    {
+//        return 2;
+//    }
     return m_deviceOperators.count();
 }
 int OperatorModel::columnCount(const QModelIndex &parent) const
@@ -122,7 +122,7 @@ QVariant OperatorModel::data(const QModelIndex &index, int role) const
     Q_ASSERT(index.column() >= 0);
     Q_ASSERT(index.column() < columnCount(index.parent()));
     Q_ASSERT(checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid | QAbstractItemModel::CheckIndexOption::ParentIsInvalid));
-    qDebug()<<QString("row %1,col%2, role%3 role%4 %5").arg(row).arg(col).arg(role).arg(index.row()).arg(index.column());
+    //qDebug()<<QString("row %1,col%2, role%3 role%4 %5").arg(row).arg(col).arg(role).arg(index.row()).arg(index.column());
     if(index.row() < 0 || index.row() >= m_deviceOperators.count())
         return  QVariant();
     const DeviceOperators &curOperator = m_deviceOperators[index.row()];

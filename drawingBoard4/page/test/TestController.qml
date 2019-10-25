@@ -3,6 +3,9 @@ import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
 import "."
 import "./../../images/"
+import "./../../common/"
+import "./../../models/"
+import "../../delegates/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
@@ -37,7 +40,7 @@ Item {
                 renderType: Text.QtRendering
                 fontSizeMode: Text.HorizontalFit
                 //lineHeight: 0.7
-                height: rowLayout.height/10
+                height: rowLayout.height/7//8//10
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.left: parent.left
@@ -63,7 +66,7 @@ Item {
                 renderType: Text.QtRendering
                 fontSizeMode: Text.HorizontalFit
                 anchors.top: label_eye.bottom
-                height: rowLayout.height/5
+                height: rowLayout.height/4//5
                 anchors.topMargin: 0
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
@@ -78,10 +81,11 @@ Item {
                 }
             }
 
-            TestItems {
+           // TestItems {
+            PageActionsButtons{
                 id: testItems
                 layoutDirection: Qt.LeftToRight
-                orientation: ListView.Horizontal
+                //orientation: ListView.Horizontal
                 anchors.top: label_instrument.bottom
                 anchors.topMargin: 10
                 anchors.right: parent.right
@@ -90,6 +94,14 @@ Item {
                 anchors.leftMargin: 10
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
+                group: StringConstants.modelTestPageControlItems//"testPageControlItems"//"testPageItems"
+                filterName:StringConstants.modelTestPageControlItems
+                //group1:"testPageNavigationItems"//"testPageNavigationItems"//"testPageNavigationItems"
+                actionOrHome: true
+                Component.onCompleted: {
+                    //invokeSource.connect(pgTitle.invokeSource)
+                    //invokeIndex.connect(pgTitle.invokeIndex)
+                }
                 // width: parent.width/3
                 // height: parent.height/4
             }

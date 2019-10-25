@@ -31,6 +31,7 @@ Rectangle{
     anchors.fill: parent
     property alias labelText: label_testPageHeading.text
     property alias actionGridGroup: actionGridView.group
+    property alias actionFilterName: actionGridView.filterName
     property alias logoVisible: rec1.visible
     property alias labelVisible: label_testPageHeading.visible
     onLogoVisibleChanged: {
@@ -108,7 +109,8 @@ Rectangle{
                 id: actionGridView
                 //color: "black"
                 anchors.right: parent.right
-                group: "testPageItems"
+                group: ""//"testPageItems"
+                filterName:""//"testPageItems"
                 actionOrHome: true
                 Component.onCompleted: {
                     invokeSource.connect(pgTitle.invokeSource)

@@ -123,7 +123,8 @@ Rectangle {
                         anchors.fill: parent
                         Layout.fillHeight: true
                         Layout.fillWidth: true
-                        repeaterModel: theLeftPatientResultModel
+                        commonTableModel: theLeftPatientResultModel
+                        repeaterModel: 6//theLeftPatientResultModel
                         searchRecVisibilty:false
                         proxySoure: theLeftPatientResultModel
 
@@ -212,7 +213,8 @@ Rectangle {
                         anchors.fill: parent
                         Layout.fillHeight: true
                         Layout.fillWidth: true
-                        repeaterModel: theRightPatientResultModel
+                        commonTableModel: theRightPatientResultModel
+                        repeaterModel: 6//theRightPatientResultModel
                         searchRecVisibilty:false
                         proxySoure: theRightPatientResultModel
                     }

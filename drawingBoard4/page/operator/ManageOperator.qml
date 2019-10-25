@@ -34,32 +34,99 @@ Dialog {
     {
         id:mainRec
         anchors.fill: parent
-        Label {
-            id: label
-            text:StringConstants.lbl_manageHeading //qsTr("Label")
-            anchors.top: parent.top
+
+        Rectangle{
+            id:subRec
+            anchors.top: parent.top//label.bottom
             anchors.topMargin: 10
             anchors.right: parent.right
             anchors.rightMargin: 0
             anchors.left: parent.left
-            anchors.leftMargin: 10
-        }
-        Label {
-            id: labelNotes
-            text:StringConstants.lbl_manageNotes //qsTr("Label")
-            anchors.top: label.bottom
-            anchors.topMargin: 5
-            anchors.right: parent.right
-            anchors.rightMargin: 0
-            anchors.left: parent.left
-            anchors.leftMargin: 10
-            color: StringConstants.barBorderColor
+            height: 100
+            Row{
+                id:subRowLayer
+                anchors.fill: parent
+                Label {
+                    id: label
+                    text:StringConstants.lbl_manageHeading //qsTr("Label")
+                    anchors.top: parent.top
+                    anchors.topMargin: 30
+                    //anchors.right: parent.right
+                    //anchors.rightMargin: 0
+                    anchors.left: parent.left
+                    anchors.leftMargin: 10
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignLeft
+                    height: 30
+                }
+                Label {
+                    id: labelNotes
+                    anchors.left: parent.left
+                    anchors.leftMargin: 10
+                    //anchors.right: rec2.left
+                    text:StringConstants.lbl_manageNotes
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 0
+                    anchors.top: label.bottom//parent.top
+                    anchors.topMargin: 0
+                    verticalAlignment: Text.AlignTop
+                    horizontalAlignment: Text.AlignLeft
+                    //verticalAlignment: Text.AlignVCenter
+                    //horizontalAlignment: Text.AlignHCenter
+                    //qsTr("Label")
+                    //anchors.leftMargin: 10
+                    color: StringConstants.readonlyColor
+                }
+                Rectangle{
+                    id:rec2
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    anchors.left: label.right
+                    anchors.verticalCenter: label.verticalCenter
+                    width: 200//parent.width - labelNotes.width
+                    color: "transparent"
+                    anchors.leftMargin: 10
+                    PageActionsButtons{
+                        id:image2
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.verticalCenter: parent.verticalCenter
+                        //delegateRecColor:"transparent"
+                        group1:""
+                        group: "operatorPageItems"
+                        filterName:"operatorPageItems"
+                        verticalLayoutDirection: Grid.TopToBottom
+                        layoutDirection: Qt.LeftToRight
+                        flow: Grid.LeftToRight
+                        //flickableDirection: Flickable.HorizontalAndVerticalFlick
+                        actionOrHome: true//false
+                        onComponentTriggered: {
+                            console.log("I am reaching here")
+                        }
+                        onInvokeSource: {
+                            console.log("I am reaching here"+source)
+
+                        }
+                        onInvokeIndex: {
+                            console.log("Invoke index value is"+index)
+                            adminDialog.open()
+                        }
+                        Component.onCompleted: {
+                            image2.invokeSource.connect(homePage.invokeSource)
+                            //image2.invokeSoure.connect(homePage.invokeSource)
+                            image2.invokeIndex.connect(homePage.invokeIndex)
+                        }
+                    }
+                }
+            }
         }
         GridLayout{
-            anchors.top: labelNotes.bottom
-            anchors.topMargin: 10
-            anchors.left: parent.left
-            anchors.right: parent.right
+            id:gridLayout
+            anchors.top: subRec.bottom
+            anchors.topMargin: 1
+            //anchors.leftMargin: 10
+            anchors.left: subRec.left
+            anchors.right: subRec.right
             anchors.bottom:parent.bottom
             rows: 4
             columns: 3
@@ -82,9 +149,10 @@ Dialog {
             Rectangle{
                 id:rectangle2
                 color: "transparent"
-                anchors.top: labelRec.bottom
-                anchors.left: gridLayout.left
-                anchors.bottom: parent.bottom//rectangle6.top
+                anchors.top: operatorLabel.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                //anchors.bottom: parent.bottom//rectangle6.top
                 Layout.column: 1
                 Layout.columnSpan: 3
                 Layout.fillHeight: true
@@ -94,16 +162,84 @@ Dialog {
                 Layout.minimumHeight: parent.height - operatorLabel.height - 50
                 Layout.maximumHeight:  parent.height - operatorLabel.height  -50
                 Layout.minimumWidth: parent.width//parent.width/2 + parent.width/4
-
+                Layout.bottomMargin: 50
                 CommonTableGrid{
                     id:curTestTabs1
                     anchors.fill: parent
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    repeaterModel: theOperatorModel
+                    commonTableModel: theOperatorModel
+                    repeaterModel: 2//theOperatorModel
                     //tableModel: theExistingPatientsModel
                     proxySoure: theOperatorModel
+                    searchRecVisibilty: false
+                }
 
+            }
+            Rectangle{
+                id:rectangle3
+                color: "transparent"
+                anchors.top: rectangle2.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+                Layout.row: 3
+                Layout.rowSpan: 1
+                Layout.column: 1
+                Layout.columnSpan: 3
+                Row{
+                    id:subRowlayout
+                    anchors.fill: parent
+                    Label {
+                        id: labelActive
+                        text:StringConstants.lbl_active
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 0
+                        anchors.top: parent.top
+                        anchors.topMargin: 0
+                        anchors.left: parent.left
+                        anchors.leftMargin: 10 //qsTr("Label")
+                        color: StringConstants.readonlyColor
+                    }
+                    Label {
+                        id: labelInactive
+                        text:StringConstants.lbl_inactive
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.left: labelActive.right
+                        anchors.leftMargin: 10
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 0
+                        anchors.top: parent.top
+                        anchors.topMargin: 0 //qsTr("Label")
+                        color: StringConstants.readonlyColor
+                    }
+                    Label {
+                        id: labelShowInactive
+                        text:StringConstants.lbl_showInactive
+                        anchors.leftMargin: 0
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignRight
+                        anchors.left: labelInactive.right
+                        //anchors.leftMargin: 10
+                        anchors.right: chk_inactive.left
+                        anchors.rightMargin: 10
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 0
+                        anchors.top: parent.top
+                        width: 40
+                        anchors.topMargin: 0 //qsTr("Label")
+                        //color: StringConstants.readonlyColor
+                    }
+                    CheckBox{
+                        id:chk_inactive
+                        anchors.verticalCenter: parent.verticalCenter
+                        display: AbstractButton.IconOnly
+                        anchors.right: parent.right
+                        anchors.rightMargin: 10
+                    }
                 }
 
             }
@@ -111,7 +247,66 @@ Dialog {
         }
 
     }
+    function openEditDialog()
+    {
+        editDialog.open()
+        console.log("I was invoked to open a dialog")
+    }
+
+    AdminOperation{
+        id:adminDialog
+        width: parent.width - 100
+        height: parent.height - 100
+        anchors.centerIn: parent
+        Component.onCompleted: {
+            openEdit.connect(dialog.openEditDialog)
+        }
+
+
+    }
+    EditOperator{
+        id:editDialog
+        anchors.centerIn: parent
+        width: parent.width - 50
+        height:  parent.height - 50
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

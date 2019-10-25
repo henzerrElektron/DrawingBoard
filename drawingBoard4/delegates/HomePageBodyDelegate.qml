@@ -36,6 +36,7 @@ Rectangle {
     onInvokeSource: console.log("I am the soure"+source)
     ToolButton {
         id:testControlBtn
+        Material.foreground: StringConstants.actionBtnBackgroundColor
         anchors.centerIn: parent
         icon.name: actionIconName
         icon.source:actionIconSource
@@ -49,6 +50,8 @@ Rectangle {
         background: Rectangle{ color: StringConstants.homePageBodyColor}//Constants.actionBtnBackgroundColor}
         display: AbstractButton.TextUnderIcon
         text: actionText
+        font.family: OtherConstants.fontFamily
+
         //radius: 10
         onClicked: {
             console.log("clicked on"+actionIconName)

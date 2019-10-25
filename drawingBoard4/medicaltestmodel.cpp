@@ -274,10 +274,10 @@ bool MedicalTestModel::setData(const QModelIndex &index, const QVariant &value, 
 int MedicalTestModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    if(m_results.count()< 14)
-    {
-        return 14;
-    }
+//    if(m_results.count()< 14)
+//    {
+//        return 14;
+//    }
     return m_results.count();
 }
 

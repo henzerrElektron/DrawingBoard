@@ -37,6 +37,8 @@ Page {
     header:  TabBar {
         id: bar
         width: parent.width
+        currentIndex: swipeView.currentIndex
+        Material.accent:"transparent"
         background: Rectangle {
             anchors.fill: parent
             color: StringConstants.headerBackgroundColor
@@ -56,8 +58,9 @@ Page {
             }
         }
         //height: parent.height
-        currentIndex: view.currentIndex
-        onCurrentIndexChanged: {
+
+        onCurrentIndexChanged:
+        {
             checkIndex(currentIndex)
         }
         function checkIndex(index)
@@ -77,16 +80,13 @@ Page {
         }
         function testBtnClicked()//praticeBtnClicked()
         {
-
-            page2.visible = false;//rightTabBtn//bothTabBtn//leftTabBtn
-            page3.visible = false;
             if(page1.visible === false)
             {
                 page1.visible = true;
             }
-            reportBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            timelineBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            testBtn.backColor=StringConstants.actionBtnBackgroundColor
+            page2.visible = false;//rightTabBtn//bothTabBtn//leftTabBtn
+            page3.visible = false;
+
             if(prevTestBtnHeight !== 0)
             {
                 testBtn.height = prevTestBtnHeight
@@ -103,21 +103,20 @@ Page {
             timelineBtn.height = timelineBtn.height - 10
             reportBtn.height =  reportBtn.height - 10
             testBtn.height =  testBtn.height + 3
+            reportBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            timelineBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            testBtn.backColor=StringConstants.actionBtnBackgroundColor
             /////////////////////////////////////////////////////////reportTimeline.setState()
         }
         function  reportBtnClicked()//patientBtnClicked()
         {
 
-
-            page1.visible = false;
-            page3.visible = false;
             if(page2.visible === false)
             {
                 page2.visible = true;
             }
-            testBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            timelineBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            reportBtn.backColor=StringConstants.actionBtnBackgroundColor
+            page1.visible = false;
+            page3.visible = false;
             if(prevReportBtnHeight !== 0)
             {
                 testBtn.height = prevTestBtnHeight
@@ -133,21 +132,21 @@ Page {
             timelineBtn.height =  timelineBtn.height - 10
             testBtn.height = testBtn.height - 10
             reportBtn.height = reportBtn.height + 3
+            testBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            timelineBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            reportBtn.backColor=StringConstants.actionBtnBackgroundColor
             ///////////////////////////////////mainTime.setState()
         }
 
         function  timelineBtnClicked()
         {
-
-            page1.visible = false;
-            page2.visible = false;
             if(page3.visible === false)
             {
                 page3.visible = true;
             }
-            testBtn.backColor = StringConstants.label_NewPatientLabelBgColor
-            reportBtn.backColor = StringConstants.label_NewPatientLabelBgColor
-            timelineBtn.backColor = StringConstants.actionBtnBackgroundColor
+            page1.visible = false;
+            page2.visible = false;
+
             if(prevTimelineBtnHeight !== 0)
             {
                 testBtn.height = prevTestBtnHeight
@@ -163,6 +162,9 @@ Page {
             testBtn.height = testBtn.height - 10
             reportBtn.height = reportBtn.height -10
             timelineBtn.height =  timelineBtn.height +3
+            testBtn.backColor = StringConstants.label_NewPatientLabelBgColor
+            reportBtn.backColor = StringConstants.label_NewPatientLabelBgColor
+            timelineBtn.backColor = StringConstants.actionBtnBackgroundColor
         }
         ReportTabButton {
             id:testBtn

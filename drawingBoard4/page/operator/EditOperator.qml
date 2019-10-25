@@ -48,8 +48,8 @@ Dialog {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom:parent.bottom
-            rows: 4
-            columns: 3
+            rows: 3
+            columns: 2
             //                        NewPatientLabelWithText{
             //                            id:oneLabel
             //                            Layout.row: IntegerConstants.rowCount1
@@ -76,6 +76,7 @@ Dialog {
             //                        }
             Label{
                 id:opLabel
+                anchors.left: currentOpLabel.left
                 Layout.row: IntegerConstants.rowCount1
                 Layout.rowSpan: IntegerConstants.rowSpan1
                 Layout.column: IntegerConstants.columnCount1
@@ -90,11 +91,12 @@ Dialog {
                 id:opText
                 Layout.row: IntegerConstants.rowCount1
                 Layout.rowSpan: IntegerConstants.rowSpan1
-                Layout.column: IntegerConstants.columnCount3
+                Layout.column: IntegerConstants.columnCount2
                 Layout.columnSpan: IntegerConstants.columnSpan1
                 placeholderText:StringConstants.operatorNameReq
                 validator:RegExpValidator{regExp:StringConstants.txtValidatorWordsOnly}///^\+?\d+$/
                 font.bold: true
+                Layout.minimumWidth: parent.width/2
                 font.pixelSize:15// Constants.testPage_lblFontSize//25
                 font.weight: Font.ExtraBold
                 renderType: Text.QtRendering
@@ -103,6 +105,7 @@ Dialog {
 
             Label {
                 id: activeLabel
+                anchors.left: currentOpLabel.left
                 text:StringConstants.operatorActive
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 verticalAlignment: Text.AlignVCenter
@@ -111,7 +114,7 @@ Dialog {
                 Layout.rowSpan: IntegerConstants.rowSpan1
                 Layout.column: IntegerConstants.columnCount1
                 Layout.columnSpan: IntegerConstants.columnSpan1
-                Layout.minimumWidth: parent.width/3
+                //Layout.minimumWidth: parent.width/3
             }
 
             CheckBox {
@@ -161,6 +164,8 @@ Dialog {
     onAccepted: console.log("Ok clicked")
     onRejected: console.log("Cancel clicked")
 }
+
+
 
 
 

@@ -50,7 +50,7 @@ SwipeView {
         {
             currentIndex = 4
         }
-        if((index === 4)||(index === 8))//changePatient
+        if((index === 4)||(index === 8)||(index === 13))//changePatient
         {
             currentIndex = 2
         }

@@ -57,9 +57,7 @@ Rectangle {
 //    HomePageBodyDelegate{
 //        id: homePageBodyDelegate
 //    }
-    ActionDelegateModel{
-        id:actionDelegateModel
-    }
+
     AllPageModel {
         id: allPageModel1
         delegate: HomePageBodyDelegate{

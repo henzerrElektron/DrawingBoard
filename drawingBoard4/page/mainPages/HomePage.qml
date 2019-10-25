@@ -112,6 +112,7 @@ Rectangle {
                 //Layout.fillWidth: true
                 group1: "homeMainItems"
                 group: ""
+                filterName:"homeMainItems"
                 verticalLayoutDirection: Grid.TopToBottom
                 layoutDirection: Qt.LeftToRight
                 flow: Grid.LeftToRight

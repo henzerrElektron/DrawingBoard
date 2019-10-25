@@ -175,7 +175,8 @@ Rectangle {
                 anchors.fill: parent
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                repeaterModel: theMedicalTestModel
+                commonTableModel: theMedicalTestModel
+                repeaterModel: 13//theMedicalTestModel
                 searchRecVisibilty:false
                 //tableModel: theExistingPatientsModel
                 proxySoure: theMedicalTestModel

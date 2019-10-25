@@ -60,6 +60,7 @@ Rectangle {
                 id:pgTitle
                 anchors.fill: parent
                 actionGridGroup:StringConstants.modelNewPatientItems//"newPatientItems"
+                actionFilterName: StringConstants.modelNewPatientItems
                 labelText: StringConstants.label_newPtPgHeader
                 logoVisible: false
                 Component.onCompleted: {

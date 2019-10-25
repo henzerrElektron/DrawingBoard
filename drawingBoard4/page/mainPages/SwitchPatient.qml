@@ -102,7 +102,8 @@ Rectangle {
                 anchors.fill: parent
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                repeaterModel: theExistingPatientsModel
+                commonTableModel: theExistingPatientsModel
+                repeaterModel: 6//theExistingPatientsModel
                 //tableModel: theExistingPatientsModel
                 proxySoure: theExistingPatientsModel
 

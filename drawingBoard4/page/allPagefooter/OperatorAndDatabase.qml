@@ -92,7 +92,7 @@ Rectangle{
 //                    verticalAlignment: Text.AlignVCenter
 //                    elide: Text.ElideRight
 //                }
-                text:StringConstants.lbl_lastBackedUpon+ DateAndLocaleConstants.dateString
+                text:StringConstants.lbl_lastBackedUpon+" "+ DateAndLocaleConstants.dateString
                 anchors.fill: parent
                 anchors.leftMargin: 10
                 font: OtherConstants.fontFamily

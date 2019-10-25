@@ -100,10 +100,10 @@ bool TestResultModels::setData(const QModelIndex &index, const QVariant &value, 
 int TestResultModels::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    if(m_results.count()<3)
-    {
-        return  3;
-    }
+//    if(m_results.count()<3)
+//    {
+//        return  3;
+//    }
     return m_results.count();
 }
 
@@ -140,7 +140,7 @@ QVariant TestResultModels::data(const QModelIndex &index, int role) const
     Q_ASSERT(index.column() >= 0);
     Q_ASSERT(index.column() < columnCount(index.parent()));
     Q_ASSERT(checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid | QAbstractItemModel::CheckIndexOption::ParentIsInvalid));
-    qDebug()<<QString("row %1,col%2, role%3").arg(row).arg(col).arg(role);
+    //qDebug()<<QString("row %1,col%2, role%3").arg(row).arg(col).arg(role);
     if (index.row() < 0 || index.row() >= m_results.count())
         return QVariant();
     const Result &result = m_results[index.row()];

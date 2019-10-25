@@ -62,6 +62,7 @@ Rectangle {
                 anchors.fill: parent
                 logoVisible: false
                 actionGridGroup:StringConstants.modelHomeItems//"newPatientItems"
+                actionFilterName: StringConstants.modelHomeItems
                 labelText: ""//StringConstants.label_newPtPgHeader
                 //anchors.top: parent.top
                 //anchors.left: parent.left

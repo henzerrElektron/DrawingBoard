@@ -43,9 +43,12 @@ GridLayout{
     property alias proxyFilterString: proxyModel.filterString
     property alias proxyFilterSortRole: proxyModel.sortRole
     property alias repeaterModel: repeaterHeader.model
+    property var commonTableModel:repeaterHeader.model//: existingPatientTable.model
     //property alias tableModel: existingPatientTable.model
     property alias proxySoure: proxyModel.source
     property alias searchRecVisibilty: searchRec.visible
+    property alias rowHeightMinValue: existingPatientTable.rowHeightMinValue
+    property bool minheaderHeight: false
     function setFilterString(str,role){
         proxyModel.filterRole = role
         proxyModel.sortRole = role
@@ -93,7 +96,7 @@ GridLayout{
         Layout.minimumHeight: 50
         Layout.maximumHeight: 50
         Layout.row: 2
-        anchors.top: searchRec.bottom
+       // anchors.top: searchRec.bottom
         color:StringConstants.gridheaderColor
         //        y:supplementTableView.contentY
         //        z:2
@@ -107,9 +110,10 @@ GridLayout{
                console.log("The index is"+index)
            }
             Label{
+                id:lbl
                 width: existingPatientTable.columnWidthProvider(index)
-                height:50
-                text:repeaterModel.headerData(index,Qt.Horizontal,"heading")
+                height:minheaderHeight?35:50
+                text:commonTableModel.headerData(index,Qt.Horizontal,"heading")
                 onTextChanged: console.log("The test changed int index is"+index+"all"+text+"and count is"+count)
                 color: StringConstants.gridLabelColor
                 font.pixelSize: 15
@@ -135,14 +139,14 @@ GridLayout{
         Layout.fillWidth: true
         Layout.fillHeight: true
         Layout.row: 3
-        anchors.left: parent.left
-        anchors.leftMargin: 0
-        anchors.right: parent.right
-        anchors.rightMargin: 0
-        anchors.top: columnHeader.bottom//parent.top
-        anchors.topMargin: 0
+//        anchors.left: parent.left
+//        anchors.leftMargin: 0
+//        anchors.right: parent.right
+//        anchors.rightMargin: 0
+//        anchors.top: columnHeader.bottom//parent.top
+//        anchors.topMargin: 0
         //anchors.fill: parent
-        model: searchRecVisibilty?proxyModel:repeaterModel
+        model: searchRecVisibilty?proxyModel:commonTableModel
 
 
 

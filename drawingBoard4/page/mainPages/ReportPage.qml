@@ -93,6 +93,7 @@ Rectangle {
                 anchors.fill: parent
                 logoVisible: false
                 actionGridGroup:StringConstants.modelReportPageItems//"newPatientItems"
+                 actionFilterName:StringConstants.modelReportPageItems
                 labelText: StringConstants.lbl_rpPageHeader
                 Component.onCompleted: {
                     pgTitle.invokeSource.connect(rpPage.invokeSource)

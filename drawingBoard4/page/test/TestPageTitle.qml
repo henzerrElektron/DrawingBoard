@@ -96,6 +96,7 @@ Rectangle{
                 //color: "black"
                 anchors.right: parent.right
                 group: "testPageItems"
+                filterName:"testPageItems"
                 actionOrHome: true
                 Component.onCompleted: {
                     actionGridView.invokeIndex.connect(rectangle1.invokeSource)

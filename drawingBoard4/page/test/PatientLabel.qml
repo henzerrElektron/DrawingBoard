@@ -61,7 +61,7 @@ Rectangle {
             //Layout.column: 1
             //Layout.columnSpan: 3
             //Layout.fillHeight: true
-            height:75// pgTitle.height
+            height:80// pgTitle.height
             //Layout.maximumHeight: 150//rectangle.height/3
             //height: rectangle.height/3
             Layout.fillWidth: true
@@ -74,6 +74,7 @@ Rectangle {
                 anchors.fill: parent
                 logoVisible: false
                 actionGridGroup:"testPageItems"//"newPatientItems"
+                actionFilterName:"testPageItems"
                 Component.onCompleted: {
                     pgTitle.invokeSource.connect(ptLabel.invokeSource)
                     pgTitle.invokeIndex.connect(ptLabel.invokeIndex)
@@ -137,6 +138,7 @@ Rectangle {
         Rectangle {
             id: rectangleSub2
             color: StringConstants.testPage_backgroundColor
+            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             //color: "red"
             //anchors.top: parent.top
             //anchors.left: parent.left
@@ -148,6 +150,7 @@ Rectangle {
             Layout.minimumHeight:  parent.height/2
             Layout.maximumWidth:  parent.width/3
             Layout.maximumHeight: parent.height/2
+
             //width: parent.width/3
             //Layout.fillWidth: true
             TestPageSwitchButtons{
@@ -320,7 +323,9 @@ Rectangle {
 
 
 
+
+
 /*##^## Designer {
-    D{i:1;anchors_height:200;anchors_width:200;anchors_x:107;anchors_y:66}
+    D{i:0;autoSize:true;height:480;width:640}D{i:1;anchors_height:200;anchors_width:200;anchors_x:107;anchors_y:66}
 }
  ##^##*/
