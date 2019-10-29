@@ -139,6 +139,9 @@ Rectangle {
             ReportPageHeader{
                 id:pageHeader
                 state: "pratice"
+               // modelName:StringConstants.modelReportPraticeItems
+                filterName:StringConstants.modelReportPraticeItems
+                detailFilterName:StringConstants.report_PraticeDetailModel
                 anchors.fill: parent
                 Component.onCompleted: {
                     //pageHeader.state = "pratice"

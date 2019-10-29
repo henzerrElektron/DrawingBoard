@@ -176,5 +176,14 @@
         <file>page/operator/EditOperator.qml</file>
         <file>page/operator/ManageOperator.qml</file>
         <file>page/operator/AdminOperation.qml</file>
+        <file>models/AllDateModel.qml</file>
+        <file>models/AllDateDelegateModel.qml</file>
+        <file>common/ReportPageDateBtnGroup.qml</file>
+        <file>models/AllReportDataModel.qml</file>
+        <file>models/ReportDetailModel.qml</file>
+        <file>models/ReportlDetailDelegateModel.qml</file>
+        <file>common/ReportDetailLabelGroup.qml</file>
+        <file>delegates/LabelDelegate.qml</file>
+        <file>models/NewPatientContactDetailModel.qml</file>
     </qresource>
 </RCC>

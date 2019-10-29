@@ -42,6 +42,7 @@ Rectangle {
     signal btn4Clicked()
     signal btn5Clicked()
     signal btn6Clicked()
+    onPopupInvokeIndex: console.log("The value of the index is"+index)
     onBtn1Clicked: console.log("Button 1 Report Patient Timeline clicked")
     onBtn2Clicked: console.log("Button 2 Report Patient Timeline Clicked")
     onBtn3Clicked: console.log("Button 3 Report Patient Timeline clicked")
@@ -105,12 +106,15 @@ Rectangle {
                 id:pageHeader
                 anchors.fill: parent
                 state: "patient"
+                filterName: StringConstants.modelReportPatientItems
+                detailFilterName:StringConstants.report_PatientDetailModel
+                //modelName:StringConstants.modelReportPatientItems
                 Component.onCompleted: {
                     // pageHeader.state = "patient"
                     //pageSlider.dateFromChange.connect(pageStartTumbler.setTumblerDate)
                     pageHeader.openDateRange.connect(popupOpen)//popup.open
-                    pageHeader.invokeSource.connect(popupInvokeIndex)//rpPage.invokeSource
-                    pageHeader.invokeIndex.connect(popupInvokeSource)//rpPage.invokeIndex
+                    pageHeader.invokeSource.connect(popupInvokeSource)//rpPage.invokeSource
+                    pageHeader.invokeIndex.connect(popupInvokeIndex)//rpPage.invokeIndex
                     //                    pageHeader.openBtn1.connect(btn1Clicked)
                     //                    pageHeader.btn2Clicked.connect(btn2Clicked)
                     //                    pageHeader.btn3Clicked.connect(btn3Clicked)

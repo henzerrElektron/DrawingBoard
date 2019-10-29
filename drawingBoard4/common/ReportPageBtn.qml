@@ -22,10 +22,17 @@ import "./../page/test/"
 import "./../page/home/"
 import "./../page/newPatient/"
 import ApplicationConstants 1.0
-Button {
+ToolButton {
     id: control
-    text: qsTr("Button")
+    //text: qsTr("Button")
     property alias backRecHeight: backRec.height
+    signal invokeSource(string source)
+    signal invokeIndex(int index)
+    signal test()
+    onTest: console.log("I am tested")
+    font.family: OtherConstants.fontFamily
+    display: AbstractButton.TextOnly
+    text: actionText
     contentItem: Text {
         text: control.text
         font: control.font
@@ -45,5 +52,14 @@ Button {
         border.color: control.down ? StringConstants.actionBtnBackgroundColor:StringConstants.headerBackgroundColor//"#17a81a" : "#21be2b"
         border.width: 1
         radius: 2
+    }
+    onClicked: {
+        console.log("clicked on"+actionName)
+        console.log("The source is"+actionName)
+        console.log("The index is"+index)
+        invokeSource(actionName)
+        invokeIndex(index)
+        test()
+        //clickedButton(index)
     }
 }

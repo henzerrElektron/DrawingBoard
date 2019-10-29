@@ -27,6 +27,9 @@ Rectangle {
     //border.width: 15
     //border.color: "white"
     color: StringConstants.testPage_backgroundColor
+    // property string modelName: StringConstants.modelReportPatientItems
+    property alias filterName: rpDateGrid.filterName
+    property alias detailFilterName: rpDetailLabelGroup.filterName
     //color: StringConstants.actionBtnBackgroundColor////StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor
     anchors.fill: parent
     signal openBtn1()
@@ -50,12 +53,12 @@ Rectangle {
         //console.log("The value of the source is"+source)
         if(source === "pratice")
         {
-            mainLoader.source = "ReportPraticeDateGrid.qml"
+            //mainLoader.source = "ReportPraticeDateGrid.qml"
             detailsLoader.source = "ReportPraticeDetails.qml"
         }
         else
         {
-            mainLoader.source = "ReportPatientDateGrid.qml"
+            // mainLoader.source = "ReportPatientDateGrid.qml"
             detailsLoader.source = "ReportPatientDetails.qml"
         }
 
@@ -106,18 +109,33 @@ Rectangle {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                     //Layout.leftMargin: 10
-                    //Layout.preferredWidth:parent.width/3//500//
-                    //Layout.minimumWidth: parent.width/3//500//
-                    //Layout.maximumWidth: parent.width/3//500//
+                    Layout.preferredWidth:parent.width/2//500//
+                    Layout.minimumWidth: parent.width/2//500//
+                    Layout.maximumWidth: parent.width/2//500//
                     //width: 100
                     //height: 150
-                    Loader{
-                        id:detailsLoader
+                    ReportDetails{
+                        id:rpDetailLabelGroup
                         anchors.fill: parent
-                        Connections{
-                            target: detailsLoader.item
-                        }
                     }
+
+                    //                    Loader{
+                    //                        id:detailsLoader
+                    //                        anchors.fill: parent
+                    //                        Connections{
+                    //                            target: detailsLoader.item
+                    //                        }
+                    //                    }
+                    //                    ReportPageDateBtnGroup{
+                    //                        id:dateGroupBtns
+                    //                        group1: modelName//StringConstants.modelReportPatientItems
+                    //                        group: modelName//StringConstants.modelReportPatientItems
+                    //                        filterName: modelName//.modelReportPatientItems
+                    //                        verticalLayoutDirection: Grid.TopToBottom
+                    //                        layoutDirection: Qt.LeftToRight
+                    //                        flow: Grid.LeftToRight
+                    //                        flickableDirection: Flickable.HorizontalAndVerticalFlick
+                    //                    }
 
                 }
 
@@ -134,31 +152,51 @@ Rectangle {
                     Layout.columnSpan: 1
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    //Layout.rightMargin: 10
-                    Loader{
-                        id:mainLoader
+                    Layout.rightMargin: 10
+                    ReportDateGrid{
+                        id:rpDateGrid
                         anchors.fill: parent
-                        Connections{
-                            target: mainLoader.item
-                            onOpenDateRange:rpHeader.openDateRange()
-                            onBtn1Clicked:rpHeader.openBtn1()
-                            onBtn2Clicked:rpHeader.openBtn2()
-                            onBtn3Clicked:rpHeader.openBtn3()
-                            onBtn4Clicked:rpHeader.openBtn4()
-                            onBtn5Clicked:rpHeader.openBtn5()
-                            onBtn6Clicked:rpHeader.openBtn6()
+                        Component.onCompleted: {
+                            rpDateGrid.invokeSource.connect(rpHeader.invokeSource)
+                            rpDateGrid.invokeIndex.connect(rpHeader.invokeIndex)
+                            // homePageLabel.invokeSource.connect(homePage.invokeSource)
                         }
                     }
+
+                    //                    ReportPageDateBtnGroup{
+                    //                        id:dateGroupBtns1
+                    //                        group1: modelName//StringConstants.modelReportPatientItems
+                    //                        group: modelName//StringConstants.modelReportPatientItems
+                    //                        filterName: modelName//.modelReportPatientItems
+                    //                        verticalLayoutDirection: Grid.TopToBottom
+                    //                        layoutDirection: Qt.LeftToRight
+                    //                        flow: Grid.LeftToRight
+                    //                        flickableDirection: Flickable.HorizontalAndVerticalFlick
+                    //                    }
+                    //                    Loader{
+                    //                        id:mainLoader
+                    //                        anchors.fill: parent
+                    //                        Connections{
+                    //                            target: mainLoader.item
+                    //                            onOpenDateRange:rpHeader.openDateRange()
+                    //                            onBtn1Clicked:rpHeader.openBtn1()
+                    //                            onBtn2Clicked:rpHeader.openBtn2()
+                    //                            onBtn3Clicked:rpHeader.openBtn3()
+                    //                            onBtn4Clicked:rpHeader.openBtn4()
+                    //                            onBtn5Clicked:rpHeader.openBtn5()
+                    //                            onBtn6Clicked:rpHeader.openBtn6()
+                    //                        }
+                    //                    }
 
                 }
             }
         }
-    //}
+        //}
 
-    Component.onCompleted: {
-        setDetailDateRangeSource("Pratice")
+        Component.onCompleted: {
+            setDetailDateRangeSource("Pratice")
+        }
     }
-}
 
 }
 

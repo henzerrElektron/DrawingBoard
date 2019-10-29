@@ -39,6 +39,14 @@ Page {
     {
         console.log("I am printing a test here")
     }
+    function setCurrentIndex(index)
+    {
+        if(index === IntegerConstants.actionIndexCustom)
+        {
+            popup.open()
+        }
+    }
+
     onBtn1Clicked: console.log("Button 1 Report Tabs clicked")
     onBtn2Clicked: console.log("Button 2 Report Tabs Clicked")
     onBtn3Clicked: console.log("Button 3 Report Tabs clicked")
@@ -93,12 +101,10 @@ Page {
                 page1.visible = true;
             }
             page2.visible = false;
-            patientBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            praticeBtn.backColor=StringConstants.actionBtnBackgroundColor
             if(prevPraticeBtnHeight !== 0)
             {
                 praticeBtn.height = prevPraticeBtnHeight
-                //praticeBtn.width = prevPraticeBtnWidth
+                patientBtn.height = prevPatientBtnHeight
             }
             else
             {
@@ -110,6 +116,8 @@ Page {
             /////////////////////////////////patientBtn.height = patientBtn.height/2
             patientBtn.height = patientBtn.height - 10
             praticeBtn.height = praticeBtn.height + 3
+            patientBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            praticeBtn.backColor=StringConstants.actionBtnBackgroundColor
             reportTimeline.setState()
         }
         function patientBtnClicked()
@@ -120,13 +128,11 @@ Page {
                 page2.visible = true;
             }
             //backColor=StringConstants.actionBtnBackgroundColor
-            mainTime.setState()
-            patientBtn.backColor=StringConstants.actionBtnBackgroundColor
-            praticeBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+
             if(prevPatientBtnHeight !== 0)
             {
                 patientBtn.height = prevPatientBtnHeight
-                // praticeBtn.width = prevPatientBtnWidth
+                praticeBtn.height = prevPraticeBtnHeight
             }
             else
             {
@@ -138,6 +144,9 @@ Page {
             //////////////////////////////////praticeBtn.height = praticeBtn.height/2
             praticeBtn.height = praticeBtn.height - 10
             patientBtn.height = patientBtn.height + 3
+            patientBtn.backColor=StringConstants.actionBtnBackgroundColor
+            praticeBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            mainTime.setState()
         }
 
         //onCurrentIndexChanged:
@@ -197,7 +206,7 @@ Page {
 
                     Component.onCompleted: {
                         reportTimeline.popupOpen.connect(tabsPage.popupOpen)
-                        reportTimeline.popupInvokeIndex.connect(tabsPage.popupInvokeIndex)
+                        reportTimeline.popupInvokeIndex.connect(tabsPage.setCurrentIndex)
                         reportTimeline.popupInvokeSource.connect(tabsPage.popupInvokeSource)
                         reportTimeline.btn1Clicked.connect(tabsPage.btn1Clicked)
                         reportTimeline.btn2Clicked.connect(tabsPage.btn2Clicked)
@@ -230,7 +239,7 @@ Page {
 
                     Component.onCompleted: {
                         mainTime.popupOpen.connect(tabsPage.popupOpen)
-                        mainTime.popupInvokeIndex.connect(tabsPage.popupInvokeIndex)
+                        mainTime.popupInvokeIndex.connect(tabsPage.setCurrentIndex)
                         mainTime.popupInvokeSource.connect(tabsPage.popupInvokeSource)
                         mainTime.btn1Clicked.connect(tabsPage.btn1Clicked)
                         mainTime.btn2Clicked.connect(tabsPage.btn2Clicked)
