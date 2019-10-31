@@ -122,6 +122,7 @@ Rectangle{
             textValidator:RegExpValidator{regExp:StringConstants.txtValidatorWordsOnly}///^[A-Za-z]+$/ }//RegExpValidator{regExp:/^\+?\d+$/}///{regExp:/^\+?([0-9]\d*)$///{regExp:/^\+?(0|[1-9]\d*)$/ }
             lblValueVisible:pageNpSpTp===1?false:true//pageSpOrNp
             textAlignLeftOrCenter:true
+            labelOnTop: pageNpSpTp===1?true:false
             txtVisible:pageNpSpTp===1?true:false//!lblValueVisible //!pageNpOrSp//!lblValueVisible//
             itemVisible:pageNpSpTp===1?true:false
             commonColor: StringConstants.barBackgroundColor//label_NewPatientLabelBgColor
@@ -145,6 +146,7 @@ Rectangle{
             //Layout.leftMargin: 10
             //lblVisible: true
             textAlignLeftOrCenter:true
+            labelOnTop: pageNpSpTp===1?true:false
             lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp
             txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
             itemVisible:pageNpSpTp===1?true:false
@@ -166,6 +168,7 @@ Rectangle{
             Layout.fillWidth: true
             textLeftMargin: 70
             textAlignLeftOrCenter:true
+            labelOnTop: pageNpSpTp===1?true:false
             //lblVisible: true
             lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp
             txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
@@ -185,6 +188,7 @@ Rectangle{
             /////////////////////////////////Layout.row: IntegerConstants.rowCount4
             ////////////////////////////////Layout.rowSpan: IntegerConstants.rowSpan1
             //lblVisible: pageSpOrNp
+            labelOnTop: pageNpSpTp===1?true:false
             textAlignLeftOrCenter:true
             lblValueVisible: pageNpSpTp===1?false:true//pageSpOrNp
             txtVisible:!lblValueVisible//pageNpSpTp===1?true:false //!pageNpOrSp
@@ -206,6 +210,7 @@ Rectangle{
             Layout.row: IntegerConstants.rowCount5
             //lblVisible:  pageNpSpTp===2?true:false//iSVisible(5)//pageSpOrNp
             lblValueVisible:  pageNpSpTp===2?true:false//iSVisible(5)//pageSpOrNp
+            labelOnTop: pageNpSpTp===1?true:false
             txtVisible: false //pageNpOrSp
             itemVisible: pageNpSpTp===2?true:false //pageSpOrNp
             Layout.rowSpan: IntegerConstants.rowSpan1
@@ -223,6 +228,7 @@ Rectangle{
             lblValueText:""
             tfReadOnly:false
             Layout.row: IntegerConstants.rowCount6
+            labelOnTop: pageNpSpTp===1?true:false
             //lblVisible: pageNpSpTp===3?true:false//iSVisible(6)//pageSpOrNp
             lblValueVisible:  pageNpSpTp===3?true:false //iSVisible(6)//pageSpOrNp
             txtVisible: !lblValueVisible//false//pageNpOrSp
@@ -241,6 +247,7 @@ Rectangle{
             textValidator:RegExpValidator{regExp:StringConstants.txtValidatorAgeOnly}///\s[0-1]{1}[0-9]{0,2}/ }
             lblValueText:""
             tfReadOnly:false
+            labelOnTop: pageNpSpTp===1?true:false
             Layout.row: IntegerConstants.rowCount7
             //lblVisible:  pageNpSpTp===3?true:false ////iSVisible(7)//pageSpOrNp
             lblValueVisible:  pageNpSpTp===3?true:false ////iSVisible(7)//pageSpOrNp

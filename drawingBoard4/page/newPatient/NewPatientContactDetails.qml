@@ -17,6 +17,7 @@ import "."
 import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
+import "./../../common/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
@@ -50,178 +51,217 @@ Rectangle{
         anchors.leftMargin: 10
         //border.color: StringConstants.borderColorBlack
         //border.width: 2
-        GridLayout{
-            id:grid
+        NewPatientContactDetailGroup{
+            id:contactTabPage1
             anchors.fill: parent
-            rows: 6
-            columns: 2
-            NewPatientLabelWithText{
-                id:oneLabel
-                Layout.row: IntegerConstants.rowCount1
-                Layout.rowSpan: IntegerConstants.rowSpan1
-                Layout.column: IntegerConstants.columnCount1
-                Layout.columnSpan: IntegerConstants.columnSpan2
-                //Layout.fillHeight: true
-                Layout.fillWidth: true
-                height: 45
-                labelText:StringConstants.lbl_npContactMobile
-                tfReadOnly:false
-                tfPlaceHolderText:StringConstants.lbl_npContactMobilePh
-                textValidator:RegExpValidator{regExp:StringConstants.txtValidatorNumbersOnly}///^\+?\d+$/
-                lblValueVisible: false
-                textAlignLeftOrCenter:false
-                lblLeftPadding:75
-                txtVisible:true
-                itemVisible: true
-                commonColor: StringConstants.label_NewPatientLabelBgColor
-            }
-            NewPatientLabelWithText{
-                id:twoLabel
-                labelText:StringConstants.lbl_npContactAddr1
-                tfPlaceHolderText:StringConstants.lbl_npContactAddr1Ph
-                textValidator:RegExpValidator{regExp: StringConstants.txtValidatorWordsNumbersOnly}///^\w+$/
-                tfReadOnly:false
-                Layout.row: IntegerConstants.rowCount2
-                Layout.rowSpan: IntegerConstants.rowSpan1
-                Layout.column: IntegerConstants.columnCount1
-                Layout.columnSpan: IntegerConstants.columnSpan2
-                //Layout.fillHeight: true
-                Layout.fillWidth: true
-                lblValueVisible: false
-                height: 45
-                lblLeftPadding:75
-                textAlignLeftOrCenter:false
-                txtVisible:true
-                itemVisible: true
-                commonColor: StringConstants.label_NewPatientLabelBgColor
-            }
-            NewPatientLabelWithText{
-                id:threeLabel
-                labelText:StringConstants.lbl_npContactAddr2
-                tfPlaceHolderText:StringConstants.lbl_npContactAddr1Ph
-                textValidator:RegExpValidator{regExp: StringConstants.txtValidatorWordsNumbersOnly}///^\w+$/
-                tfReadOnly:false
-                Layout.row: IntegerConstants.rowCount3
-                Layout.rowSpan: IntegerConstants.rowSpan1
-                Layout.column: IntegerConstants.columnCount1
-                Layout.columnSpan: IntegerConstants.columnSpan2
-                //Layout.fillHeight: true
-                Layout.fillWidth: true
-                lblValueVisible: false
-                height: 45
-                textAlignLeftOrCenter:false
-                lblLeftPadding:75
-                txtVisible:true
-                itemVisible: true
-                commonColor: StringConstants.label_NewPatientLabelBgColor
-
-            }
-            NewPatientLabelWithText{
-                id:sixLabel
-                labelText:StringConstants.lbl_npContactEmail
-                tfPlaceHolderText:StringConstants.lbl_npContactEmailPh
-                textValidator:RegExpValidator{regExp:StringConstants.txtValidatorEmailOnly}
-                tfReadOnly:false
-                Layout.row: IntegerConstants.rowCount4
-                Layout.rowSpan: IntegerConstants.rowSpan1
-                Layout.column: IntegerConstants.columnCount1
-                Layout.columnSpan: IntegerConstants.columnSpan2
-                //Layout.fillHeight: true
-                Layout.fillWidth: true
-                lblValueVisible: false
-                height: 45
-                textAlignLeftOrCenter:false
-                lblLeftPadding:75
-                txtVisible:true
-                itemVisible: true
-                commonColor: StringConstants.label_NewPatientLabelBgColor
-            }
-            NewPatientLabelWithText{
-                id:fourLabel
-                labelText:StringConstants.lbl_npContactCity
-                tfPlaceHolderText:StringConstants.lbl_npContactCityPh
-                textValidator:RegExpValidator{regExp: StringConstants.txtValidatorWordsOnly}///^[A-Za-z]+$/
-                tfReadOnly:false
-                Layout.row: IntegerConstants.rowCount5
-                //Layout.rowSpan: 1
-                Layout.column: IntegerConstants.columnCount1
-                Layout.columnSpan: IntegerConstants.columnSpan2
-                //Layout.fillHeight: true
-                Layout.fillWidth: true
-                lblValueVisible: false
-                height: 45
-                textAlignLeftOrCenter:false
-                lblLeftPadding: 75
-                txtVisible:true
-                itemVisible: true
-                commonColor: StringConstants.label_NewPatientLabelBgColor
-
-            }
-            NewPatientLabelWithText{
-                id:sevenLabel
-                labelText:StringConstants.lbl_npContactPostalCode//
-                tfPlaceHolderText:StringConstants.lbl_npContactPostalCodePh
-                textValidator:RegExpValidator{regExp:StringConstants.txtValidatorWordsNumbersOnly }///^\w+$/
-                tfReadOnly:false
-                Layout.row: IntegerConstants.rowCount6
-                //Layout.rowSpan: 1
-                Layout.column: IntegerConstants.columnCount1
-                Layout.columnSpan: IntegerConstants.columnSpan2
-                //Layout.fillHeight: true
-                Layout.fillWidth: true
-                lblValueVisible: false
-                height: 45
-                textAlignLeftOrCenter:false
-                lblLeftPadding: 75
-                txtVisible:true
-                itemVisible: true
-                commonColor: StringConstants.label_NewPatientLabelBgColor
-            }
-            NewPatientLabelWithText{
-                id:fiveLabel
-                labelText:StringConstants.lbl_npContactCountry
-                tfPlaceHolderText:StringConstants.lbl_npContactCountryPh
-                textValidator:RegExpValidator{regExp: StringConstants.txtValidatorWordsOnly}///^[A-Za-z]+$/
-                tfReadOnly:false
-                Layout.row: IntegerConstants.rowCount8
-                //Layout.rowSpan: 1
-                Layout.column: IntegerConstants.columnCount1
-                Layout.columnSpan: IntegerConstants.columnSpan2
-                //Layout.fillHeight: true
-                Layout.fillWidth: true
-                lblValueVisible: false
-                textAlignLeftOrCenter:false
-                lblLeftPadding: 75
-                height: 45
-                txtVisible:true
-                itemVisible: true
-                commonColor:StringConstants.label_NewPatientLabelBgColor
-
-            }
-
-
-            NewPatientLabelWithText{
-                id:eightLabel
-                labelText:StringConstants.lbl_npContactCounty
-                tfPlaceHolderText:StringConstants.lbl_npContactCountyPh
-                textValidator:RegExpValidator{regExp:/^[A-Za-z]+$/ }
-                tfReadOnly:false
-                Layout.row: IntegerConstants.rowCount7
-                //Layout.rowSpan: 1
-                Layout.column: IntegerConstants.columnCount1
-                Layout.columnSpan: IntegerConstants.columnSpan2
-                //Layout.columnSpan: 1
-                //Layout.fillHeight: true
-                Layout.fillWidth: true
-                lblValueVisible: false
-                textAlignLeftOrCenter:false
-                lblLeftPadding: 75
-                height: 45
-                txtVisible:true
-                itemVisible: true
-                commonColor: StringConstants.label_NewPatientLabelBgColor
-            }
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            verticalLayoutDirection: Grid.TopToBottom
+            layoutDirection: Qt.LeftToRight
+            flow: Grid.LeftToRight
+            flickableDirection: Flickable.HorizontalAndVerticalFlick
         }
+
+        //        ContactDetailLabelTextGroup{
+        //        // ReportDetailLabelGroup{
+        //            id:contactTabPage1
+        //            anchors.fill: parent
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //            verticalLayoutDirection: Grid.TopToBottom
+        //            layoutDirection: Qt.LeftToRight
+        //            flow: Grid.LeftToRight
+        //            flickableDirection: Flickable.HorizontalAndVerticalFlick
+        //            filterName:StringConstants.model_contactLabeLAndText/// StringConstants.report_PatientDetailModel//
+        ////            Component.onCompleted: {
+        ////                doFilter()
+        ////            }
+        //        }
+
+
+
+
+
+        //        GridLayout{
+        //            id:grid
+        //            anchors.fill: parent
+        //            rows: 6
+        //            columns: 2
+        //            NewPatientLabelWithText{
+        //                id:oneLabel
+        //                Layout.row: IntegerConstants.rowCount1
+        //                Layout.rowSpan: IntegerConstants.rowSpan1
+        //                Layout.column: IntegerConstants.columnCount1
+        //                Layout.columnSpan: IntegerConstants.columnSpan2
+        //                //Layout.fillHeight: true
+        //                Layout.fillWidth: true
+        //                height: 45
+        //                labelOnTop:false
+        //                labelText:StringConstants.lbl_npContactMobile
+        //                tfReadOnly:false
+        //                tfPlaceHolderText:StringConstants.lbl_npContactMobilePh
+        //                textValidator:RegExpValidator{regExp:StringConstants.txtValidatorNumbersOnly}///^\+?\d+$/
+        //                lblValueVisible: false
+        //                textAlignLeftOrCenter:false
+        //                lblLeftPadding:75
+        //                txtVisible:true
+        //                itemVisible: true
+        //                commonColor: StringConstants.label_NewPatientLabelBgColor
+        //            }
+        //            NewPatientLabelWithText{
+        //                id:twoLabel
+        //                labelText:StringConstants.lbl_npContactAddr1
+        //                tfPlaceHolderText:StringConstants.lbl_npContactAddr1Ph
+        //                textValidator:RegExpValidator{regExp: StringConstants.txtValidatorWordsNumbersOnly}///^\w+$/
+        //                tfReadOnly:false
+        //                Layout.row: IntegerConstants.rowCount2
+        //                Layout.rowSpan: IntegerConstants.rowSpan1
+        //                Layout.column: IntegerConstants.columnCount1
+        //                Layout.columnSpan: IntegerConstants.columnSpan2
+        //                //Layout.fillHeight: true
+        //                Layout.fillWidth: true
+        //                lblValueVisible: false
+        //                height: 45
+        //                labelOnTop:false
+        //                lblLeftPadding:75
+        //                textAlignLeftOrCenter:false
+        //                txtVisible:true
+        //                itemVisible: true
+        //                commonColor: StringConstants.label_NewPatientLabelBgColor
+        //            }
+        //            NewPatientLabelWithText{
+        //                id:threeLabel
+        //                labelText:StringConstants.lbl_npContactAddr2
+        //                tfPlaceHolderText:StringConstants.lbl_npContactAddr1Ph
+        //                textValidator:RegExpValidator{regExp: StringConstants.txtValidatorWordsNumbersOnly}///^\w+$/
+        //                tfReadOnly:false
+        //                Layout.row: IntegerConstants.rowCount3
+        //                Layout.rowSpan: IntegerConstants.rowSpan1
+        //                Layout.column: IntegerConstants.columnCount1
+        //                Layout.columnSpan: IntegerConstants.columnSpan2
+        //                //Layout.fillHeight: true
+        //                Layout.fillWidth: true
+        //                lblValueVisible: false
+        //                height: 45
+        //                labelOnTop:false
+        //                textAlignLeftOrCenter:false
+        //                lblLeftPadding:75
+        //                txtVisible:true
+        //                itemVisible: true
+        //                commonColor: StringConstants.label_NewPatientLabelBgColor
+
+        //            }
+        //            NewPatientLabelWithText{
+        //                id:sixLabel
+        //                labelText:StringConstants.lbl_npContactEmail
+        //                tfPlaceHolderText:StringConstants.lbl_npContactEmailPh
+        //                textValidator:RegExpValidator{regExp:StringConstants.txtValidatorEmailOnly}
+        //                tfReadOnly:false
+        //                Layout.row: IntegerConstants.rowCount4
+        //                Layout.rowSpan: IntegerConstants.rowSpan1
+        //                Layout.column: IntegerConstants.columnCount1
+        //                Layout.columnSpan: IntegerConstants.columnSpan2
+        //                //Layout.fillHeight: true
+        //                Layout.fillWidth: true
+        //                lblValueVisible: false
+        //                height: 45
+        //                labelOnTop:false
+        //                textAlignLeftOrCenter:false
+        //                lblLeftPadding:75
+        //                txtVisible:true
+        //                itemVisible: true
+        //                commonColor: StringConstants.label_NewPatientLabelBgColor
+        //            }
+        //            NewPatientLabelWithText{
+        //                id:fourLabel
+        //                labelText:StringConstants.lbl_npContactCity
+        //                tfPlaceHolderText:StringConstants.lbl_npContactCityPh
+        //                textValidator:RegExpValidator{regExp: StringConstants.txtValidatorWordsOnly}///^[A-Za-z]+$/
+        //                tfReadOnly:false
+        //                Layout.row: IntegerConstants.rowCount5
+        //                //Layout.rowSpan: 1
+        //                Layout.column: IntegerConstants.columnCount1
+        //                Layout.columnSpan: IntegerConstants.columnSpan2
+        //                //Layout.fillHeight: true
+        //                Layout.fillWidth: true
+        //                lblValueVisible: false
+        //                height: 45
+        //                labelOnTop:false
+        //                textAlignLeftOrCenter:false
+        //                lblLeftPadding: 75
+        //                txtVisible:true
+        //                itemVisible: true
+        //                commonColor: StringConstants.label_NewPatientLabelBgColor
+
+        //            }
+        //            NewPatientLabelWithText{
+        //                id:sevenLabel
+        //                labelText:StringConstants.lbl_npContactPostalCode//
+        //                tfPlaceHolderText:StringConstants.lbl_npContactPostalCodePh
+        //                textValidator:RegExpValidator{regExp:StringConstants.txtValidatorWordsNumbersOnly }///^\w+$/
+        //                tfReadOnly:false
+        //                Layout.row: IntegerConstants.rowCount6
+        //                //Layout.rowSpan: 1
+        //                Layout.column: IntegerConstants.columnCount1
+        //                Layout.columnSpan: IntegerConstants.columnSpan2
+        //                //Layout.fillHeight: true
+        //                Layout.fillWidth: true
+        //                lblValueVisible: false
+        //                height: 45
+        //                labelOnTop:false
+        //                textAlignLeftOrCenter:false
+        //                lblLeftPadding: 75
+        //                txtVisible:true
+        //                itemVisible: true
+        //                commonColor: StringConstants.label_NewPatientLabelBgColor
+        //            }
+        //            NewPatientLabelWithText{
+        //                id:fiveLabel
+        //                labelText:StringConstants.lbl_npContactCountry
+        //                tfPlaceHolderText:StringConstants.lbl_npContactCountryPh
+        //                textValidator:RegExpValidator{regExp: StringConstants.txtValidatorWordsOnly}///^[A-Za-z]+$/
+        //                tfReadOnly:false
+        //                Layout.row: IntegerConstants.rowCount8
+        //                //Layout.rowSpan: 1
+        //                Layout.column: IntegerConstants.columnCount1
+        //                Layout.columnSpan: IntegerConstants.columnSpan2
+        //                //Layout.fillHeight: true
+        //                Layout.fillWidth: true
+        //                lblValueVisible: false
+        //                textAlignLeftOrCenter:false
+        //                lblLeftPadding: 75
+        //                height: 45
+        //                labelOnTop:false
+        //                txtVisible:true
+        //                itemVisible: true
+        //                commonColor:StringConstants.label_NewPatientLabelBgColor
+
+        //            }
+
+
+        //            NewPatientLabelWithText{
+        //                id:eightLabel
+        //                labelText:StringConstants.lbl_npContactCounty
+        //                tfPlaceHolderText:StringConstants.lbl_npContactCountyPh
+        //                textValidator:RegExpValidator{regExp:/^[A-Za-z]+$/ }
+        //                tfReadOnly:false
+        //                Layout.row: IntegerConstants.rowCount7
+        //                //Layout.rowSpan: 1
+        //                Layout.column: IntegerConstants.columnCount1
+        //                Layout.columnSpan: IntegerConstants.columnSpan2
+        //                //Layout.columnSpan: 1
+        //                //Layout.fillHeight: true
+        //                Layout.fillWidth: true
+        //                lblValueVisible: false
+        //                textAlignLeftOrCenter:false
+        //                lblLeftPadding: 75
+        //                height: 45
+        //                labelOnTop:false
+        //                txtVisible:true
+        //                itemVisible: true
+        //                commonColor: StringConstants.label_NewPatientLabelBgColor
+        //            }
+        //        }
     }
 }
 

@@ -1,0 +1,88 @@
+import QtQuick 2.12
+import QtQuick.Controls 2.5
+import "."
+import "./../images/"
+//import "./../imports/"
+import "./../models/"
+import "./../delegates/"
+import ApplicationConstants 1.0
+import Qt.labs.qmlmodels 1.0
+GridView {
+    id: theListView
+    //anchors.fill: parent
+    property var group: ""
+    property var group1: ""
+    //property alias group:allPageModel.filterOnGroup
+    //property alias group1: allPageModel1.filterOnGroup
+    // property var group: ""
+    // property var group1: ""
+    property alias theModel: theListView.model
+    property int marginWidth: (parent.width/count)/count
+    property int curWidth: theListView.width
+    property int  cellSpacing: 0
+    property bool actionOrHome: true
+    property var filterName: ""
+    onFilterNameChanged: doFilter()
+    property var idealCellHeight: 200
+    property var idealCellWidth: 200
+    signal componentTriggered(string name)
+    signal invokeSource(string source)
+    signal invokeIndex(int index)
+    signal tested()
+    onTested: {"I am tested in TestActionsButtons"}
+    onComponentTriggered: {
+        console.log(" component was triggered"+name)
+    }
+    onInvokeSource: {
+        console.log("The string is"+source)
+    }
+    onInvokeIndex: {
+        console.log("The invokeIndex is"+index)
+    }
+    cellWidth: parent.width/2
+    cellHeight: parent.height/(count/2)
+    width:parent.width//actionOrHome ?count*cellWidth:count*cellWidth
+    height: parent.height//count*cellHeight//actionOrHome ?cellHeight:cellHeight
+    delegate: delegateChooser
+    model: contactDetailModel
+    function doFilter()
+    {
+
+    }
+    DelegateChooser {
+        id: delegateChooser
+        role: "type"
+
+        DelegateChoice {
+            roleValue: "labelItem"
+            LabelDelegate{
+            id:label1
+            //Package.name: filterName//"PatientDetailedModel"
+            text: actionText
+            color: "black"
+            // font:OtherConstants.fontFamily
+            //  color: "white"
+            height: GridView.view.cellHeight
+            width: GridView.view.cellWidth/2
+            onTextChanged: {
+                console.log("The value of the text is"+text+actionName)
+            }
+        }
+        }
+        DelegateChoice {
+            roleValue:"textItem"
+            TextDelegate{
+                id:label
+                height: GridView.view.cellHeight
+                width: GridView.view.cellWidth
+                onTextChanged: {
+                    console.log("The value of the text is"+text)
+                }
+            }
+        }
+
+    }
+    NewPatientContactDetailModel{
+        id:contactDetailModel
+    }
+}

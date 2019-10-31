@@ -185,5 +185,16 @@
         <file>common/ReportDetailLabelGroup.qml</file>
         <file>delegates/LabelDelegate.qml</file>
         <file>models/NewPatientContactDetailModel.qml</file>
+        <file>models/ContactDetailDelegateModel.qml</file>
+        <file>common/ContactDetailLabelTextGroup.qml</file>
+        <file>common/NewPatientContactDetailGroup.qml</file>
+        <file>delegates/TextDelegate.qml</file>
+        <file>common/AllValidators.qml</file>
+        <file>validators/AgeValidator.qml</file>
+        <file>validators/NumberValidator.qml</file>
+        <file>validators/WordNumberValidator.qml</file>
+        <file>validators/DobValidator.qml</file>
+        <file>validators/EmailValidator.qml</file>
+        <file>validators/WordValidtor.qml</file>
     </qresource>
 </RCC>

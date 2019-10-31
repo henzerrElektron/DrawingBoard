@@ -100,7 +100,7 @@ Rectangle {
             Layout.minimumWidth: addSpace?parent.width/2:parent.width/4
             //color: "transparent"
             //color: "red"
-            anchors.left: parent.left
+            //anchors.left: parent.left
             font.bold: true
             font.pixelSize:15//25// Constants.testPage_lblFontSize//25
             font.weight: Font.ExtraBold
@@ -148,7 +148,7 @@ Rectangle {
             Layout.minimumWidth: parent.width/4
             //color: "transparent"
             //color: "green"
-            anchors.left: label.right
+            //anchors.left: label.right
             anchors.right: parent.right
             color: commonColor//"white"//StringConstants.barBackgroundColor//
             font.bold: true

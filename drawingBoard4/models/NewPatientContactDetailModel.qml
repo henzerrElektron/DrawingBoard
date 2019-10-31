@@ -4,6 +4,7 @@ import QtQuick.Window 2.0
 //import QtQml.Models 2.1
 import "."
 import "./../images/"
+import "./../validators/"
 import ApplicationConstants 1.0
 
 ListModel {
@@ -12,13 +13,163 @@ ListModel {
         {
             actionName:StringConstants.lbl_npContactMobile,
             actionText:StringConstants.lbl_npContactMobile,
-            placeHolderText:StringConstants.lbl_npContactMobilePh,
-            validationText:StringConstants.txtValidatorNumbersOnly,
-            valueText:"",
             isLabel:true,
             isEntry:false,
             type:"labelItem",
             index:1
-        }
+        },
+        {
+            actionName:StringConstants.lbl_npContactMobileText,
+            actionText:StringConstants.lbl_npContactMobileValue,
+            placeHolderTextItem:StringConstants.lbl_npContactMobilePh,
+            validationText:StringConstants.txtValidatorNumbersOnly,
+            isLabel:false,
+            isEntry:true,
+            numberWordindex:IntegerConstants.numberOnly,
+            type:"textItem",
+            index:2
+        },
+        {
+            actionName:StringConstants.lbl_npContactAddr1,
+            actionText:StringConstants.lbl_npContactAddr1,
+            isLabel:true,
+            isEntry:false,
+            type:"labelItem",
+            index:3
+        },
+        {
+            actionName:StringConstants.lbl_npContactAddr1Text,
+            actionText:StringConstants.lbl_npContactAddr1Value,
+            placeHolderTextItem:StringConstants.lbl_npContactAddr1Ph,
+            numberWordindex:IntegerConstants.numberWordOnly,
+            validationText:StringConstants.txtValidatorWordsNumbersOnly,
+            isLabel:false,
+            isEntry:true,
+            type:"textItem",
+            index:4
+        },
+        {
+            actionName:StringConstants.lbl_npContactAddr2,
+            actionText:StringConstants.lbl_npContactAddr2,
+            isLabel:true,
+            isEntry:false,
+            type:"labelItem",
+            index:5
+        },
+        {
+            actionName:StringConstants.lbl_npContactAddr2Text,
+            actionText:StringConstants.lbl_npContactAddr2Value,
+            placeHolderTextItem:StringConstants.lbl_npContactAddr2Ph,
+            numberWordindex:IntegerConstants.numberWordOnly,
+            validationText:StringConstants.txtValidatorWordsNumbersOnly,
+            isLabel:false,
+            isEntry:true,
+            type:"textItem",
+            index:6
+        },
+        {
+            actionName:StringConstants.lbl_npContactEmail,
+            actionText:StringConstants.lbl_npContactEmail,
+            isLabel:true,
+            isEntry:false,
+            type:"labelItem",
+            index:7
+        },
+        {
+            actionName:StringConstants.lbl_npContactEmailText,
+            actionText:StringConstants.lbl_npContactEmailValue,
+            numberWordindex:IntegerConstants.emailOnly,
+            placeHolderTextItem:StringConstants.lbl_npContactEmailPh,
+            validationText:StringConstants.txtValidatorEmailOnly,
+            isLabel:false,
+            isEntry:true,
+            type:"textItem",
+            index:8
+        },
+        {
+            actionName:StringConstants.lbl_npContactCity,
+            actionText:StringConstants.lbl_npContactCity,
+            isLabel:true,
+            isEntry:false,
+            type:"labelItem",
+            index:9
+        },
+        {
+            actionName:StringConstants.lbl_npContactCityText,
+            actionText:StringConstants.lbl_npContactCityValue,
+            numberWordindex:IntegerConstants.wordOnly,
+            placeHolderTextItem:StringConstants.lbl_npContactCityPh,
+            validationText:StringConstants.txtValidatorWordsOnly,
+            isLabel:false,
+            isEntry:true,
+            type:"textItem",
+            index:10
+        },
+        {
+            actionName:StringConstants.lbl_npContactPostalCode,
+            actionText:StringConstants.lbl_npContactPostalCode,
+            isLabel:true,
+            isEntry:false,
+            type:"labelItem",
+            index:11
+        },
+        {
+            actionName:StringConstants.lbl_npContactPostalCodeText,
+            actionText:StringConstants.lbl_npContactPostalCodeValue,
+            numberWordindex:IntegerConstants.numberWordOnly,
+            placeHolderTextItem:StringConstants.lbl_npContactPostalCodePh,
+            validationText:StringConstants.txtValidatorWordsNumbersOnly,
+            isLabel:false,
+            isEntry:true,
+            type:"textItem",
+            index:12
+        },
+        {
+            actionName:StringConstants.lbl_npContactCounty,
+            actionText:StringConstants.lbl_npContactCounty,
+            isLabel:true,
+            isEntry:false,
+            type:"labelItem",
+            index:13
+        },
+        {
+            actionName:StringConstants.lbl_npContactCountyText,
+            actionText:StringConstants.lbl_npContactCountyValue,
+            numberWordindex:IntegerConstants.wordOnly,
+            placeHolderTextItem:StringConstants.lbl_npContactCountyPh,
+            validationText:StringConstants.txtValidatorWordsOnly,
+            isLabel:false,
+            isEntry:true,
+            type:"textItem",
+            index:14
+        },
+        {
+            actionName:StringConstants.lbl_npContactCountry,
+            actionText:StringConstants.lbl_npContactCountry,
+            isLabel:true,
+            isEntry:false,
+            type:"labelItem",
+            index:15
+        },
+        {
+            actionName:StringConstants.lbl_npContactCountryText,
+            actionText:StringConstants.lbl_npContactCountryValue,
+            numberWordindex:IntegerConstants.wordOnly,
+            placeHolderTextItem:StringConstants.lbl_npContactCountryPh,
+            validationText:StringConstants.txtValidatorWordsOnly,
+            isLabel:false,
+            isEntry:true,
+            type:"textItem",
+            index:16
+        },
+
     ]
+    Component.onCompleted: {
+        modelElements.forEach(function(element)
+        {
+            console.log("The value of the element is"+element.actionName)
+            contactDetailModel.append(element)
+        })
+        console.log("The model elements are "+modelElements)
+    }
 }

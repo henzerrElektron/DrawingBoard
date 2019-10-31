@@ -26,6 +26,7 @@ Rectangle{
     anchors.fill: parent
     color: StringConstants.actionBtnBackgroundColor
     property alias filterName: grid.filterName
+    //property string filterName: ""
     property bool patientOrOperator: false//true means patient // false means operator
     NewPatientGroupLabel{
         id:contactDetailLabel1
@@ -36,6 +37,7 @@ Rectangle{
         height: 30
     }
     ReportDetailLabelGroup{
+    //ContactDetailLabelTextGroup{
         id:grid
         anchors.top: contactDetailLabel1.bottom
         anchors.topMargin: contactDetailLabel1.height
@@ -44,6 +46,7 @@ Rectangle{
         verticalLayoutDirection: Grid.TopToBottom
         layoutDirection: Qt.LeftToRight
         flow: Grid.LeftToRight
+        //filterName: StringConstants.model_contactLabeLAndText
         flickableDirection: Flickable.HorizontalAndVerticalFlick
         Component.onCompleted: {}
     }
