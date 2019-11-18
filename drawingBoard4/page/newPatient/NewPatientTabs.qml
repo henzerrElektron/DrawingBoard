@@ -121,12 +121,19 @@ Page {
             //btn4.height = btn4.height - 10
             btn5.height = btn5.height - 10
             btn6.height = btn6.height - 10
-            btn6.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
             btn1.backColor = StringConstants.label_NewPatientLabelBgColor
-            btn2.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
-            btn3.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn1.txtColor = StringConstants.barBackgroundColor
+            btn6.backColor= StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn2.backColor=StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn3.backColor=StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
             //btn4.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
-            btn5.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn5.backColor=StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+
+            btn6.txtColor= StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn2.txtColor=StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn3.txtColor=StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            //btn4.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn5.txtColor=StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
         }
         function btn2Clicked()
         {
@@ -164,12 +171,20 @@ Page {
             //btn4.height = btn4.height - 10
             btn5.height = btn5.height - 10
             btn6.height = btn6.height - 10
-            btn6.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
-            btn2.backColor = StringConstants.label_NewPatientLabelBgColor//StringConstants.actionBtnBackgroundColor
-            btn1.backColor=StringConstants.testPage_backgroundColor////StringConstants.label_NewPatientLabelBgColor
-            btn3.backColor=StringConstants.testPage_backgroundColor///StringConstants.label_NewPatientLabelBgColor
+            btn6.backColor= StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn2.backColor = StringConstants.label_NewPatientLabelBgColor//StringConstants.label_NewPatientLabelBgColor//StringConstants.actionBtnBackgroundColor
+            btn1.backColor=StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor////StringConstants.label_NewPatientLabelBgColor
+            btn3.backColor=StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor///StringConstants.label_NewPatientLabelBgColor
             //btn4.backColor=StringConstants.testPage_backgroundColor////StringConstants.label_NewPatientLabelBgColor
-            btn5.backColor=StringConstants.testPage_backgroundColor////StringConstants.label_NewPatientLabelBgColor
+            btn5.backColor=StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor////StringConstants.label_NewPatientLabelBgColor
+
+
+
+            btn2.txtColor =StringConstants.tabContrastColor //StringConstants.label_NewPatientLabelBgColor//StringConstants.actionBtnBackgroundColor
+            btn1.txtColor=StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor////StringConstants.label_NewPatientLabelBgColor
+            btn3.txtColor=StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor///StringConstants.label_NewPatientLabelBgColor
+            //btn4.backColor=StringConstants.testPage_backgroundColor////StringConstants.label_NewPatientLabelBgColor
+            btn5.txtColor=StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor////StringConstants.label_NewPatientLabelBgColor
         }
         function btn3Clicked()
         {
@@ -207,12 +222,17 @@ Page {
             //btn4.height = btn4.height - 10
             btn5.height = btn5.height - 10
             btn6.height = btn6.height - 10
-            btn6.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+           //btn4.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
             btn3.backColor = StringConstants.label_NewPatientLabelBgColor//StringConstants.actionBtnBackgroundColor
-            btn1.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
-            btn2.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
-            //btn4.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
-            btn5.backColor=StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn6.backColor= StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn1.backColor=StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn2.backColor=StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn5.backColor=StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+
+            btn6.txtColor= StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn1.txtColor=StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn2.txtColor=StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn5.txtColor=StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
         }
 //        function btn4Clicked()
 //        {
@@ -293,11 +313,18 @@ Page {
             btn3.height = btn3.height - 10
             //btn4.height = btn4.height - 10
             btn6.height = btn6.height - 10
-            btn6.backColor=  StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
             btn5.backColor = StringConstants.label_NewPatientLabelBgColor//StringConstants.actionBtnBackgroundColor
-            btn1.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
-            btn2.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
-            btn3.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+
+            btn6.backColor=  StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn1.backColor= StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn2.backColor= StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn3.backColor= StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+
+
+            btn6.txtColor=  StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn1.txtColor= StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn2.txtColor= StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn3.txtColor= StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
             //btn4.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
         }
         function btn6Clicked()
@@ -337,10 +364,14 @@ Page {
             //btn4.height = btn4.height - 10
             btn5.height = btn5.height - 10
             btn6.backColor = StringConstants.label_NewPatientLabelBgColor//StringConstants.actionBtnBackgroundColor
-            btn5.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
-            btn1.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
-            btn2.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
-            btn3.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn5.backColor= StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn1.backColor= StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn2.backColor= StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn3.backColor= StringConstants.testPage_unCheckBtnBgColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn5.txtColor= StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn1.txtColor= StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn2.txtColor= StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
+            btn3.txtColor= StringConstants.tabContrastColor//StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
             //btn4.backColor= StringConstants.testPage_backgroundColor//StringConstants.label_NewPatientLabelBgColor
         }
         //        function btn7Clicked()

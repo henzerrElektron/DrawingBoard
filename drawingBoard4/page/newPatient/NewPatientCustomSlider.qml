@@ -39,7 +39,7 @@ Slider {
             id:value1Label
             anchors.centerIn: parent
             text:value.toFixed(0) //parseInt(first.value,10)//.toFixed(0)//Math.round(first.value *100)/100//.toString()
-            font: OtherConstants.fontFamily//StringConstants.barBackgroundColor
+             font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }//StringConstants.barBackgroundColor
             onTextChanged:console.log(value1Label.text)
         }
     }

@@ -154,7 +154,7 @@ Rectangle{
         anchors.leftMargin: 10
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
-        font: OtherConstants.fontFamily
+        font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
         text: getLabel()
         verticalAlignment: Text.AlignBottom
         horizontalAlignment: Text.AlignHCenter

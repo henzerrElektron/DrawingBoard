@@ -235,6 +235,8 @@ Rectangle {
         // padding: 0
         anchors.fill: parent
         color: "transparent"//"red"//"black"//
+        //border.width: 1
+        //border.color: StringConstants.actionBtnBackgroundColor
         GridLayout {
             id: row
             columns: 3
@@ -256,15 +258,16 @@ Rectangle {
                 //anchors.bottom: labelHorizontal?topTextArea.bottom:firstTumblerRec.top
                 anchors.horizontalCenter: secTumblerVisibility?parent.horizontalCenter:firstTumbler.horizontalCenter
                 text: ""
-                font: OtherConstants.fontFamily
-                color: labelHorizontal?"white":"white"//StringConstants.actionBtnBackgroundColor
+                //font: OtherConstants.fontFamily
+                font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
+                color: labelHorizontal?StringConstants.label_NewPatientLabelBgColor:"white"//StringConstants.actionBtnBackgroundColor
                 height: labelHorizontal?topTextArea.height-2:20
                 verticalAlignment: Text.AlignVCenter//labelHorizontal?Text.AlignBottom:Text.AlignVCenter
                 horizontalAlignment: labelHorizontal?Text.AlignLeft:Text.AlignHCenter//Text.AlignHCenter//
                 Layout.alignment: secTumblerVisibility?Qt.AlignHCenter | Qt.AlignVCenter:lblAlignCentre?Qt.AlignHCenter:Qt.AlignLeft
                 background: Rectangle{
                     id:bgRec
-                    color: labelHorizontal?StringConstants.testPage_backgroundColor:"transparent"//StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor
+                    color: labelHorizontal?StringConstants.barBackgroundColor:"transparent"//StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor
                 }
             }
 
@@ -286,7 +289,7 @@ Rectangle {
                 anchors.horizontalCenter: lbl.horizontalCenter
                 anchors.top: lbl.visible?labelHorizontal?parent.top:lbl.bottom:parent.top
                 anchors.topMargin: 0
-                font: OtherConstants.fontFamily
+                 font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
                 visible: true
                 editable: true
                 //model: firstTumblerModel

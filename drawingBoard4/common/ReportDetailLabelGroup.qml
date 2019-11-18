@@ -5,6 +5,7 @@ import "./../images/"
 //import "./../imports/"
 import "./../models/"
 import "./../delegates/"
+import "./../page/newPatient/"
 import ApplicationConstants 1.0
 import Qt.labs.qmlmodels 1.0
 GridView {
@@ -17,6 +18,8 @@ GridView {
     // property var group: ""
     // property var group1: ""
     property alias theModel: theListView.model
+    //property alias labelText: contactDetailLabel1.text
+    property var labelText: ""
     property int marginWidth: (parent.width/count)/count
     property int curWidth: theListView.width
     property int  cellSpacing: 0
@@ -40,7 +43,7 @@ GridView {
         console.log("The invokeIndex is"+index)
     }
     cellWidth: parent.width/2
-    cellHeight: parent.height/count
+    cellHeight: parent.height/count < 25? 25:parent.height/count
     width:parent.width//actionOrHome ?count*cellWidth:count*cellWidth
     height: parent.height//count*cellHeight//actionOrHome ?cellHeight:cellHeight
     function doFilter()
@@ -54,7 +57,15 @@ GridView {
             theListView.model = reportlDetailDelegateModel.parts.praticeDetailedModel
         }
     }
-
+//    header:contactDetailLabel1
+//        NewPatientGroupLabel{
+//        id:contactDetailLabel1
+//        anchors.top: parent.top
+//        anchors.left: parent.left
+//        anchors.right: parent.right
+//        //text: StringConstants.lbl_rpDetails
+//        height: 30
+//    }
 
     ReportlDetailDelegateModel{
         id:reportlDetailDelegateModel
@@ -74,11 +85,14 @@ GridView {
             //            }
             LabelDelegate{
                 id:label
+                //y: 20
                 Package.name: filterName//"PatientDetailedModel"
                // text: actionName
                // font:OtherConstants.fontFamily
-              //  color: "white"
-                height: GridView.view.cellHeight
+                color: "white"
+                font.pixelSize: 20
+                font.bold: true
+                height: GridView.view.cellHeight //- label.y
                 width: GridView.view.cellWidth
             }
         }

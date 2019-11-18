@@ -86,20 +86,35 @@ Rectangle {
             Layout.columnSpan: 3
             Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.maximumWidth: parent.width/2
+            Layout.leftMargin: 10
+            Layout.bottomMargin: 20
             Layout.row: 2
-            NewPatientPersonalDetails{
-                id:pageLabels
-                anchors.top: parent.top
-                anchors.topMargin: IntegerConstants.margin10
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: 0
-                anchors.right: parent.right
-                anchors.rightMargin: 0
-                anchors.left: parent.left
-                anchors.leftMargin: 0
-                pageSpOrNp:true
-                pageNpSpTp:2
+            NewPatientPersonalDetailGroup{
+                id:personalDetailsPage
+                anchors.fill: parent
+               // Layout.fillHeight: true
+               // Layout.fillWidth: true
+                verticalLayoutDirection: Grid.TopToBottom
+                layoutDirection: Qt.LeftToRight
+                flow: Grid.LeftToRight
+                filterName:StringConstants.np_PersonalDetailExistingPage
+                flickableDirection: Flickable.HorizontalAndVerticalFlick
             }
+
+//            NewPatientPersonalDetails{
+//                id:pageLabels
+//                anchors.top: parent.top
+//                anchors.topMargin: IntegerConstants.margin10
+//                anchors.bottom: parent.bottom
+//                anchors.bottomMargin: 0
+//                anchors.right: parent.right
+//                anchors.rightMargin: 0
+//                anchors.left: parent.left
+//                anchors.leftMargin: 0
+//                pageSpOrNp:true
+//                pageNpSpTp:2
+//            }
 
         }
 //        Rectangle{

@@ -13,6 +13,8 @@ TableView {
     property alias tableModel: supplementTableView.model
     property int rowHeightMinValue: 0
     property alias colProvider: supplementTableView.columnWidthProvider
+    property int noOfCols: 0
+
     onWidthChanged: {
       //  console.log("The width is"+width)
         //forceLayout()
@@ -38,14 +40,28 @@ TableView {
         }
         else
         {
-            return ((parent.width) - parent.width/(columns-1))/(columns-1);
+            if(columns-1 === 0)
+            {
+                noOfCols = 1;
+            }
+            else{
+                noOfCols = columns-1;
+
+            }
+
+            return ((parent.width) - parent.width/(noOfCols))/(noOfCols);
         }
     }
 
     rowHeightProvider: function (row){
         //console.log("The height is"+supplementTableView.height)
+//         var value = 25
+//        if((parent.height === 0))
+//        {
+//           supplementTableView.height = count * value;
+//        }
+
         var value1 = (((parent.height) - parent.height/(rows-1))/(rows-1))
-        var value = 25
         if((rowHeightMinValue === 0))
         {
             if(value1 > value)
@@ -84,8 +100,8 @@ TableView {
         id:tableBackground
         //z: 3
         color: StringConstants.actionBtnBackgroundColor//"white"//"red"//"#222222"
-        y: supplementTableView.contentY
-        x: supplementTableView.contentX
+       // y: supplementTableView.contentY
+       // x: supplementTableView.contentX
         width: supplementTableView.width
         height: supplementTableView.height//supplementTableView.topMargin * 2
     }

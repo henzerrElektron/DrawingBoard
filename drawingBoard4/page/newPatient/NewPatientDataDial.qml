@@ -110,7 +110,7 @@ Dial {
             id:dialStyleHandle
             implicitWidth:  10; implicitHeight:  10
             radius: 10
-            color: "yellow"
+            color: "red"
 
         }
 

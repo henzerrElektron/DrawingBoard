@@ -135,7 +135,7 @@ Dialog {
                 text: StringConstants.lbl_existingOperators
                 //color: StringConstants.actionBtnBackgroundColor
                 Layout.alignment: Qt.AlignTop |Qt.AlignLeft
-                font: OtherConstants.fontFamily
+                font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
                 //anchors.left: parent.left
                 //anchors.right: parent.right
                 Layout.fillWidth: true
@@ -163,16 +163,31 @@ Dialog {
                 Layout.maximumHeight:  parent.height - operatorLabel.height  -50
                 Layout.minimumWidth: parent.width//parent.width/2 + parent.width/4
                 Layout.bottomMargin: 50
-                CommonTableGrid{
-                    id:curTestTabs1
+                Rectangle
+                {
+                    id:tableRec
                     anchors.fill: parent
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    commonTableModel: theOperatorModel
-                    repeaterModel: 2//theOperatorModel
-                    //tableModel: theExistingPatientsModel
-                    proxySoure: theOperatorModel
-                    searchRecVisibilty: false
+                    //anchors.leftMargin: 10
+                    //anchors.rightMargin: 10
+                    //anchors.bottomMargin: 10
+                    //anchors.topMargin: 10
+                    //border.width: 3
+                    //border.color: StringConstants.actionBtnBackgroundColor
+                    CommonTableGrid{
+                        id:curTestTabs1
+                        anchors.fill: parent
+                        //anchors.leftMargin: 10
+                        //anchors.rightMargin: 10
+                        //anchors.bottomMargin: 10
+                        //anchors.topMargin: 10
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                        commonTableModel: theOperatorModel
+                        repeaterModel: 3//theOperatorModel
+                        //tableModel: theExistingPatientsModel
+                        proxySoure: theOperatorModel
+                        searchRecVisibilty: false
+                    }
                 }
 
             }

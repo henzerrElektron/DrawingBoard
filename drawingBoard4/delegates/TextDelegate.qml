@@ -7,6 +7,7 @@ import ApplicationConstants 1.0
 
 TextField {
     id: textField
+
     AgeValidator{
         id:regexpValidatorAgeOnly;
     }
@@ -35,12 +36,14 @@ TextField {
     //font:OtherConstants.fontFamily
     //Package.name: filterName//"PatientDetailedModel"
      //text: actionText
-    font:OtherConstants.fontFamily
+     font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
+    color: StringConstants.actionBtnBackgroundColor
     //color: "white"
     //font.bold: true
     //font.pixelSize:15// Constants.testPage_lblFontSize//25
     //font.weight: Font.ExtraBold
     renderType: Text.QtRendering
+
     validator:(numberWordindex === IntegerConstants.numberOnly)? regexpValidatorNumbersOnly:
               (numberWordindex === IntegerConstants.ageOnly)?regexpValidatorAgeOnly:
               (numberWordindex === IntegerConstants.wordOnly)?regexpValidatorWordsOnly:

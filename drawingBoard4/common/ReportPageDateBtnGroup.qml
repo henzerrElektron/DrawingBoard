@@ -40,8 +40,8 @@ GridView {
     onInvokeIndex: {
         console.log("The invokeIndex is"+index)
     }
-    cellWidth: 200//(parent.width/(count))-marginWidth
-    cellHeight: 100//(parent.height/(count))-marginHeight//parent.height/3
+    cellWidth: parent.width/3//(parent.width/(count))-marginWidth
+    cellHeight: parent.height/2//(parent.height/(count))-marginHeight//parent.height/3
     width:parent.width//count*cellWidth
     height:parent.height //cellHeight
     function doFilter()

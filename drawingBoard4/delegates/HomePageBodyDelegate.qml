@@ -50,8 +50,10 @@ Rectangle {
         background: Rectangle{ color: StringConstants.homePageBodyColor}//Constants.actionBtnBackgroundColor}
         display: AbstractButton.TextUnderIcon
         text: actionText
-        font.family: OtherConstants.fontFamily
-
+         font { family: OtherConstants.fontFamily; pixelSize: 20; weight: Font.Bold; capitalization: Font.MixedCase }
+        //font.family: "segoeui"
+        //font.family: OtherConstants.fontFamily
+        //font.capitalization: false
         //radius: 10
         onClicked: {
             console.log("clicked on"+actionIconName)

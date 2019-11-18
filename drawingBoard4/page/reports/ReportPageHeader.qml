@@ -30,6 +30,7 @@ Rectangle {
     // property string modelName: StringConstants.modelReportPatientItems
     property alias filterName: rpDateGrid.filterName
     property alias detailFilterName: rpDetailLabelGroup.filterName
+    property alias labelText: rpDetailLabelGroup.labelText
     //color: StringConstants.actionBtnBackgroundColor////StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor
     anchors.fill: parent
     signal openBtn1()
@@ -112,6 +113,8 @@ Rectangle {
                     Layout.preferredWidth:parent.width/2//500//
                     Layout.minimumWidth: parent.width/2//500//
                     Layout.maximumWidth: parent.width/2//500//
+                    border.width: 2
+                    border.color: StringConstants.label_NewPatientLabelBgColor
                     //width: 100
                     //height: 150
                     ReportDetails{
@@ -152,7 +155,9 @@ Rectangle {
                     Layout.columnSpan: 1
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    Layout.rightMargin: 10
+                    border.width: 2
+                    border.color: StringConstants.label_NewPatientLabelBgColor
+                    //Layout.rightMargin: 10
                     ReportDateGrid{
                         id:rpDateGrid
                         anchors.fill: parent

@@ -189,12 +189,26 @@
         <file>common/ContactDetailLabelTextGroup.qml</file>
         <file>common/NewPatientContactDetailGroup.qml</file>
         <file>delegates/TextDelegate.qml</file>
-        <file>common/AllValidators.qml</file>
+        <file>validators/AllValidators.qml</file>
         <file>validators/AgeValidator.qml</file>
         <file>validators/NumberValidator.qml</file>
         <file>validators/WordNumberValidator.qml</file>
         <file>validators/DobValidator.qml</file>
         <file>validators/EmailValidator.qml</file>
         <file>validators/WordValidtor.qml</file>
+        <file>models/NewPatientPersonalDetailModel.qml</file>
+        <file>models/NewPatientPersonalDetailsEntryModel.qml</file>
+        <file>models/NewPatientPersonalDetailDelegateModel.qml</file>
+        <file>common/NewPatientPersonalDetailGroup.qml</file>
+        <file>page/supplement/SupplementDialog.qml</file>
+        <file>common/NewPatientPersonalDetailEntryGroup.qml</file>
+        <file>models/NewPatientPDEntryDelegateModel.qml</file>
+        <file>common/PatientDetailDelegateEntryGroup.qml</file>
+        <file>delegates/LabelOnTopDelegate.qml</file>
+        <file>models/MedicalAndRiskFactorModel.qml</file>
+        <file>models/MedicalRiskFactorDelegateModel.qml</file>
+        <file>common/NewPatientMedicalDetailsRiskFactorGroup.qml</file>
+        <file>page/newPatient/NewPatientSearchBox.qml</file>
+        <file>tables/RowColTableGrid.qml</file>
     </qresource>
 </RCC>

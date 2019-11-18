@@ -22,6 +22,10 @@ import ApplicationConstants 1.0
 Rectangle{
     id:mainRec
     anchors.fill: parent
+    border.width: 1
+    border.color: StringConstants.borderColorBlack
+    anchors.leftMargin: 2
+    anchors.rightMargin: 2
     //width: mainGrid.width
     //height: mainGrid.height
     GridLayout{
@@ -67,6 +71,8 @@ Rectangle{
             Layout.fillWidth: true
             Layout.minimumHeight: 15
             Layout.maximumHeight: 15
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
             Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
             Label  {
                 id:label
@@ -200,6 +206,8 @@ Rectangle{
             Layout.fillWidth: true
             Layout.minimumHeight: 95//100//93
             Layout.maximumHeight: 95//100//93
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
             NewPatientRiskFactorSwitchSliderHorizontal{
                 id:medicineOperator
                 labelText: "Lutein/Zeaxanthin Intake"
@@ -228,6 +236,8 @@ Rectangle{
             Layout.fillWidth: true
             Layout.minimumHeight: 15//20
             Layout.maximumHeight: 15//20
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
             Label  {
                 id:label1
                 // Layout.row: 1
@@ -252,6 +262,8 @@ Rectangle{
             Layout.fillWidth: true
             Layout.minimumHeight:35//94//35// 93
             Layout.maximumHeight: 35//94//35//93
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
             NewPatientRiskFactorSwitchSliderHorizontal{
                 id:amdOperator
                 anchors.fill: parent
@@ -283,6 +295,8 @@ Rectangle{
             //Layout.fillHeight: true
             Layout.minimumHeight: 65//70
             Layout.maximumHeight: 65//70
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
             NewPatientRiskFactorSwitchSliderHorizontal{
                 id:eyeColorOperator
                 labelText: "Eye Color"

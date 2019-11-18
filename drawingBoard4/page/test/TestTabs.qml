@@ -32,32 +32,32 @@ Page {
     property int prevResultBtnHeight: 0
     property int prevNotesBtnHeight: 0
     property int prevSupplementationBtnHeight: 0
-//    property alias tabCurrentIndex: bar.currentIndex
-//    onVisibleChanged: {
-//        if(visibile === true)
-//        {
-//            bar.checkIndex(tabCurrentIndex)
-//        }
-//    }
+    //    property alias tabCurrentIndex: bar.currentIndex
+    //    onVisibleChanged: {
+    //        if(visibile === true)
+    //        {
+    //            bar.checkIndex(tabCurrentIndex)
+    //        }
+    //    }
 
     header:  TabBar {
         id: bar
         width: parent.width
         currentIndex: testview.currentIndex
-         Material.accent:"transparent"
+        Material.accent:"transparent"
         background: Rectangle {
-            color:StringConstants.actionBtnBackgroundColor//StringConstants.barBackgroundColor
+            color:StringConstants.barBackgroundColor//StringConstants.barBackgroundColor
             //border.width: 2
             //border.color: StringConstants.barBackgroundColor
-//            CommonBorder
-//            {
-//                customBorder:  false
-//                lBorderWidth: 0
-//                rBorderWidth: 0
-//                tBorderWidth: 0
-//                bBorderWidth: 2
-//                borderColor: StringConstants.barBorderColor
-//            }
+            //            CommonBorder
+            //            {
+            //                customBorder:  false
+            //                lBorderWidth: 0
+            //                rBorderWidth: 0
+            //                tBorderWidth: 0
+            //                bBorderWidth: 2
+            //                borderColor: StringConstants.barBorderColor
+            //            }
         }
         //currentIndex: swipeView.currentIndex
         onCurrentIndexChanged: {
@@ -85,8 +85,8 @@ Page {
             {
                 page1.visible = true;
             }
-           // page2.visible = false;//rightTabBtn//bothTabBtn//leftTabBtn
-           // page3.visible = false;
+            // page2.visible = false;//rightTabBtn//bothTabBtn//leftTabBtn
+            // page3.visible = false;
 
             if(prevResultBtnHeight !== 0)
             {
@@ -104,9 +104,12 @@ Page {
             supplementationBtn.height = supplementationBtn.height - 10
             notesBtn.height =  notesBtn.height - 10
             resultBtn.height =  resultBtn.height + 3
-            notesBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            supplementationBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            resultBtn.backColor=StringConstants.actionBtnBackgroundColor
+            notesBtn.backColor=StringConstants.testPage_unCheckBtnBgColor
+            notesBtn.txtColor=StringConstants.actionBtnBackgroundColor
+            supplementationBtn.backColor=StringConstants.testPage_unCheckBtnBgColor
+            supplementationBtn.txtColor=StringConstants.actionBtnBackgroundColor
+            resultBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            resultBtn.txtColor=StringConstants.barBackgroundColor
             /////////////////////////////////////////////////////////reportTimeline.setState()
         }
         function  notesBtnClicked()//patientBtnClicked()
@@ -115,8 +118,8 @@ Page {
             {
                 page2.visible = true;
             }
-           // page1.visible = false;
-           // page3.visible = false;
+            // page1.visible = false;
+            // page3.visible = false;
             if(prevNotesBtnHeight !== 0)
             {
                 resultBtn.height = prevResultBtnHeight
@@ -132,9 +135,12 @@ Page {
             supplementationBtn.height =  supplementationBtn.height - 10
             resultBtn.height = resultBtn.height - 10
             notesBtn.height = notesBtn.height + 3
-            resultBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            supplementationBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            notesBtn.backColor=StringConstants.actionBtnBackgroundColor
+            resultBtn.backColor=StringConstants.testPage_unCheckBtnBgColor
+            resultBtn.txtColor=StringConstants.actionBtnBackgroundColor
+            supplementationBtn.backColor=StringConstants.testPage_unCheckBtnBgColor
+            supplementationBtn.txtColor=StringConstants.actionBtnBackgroundColor
+            notesBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            notesBtn.txtColor=StringConstants.barBackgroundColor
             ///////////////////////////////////mainTime.setState()
         }
 
@@ -145,8 +151,8 @@ Page {
             {
                 page3.visible = true;
             }
-           // page1.visible = false;
-           // page2.visible = false;
+            // page1.visible = false;
+            // page2.visible = false;
             if(prevSupplementationBtnHeight !== 0)
             {
                 resultBtn.height = prevResultBtnHeight
@@ -162,25 +168,28 @@ Page {
             resultBtn.height = resultBtn.height - 10
             notesBtn.height = notesBtn.height -10
             supplementationBtn.height =  supplementationBtn.height +3
-            resultBtn.backColor = StringConstants.label_NewPatientLabelBgColor
-            notesBtn.backColor = StringConstants.label_NewPatientLabelBgColor
-            supplementationBtn.backColor = StringConstants.actionBtnBackgroundColor
+            resultBtn.backColor = StringConstants.testPage_unCheckBtnBgColor
+            resultBtn.txtColor = StringConstants.actionBtnBackgroundColor
+            notesBtn.backColor = StringConstants.testPage_unCheckBtnBgColor
+            notesBtn.txtColor = StringConstants.actionBtnBackgroundColor
+            supplementationBtn.backColor = StringConstants.label_NewPatientLabelBgColor
+            supplementationBtn.txtColor = StringConstants.barBackgroundColor
         }
         ReportTabButton {
             id:resultBtn
-            width: implicitWidth
+            width:  bar.width/3//implicitWidth
             anchors.bottom: parent.bottom
             text: StringConstants.lbl_testTabResultBtn//qsTr("Results")
             onClicked: {
                 resultBtnClicked()
-//                page1.visible = true;
-//                page2.visible = false;
-//                page3.visible = false;
+                //                page1.visible = true;
+                //                page2.visible = false;
+                //                page3.visible = false;
             }
         }
         ReportTabButton {
             id:notesBtn
-            width: implicitWidth
+            width: bar.width/3//implicitWidth
             anchors.bottom: parent.bottom
             text: StringConstants.lbl_testTabNotesBtn//qsTr("Notes")
             onClicked: {
@@ -192,7 +201,7 @@ Page {
         }
         ReportTabButton {
             id:supplementationBtn
-            width: implicitWidth
+            width:  bar.width/3//implicitWidth
             anchors.bottom: parent.bottom
             text: StringConstants.lbl_testTabSupplementationBtn//qsTr("Supplementation")
             onClicked: {
@@ -239,6 +248,7 @@ Page {
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.right: parent.right
+                anchors.bottom: parent.bottom
                 //anchors.fill: parent
                 //width: parent.width
                 Layout.fillHeight: true

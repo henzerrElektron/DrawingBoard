@@ -71,11 +71,16 @@ Rectangle{
     }
     Rectangle {
         id:subRec
+        anchors.top: contactDetailLabel1.bottom
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.leftMargin: parent.width/10
         //anchors.fill: parent
-        anchors.topMargin: 10
-        anchors.centerIn: parent
-        width: parent.width - parent.width/4//mainRow.width
-        height: (parent.height- (2*contactDetailLabel1.height))// - (2*contactDetailLabel1.height)// - (parent.height- contactDetailLabel1.height)/4//mainRow.height+contactDetailLabel1.height
+        anchors.topMargin: 30//contactDetailLabel1.height *3
+       // anchors.centerIn: parent
+      //  width: parent.width - parent.width/4//mainRow.width
+      //  height: (parent.height- (2*contactDetailLabel1.height))// - (2*contactDetailLabel1.height)// - (parent.height- contactDetailLabel1.height)/4//mainRow.height+contactDetailLabel1.height
         color: StringConstants.actionBtnBackgroundColor
         ReportPageDateBtnGroup{
             id:dateGroupBtns

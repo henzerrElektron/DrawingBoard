@@ -21,7 +21,7 @@ GridView {
     property int  cellSpacing: 0
     property bool actionOrHome: true
     property var filterName: ""
-    onFilterNameChanged: test()
+    onFilterNameChanged: doFilter()
     property var idealCellHeight: 200
     property var idealCellWidth: 200
     signal componentTriggered(string name)
@@ -38,12 +38,12 @@ GridView {
     onInvokeIndex: {
         console.log("The invokeIndex is"+index)
     }
-    cellWidth: actionOrHome ?75:(parent.width/(count))-marginWidth
-    cellHeight: actionOrHome ?75:parent.height/3
+    cellWidth: actionOrHome ?75:(parent.width/(count))-marginWidth//75
+    cellHeight: actionOrHome ?75:parent.height - parent.height/5//parent.height/3//75
     width:count*cellWidth//actionOrHome ?count*cellWidth:count*cellWidth
     height: cellHeight//actionOrHome ?cellHeight:cellHeight
     //model:test()//allPageModel.parts.homeMainItems
-    function test()
+    function doFilter()
     {
         if(filterName === StringConstants.modelHomeMainItems)
         {

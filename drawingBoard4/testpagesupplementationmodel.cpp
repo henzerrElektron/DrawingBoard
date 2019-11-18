@@ -260,12 +260,13 @@ QHash<int, QByteArray> TestPageSupplementationModel::roleNames() const
 {
     QHash<int,QByteArray> roles;
     roles[Qt::DisplayRole] = "display";
+    roles[AcceptRejectRole] = "arRole";
     roles[HeadingRole] = "heading";
     roles[DateRole] = "Dates";
     roles[DosageRole] = "Dosage";
     roles[PerDayRole] = "PerDay";
     roles[DescRole] = "Description";
-    roles[HeadingRole] = "heading";
+    //roles[HeadingRole] = "heading";
     // roles[AcceptRejectRole] = "arRole";
     return  roles;
 }

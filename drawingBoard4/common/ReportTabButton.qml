@@ -30,10 +30,11 @@ TabButton {
     contentItem: Text {
         id:txt
         text: control.text
-        font: control.font
+        //font: control.font
         leftPadding: 10
         opacity: enabled ? 1.0 : 0.3
-        color: StringConstants.barBorderColor//control.down ?  StringConstants.barBackgroundColor:StringConstants.barBorderColor //"#17a81a":"#21be2b"
+        color:control.down ?StringConstants.barBackgroundColor: StringConstants.actionBtnBackgroundColor//control.down ?  StringConstants.barBackgroundColor:StringConstants.barBorderColor //"#17a81a":"#21be2b"
+         font { family: OtherConstants.fontFamily; pixelSize: 20; weight: Font.Bold; capitalization: Font.MixedCase }
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
@@ -41,8 +42,9 @@ TabButton {
 
     background: Rectangle {
         id:bg
-        implicitWidth: 120
+        implicitWidth: 200
         implicitHeight: 50//75
+        color:control.down ?StringConstants.label_NewPatientLabelBgColor:StringConstants.testPage_unCheckBtnBgColor
         //opacity: enabled ? 1 : 0.3
         //color: StringConstants.testPage_backgroundColor//control.down ? StringConstants.label_NewPatientLabelBgColor:StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor//:"#eeeeee"//
         //border.color: control.down ?  StringConstants.headerBackgroundColor:StringConstants.barBorderColor//"#17a81a" : "#21be2b"
@@ -53,9 +55,9 @@ TabButton {
                     customBorder:  false
                     lBorderWidth: 2
                     rBorderWidth: 2
-                    tBorderWidth: 0
+                    tBorderWidth: 2
                     bBorderWidth: 0
-                    borderColor: StringConstants.barBorderColor
+                    borderColor: StringConstants.actionBtnBackgroundColor
                 }
     }
    onClicked: {

@@ -68,8 +68,9 @@ Page {
     //Layout.rightMargin: 10
     header:  TabBar {
         id: bar
+        Material.accent:"transparent"
         background: Rectangle {
-            color: StringConstants.headerBackgroundColor
+            color: StringConstants.barBackgroundColor
             //border.width: 2
             //border.color: StringConstants.barBackgroundColor
             CommonBorder
@@ -116,8 +117,10 @@ Page {
             /////////////////////////////////patientBtn.height = patientBtn.height/2
             patientBtn.height = patientBtn.height - 10
             praticeBtn.height = praticeBtn.height + 3
-            patientBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            praticeBtn.backColor=StringConstants.actionBtnBackgroundColor
+            praticeBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            praticeBtn.txtColor = StringConstants.barBackgroundColor
+            patientBtn.backColor=StringConstants.testPage_unCheckBtnBgColor
+            patientBtn.txtColor= StringConstants.actionBtnBackgroundColor
             reportTimeline.setState()
         }
         function patientBtnClicked()
@@ -144,8 +147,10 @@ Page {
             //////////////////////////////////praticeBtn.height = praticeBtn.height/2
             praticeBtn.height = praticeBtn.height - 10
             patientBtn.height = patientBtn.height + 3
-            patientBtn.backColor=StringConstants.actionBtnBackgroundColor
-            praticeBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            praticeBtn.backColor=StringConstants.testPage_unCheckBtnBgColor
+            praticeBtn.txtColor=StringConstants.actionBtnBackgroundColor
+            patientBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            patientBtn.txtColor = StringConstants.barBackgroundColor
             mainTime.setState()
         }
 
@@ -236,7 +241,8 @@ Page {
                 ReportPatientTimeline{
                     id:mainTime
                     anchors.fill: parent
-
+                    searchVisible:true
+                    pageHeaderVisible: true
                     Component.onCompleted: {
                         mainTime.popupOpen.connect(tabsPage.popupOpen)
                         mainTime.popupInvokeIndex.connect(tabsPage.setCurrentIndex)

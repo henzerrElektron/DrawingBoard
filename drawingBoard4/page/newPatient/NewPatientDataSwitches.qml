@@ -27,7 +27,7 @@ Rectangle{
     id:mainRec
     //width: (elementKnown.width >= elementYesNo.width)?elementKnown.width:elementYesNo.width
     //height: elementKnown.height + elementYesNo.height +mainLayout.spacing
-    property bool horOrVer: false
+    property bool horOrVer: true//false
     property alias secondSwitchVisible: elementYesNo.visible
     property alias firstSwitchVisible: elementKnown.visible
     //anchors.fill: parent
@@ -48,7 +48,8 @@ Rectangle{
         }
     }
 
-    GridLayout{
+    //GridLayout{
+    Grid{
         id:mainLayout
         //rowSpacing: 5
         columns:horOrVer?1:2
@@ -57,23 +58,28 @@ Rectangle{
         rowSpacing:horOrVer?5:10
         //anchors.fill: parent
         //spacing: 10
+
+
         Switch {
             id: elementKnown
+            width: 125
+            height: 30
+            anchors.top: parent.top
             //Layout.fillWidth: true
-            Layout.minimumWidth: horOrVer?125:125
-            Layout.preferredWidth: horOrVer?125:125
-            Layout.maximumWidth: horOrVer?125:125
-            Layout.minimumHeight: horOrVer?30:30
-            Layout.preferredHeight: horOrVer?30:30
-            Layout.maximumHeight: horOrVer?30:30
-            Layout.row: 1
-            Layout.rowSpan: 1
-            Layout.column: 1
-            Layout.columnSpan: 1
+            //            Layout.minimumWidth: horOrVer?125:125
+            //            Layout.preferredWidth: horOrVer?125:125
+            //            Layout.maximumWidth: horOrVer?125:125
+            //            Layout.minimumHeight: horOrVer?30:30
+            //            Layout.preferredHeight: horOrVer?30:30
+            //            Layout.maximumHeight: horOrVer?30:30
+            //            Layout.row: 1
+            //            Layout.rowSpan: 1
+            //            Layout.column: 1
+            //            Layout.columnSpan: 1
             //Layout.fillWidth: true
             //Layout.fillHeight: true
             text: qsTr("UnKnown")
-            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+            //            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             onCheckedChanged: {
                 if(text === "UnKnown")
                 {
@@ -87,21 +93,26 @@ Rectangle{
         }
         Switch {
             id: elementYesNo
+            width: 125
+            height: 30
+            anchors.top: elementKnown.visible?elementKnown.bottom:parent.top
+            anchors.topMargin: elementKnown.visible?0:17
             //Layout.fillWidth: true
-            Layout.minimumWidth: horOrVer?125:125
-            Layout.preferredWidth: horOrVer?125:125
-            Layout.maximumWidth: horOrVer?125:125
-            Layout.minimumHeight: horOrVer?30:30
-            Layout.preferredHeight: horOrVer?30:30
-            Layout.maximumHeight: horOrVer?30:30
-            Layout.row: horOrVer?2:1
-            Layout.rowSpan: 1
-            Layout.column:  horOrVer?1:2
-            Layout.columnSpan: 1
+            //            Layout.minimumWidth: horOrVer?125:125
+            //            Layout.preferredWidth: horOrVer?125:125
+            //            Layout.maximumWidth: horOrVer?125:125
+            //            Layout.minimumHeight: horOrVer?30:30
+            //            Layout.preferredHeight: horOrVer?30:30
+            //            Layout.maximumHeight: horOrVer?30:30
+            //            Layout.row: 2//horOrVer?2:1
+            //            Layout.rowSpan: 1
+            //            Layout.column: 1// horOrVer?1:2
+            //            Layout.columnSpan: 1
             //Layout.fillWidth: true
             //Layout.fillHeight: true
             text: qsTr("No")
-            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+            //            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+            //            Layout.topMargin: firstSwitchVisible?0:elementYesNo.height/2
             onCheckedChanged: {
                 if(text === "No")
                 {

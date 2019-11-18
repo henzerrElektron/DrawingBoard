@@ -16,6 +16,7 @@ import "."
 import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
+import "./../../common/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
@@ -23,7 +24,7 @@ import ApplicationConstants 1.0
 
 Rectangle{
     id:mainRec
-    height: 1225
+    //height: 1225
     anchors.fill: parent
     border.width: 1
     border.color: StringConstants.borderColorBlack
@@ -50,96 +51,121 @@ Rectangle{
         anchors.horizontalCenter: parent.horizontalCenter
         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
     }
-    Rectangle{
+  //  Rectangle{
+    GridLayout{
         id:rec1
         //color: "black"
         anchors.top: label.bottom
         anchors.topMargin: 10
         anchors.left: parent.left
+        anchors.leftMargin: 10
         anchors.right: parent.right
-        //anchors.bottom: parent.bottom
-        height: parent.height/8<100?100:parent.height/8//weightOperator.height
-        NewPatientRiskFactorSwitchSliderHorizontal{
-            id:rightFittedOperator
+        anchors.rightMargin: 10
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 10
+       // height: parent.height
+        NewPatientMedicalDetailsRiskFactorGroup{
+            id:modelgroup
+            filterName: StringConstants.model_medicalDetails
             anchors.fill: parent
-            //height: 150
-            labelText: StringConstants.lbl_RightFitted//"Right Fitted"
-            dataTumblersecVisibility: false
-            dataTumblerthirdVisibility: false
-            dataTumblerfirstVisibility: false//true
-            firstSwitchVisible: false
-            topSliderMinValue: 0
-            topSliderMaxValue:100
-            dataTumblerNoOrColorDelegate:false
-            dataTumblerFirstModel: 100
-            topSliderModel: 100
-            topSliderLabelText: StringConstants.lbl_yrs//"yrs"
-            btmSliderVisible:false
-            tumblerVisibility:false
-            eyeColorDialVisibilty: false
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            verticalLayoutDirection: Grid.TopToBottom
+            layoutDirection:Qt.LeftToRight
+            flow: Grid.LeftToRight
+            flickableDirection: Flickable.HorizontalAndVerticalFlick
         }
     }
-    Rectangle{
-        id:rec2
-        //color: "black"
-        anchors.top: rec1.bottom
-        anchors.topMargin: 10
-        anchors.left: parent.left
-        anchors.right: parent.right
-        height: parent.height/8<100?100:parent.height/8//weightOperator.height
-        // height:headerDelegate1.switchMetricsChecked? parent.height/10:parent.height/7
-        NewPatientRiskFactorSwitchSliderHorizontal{
-            id:leftFittedOperator
-            labelText: StringConstants.lbl_leftFitted//"Left Fitted"
-            dataTumblersecVisibility: false
-            dataTumblerfirstVisibility: false//true
-            dataTumblerthirdVisibility: false
-            firstSwitchVisible: false
-            topSliderMinValue: 0
-            topSliderMaxValue: 100
-            tumblerVisibility:false
-            //btmSliderMinValue: 0
-            //btmSliderMaxValue: headerDelegate1.switchMetricsChecked ? 13: 13
-            dataTumblerNoOrColorDelegate:false
-            dataTumblerFirstModel: 100
-            //dataTumblerSecModel: headerDelegate1.switchMetricsChecked ? 13: 13
-            topSliderModel: 100//headerDelegate1.switchMetricsChecked ? 150: 13
-            //btmSliderModel: headerDelegate1.switchMetricsChecked ? 13: 13
-            topSliderLabelText: StringConstants.lbl_yrs//"yrs"//headerDelegate1.switchMetricsChecked? "m": "feet"
-            //btmSliderLabelText: headerDelegate1.switchMetricsChecked? "m": "inch"
-            btmSliderVisible:false//headerDelegate1.switchMetricsChecked ?true:false
-            eyeColorDialVisibilty: false
-        }
-    }
-    Rectangle{
-        id:rec3
-        //color: "black"
-        anchors.top: rec2.bottom
-        anchors.topMargin: 10
-        anchors.left: parent.left
-        anchors.right: parent.right
-        height: parent.height/8<100?100:parent.height/8//weightOperator.height
-        NewPatientRiskFactorSwitchSliderHorizontal{
-            id:diabeticsOperator
-            labelText: StringConstants.lbl_diabetic//"Diabetic"
-            dataTumblerVisibility: false
-            dataTumblersecVisibility: false
-            dataTumblerfirstVisibility: false
-            dataTumblerthirdVisibility: false
-            tumblerVisibility:false
-            firstSwitchVisible: false
-            //topSliderMinValue: 0
-            //topSliderMaxValue:100
-            dataTumblerNoOrColorDelegate:false
-            //dataTumblerFirstModel: 100
-            //topSliderModel:100
-            //topSliderLabelText: "Cigarettes per day"
-            topSliderVisible: false
-            btmSliderVisible:false
-            eyeColorDialVisibilty: false
-        }
-    }
+
+        //anchors.bottom: parent.bottom
+//        height: parent.height/8<100?100:parent.height/8//weightOperator.height
+//        NewPatientRiskFactorSwitchSliderHorizontal{
+//            id:rightFittedOperator
+//            anchors.fill: parent
+//            //height: 150
+//            labelText: StringConstants.lbl_RightFitted//"Right Fitted"
+//            dataTumblersecVisibility: false
+//            dataTumblerthirdVisibility: false
+//            dataTumblerfirstVisibility: false//true
+//            firstSwitchVisible: false
+//            topSliderMinValue: 0
+//            topSliderMaxValue:100
+//            dataTumblerNoOrColorDelegate:false
+//            dataTumblerFirstModel: 100
+//            topSliderModel: 100
+//            topSliderLabelText: StringConstants.lbl_yrs//"yrs"
+//            btmSliderVisible:false
+//            tumblerVisibility:false
+//            eyeColorDialVisibilty: false
+//        }
+//    }
+//    Rectangle{
+//        id:rec2
+//        //color: "black"
+//        anchors.top: rec1.bottom
+//        anchors.topMargin: 10
+//        anchors.left: parent.left
+//        anchors.leftMargin: 10
+//        anchors.right: parent.right
+//        anchors.rightMargin: 10
+//        height: parent.height/8<100?100:parent.height/8//weightOperator.height
+//        // height:headerDelegate1.switchMetricsChecked? parent.height/10:parent.height/7
+//        NewPatientRiskFactorSwitchSliderHorizontal{
+//            id:leftFittedOperator
+//            labelText: StringConstants.lbl_leftFitted//"Left Fitted"
+//            dataTumblersecVisibility: false
+//            dataTumblerfirstVisibility: false//true
+//            dataTumblerthirdVisibility: false
+//            firstSwitchVisible: false
+//            topSliderMinValue: 0
+//            topSliderMaxValue: 100
+//            tumblerVisibility:false
+//            //btmSliderMinValue: 0
+//            //btmSliderMaxValue: headerDelegate1.switchMetricsChecked ? 13: 13
+//            dataTumblerNoOrColorDelegate:false
+//            dataTumblerFirstModel: 100
+//            //dataTumblerSecModel: headerDelegate1.switchMetricsChecked ? 13: 13
+//            topSliderModel: 100//headerDelegate1.switchMetricsChecked ? 150: 13
+//            //btmSliderModel: headerDelegate1.switchMetricsChecked ? 13: 13
+//            topSliderLabelText: StringConstants.lbl_yrs//"yrs"//headerDelegate1.switchMetricsChecked? "m": "feet"
+//            //btmSliderLabelText: headerDelegate1.switchMetricsChecked? "m": "inch"
+//            btmSliderVisible:false//headerDelegate1.switchMetricsChecked ?true:false
+//            eyeColorDialVisibilty: false
+//        }
+//    }
+//    Rectangle{
+//        id:rec3
+//        //color: "black"
+//        anchors.top: rec2.bottom
+//        anchors.topMargin: 10
+//        anchors.left: parent.left
+//        anchors.leftMargin: 10
+//        anchors.right: parent.right
+//        anchors.rightMargin: 10
+//        height: parent.height/8<100?100:parent.height/8//weightOperator.height
+//        NewPatientRiskFactorSwitchSliderHorizontal{
+//            id:diabeticsOperator
+//            labelText: StringConstants.lbl_diabetic//"Diabetic"
+//            dataTumblerVisibility: false
+//            dataTumblersecVisibility: false
+//            dataTumblerfirstVisibility: false
+//            dataTumblerthirdVisibility: false
+//            tumblerVisibility:false
+//            firstSwitchVisible: false
+//            //topSliderMinValue: 0
+//            //topSliderMaxValue:100
+//            dataTumblerNoOrColorDelegate:false
+//            //dataTumblerFirstModel: 100
+//            //topSliderModel:100
+//            //topSliderLabelText: "Cigarettes per day"
+//            topSliderVisible: false
+//            btmSliderVisible:false
+//            eyeColorDialVisibilty: false
+//        }
+//    }
 }
+
+
 
 
 

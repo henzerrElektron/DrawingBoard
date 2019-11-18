@@ -86,7 +86,7 @@ Rectangle{
                 id: label_testPageHeading
                 pixelSize: logoVisible?IntegerConstants.page_fontSize:30
                 text: StringConstants.label_testPgHeader
-               // horizontalAlignment: Text.AlignHCenter
+                // horizontalAlignment: Text.AlignHCenter
                 //verticalAlignment: Text.AlignVCenter
                 //anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left

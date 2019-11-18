@@ -26,6 +26,15 @@ import "./../newPatient/"
 import "./../changePatient/"
 Rectangle {
     id: mainRec
+    property alias searchVisible: rectangleSub1.visible
+    onSearchVisibleChanged: {
+        switchItems.visible = rectangleSub1.visible
+    }
+    property alias pageHeaderVisible: subRec.visible
+    onPageHeaderVisibleChanged: {
+        pageHeader.visible = subRec.visible
+    }
+
     color: StringConstants.testPage_backgroundColor//"white"//StringConstants.testPage_backgroundColor
     anchors.top: parent.top
     anchors.topMargin: 5
@@ -62,16 +71,20 @@ Rectangle {
         rowSpacing: 5
         Rectangle{
             id:rectangleSub1
-            color: StringConstants.testPage_backgroundColor
+            color: StringConstants.barBackgroundColor//StringConstants.testPage_backgroundColor
             Layout.column: 1
             Layout.columnSpan: 2
             Layout.row: 1
             //Layout.fillHeight: true
             Layout.fillWidth: true
+            visible: true
             //width: 100
-            height: 100//150
+            height: 110//150
+            border.width: 2
+            border.color: StringConstants.label_NewPatientLabelBgColor
             SwitchSearchItems{
                 id:switchItems
+                visible: true
                 anchors.fill: parent
                 pageHeader: StringConstants.lbl_rpSelectPatient//StringConstants.label_searchQuestion
                 patientFirstNameModel:theExistingPatientsModel
@@ -95,19 +108,23 @@ Rectangle {
             Layout.row: 2
             Layout.column: 1
             Layout.columnSpan: 2
+            anchors.topMargin: 5
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.topMargin: 5
             Layout.preferredHeight: parent.height/4
             Layout.minimumHeight: parent.height/4
             Layout.maximumHeight: parent.height/4
+            visible: true
             color: StringConstants.testPage_backgroundColor
+            //Layout.topMargin: 5
             ReportPageHeader{
                 id:pageHeader
                 anchors.fill: parent
                 state: "patient"
+                visible: true
                 filterName: StringConstants.modelReportPatientItems
                 detailFilterName:StringConstants.report_PatientDetailModel
+                labelText: StringConstants.lbl_rpDetails
                 //modelName:StringConstants.modelReportPatientItems
                 Component.onCompleted: {
                     // pageHeader.state = "patient"
@@ -315,6 +332,8 @@ Rectangle {
         //        }
     }
 }
+
+
 
 
 

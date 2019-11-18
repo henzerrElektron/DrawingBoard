@@ -72,6 +72,8 @@ Rectangle {
     GridLayout{
         id:gdLayout
         anchors.fill: parent
+        anchors.leftMargin: 20
+        anchors.rightMargin: 20
         rows: 1
 //        Label {
 //            id: label
@@ -107,7 +109,7 @@ Rectangle {
             //Layout.column: 1
             //Layout.fillHeight: true
             //Layout.minimumWidth: 50
-            color: StringConstants.headerBackgroundColor
+            color: StringConstants.barBackgroundColor
             Layout.fillWidth: true
             Layout.row: 1
             Layout.rowSpan: 1
@@ -118,7 +120,7 @@ Rectangle {
                 id:comboBox//pageOperators
                 anchors.fill: parent
                 labelHorizontal:true
-                labelText: ""//comboBoxTextRole//StringConstants.lbl_rpSelectOperator
+                labelText:StringConstants.lbl_rpSelectOperator// ""//comboBoxTextRole//StringConstants.lbl_rpSelectOperator
                 firstTumblerVisibility: false
                 secTumblerVisibility: false
                 thirdTumblerVisibility: false

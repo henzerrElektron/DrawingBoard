@@ -86,6 +86,7 @@ Rectangle {
             color: "transparent"
             anchors.top: labelRec.bottom
             anchors.left: gridLayout.left
+            anchors.right: parent.right
             anchors.bottom: parent.bottom//rectangle6.top
             Layout.column: 1
             Layout.columnSpan: 1
@@ -96,18 +97,34 @@ Rectangle {
             Layout.minimumHeight: parent.height - labelRec.height - 50
             Layout.maximumHeight:  parent.height - labelRec.height  -50
             Layout.minimumWidth: parent.width/2 + parent.width/4
-
-            CommonTableGrid{
-                id:curTestTabs1
+            Rectangle
+            {
+                id:tableRec
                 anchors.fill: parent
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-                commonTableModel: theExistingPatientsModel
-                repeaterModel: 6//theExistingPatientsModel
-                //tableModel: theExistingPatientsModel
-                proxySoure: theExistingPatientsModel
+                anchors.leftMargin: 10
+                anchors.rightMargin: 10
+                anchors.bottomMargin: 10
+                anchors.topMargin: 10
+                border.width: 3
+                border.color: StringConstants.actionBtnBackgroundColor
 
+                CommonTableGrid{
+                    id:curTestTabs1
+                    anchors.fill: parent
+                    anchors.leftMargin: 10
+                    anchors.rightMargin: 10
+                    anchors.bottomMargin: 10
+                    anchors.topMargin: 10
+                    //Layout.fillHeight: true
+                    //Layout.fillWidth: true
+                    commonTableModel: theExistingPatientsModel
+                    repeaterModel: 6//theExistingPatientsModel
+                    //tableModel: theExistingPatientsModel
+                    proxySoure: theExistingPatientsModel
+
+                }
             }
+
 
         }
 

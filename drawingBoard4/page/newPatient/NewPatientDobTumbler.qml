@@ -51,6 +51,9 @@ Rectangle {
     property int cursetIntMonth:0
     property string curSetMonth: ""
     property string curDateMonthYear: ""
+    property alias dateTumblerVisible: dateTumbler.firstTumblerVisibility
+    property alias monthTumblerVisible: monthTumbler.firstTumblerVisibility
+     property alias yearTumblerVisible: yearTumbler.firstTumblerVisibility
     property alias dateModel: dateTumbler.firstTumblerModel
     property alias monthModel: monthTumbler.secTumblerModel
     property alias yearModel: yearTumbler.thirdTumblerModel

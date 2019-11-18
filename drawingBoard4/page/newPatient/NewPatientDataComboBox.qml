@@ -119,8 +119,8 @@ ComboBox {
         //implicitWidth:150// 120
         implicitHeight: 40
         //anchors.fill: parent
-        //color: "transparent"
-        border.color: control.pressed ? "#17a81a" : "#21be2b"
+        //color: StringConstants.actionBtnBackgroundColor
+        border.color: StringConstants.actionBtnBackgroundColor//control.pressed ? "#17a81a" : "#21be2b"
         border.width: control.visualFocus ? 2 : 1
         radius: 2
     }

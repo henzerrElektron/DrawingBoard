@@ -14,7 +14,7 @@ ListModel{
     readonly property var modelElements:[
         {
             actionName:StringConstants.actionText_Home,//"Home",
-            homeAction:true,
+            homeAction:false,
             newPatientAction:true,
             existingPatientAction:true,
             testPageAction:true,
@@ -103,7 +103,7 @@ ListModel{
         {
             actionName:StringConstants.actionText_NewPatient,//"newPatient",
             homeMainAction:true,
-            existingPatientAction:true,
+            existingPatientAction:false,
             testAll:true,
             actionText:StringConstants.actionText_NewPatient,//"New Patient"
             actionIconName:StringConstants.actionIcon_nameNewPatient,//"icon_new_patient",
@@ -131,7 +131,7 @@ ListModel{
             actionName:StringConstants.actionText_ExistingPatient,//"existingPatient",
             homeMainAction:true,
             existingPatientAction:false,
-            testPageAction:true,
+            testPageAction:false,
             testAll:true,
             actionText:StringConstants.actionText_ExistingPatient,//"Existing Patient"
             actionIconName:StringConstants.actionIcon_nameExistingPatient,//"icon_existing_patient",
@@ -145,6 +145,7 @@ ListModel{
             actionName:StringConstants.actionText_ViewPatientReport,//"viewPatientReport",
             homeMainAction:true,
             testPageAction:true,
+            existingPatientAction:true,
             reportPageAction:true,
             testAll:true,
             actionText:StringConstants.actionText_ViewPatientReport,

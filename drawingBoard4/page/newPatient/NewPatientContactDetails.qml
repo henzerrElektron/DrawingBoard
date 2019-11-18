@@ -40,11 +40,11 @@ Rectangle{
     Rectangle{
         id:testRec
         width: (mainRec.width/2)+30
-        color: "transparent"//StringConstants.testPage_backgroundColor//color_gbTransparent//"transparent"
+        color: StringConstants.barBackgroundColor//StringConstants.testPage_backgroundColor//color_gbTransparent//"transparent"
         anchors.top: contactDetailLabel.bottom
         anchors.topMargin: 10
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 0
+        anchors.bottomMargin: 10
         //anchors.right: parent.right
         anchors.rightMargin: 10
         anchors.left: parent.left

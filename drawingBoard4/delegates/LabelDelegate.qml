@@ -7,10 +7,12 @@ Label{
     objectName: "labelItems"
     //Package.name: filterName//"PatientDetailedModel"
     text: actionName
-    font:OtherConstants.fontFamily
-    color: "black"
-    width: 100
-    height: 100
+    verticalAlignment: Text.AlignVCenter
+     font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
+
+
+   // width: 100
+   // height: 100
     //implicitHeight: 100
     //implicitWidth: 150
     //height: GridView.view.cellHeight

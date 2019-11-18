@@ -53,7 +53,7 @@ Rectangle{
         anchors.right: control.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        font: OtherConstants.fontFamily
+        font { family: OtherConstants.fontFamily; pixelSize: 15; weight: Font.Bold; capitalization: Font.MixedCase }
         color: control.checked?StringConstants.barBackgroundColor:StringConstants.actionBtnBackgroundColor
         text: ""
         bottomPadding: 9

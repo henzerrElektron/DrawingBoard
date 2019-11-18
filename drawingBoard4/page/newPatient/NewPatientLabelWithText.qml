@@ -47,12 +47,13 @@ Rectangle {
     property alias lblValueText: labelValue.text
     property alias lblHorizontalAlignment: label.horizontalAlignment
     property alias textValidator: textField.validator
-    property alias textEchoMode: textField.echoMode
     property alias lblLeftPadding: label.leftPadding
+    property alias textEchoMode: textField.echoMode
     property int textLeftMargin: 100
     property int index: 0
     property bool labelOnTop: true
     property color commonColor: StringConstants.barBackgroundColor
+    //property color commonColor: "white"
     onLblValueVisibleChanged: {
         /////////////////////////////////////// labelRec2.visible = labelValue.visible
     }
@@ -69,7 +70,6 @@ Rectangle {
     GridLayout{
         id:mainGrid
         anchors.fill: parent
-        rows: 2
         columns:3
         //        Rectangle{
         //            id:labelRec1
@@ -91,8 +91,7 @@ Rectangle {
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment:textAlignLeftOrCenter? Text.AlignHCenter:Text.AlignLeft
             //anchors.fill: parent
-            Layout.row: 1
-            Layout.column: labelOnTop?2:1
+            Layout.column: 1
             Layout.columnSpan: 1
             //Layout.fillWidth: true
             Layout.fillHeight: true
@@ -100,7 +99,7 @@ Rectangle {
             Layout.minimumWidth: addSpace?parent.width/2:parent.width/4
             //color: "transparent"
             //color: "red"
-            //anchors.left: parent.left
+            anchors.left: parent.left
             font.bold: true
             font.pixelSize:15//25// Constants.testPage_lblFontSize//25
             font.weight: Font.ExtraBold
@@ -114,7 +113,7 @@ Rectangle {
             // anchors.leftMargin: 0
             // width: parent.width/4
             //font: StringConstants.fontFamily
-            color: commonColor//StringConstants.barBackgroundColor//commonColor//"white"
+            color: StringConstants.barBackgroundColor//commonColor//"white"
             //width: 200//(parent.width - (100))/3
             //height: 100
             //        background: Rectangle{
@@ -139,7 +138,6 @@ Rectangle {
             //text: qsTr("Text Field")
             horizontalAlignment: lblAlignLeftOrCenter?Text.AlignHCenter:Text.AlignLeft
             //anchors.fill: parent
-            Layout.row: labelOnTop?2:1
             Layout.column: txtVisible?3:2
             Layout.columnSpan: 2
             Layout.fillWidth: true
@@ -148,9 +146,9 @@ Rectangle {
             Layout.minimumWidth: parent.width/4
             //color: "transparent"
             //color: "green"
-            //anchors.left: label.right
+            anchors.left: label.right
             anchors.right: parent.right
-            color: commonColor//"white"//StringConstants.barBackgroundColor//
+            color: StringConstants.barBackgroundColor//commonColor//"white"
             font.bold: true
             font.pixelSize:15//25// Constants.testPage_lblFontSize//25
             font.weight: Font.ExtraBold
@@ -197,16 +195,15 @@ Rectangle {
             id: textField
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.row: labelOnTop?2:1
-            Layout.column:labelOnTop?1:2//txtVisible?2:3
-            Layout.columnSpan: labelOnTop?1:2
+            Layout.column:2//txtVisible?2:3
+            Layout.columnSpan: 2
             //Layout.preferredWidth: parent.width/4
-           //Layout.minimumWidth: parent.width/4
+            //Layout.minimumWidth: parent.width/4
             //color: "transparent"
             //color: "blue"
             anchors.right: parent.right
-            anchors.left: label.right//labelRec1.right
-            anchors.leftMargin: textLeftMargin
+            anchors.left:labelRec1.right
+            anchors.leftMargin: 100
             //text: qsTr("Text Field")
             horizontalAlignment:textEntryAlignLeftOrCenter?Text.AlignHCenter:Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
@@ -220,12 +217,12 @@ Rectangle {
             font.pixelSize:15// Constants.testPage_lblFontSize//25
             font.weight: Font.ExtraBold
             renderType: Text.QtRendering
-            color: StringConstants.actionBtnBackgroundColor//StringConstants.barBackgroundColor//commonColor//"white"
+            color: StringConstants.barBackgroundColor//commonColor//"white"
             background: Rectangle {
-               //implicitWidth: 200
-               // implicitHeight: 40
-                color: textField.enabled ? StringConstants.barBackgroundColor :StringConstants.actionBtnBackgroundColor//StringConstants.barBackgroundColor
-                border.color: textField.enabled ?  commonColor: "transparent"//StringConstants.barBackgroundColor
+                //implicitWidth: 200
+                // implicitHeight: 40
+                color: textField.enabled ? StringConstants.actionBtnBackgroundColor :StringConstants.barBackgroundColor
+                border.color: textField.enabled ? StringConstants.barBackgroundColor : "transparent"
             }
         }
         // }
@@ -237,8 +234,6 @@ Rectangle {
 
 
 }
-
-
 
 
 

@@ -76,7 +76,7 @@ RangeSlider {
             id:value2Label
             anchors.centerIn: parent
             text: second.value.toFixed(0)//parseInt(second.value,10)//Math.round(second.value * 100)/100//second.value.toFixed(0)//.toString()//second.value.toString()
-            font: OtherConstants.fontFamily//StringConstants.barBackgroundColor
+            font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }//StringConstants.barBackgroundColor
             onTextChanged:console.log(value2Label.text)
 
         }

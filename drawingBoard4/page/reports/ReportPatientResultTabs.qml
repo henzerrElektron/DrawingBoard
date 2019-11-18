@@ -53,8 +53,9 @@ Page {
     //Layout.rightMargin: 10
     header:  TabBar {
         id: bar
+         Material.accent:"transparent"
         background: Rectangle {
-            color: StringConstants.headerBackgroundColor
+            color: StringConstants.barBackgroundColor//StringConstants.headerBackgroundColor
             //border.width: 2
             //border.color: StringConstants.barBackgroundColor
             CommonBorder
@@ -97,9 +98,12 @@ Page {
             {
                 page1.visible = true;
             }
-            rightTabBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            bothTabBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            leftTabBtn.backColor=StringConstants.actionBtnBackgroundColor
+            rightTabBtn.backColor=StringConstants.testPage_unCheckBtnBgColor
+            bothTabBtn.backColor=StringConstants.testPage_unCheckBtnBgColor
+            rightTabBtn.txtColor=StringConstants.actionBtnBackgroundColor
+            bothTabBtn.txtColor=StringConstants.actionBtnBackgroundColor
+            leftTabBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            leftTabBtn.txtColor=StringConstants.barBackgroundColor
             if(prevLeftBtnHeight !== 0)
             {
                 leftTabBtn.height = prevLeftBtnHeight
@@ -128,9 +132,12 @@ Page {
             {
                 page2.visible = true;
             }
-            leftTabBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            bothTabBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            rightTabBtn.backColor=StringConstants.actionBtnBackgroundColor
+            leftTabBtn.backColor=StringConstants.testPage_unCheckBtnBgColor
+            bothTabBtn.backColor=StringConstants.testPage_unCheckBtnBgColor
+            leftTabBtn.txtColor=StringConstants.actionBtnBackgroundColor
+            bothTabBtn.txtColor=StringConstants.actionBtnBackgroundColor
+            rightTabBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            rightTabBtn.txtColor=StringConstants.barBackgroundColor
             if(prevRightBtnHeight !== 0)
             {
                 leftTabBtn.height = prevLeftBtnHeight
@@ -158,9 +165,12 @@ Page {
             {
                 page3.visible = true;
             }
-            leftTabBtn.backColor = StringConstants.label_NewPatientLabelBgColor
-            rightTabBtn.backColor = StringConstants.label_NewPatientLabelBgColor
-            bothTabBtn.backColor = StringConstants.actionBtnBackgroundColor
+            leftTabBtn.backColor = StringConstants.testPage_unCheckBtnBgColor
+            rightTabBtn.backColor = StringConstants.testPage_unCheckBtnBgColor
+            leftTabBtn.txtColor = StringConstants.actionBtnBackgroundColor
+            rightTabBtn.txtColor = StringConstants.actionBtnBackgroundColor
+            bothTabBtn.backColor = StringConstants.label_NewPatientLabelBgColor
+            bothTabBtn.backColor = StringConstants.barBackgroundColor
             if(prevBothBtnHeight !== 0)
             {
                 leftTabBtn.height = prevLeftBtnHeight

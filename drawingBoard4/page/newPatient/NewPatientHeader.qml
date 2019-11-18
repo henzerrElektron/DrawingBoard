@@ -83,27 +83,27 @@ Rectangle {
                 id: mainCol
                 anchors.fill: parent
                 columns: 4
-                rows: 2
-                Rectangle{
-                    id:rectangleSub1
-                    color: StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor
-                    Layout.column: 1
-                    Layout.row:1
-                    anchors.top: parent.top
-                    //Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    //width: 100
-                    height: 75//pageTitle.height<30?30:pageTitle.height
-                   // border.width: 1
-                  //  border.color: StringConstants.barBackgroundColor
-                    anchors.left: rectangleSub3.left
-                    anchors.leftMargin: 30
-                    anchors.right: rectangeSub3.right
-                    anchors.rightMargin: 30
-                    NewPatientTitleGender{
-                        id:pgTitleGender
-                        anchors.fill: parent
-                    }
+                rows: 3
+//                Rectangle{
+//                    id:rectangleSub1
+//                    color: StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor
+//                    Layout.column: 1
+//                    Layout.row:1
+//                    anchors.top: parent.top
+//                    //Layout.fillHeight: true
+//                    Layout.fillWidth: true
+//                    //width: 100
+//                    height: 75//pageTitle.height<30?30:pageTitle.height
+//                    // border.width: 1
+//                    //  border.color: StringConstants.barBackgroundColor
+//                    anchors.left: rectangleSub3.left
+//                    anchors.leftMargin: 30
+//                    anchors.right: rectangeSub3.right
+//                    anchors.rightMargin: 30
+//                    NewPatientTitleGender{
+//                        id:pgTitleGender
+//                        anchors.fill: parent
+//                    }
 
                     //height: 150
                     //                    NewPatientDataTumbler{
@@ -119,7 +119,7 @@ Rectangle {
                     //                        firstTumblerModel:OtherConstants.modelTitle
                     //                        comboBoxModel: OtherConstants.modelTitle
                     //                    }
-                }
+//                }
 
                 //                Rectangle{
                 //                    id:rectangleSub2
@@ -216,19 +216,17 @@ Rectangle {
                     Layout.rowSpan: 1
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    anchors.top:  rectangleSub1.bottom
+                    //anchors.top:  rectangleSub1.bottom
                     anchors.bottom: parent.bottom
-                    Layout.minimumWidth: parent.width/2
-                    Layout.maximumWidth: parent.width/2
+                    Layout.minimumWidth: parent.width - (rectangleSub4.width+60)
+                    Layout.maximumWidth: parent.width - (rectangleSub4.width+60)
+                    Layout.minimumHeight: parent.height
                     Layout.leftMargin:40
-                    width: 200
-                    height: 300
-                    //Layout.minimumHeight: parent.height// - rectangle1.height
-                    // Layout.maximumHeight: parent.height //- rectangle1.height
-                    // Layout.preferredHeight: parent.height
-                    NewPatientPersonalDetails{
+                    //width: 200
+                    //height: 300
+                  //  PatientDetailDelegateEntryGroup{
+                    NewPatientPersonalDetailEntryGroup{
                         id:pageLabels
-                        //anchors.fill: parent
                         anchors.top: parent.top
                         anchors.topMargin: IntegerConstants.margin10
                         anchors.bottom: parent.bottom
@@ -237,39 +235,64 @@ Rectangle {
                         anchors.rightMargin: 0
                         anchors.left: parent.left
                         anchors.leftMargin: 0
-                        //gridRow:IntegerConstants.rowCount3
-                        //                        lbl1Visible:false
-                        //                        lbl2Visible: false
-                        //                        lbl3Visible: false
-                        //                        lbl4Visible: false
-                        //                        lbl5Visible: false
-                        //                        lbl6Vislbe: false
-                        //                        lbl7Visible: false
-                        pageSpOrNp:false
-                        pageNpSpTp:1
-                        Component.onCompleted: {
-                            console.log("I am completed")
-                        }
+                        verticalLayoutDirection: Grid.TopToBottom
+                        layoutDirection: Qt.LeftToRight
+                        flow: Grid.LeftToRight
+                        filterName:StringConstants.textBoxItemsModel//StringConstants.np_PersonalDetailTestPage
                     }
+
+                    //Layout.minimumHeight: parent.height// - rectangle1.height
+                    // Layout.maximumHeight: parent.height //- rectangle1.height
+                    // Layout.preferredHeight: parent.height
+                    //                    NewPatientPersonalDetails{
+                    //                        id:pageLabels
+                    //                        //anchors.fill: parent
+                    //                        anchors.top: parent.top
+                    //                        anchors.topMargin: IntegerConstants.margin10
+                    //                        anchors.bottom: parent.bottom
+                    //                        anchors.bottomMargin: 0
+                    //                        anchors.right: parent.right
+                    //                        anchors.rightMargin: 0
+                    //                        anchors.left: parent.left
+                    //                        anchors.leftMargin: 0
+                    //                        //gridRow:IntegerConstants.rowCount3
+                    //                        //                        lbl1Visible:false
+                    //                        //                        lbl2Visible: false
+                    //                        //                        lbl3Visible: false
+                    //                        //                        lbl4Visible: false
+                    //                        //                        lbl5Visible: false
+                    //                        //                        lbl6Vislbe: false
+                    //                        //                        lbl7Visible: false
+                    //                        pageSpOrNp:false
+                    //                        pageNpSpTp:1
+                    //                        Component.onCompleted: {
+                    //                            console.log("I am completed")
+                    //                        }
+                    //                    }
                 }
                 Rectangle {
                     id: rectangleSub4
                     color:StringConstants.actionBtnBackgroundColor//testPage_backgroundColor// "black"//
-                    Layout.column: 4
+                    Layout.column: 1
                     border.color: StringConstants.barBackgroundColor
-                    border.width: 1
+                    border.width: 5
                     // Layout.row: 1
                     // Layout.rowSpan: 3
                     //anchors.left: rectangleSub3.right
-                    Layout.fillHeight: true
+                    //Layout.fillHeight: true
                     Layout.topMargin: 10
+                    Layout.rightMargin: 30
+                     Layout.leftMargin: 20
                     Layout.preferredWidth: pageSwitchButtons.width//pageSwitchButtons.width
                     Layout.maximumWidth: pageSwitchButtons.width//parent.width/4
-                    Layout.fillWidth: true
+                    //Layout.fillWidth: true
                     Layout.alignment: Qt.AlignRight
                     NewPatientDobTumbler{
                         id:pageSwitchButtons
                         recTextVisible: false
+                        dateTumblerVisible:true
+                        monthTumblerVisible: true
+                        yearTumblerVisible: true
                         //anchors.fill: parent
                         // width: parent.width/2
                         // height: parent.height/2

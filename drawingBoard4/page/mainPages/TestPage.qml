@@ -75,10 +75,12 @@ Rectangle {
         }
         Rectangle{
             id:rectangle2
-            color: StringConstants.testPage_backgroundColor//"transparent"
-           // anchors.top: rectangle1.bottom
-           // anchors.left: gridLayout.left
-           // anchors.bottom: rectangle6.top
+            color: StringConstants.barBackgroundColor//"transparent"
+            border.color: StringConstants.borderColorBlack
+            border.width: 2
+            // anchors.top: rectangle1.bottom
+            // anchors.left: gridLayout.left
+            // anchors.bottom: rectangle6.top
             //anchors.right: rectangle2.left
             //anchors.fill: parent
             Layout.column: 1
@@ -106,7 +108,7 @@ Rectangle {
             TestPlotTabs{
                 id:testpagePlotTabs
                 //Layout.fillHeight: true
-               // Layout.fillWidth: true
+                // Layout.fillWidth: true
                 anchors.fill: parent
                 //                anchors.left: rectangle1.left
                 //                anchors.right: rectangle2.left
@@ -118,10 +120,10 @@ Rectangle {
         Rectangle{
             id:rectangle3
             color: "green"//"transparent"
-           // anchors.top: rectangle1.bottom//parent.top//
-           // anchors.left: rectangle2.right
-           // anchors.bottom: rectangle6.top
-          //  anchors.right: parent.right
+            // anchors.top: rectangle1.bottom//parent.top//
+            // anchors.left: rectangle2.right
+            // anchors.bottom: rectangle6.top
+            //  anchors.right: parent.right
             //anchors.fill: parent
             Layout.column: 3
             Layout.columnSpan: 1
@@ -159,15 +161,15 @@ Rectangle {
                 Rectangle{
                     id:rectangle5
                     //color: "black"
-                     color: StringConstants.testPage_backgroundColor//"transparent" "transparent"
+                    color: StringConstants.testPage_backgroundColor//"transparent" "transparent"
                     Layout.column: 1
                     Layout.columnSpan: 1
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                     Layout.row: 2
                     //anchors.top: rectangle4.bottom
-                   // anchors.topMargin: -5
-                  //  anchors.bottom: parent.bottom
+                    // anchors.topMargin: -5
+                    //  anchors.bottom: parent.bottom
                     //anchors.left: parent
                     TestTabs{
                         id:curTestTabs

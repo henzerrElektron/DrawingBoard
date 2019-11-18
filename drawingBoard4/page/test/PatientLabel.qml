@@ -114,26 +114,38 @@ Rectangle {
             Layout.fillHeight: true
             Layout.fillWidth: true
             //TestPageAllLabels
-            NewPatientPersonalDetails{
-                id:pageLabels
-                //anchors.fill: parent
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.horizontalCenter: parent.horizontalCenter
-                //gridRow: IntegerConstants.rowCount5
-//                lbl1Visible:true
-//                lbl2Visible: true
-//                lbl3Visible: true
-//                lbl4Visible: true
-//                lbl5Visible: false
-//                lbl6Vislbe: true
-//                lbl7Visible: true
-                pageSpOrNp:true
-                pageNpSpTp:3
-                //anchors.left: parent.left
-                //anchors.top: parent.top
-                //anchors.bottom: parent.bottom
+            Layout.leftMargin: 10
+            NewPatientPersonalDetailGroup{
+                id:personalDetailsPage
+                anchors.fill: parent
+               // Layout.fillHeight: true
+               // Layout.fillWidth: true
+                verticalLayoutDirection: Grid.TopToBottom
+                layoutDirection: Qt.LeftToRight
+                flow: Grid.LeftToRight
+                filterName:StringConstants.np_PersonalDetailTestPage
+                flickableDirection: Flickable.HorizontalAndVerticalFlick
             }
+//            NewPatientPersonalDetails{
+//                id:pageLabels
+//                //anchors.fill: parent
+//                anchors.top: parent.top
+//                anchors.bottom: parent.bottom
+//                anchors.horizontalCenter: parent.horizontalCenter
+//                //gridRow: IntegerConstants.rowCount5
+////                lbl1Visible:true
+////                lbl2Visible: true
+////                lbl3Visible: true
+////                lbl4Visible: true
+////                lbl5Visible: false
+////                lbl6Vislbe: true
+////                lbl7Visible: true
+//                pageSpOrNp:true
+//                pageNpSpTp:3
+//                //anchors.left: parent.left
+//                //anchors.top: parent.top
+//                //anchors.bottom: parent.bottom
+//            }
         }
         Rectangle {
             id: rectangleSub2
@@ -146,9 +158,9 @@ Rectangle {
             Layout.column: 2
             Layout.columnSpan: 1
             Layout.fillHeight: true
-            Layout.minimumWidth:   parent.width/3
+            Layout.minimumWidth:   parent.width/3 - parent.width/50
             Layout.minimumHeight:  parent.height/2
-            Layout.maximumWidth:  parent.width/3
+            Layout.maximumWidth:  parent.width/3 - parent.width/50
             Layout.maximumHeight: parent.height/2
 
             //width: parent.width/3

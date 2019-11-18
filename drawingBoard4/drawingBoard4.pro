@@ -49,6 +49,8 @@ SOURCES += \
         supplementpagepatienttablemodel.cpp \
         switchpatienttablemodel.cpp \
         testpagesupplementationmodel.cpp \
+        testresultconfidencemodel.cpp \
+        testresultdatamodel.cpp \
         testresultmodels.cpp
 
 RESOURCES += qml.qrc \
@@ -136,5 +138,7 @@ HEADERS += \
     supplementpagepatienttablemodel.h \
     switchpatienttablemodel.h \
     testpagesupplementationmodel.h \
+    testresultconfidencemodel.h \
+    testresultdatamodel.h \
     testresultmodels.h
 

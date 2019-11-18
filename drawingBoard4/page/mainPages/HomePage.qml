@@ -42,11 +42,12 @@ Rectangle {
     GridLayout{
         id: mainRow
         anchors.fill: parent
-        rows:3
+        rows:4
+        rowSpacing: 10
         columns:2
         Rectangle{
             id:rec1
-            color:"black"//StringConstants.testPage_backgroundColor//"transparent"//"black"
+            color:StringConstants.color_gbTransparent//"black"//StringConstants.testPage_backgroundColor//"transparent"//"black"
             //anchors.top: parent.top
             //anchors.left: parent.left
             //anchors.right: parent.right
@@ -56,8 +57,9 @@ Rectangle {
             Layout.rowSpan: 1
             Layout.column: 1
             Layout.columnSpan: 2
-            Layout.maximumHeight: parent.height/4
-            height: parent.height/4
+            Layout.maximumHeight: parent.height/4 +10//(parent.height/20)
+            Layout.alignment: Qt.AlignTop
+            height: parent.height/4 +10//(parent.height/20)
             HomePageLabel{
                 id:homePageLabel
                 anchors.fill: parent
@@ -71,8 +73,21 @@ Rectangle {
             }
         }
         Rectangle{
+            id:recSpacer
+            Layout.fillWidth: true
+            Layout.row: 2
+            Layout.rowSpan: 1
+            Layout.column: 1
+            Layout.columnSpan: 2
+            Layout.maximumHeight: 50
+            Layout.minimumHeight: 50
+            anchors.top: rec1.bottom
+            color: StringConstants.color_gbTransparent
+        }
+
+        Rectangle{
             id:rec2
-            color:"transparent"//"green"
+            color:StringConstants.color_gbTransparent//"transparent"//
             //anchors.horizontalCenter: parent.horizontalCenter
             //anchors.verticalCenter: parent.verticalCenter
             //anchors.top: rec1.bottom
@@ -82,14 +97,16 @@ Rectangle {
             //anchors.bottom: parent.bottom
             //Layout.fillHeight: true
             //Layout.fillWidth: true
-            Layout.row: 2
-            Layout.rowSpan: 2
+            anchors.top: recSpacer.bottom
+            Layout.row: 3
+            Layout.rowSpan: 1
             Layout.column: 1
             Layout.columnSpan: 2
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignHCenter|Qt.AlignVCenter
-
+            Layout.maximumHeight: parent.height/3
+            Layout.alignment: Qt.AlignHCenter|Qt.AlignTop
+            //Layout.topMargin: 100
             PageActionsButtons{
                 id:image2
                 //width: parent.width
@@ -104,7 +121,9 @@ Rectangle {
                 //anchors.left: parent.left
                 //anchors.right: parent.right
                 anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
+                //anchors.topMargin: parent.height/10
+                height: parent.height - parent.height/10
+                //anchors.verticalCenter: parent.verticalCenter
                 //anchors.fill: parent
                 //horizontalCenter: parent.horizontalCenter
                 //verticalCenter: parent.verticalCenter
@@ -167,6 +186,39 @@ Rectangle {
             //                Layout.fillWidth: true
             //                //Layout.maximumHeight: parent.height/5
             //            }
+        }
+        Rectangle{
+            id:rec3
+            color:StringConstants.color_gbTransparent//"transparent"//
+            anchors.top: rec2.bottom
+            anchors.bottom:parent.bottom
+            Layout.row: 4
+            Layout.rowSpan: 1
+            Layout.column: 2
+            Layout.columnSpan: 1
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.rightMargin: 10
+            Layout.bottomMargin: 10
+            Layout.maximumHeight: parent.height/5
+            //Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
+            Rectangle{
+                id:subRec
+                //anchors.fill:parent
+                anchors.right: parent.right
+                anchors.bottom:  parent.bottom//verticalCenter
+                width: parent.width/3//customerLogo.width>parent.width/2?parent.width/2:customerLogo.width
+                height: parent.height/2//customerLogo.height>parent.height?parent.height:customerLogo.height
+                color: StringConstants.color_gbTransparent
+                Image {
+                    id: customerLogo
+                    source: "file:///" + applicationDirPath +"/resource/MPSII_logo.png"
+                    width: parent.width
+                    height: parent.height
+                }
+            }
+
+
         }
     }
 }

@@ -29,7 +29,7 @@ import ApplicationConstants 1.0
         property bool isTabHeader: false
         //property ali name: value
         //text: qsTr("Label")
-        leftPadding: isTabHeader?85:10
+        leftPadding: 10//isTabHeader?85:10
         topPadding: 0
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
@@ -40,11 +40,12 @@ import ApplicationConstants 1.0
         anchors.left: parent.left
         anchors.leftMargin: 0
         height: 50
-        font:OtherConstants.fontFamily
-        color: "white"
+        //font:OtherConstants.fontFamily
+        font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
+        color: isTabHeader === true?StringConstants.barBackgroundColor:StringConstants.label_NewPatientLabelBgColor///StringConstants.label_NewPatientLabelBgColor//"white"
         background: Rectangle{
             id:labelRec
-            color: StringConstants.label_NewPatientLabelBgColor//"black"
+            color: isTabHeader === true?StringConstants.label_NewPatientLabelBgColor:StringConstants.barBackgroundColor//"black"//StringConstants.barBackgroundColor//
         }
     }
 

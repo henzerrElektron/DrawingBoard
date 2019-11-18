@@ -56,7 +56,7 @@ Rectangle{
                 text: StringConstants.lbl_CurrentOperator
                 anchors.fill: parent
                 anchors.rightMargin: 10
-                font: OtherConstants.fontFamily
+                font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
                 display: AbstractButton.TextBesideIcon
                 //icon:"qrc:/images/icon_current_operator.png"
                 icon.source: "qrc:/images/icon_current_operator.png"
@@ -95,7 +95,7 @@ Rectangle{
                 text:StringConstants.lbl_lastBackedUpon+" "+ DateAndLocaleConstants.dateString
                 anchors.fill: parent
                 anchors.leftMargin: 10
-                font: OtherConstants.fontFamily
+                 font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
                 display: AbstractButton.TextBesideIcon
                 //icon:"qrc:/images/icon_backup.png"
                 icon.source: "qrc:/images/icon_backup.png"

@@ -27,8 +27,12 @@ import "./../changePatient/"
 Rectangle {
     id: mainRec
     color: StringConstants.testPage_backgroundColor//"blue"//"white"
-    anchors.fill: parent
-
+    //anchors.fill: parent
+    anchors.top: parent.top
+    anchors.topMargin: 5
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
 
     signal popupOpen()
     onPopupOpen:
@@ -62,13 +66,13 @@ Rectangle {
     GridLayout{
         id: mainCol
         anchors.fill: parent
-        anchors.leftMargin: 5
-        anchors.rightMargin: 5
+        //anchors.leftMargin: 5
+        //anchors.rightMargin: 5
         //columns: 4
         rows: 3
         Rectangle{
             id:rectangleSub1
-            color: StringConstants.actionBtnBackgroundColor//"white"
+            color: StringConstants.barBackgroundColor//"white"
             //Layout.topMargin: 10//StringConstants.testPage_backgroundColor
             //Layout.bottomMargin: 10
             //Layout.column: 1
@@ -80,15 +84,16 @@ Rectangle {
             //Layout.bottomMargin: 10
             //width: 100
             //height: 50//150
-            Layout.minimumHeight: 75+searchLabel.height
+            Layout.minimumHeight: 110//75+searchLabel.height<110?110:75+searchLabel.height
             NewPatientGroupLabel{
                 id:searchLabel
                 text: StringConstants.lbl_rpSelectOperator
                 //color: StringConstants.actionBtnBackgroundColor
                 Layout.alignment: Qt.AlignTop |Qt.AlignLeft
-                font: OtherConstants.fontFamily
+                //font: OtherConstants.fontFamily
                 anchors.left: parent.left
                 anchors.right: parent.right
+                anchors.leftMargin: 5
                 //Layout.fillWidth: true
                 //Layout.column: 1
                 //Layout.columnSpan: 3
@@ -103,6 +108,7 @@ Rectangle {
                 anchors.right: parent.right
                 anchors.leftMargin: 10
                 anchors.rightMargin: 10
+                anchors.bottomMargin: 5
                 //anchors.top: searchLabel.bottom
                 anchors.topMargin:(((parent.height) - searchLabel.height)/2)-5
                 //labelHorizontal:true
@@ -112,6 +118,7 @@ Rectangle {
                 //thirdTumblerVisibility: false
                 //firstTumblerModel:OtherConstants.modelPraticeOperators
                 //comboBoxModel: OtherConstants.modelPraticeOperators
+                hideBorder:false
                 comboBoxModel: OtherConstants.modelPraticeOperators
                 comboBoxtypes: OtherConstants.modelPraticeOperators
                 comboBoxRoleOrModelFlag:true
@@ -139,9 +146,10 @@ Rectangle {
             ReportPageHeader{
                 id:pageHeader
                 state: "pratice"
-               // modelName:StringConstants.modelReportPraticeItems
+                // modelName:StringConstants.modelReportPraticeItems
                 filterName:StringConstants.modelReportPraticeItems
                 detailFilterName:StringConstants.report_PraticeDetailModel
+                labelText: StringConstants.lbl_rpDetails
                 anchors.fill: parent
                 Component.onCompleted: {
                     //pageHeader.state = "pratice"
@@ -173,17 +181,30 @@ Rectangle {
             anchors.top: subRec.bottom
             anchors.topMargin: 5
             //Layout.rightMargin: 20
-            CommonTableGrid{
-                id:curTestTabs2
+            Rectangle
+            {
+                id:tableRec
                 anchors.fill: parent
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-                commonTableModel: theMedicalTestModel
-                repeaterModel: 13//theMedicalTestModel
-                searchRecVisibilty:false
-                //tableModel: theExistingPatientsModel
-                proxySoure: theMedicalTestModel
+                anchors.leftMargin: 0
+                anchors.rightMargin: 0
+                anchors.bottomMargin: 10
+                anchors.topMargin: 10
+                border.width: 3
+                border.color: StringConstants.actionBtnBackgroundColor
+                CommonTableGrid{
+                    id:curTestTabs2
+                    anchors.fill: parent
+                    anchors.leftMargin: 10
+                    anchors.rightMargin: 10
+                    anchors.bottomMargin: 10
+                    anchors.topMargin: 10
+                    commonTableModel: theMedicalTestModel
+                    repeaterModel: 14//theMedicalTestModel
+                    searchRecVisibilty:false
+                    //tableModel: theExistingPatientsModel
+                    proxySoure: theMedicalTestModel
 
+                }
             }
             //            ReportPraticeTableGrid{
             //                id:praticeTable

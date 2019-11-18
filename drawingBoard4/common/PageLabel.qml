@@ -30,10 +30,11 @@ Label {
     width: IntegerConstants.testPage_lblWidth
     height: IntegerConstants.testPage_lblHeight
     color: lblOrText ? "White":StringConstants.testPage_lblFontColor
+    font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
     //font: Constants.fontFamily
-    font.bold: true
-    font.pixelSize:pixelSize
-    font.weight: Font.ExtraBold
+    //font.bold: true
+    //font.pixelSize:pixelSize
+    //font.weight: Font.ExtraBold
     renderType: Text.QtRendering
     fontSizeMode: Text.HorizontalFit
     text: "text"

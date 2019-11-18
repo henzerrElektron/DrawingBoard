@@ -48,8 +48,8 @@ Page{
         anchors.top: rectangle.bottom
         anchors.bottom: parent.bottom
         //color: StringConstants.actionBtnBackgroundColor
-        border.color: StringConstants.actionBtnBackgroundColor
-        border.width: 10
+        border.color: StringConstants.borderColorBlack
+        border.width: 1
 
         TextEdit {
             id: textEdit

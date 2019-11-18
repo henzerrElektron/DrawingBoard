@@ -93,39 +93,53 @@ Page{
                 anchors.top: subRec1.bottom
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-
-                CommonTableGrid{
-                    id:curTestTabs1
+                Rectangle
+                {
+                    id:tableRec
                     anchors.fill: parent
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    commonTableModel: theSupplementModel
-                    repeaterModel: 4//theSupplementModel
-                    searchRecVisibilty:false
-                    //tableModel: theExistingPatientsModel
-                    proxySoure: theSupplementModel
+                    anchors.leftMargin: 10
+                    anchors.rightMargin: 10
+                    anchors.bottomMargin: 10
+                    anchors.topMargin: 10
+//                    border.width: 3
+//                    border.color: StringConstants.actionBtnBackgroundColor
+                    CommonTableGrid{
+                        id:curTestTabs1
+                        anchors.fill: parent
+//                        anchors.leftMargin: 10
+//                        anchors.rightMargin: 10
+//                        anchors.bottomMargin: 10
+//                        anchors.topMargin: 10
+                        //Layout.fillHeight: true
+                        //Layout.fillWidth: true
+                        commonTableModel: theSupplementModel
+                        repeaterModel: 4//theSupplementModel
+                        searchRecVisibilty:false
+                        //tableModel: theExistingPatientsModel
+                        proxySoure: theSupplementModel
 
+                    }
                 }
                 //anchors.left: parent.left
                 //anchors.bottom: parent.bottom
                 // anchors.right: parent.right
- //               TestPageSupplementTableGrid{
- //                   id:table4
-                    //width: parent.width//500//parent.width
-                    //height: theSupplementModel.rowCount(table4)*120
-                    //contentHeight: theSupplementModel.rowCount(table4)*100
-                    //height: parent.height
- //                   anchors.fill: parent
- //                   onWidthChanged: forceLayout()
-//                    columnWidthProvider:
-//                        function changeTableWidth(column)
-//                        {
-//                            console.log("The values are "+parent.width,columns)
-//                            return ((parent.width/columns))
-//                        }
+                //               TestPageSupplementTableGrid{
+                //                   id:table4
+                //width: parent.width//500//parent.width
+                //height: theSupplementModel.rowCount(table4)*120
+                //contentHeight: theSupplementModel.rowCount(table4)*100
+                //height: parent.height
+                //                   anchors.fill: parent
+                //                   onWidthChanged: forceLayout()
+                //                    columnWidthProvider:
+                //                        function changeTableWidth(column)
+                //                        {
+                //                            console.log("The values are "+parent.width,columns)
+                //                            return ((parent.width/columns))
+                //                        }
 
-//                    model: theSupplementModel
-//                }
+                //                    model: theSupplementModel
+                //                }
             }
         }
     }

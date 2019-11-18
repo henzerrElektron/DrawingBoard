@@ -30,7 +30,7 @@ ToolButton {
     signal invokeIndex(int index)
     signal test()
     onTest: console.log("I am tested")
-    font.family: OtherConstants.fontFamily
+    font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
     display: AbstractButton.TextOnly
     text: actionText
     contentItem: Text {

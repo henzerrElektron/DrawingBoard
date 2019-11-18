@@ -10,8 +10,8 @@ import Qt.labs.calendar 1.0
 import QtQuick.Controls.Material 2.0
 import QtQuick.Controls 2.3
 import Qt.labs.settings 1.0
-import QtQuick 2.1
-import QtQuick.Controls 1.0
+//import QtQuick 2.1
+//import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.2
 //import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
@@ -20,6 +20,7 @@ import "."
 import "./../images/"
 import "./../delegates/"
 import "./../models/"
+import "./../common/"
 import "./../page/"
 import "./../page/test/"
 import "./../page/changePatient/"
@@ -42,7 +43,7 @@ GridLayout{
     property bool testOrSwitch: false
     property alias proxyFilterString: proxyModel.filterString
     property alias proxyFilterSortRole: proxyModel.sortRole
-    property alias repeaterModel: repeaterHeader.model
+    property alias repeaterModel:repeaterHeader.model
     property var commonTableModel:repeaterHeader.model//: existingPatientTable.model
     //property alias tableModel: existingPatientTable.model
     property alias proxySoure: proxyModel.source
@@ -82,7 +83,7 @@ GridLayout{
             id:rectangleSwitchPatientLabel
             anchors.fill: parent
             Component.onCompleted: {
-               // rectangleSwitchPatientLabel.selectedText.connect(spLabel.selectedText)
+                // rectangleSwitchPatientLabel.selectedText.connect(spLabel.selectedText)
                 selectedText.connect(gridLayout.setFilterString)
             }
         }
@@ -92,65 +93,119 @@ GridLayout{
         id:columnHeader
         Layout.fillWidth: true
         Layout.fillHeight: true
-        Layout.preferredHeight: 50
-        Layout.minimumHeight: 50
-        Layout.maximumHeight: 50
+        Layout.preferredHeight: 50//parent.height - tableRec.height
+        Layout.minimumHeight: 50//parent.height - tableRec.height
+        Layout.maximumHeight:50// parent.height - tableRec.height
         Layout.row: 2
-       // anchors.top: searchRec.bottom
+        // anchors.top: searchRec.bottom
         color:StringConstants.gridheaderColor
         //        y:supplementTableView.contentY
         //        z:2
         Row{
             id:rfwww
             anchors.fill: parent
-        Repeater{
-            id:repeaterHeader
-            //model: theExistingPatientsModel//.index(0,0,table11)//table11.columns > 0? table11.columns : 1
-           onItemAdded: {
-               console.log("The index is"+index)
-           }
-            Label{
-                id:lbl
-                width: existingPatientTable.columnWidthProvider(index)
-                height:minheaderHeight?35:50
-                text:commonTableModel.headerData(index,Qt.Horizontal,"heading")
-                onTextChanged: console.log("The test changed int index is"+index+"all"+text+"and count is"+count)
-                color: StringConstants.gridLabelColor
-                font.pixelSize: 15
-                padding: 10
-                wrapMode: Text.WordWrap
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-                textFormat: Text.StyledText
-                elide: Text.ElideMiddle
-                //background: Rectangle {color:"#333333"}
+            ListView {
+                id:repeaterHeader
+                anchors.fill: parent
+                orientation: ListView.Horizontal
+               //model: existingPatientTable.columns > 0 ? existingPatientTable.columns : repeaterModel
+                //model: theExistingPatientsModel//.index(0,0,table11)//table11.columns > 0? table11.columns : 1
+                onModelChanged: {
+                    console.log("The model is"+existingPatientTable.columns)
+                }
+
+//                onItemAdded: {
+//                    console.log("The index is"+index)
+//                }
+                onCountChanged: {
+                    console.log("The count is"+ count)
+                }
+
+               delegate: Label{
+                    id:lbl
+                    width: existingPatientTable.columnWidthProvider(index)
+                    height:minheaderHeight?35:50
+                    text:commonTableModel.headerData(index,Qt.Horizontal,"heading")
+                    onTextChanged:{
+                        console.log("The test changed int index is"+index+"all"+text+"and count is"+count)
+                    }
+                    color: StringConstants.gridLabelColor
+                    font.pixelSize: 15
+                    padding: 10
+                    wrapMode: Text.WordWrap
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    textFormat: Text.StyledText
+                    elide: Text.ElideMiddle
+                    background: Rectangle {
+                        anchors.fill: parent
+                        anchors.bottomMargin: 3
+                       //color: index === (existingPatientTable.columns)?"green":index === (existingPatientTable.columns-1)?"red":"orange"
+                        // anchors.leftMargin: 1
+                        // anchors.rightMargin: 1
+                        CommonBorder
+                        {
+                            //bodyColor:StringConstants.color_gbTransparent
+                            customBorder: false
+                            lBorderWidth:index ===0?3:0
+                            rBorderWidth: index === (existingPatientTable.columns-1)?3:0
+                            tBorderWidth: 3
+                            bBorderWidth: 3
+                            //allBorderWidth:10
+                            bodyColor: StringConstants.label_NewPatientLabelBgColor
+                        }
+                        // border.color:StringConstants.gridLabelColor
+                        // border.width: 2
+                    }
+
+                }
             }
-        }
         }
 
     }
-    CommonTableView{
-        id:existingPatientTable
-        width: parent.width
-        onWidthChanged: forceLayout()
-        // contentWidth: parent.width
-
-        onHeightChanged: forceLayout()
+    Rectangle{
+        id:tableRec
         Layout.fillWidth: true
         Layout.fillHeight: true
+        // anchors.left: columnHeader.left
+        //  anchors.right: columnHeader.right
         Layout.row: 3
-//        anchors.left: parent.left
-//        anchors.leftMargin: 0
-//        anchors.right: parent.right
-//        anchors.rightMargin: 0
-//        anchors.top: columnHeader.bottom//parent.top
-//        anchors.topMargin: 0
-        //anchors.fill: parent
-        model: searchRecVisibilty?proxyModel:commonTableModel
-
-
-
-        //model: filterModel//theExistingPatientsModel//theModel//theSupplementModel//theExistingPatientsModel
+        //border.color: StringConstants.actionBtnBackgroundColor
+        //border.width: 6
+        CommonBorder
+        {
+            //bodyColor:StringConstants.color_gbTransparent
+            customBorder: false
+            lBorderWidth: 3
+            rBorderWidth: 3
+            tBorderWidth: 3
+            bBorderWidth: 3
+            //allBorderWidth:10
+            bodyColor: StringConstants.label_NewPatientLabelBgColor
+        }
+        Rectangle{
+            id:subRec
+            anchors.fill: parent
+            //anchors.leftMargin: 3
+            //anchors.rightMargin: 3
+            CommonTableView{
+                id:existingPatientTable
+                width: parent.width
+                height: parent.height
+                onWidthChanged: forceLayout()
+                // contentWidth: parent.width
+                onHeightChanged: forceLayout()
+                //        anchors.left: parent.left
+                //        anchors.leftMargin: 0
+                //        anchors.right: parent.right
+                //        anchors.rightMargin: 0
+                //        anchors.top: columnHeader.bottom//parent.top
+                //        anchors.topMargin: 0
+                //anchors.fill: parent
+                model: searchRecVisibilty?proxyModel:commonTableModel
+                //model: filterModel//theExistingPatientsModel//theModel//theSupplementModel//theExistingPatientsModel
+            }
+        }
     }
 
 }

@@ -29,8 +29,13 @@ Rectangle{
     //color: "blue"
     //border.width: 1
     //border.color: "black"
-    height: mainGrid.height
+    //height: mainGrid.height
+    //implicitHeight: 100
+    //implicitWidth: 300
+    //color: "black"
     //width: mainGrid.width
+    height: 75
+    width: parent.width
     property alias labelText: label.text
     property alias tumblerVisibility: subRec0.visible
     property alias dataTumblerFirstModel: dataTumbler.firstTumblerModel
@@ -88,10 +93,17 @@ Rectangle{
     signal toggleSwitchButton()
     //height: //dataTumbler.height
     anchors.fill: parent
+    //anchors.topMargin: 50
+   // anchors.verticalCenter: parent.verticalCenter
+    anchors.leftMargin: 20
+    anchors.rightMargin: 20
+    color: StringConstants.color_gbTransparent//StringConstants.borderColorBlack//StringConstants.color_gbTransparent//
+    //border.width: 2
+    //border.color:  StringConstants.borderColorBlack//StringConstants.barBackgroundColor
     GridLayout{
         //
         id:mainGrid
-        rowSpacing: 2
+        rowSpacing: 10
         anchors.bottomMargin: 0
         //anchors.fill: parent
         //        anchors.bottom: parent.bottom
@@ -108,7 +120,7 @@ Rectangle{
             id: label
             text: qsTr("Label")
             bottomPadding: 10
-            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
             //Layout.topMargin: dataTumblerVisibility?(dataSwitchesVisible?50:25):10
            // Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             //Layout.alignment:dataSwitchesVisible?Qt.AlignTop|Qt.AlignHCenter: Qt.AlignTop|Qt.AlignHCenter
@@ -118,12 +130,16 @@ Rectangle{
             wrapMode: Text.WordWrap
             Layout.minimumWidth: 100//50
             Layout.maximumWidth: 100
-            Layout.minimumHeight: 50//0
+            Layout.minimumHeight: 75//0//0
             //Layout.fillWidth: true
-            height: 50//100//mainRec.height/15
+            height: dataSwitchRec.height//50//100//mainRec.height/15
             horizontalAlignment: Text.AlignHCenter
             anchors.verticalCenter: eyeColorDialVisibilty?dialRect.verticalCenter:parent.verticalCenter
             verticalAlignment: Text.AlignVCenter//Text.AlignVCenter
+//            background: Rectangle{
+//                id:colorRec
+//                color: "green"
+//            }
         }
         Rectangle{
             id:dataSwitchRec
@@ -132,13 +148,15 @@ Rectangle{
             Layout.row: 1
             Layout.fillHeight: true
             Layout.minimumWidth:125// dataTumblerVisibility?125:250
-            Layout.minimumHeight:dataTumblerVisibility?40:35
-            Layout.alignment:  Qt.AlignLeft | Qt.AlignTop//Qt.AlignLeft |
-            Layout.topMargin:dataTumblerVisibility?25: 5
+            Layout.minimumHeight:label.height//dataTumblerVisibility?40:35
+           // Layout.alignment:  Qt.AlignLeft | Qt.AlignTop//Qt.AlignLeft |
+            anchors.verticalCenter: parent.verticalCenter
+          //  Layout.topMargin:dataTumblerVisibility?25: 5
+          //  color: "red"
             NewPatientDataSwitches{
                 id:dataSwitches
                 anchors.fill: parent
-                horOrVer:dataTumblerVisibility?true:false
+                //horOrVer:dataTumblerVisibility?true:false
                 //width: 125
                 //Layout.fillWidth: true
                 Component.onCompleted:{
@@ -323,6 +341,8 @@ Rectangle{
     }
 
 }
+
+
 
 
 

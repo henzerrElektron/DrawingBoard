@@ -40,7 +40,7 @@ import ApplicationConstants 1.0
                 color: "#ffffff"
                 text: qsTr("Label")
                 font.pointSize: IntegerConstants.m_intLblFontSize
-                font.family: OtherConstants.fontFamily
+                 font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
                 renderType: Text.QtRendering
                 fontSizeMode: Text.HorizontalFit
                 horizontalAlignment: Text.AlignHCenter

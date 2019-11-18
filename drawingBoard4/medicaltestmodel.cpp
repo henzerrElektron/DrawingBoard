@@ -442,6 +442,6 @@ QHash<int, QByteArray> MedicalTestModel::roleNames() const
     roles[LECentralConfidenceRole] = "LE Central Confidence Level";
     roles[LEPeripheralConfidenceRole] = "LE Peripheral Confidence Level";
     roles[HeadingRole] = "heading";
-    //roles[AcceptRejectRole] = "arRole";
+    roles[AcceptRejectRole] = "arRole";
     return  roles;
 }

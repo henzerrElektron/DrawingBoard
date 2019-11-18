@@ -28,15 +28,17 @@ import SwitchPatientTableModel 0.1
 
 Rectangle {
     id: searchTable
-    color: StringConstants.testPage_backgroundColor//"white"//"transparent"
+    color: StringConstants.barBackgroundColor//StringConstants.testPage_backgroundColor//"white"//"transparent"
     signal selectedText(string curText,string role)
     height: searchLabel.height
+    //border.width: 2
+    //border.color: StringConstants.label_NewPatientLabelBgColor
     NewPatientGroupLabel{
         id:searchLabel
         text: StringConstants.label_searchQuestion
         //color: StringConstants.actionBtnBackgroundColor
         Layout.alignment: Qt.AlignTop |Qt.AlignLeft
-        font: OtherConstants.fontFamily
+        //font: OtherConstants.fontFamily
         anchors.left: parent.left
         anchors.right: parent.right
         //Layout.fillWidth: true
@@ -66,7 +68,7 @@ Rectangle {
         //SwitchPatientTableModel{id:theGreatModel}
         Rectangle{
             id:rectangleSub1
-            color: StringConstants.actionBtnBackgroundColor//testPage_backgroundColor
+            color: StringConstants.barBackgroundColor//StringConstants.actionBtnBackgroundColor//testPage_backgroundColor
             Layout.fillHeight: true
             Layout.fillWidth: true
             anchors.top: searchLabel.bottom
@@ -81,7 +83,7 @@ Rectangle {
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.leftMargin: 10
+                anchors.leftMargin: 0
                 anchors.rightMargin: 10
                 comboBoxModel:theExistingPatientsModel//["First", "Second", "Third"]//theExistingPatientsModel
                 comboBoxtypes:theExistingPatientsModel.FirstNameRole
@@ -101,7 +103,7 @@ Rectangle {
         }
         Rectangle{
             id:rectangleSub2
-            color:StringConstants.actionBtnBackgroundColor//testPage_backgroundColor
+            color:StringConstants.barBackgroundColor//StringConstants.actionBtnBackgroundColor//testPage_backgroundColor
             anchors.top: searchLabel.bottom
             Layout.fillHeight: true
             Layout.fillWidth: true
@@ -136,7 +138,7 @@ Rectangle {
 
         Rectangle{
             id:rectangleSub3
-            color: StringConstants.actionBtnBackgroundColor//testPage_backgroundColor
+            color: StringConstants.barBackgroundColor//StringConstants.actionBtnBackgroundColor//testPage_backgroundColor
             anchors.top: searchLabel.bottom
             Layout.fillWidth: true
             Layout.minimumHeight: 75
@@ -152,7 +154,7 @@ Rectangle {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.leftMargin: 10
-                anchors.rightMargin: 10
+                anchors.rightMargin: 0
                 comboBoxModel: theExistingPatientsModel//["First", "Second", "Third"]//theExistingPatientsModel
                 comboBoxTextRole: "MedicalReference"
                 comboBoxLabel:"MedicalReference"
@@ -182,7 +184,4 @@ Rectangle {
 
 
 
-/*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}
-}
- ##^##*/
+

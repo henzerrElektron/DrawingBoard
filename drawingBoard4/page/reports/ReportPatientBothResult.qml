@@ -57,7 +57,7 @@ Rectangle {
             //SplitView.maximumWidth: parent.width/2
             //Layout.minimumWidth: parent.width/4
             //Layout.preferredWidth: parent.width/2
-           // Layout.minimumHeight: parent.height
+            // Layout.minimumHeight: parent.height
             Layout.column: 1
             Layout.columnSpan: 1
             GridLayout{
@@ -79,7 +79,7 @@ Rectangle {
                     Layout.maximumHeight: 25
                     NewPatientGroupLabel{
                         text: StringConstants.lbl_leftEyeResults//"LeftEyeResults"
-                        font: OtherConstants.fontFamily
+                        font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
                         anchors.fill: parent
@@ -118,16 +118,31 @@ Rectangle {
                     Layout.fillWidth: true
                     Layout.preferredHeight: parent.height/3
                     Layout.maximumHeight: parent.height/3
-                    CommonTableGrid{
-                        id:curTestTabs1
+                    Rectangle
+                    {
+                        id:tableRec
                         anchors.fill: parent
-                        Layout.fillHeight: true
-                        Layout.fillWidth: true
-                        commonTableModel: theLeftPatientResultModel
-                        repeaterModel: 6//theLeftPatientResultModel
-                        searchRecVisibilty:false
-                        proxySoure: theLeftPatientResultModel
+                        anchors.leftMargin: 10
+                        anchors.rightMargin: 10
+                        anchors.bottomMargin: 10
+                        anchors.topMargin: 10
+                        border.width: 3
+                        border.color: StringConstants.actionBtnBackgroundColor
+                        CommonTableGrid{
+                            id:curTestTabs1
+                            anchors.fill: parent
+                            anchors.leftMargin: 10
+                            anchors.rightMargin: 10
+                            anchors.bottomMargin: 10
+                            anchors.topMargin: 10
+                            //Layout.fillHeight: true
+                            //Layout.fillWidth: true
+                            commonTableModel: theLeftPatientResultModel
+                            repeaterModel: 6//theLeftPatientResultModel
+                            searchRecVisibilty:false
+                            proxySoure: theLeftPatientResultModel
 
+                        }
                     }
                 }
             }
@@ -166,7 +181,7 @@ Rectangle {
                     Layout.maximumHeight: 25
                     NewPatientGroupLabel{
                         text: StringConstants.lbl_righEyeResults//"RightEyeResults"
-                        font: OtherConstants.fontFamily
+                        font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
                         anchors.fill: parent
@@ -208,15 +223,28 @@ Rectangle {
                     anchors.top: rectangleSub4.bottom
                     anchors.topMargin: 5
                     anchors.bottom: parent.bottom
-                    CommonTableGrid{
-                        id:curTestTabs2
+                    Rectangle
+                    {
+                        id:tableRec1
                         anchors.fill: parent
-                        Layout.fillHeight: true
-                        Layout.fillWidth: true
-                        commonTableModel: theRightPatientResultModel
-                        repeaterModel: 6//theRightPatientResultModel
-                        searchRecVisibilty:false
-                        proxySoure: theRightPatientResultModel
+                        anchors.leftMargin: 10
+                        anchors.rightMargin: 10
+                        anchors.bottomMargin: 10
+                        anchors.topMargin: 10
+                        border.width: 3
+                        border.color: StringConstants.actionBtnBackgroundColor
+                        CommonTableGrid{
+                            id:curTestTabs2
+                            anchors.fill: parent
+                            anchors.leftMargin: 10
+                            anchors.rightMargin: 10
+                            anchors.bottomMargin: 10
+                            anchors.topMargin: 10
+                            commonTableModel: theRightPatientResultModel
+                            repeaterModel: 6//theRightPatientResultModel
+                            searchRecVisibilty:false
+                            proxySoure: theRightPatientResultModel
+                        }
                     }
                 }
             }

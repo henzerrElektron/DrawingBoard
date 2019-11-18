@@ -4,6 +4,7 @@
 #include <QQmlContext>
 #include <QVariant>
 #include <testresultmodels.h>
+#include <QDirIterator>
 #include <testpagesupplementationmodel.h>
 #include <switchpatienttablemodel.h>
 #include <QTableView>
@@ -16,6 +17,8 @@
 #include "patientresultmodel.h"
 #include "sortfiltermodel.h"
 #include "operatormodel.h"
+#include "testresultconfidencemodel.h"
+#include<QFontDatabase>
 #ifdef QT_DEBUG
 #include "../qt-apps-qmllive-dev/src/livenodeengine.h"
 #include "../qt-apps-qmllive-dev/src/remotereceiver.h"
@@ -26,6 +29,13 @@ int main(int argc, char *argv[])
     QGuiApplication::setApplicationName("MPSRewrite");
     QGuiApplication::setOrganizationName("EET");
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    //QDirIterator it(":/fonts/*.ttf");
+    QDirIterator it(":/", QStringList() << "*.ttf", QDir::Files, QDirIterator::Subdirectories);
+    while (it.hasNext()) {
+        qDebug()<<"The current location of the application is"<<it.next();
+        QFontDatabase::addApplicationFont(it.next());
+
+    }
     QIcon::setThemeName("all");
     QQuickStyle::setStyle("Material");
     QStringList list;
@@ -47,28 +57,49 @@ int main(int argc, char *argv[])
     OperatorModel opModel;
     opModel.addOperator(DeviceOperators(false,"Tester"));
     opModel.addOperator(DeviceOperators(false,"Operator1"));
-    opModel.addOperator(DeviceOperators(false,"Operator2"));
-    opModel.addOperator(DeviceOperators(false,"Operator3"));
-    opModel.addOperator(DeviceOperators(false,"Operators4"));
+    //    opModel.addOperator(DeviceOperators(false,"Operator2"));
+    //    opModel.addOperator(DeviceOperators(false,"Operator3"));
+    //    opModel.addOperator(DeviceOperators(false,"Operators4"));
+    //    opModel.addOperator(DeviceOperators(false,"Operator1"));
+    //    opModel.addOperator(DeviceOperators(false,"Operator2"));
+    //    opModel.addOperator(DeviceOperators(false,"Operator3"));
+    //    opModel.addOperator(DeviceOperators(false,"Operators4"));
 
     MedicalTestModel medTestModel;
     //medTestModel.addMedicalResult(MedicalResult("TestResultNo","TestDate","TestTime","PatientId","RE MP Estimate","RE  MP Absolute","RE MP Adjusted","RE Central Confidence Level","RE Peripheral Confidence Level","LE MP Estimate","LE MP Absolute","LE MP Adjusted","LE Central Confidence Level","LE Peripheral Confidence Level"));
     medTestModel.addMedicalResult(MedicalResult(1,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),1,1.01,2.02,3.03,4.05,5.06,7.07,8.07,3.56,2.69,3.34));
     medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
-//    medTestModel.addMedicalResult(MedicalResult(3,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),3,3.01,4.02,5.03,6.05,7.06,9.07,11.07,21.56,18.69,19.34));
-//    medTestModel.addMedicalResult(MedicalResult(4,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),4,5.01,6.02,7.03,6.05,6.06,8.07,9.07,11.56,1.69,43.34));
-//    medTestModel.addMedicalResult(MedicalResult(5,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),5,2.01,5.02,6.03,5.05,6.06,8.07,9.07,11.56,1.69,16.34));
-//    medTestModel.addMedicalResult(MedicalResult(6,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),6,6.01,3.02,4.03,5.05,6.06,18.07,2.47,17.56,1.29,14.34));
-//    medTestModel.addMedicalResult(MedicalResult(7,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),7,2.01,7.02,3.03,0.05,5.06,38.07,19.07,15.56,1.349,13.34));
-//    medTestModel.addMedicalResult(MedicalResult(8,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),8,2.01,3.02,4.03,6.05,3.06,48.07,2.67,21.56,1.59,15.34));
-//    medTestModel.addMedicalResult(MedicalResult(1,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),1,1.01,2.02,3.03,4.05,5.06,7.07,8.07,3.56,2.69,3.34));
-//    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
-//    medTestModel.addMedicalResult(MedicalResult(3,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),3,3.01,4.02,5.03,6.05,7.06,9.07,11.07,21.56,18.69,19.34));
-//    medTestModel.addMedicalResult(MedicalResult(4,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),4,5.01,6.02,7.03,6.05,6.06,8.07,9.07,11.56,1.69,43.34));
-//    medTestModel.addMedicalResult(MedicalResult(5,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),5,2.01,5.02,6.03,5.05,6.06,8.07,9.07,11.56,1.69,16.34));
-//    medTestModel.addMedicalResult(MedicalResult(6,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),6,6.01,3.02,4.03,5.05,6.06,18.07,2.47,17.56,1.29,14.34));
-//    medTestModel.addMedicalResult(MedicalResult(7,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),7,2.01,7.02,3.03,0.05,5.06,38.07,19.07,15.56,1.349,13.34));
-//    medTestModel.addMedicalResult(MedicalResult(8,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),8,2.01,3.02,4.03,6.05,3.06,48.07,2.67,21.56,1.59,15.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    //    medTestModel.addMedicalResult(MedicalResult(3,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),3,3.01,4.02,5.03,6.05,7.06,9.07,11.07,21.56,18.69,19.34));
+    //    medTestModel.addMedicalResult(MedicalResult(4,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),4,5.01,6.02,7.03,6.05,6.06,8.07,9.07,11.56,1.69,43.34));
+    //    medTestModel.addMedicalResult(MedicalResult(5,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),5,2.01,5.02,6.03,5.05,6.06,8.07,9.07,11.56,1.69,16.34));
+    //    medTestModel.addMedicalResult(MedicalResult(6,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),6,6.01,3.02,4.03,5.05,6.06,18.07,2.47,17.56,1.29,14.34));
+    //    medTestModel.addMedicalResult(MedicalResult(7,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),7,2.01,7.02,3.03,0.05,5.06,38.07,19.07,15.56,1.349,13.34));
+    //    medTestModel.addMedicalResult(MedicalResult(8,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),8,2.01,3.02,4.03,6.05,3.06,48.07,2.67,21.56,1.59,15.34));
+    //    medTestModel.addMedicalResult(MedicalResult(1,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),1,1.01,2.02,3.03,4.05,5.06,7.07,8.07,3.56,2.69,3.34));
+    //    medTestModel.addMedicalResult(MedicalResult(2,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),2,2.01,3.02,4.03,5.05,6.06,8.07,9.07,11.56,1.69,13.34));
+    //    medTestModel.addMedicalResult(MedicalResult(3,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),3,3.01,4.02,5.03,6.05,7.06,9.07,11.07,21.56,18.69,19.34));
+    //    medTestModel.addMedicalResult(MedicalResult(4,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),4,5.01,6.02,7.03,6.05,6.06,8.07,9.07,11.56,1.69,43.34));
+    //    medTestModel.addMedicalResult(MedicalResult(5,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),5,2.01,5.02,6.03,5.05,6.06,8.07,9.07,11.56,1.69,16.34));
+    //    medTestModel.addMedicalResult(MedicalResult(6,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),6,6.01,3.02,4.03,5.05,6.06,18.07,2.47,17.56,1.29,14.34));
+    //    medTestModel.addMedicalResult(MedicalResult(7,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),7,2.01,7.02,3.03,0.05,5.06,38.07,19.07,15.56,1.349,13.34));
+    //    medTestModel.addMedicalResult(MedicalResult(8,QDate::currentDate().toString("dd-MM-yyyy"),QTime::currentTime().toString("mm:hh"),8,2.01,3.02,4.03,6.05,3.06,48.07,2.67,21.56,1.59,15.34));
 
 
     PatientResultModel leftpatResultModel;
@@ -119,84 +150,96 @@ int main(int argc, char *argv[])
 
     SwitchPatientTableModel existingPatientModel;
     // existingPatientModel.addExistingPatient(ExistingPatients("FirstName","SurName","Date","TestResults(R/L)","MedicalReference","Address"));
-    existingPatientModel.addExistingPatient(ExistingPatients("Abc","vm0",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("Bat","vm1",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("Bcd","vm2",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("Bod","vm3",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("falu","vm4",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("meerou","vm5",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("zolnkee","vm6",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("ferdoshi","vm7",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("manshui","vm8",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("perefal","vm9",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("vazhlour","vm10",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("feafrvv","vm11",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("erfavlue","vm12",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("negala","vm13",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("CVDFGDAbc","vm0",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("DFGDFGBat","vm1",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("DFVDFGBcd","vm2",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("DFGBod","vm3",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("FGDFGfalu","vm4",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("FDGDFGmeerou","vm5",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("DFGVDGzolnkee","vm6",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("ASGFDGferdoshi","vm7",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("DFCGmanshui","vm8",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("DFGDFGperefal","vm9",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("DFGvazhlour","vm10",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("GDFGfeafrvv","vm11",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("DFGerfavlue","vm12",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("DFGnegala","vm13",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("DFGAbc","vm0",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("DFGDBat","vm1",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("FDDFGBcd","vm2",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("DDFGBod","vm3",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("DFGfalu","vm4",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("meerou","vm5",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("zolnkee","vm6",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("ferdoshi","vm7",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("manshui","vm8",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("perefal","vm9",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("vazhlour","vm10",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("feafrvv","vm11",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("erfavlue","vm12",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("negala","vm13",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("SDFSFAbc","vm0",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("SDFBat","vm1",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("EWRWERBcd","vm2",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("EWRBod","vm3",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("WERfalu","vm4",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("ACSVmeerou","vm5",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("BDVzolnkee","vm6",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("REWRferdoshi","vm7",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("HNHGNmanshui","vm8",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("DFDFperefal","vm9",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("AFFFvazhlour","vm10",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("VFDFfeafrvv","vm11",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("HFRTGRTerfavlue","vm12",QDate::currentDate(),1.857,"5632fggf424","Address1"));
-    existingPatientModel.addExistingPatient(ExistingPatients("FGDDFGREnegala","vm13",QDate::currentDate(),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Abc","vm0",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Bat","vm1",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Bcd","vm2",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("Bod","vm3",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("falu","vm4",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("meerou","vm5",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("zolnkee","vm6",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("ferdoshi","vm7",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("manshui","vm8",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("perefal","vm9",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("vazhlour","vm10",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("feafrvv","vm11",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("erfavlue","vm12",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("negala","vm13",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("CVDFGDAbc","vm0",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("DFGDFGBat","vm1",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("DFVDFGBcd","vm2",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("DFGBod","vm3",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("FGDFGfalu","vm4",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("FDGDFGmeerou","vm5",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("DFGVDGzolnkee","vm6",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("ASGFDGferdoshi","vm7",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("DFCGmanshui","vm8",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("DFGDFGperefal","vm9",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("DFGvazhlour","vm10",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("GDFGfeafrvv","vm11",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("DFGerfavlue","vm12",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("DFGnegala","vm13",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("DFGAbc","vm0",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("DFGDBat","vm1",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("FDDFGBcd","vm2",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("DDFGBod","vm3",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("DFGfalu","vm4",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("meerou","vm5",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("zolnkee","vm6",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("ferdoshi","vm7",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("manshui","vm8",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("perefal","vm9",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("vazhlour","vm10",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("feafrvv","vm11",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("erfavlue","vm12",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("negala","vm13",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("SDFSFAbc","vm0",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("SDFBat","vm1",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("EWRWERBcd","vm2",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("EWRBod","vm3",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("WERfalu","vm4",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("ACSVmeerou","vm5",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("BDVzolnkee","vm6",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("REWRferdoshi","vm7",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("HNHGNmanshui","vm8",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("DFDFperefal","vm9",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("AFFFvazhlour","vm10",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("VFDFfeafrvv","vm11",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("HFRTGRTerfavlue","vm12",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
+    existingPatientModel.addExistingPatient(ExistingPatients("FGDDFGREnegala","vm13",QDate::currentDate().toString("dd-MM-yyyy"),1.857,"5632fggf424","Address1"));
 
     TestPageSupplementationModel supplementModel;
     //supplementModel.addSupplement(Supplementation("Date","Dosage","PerDay","Description"));
     supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
     supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
-//    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
+    //    supplementModel.addSupplement(Supplementation(QDate::currentDate().toString("dd-MM-yyyy"),"test",1,"testing"));
 
+    TestResultConfidenceModel confidenceModel;
     TestResultModels model;// = nullptr;
     //model.addResult(Result("ConfidenceLevel","Right","Left"));
     model.addResult(Result("Central","Accept","Reject"));
@@ -246,6 +289,7 @@ int main(int argc, char *argv[])
     dataList.append("Item 3");
     dataList.append("Item 4");
     //engine.rootContext()->setContextProperty("availableStyles", QQuickStyle::availableStyles());
+    engine.rootContext()->setContextProperty("theConfidenceModel",&confidenceModel);
     engine.rootContext()->setContextProperty("theModel", &model);
     engine.rootContext()->setContextProperty("theModel1", &model1);
     engine.rootContext()->setContextProperty("theModel2", &model2);
@@ -259,6 +303,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("filterModel",&filterModel1);
     engine.rootContext()->setContextProperty("filterModel",&filterModel2);
     engine.rootContext()->setContextProperty("myModel", QVariant::fromValue(dataList));
+    engine.rootContext()->setContextProperty("applicationDirPath", QGuiApplication::applicationDirPath());
     qmlRegisterType<OperatorModel>("OperatorModel",0,1,"OperatorModel");
     qmlRegisterType<TestResultModels>("TestResultModels",0,1,"TestResultModels");
     qmlRegisterType<TestPageSupplementationModel>("TestPageSupplementationModel",0,1,"TestPageSupplementationModel");
@@ -305,30 +350,30 @@ int main(int argc, char *argv[])
 
 
 #ifdef QT_DEBUG
-//    LiveNodeEngine node;
+    //    LiveNodeEngine node;
 
-//    // Let QmlLive know your runtime
-//    node.setQmlEngine(&engine);
+    //    // Let QmlLive know your runtime
+    //    node.setQmlEngine(&engine);
 
-//    // Allow it to display QML components with non-QQuickWindow root object
-//    QQuickView fallbackView(&engine, 0);
-//    node.setFallbackView(&fallbackView);
+    //    // Allow it to display QML components with non-QQuickWindow root object
+    //    QQuickView fallbackView(&engine, 0);
+    //    node.setFallbackView(&fallbackView);
 
-//    // Tell it where file updates should be stored relative to
-//    node.setWorkspace(SRCDIR,
-//                      LiveNodeEngine::AllowUpdates | LiveNodeEngine::UpdatesAsOverlay);
+    //    // Tell it where file updates should be stored relative to
+    //    node.setWorkspace(SRCDIR,
+    //                      LiveNodeEngine::AllowUpdates | LiveNodeEngine::UpdatesAsOverlay);
 
-//    // Listen to IPC call from remote QmlLive Bench
-//    RemoteReceiver receiver;
-//    receiver.registerNode(&node);
-//    receiver.listen(10234);
+    //    // Listen to IPC call from remote QmlLive Bench
+    //    RemoteReceiver receiver;
+    //    receiver.registerNode(&node);
+    //    receiver.listen(10234);
 
-//    QQuickWindow* window = qobject_cast<QQuickWindow *>(engine.rootObjects().first());
+    //    QQuickWindow* window = qobject_cast<QQuickWindow *>(engine.rootObjects().first());
 
-//    // Advanced use: let it know the initially loaded QML component (do this
-//    // only after registering to receiver!)
-//    QList<QQmlError> warnings;
-//    node.usePreloadedDocument(qmlFile.toString(), window, warnings);
+    //    // Advanced use: let it know the initially loaded QML component (do this
+    //    // only after registering to receiver!)
+    //    QList<QQmlError> warnings;
+    //    node.usePreloadedDocument(qmlFile.toString(), window, warnings);
 #endif
     return app.exec();
 }

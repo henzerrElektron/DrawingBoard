@@ -15,6 +15,7 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
 import ApplicationConstants 1.0
 import "./../../common/"
+import "./../reports/"
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
@@ -23,7 +24,10 @@ Page {
     anchors.fill: parent
     Layout.fillHeight: true
     Layout.fillWidth: true
-    anchors.topMargin: 10
+    Layout.topMargin: 10
+    Layout.bottomMargin: 10
+    Layout.leftMargin: 10
+    Layout.rightMargin: 10
     property int prevTestBtnHeight: 0
     property int prevReportBtnHeight: 0
     property int prevTimelineBtnHeight: 0
@@ -41,7 +45,7 @@ Page {
         Material.accent:"transparent"
         background: Rectangle {
             anchors.fill: parent
-            color: StringConstants.headerBackgroundColor
+            color: StringConstants.barBackgroundColor//StringConstants.headerBackgroundColor
             //border.width: 2
             //border.color: StringConstants.barBackgroundColor
             CommonBorder
@@ -103,9 +107,12 @@ Page {
             timelineBtn.height = timelineBtn.height - 10
             reportBtn.height =  reportBtn.height - 10
             testBtn.height =  testBtn.height + 3
-            reportBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            timelineBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            testBtn.backColor=StringConstants.actionBtnBackgroundColor
+            reportBtn.backColor=StringConstants.testPage_unCheckBtnBgColor
+            reportBtn.txtColor=StringConstants.actionBtnBackgroundColor
+            timelineBtn.backColor=StringConstants.testPage_unCheckBtnBgColor
+            timelineBtn.txtColor=StringConstants.actionBtnBackgroundColor
+            testBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            testBtn.txtColor=StringConstants.barBackgroundColor
             /////////////////////////////////////////////////////////reportTimeline.setState()
         }
         function  reportBtnClicked()//patientBtnClicked()
@@ -132,9 +139,12 @@ Page {
             timelineBtn.height =  timelineBtn.height - 10
             testBtn.height = testBtn.height - 10
             reportBtn.height = reportBtn.height + 3
-            testBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            timelineBtn.backColor=StringConstants.label_NewPatientLabelBgColor
-            reportBtn.backColor=StringConstants.actionBtnBackgroundColor
+            testBtn.backColor=StringConstants.testPage_unCheckBtnBgColor
+            testBtn.txtColor=StringConstants.actionBtnBackgroundColor
+            timelineBtn.backColor=StringConstants.testPage_unCheckBtnBgColor
+            timelineBtn.txtColor=StringConstants.actionBtnBackgroundColor
+            reportBtn.backColor=StringConstants.label_NewPatientLabelBgColor
+            reportBtn.txtColor=StringConstants.barBackgroundColor
             ///////////////////////////////////mainTime.setState()
         }
 
@@ -162,9 +172,12 @@ Page {
             testBtn.height = testBtn.height - 10
             reportBtn.height = reportBtn.height -10
             timelineBtn.height =  timelineBtn.height +3
-            testBtn.backColor = StringConstants.label_NewPatientLabelBgColor
-            reportBtn.backColor = StringConstants.label_NewPatientLabelBgColor
-            timelineBtn.backColor = StringConstants.actionBtnBackgroundColor
+            testBtn.backColor = StringConstants.testPage_unCheckBtnBgColor
+            testBtn.txtColor = StringConstants.actionBtnBackgroundColor
+            reportBtn.backColor = StringConstants.testPage_unCheckBtnBgColor
+            reportBtn.txtColor = StringConstants.actionBtnBackgroundColor
+            timelineBtn.backColor = StringConstants.label_NewPatientLabelBgColor
+            timelineBtn.txtColor = StringConstants.barBackgroundColor
         }
         ReportTabButton {
             id:testBtn
@@ -225,7 +238,7 @@ Page {
             //anchors.fill: parent
             Rectangle{
                 id:xyPlotRec
-                color: StringConstants.testPage_backgroundColor
+                color: StringConstants.barBackgroundColor
                 anchors.fill: parent
                 //                anchors.leftMargin: 25
                 //                anchors.rightMargin: 25
@@ -236,10 +249,10 @@ Page {
                     //width: 500
                     //height: 500
                     anchors.fill: parent
-                    anchors.leftMargin: 25
-                    anchors.rightMargin: 25
-                    anchors.bottomMargin: 25
-                    anchors.topMargin: 25
+                    anchors.leftMargin: 125
+                    anchors.rightMargin: 125
+                    anchors.bottomMargin: 125
+                    anchors.topMargin: 125
                     //anchors.left: rectangle1.left
                     //anchors.right: rectangle2.left
                     //anchors.top: rectangle1.top
@@ -270,10 +283,18 @@ Page {
         Page {
             id: page3
             visible: false;
-            background: Rectangle { color: "magenta" }
-            Label {
-                text: "Page3"
+            ReportPatientTimeline{
+                id:mainTime
+                searchVisible: false
+                pageHeaderVisible:false
+                anchors.fill: parent
+
             }
+
+            //            background: Rectangle { color: "magenta" }
+            //            Label {
+            //                text: "Page3"
+            //            }
         }
     }
     PageIndicator {
