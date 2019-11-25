@@ -33,10 +33,14 @@ Page{
         anchors.right: parent.right
         color: "transparent"
         height: 50
+        border.color: StringConstants.actionBtnBorderColor
+        border.width: 2
         NewPatientGroupLabel{
             id:leftLabel
             text: StringConstants.lbl_npNotes
             anchors.fill: parent
+            anchors.leftMargin: 10
+            anchors.rightMargin: 10
             //anchors.centerIn: parent
         }
     }
@@ -48,8 +52,8 @@ Page{
         anchors.top: rectangle.bottom
         anchors.bottom: parent.bottom
         //color: StringConstants.actionBtnBackgroundColor
-        border.color: StringConstants.actionBtnBackgroundColor
-        border.width: 10
+        border.color: StringConstants.actionBtnBorderColor
+        border.width: 2
 
         TextEdit {
             id: textEdit

@@ -36,6 +36,20 @@ Rectangle {
     onInvokeIndex: {
         console.log("Index invoked"+index)
     }
+    function changeVisibility(index)
+    {
+        if(index === 0)
+        {
+            rectangle6.visible = true
+            rectangle3.visible = true
+        }
+        else
+        {
+            rectangle6.visible = false
+            rectangle3.visible = false
+        }
+    }
+
     GridLayout {
         id: gridLayout
         anchors.fill: parent
@@ -48,7 +62,7 @@ Rectangle {
         //    Layout.alignment: Qt.AlignLeft | Qt.AlignTop
         Rectangle{
             id:rectangle1
-            color: "transparent"
+            color: StringConstants.actionBtnBackgroundColor//"transparent"
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.row: 1
@@ -115,11 +129,15 @@ Rectangle {
                 //                anchors.top: rectangle1.top
                 //                anchors.bottom: rectangle1.bottom
                 //            }
+                Component.onCompleted: {
+                      currentIndexValue.connect(testPage.changeVisibility)
+                }
             }
+
         }
         Rectangle{
             id:rectangle3
-            color: "green"//"transparent"
+            color: StringConstants.color_gbTransparent//StringConstants.actionBtnBackgroundColor//"green"//"transparent"
             // anchors.top: rectangle1.bottom//parent.top//
             // anchors.left: rectangle2.right
             // anchors.bottom: rectangle6.top
@@ -132,6 +150,7 @@ Rectangle {
             Layout.row: 2
             //Layout.minimumHeight: 400
             Layout.minimumWidth: parent.width -rectangle2.width
+            Layout.maximumHeight: parent.height - rectangle6.height
             //Layout.maximumWidth: parent.width - rectangle2.width
             //Layout.preferredWidth:  parent.width - rectangle2.width
             //width: parent.width - rectangle2.width
@@ -150,7 +169,7 @@ Rectangle {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                     Layout.maximumHeight: parent.height/5
-                    Layout.row: 1
+                    Layout.row: 2
                     TestController{
                         id:curTestControl
                         anchors.fill: parent
@@ -161,12 +180,15 @@ Rectangle {
                 Rectangle{
                     id:rectangle5
                     //color: "black"
-                    color: StringConstants.testPage_backgroundColor//"transparent" "transparent"
+                    color: StringConstants.color_gbTransparent//StringConstants.testPage_backgroundColor//"transparent" "transparent"
                     Layout.column: 1
                     Layout.columnSpan: 1
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    Layout.row: 2
+                    Layout.row: 1
+                    //Layout.margins: 10
+                    //Layout.leftMargin: 10
+                    Layout.rightMargin: 10
                     //anchors.top: rectangle4.bottom
                     // anchors.topMargin: -5
                     //  anchors.bottom: parent.bottom
@@ -174,8 +196,8 @@ Rectangle {
                     TestTabs{
                         id:curTestTabs
                         anchors.fill: parent
-                        Layout.fillHeight: true
-                        Layout.fillWidth: true
+                        //Layout.fillHeight: true
+                        //Layout.fillWidth: true
                     }
                 }
             }
@@ -187,7 +209,7 @@ Rectangle {
             anchors.top: rectangle5.bottom
             anchors.left: parent.left
             anchors.bottom: parent.bottom
-            anchors.right: parent.right
+            anchors.right: rectangle2.right//parent.right
             //anchors.fill: parent
             Layout.column: 1
             Layout.columnSpan: 1

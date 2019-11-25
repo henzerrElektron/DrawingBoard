@@ -26,6 +26,7 @@ import ApplicationConstants 1.0
 //import ApplicationOtherConstants 1.0
 Page{
     id:supplementTabPage
+    anchors.fill: parent
     //    Rectangle{
     //        id:rectangle
     //        anchors.left: parent.left

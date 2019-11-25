@@ -44,7 +44,8 @@ Rectangle {
                 padding: 10
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
-                background: Rectangle {  color:StringConstants.barBackgroundColor}// === "transparent"?"#333333":model.decoration}
+                background: Rectangle {  color:StringConstants.barBackgroundColor;
+                border.width: 1;border.color: StringConstants.barBorderColor}// === "transparent"?"#333333":model.decoration}
             }
         }
 
@@ -71,7 +72,8 @@ Rectangle {
                 padding: 10
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
-                background: Rectangle { color: StringConstants.barBackgroundColor}//=== "transparent"?"#333333":model.decoration}
+                background: Rectangle { color: StringConstants.barBackgroundColor;
+                 border.width: 1;border.color: StringConstants.barBorderColor}//=== "transparent"?"#333333":model.decoration}
                 //background: Rectangle { color: "#333333" }
             }
         }

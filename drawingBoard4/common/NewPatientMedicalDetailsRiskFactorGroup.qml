@@ -83,6 +83,7 @@ GridView {
                 //border.width: 1
                // border.color:  StringConstants.borderColorBlack//StringConstants.barBackgroundColor
                 //color: "yellow"
+                color: StringConstants.color_gbTransparent
                 NewPatientRiskFactorSwitchSliderHorizontal{
                     id:rightFittedOperator
                     //anchors.fill: parent

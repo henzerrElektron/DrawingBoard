@@ -82,7 +82,7 @@ int TestResultConfidenceModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid())
         return 0;
-    return 15;
+    return 12;
 }
 
 int TestResultConfidenceModel::columnCount(const QModelIndex &parent) const

@@ -98,8 +98,8 @@ Rectangle{
     anchors.leftMargin: 20
     anchors.rightMargin: 20
     color: StringConstants.color_gbTransparent//StringConstants.borderColorBlack//StringConstants.color_gbTransparent//
-    //border.width: 2
-    //border.color:  StringConstants.borderColorBlack//StringConstants.barBackgroundColor
+    border.width: 2
+    border.color:  StringConstants.color_gbTransparent//StringConstants.barBackgroundColor
     GridLayout{
         //
         id:mainGrid

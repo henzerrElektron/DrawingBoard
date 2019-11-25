@@ -214,8 +214,11 @@ Page {
     }
 
     SwipeView {
-        id: testview//swipeView
+        id: testview
         anchors.fill: parent
+        anchors.left: bar.right
+        anchors.right: bar.left
+        //swipeView
         //initialItem: page1//bar.currentIndex
         currentIndex: bar.currentIndex
         clip: true
@@ -359,6 +362,12 @@ Page {
 //  }
 
 //}
+
+
+
+
+
+
 
 
 

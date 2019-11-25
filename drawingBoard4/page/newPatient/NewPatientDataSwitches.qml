@@ -30,6 +30,9 @@ Rectangle{
     property bool horOrVer: true//false
     property alias secondSwitchVisible: elementYesNo.visible
     property alias firstSwitchVisible: elementKnown.visible
+    property alias firstSwitchText: elementKnown.text
+    property alias switchChecked: elementKnown.checked
+    property alias switchVisible:  elementKnown.visible
     //anchors.fill: parent
     width: mainLayout.width
     height: mainLayout.height
@@ -56,6 +59,8 @@ Rectangle{
         rows: horOrVer?2:1
         columnSpacing: horOrVer?10:20
         rowSpacing:horOrVer?5:10
+        width: elementKnown.width
+        height: elementKnown.height+elementYesNo.height
         //anchors.fill: parent
         //spacing: 10
 

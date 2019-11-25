@@ -28,6 +28,7 @@ Page {
     Layout.bottomMargin: 10
     Layout.leftMargin: 10
     Layout.rightMargin: 10
+    signal currentIndexValue(int index)
     property int prevTestBtnHeight: 0
     property int prevReportBtnHeight: 0
     property int prevTimelineBtnHeight: 0
@@ -81,6 +82,8 @@ Page {
             {
                 timelineBtnClicked()
             }
+            currentIndexValue(index)
+
         }
         function testBtnClicked()//praticeBtnClicked()
         {
@@ -283,13 +286,24 @@ Page {
         Page {
             id: page3
             visible: false;
-            ReportPatientTimeline{
-                id:mainTime
-                searchVisible: false
-                pageHeaderVisible:false
+            Rectangle{
+                id:bothResultTabPage
+                color:StringConstants.headerBackgroundColor
                 anchors.fill: parent
-
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                ReportPatientBothResult{
+                    id:bothResult
+                    anchors.fill: parent
+                }
             }
+//            ReportPatientTimeline{
+//                id:mainTime
+//                searchVisible: false
+//                pageHeaderVisible:false
+//                anchors.fill: parent
+
+//            }
 
             //            background: Rectangle { color: "magenta" }
             //            Label {

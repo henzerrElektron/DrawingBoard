@@ -93,9 +93,9 @@ Rectangle {
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.row: 2
-            Layout.preferredHeight: parent.height - labelRec.height - 50
-            Layout.minimumHeight: parent.height - labelRec.height - 50
-            Layout.maximumHeight:  parent.height - labelRec.height  -50
+            Layout.preferredHeight: parent.height - labelRec.height// - 50
+            Layout.minimumHeight: parent.height - labelRec.height// - 50
+            Layout.maximumHeight:  parent.height - labelRec.height//  -50
             Layout.minimumWidth: parent.width/2 + parent.width/4
             Rectangle
             {

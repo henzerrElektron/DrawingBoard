@@ -60,6 +60,14 @@ Rectangle{
                 text = qsTr("US/Imperial")
             }
         }
+        contentItem: Text {
+                          text: switchMetrics.text
+                          font: switchMetrics.font
+                          opacity: enabled ? 1.0 : 0.3
+                          color: "white"
+                          verticalAlignment: Text.AlignVCenter
+                          leftPadding: switchMetrics.indicator.width + switchMetrics.spacing
+                      }
     }
     IconOnlyButtons{
         id:addSupplement
