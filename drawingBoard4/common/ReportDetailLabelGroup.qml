@@ -10,7 +10,7 @@ import ApplicationConstants 1.0
 import Qt.labs.qmlmodels 1.0
 GridView {
     id: theListView
-    //anchors.fill: parent
+    anchors.fill: parent
     property var group: ""
     property var group1: ""
     //property alias group:allPageModel.filterOnGroup
@@ -43,9 +43,14 @@ GridView {
         console.log("The invokeIndex is"+index)
     }
     cellWidth: parent.width/2
-    cellHeight: parent.height/count < 25? 25:parent.height/count
+    cellHeight: parent.height/count//(parent.height/count < 14) ? 14:parent.height/count
     width:parent.width//actionOrHome ?count*cellWidth:count*cellWidth
     height: parent.height//count*cellHeight//actionOrHome ?cellHeight:cellHeight
+   // onWidthChanged: update()
+    onHeightChanged:
+      theListView.cellHeight = (height/count < 14) ? 14:height/count
+    //onCellHeightChanged: update()
+    //onCellWidthChanged: update()
     function doFilter()
     {
         if(filterName === StringConstants.report_PatientDetailModel)
@@ -90,8 +95,9 @@ GridView {
                // text: actionName
                // font:OtherConstants.fontFamily
                 color: "white"
-                font.pixelSize: 20
+               // font.pixelSize: (parent.height/(count))//12//20
                 font.bold: true
+                //font.pixelSize: label.height// -5
                 height: GridView.view.cellHeight //- label.y
                 width: GridView.view.cellWidth
             }

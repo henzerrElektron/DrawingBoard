@@ -35,9 +35,9 @@ Rectangle {
         pageHeader.visible = subRec.visible
     }
 
-    color: StringConstants.testPage_backgroundColor//"white"//StringConstants.testPage_backgroundColor
+    color:StringConstants.barBackgroundColor//StringConstants.testPage_backgroundColor//"white"//StringConstants.testPage_backgroundColor
     anchors.top: parent.top
-    anchors.topMargin: 5
+    //anchors.topMargin: 5
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: parent.bottom
@@ -69,46 +69,58 @@ Rectangle {
         rows: 5
         columnSpacing: 10
         rowSpacing: 5
+
+
         Rectangle{
             id:rectangleSub1
-            color: StringConstants.barBackgroundColor//StringConstants.testPage_backgroundColor
+            color: StringConstants.barBackgroundColor
+            Layout.rightMargin: 2
+            Layout.leftMargin: 2
+            Layout.bottomMargin: 2
+            Layout.topMargin: 2//"white"
+            border.width: 3
+            border.color:  StringConstants.label_NewPatientLabelBgColor
+            //Layout.topMargin: 10//StringConstants.testPage_backgroundColor
+            //Layout.bottomMargin: 10
+            //Layout.column: 1
+            //Layout.row: 1
+            //Layout.fillHeight: true
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
+            //Layout.rightMargin: 20
+            //Layout.topMargin: 10
+            //Layout.bottomMargin: 10
+            //width: 100
+            //height: 50//150
             Layout.column: 1
             Layout.columnSpan: 2
             Layout.row: 1
-            //Layout.fillHeight: true
             Layout.fillWidth: true
-            visible: true
-            //width: 100
-            height: 110//150
-            border.width: 2
-            border.color: StringConstants.label_NewPatientLabelBgColor
+            Layout.minimumHeight:80// parent.height/5//110//75+searchLabel.height<110?110:75+searchLabel.height
+
             SwitchSearchItems{
                 id:switchItems
                 visible: true
-                anchors.fill: parent
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 10
+                anchors.rightMargin: 10
+                anchors.bottomMargin: 5
+                //anchors.top: searchLabel.bottom
+                anchors.topMargin:6//10//(((parent.height) - searchLabel.height)/2)-5
                 pageHeader: StringConstants.lbl_rpSelectPatient//StringConstants.label_searchQuestion
                 patientFirstNameModel:theExistingPatientsModel
                 patientSurNameModel:theExistingPatientsModel
                 medicalRefModel: theExistingPatientsModel
             }
 
-            //            NewPatientDataTumbler{
-            //                id:pagePatients
-            //                anchors.fill: parent
-            //                labelText: StringConstants.lbl_rpSelectPatient
-            //                firstTumblerVisibility: false
-            //                secTumblerVisibility: false
-            //                thirdTumblerVisibility: false
-            //                firstTumblerModel:OtherConstants.modelSamplePatients
-            //                comboBoxModel: OtherConstants.modelSamplePatients
-            //            }
         }
         Rectangle{
             id:subRec
             Layout.row: 2
             Layout.column: 1
             Layout.columnSpan: 2
-            anchors.topMargin: 5
+            //anchors.topMargin: 5
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.preferredHeight: parent.height/4
@@ -153,14 +165,15 @@ Rectangle {
             id:rectangleTabs
             color: StringConstants.testPage_backgroundColor
             anchors.top: subRec.bottom
-            anchors.topMargin: 5
+            //anchors.topMargin: 5
             Layout.column: 1
             Layout.columnSpan: 2
             Layout.row: 3
             Layout.rowSpan: 2
             Layout.fillHeight: true
             Layout.fillWidth: true
-            ReportPatientResultTabs{
+            //ReportPatientResultTabs{
+             ReportPatientBothResult{
                 id:resultTabs
                 anchors.fill: parent
 
@@ -332,6 +345,10 @@ Rectangle {
         //        }
     }
 }
+
+
+
+
 
 
 

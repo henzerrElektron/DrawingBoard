@@ -106,7 +106,7 @@ Rectangle {
             Layout.minimumHeight: parent.height - rectangle1.height
             Layout.maximumHeight: parent.height - rectangle1.height
             Layout.preferredHeight: parent.height - rectangle1.height
-            Layout.minimumWidth: parent.width/2 + parent.width/4
+            Layout.minimumWidth: parent.width/2 + parent.width/5
             //Layout.preferredHeight:400
             //Layout.preferredWidth:400
             //            XYPlot{
@@ -168,8 +168,8 @@ Rectangle {
                     Layout.columnSpan: 1
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    Layout.maximumHeight: parent.height/5
-                    Layout.row: 2
+                    Layout.maximumHeight: parent.height/4
+                    Layout.row: 1
                     TestController{
                         id:curTestControl
                         anchors.fill: parent
@@ -185,7 +185,7 @@ Rectangle {
                     Layout.columnSpan: 1
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    Layout.row: 1
+                    Layout.row: 2
                     //Layout.margins: 10
                     //Layout.leftMargin: 10
                     Layout.rightMargin: 10

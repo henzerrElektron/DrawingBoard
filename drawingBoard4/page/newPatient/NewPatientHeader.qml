@@ -53,7 +53,7 @@ Rectangle {
         Rectangle {
             id: rectangle1
             color: StringConstants.testPage_backgroundColor
-            height:75// pgTitle.height
+            height:75//75// pgTitle.height
             Layout.fillWidth: true
             Layout.row: 1
             PageTitle{
@@ -78,7 +78,7 @@ Rectangle {
             Layout.rowSpan: 2
             Layout.leftMargin: 10
             Layout.rightMargin: 10
-            Layout.bottomMargin: 10
+            Layout.bottomMargin: 5//10
             GridLayout{
                 id: mainCol
                 anchors.fill: parent
@@ -228,7 +228,7 @@ Rectangle {
                     NewPatientPersonalDetailEntryGroup{
                         id:pageLabels
                         anchors.top: parent.top
-                        anchors.topMargin: IntegerConstants.margin10
+                        anchors.topMargin: 0//IntegerConstants.margin10
                         anchors.bottom: parent.bottom
                         anchors.bottomMargin: 0
                         anchors.right: parent.right
@@ -275,17 +275,22 @@ Rectangle {
                     color:StringConstants.actionBtnBackgroundColor//testPage_backgroundColor// "black"//
                     Layout.column: 1
                     border.color: StringConstants.barBackgroundColor
-                    border.width: 5
+                    border.width: 1
                     // Layout.row: 1
                     // Layout.rowSpan: 3
                     //anchors.left: rectangleSub3.right
-                    //Layout.fillHeight: true
-                    Layout.topMargin: 10
-                    Layout.rightMargin: 30
+                   // anchors.top: rectangle2.top
+                    anchors.bottom: rectangle2.bottom
+                    Layout.minimumHeight: rectangle2.height - 5//< 400?400:rectangle2.height
+                    Layout.maximumHeight: rectangle2.height - 5//
+                    Layout.fillHeight: true
+                    Layout.topMargin: 5
+                    //Layout.rightMargin: 30
                      Layout.leftMargin: 20
-                    Layout.preferredWidth: pageSwitchButtons.width//pageSwitchButtons.width
-                    Layout.maximumWidth: pageSwitchButtons.width//parent.width/4
+                    Layout.preferredWidth: pgTitle.actionGridWidth - 20//pageSwitchButtons.width//pageSwitchButtons.width
+                    Layout.maximumWidth: pgTitle.actionGridWidth - 20//pageSwitchButtons.width//parent.width/4
                     //Layout.fillWidth: true
+
                     Layout.alignment: Qt.AlignRight
                     NewPatientDobTumbler{
                         id:pageSwitchButtons
@@ -296,9 +301,16 @@ Rectangle {
                         //anchors.fill: parent
                         // width: parent.width/2
                         // height: parent.height/2
-                        anchors.right: parent.right
-                        //anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+                       // anchors.right: parent.right
+                        anchors.horizontalCenter: parent.horizontalCenter
                         /// anchors.verticalCenter: parent.verticalCenter
+                        Component.onCompleted: {
+                            setTumblerYear(0)//IntegerConstants.dobStartDate
+                            setTumblerDate(0)
+                            setTumblerMonth(0)
+                        }
                     }//TestPageSwitchButtons
                 }
 

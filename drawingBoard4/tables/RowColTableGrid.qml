@@ -21,7 +21,7 @@ Rectangle {
     //     id: grid
     //     anchors.fill: parent
     property alias commonTableModel: mainTable.model
-
+    property int val: 0
     Row {
         id: row
         x: 0
@@ -35,8 +35,8 @@ Rectangle {
         Repeater {
             model: mainTable.columns > 0 ? mainTable.columns : 1
             Label {
-               // id:lbl
-                width: mainTable.columnWidthProvider(modelData)//+(rectangle.width/mainTable.columns)
+                // id:lbl
+                width: mainTable.columnWidthProvider(1)//mainTable.columnWidthProvider(modelData)//+(rectangle.width/mainTable.columns)
                 height: rectangle.height
                 text: commonTableModel.headerData(modelData, Qt.Horizontal,"heading")
                 color: StringConstants.actionBtnBackgroundColor
@@ -45,88 +45,104 @@ Rectangle {
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
                 background: Rectangle {  color:StringConstants.barBackgroundColor;
-                border.width: 1;border.color: StringConstants.barBorderColor}// === "transparent"?"#333333":model.decoration}
+                    border.width: 1;border.color: StringConstants.barBorderColor}// === "transparent"?"#333333":model.decoration}
             }
         }
 
     }
 
-    Column {
-        id: column
-        width: rectangle.width
-        anchors.left: parent.left
-        anchors.leftMargin: 0
-        anchors.top: rectangle.bottom
-        anchors.topMargin: 0
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 0
-        Repeater {
-            model: mainTable.rows > 0 ? mainTable.rows : 1
-            Label {
-                ///id:colLbl
-                width: rectangle.width
-                height: mainTable.rowHeightProvider(modelData)//+(rectangle.height/mainTable.rows)
-                text: commonTableModel.headerData(modelData, Qt.Vertical,"heading")
-                color: StringConstants.actionBtnBackgroundColor//'#aaaaaa'
-                font.pixelSize: 12//colLbl.width/2//15
-                padding: 10
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-                background: Rectangle { color: StringConstants.barBackgroundColor;
-                 border.width: 1;border.color: StringConstants.barBorderColor}//=== "transparent"?"#333333":model.decoration}
-                //background: Rectangle { color: "#333333" }
-            }
-        }
+    //    Column {
+    //        id: column
+    //        width: rectangle.width
+    //        anchors.left: parent.left
+    //        anchors.leftMargin: 0
+    //        anchors.top: rectangle.bottom
+    //        anchors.topMargin: 0
+    //        anchors.bottom: parent.bottom
+    //        anchors.bottomMargin: 0
+    //        Repeater {
+    //            model: mainTable.rows > 0 ? mainTable.rows : 1
+    //            Label {
+    //                ///id:colLbl
+    //                width: rectangle.width
+    //                height: mainTable.rowHeightProvider(modelData)//+(rectangle.height/mainTable.rows)
+    //                text: commonTableModel.headerData(modelData, Qt.Vertical,"heading")
+    //                color: StringConstants.actionBtnBackgroundColor//'#aaaaaa'
+    //                font.pixelSize: 12//colLbl.width/2//15
+    //                padding: 10
+    //                verticalAlignment: Text.AlignVCenter
+    //                horizontalAlignment: Text.AlignHCenter
+    //                background: Rectangle { color: StringConstants.barBackgroundColor;
+    //                 border.width: 1;border.color: StringConstants.barBorderColor}//=== "transparent"?"#333333":model.decoration}
+    //                //background: Rectangle { color: "#333333" }
+    //            }
+    //        }
 
-    }
+    //    }
 
     Rectangle {
         id: rectangle
         y: 0
-        width: mainTable.columnWidthProvider(1)<10?150:mainTable.columnWidthProvider(1)
+        width: mainTable.columnWidthProvider(0)//<10?250:mainTable.columnWidthProvider(1)
         height:mainTable.rowHeightProvider(1)<10?25:mainTable.rowHeightProvider(1)
-        color: "#ffffff"
+        color: "#ffffff"//StringConstants.barAlternateColor//
         anchors.left: parent.left
         anchors.leftMargin: 0
         anchors.top: parent.top
+        Text {
+            id: name
+            text: qsTr("Confidence Level")
+            anchors.centerIn: parent
+            color: 'black'
+            font.pixelSize: 15
+        }
     }
     Rectangle{
         id:mainRec
-        anchors.left: rectangle.right
+        anchors.left: parent.left//rectangle.right
         anchors.top: rectangle.bottom
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         //width: 500
         //height: 500
         TableView {
-                id: mainTable
-                onHeightChanged: forceLayout()
-                onWidthChanged: forceLayout()
-                columnWidthProvider: function (column) { return (parent.width)/columns; }// - rectangle.width
-                rowHeightProvider: function (column) { return (parent.height )/rows; }//- rectangle.height
-                anchors.fill: parent
-               // leftMargin: rowsHeader.implicitWidth
-               // topMargin: columnsHeader.implicitHeight
-                //model: table_model
-                ScrollBar.horizontal: ScrollBar{}
-                ScrollBar.vertical: ScrollBar{}
-                clip: true
-                delegate: Rectangle {
-                    Text {
-                        text: display
-                        anchors.fill: parent
-                        anchors.margins: 10
-                        color: 'black'
-                        font.pixelSize: 15
-                        verticalAlignment: Text.AlignVCenter
-                        horizontalAlignment: Text.AlignHCenter
-                    }
+            id: mainTable
+            onHeightChanged: forceLayout()
+            onWidthChanged: forceLayout()
+            columnWidthProvider: function (column) {
+                if(column === 0)
+                {
+                    return ((parent.width)/(columns))+35;
                 }
-                ScrollIndicator.horizontal: ScrollIndicator { }
-                ScrollIndicator.vertical: ScrollIndicator { }
-           }
+                else
+                {
+                    return ((parent.width)/(columns)) - 17;
+                }
+            }// - rectangle.width
+            rowHeightProvider: function (column) { return (parent.height )/rows; }//- rectangle.height
+            anchors.fill: parent
+            // leftMargin: rowsHeader.implicitWidth
+            // topMargin: columnsHeader.implicitHeight
+            //model: table_model
+            ScrollBar.horizontal: ScrollBar{}
+            ScrollBar.vertical: ScrollBar{}
+            clip: true
+            delegate: Rectangle {
+                Text {
+                    text: display
+                    anchors.fill: parent
+                    anchors.margins: 10
+                    color: 'black'
+                    font.pixelSize: 15
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                }
+            }
+            ScrollIndicator.horizontal: ScrollIndicator { }
+            ScrollIndicator.vertical: ScrollIndicator { }
         }
     }
+}
 
 
 

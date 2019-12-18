@@ -76,11 +76,12 @@ GridView {
                 id:label
                 height: GridView.view.cellHeight
                 width: GridView.view.cellWidth
-                font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
+                //topInset: 10
+                font { family: OtherConstants.fontFamily; pixelSize: 10; weight: Font.Bold; capitalization: Font.MixedCase }
                 background: Rectangle {
                           //implicitWidth: 200
-                          //implicitHeight: 40
-                          color: StringConstants.barBackgroundColor//control.enabled ? "transparent" : "#353637"
+                         // implicitHeight: GridView.view.cellWidth
+                         // color: StringConstants.color_gbTransparent//StringConstants.barBackgroundColor//control.enabled ? "transparent" : "#353637"
                           border.color: StringConstants.readonlyColor//control.enabled ? "#21be2b" : "transparent"
                       }
                 onTextChanged: {

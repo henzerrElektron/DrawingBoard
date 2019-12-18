@@ -26,7 +26,7 @@ Rectangle {
     id: rpHeader
     //border.width: 15
     //border.color: "white"
-    color: StringConstants.testPage_backgroundColor
+    color: StringConstants.barBackgroundColor//testPage_backgroundColor
     // property string modelName: StringConstants.modelReportPatientItems
     property alias filterName: rpDateGrid.filterName
     property alias detailFilterName: rpDetailLabelGroup.filterName
@@ -88,7 +88,7 @@ Rectangle {
 
         Rectangle {
             id: rectangle2
-            color: StringConstants.testPage_backgroundColor
+            color: StringConstants.barBackgroundColor//testPage_backgroundColor
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.row: 2
@@ -101,7 +101,11 @@ Rectangle {
                 //rows: 3
                 Rectangle{
                     id:rectangleSub1
-                    color: StringConstants.testPage_backgroundColor
+                    color: StringConstants.barBackgroundColor//testPage_backgroundColor
+                    Layout.rightMargin: 3//3
+                    Layout.bottomMargin: 2
+                    Layout.leftMargin: 2
+                    Layout.topMargin: 2
                     Layout.row: 1
                     Layout.column: 1
                     Layout.columnSpan: 1
@@ -110,16 +114,21 @@ Rectangle {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                     //Layout.leftMargin: 10
-                    Layout.preferredWidth:parent.width/2//500//
-                    Layout.minimumWidth: parent.width/2//500//
-                    Layout.maximumWidth: parent.width/2//500//
-                    border.width: 2
+                    Layout.preferredWidth:parent.width/2 - 10//500//
+                    Layout.minimumWidth: parent.width/2 - 10//500//
+                    Layout.maximumWidth: parent.width/2 - 10//500//
+                    border.width: 3
                     border.color: StringConstants.label_NewPatientLabelBgColor
                     //width: 100
                     //height: 150
+
                     ReportDetails{
                         id:rpDetailLabelGroup
+                        anchors.bottomMargin: 10
+                        anchors.rightMargin: 10
+                        anchors.leftMargin: 10
                         anchors.fill: parent
+                        anchors.margins:5
                     }
 
                     //                    Loader{
@@ -149,18 +158,29 @@ Rectangle {
 
                 Rectangle{
                     id:rectangleSub2
-                    color: StringConstants.testPage_backgroundColor
+                    color: StringConstants.barBackgroundColor//testPage_backgroundColor
+                    Layout.rightMargin: 2
+                    Layout.bottomMargin: 2
+                    Layout.leftMargin: 2
+                    Layout.topMargin: 2
                     Layout.row: 1
                     Layout.column: 2
                     Layout.columnSpan: 1
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    border.width: 2
+                    Layout.preferredWidth:parent.width/2 -10//500//
+                    Layout.minimumWidth: parent.width/2 - 10//500//
+                    Layout.maximumWidth: parent.width/2 - 10//500//
+                    border.width: 3
                     border.color: StringConstants.label_NewPatientLabelBgColor
                     //Layout.rightMargin: 10
                     ReportDateGrid{
                         id:rpDateGrid
+                        anchors.bottomMargin: 10
+                        anchors.rightMargin: 10
+                        anchors.leftMargin: 10
                         anchors.fill: parent
+                        anchors.margins:5
                         Component.onCompleted: {
                             rpDateGrid.invokeSource.connect(rpHeader.invokeSource)
                             rpDateGrid.invokeIndex.connect(rpHeader.invokeIndex)
@@ -289,7 +309,19 @@ Rectangle {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /*##^## Designer {
-    D{i:1;anchors_height:200;anchors_width:200;anchors_x:107;anchors_y:66}
+    D{i:0;autoSize:true;height:480;width:640}D{i:1;anchors_height:200;anchors_width:200;anchors_x:107;anchors_y:66}
 }
  ##^##*/

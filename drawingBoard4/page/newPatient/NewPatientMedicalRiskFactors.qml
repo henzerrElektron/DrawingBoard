@@ -64,33 +64,33 @@ Rectangle{
             }
         }
 
-        Rectangle{
-            id:subRec2
-            Layout.row: 2
-            Layout.rowSpan: 1
-            Layout.fillWidth: true
-            Layout.minimumHeight: 15
-            Layout.maximumHeight: 15
-            Layout.leftMargin: 10
-            Layout.rightMargin: 10
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
-            Label  {
-                id:label
-                // Layout.row: 1
-                // Layout.rowSpan: 1
-                //anchors.top: headerDelegate1.bottom
-                //anchors.topMargin: 60
-                //width: parent.width
-                //height: 15
-                anchors.fill: parent
-                text: StringConstants.lbl_dietAndLifeStyle//qsTr("Diet and LifeStyle")
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-                //anchors.horizontalCenter: parent.horizontalCenter
+//        Rectangle{
+//            id:subRec2
+//            Layout.row: 2
+//            Layout.rowSpan: 1
+//            Layout.fillWidth: true
+//            Layout.minimumHeight: 15
+//            Layout.maximumHeight: 15
+//            Layout.leftMargin: 10
+//            Layout.rightMargin: 10
+//            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+//            Label  {
+//                id:label
+//                // Layout.row: 1
+//                // Layout.rowSpan: 1
+//                //anchors.top: headerDelegate1.bottom
+//                //anchors.topMargin: 60
+//                //width: parent.width
+//                //height: 15
+//                anchors.fill: parent
+//                text: StringConstants.lbl_dietAndLifeStyle//qsTr("Diet and LifeStyle")
+//                verticalAlignment: Text.AlignVCenter
+//                horizontalAlignment: Text.AlignHCenter
+//                //anchors.horizontalCenter: parent.horizontalCenter
 
-            }
+//            }
 
-        }
+//        }
 //        Rectangle{
 //            id:subRec3
 //            Layout.row: 3
@@ -198,39 +198,39 @@ Rectangle{
 //                eyeColorDialVisibilty: false
 //            }
 //        }
-        Rectangle{
-            id:subRec7
-            Layout.row: 3
-            Layout.rowSpan: 1
-            //Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.minimumHeight: 95//100//93
-            Layout.maximumHeight: 95//100//93
-            Layout.leftMargin: 10
-            Layout.rightMargin: 10
-            NewPatientRiskFactorSwitchSliderHorizontal{
-                id:medicineOperator
-                labelText: "Lutein/Zeaxanthin Intake"
-                dataTumblersecVisibility: false
-                dataTumblerfirstVisibility: true
-                dataTumblerthirdVisibility: false
-                tumblerVisibility:false
-                topSliderMinValue: 0
-                topSliderMaxValue:100
-                dataTumblerNoOrColorDelegate:false
-                dataTumblerFirstModel: 100
-                topSliderModel:100
-                topSliderLabelText: "portions per day"
-                btmSliderVisible:false
-                eyeColorDialVisibilty: false
-            }
-        }
+//        Rectangle{
+//            id:subRec7
+//            Layout.row: 3
+//            Layout.rowSpan: 1
+//            //Layout.fillHeight: true
+//            Layout.fillWidth: true
+//            Layout.minimumHeight: 95//100//93
+//            Layout.maximumHeight: 95//100//93
+//            Layout.leftMargin: 10
+//            Layout.rightMargin: 10
+//            NewPatientRiskFactorSwitchSliderHorizontal{
+//                id:medicineOperator
+//                labelText: "Lutein/Zeaxanthin Intake"
+//                dataTumblersecVisibility: false
+//                dataTumblerfirstVisibility: true
+//                dataTumblerthirdVisibility: false
+//                tumblerVisibility:false
+//                topSliderMinValue: 0
+//                topSliderMaxValue:100
+//                dataTumblerNoOrColorDelegate:false
+//                dataTumblerFirstModel: 100
+//                topSliderModel:100
+//                topSliderLabelText: "portions per day"
+//                btmSliderVisible:false
+//                eyeColorDialVisibilty: false
+//            }
+//        }
 
         Rectangle{
             id:subRec8
             Layout.row: 4
             Layout.rowSpan: 1
-            anchors.top: subRec7.bottom
+            anchors.top: subRec1.bottom//subRec7.bottom
             anchors.topMargin: 5//10
             //Layout.fillHeight: true
             Layout.fillWidth: true
@@ -260,8 +260,8 @@ Rectangle{
             anchors.top: subRec8.bottom
             //Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.minimumHeight:35//94//35// 93
-            Layout.maximumHeight: 35//94//35//93
+            Layout.minimumHeight:50//35//94//35// 93
+            Layout.maximumHeight: 50//35//94//35//93
             Layout.leftMargin: 10
             Layout.rightMargin: 10
             NewPatientRiskFactorSwitchSliderHorizontal{
@@ -274,6 +274,7 @@ Rectangle{
                 dataTumblerthirdVisibility: false
                 dataTumblerVisibility:false
                 tumblerVisibility:false
+                firstSwitchVisible: false
                 //topSliderMinValue: 0
                 //topSliderMaxValue:100
                 dataTumblerNoOrColorDelegate:false
@@ -293,8 +294,8 @@ Rectangle{
             Layout.fillWidth: true
             anchors.top: subRec9.bottom
             //Layout.fillHeight: true
-            Layout.minimumHeight: 65//70
-            Layout.maximumHeight: 65//70
+            Layout.minimumHeight: 50//65//70
+            Layout.maximumHeight: 50//65//70
             Layout.leftMargin: 10
             Layout.rightMargin: 10
             NewPatientRiskFactorSwitchSliderHorizontal{

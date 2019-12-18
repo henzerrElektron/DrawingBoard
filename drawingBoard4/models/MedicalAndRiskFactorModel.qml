@@ -13,7 +13,7 @@ ListModel {
         {
             actionName:StringConstants.np_pdActionNameRightFitted,
             actionText:StringConstants.np_pdActionTextRightFitted,
-            hasYesNoSwitch:true,
+            hasYesNoSwitch:false,
             hasComboBox:true,
             defaultSwitchState:IntegerConstants.switchOff,
             comboBoxMetricOffText:StringConstants.lbl_yrs,
@@ -30,7 +30,7 @@ ListModel {
         {
             actionName:StringConstants.np_pdActionNameLeftFitted,
             actionText:StringConstants.np_pdActionTextLeftFitted,
-            hasYesNoSwitch:true,
+            hasYesNoSwitch:false,
             hasComboBox:true,
             defaultSwitchState:IntegerConstants.switchOff,
             comboBoxMetricOffText:StringConstants.lbl_yrs,
@@ -92,7 +92,7 @@ ListModel {
         {
             actionName:StringConstants.np_pdActionNameSmoker,
             actionText:StringConstants.np_pdActionTextSmoker,
-            hasYesNoSwitch:true,
+            hasYesNoSwitch:false,
             hasComboBox:true,
             isDietStylePage:true,
             sliderMiNValue:IntegerConstants.minCigPerDay,
@@ -109,7 +109,7 @@ ListModel {
         {
             actionName:StringConstants.np_pdActionNameAlcohol,
             actionText:StringConstants.np_pdActionTextAlcohol,
-            hasYesNoSwitch:true,
+            hasYesNoSwitch:false,
             hasComboBox:true,
             isDietStylePage:true,
             sliderMiNValue:IntegerConstants.minAlcholPerDay,
@@ -126,7 +126,7 @@ ListModel {
         {
             actionName:StringConstants.np_pdActionNameSupplementName,
             actionText:StringConstants.np_pdActionTextSupplementName,
-            hasYesNoSwitch:true,
+            hasYesNoSwitch:false,
             hasComboBox:true,
             isDietStylePage:true,
             sliderMiNValue:IntegerConstants.minPortionsPerDay,

@@ -42,8 +42,8 @@ import ApplicationConstants 1.0
 Window {
     id: window
     visible: true
-    width: 700
-    height:700
+    width: 1366
+    height: 768 - 35
     title: qsTr("MPS 9001")
 
 

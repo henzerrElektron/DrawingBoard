@@ -26,7 +26,7 @@ import "./../newPatient/"
 import "./../changePatient/"
 Rectangle {
     id: mainRec
-    color: StringConstants.testPage_backgroundColor//"blue"//"white"
+    color: StringConstants.barBackgroundColor
     //anchors.fill: parent
     anchors.top: parent.top
     anchors.topMargin: 5
@@ -72,7 +72,13 @@ Rectangle {
         rows: 3
         Rectangle{
             id:rectangleSub1
-            color: StringConstants.barBackgroundColor//"white"
+            color: StringConstants.barBackgroundColor
+            Layout.rightMargin: 2
+            Layout.leftMargin: 2
+            Layout.bottomMargin: 2
+            Layout.topMargin: 2//"white"
+            border.width: 3
+            border.color:  StringConstants.label_NewPatientLabelBgColor
             //Layout.topMargin: 10//StringConstants.testPage_backgroundColor
             //Layout.bottomMargin: 10
             //Layout.column: 1
@@ -84,22 +90,26 @@ Rectangle {
             //Layout.bottomMargin: 10
             //width: 100
             //height: 50//150
-            Layout.minimumHeight: 110//75+searchLabel.height<110?110:75+searchLabel.height
+            Layout.minimumHeight: 90//parent.height/5//110//75+searchLabel.height<110?110:75+searchLabel.height
             NewPatientGroupLabel{
                 id:searchLabel
                 text: StringConstants.lbl_rpSelectOperator
+                anchors.topMargin: 5
+                anchors.rightMargin: 5
+                anchors.leftMargin: 5
                 //color: StringConstants.actionBtnBackgroundColor
                 Layout.alignment: Qt.AlignTop |Qt.AlignLeft
                 //font: OtherConstants.fontFamily
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.leftMargin: 5
+                anchors.margins: 10
+                //anchors.leftMargin: 5
                 //Layout.fillWidth: true
                 //Layout.column: 1
                 //Layout.columnSpan: 3
                 //Layout.rowSpan: 1
                 //Layout.row: 1
-                height: 30
+                height: parent.height/5
             }
             //NewPatientDataTumbler{
             SwitchSearchBox{
@@ -109,8 +119,9 @@ Rectangle {
                 anchors.leftMargin: 10
                 anchors.rightMargin: 10
                 anchors.bottomMargin: 5
-                //anchors.top: searchLabel.bottom
-                anchors.topMargin:(((parent.height) - searchLabel.height)/2)-5
+                //height: (parent.height - searchLabel.height -50)
+                anchors.top: searchLabel.bottom
+                anchors.topMargin:searchLabel.height+5//(((parent.height) - searchLabel.height)/2)
                 //labelHorizontal:true
                 //labelText: StringConstants.lbl_rpSelectOperator
                 //firstTumblerVisibility: false
@@ -140,7 +151,7 @@ Rectangle {
             Layout.preferredHeight: parent.height/4
             Layout.minimumHeight: parent.height/4
             Layout.maximumHeight: parent.height/4
-            color: StringConstants.testPage_backgroundColor
+            color: StringConstants.barBackgroundColor
             anchors.top: rectangleSub1.bottom
             anchors.topMargin: 5
             ReportPageHeader{
@@ -171,7 +182,7 @@ Rectangle {
 
         Rectangle{
             id:rectangleSub2
-            color: StringConstants.testPage_backgroundColor//"red"//
+           color: StringConstants.barBackgroundColor//testPage_backgroundColor//"red"//
             Layout.topMargin: 20//"green"///
             //Layout.column: 2
             Layout.row: 3
@@ -227,6 +238,16 @@ Rectangle {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -11,6 +11,10 @@ QVariant TestResultConfidenceModel::headerData(int section, Qt::Orientation orie
         if(orientation == Qt::Horizontal)
         {
 
+//            if(section == 0)
+//            {
+//                 return  "Confidence Level";
+//            }
             if(section == 0)
             {
                 return  "Left";
@@ -22,58 +26,58 @@ QVariant TestResultConfidenceModel::headerData(int section, Qt::Orientation orie
             return  QString("hor-%1").arg(section);
 
         }
-        else if(orientation == Qt::Vertical)
-        {
-            if(section == 0)
-            {
-                return  "Confidence Level";
-            }
-            if(section == 1)
-            {
-                return  "Central";
-            }
-            if(section == 2)
-            {
-                return "Peripheral";
-            }
-            if(section == 3)
-            {
-                return "MP Value";
-            }
-            if(section == 4)
-            {
-                return  "Estimated";
-            }
-            if(section == 5)
-            {
-                return  "Absolute";
-            }
-            if(section == 6)
-            {
-                return  "Graph Adjusted";
-            }
-            if(section == 7)
-            {
-                return  "Parameters";
-            }
-            if(section == 8)
-            {
-                return  "Central Sensitivity (Hz)";
-            }
-            if(section == 9)
-            {
-                return  "Central Minima (dB)";
-            }
-            if(section == 10)
-            {
-                return  "Peripheral Sensitivity (Hz)";
-            }
-            if(section == 11)
-            {
-                return  "Peripheral Minima (dB)";
-            }
-            return QString("ver-%1").arg(section);
-        }
+ //       else if(orientation == Qt::Vertical)
+//       {
+//            if(section == 0)
+//            {
+//                return  "Confidence Level";
+//            }
+//            if(section == 1)
+//            {
+//                return  "Central";
+//            }
+//            if(section == 2)
+//            {
+//                return "Peripheral";
+//            }
+//            if(section == 3)
+//            {
+//                return "MP Value";
+//            }
+//            if(section == 4)
+//            {
+//                return  "Estimated";
+//            }
+//            if(section == 5)
+//            {
+//                return  "Absolute";
+//            }
+//            if(section == 6)
+//            {
+//                return  "Graph Adjusted";
+//            }
+//            if(section == 7)
+//            {
+//                return  "Parameters";
+//            }
+//            if(section == 8)
+//            {
+//                return  "Central Sensitivity (Hz)";
+//            }
+//            if(section == 9)
+//            {
+//                return  "Central Minima (dB)";
+//            }
+//            if(section == 10)
+//            {
+//                return  "Peripheral Sensitivity (Hz)";
+//            }
+//            if(section == 11)
+//            {
+//                return  "Peripheral Minima (dB)";
+//            }
+//            return QString("ver-%1").arg(section);
+//        }
     }
     return QVariant();
 }
@@ -82,14 +86,14 @@ int TestResultConfidenceModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid())
         return 0;
-    return 12;
+    return 11;
 }
 
 int TestResultConfidenceModel::columnCount(const QModelIndex &parent) const
 {
     if (parent.isValid())
         return 0;
-    return 2;
+    return 3;
 }
 
 QVariant TestResultConfidenceModel::data(const QModelIndex &index, int role) const
@@ -170,111 +174,164 @@ QVariant TestResultConfidenceModel::data(const QModelIndex &index, int role) con
     {
         int rowValue = index.row();
         int colValue = index.column();
-        if(rowValue == 0 )
+//        if(rowValue == 0 )
+//        {
+//            if(colValue ==0 )
+//            {
+//                return "00";
+//            }
+//            if(colValue ==1)
+//            {
+//                return "01";
+//            }
+//        }
+
+        if(rowValue ==0)
         {
             if(colValue ==0 )
             {
-                return "00";
+                return  "Central";
             }
-            if(colValue ==1)
+            if(colValue ==1 )
             {
-                return "01";
+                return "10";
+            }
+            if(colValue ==2)
+            {
+                return "11";
             }
         }
         if(rowValue ==1)
         {
             if(colValue ==0 )
             {
-                return "10";
+                return "Peripheral";
             }
-            if(colValue ==1)
+            if(colValue ==1 )
             {
-                return "11";
+                return "20";
+            }
+            if(colValue ==2)
+            {
+                return "21";
             }
         }
         if(rowValue ==2)
         {
             if(colValue ==0 )
             {
-                return "20";
+               return "MP Value";
             }
-            if(colValue ==1)
+            if(colValue ==1 )
             {
-                return "21";
+                return "Left";
+            }
+            if(colValue ==2)
+            {
+                return "Right";
             }
         }
         if(rowValue ==3)
         {
             if(colValue ==0 )
             {
-                return "Left";
+                return  "Estimated";
             }
-            if(colValue ==1)
+            if(colValue ==1 )
             {
-                return "Right";
+                return "40";
+            }
+            if(colValue ==2)
+            {
+                return "41";
             }
         }
         if(rowValue ==4)
         {
             if(colValue ==0 )
             {
-                return "40";
+                return  "Absolute";
             }
-            if(colValue ==1)
-            {
-                return "41";
-            }
-        }
-        if(rowValue ==5)
-        {if(colValue ==0 )
+            if(colValue ==1 )
             {
                 return "50";
             }
-            if(colValue ==1)
+            if(colValue ==2)
             {
                 return "51";
+            }
+        }
+        if(rowValue ==5)
+        {
+            if(colValue ==0 )
+            {
+                return  "Graph Adjusted";
+            }
+            if(colValue ==1 )
+            {
+                return "60";
+            }
+            if(colValue ==2)
+            {
+                return "61";
             }
         }
         if(rowValue ==6)
         {
             if(colValue ==0 )
             {
-                return "60";
+               return  "Parameters";
             }
-            if(colValue ==1)
+            if(colValue ==1 )
             {
-                return "61";
+                return "Left";
+            }
+            if(colValue ==2)
+            {
+                return "Right";
             }
         }
         if(rowValue ==7)
         {
             if(colValue ==0 )
             {
-                return "Left";
+                return  "Central Sensitivity (Hz)";
             }
-            if(colValue ==1)
+            if(colValue ==1 )
             {
-                return "Right";
+                return "80";
+            }
+            if(colValue ==2)
+            {
+                return "81";
             }
         }
         if(rowValue ==8)
         {
             if(colValue ==0 )
             {
-                return "80";
+                return  "Central Minima (dB)";
             }
-            if(colValue ==1)
+            if(colValue ==1 )
             {
-                return "81";
+                return "90";
+            }
+            if(colValue ==2)
+            {
+                return "91";
             }
         }
         if(rowValue ==9)
         {
             if(colValue ==0 )
             {
+               return  "Peripheral Sensitivity (Hz)";
+            }
+            if(colValue ==1 )
+            {
                 return "90";
             }
-            if(colValue ==1)
+            if(colValue ==2)
             {
                 return "91";
             }
@@ -283,20 +340,13 @@ QVariant TestResultConfidenceModel::data(const QModelIndex &index, int role) con
         {
             if(colValue ==0 )
             {
-                return "90";
+              return  "Peripheral Minima (dB)";
             }
-            if(colValue ==1)
-            {
-                return "91";
-            }
-        }
-        if(rowValue ==11)
-        {
-            if(colValue ==0 )
+            if(colValue ==1 )
             {
                 return "90";
             }
-            if(colValue ==1)
+            if(colValue ==2)
             {
                 return "91";
             }

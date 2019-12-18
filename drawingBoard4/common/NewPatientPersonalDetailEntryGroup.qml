@@ -165,10 +165,16 @@ GridView {
                         //                            }
                         //                        }
                         ComboBox{
+                         //NewPatientDataComboBox  {
                             id:comboItem
                             height: GridView.view.cellHeight/2  - 20
-                            width: GridView.view.cellWidth
+                            width: 2* GridView.view.cellWidth
+                            //comboBoxWidth: GridView.view.cellWidth
+                            //comboBoxHeight: GridView.view.cellHeight/2  - 20
+                            //comboBoxModel: dataModel
                             model: dataModel
+                            font { family: OtherConstants.fontFamily; pixelSize: 15; weight: Font.Bold; capitalization: Font.MixedCase }
+                            //editable: true
                         }
                     }
                 }

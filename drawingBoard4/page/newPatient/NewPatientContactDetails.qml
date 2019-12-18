@@ -42,9 +42,9 @@ Rectangle{
         width: (mainRec.width/2)+30
         color: StringConstants.barBackgroundColor//StringConstants.testPage_backgroundColor//color_gbTransparent//"transparent"
         anchors.top: contactDetailLabel.bottom
-        anchors.topMargin: 10
+        anchors.topMargin: 5//10
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 10
+        anchors.bottomMargin: 5//10
         //anchors.right: parent.right
         anchors.rightMargin: 10
         anchors.left: parent.left
@@ -54,8 +54,8 @@ Rectangle{
         NewPatientContactDetailGroup{
             id:contactTabPage1
             anchors.fill: parent
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            //Layout.fillHeight: true
+           // Layout.fillWidth: true
             verticalLayoutDirection: Grid.TopToBottom
             layoutDirection: Qt.LeftToRight
             flow: Grid.LeftToRight

@@ -86,9 +86,10 @@ Rectangle {
             Layout.columnSpan: 3
             Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.minimumHeight: parent.height - (titleRec.height+10 )
             Layout.maximumWidth: parent.width/2
             Layout.leftMargin: 10
-            Layout.bottomMargin: 20
+            //Layout.bottomMargin: 20
             Layout.row: 2
             NewPatientPersonalDetailGroup{
                 id:personalDetailsPage

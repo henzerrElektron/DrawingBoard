@@ -76,9 +76,11 @@ GridLayout{
         Layout.fillWidth: true
         //Layout.preferredHeight: parent.height/5
         Layout.minimumHeight: parent.height/6
+        Layout.bottomMargin: 10
+        border.width: 3
+        border.color:  StringConstants.label_NewPatientLabelBgColor
         //Layout.maximumHeight: parent.height/5
         Layout.row: 1
-
         SwitchSearchItems{
             id:rectangleSwitchPatientLabel
             anchors.fill: parent

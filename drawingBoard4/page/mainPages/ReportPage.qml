@@ -106,7 +106,7 @@ Rectangle {
             Layout.row: 2
             Layout.fillHeight: true
             Layout.fillWidth: true
-            color: StringConstants.testPage_backgroundColor
+            color: StringConstants.barBackgroundColor//StringConstants.testPage_backgroundColor
             Layout.preferredHeight: parent.height - mainRec
             Layout.minimumHeight: parent.height - mainRec
             Layout.maximumHeight: parent.height - mainRec
@@ -136,8 +136,8 @@ Rectangle {
             standardButtons: Dialog.Ok | Dialog.Cancel
             anchors.centerIn: parent
 
-            width: parent.width/2
-            height: 750//pageDateRange.height+200
+            width: ((parent.width) - 3* (parent.width/10))
+            height: parent.height - (parent.height/20)//pageDateRange.height+200
             //modal: true
             focus: true
             background: Rectangle{

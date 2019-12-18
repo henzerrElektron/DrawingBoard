@@ -209,8 +209,8 @@ SwipeView {
    //    visible: false;
        ManageOperator{
            id:opManage
-           width: parent.width/2
-           height: parent.height/2
+           width: parent.width - 2* (parent.width/10)
+           height: parent.height - 2*(parent.height/10)
            anchors.centerIn: parent
            Layout.fillHeight: true
            Layout.fillWidth: true

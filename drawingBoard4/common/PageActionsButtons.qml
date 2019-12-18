@@ -16,14 +16,17 @@ GridView {
     // property var group: ""
     // property var group1: ""
     property alias theModel: theListView.model
+    //property alias theModelCount: theListView.model.count
+    property alias theCellWidth: theListView.cellWidth
+    property alias theCellHeight: theListView.cellHeight
     property int marginWidth: (parent.width/count)/count
     property int curWidth: theListView.width
     property int  cellSpacing: 0
     property bool actionOrHome: true
     property var filterName: ""
     onFilterNameChanged: doFilter()
-    property var idealCellHeight: 200
-    property var idealCellWidth: 200
+    property var idealCellHeight: 75
+    property var idealCellWidth: 75
     signal componentTriggered(string name)
     signal invokeSource(string source)
     signal invokeIndex(int index)
@@ -38,6 +41,8 @@ GridView {
     onInvokeIndex: {
         console.log("The invokeIndex is"+index)
     }
+    //cellWidth: actionOrHome ?idealCellWidth===75?75:idealCellWidth:(parent.width/(count))-marginWidth//75
+    //cellHeight: actionOrHome ?idealCellHeight===75?75:idealCellHeight:parent.height - parent.height/5//parent.height/3//75
     cellWidth: actionOrHome ?75:(parent.width/(count))-marginWidth//75
     cellHeight: actionOrHome ?75:parent.height - parent.height/5//parent.height/3//75
     width:count*cellWidth//actionOrHome ?count*cellWidth:count*cellWidth

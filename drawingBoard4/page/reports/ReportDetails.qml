@@ -43,9 +43,10 @@ Rectangle{
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.top: contactDetailLabel1.bottom
-        anchors.topMargin: parent.height/12
+        //anchors.topMargin: parent.height/12
         anchors.leftMargin: parent.width/10
         color: "transparent"
+        anchors.topMargin:mainGrid.height<100?0:mainGrid.height/4
         ReportDetailLabelGroup{
             //ContactDetailLabelTextGroup{
             id:grid

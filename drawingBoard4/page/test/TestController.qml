@@ -66,7 +66,7 @@ Item {
                 renderType: Text.QtRendering
                 fontSizeMode: Text.HorizontalFit
                 anchors.top: label_eye.bottom
-                height: rowLayout.height/4//5
+                height: rowLayout.height/5//+owLayout.height/10//5
                 anchors.topMargin: 0
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
@@ -89,15 +89,21 @@ Item {
                 anchors.top: label_instrument.bottom
                 anchors.topMargin: 10
                 anchors.right: parent.right
-                anchors.rightMargin: 10
+                //anchors.rightMargin: 10
                 anchors.left: parent.left
-                anchors.leftMargin: 10
-                anchors.horizontalCenter: parent.horizontalCenter
+                //anchors.leftMargin: 10
+               // anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
                 group: StringConstants.modelTestPageControlItems//"testPageControlItems"//"testPageItems"
                 filterName:StringConstants.modelTestPageControlItems
                 //group1:"testPageNavigationItems"//"testPageNavigationItems"//"testPageNavigationItems"
+                //idealCellHeight: 25//parent.height - (label_eye.height + label_instrument.height)
+                //idealCellWidth: 25//parent.width - (label_eye.width + label_instrument.width)
+                //height: idealCellHeight
+               // width:500// 2* parent.width// (theModel.count * idealCellWidth) - (theModel.count * idealCellWidth)/5
                 actionOrHome: true
+                //theCellHeight: 35
+                //theCellWidth: 35
                 Component.onCompleted: {
                     //invokeSource.connect(pgTitle.invokeSource)
                     //invokeIndex.connect(pgTitle.invokeIndex)

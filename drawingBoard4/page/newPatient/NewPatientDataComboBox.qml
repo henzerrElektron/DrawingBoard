@@ -29,6 +29,8 @@ ComboBox {
     //anchors.fill: parent
     anchors.left: parent.left
     anchors.right: parent.right
+    property alias comboBoxWidth: topTextArea.width
+    property alias comboBoxHeight: topTextArea.height
     property alias comboBoxModel: topTextArea.model
     property alias comboBoxText: topTextArea.displayText
     property alias comboBoxCurText: topTextArea.currentText

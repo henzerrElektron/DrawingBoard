@@ -59,7 +59,7 @@ Page {
     anchors.topMargin: 5
     anchors.leftMargin: 10
     anchors.rightMargin: 10
-    anchors.bottomMargin: 10
+    //anchors.bottomMargin: 10
     property int prevPraticeBtnHeight: 0
     property int prevPatientBtnHeight: 0
     property int prevPraticeBtnWidth: 0
@@ -200,7 +200,7 @@ Page {
             visible: false;
             Rectangle{
                 id:contactTabPage1
-                color: StringConstants.headerBackgroundColor
+                color: StringConstants.barBackgroundColor//StringConstants.headerBackgroundColor
                 anchors.fill: parent
                 Layout.fillHeight: true
                 Layout.fillWidth: true

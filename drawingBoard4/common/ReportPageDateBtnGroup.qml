@@ -63,7 +63,7 @@ GridView {
             Package{
             ReportPageBtn{
                 id:reportBtn
-                height: parent.height/4
+                height: GridView.view.cellHeight/2//parent.height/4
                 width: parent.width/4
                 text: actionName
                 Package.name: filterName

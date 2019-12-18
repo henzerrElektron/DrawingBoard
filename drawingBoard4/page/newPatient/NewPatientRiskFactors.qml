@@ -85,6 +85,7 @@ Rectangle{
             Layout.minimumHeight: 15
             Layout.maximumHeight: 15
             anchors.top: subRec1.bottom
+            anchors.topMargin:10
             Layout.alignment: Qt.AlignHCenter //| Qt.AlignTop
             //color: "black"
             Label  {
@@ -283,99 +284,99 @@ Rectangle{
         //            }
         //        }
 
-        Rectangle{
-            id:subRec8
-            Layout.row: 8
-            Layout.rowSpan: 1
-            // anchors.top: rec1.bottom//subRec7.bottom
-            anchors.topMargin: 5//10
-            //Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.minimumHeight: 15//mainRec.height/mainGrid.rows//50//15//20
-            Layout.maximumHeight: 15//mainRec.height/mainGrid.rows//50//15//20
-            color: StringConstants.color_gbTransparent
-            //color: "green"
-            Label  {
-                id:label1
-                // Layout.row: 1
-                // Layout.rowSpan: 1
-                //height: 15
-                //anchors.top: rec5.bottom
-                //anchors.topMargin: 0
-                anchors.left: parent.left
-                anchors.right: parent.right
-                text: StringConstants.lbl_medicalFactors//qsTr("Medical Factors")
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
-                background: Rectangle{
-                    color: StringConstants.color_gbTransparent
-                }
-            }
-        }
-        Rectangle{
-            id:subRec9
-            Layout.row: 9
-            Layout.rowSpan: 1
-            anchors.top: subRec8.bottom
-            //Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.minimumHeight:mainRec.height/mainGrid.rows//94//35// 93
-            Layout.maximumHeight: mainRec.height/mainGrid.rows//94//35//93
-            //color: "blue"
-            NewPatientRiskFactorSwitchSliderHorizontal{
-                id:amdOperator
-                anchors.fill: parent
-                labelText: StringConstants.lbl_amdHistory//"AMD family History"
-                dataSwitchesVisible:true
-                dataTumblersecVisibility: false
-                dataTumblerfirstVisibility: false
-                dataTumblerthirdVisibility: false
-                dataTumblerVisibility:false
-                tumblerVisibility:false
-                firstSwitchVisible:false
-                //topSliderMinValue: 0
-                //topSliderMaxValue:100
-                dataTumblerNoOrColorDelegate:false
-                topSliderVisible: false
-                btmSliderVisible: false
-                //topSliderModel:100
-                //topSliderLabelText: "eyeColor"
-                //btmSliderVisible:false
-                eyeColorDialVisibilty: false
+//        Rectangle{
+//            id:subRec8
+//            Layout.row: 8
+//            Layout.rowSpan: 1
+//            // anchors.top: rec1.bottom//subRec7.bottom
+//            anchors.topMargin: 5//10
+//            //Layout.fillHeight: true
+//            Layout.fillWidth: true
+//            Layout.minimumHeight: 15//mainRec.height/mainGrid.rows//50//15//20
+//            Layout.maximumHeight: 15//mainRec.height/mainGrid.rows//50//15//20
+//            color: StringConstants.color_gbTransparent
+//            //color: "green"
+//            Label  {
+//                id:label1
+//                // Layout.row: 1
+//                // Layout.rowSpan: 1
+//                //height: 15
+//                //anchors.top: rec5.bottom
+//                //anchors.topMargin: 0
+//                anchors.left: parent.left
+//                anchors.right: parent.right
+//                text: StringConstants.lbl_medicalFactors//qsTr("Medical Factors")
+//                horizontalAlignment: Text.AlignHCenter
+//                verticalAlignment: Text.AlignVCenter
+//                Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+//                background: Rectangle{
+//                    color: StringConstants.color_gbTransparent
+//                }
+//            }
+//        }
+//        Rectangle{
+//            id:subRec9
+//            Layout.row: 9
+//            Layout.rowSpan: 1
+//            anchors.top: subRec8.bottom
+//            //Layout.fillHeight: true
+//            Layout.fillWidth: true
+//            Layout.minimumHeight:mainRec.height/mainGrid.rows//94//35// 93
+//            Layout.maximumHeight: mainRec.height/mainGrid.rows//94//35//93
+//            //color: "blue"
+//            NewPatientRiskFactorSwitchSliderHorizontal{
+//                id:amdOperator
+//                anchors.fill: parent
+//                labelText: StringConstants.lbl_amdHistory//"AMD family History"
+//                dataSwitchesVisible:true
+//                dataTumblersecVisibility: false
+//                dataTumblerfirstVisibility: false
+//                dataTumblerthirdVisibility: false
+//                dataTumblerVisibility:false
+//                tumblerVisibility:false
+//                firstSwitchVisible:false
+//                //topSliderMinValue: 0
+//                //topSliderMaxValue:100
+//                dataTumblerNoOrColorDelegate:false
+//                topSliderVisible: false
+//                btmSliderVisible: false
+//                //topSliderModel:100
+//                //topSliderLabelText: "eyeColor"
+//                //btmSliderVisible:false
+//                eyeColorDialVisibilty: false
 
-            }
-        }
-        Rectangle{
-            id:subRec10
-            Layout.row:10
-            Layout.rowSpan: 1
-            Layout.fillWidth: true
-            anchors.top: subRec9.bottom
-            //color: "orange"
-            //Layout.fillHeight: true
-            Layout.minimumHeight: mainRec.height/mainGrid.rows+35//50//65//70
-            Layout.maximumHeight: mainRec.height/mainGrid.rows+35//50//65//70
-            NewPatientRiskFactorSwitchSliderHorizontal{
-                id:eyeColorOperator
-                labelText: StringConstants.lbl_eyeColor//"Eye Color"
-                dataSwitchesVisible:false
-                dataTumblersecVisibility: false
-                dataTumblerfirstVisibility: true
-                dataTumblerthirdVisibility: false
-                topSliderMinValue: 0
-                topSliderMaxValue:100
-                dataTumblerNoOrColorDelegate:true
-                tumblerVisibility:true
-                dataTumblerFirstModel: ColorModel{}
-                topSliderVisible: false
-                btmSliderVisible: false
-                //topSliderModel:100
-                //topSliderLabelText: "eyeColor"
-                //btmSliderVisible:false
-                eyeColorDialVisibilty: true
-            }
-        }
+//            }
+//        }
+//        Rectangle{
+//            id:subRec10
+//            Layout.row:10
+//            Layout.rowSpan: 1
+//            Layout.fillWidth: true
+//            anchors.top: subRec9.bottom
+//            //color: "orange"
+//            //Layout.fillHeight: true
+//            Layout.minimumHeight: mainRec.height/mainGrid.rows+35//50//65//70
+//            Layout.maximumHeight: mainRec.height/mainGrid.rows+35//50//65//70
+//            NewPatientRiskFactorSwitchSliderHorizontal{
+//                id:eyeColorOperator
+//                labelText: StringConstants.lbl_eyeColor//"Eye Color"
+//                dataSwitchesVisible:false
+//                dataTumblersecVisibility: false
+//                dataTumblerfirstVisibility: true
+//                dataTumblerthirdVisibility: false
+//                topSliderMinValue: 0
+//                topSliderMaxValue:100
+//                dataTumblerNoOrColorDelegate:true
+//                tumblerVisibility:true
+//                dataTumblerFirstModel: ColorModel{}
+//                topSliderVisible: false
+//                btmSliderVisible: false
+//                //topSliderModel:100
+//                //topSliderLabelText: "eyeColor"
+//                //btmSliderVisible:false
+//                eyeColorDialVisibilty: true
+//            }
+//        }
     }
 
 }

@@ -151,6 +151,7 @@ Rectangle{
             Layout.minimumHeight:label.height//dataTumblerVisibility?40:35
            // Layout.alignment:  Qt.AlignLeft | Qt.AlignTop//Qt.AlignLeft |
             anchors.verticalCenter: parent.verticalCenter
+           color: StringConstants.color_gbTransparent
           //  Layout.topMargin:dataTumblerVisibility?25: 5
           //  color: "red"
             NewPatientDataSwitches{

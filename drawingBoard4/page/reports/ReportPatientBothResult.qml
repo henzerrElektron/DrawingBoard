@@ -18,11 +18,11 @@ import "./../newPatient/"
 import "./../changePatient/"
 Rectangle {
     id: mainRec
-    color: StringConstants.testPage_backgroundColor//"white"//StringConstants.testPage_backgroundColor
+    color: StringConstants.barBackgroundColor//"white"//StringConstants.testPage_backgroundColor
     property bool leftVisible: true
     property bool rightVisible: true
     anchors.top: parent.top
-    anchors.topMargin: 5
+   // anchors.topMargin: 5
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: parent.bottom
@@ -30,6 +30,8 @@ Rectangle {
     signal popupOpen()
     signal popupInvokeIndex(int index)
     signal popupInvokeSource(var source)
+    //border.width: 1
+    //border.color: StringConstants.label_NewPatientLabelBgColor
     function setState()
     {
         pageHeader.setDetailDateRangeSource("patient")//.state = "patient"
@@ -122,17 +124,17 @@ Rectangle {
                     {
                         id:tableRec
                         anchors.fill: parent
-                        anchors.leftMargin: 10
-                        anchors.rightMargin: 10
-                        anchors.bottomMargin: 10
-                        anchors.topMargin: 10
-                        border.width: 3
-                        border.color: StringConstants.actionBtnBackgroundColor
+                        //anchors.leftMargin: 10
+                        //anchors.rightMargin: 10
+                        //anchors.bottomMargin: 10
+                        //anchors.topMargin: 10
+                        //border.width: 3
+                        //border.color: StringConstants.actionBtnBackgroundColor
                         CommonTableGrid{
                             id:curTestTabs1
                             anchors.fill: parent
-                            anchors.leftMargin: 10
-                            anchors.rightMargin: 10
+                            anchors.leftMargin: 5//10
+                            anchors.rightMargin:5// 10
                             anchors.bottomMargin: 10
                             anchors.topMargin: 10
                             //Layout.fillHeight: true
@@ -227,17 +229,17 @@ Rectangle {
                     {
                         id:tableRec1
                         anchors.fill: parent
-                        anchors.leftMargin: 10
-                        anchors.rightMargin: 10
-                        anchors.bottomMargin: 10
-                        anchors.topMargin: 10
-                        border.width: 3
-                        border.color: StringConstants.actionBtnBackgroundColor
+                        //anchors.leftMargin: 10
+                        //anchors.rightMargin: 10
+                        //anchors.bottomMargin: 10
+                        //anchors.topMargin: 10
+                        //border.width: 3
+                        //border.color: StringConstants.actionBtnBackgroundColor
                         CommonTableGrid{
                             id:curTestTabs2
                             anchors.fill: parent
-                            anchors.leftMargin: 10
-                            anchors.rightMargin: 10
+                            anchors.leftMargin:5// 10
+                            anchors.rightMargin:5// 10
                             anchors.bottomMargin: 10
                             anchors.topMargin: 10
                             commonTableModel: theRightPatientResultModel

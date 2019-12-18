@@ -33,6 +33,7 @@ Rectangle{
     property alias firstSwitchText: elementKnown.text
     property alias switchChecked: elementKnown.checked
     property alias switchVisible:  elementKnown.visible
+    color: StringConstants.color_gbTransparent
     //anchors.fill: parent
     width: mainLayout.width
     height: mainLayout.height

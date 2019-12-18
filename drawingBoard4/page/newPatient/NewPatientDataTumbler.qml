@@ -267,12 +267,13 @@ Rectangle {
                 Layout.alignment: secTumblerVisibility?Qt.AlignHCenter | Qt.AlignVCenter:lblAlignCentre?Qt.AlignHCenter:Qt.AlignLeft
                 background: Rectangle{
                     id:bgRec
-                    color: labelHorizontal?StringConstants.barBackgroundColor:"transparent"//StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor
+                    color: labelHorizontal?"transparent":"transparent"//StringConstants.barBackgroundColor://StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor
                 }
             }
 
             NewPatientDataComboBox  {
                 id: topTextArea
+                Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                 Layout.leftMargin: labelHorizontal?50:0
                 Layout.fillWidth: false
                 //width: labelHorizontal?(parent.width - ((parent.width/7))):parent.width
@@ -288,7 +289,7 @@ Rectangle {
                 //Layout.fillHeight: true
                 anchors.horizontalCenter: lbl.horizontalCenter
                 anchors.top: lbl.visible?labelHorizontal?parent.top:lbl.bottom:parent.top
-                anchors.topMargin: 0
+                //anchors.topMargin: lbl.visible?labelHorizontal?-7:0:0
                  font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
                 visible: true
                 editable: true
@@ -433,6 +434,8 @@ Rectangle {
         }
     }
 }
+
+
 
 
 

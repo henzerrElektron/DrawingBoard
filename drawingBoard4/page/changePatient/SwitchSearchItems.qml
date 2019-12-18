@@ -30,7 +30,8 @@ Rectangle {
     id: searchTable
     color: StringConstants.barBackgroundColor//StringConstants.testPage_backgroundColor//"white"//"transparent"
     signal selectedText(string curText,string role)
-    height: searchLabel.height
+    anchors.fill: parent
+    //height: searchLabel.height
     //border.width: 2
     //border.color: StringConstants.label_NewPatientLabelBgColor
     NewPatientGroupLabel{
@@ -46,7 +47,7 @@ Rectangle {
         //Layout.columnSpan: 3
         //Layout.rowSpan: 1
         //Layout.row: 1
-        height: 30
+        height: parent.height/5//30
     }
     onSelectedText: {
         console.log("The selected Text is"+curText+role)
@@ -60,6 +61,7 @@ Rectangle {
         anchors.top: searchLabel.bottom
         anchors.left: parent.left
         anchors.right: parent.right
+        height: parent.height - searchLabel.height
         //anchors.leftMargin: 10
         //anchors.rightMargin: 10
         columns: 3
@@ -76,7 +78,7 @@ Rectangle {
             Layout.columnSpan: 1
             Layout.rowSpan: 1
             Layout.row: 1
-            Layout.minimumHeight: 75
+            //Layout.minimumHeight: 75
             SwitchSearchBox {
                 id: label_lblPatientName
                 anchors.top: parent.top
@@ -111,7 +113,7 @@ Rectangle {
             Layout.columnSpan: 1
             Layout.rowSpan: 1
             Layout.row: 1
-            Layout.minimumHeight: 75
+            //Layout.minimumHeight: 75
 
             SwitchSearchBox {
                 id: label_PatientName
@@ -140,8 +142,9 @@ Rectangle {
             id:rectangleSub3
             color: StringConstants.barBackgroundColor//StringConstants.actionBtnBackgroundColor//testPage_backgroundColor
             anchors.top: searchLabel.bottom
+            Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.minimumHeight: 75
+            //Layout.minimumHeight: 75
             Layout.column: 3
             Layout.columnSpan: 1
             Layout.rowSpan: 1
