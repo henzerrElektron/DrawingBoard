@@ -37,4 +37,7 @@ Label {
     text: "text"
     verticalAlignment: Text.AlignVCenter
     horizontalAlignment: lblOrText ?Text.AlignHCenter:Text.AlignLeft
+    Component.onDestruction: { cleanup()    }
+    function init() { console.log("INIT "+Component.objectName)    }
+    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 }

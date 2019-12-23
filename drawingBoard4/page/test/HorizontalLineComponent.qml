@@ -122,4 +122,7 @@ Item {
     }
     onWidthChanged: {console.log("The current width has change")}
     onHeightChanged: {console.log("The current Height has changed")}
+    Component.onDestruction: { cleanup()    }
+    function init() { console.log("INIT "+Component.objectName)    }
+    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 }

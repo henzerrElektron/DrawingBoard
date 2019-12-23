@@ -10,6 +10,12 @@
         <file>page/notUsed/NewPatientTitleGender.qml</file>
         <file>page/notUsed/NewPatientDateCalendar.qml</file>
         <file>page/notUsed/NewPatientDateChooser.qml</file>
+        <file>page/notUsed/FontAwesomeToolButton.qml</file>
+        <file>page/notUsed/ItemLoader.qml</file>
+        <file>page/notUsed/ContactDetailLabelTextGroup.qml</file>
+        <file>page/notUsed/PatientDetailDelegateEntryGroup.qml</file>
+        <file>page/notUsed/ReportOkCancelGroup.qml</file>
+         <file>page/notUsed/LabelOnTopDelegate.qml</file>
         <file>common/BoxLabel.qml</file>
         <file>main.qml</file>
         <file>page/test/TestTabs.qml</file>
@@ -36,19 +42,19 @@
         <file>imports/ApplicationConstants/fontAwesome/Font Awesome 5 Free-Solid-900.otf</file>
         <file>models/qmldir</file>
         <file>models/ActionDelegateModel.qml</file>
-        <file>models/HomeDelegateModel.qml</file>
-        <file>models/NewPatientDelegateModel.qml</file>
-        <file>models/ExistingPatientDelegateModel.qml</file>
+        <file>page/notUsed/HomeDelegateModel.qml</file>
+        <file>page/notUsed/NewPatientDelegateModel.qml</file>
+        <file>page/notUsed/ExistingPatientDelegateModel.qml</file>
         <file>models/TestPageDelegateModel.qml</file>
         <file>models/ReportPageDelegateModel.qml</file>
         <file>models/OperatorPageDelegateModel.qml</file>
         <file>models/AllPageModel.qml</file>
         <file>delegates/ActionHeaderDelegate.qml</file>
-        <file>page/test/ResultsTableView.qml</file>
-        <file>page/test/ResultTableGrid.qml</file>
+        <file>page/notUsed/ResultsTableView.qml</file>
+        <file>page/notUsed/ResultTableGrid.qml</file>
         <file>delegates/TestControlDelegate.qml</file>
         <file>models/TestControlModel.qml</file>
-        <file>page/test/TestItems.qml</file>
+        <file>page/notUsed/TestItems.qml</file>
         <file>page/test/TestController.qml</file>
         <file>page/test/XYPlot.qml</file>
         <file>page/test/HorizontalLineComponent.qml</file>
@@ -59,16 +65,15 @@
         <file>page/test/TestPageButton.qml</file>
         <file>page/test/TestPageLabel.qml</file>
         <file>page/test/TestPagePatientResultIndex.qml</file>
-        <file>common/FontAwesomeToolButton.qml</file>
         <file>page/test/TestPageAllLabels.qml</file>
-        <file>page/test/TestPageActionButtons.qml</file>
+        <file>page/notUsed/TestPageActionButtons.qml</file>
         <file>page/test/TestPageSwitchButtons.qml</file>
-        <file>page/test/TestPageTitle.qml</file>
+        <file>page/notUsed/TestPageTitle.qml</file>
         <file>page/test/TestPlotTabs.qml</file>
         <file>models/TestPatientNavigationModel.qml</file>
         <file>page/test/TestNavItems.qml</file>
         <file>delegates/TestNavDelegate.qml</file>
-        <file>page/test/TestPageSupplementTableView.qml</file>
+        <file>page/notUsed/TestPageSupplementTableView.qml</file>
         <file>page/test/TestPageSupplementTabPage.qml</file>
         <file>common/IconOnlyButtons.qml</file>
         <file>page/test/TestPageNotesTabPage.qml</file>
@@ -76,7 +81,7 @@
         <file>page/home/HomePageLabel.qml</file>
         <file>page/home/HomePageTitle.qml</file>
         <file>page/home/HomePageActionButtons.qml</file>
-        <file>common/PageActionsButtons.qml</file>
+        <file>delegates/PageActionsButtons.qml</file>
         <file>page/home/HomePageRightLogo.qml</file>
         <file>page/home/HomePageLeftLogo.qml</file>
         <file>page/home/HomePageLogo.qml</file>
@@ -141,7 +146,6 @@
         <file>page/test/XYCrossMouseArea.qml</file>
         <file>page/test/XYReportRowDelegate.qml</file>
         <file>page/test/XYReportColFooter.qml</file>
-        <file>common/ItemLoader.qml</file>
         <file>page/mainPages/HomePage.qml</file>
         <file>page/mainPages/NewPatientPage.qml</file>
         <file>page/mainPages/ReportPage.qml</file>
@@ -155,10 +159,9 @@
         <file>page/reports/ReportDateGrid.qml</file>
         <file>common/ReportPageBtn.qml</file>
         <file>common/ReportTabButton.qml</file>
-        <file>common/ReportOkCancelGroup.qml</file>
         <file>page/newPatient/NewPatientMedicalRiskFactors.qml</file>
         <file>page/newPatient/NewPatientNotes.qml</file>
-        <file>page/test/TestPageSupplementTableGrid.qml</file>
+        <file>page/notUsed/TestPageSupplementTableGrid.qml</file>
         <file>page/reports/ReportPatientDetails.qml</file>
         <file>page/reports/ReportPraticeDetails.qml</file>
         <file>page/reports/ReportPraticeDateGrid.qml</file>
@@ -178,16 +181,15 @@
         <file>page/operator/AdminOperation.qml</file>
         <file>models/AllDateModel.qml</file>
         <file>models/AllDateDelegateModel.qml</file>
-        <file>common/ReportPageDateBtnGroup.qml</file>
-        <file>models/AllReportDataModel.qml</file>
+        <file>delegates/ReportPageDateBtnGroup.qml</file>
+        <file>page/notUsed/AllReportDataModel.qml</file>
         <file>models/ReportDetailModel.qml</file>
         <file>models/ReportlDetailDelegateModel.qml</file>
-        <file>common/ReportDetailLabelGroup.qml</file>
+        <file>delegates/ReportDetailLabelGroup.qml</file>
         <file>delegates/LabelDelegate.qml</file>
         <file>models/NewPatientContactDetailModel.qml</file>
-        <file>models/ContactDetailDelegateModel.qml</file>
-        <file>common/ContactDetailLabelTextGroup.qml</file>
-        <file>common/NewPatientContactDetailGroup.qml</file>
+        <file>page/notUsed/ContactDetailDelegateModel.qml</file>
+        <file>delegates/NewPatientContactDetailGroup.qml</file>
         <file>delegates/TextDelegate.qml</file>
         <file>validators/AllValidators.qml</file>
         <file>validators/AgeValidator.qml</file>
@@ -199,15 +201,13 @@
         <file>models/NewPatientPersonalDetailModel.qml</file>
         <file>models/NewPatientPersonalDetailsEntryModel.qml</file>
         <file>models/NewPatientPersonalDetailDelegateModel.qml</file>
-        <file>common/NewPatientPersonalDetailGroup.qml</file>
+        <file>delegates/NewPatientPersonalDetailGroup.qml</file>
         <file>page/supplement/SupplementDialog.qml</file>
-        <file>common/NewPatientPersonalDetailEntryGroup.qml</file>
+        <file>delegates/NewPatientPersonalDetailEntryGroup.qml</file>
         <file>models/NewPatientPDEntryDelegateModel.qml</file>
-        <file>common/PatientDetailDelegateEntryGroup.qml</file>
-        <file>delegates/LabelOnTopDelegate.qml</file>
         <file>models/MedicalAndRiskFactorModel.qml</file>
         <file>models/MedicalRiskFactorDelegateModel.qml</file>
-        <file>common/NewPatientMedicalDetailsRiskFactorGroup.qml</file>
+        <file>delegates/NewPatientMedicalDetailsRiskFactorGroup.qml</file>
         <file>page/newPatient/NewPatientSearchBox.qml</file>
         <file>tables/RowColTableGrid.qml</file>
     </qresource>

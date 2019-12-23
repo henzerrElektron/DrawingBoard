@@ -107,7 +107,9 @@ TableView {
     }
     ScrollIndicator.horizontal: ScrollIndicator { }
     ScrollIndicator.vertical: ScrollIndicator { }
-
+    Component.onDestruction: { cleanup()    }
+    function init() { console.log("INIT "+Component.objectName)    }
+    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 
 }
 

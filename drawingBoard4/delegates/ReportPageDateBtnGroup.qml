@@ -5,6 +5,7 @@ import "./../images/"
 //import "./../imports/"
 import "./../models/"
 import "./../delegates/"
+import "./../common/"
 import ApplicationConstants 1.0
 
 GridView {

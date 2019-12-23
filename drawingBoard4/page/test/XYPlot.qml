@@ -127,6 +127,9 @@ Rectangle {
     PlotRecComponent {        id: plotRecComponent    }
     PlotTriComponent {        id: plotTriComponent    }
     HorizontalLineComponent { id: lineItem }
+    Component.onDestruction: { cleanup()    }
+    function init() { console.log("INIT "+Component.objectName)    }
+    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 }
 
 

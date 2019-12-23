@@ -38,6 +38,9 @@ Rectangle{
     //        rowSpacing: 0
     //        anchors.fill: parent
     //    }
+    Component.onDestruction: { cleanup()    }
+    function init() { console.log("INIT "+Component.objectName)    }
+    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 }
 
 //Rectangle{

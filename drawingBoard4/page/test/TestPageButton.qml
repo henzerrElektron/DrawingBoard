@@ -175,6 +175,9 @@ Rectangle{
     //        display: AbstractButton.IconOnly
     //        onClicked: mainRec.clicked()
     //    }
+    Component.onDestruction: { cleanup()    }
+    function init() { console.log("INIT "+Component.objectName)    }
+    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 }
 
 //ToolButton {

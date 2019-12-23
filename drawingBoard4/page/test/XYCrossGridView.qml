@@ -39,4 +39,7 @@ GridView {
     }
       Loader { sourceComponent: gridCrossDelegate;width: parent.width/(testOrReport?IntegerConstants.numGridCol:IntegerConstants.numReportGridCol);height: parent.height/(testOrReport?IntegerConstants.numGridRow:IntegerConstants.numReportGridCol) }
     model:IntegerConstants.numGridRow*IntegerConstants.numGridCol
+    Component.onDestruction: { cleanup()    }
+    function init() { console.log("INIT "+Component.objectName)    }
+    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 }

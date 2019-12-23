@@ -30,6 +30,9 @@ GridView{
     delegate:TestNavDelegate{}
     //highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
     flickDeceleration: Flickable.HorizontalFlick
+    Component.onDestruction: { cleanup()    }
+    function init() { console.log("INIT "+Component.objectName)    }
+    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 }
 
 

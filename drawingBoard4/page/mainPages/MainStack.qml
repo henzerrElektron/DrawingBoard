@@ -41,45 +41,45 @@ StackView{
     id:mainStack
     focus: true
     property var previousIndex: 1;
-    ItemLoader{
-        id:itmLoader
-        anchors.fill: parent
-        Layout.fillHeight: true
-        Layout.fillWidth: true
-        Component.onCompleted: {
-            if(mainStack.previousIndex === 1)
-            {
-                itmLoader.setSource("qrc:/page/mainPages/HomePage.qml")
-                itmLoader.active = true
-                itmLoader.visible = true
-            }
-        }
-        onLoaded: {
-            if(mainStack.previousIndex === 1)
-            {
-                mainStack.initialItem = itmLoader.item
-                //itmLoader.item.anchors.fill=parent
-                //itmLoader.anchors.fill=parent
-                //mainStack.push(ItemLoader.item)
+//    ItemLoader{
+//        id:itmLoader
+//        anchors.fill: parent
+//        Layout.fillHeight: true
+//        Layout.fillWidth: true
+//        Component.onCompleted: {
+//            if(mainStack.previousIndex === 1)
+//            {
+//                itmLoader.setSource("qrc:/page/mainPages/HomePage.qml")
+//                itmLoader.active = true
+//                itmLoader.visible = true
+//            }
+//        }
+//        onLoaded: {
+//            if(mainStack.previousIndex === 1)
+//            {
+//                mainStack.initialItem = itmLoader.item
+//                //itmLoader.item.anchors.fill=parent
+//                //itmLoader.anchors.fill=parent
+//                //mainStack.push(ItemLoader.item)
                 
-                itmLoader.active = true
-                itmLoader.visible = true
-                itmLoader.item.invokeSource.connect(itmLoader.setSource)
-                mainStack.update()
-                // mainStack.previousIndex = 0
-            }
+//                itmLoader.active = true
+//                itmLoader.visible = true
+//                itmLoader.item.invokeSource.connect(itmLoader.setSource)
+//                mainStack.update()
+//                // mainStack.previousIndex = 0
+//            }
             
-        }
-    }
+//        }
+//    }
     
-    Component.onCompleted: {
-        if(mainStack.previousIndex === 1)
-        {
-            itmLoader.setSource("qrc:/page/mainPages/ReportPage.qml")
-            itmLoader.item.anchors.fill=parent
-            itmLoader.anchors.fill=parent
-            itmLoader.active = true
-            itmLoader.visible = true
-        }
-    }
+//    Component.onCompleted: {
+//        if(mainStack.previousIndex === 1)
+//        {
+//            itmLoader.setSource("qrc:/page/mainPages/ReportPage.qml")
+//            itmLoader.item.anchors.fill=parent
+//            itmLoader.anchors.fill=parent
+//            itmLoader.active = true
+//            itmLoader.visible = true
+//        }
+//    }
 }

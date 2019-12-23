@@ -14,13 +14,45 @@ import Qt.labs.settings 1.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
 import ApplicationConstants 1.0
+/*!
+   \qmltype RolColTableGrid
+   \brief A Component that contains Vertical and horizontal headers Table
+
+  This Component can be used for table that has headers for both vertically and horizontally
+  This gets data from the C++ model and displays them in the table view
+  This uses the modern table view that is inherited from QML Flip Component
+  The column header is no longer used and is commented out as of now
+  This is used in ResultCommonTableGrids.qml
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display a table that contains both vertical and horizontal headers use the below in a grid
+
+   \qml
+    RowColTableGrid{
+        id:row1
+        anchors.fill: parent
+        commonTableModel: theConfidenceModel
+    }
+   \endqml
+
+*/
 Rectangle {
     id: element
     anchors.fill: parent
+    objectName: StringConstants.objectName_rowColTableGrid//"rowColTableGrid"
     //Grid {
     //     id: grid
     //     anchors.fill: parent
+    /*!
+        This property  holds the moodel alias.
+    */
     property alias commonTableModel: mainTable.model
+    /*!
+        This property holds the integer val and it is not used.
+    */
     property int val: 0
     Row {
         id: row
@@ -112,11 +144,11 @@ Rectangle {
             columnWidthProvider: function (column) {
                 if(column === 0)
                 {
-                    return ((parent.width)/(columns))+35;
+                    return ((parent.width)/(columns))+35;//@todo has to make 35 a relative to width and height
                 }
                 else
                 {
-                    return ((parent.width)/(columns)) - 17;
+                    return ((parent.width)/(columns)) - 17;//@todo has to make 17 a relative to width and height
                 }
             }// - rectangle.width
             rowHeightProvider: function (column) { return (parent.height )/rows; }//- rectangle.height
@@ -142,6 +174,9 @@ Rectangle {
             ScrollIndicator.vertical: ScrollIndicator { }
         }
     }
+    Component.onDestruction: { cleanup()    }
+    function init() { console.log("INIT "+Component.objectName)    }
+    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 }
 
 

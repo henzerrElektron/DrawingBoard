@@ -44,4 +44,7 @@ GridView {
 
     model: testOrReport?IntegerConstants.numGridRow*1:IntegerConstants.numReportGridRow*1
     delegate:testOrReport?rowDelegate:reportRowDelegate//rowDelegate
+    Component.onDestruction: { cleanup()    }
+    function init() { console.log("INIT "+Component.objectName)    }
+    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 }

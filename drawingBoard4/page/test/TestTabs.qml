@@ -321,7 +321,9 @@ Page {
     Component.onCompleted: {
         page1.visible = true
     }
-
+    Component.onDestruction: { cleanup()    }
+    function init() { console.log("INIT "+Component.objectName)    }
+    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 }
 
 
