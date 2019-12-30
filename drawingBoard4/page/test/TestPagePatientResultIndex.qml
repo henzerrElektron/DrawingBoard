@@ -26,8 +26,27 @@ import ApplicationConstants 1.0
 //Item {
 //width: 800
 //height: 125
+/*!
+   \qmltype TestPagePatientResultIndex
+   \brief A footer section of the Patient Test graph that holds previous test result .
+
+  This Component contains various navigation buttons to navigate between various patient results
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display patients previous results
+   \qml
+            TestPagePatientResultIndex{
+                id: supplementTab
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle {
     id: rectangle
+    objectName: StringConstants.objectName_testPagePatientResultIndex
     //color: "#ffffff"
     height: 75
     anchors.fill: parent

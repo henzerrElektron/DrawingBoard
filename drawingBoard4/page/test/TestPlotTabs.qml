@@ -19,8 +19,28 @@ import "./../reports/"
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype TestPlotTabs
+   \brief A Component that contains various tabs in the test page
+
+  This Component contains pages for XY Plots ,reports and timeline
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display patient test result,generate reports and display tables with previous results
+   \qml
+                    TestPlotTabs{
+                        id:curTestTabs
+                        anchors.fill: parent
+                    }
+   \endqml
+
+*/
 Page {
     id: tabsPage
+    objectName: StringConstants.objectName_testPlotTabs
     anchors.fill: parent
     Layout.fillHeight: true
     Layout.fillWidth: true
@@ -256,6 +276,7 @@ Page {
                     anchors.rightMargin: 125
                     anchors.bottomMargin: 125
                     anchors.topMargin: 125
+                    crossTestOrReport: true
                     //anchors.left: rectangle1.left
                     //anchors.right: rectangle2.left
                     //anchors.top: rectangle1.top

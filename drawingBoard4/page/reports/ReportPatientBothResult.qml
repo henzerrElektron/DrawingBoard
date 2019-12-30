@@ -16,6 +16,25 @@ import "./../../common/"
 import "./../../tables/"
 import "./../newPatient/"
 import "./../changePatient/"
+
+/*!
+   \qmltype ReportPatientBothResult
+   \brief Contains the report tabs of the table for left eye
+
+  This contains patient results for left eye .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportPatientBothResult is demonstrated below
+   \qml
+                ReportPatientBothResult{
+                    id:leftResult
+                    anchors.fill: parent
+                }
+   \endqml
+
+*/
 Rectangle {
     id: mainRec
     color: StringConstants.barBackgroundColor//"white"//StringConstants.testPage_backgroundColor

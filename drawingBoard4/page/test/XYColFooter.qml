@@ -20,6 +20,30 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype XYColFooter
+   \brief A Component that contains label for XYGrid.It acts as a footer for Gridview
+
+  This Component is similar to XYRowFooter but differs by not having check boxes
+  This either displays label  and check options for Left Graph or Right Graph
+  This is used alongside in XYPlot
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display footer for the columns
+   \qml
+        GridView {
+            id: gridRowView
+            footer:footerItem
+            XYColFooter {
+                        id: footerItem
+                        }
+                }
+   \endqml
+
+*/
 Component{
     id:footerItem1
     //signal check1Checked()
@@ -79,7 +103,7 @@ Component{
             }
         }
     }
-    Component.onDestruction: { cleanup()    }
-    function init() { console.log("INIT "+Component.objectName)    }
-    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
+   // Component.onDestruction: { cleanup()    }
+   // function init() { console.log("INIT "+Component.objectName)    }
+   // function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 }

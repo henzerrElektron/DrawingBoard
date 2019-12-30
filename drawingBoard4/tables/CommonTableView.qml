@@ -6,13 +6,29 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
-TableView {
-    id: supplementTableView
+/*!
+   \qmltype CommonTableView
+   \brief A Component that contains the newly incorporated tableview of QML that inherifts Flickable
 
+  This Component can be used for table that has headers  vertically
+  This gets data from the C++ model and displays them in the table view
+  This uses the modern table view that is inherited from QML Flip Component
+  This is used in CommonTableGrid.qml
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display a table that contains both vertical headers use the below in a grid
+
+*/
+TableView {
+    id: commonTableView
+    objectName: StringConstants.objecName_commonTableView
     topMargin: columnHeader.implicitHeight//+columnHeader.implicitHeight/2
-    property alias tableModel: supplementTableView.model
+    property alias tableModel: commonTableView.model
     property int rowHeightMinValue: 0
-    property alias colProvider: supplementTableView.columnWidthProvider
+    property alias colProvider: commonTableView.columnWidthProvider
     property int noOfCols: 0
 
     onWidthChanged: {
@@ -102,8 +118,8 @@ TableView {
         color: StringConstants.actionBtnBackgroundColor//"white"//"red"//"#222222"
        // y: supplementTableView.contentY
        // x: supplementTableView.contentX
-        width: supplementTableView.width
-        height: supplementTableView.height//supplementTableView.topMargin * 2
+        width: commonTableView.width
+        height: commonTableView.height//supplementTableView.topMargin * 2
     }
     ScrollIndicator.horizontal: ScrollIndicator { }
     ScrollIndicator.vertical: ScrollIndicator { }

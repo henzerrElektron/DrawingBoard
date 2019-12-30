@@ -19,10 +19,28 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype TestPageLabel
+   \brief A label that also can display readonly contents
 
+  This Component is used where we need to display readonly contents with label
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display patient details in Test page
+   \qml
+        TestPageLabel {
+            lblOrText: false
+            text: StringConstants.label_testPgPatient
+        }
+   \endqml
+
+*/
 
 Label {
     id: label_lblPatientName
+    objectName: StringConstants.objectName_testPageLabel
     property bool lblOrText: false
     onLblOrTextChanged: {console.log("The flag is"+lblOrText)}
     width: IntegerConstants.testPage_lblWidth

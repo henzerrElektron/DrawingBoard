@@ -20,8 +20,33 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype XYCrossMouseArea
+   \brief A Component that follows  mouse coordinates and draws horizontal and vertical cross lines
+
+  This Component can be used for test page
+  This Component replaces the QWT library graph by providing a QML specific graph
+  This Component works by overlaying a mouse area on top of the grid and \a
+  draws lines based on x and y coordinates relative to absolute coordinate space
+  This is used in TestPlotTabs.qml
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display a transparent overlay on top of XYCrossGridView
+   \qml
+        XYCrossMouseArea {
+            id: mouseArea
+            anchors.fill: parent
+            propagateComposedEvents: true
+        }
+   \endqml
+
+*/
 MouseArea {
     id: mouseArea
+    objectName: StringConstants.objectName_xyCrossMouseArea
     property Rectangle item_horizontal : null;
     property Rectangle item_Vertical : null;
     property Rectangle item_mouseClick: null;

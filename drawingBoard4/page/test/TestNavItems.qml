@@ -6,12 +6,35 @@ import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
 import ApplicationConstants 1.0
+
+/*!
+   \qmltype TestNavItems
+   \brief Contains a gridview of navigational buttons for patient records
+
+  This Component uses TestNavigationModel as a model and TestNavDelegate as delegate.
+  This component is only used in TestPagePatientResultIndex.
+  This Component exist because of he limitation of number of items in a model that can be grouped
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To navigate results in  Test page
+   \qml
+                    TestNavItems{
+                        id:navItems
+                        anchors.fill: parent
+                        flickableDirection: Flickable.AutoFlickDirection
+                    }
+   \endqml
+
+*/
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
 
 GridView{
     id:testItems
+    objectName: StringConstants.objectName_testNavItems
     flickableDirection: Flickable.HorizontalFlick
     cellWidth: 50//navToolButton.width
     cellHeight: 50//navToolButton.height

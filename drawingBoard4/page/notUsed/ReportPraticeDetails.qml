@@ -18,7 +18,26 @@ import "./../../delegates/"
 import "./../../models/"
 import "./../newPatient/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype ReportPraticeDetails
+   \brief Contains the labels that gives information regarding the test
 
+  This contains pratice relevant information .
+  This Component also contains information about all the Test performed for the selected date range
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportRangeSliders is demonstrated below
+   \qml
+                ReportPraticeTimeline{
+                    id:reportTimeline
+                    anchors.fill: parent
+            }
+   \endqml
+
+*/
 
 Rectangle{
     id:mainGridRec

@@ -23,6 +23,26 @@ import "./../test/"
 import "./../home/"
 import "./../newPatient/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype ReportPatientDateGrid
+   \brief Contains the list of options for Pratice/Patient section to choose dates
+   This allows the user to select dates quickly such that they need not use the sliders
+   The user just nned to select the button relevatn to the number or  months/Years they need results for
+
+  This contains patient results for left eye .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportPatientDateGrid is demonstrated below
+   \qml
+                ReportPatientLeftResult{
+                    id:leftResult
+                    anchors.fill: parent
+                }
+   \endqml
+
+*/
 Rectangle{
     id:mainRec
     anchors.fill: parent

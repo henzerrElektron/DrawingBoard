@@ -20,8 +20,33 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype XYCrossMouseArea
+   \brief A Component that displays grid lines for the grah
+  This Component can be used for test page
+  This Component replaces the QWT library graph by providing a QML specific graph
+  This Component works by displaying grid lines and also overlaying a mouse area on top of the grid and \a
+  draws lines based on x and y coordinates relative to absolute coordinate space
+  This is used in TestPlotTabs.qml
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display cross grid lines
+   \qml
+        XYCrossGridView {
+            id: gridView
+            crossCellWidth:gridView.width/IntegerConstants.numGridCol
+            crossCellHeight: gridView.height/IntegerConstants.numGridRow
+            crossCellModel: IntegerConstants.numGridRow * IntegerConstants.numGridCol
+        }
+   \endqml
+
+*/
 GridView {
     id: gridView
+    objectName: StringConstants.objectName_xyCrossGridView
     property alias crossCellWidth: gridView.cellWidth
     property alias crossCellHeight: gridView.cellHeight
     property alias crossCellModel: gridView.model

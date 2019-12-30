@@ -48,24 +48,24 @@ Rectangle {
     //    onBtn4Clicked: console.log("Button 4 Report Patient Timeline Clicked")
     //    onBtn5Clicked: console.log("Button 5 Report Patient Timeline clicked")
     //    onBtn6Clicked: console.log("Button 6 Report Patient Timeline Clicked")
-    function setDetailDateRangeSource(source)
-    {
-        //rpHeader.state = source//"pratice"
-        //console.log("The value of the source is"+source)
-        if(source === "pratice")
-        {
-            //mainLoader.source = "ReportPraticeDateGrid.qml"
-            detailsLoader.source = "ReportPraticeDetails.qml"
-        }
-        else
-        {
-            // mainLoader.source = "ReportPatientDateGrid.qml"
-            detailsLoader.source = "ReportPatientDetails.qml"
-        }
+//    function setDetailDateRangeSource(source)
+//    {
+//        //rpHeader.state = source//"pratice"
+//        //console.log("The value of the source is"+source)
+//        if(source === "pratice")
+//        {
+//            //mainLoader.source = "ReportPraticeDateGrid.qml"
+//            detailsLoader.source = "ReportPraticeDetails.qml"
+//        }
+//        else
+//        {
+//            // mainLoader.source = "ReportPatientDateGrid.qml"
+//            detailsLoader.source = "ReportPatientDetails.qml"
+//        }
 
-        mainLoader.update()
+//        mainLoader.update()
 
-    }
+//    }
     function recevSignal1()
     {
         console.log("Recevie signal 1")
@@ -219,7 +219,7 @@ Rectangle {
         //}
 
         Component.onCompleted: {
-            setDetailDateRangeSource("Pratice")
+           // setDetailDateRangeSource("Pratice")
         }
     }
 

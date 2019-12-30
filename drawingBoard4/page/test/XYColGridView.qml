@@ -20,8 +20,34 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype XYCrossMouseArea
+   \brief A Component that displays grid lines for the graph
+  This Component draws the vertical lines for the graph
+  This Component replaces the QWT library graph by providing a QML specific graph
+  This Component is similar to XYRowGridView which draws horlizontal lines
+  This draws lines based on x and y coordinates relative to absolute coordinate space
+  This is used in TestPlotTabs.qml
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display columns in the grid view
+   \qml
+            XYColGridView {
+                id: gridColView
+                testOrReport:crossTestOrReport
+                crossColCellWidth:gridColView.width/(IntegerConstants.numGridCol)
+                crossColCellHeight: gridColView.height/2
+                crossColModel: 1 * IntegerConstants.numGridCol
+            }
+   \endqml
+
+*/
 Rectangle{
     id:backgroundRec
+    objectName: StringConstants.objectName_xyColGridView
     anchors.fill: parent
     // z:-1
     color: "transparent"

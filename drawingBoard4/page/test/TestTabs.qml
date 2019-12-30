@@ -23,8 +23,28 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype TestTabs
+   \brief A Component that contains various tabs in the test page for result section
+
+  This Component contains pages for results ,notes and supplementation
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display result , notes and supplementation tabs
+   \qml
+                    TestTabs{
+                        id:curTestTabs
+                        anchors.fill: parent
+                    }
+   \endqml
+
+*/
 Page {
     id: tabsPage
+    objectName: StringConstants.objectName_testTabs
     anchors.fill: parent
     Layout.fillHeight: true
     Layout.fillWidth: true

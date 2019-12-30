@@ -24,6 +24,27 @@ import "./../../common/"
 import "./../../tables/"
 import "./../newPatient/"
 import "./../changePatient/"
+/*!
+   \qmltype ReportPraticeTimeline
+   \brief Contains the pratice tabs of the reports
+
+  This contains pratice relevant information .
+  This Component contains a search bar to search for operator and all the test performed by the operator.
+  This Component also contains information about all the Test performed for the selected date range
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportPraticeTimeline is demonstrated below
+   \qml
+                ReportPraticeTimeline{
+                    id:reportTimeline
+                    anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle {
     id: mainRec
     color: StringConstants.barBackgroundColor

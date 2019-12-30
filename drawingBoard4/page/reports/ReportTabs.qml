@@ -23,7 +23,29 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype ReportTabs
+   \brief Contains Pages that contains various tabs that are used in the report page
 
+  This Page contains Report Pratice and Patient Timelines
+  This Component is used in Report Page
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To draw Component to indicate test results
+   \qml
+            ReportTabs{
+                id:mainTab
+                anchors.fill: parent
+                Component.onCompleted: {
+                    mainTab.popupOpen.connect(popup.open)
+                }
+            }
+   \endqml
+
+*/
 Page {
     id: tabsPage
     signal popupOpen()

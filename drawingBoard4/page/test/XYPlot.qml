@@ -20,12 +20,34 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype XYPlot
+   \brief A Component that displays graph for Test
+
+  This Component can be used for test page as well as report page
+  This Component replaces the QWT library graph by providing a QML specific graph
+  This uses XYRowGridView and XYColGridView
+  This is used in TestPlotTabs.qml and ReportPatientBothResult.qml
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display a graph for Test and Report pages
+   \qml
+       XYPlot{
+                id:xyplotgrid
+                anchors.fill: parent
+                crossTestOrReport:true
+             }
+   \endqml
+
+*/
 Rectangle {
     id:xyplotter
+    objectName: StringConstants.objectName_xyPlotter
     anchors.fill: parent
     color: StringConstants.barBackgroundColor
-
-
     //property int numGridRow: 6
     //property int numGridCol: 10
     property alias mouseAreaWidth: mouseArea.width

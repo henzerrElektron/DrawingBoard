@@ -10,9 +10,29 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype TestController
+   \brief Contains the buttons that controls the start/pause/stop/Detailed modes
 
+  This Component uses TestNavigationModel as a model and TestNavDelegate as delegate.
+  This component is only used in TestPagePatientResultIndex.
+  This Component exist because of he limitation of number of items in a model that can be grouped
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To control test in  Test page
+   \qml
+                    TestController{
+                        id:curTestControl
+                        anchors.fill: parent
+                    }
+   \endqml
+
+*/
 Item {
     id: element
+    objectName: StringConstants.objectName_testController
     //height: 150
     GridLayout{
         id:rowLayout

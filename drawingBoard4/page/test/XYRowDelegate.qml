@@ -20,8 +20,34 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype XYRowDelegate
+   \brief A Component that draws row based lines in  XYRowGridView
+
+  This Component is similar to XYReportRowDelegate
+  This Component is used in Test mode and XYReportRowDelegate is used in Report mode
+  This Component is only choosen when the flag of testOrReport is true
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display a horizontal lines in a grid view of XYRowGridView
+   \qml
+        GridView {
+            id: gridRowView
+            objectName: StringConstants.objectName_xyRowGridView
+            delegate:rowDelegate
+                XYRowDelegate {
+                                id: rowDelegate
+                              }
+                }
+   \endqml
+
+*/
 Component {
     id:rowDelegate
+    //objectName: StringConstants.objectName_xyRowDelegate
     Rectangle {
         id:rowRec
         //color: "blue"
@@ -102,7 +128,7 @@ Component {
         }
         
     }
-    Component.onDestruction: { cleanup()    }
-    function init() { console.log("INIT "+Component.objectName)    }
-    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
+    //Component.onDestruction: { cleanup()    }
+    ///function init() { console.log("INIT "+Component.objectName)    }
+    //function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 }

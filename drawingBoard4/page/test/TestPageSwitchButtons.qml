@@ -22,9 +22,28 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype TestPageSwitchButtons
+   \brief A Component that contains custom buttons to allow user to switch between Left/Right and Central/Detailed test
 
+  This Component contains is present in the header section of the Patient Label
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display buttons which contains checkbox to indicate which mode the test is currently on and what eye is being currently tested
+   \qml
+            TestPageSwitchButtons{
+                id:pageSwitchButtons
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle {
     id: rectangle4
+    objectName: StringConstants.objectName_testPageSwitchButtons
     //color: "black"
     color: StringConstants.testPage_backgroundColor//color: "transparent"
     //anchors.left: rectangle2.right

@@ -16,7 +16,22 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype PlotTriComponent
+   \brief Contains Component to indicate which test result belong to which mode(Standard/Detailed)
 
+  This Component uses shape and shape path to draw the indicator shape(Triangle)
+  This Component is similar to plotTriComponent.It is used in XYCrossMouseArea
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To draw Component to indicate test results
+   \qml
+            PlotTriComponent {        id: plotTriComponent    }
+   \endqml
+
+*/
 Component{
     id: plotTriComponent;
     Rectangle{
@@ -41,7 +56,7 @@ Component{
             }
         }
     }
-    Component.onDestruction: { cleanup()    }
-    function init() { console.log("INIT "+Component.objectName)    }
-    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
+   // Component.onDestruction: { cleanup()    }
+   // function init() { console.log("INIT "+Component.objectName)    }
+  //  function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 }

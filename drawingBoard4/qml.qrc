@@ -130,10 +130,10 @@
         <file>page/reports/ReportTabs.qml</file>
         <file>page/reports/ReportPraticeTimeline.qml</file>
         <file>page/reports/ReportPatientTimeline.qml</file>
-        <file>page/reports/ReportPraticeTable.qml</file>
-        <file>page/reports/ReportPatientTableGrid.qml</file>
-        <file>page/reports/ReportPraticeTableGrid.qml</file>
-        <file>page/reports/ReportPatientTable.qml</file>
+        <file>page/notUsed/ReportPraticeTable.qml</file>
+        <file>page/notUsed/ReportPatientTableGrid.qml</file>
+        <file>page/notUsed/ReportPraticeTableGrid.qml</file>
+        <file>page/notUsed/ReportPatientTable.qml</file>
         <file>page/test/XYCrossGridView.qml</file>
         <file>page/test/XYColGridView.qml</file>
         <file>page/test/XYColDelegate.qml</file>
@@ -142,7 +142,7 @@
         <file>page/test/XYRowGridView.qml</file>
         <file>page/test/XYRowFooter.qml</file>
         <file>page/test/XYRowDelegate.qml</file>
-        <file>page/reports/ReportPatientLeftRightGraph.qml</file>
+        <file>page/notUsed/ReportPatientLeftRightGraph.qml</file>
         <file>page/test/XYCrossMouseArea.qml</file>
         <file>page/test/XYReportRowDelegate.qml</file>
         <file>page/test/XYReportColFooter.qml</file>
@@ -162,9 +162,9 @@
         <file>page/newPatient/NewPatientMedicalRiskFactors.qml</file>
         <file>page/newPatient/NewPatientNotes.qml</file>
         <file>page/notUsed/TestPageSupplementTableGrid.qml</file>
-        <file>page/reports/ReportPatientDetails.qml</file>
-        <file>page/reports/ReportPraticeDetails.qml</file>
-        <file>page/reports/ReportPraticeDateGrid.qml</file>
+        <file>page/notUsed/ReportPatientDetails.qml</file>
+        <file>page/notUsed/ReportPraticeDetails.qml</file>
+        <file>page/notUsed/ReportPraticeDateGrid.qml</file>
         <file>page/reports/ReportPatientDateGrid.qml</file>
         <file>common/CommonBorder.qml</file>
         <file>page/reports/ReportPatientResultTabs.qml</file>

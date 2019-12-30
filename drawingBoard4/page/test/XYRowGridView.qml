@@ -20,8 +20,36 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype XYRowGridView
+   \brief A Component that is draws the XY Grid for XY plot and also resused for timeline
+
+  This Component draws Horizontal and vertical XY Grid lines
+  This Component uses flags to determine whether it is used for test or report
+  This Component allows to specify RowCellWidth and RowCellHeight
+  This Component also allows to specify the model
+  This Component uses XYRowFooter,XYRowDelegate and XYReportRowDelegate qml types
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The sample usage is described below
+   \qml
+        XYRowGridView {
+            id: gridRowView
+            flow: GridView.FlowTopToBottom
+            rotation: 180
+            testOrReport:crossTestOrReport
+            crossRowCellWidth:gridRowView.width/2;
+            crossRowCellHeight: gridRowView.height/(testOrReport?IntegerConstants.numGridRow:IntegerConstants.numReportGridRow)
+            crossRowModel: testOrReport?IntegerConstants.numGridRow*1:IntegerConstants.numReportGridRow*1
+        }
+   \endqml
+
+*/
 GridView {
     id: gridRowView
+    objectName: StringConstants.objectName_xyRowGridView
     Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
     property alias crossRowCellWidth: gridRowView.cellWidth
     property alias crossRowCellHeight: gridRowView.cellHeight

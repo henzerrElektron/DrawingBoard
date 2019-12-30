@@ -22,9 +22,27 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype TestPageNotesTabPage
+   \brief A page in tabs to holds patient test notes.Different to patient general notes
 
+  This Component contains is one of the tabs in the Test page test results
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display notes Test page
+   \qml
+            TestPageNotesTabPage{
+                id: supplementTab
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 Page{
     id:notestTabPage
+    objectName: StringConstants.objectName_testPageNotesTabPage
     title: StringConstants.lbl_npNotes//"Enter notes relevant to this test session"
     anchors.fill: parent
     Rectangle{

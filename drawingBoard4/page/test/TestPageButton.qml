@@ -21,8 +21,27 @@ import ApplicationConstants 1.0
 //import ApplicationOtherConstants 1.0
 
 //import appContstants 1.0
+/*!
+   \qmltype TestPageButton
+   \brief A special button that contains a checkbox to display tick marks
+
+  This Component is used in TestPageSwitchButtons to display Standard/Detailed and Left/Right eye buttons
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display tick marks to indicate the current status of the feature
+   \qml
+            TestPageButton {
+                bgGroup:buttonEyeGroup
+                labelText: StringConstants.buttonName_leftEye
+            }
+   \endqml
+
+*/
 Rectangle{
     id:mainRec
+    objectName: StringConstants.objectName_testPageButton
     implicitWidth:  150
     implicitHeight:  55
     border.color: control.checked?StringConstants.barBackgroundColor:StringConstants.barBorderColor

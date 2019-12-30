@@ -18,6 +18,39 @@ import "./../../delegates/"
 import "./../../models/"
 import "./../newPatient/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype ReportRangeSlider
+   \brief Contains a  modified range slider that displays the values as it is moved
+
+  This contains A and B values to describe a speicific range for example the year between two events etc
+  This Component is used in ReportDateRangeSlider
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportRangeSliders is demonstrated below
+   \qml
+            ReportRangeSlider {
+                id: sliderYear
+                labelText: StringConstants.sliderYearValue
+                sliderFrom:IntegerConstants.dobStartDate
+                sliderTo:IntegerConstants.dobEndDate
+                alterValues:false
+                allowSameFirstSec:true
+                onFirstValueChanged: {
+                    checkEqualYear(0)
+                }
+                onSecValueChanged: {
+                    checkEqualYear(0)
+                }
+                Component.onCompleted: {
+                    sliderYear.first1RangeValue.connect(yearFromChange)
+                    sliderYear.first2RangeValue.connect(yearToChange)            }
+            }
+   \endqml
+
+*/
 Rectangle{
     id:mainRec
     anchors.fill: parent

@@ -16,10 +16,26 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype PatientLabel
+   \brief Contains Component to draw horizontal lines based on states
 
+  This Component uses shapes and draws line for standared and detailed modes
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To draw Component to indicate test results
+   \qml
+            HorizontalLineComponent { id: lineItem }
+   \endqml
+
+*/
 
 Item {
     id:horVerLineItem
+    objectName: StringConstants.objectName_horizontalLineComponent
     property Component horVerLine: lineComponent
     //height: parent.height
     Component {

@@ -24,7 +24,24 @@ import "./../../common/"
 import "./../../tables/"
 import "./../newPatient/"
 import "./../changePatient/"
+/*!
+   \qmltype ReportPatientLeftResult
+   \brief Contains the report tabs of the table for left eye
 
+  This contains patient results for left eye .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportPatientLeftResult is demonstrated below
+   \qml
+                ReportPatientLeftResult{
+                    id:leftResult
+                    anchors.fill: parent
+                }
+   \endqml
+
+*/
 ReportPatientBothResult {
     id:mainGrid
     anchors.fill: parent

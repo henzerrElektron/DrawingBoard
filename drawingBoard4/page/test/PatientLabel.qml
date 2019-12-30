@@ -28,9 +28,28 @@ import ApplicationConstants 1.0
 //Item {
 //  width: 950
 //  height: 275
+/*!
+   \qmltype PatientLabel
+   \brief Contains Component to dislay patient details in the header section of the Test Page
 
+  This Component uses NewPatientPersonalDetailGroup and Page Title
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To draw Component to indicate test results
+   \qml
+            PatientLabel{
+                id:ptLabel
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle {
     id: ptLabel
+    objectName: StringConstants.objectName_patientLabel
     color: StringConstants.testPage_backgroundColor
     property alias titleGroup: pgTitle.actionGridGroup
     anchors.fill: parent

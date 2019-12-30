@@ -24,6 +24,27 @@ import "./../../common/"
 import "./../../tables/"
 import "./../newPatient/"
 import "./../changePatient/"
+/*!
+   \qmltype ReportPatientTimeline
+   \brief Contains the patient tabs of the reports
+
+  This contains patient relevant information .
+  This Component contains a search bar to search for patient and all the test performed on the patient.
+  This Component also contains information about all the Test performed on the patient for the selected date range
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportPatientTimeline is demonstrated below
+   \qml
+                ReportPatientTimeline{
+                    id:reportTimeline
+                    anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle {
     id: mainRec
     property alias searchVisible: rectangleSub1.visible

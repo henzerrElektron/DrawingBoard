@@ -22,9 +22,28 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype TestPageAllLabels
+   \brief Contains all labels that appear in the Test Page.It also contains aliases for text so that it can be resused
+
+  This Component is used in NewPatientLabel,PatientLabel and TestPageAllLabels
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display patient details in the Test page
+   \qml
+            TestPageAllLabels {
+                id:testpgLabels
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 
 Rectangle {
     id: rectangle2
+    objectName: StringConstants.objectName_testPageAllLabels
     color: StringConstants.testPage_backgroundColor//color: "transparent"
     anchors.fill: parent
     property alias lblPatientNameVisible: label_lblPatientName.visible

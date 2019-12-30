@@ -24,8 +24,27 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype TestPageSupplementTabPage
+   \brief A page in tabs to holds patient supplementation details
+
+  This Component contains is one of the tabs in the Test page test results
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display supplementation Test page
+   \qml
+            TestPageSupplementTabPage{
+                id: supplementTab
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 Page{
     id:supplementTabPage
+     objectName: StringConstants.objectName_testPageSupplementTabPage
     anchors.fill: parent
     //    Rectangle{
     //        id:rectangle

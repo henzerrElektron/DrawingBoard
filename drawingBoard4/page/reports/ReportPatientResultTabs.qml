@@ -23,7 +23,24 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype ReportPatientResultTabs
+   \brief Contains the  page that has report tabs  for Right eye,Left Eye and Both eye
 
+  This contains patient results for right eye .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportPatientResultTabs is demonstrated below
+   \qml
+                ReportPatientResultTabs{
+                    id:bothResult
+                    anchors.fill: parent
+                }
+   \endqml
+
+*/
 Page {
     id: tabsPage
     signal popupOpen()

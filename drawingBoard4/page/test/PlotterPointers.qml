@@ -17,8 +17,28 @@ import ApplicationConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
 //import appContstants 1.0
+/*!
+   \qmltype PlotterPointers
+   \brief To draw various pointers in the plots
+
+  This Component uses PlotPoint.trackPointVec model and repeater that uses shape and shapepath to draw items
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To draw Component to indicate test results
+   \qml
+    PlotterPointers{
+        id: sample
+        anchors.fill: parent
+    }
+   \endqml
+
+*/
 Item {
     id:root
+    objectName: StringConstants.objectName_plotterPointers
     anchors.fill: parent
     property Rectangle plotShapeRecItem : null;
     property Rectangle item_point_horizontal : null;

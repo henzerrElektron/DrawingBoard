@@ -16,9 +16,28 @@ import QtQuick.Shapes 1.11
 import ApplicationConstants 1.0
 import "./../../common/"
 import "./../../tables/"
+/*!
+   \qmltype ResultCommonTableGrids
+   \brief Contains various tables conntainting the patient result for the test
 
+  This Component uses the RowColTableGrid table with "the confidence model" model to display all test ResultsTableView
+  The commented out section uses the other common table
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display the test results for Left and Right eye test in standard/Detailed mode
+   \qml
+            ResultCommonTableGrids{
+                id: resultGrid
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle{
     id:rectangle3
+    objectName: StringConstants.objectName_resultCommonTableGrids
     color: StringConstants.testPage_backgroundColor
     anchors.fill: parent
     RowColTableGrid{

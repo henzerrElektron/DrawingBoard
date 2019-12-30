@@ -20,6 +20,30 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype XYColDelegate
+   \brief A Component that draws row based lines in  XYColGridView
+
+  This Component is similar to XYRowDelegate
+  This Component is used in Test mode and XYRowDelegate is used in Report mode
+  This Component is only choosen when the flag of testOrReport is true
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To draw marks for various levels
+   \qml
+        GridView {
+            id: gridRowView
+            delegate:colDelegate
+                XYColDelegate {
+                                id: colDelegate
+                              }
+                }
+   \endqml
+
+*/
 Component {
     id: colDelegate
     //Repeater {
@@ -85,8 +109,8 @@ Component {
         }
         
     }
-    Component.onDestruction: { cleanup()    }
-    function init() { console.log("INIT "+Component.objectName)    }
-    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
+   // Component.onDestruction: { cleanup()    }
+   // function init() { console.log("INIT "+Component.objectName)    }
+   //function cleanup() {  console.log("CLEANUP "+Component.objectName) }
     
 }

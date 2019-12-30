@@ -31,8 +31,35 @@ import SortFilterModel 0.1
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype CommonTableGrid
+   \brief A Component that incorporates CommonTableview
+
+  This Component can be used for table that has headers  vertically
+  This gets data from the C++ model and displays them in the table view
+  This uses the modern table view that is inherited from QML Flip Component
+  This is used in CommonTableGrid.qml
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To display a table that contains  vertical headers use the below in a grid
+   \qml
+                CommonTableGrid{
+                    id:curTestTabs1
+                    anchors.fill: parent
+                    commonTableModel: theExistingPatientsModel
+                    repeaterModel: 6
+                    proxySoure: theExistingPatientsModel
+
+                }
+   \endqml
+
+*/
 GridLayout{
     id:gridLayout
+    objectName: StringConstants.objectName_commonTableGrid
     columns: 1
     flow: Grid.TopToBottom
     rowSpacing: 0
@@ -41,20 +68,58 @@ GridLayout{
     anchors.fill: parent
     property int rowTabHeight: height/rows
     property bool testOrSwitch: false
+    /*!
+        This property holds the alias of filter String for proxyModel.
+    */
     property alias proxyFilterString: proxyModel.filterString
+    /*!
+        This property holds the alias of sortRole for ProxyModel.
+    */
     property alias proxyFilterSortRole: proxyModel.sortRole
+    /*!
+        This property holds the alias of model of repeaterHeader.
+    */
     property alias repeaterModel:repeaterHeader.model
+    /*!
+        This property holds the variable model which is initiailzed with repeaterHeader.
+    */
     property var commonTableModel:repeaterHeader.model//: existingPatientTable.model
     //property alias tableModel: existingPatientTable.model
+    /*!
+        This property holds the alias of the source of proxyModel.
+    */
     property alias proxySoure: proxyModel.source
+    /*!
+        This property holds the visibility of SearchRec.
+    */
     property alias searchRecVisibilty: searchRec.visible
+    /*!
+        This property holds the minimum row height value of the existingPatientTable.
+    */
     property alias rowHeightMinValue: existingPatientTable.rowHeightMinValue
+    /*!
+        This property holds the minHeaderHeight flag.
+    */
     property bool minheaderHeight: false
+    /*
+        \qmlmethod setFilterString(str,role)
+
+        sets the filter role and string for the model
+
+        \sa clear()
+    */
     function setFilterString(str,role){
         proxyModel.filterRole = role
         proxyModel.sortRole = role
         proxyModel.setFilterFixedString(str)
     }
+    /*
+        \qmlmethod logString(str,role)
+
+        logs the filter role and string for the model
+
+        \sa clear()
+    */
     function logString(str,role)
     {
         console.log("The values are"+str+"and is"+role)

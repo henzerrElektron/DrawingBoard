@@ -20,6 +20,25 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype GridCrossDelegate
+   \brief Contains Component to draw a single cell in XYCrossGridView
+
+  This Component uses shapes
+  This Component is used as a delegate
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   To draw Component to indicate test results
+   \qml
+    GridCrossDelegate {
+        id: gridCrossDelegate
+    }
+   \endqml
+
+*/
 Component {
     id: gridCrossDelegate
     Rectangle {
@@ -42,7 +61,7 @@ Component {
             }
         }
     }
-    Component.onDestruction: { cleanup()    }
-    function init() { console.log("INIT "+Component.objectName)    }
-    function cleanup() {  console.log("CLEANUP "+Component.objectName) }
+    ///Component.onDestruction: { cleanup()    }
+    //function init() { console.log("INIT "+Component.objectName)    }
+    //function cleanup() {  console.log("CLEANUP "+Component.objectName) }
 }
