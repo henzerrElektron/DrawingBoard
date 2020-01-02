@@ -4,6 +4,23 @@ import QtQuick 2.12
 import QtQml.Models 2.12
 import "."
 import ApplicationConstants 1.0
+/*!
+   \qmltype ReportDetailModel
+   \brief This contains the details of the reports
+
+  This is used in the ReportDetailLabelGroup and in ReportDetailDelegateModel.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportDetailModel is demonstrated below
+   \qml
+    ReportDetailModel {
+        id: reportDetailModel
+    }
+   \endqml
+
+*/
 ListModel {
     id:reportDetailModel
     readonly property var modelElements:[

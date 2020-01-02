@@ -3,6 +3,23 @@ import QtQml.Models 2.12
 import QtQuick.Controls 2.5
 import ApplicationConstants 1.0
 import "."
+/*!
+   \qmltype TestControlModel
+   \brief This contains the items related to controlling the test
+
+  This is used in the TestItems.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of TestControlModel is demonstrated below
+   \qml
+    TestControlModel {
+        id: testControlModel
+    }
+   \endqml
+
+*/
 DelegateModel{
     id:testPageModel
     model: actionModel

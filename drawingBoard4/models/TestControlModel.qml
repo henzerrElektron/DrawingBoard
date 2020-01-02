@@ -5,6 +5,23 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype TestControlModel
+   \brief This contains the items related to controlling the test
+
+  This is used in the TestItems.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of TestControlModel is demonstrated below
+   \qml
+    TestControlModel {
+        id: testControlModel
+    }
+   \endqml
+
+*/
 ListModel{
     id:testControlModel
     ListElement{
