@@ -21,7 +21,26 @@ import ApplicationConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
 
+/*!
+   \qmltype NewPatientSliderLabelUnit
+   \brief This unit contains the sliders with labels defining their actions
 
+  This is used in NewPatientRiskFactorSwitchSlide,NewPatientRiskFactorSwitchSliderHorizontal .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientSliderLabelUnit is demonstrated below
+   \qml
+        NewPatientSliderLabelUnit{
+            id:topSliderUnit
+            Component.onCompleted: {
+
+            }
+        }
+   \endqml
+
+*/
 
 
 Rectangle{

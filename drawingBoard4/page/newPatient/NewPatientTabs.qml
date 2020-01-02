@@ -23,6 +23,24 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype NewPatientTabs
+   \brief This page holds all the tabs in NewPatientPage
+
+  This is used in NewPatientRiskFactorSwitchSlide,NewPatientRiskFactorSwitchSliderHorizontal .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientTabs is demonstrated below
+   \qml
+            NewPatientTabs{
+                id:newPatientTabs
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 
 Page {
     id: tabsPage

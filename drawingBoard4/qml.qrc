@@ -208,7 +208,7 @@
         <file>models/MedicalAndRiskFactorModel.qml</file>
         <file>models/MedicalRiskFactorDelegateModel.qml</file>
         <file>delegates/NewPatientMedicalDetailsRiskFactorGroup.qml</file>
-        <file>page/newPatient/NewPatientSearchBox.qml</file>
+        <file>page/notUsed/NewPatientSearchBox.qml</file>
         <file>tables/RowColTableGrid.qml</file>
         <file>common/GroupLabel.qml</file>
         <file>common/LabelWithText.qml</file>
