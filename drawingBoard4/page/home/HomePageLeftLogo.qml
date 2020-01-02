@@ -23,7 +23,24 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype HomePageLeftLogo
+   \brief This contains the left logo
 
+  This is used in HomePageLogo .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of HomePageLeftLogo is demonstrated below
+   \qml
+            HomePageLeftLogo{
+                id:logoRec
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle{
     id: logoRec
     color: "transparent"//"black"//

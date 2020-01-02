@@ -24,6 +24,24 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype HomePageRightLogo
+   \brief This contains the actions buttons of the home page
+
+  This is used in HomePageLogo .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of HomePageRightLogo is demonstrated below
+   \qml
+            HomePageRightLogo{
+                id:logoRec
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle
 {
     id:mainRec

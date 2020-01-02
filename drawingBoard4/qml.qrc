@@ -80,12 +80,12 @@
         <file>page/changePatient/changePatient.qml</file>
         <file>page/home/HomePageLabel.qml</file>
         <file>page/home/HomePageTitle.qml</file>
-        <file>page/home/HomePageActionButtons.qml</file>
+        <file>page/notUsed/HomePageActionButtons.qml</file>
         <file>delegates/PageActionsButtons.qml</file>
         <file>page/home/HomePageRightLogo.qml</file>
         <file>page/home/HomePageLeftLogo.qml</file>
         <file>page/home/HomePageLogo.qml</file>
-        <file>page/home/HomePageBody.qml</file>
+        <file>page/notUsed/HomePageBody.qml</file>
         <file>delegates/HomePageBodyDelegate.qml</file>
         <file>page/changePatient/SwitchPatientLabel.qml</file>
         <file>page/changePatient/SwitchSearchBox.qml</file>
@@ -151,7 +151,7 @@
         <file>page/mainPages/ReportPage.qml</file>
         <file>page/mainPages/SwitchPatient.qml</file>
         <file>page/mainPages/TestPage.qml</file>
-        <file>page/mainPages/MainStack.qml</file>
+        <file>page/notUsed/MainStack.qml</file>
         <file>page/mainPages/MainSwipe.qml</file>
         <file>tables/CommonTableGrid.qml</file>
         <file>tables/CommonTableView.qml</file>

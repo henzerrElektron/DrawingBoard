@@ -24,7 +24,24 @@ import ApplicationConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
 
+/*!
+   \qmltype HomePageRightLogo
+   \brief This contains the right logo
 
+  This is used in HomePageLogo .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of HomePageRightLogo is demonstrated below
+   \qml
+            HomePageRightLogo{
+                id:logoRec
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle{
     id:eetLogoRec
     //anchors.fill: parent
