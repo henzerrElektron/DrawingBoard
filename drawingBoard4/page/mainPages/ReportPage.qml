@@ -28,7 +28,26 @@ import "./../reports/"
 //Item {
 //  width: 950
 //  height: 275
+/*!
+   \qmltype ReportPage
+   \brief This contains the Report page of the application where  patient and pratice reports can be generated and viewed
+   For pratices this gives the operator test results,Number of test performed and Number of test performed on Individual eyes
+   For patients this gives their patient medical history and also the result of the current test in the table
 
+  This is used in MainSwipe and mainStack(the stack version of the loader) .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of TestPage is demonstrated below
+   \qml
+        SwitchPatient{
+            id:switchPatientPage
+            anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle {
     id: rpPage
     color: StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor

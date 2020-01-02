@@ -21,7 +21,24 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype TestPage
+   \brief This contains the tedt page of the application where testing for new patients is done
 
+  This is used in MainSwipe and mainStack(the stack version of the loader) .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of TestPage is demonstrated below
+   \qml
+        TestPage{
+            id:testPage
+            anchors.fill: parent
+            }
+   \endqml
+
+*/
 
 Rectangle {
     id:testPage

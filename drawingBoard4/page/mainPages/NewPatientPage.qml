@@ -22,7 +22,25 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype NewPatientPage
+   \brief This contains the various tabs and input fields to gather patient relevant information.
+   Once the new patient is added the application enables the Test button to peform test on the patient
 
+  This is used in MainSwipe and mainStack(the stack version of the loader) .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of TestPage is demonstrated below
+   \qml
+        NewPatientPage{
+            id:newPatientPage
+            anchors.fill: parent
+            }
+   \endqml
+
+*/
 Page {
     id:patientPage
     width: 960

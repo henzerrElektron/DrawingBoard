@@ -20,7 +20,25 @@ import "./../../models/"
 import "./../test/"
 import "./../operator/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype NewPatientPage
+   \brief This is called in Main and it contains all the main pages of the application.
+    This displays the pages in a swipe view format
 
+  This is used in main .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of MainSwipe is demonstrated below
+   \qml
+                MainSwipe {
+                    id: mainStack
+                    clip: true
+                }
+   \endqml
+
+*/
 SwipeView {
     id: spView//swipeView
     anchors.fill: parent

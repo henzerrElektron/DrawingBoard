@@ -23,6 +23,25 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype SwitchPatient
+   \brief This contains the SwithPatient page of the application where pre-existing patient details are viewable
+   The Operator can choose a patient to perform additional operitions like testing and editing
+
+  This is used in MainSwipe and mainStack(the stack version of the loader) .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of TestPage is demonstrated below
+   \qml
+        SwitchPatient{
+            id:switchPatientPage
+            anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle {
     id:swPatient
     anchors.fill: parent

@@ -37,6 +37,25 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype NewPatientPage
+   \brief This is called in Main and it contains all the main pages of the application.
+    This displays the pages in a stack view format and also uses the loader
+
+  This is used in main .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of MainStack is demonstrated below
+   \qml
+                MainStack {
+                    id: mainStack
+                    clip: true
+                }
+   \endqml
+
+*/
 StackView{
     id:mainStack
     focus: true

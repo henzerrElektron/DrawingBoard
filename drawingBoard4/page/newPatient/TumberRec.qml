@@ -24,7 +24,34 @@ import ApplicationConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
 
+/*!
+   \qmltype NewPatientTabs
+   \brief This contains the tumbler functionality
 
+  This is used in NewPatientDataTumbler which contains three tumblers  .
+  Todo remove all but one from the NewPatientDataTumbler .Since the 3 of them is not used anywhere
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientTabs is demonstrated below
+   \qml
+            TumberRec {
+                id: firstTumblerRec
+                anchors.fill:parent
+                allTumblerModel:100
+                onTumblerIndexChanged: {
+                    firstTumblerValue(currentIndex)
+                    rearrangeSecondModel(currentIndex)
+                    rearrangeThrirdModel(currentIndex)
+                }
+                Component.onCompleted: {
+                    tumblerIndexChanged.connect(topTextArea.tumblerIndexRecord)
+                }
+            }
+   \endqml
+
+*/
 
 Rectangle{
     id:firstTumberRec

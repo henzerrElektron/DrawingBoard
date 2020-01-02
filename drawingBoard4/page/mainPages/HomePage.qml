@@ -25,7 +25,24 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype HomePage
+   \brief This contains the home page of the application which can be used to access other functionality and pages
 
+  This is used in MainSwipe and mainStack(the stack version of the loader) .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of HomePage is demonstrated below
+   \qml
+        HomePage{
+            id:homePage
+            anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle {
     id: homePage
     color: "white"//StringConstants.testPage_backgroundColor
