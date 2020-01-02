@@ -26,7 +26,24 @@ import ApplicationConstants 1.0
 //    contentHeight: mainRec.height
 //    contentWidth: mainRec.width
 //    anchors.fill: parent
+/*!
+   \qmltype NewPatientRiskFactors
+   \brief The tab is used to collect non-medical risk factors for new patient in the New Patient Page
 
+  This is used in NewPatientTabs.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientRiskFactors is demonstrated below
+   \qml
+            NewPatientRiskFactors{
+                id:medicaltTabPage
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle{
     id:mainRec
     anchors.fill: parent

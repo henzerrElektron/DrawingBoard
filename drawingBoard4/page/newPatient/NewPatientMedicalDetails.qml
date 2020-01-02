@@ -21,7 +21,24 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype NewPatientMedicalDetails
+   \brief The tab is used to enter medical details for new patient in the New Patient Page
 
+  This is used in NewPatientTabs.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientMedicalDetails is demonstrated below
+   \qml
+            NewPatientMedicalDetails{
+                id:medicaltTabPage
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle{
     id:mainRec
     //height: 1225

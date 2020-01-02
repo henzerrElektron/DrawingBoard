@@ -76,7 +76,8 @@ onAccepted: {
             anchors.bottom:parent.bottom
             rows: 4
             columns: 3
-            NewPatientLabelWithText{
+            //NewPatientLabelWithText{
+            LabelWithText{
                 id:oneLabel
                 Layout.row: IntegerConstants.rowCount1
                 Layout.rowSpan: IntegerConstants.rowSpan1

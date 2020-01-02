@@ -17,7 +17,24 @@ import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype NewPatientMedicalRiskFactors
+   \brief The tab is used to enter risk factors for new patient in the New Patient Page
 
+  This is used in NewPatientTabs.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientMedicalRiskFactors is demonstrated below
+   \qml
+            NewPatientMedicalRiskFactors{
+                id:medicaltTabPage
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 
 Rectangle{
     id:mainRec

@@ -49,7 +49,8 @@ Rectangle{
         anchors.fill: parent
         //rows: IntegerConstants.rowCount5
 
-        NewPatientLabelWithText{
+        //NewPatientLabelWithText{
+        LabelWithText{
             id:oneLabel
             index:1
             labelText:StringConstants.lbl_ReportForPatient
@@ -71,7 +72,8 @@ Rectangle{
             itemVisible: true
 
         }
-        NewPatientLabelWithText{
+        //NewPatientLabelWithText{
+        LabelWithText{
             id:twoLabel
             index:2
             labelText:StringConstants.lbl_ReportFrom
@@ -93,7 +95,8 @@ Rectangle{
             itemVisible: true
 
         }
-        NewPatientLabelWithText{
+        //NewPatientLabelWithText{
+        LabelWithText{
             id:threeLabel
             index:3
             labelText:StringConstants.lbl_reportTo
@@ -116,7 +119,8 @@ Rectangle{
 
         }
 
-        NewPatientLabelWithText{
+        //NewPatientLabelWithText{
+        LabelWithText{
             id:fourLabel
             index:4
             labelText:StringConstants.lbl_rpGenerate
@@ -139,7 +143,8 @@ Rectangle{
 
         }
 
-        NewPatientLabelWithText{
+        //NewPatientLabelWithText{
+        LabelWithText{
             id:fiveLabel
             index:5
             labelText:StringConstants.lbl_rpNoOfRETests
@@ -162,7 +167,8 @@ Rectangle{
             Layout.fillWidth: true
 
         }
-        NewPatientLabelWithText{
+        //NewPatientLabelWithText{
+        LabelWithText{
             id:sixLabel
             index:6
             labelText:StringConstants.lbl_rpNoOfLETests

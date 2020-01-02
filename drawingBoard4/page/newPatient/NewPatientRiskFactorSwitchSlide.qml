@@ -22,7 +22,45 @@ import ApplicationConstants 1.0
 //import ApplicationOtherConstants 1.0
 
 
+/*!
+   \qmltype NewPatientRiskFactorSwitchSlide
+   \brief This contains the vertical slider and also the switches . It is the same as the horlizontal one.
+   This feature is currently not used and could be moved to notused folfer
+   This feature can be implemented in the same way as NewPatientRiskFactorSwitchSliderHorizontal
 
+  This is used in NewPatientTabs.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientRiskFactorSwitchSlide is demonstrated below
+   \qml
+                NewPatientRiskFactorSwitchSlider{
+                    id:rightFittedOperator
+                    anchors.fill: parent
+                    labelText: "Right Fitted"
+                    dataTumblerVisibility: hasComboBox
+                    tumblerVisibility:hasComboBox
+                    dataTumblersecVisibility: false
+                    dataTumblerthirdVisibility: false
+                    dataTumblerfirstVisibility: false
+                    firstSwitchVisible: hasYesNoSwitch
+                    topSliderMinValue: sliderMiNValue
+                    topSliderMaxValue:sliderMaxValue
+                    dataTumblerNoOrColorDelegate:false
+                    dataTumblerFirstModel: tumblerFirstModel
+                    topSliderModel: tumblerFirstModel
+                    topSliderLabelText:comboBoxMetricOffText
+                    topSliderVisible:hasComboBox
+                    btmSliderVisible:false
+                    eyeColorDialVisibilty: false
+                    Component.onCompleted: {
+                        console.log("I am completed")
+                    }
+                }
+   \endqml
+
+*/
 Rectangle{
     id:mainRec
     border.width: 5

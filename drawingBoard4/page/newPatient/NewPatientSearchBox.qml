@@ -21,7 +21,24 @@ import "./../../delegates/"
 import "./../../models/"
 import ApplicationConstants 1.0
 
+/*!
+   \qmltype NewPatientSearchBox
+   \brief This search box is used to search for patient based on First name,Sur name and medical Reference
 
+  This is used in NewPatientTabs.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientSearchBox is demonstrated below
+   \qml
+            NewPatientRiskFactors{
+                id:medicaltTabPage
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 
 
     Rectangle {

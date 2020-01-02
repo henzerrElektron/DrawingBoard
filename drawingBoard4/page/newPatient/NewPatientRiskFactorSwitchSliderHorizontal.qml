@@ -22,7 +22,43 @@ import ApplicationConstants 1.0
 //import ApplicationOtherConstants 1.0
 
 
+/*!
+   \qmltype NewPatientRiskFactorSwitchSliderHorizontal
+   \brief This contains the horizontal slider and also the switches . It is the same as the vertical one.
+    This class can be further split into further subclasses thart will be easier to handle
+    This is used in NewPaitentTitleGender, NewPatientRecommendations,NewPatientMedicalRiskFactors and NewPatientRiskFacorSwitchSliderHorizontal.
+   \image tobeprovided.png
 
+   \section1 Sample usage
+
+   The usage of NewPatientRiskFactorSwitchSliderHorizontal is demonstrated below
+   \qml
+                NewPatientRiskFactorSwitchSliderHorizontal{
+                    id:rightFittedOperator
+                    anchors.fill: parent
+                    labelText: "Right Fitted"
+                    dataTumblerVisibility: hasComboBox
+                    tumblerVisibility:hasComboBox
+                    dataTumblersecVisibility: false
+                    dataTumblerthirdVisibility: false
+                    dataTumblerfirstVisibility: false
+                    firstSwitchVisible: hasYesNoSwitch
+                    topSliderMinValue: sliderMiNValue
+                    topSliderMaxValue:sliderMaxValue
+                    dataTumblerNoOrColorDelegate:false
+                    dataTumblerFirstModel: tumblerFirstModel
+                    topSliderModel: tumblerFirstModel
+                    topSliderLabelText:comboBoxMetricOffText
+                    topSliderVisible:hasComboBox
+                    btmSliderVisible:false
+                    eyeColorDialVisibilty: false
+                    Component.onCompleted: {
+                        console.log("I am completed")
+                    }
+                }
+   \endqml
+
+*/
 
 Rectangle{
     id:mainRec

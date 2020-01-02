@@ -13,6 +13,7 @@ import Qt.labs.settings 1.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
 import "."
+import "./../../common/"
 import "./../../images/"
 //import "./../../imports/"
 import "./../../models/"
@@ -26,7 +27,24 @@ import Qt.labs.calendar 1.0
 //import ApplicationOtherConstants 1.0
 
 
+/*!
+   \qmltype NewPatientPersonalDetails
+   \brief The tab is used to collect personal details for new patient in the New Patient Page
 
+  This is used in NewPatientTabs.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientPersonalDetails is demonstrated below
+   \qml
+            NewPatientPersonalDetails{
+                id:medicaltTabPage
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle{
     id:testRec
     anchors.fill: parent
@@ -105,7 +123,8 @@ Rectangle{
         id:grid
         anchors.fill: parent
         rows: pageSpOrNp?IntegerConstants.rowCount5:IntegerConstants.rowCount2
-        NewPatientLabelWithText{
+        //NewPatientLabelWithText{
+        LabelWithText{
             id:oneLabel
             index:1
             height:pageNpSpTp===1?45:parent.height/(grid.rows+1)
@@ -128,7 +147,8 @@ Rectangle{
             commonColor: StringConstants.barBackgroundColor//label_NewPatientLabelBgColor
             lblValueText:StringConstants.lbl_npRequestSurName
         }
-        NewPatientLabelWithText{
+        //NewPatientLabelWithText{
+        LabelWithText{
             id:twoLabel
             index:2
             height:pageNpSpTp===1?45: parent.height/(grid.rows+1)
@@ -152,7 +172,8 @@ Rectangle{
             itemVisible:pageNpSpTp===1?true:false
             commonColor: StringConstants.barBackgroundColor//label_NewPatientLabelBgColor
         }
-        NewPatientLabelWithText{
+        //NewPatientLabelWithText{
+        LabelWithText{
             id:threeLabel
             index:3
             height: pageNpSpTp===1?45:parent.height/(grid.rows+1)
@@ -176,7 +197,8 @@ Rectangle{
             commonColor: StringConstants.barBackgroundColor//label_NewPatientLabelBgColor
         }
 
-        NewPatientLabelWithText{
+        //NewPatientLabelWithText{
+        LabelWithText{
             id:fourLabel
             index:4
             height: pageNpSpTp===1?45:parent.height/(grid.rows+1)
@@ -198,7 +220,8 @@ Rectangle{
 
         }
 
-        NewPatientLabelWithText{
+        //NewPatientLabelWithText{
+        LabelWithText{
             id:fiveLabel
             index:5
             height: parent.height/(grid.rows+1)
@@ -218,7 +241,8 @@ Rectangle{
             Layout.fillWidth: true
 
         }
-        NewPatientLabelWithText{
+        //NewPatientLabelWithText{
+        LabelWithText{
             id:sixLabel
             index:6
             height: parent.height/(grid.rows+1)
@@ -238,7 +262,8 @@ Rectangle{
             Layout.fillWidth: true
 
         }
-        NewPatientLabelWithText{
+        //NewPatientLabelWithText{
+        LabelWithText{
             id:sevenLabel
             index:7
             height: parent.height/(grid.rows+1)

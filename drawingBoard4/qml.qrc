@@ -96,7 +96,7 @@
         <file>page/newPatient/NewPatientMedicalDetails.qml</file>
         <file>page/newPatient/NewPatientContactDetails.qml</file>
         <file>page/newPatient/NewPatientRiskFactors.qml</file>
-        <file>page/newPatient/NewPatientLabelWithText.qml</file>
+        <file>page/notUsed/NewPatientLabelWithText.qml</file>
         <file>page/notUsed/NewPatientGroupLabel.qml</file>
         <file>page/newPatient/NewPatientRiskFactorSwitchSlide.qml</file>
         <file>page/newPatient/NewPatientDataDial.qml</file>
@@ -211,5 +211,6 @@
         <file>page/newPatient/NewPatientSearchBox.qml</file>
         <file>tables/RowColTableGrid.qml</file>
         <file>common/GroupLabel.qml</file>
+        <file>common/LabelWithText.qml</file>
     </qresource>
 </RCC>

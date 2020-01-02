@@ -21,7 +21,24 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype NewPatientNotes
+   \brief The tab is used to enter notes for new patient in the New Patient Page
 
+  This is used in NewPatientTabs.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientNotes is demonstrated below
+   \qml
+            NewPatientNotes{
+                id:medicaltTabPage
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 Page{
     id:notestTabPage
     title: StringConstants.lbl_npNotes//"Enter notes relevant to this test session"
