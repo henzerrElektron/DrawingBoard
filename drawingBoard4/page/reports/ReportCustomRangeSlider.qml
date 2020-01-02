@@ -3,6 +3,36 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import "."
 import ApplicationConstants 1.0
+/*!
+   \qmltype ReportCustomRangeSlider
+   \brief Contains the custom  range slider that is used throught the application
+    This contains both from and two slider value which can be modified as desired
+
+  This is used in ReportRangeSlider .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportCustomRangeSlider is demonstrated below
+   \qml
+            ReportCustomRangeSlider {
+                id:slider1
+                from: 0
+                to: 0
+                anchors.fill: parent
+                first.onMoved: {
+                }
+                second.onMoved:{
+
+                }
+                Component.onCompleted: {
+                    first.value = slider1.from
+                    second.value = slider1.to
+                }
+            }
+   \endqml
+
+*/
 RangeSlider {
     id: control
     first.value: 0.25

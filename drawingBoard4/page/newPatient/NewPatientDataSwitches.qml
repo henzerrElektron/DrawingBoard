@@ -22,7 +22,26 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype NewPatientDataSwitches
+   \brief This switches are used to record Yes/No Known/Unknown user inputs for patients
 
+  This is used in NewPatientRiskFactorSwitchSlide and NewPatientRiskFactorSwitchSliderHorizontal .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientDataSwitches is demonstrated below
+   \qml
+    NewPatientDataSwitches{
+        id:dataSwitches
+        anchors.fill:parent
+        Component.onCompleted:{
+        }
+    }
+   \endqml
+
+*/
 Rectangle{
     id:mainRec
     //width: (elementKnown.width >= elementYesNo.width)?elementKnown.width:elementYesNo.width

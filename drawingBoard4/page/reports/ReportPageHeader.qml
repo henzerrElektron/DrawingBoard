@@ -21,7 +21,36 @@ import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
 import "./../../common/"
+/*!
+   \qmltype ReportPageHeader
+   \brief Contains the header section of the report page
 
+  This contains patient/pratice details and also the relevant date grid.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportPageHeader is demonstrated below
+   \qml
+            ReportPageHeader{
+                id:pageHeader
+                anchors.fill: parent
+                state: "patient"
+                visible: true
+                filterName: StringConstants.modelReportPatientItems
+                detailFilterName:StringConstants.report_PatientDetailModel
+                labelText: StringConstants.lbl_rpDetails
+                Component.onCompleted: {
+                    pageHeader.openDateRange.connect(popupOpen)//popup.open
+                    pageHeader.invokeSource.connect(popupInvokeSource)
+                    pageHeader.invokeIndex.connect(popupInvokeIndex)
+                    pageHeader.openBtn1.connect(mainRec.btn1Clicked)
+
+                }
+            }
+   \endqml
+
+*/
 Rectangle {
     id: rpHeader
     //border.width: 15

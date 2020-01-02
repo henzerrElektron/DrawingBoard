@@ -19,6 +19,7 @@ import "./../../images/"
 import "./../../models/"
 import "./../../delegates/"
 import "./../test/"
+import "./../../common/"
 import "./../newPatient/"
 import ApplicationConstants 1.0
 import SwitchPatientTableModel 0.1
@@ -34,7 +35,8 @@ Rectangle {
     //height: searchLabel.height
     //border.width: 2
     //border.color: StringConstants.label_NewPatientLabelBgColor
-    NewPatientGroupLabel{
+    //NewPatientGroupLabel{
+     GroupLabel{
         id:searchLabel
         text: StringConstants.label_searchQuestion
         //color: StringConstants.actionBtnBackgroundColor

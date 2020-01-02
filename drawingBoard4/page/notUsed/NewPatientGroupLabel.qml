@@ -21,6 +21,33 @@ import ApplicationConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
 
+/*!
+   \qmltype NewPatientDobTumbler
+   \brief The tumbler that controls the year,month and date of DOB's
+
+  This is used in NewPatientHeader and ReportDetailDateRange .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientDobTumbler is demonstrated below
+   \qml
+                    NewPatientDobTumbler{
+                        id:pageSwitchButtons
+                        recTextVisible: false
+                        dateTumblerVisible:true
+                        monthTumblerVisible: true
+                        yearTumblerVisible: true
+                        Component.onCompleted: {
+                            setTumblerYear(0)
+                            setTumblerDate(0)
+                            setTumblerMonth(0)
+                        }
+                    }
+   \endqml
+
+*/
+
 //Rectangle{
 //    id:mainRec
 

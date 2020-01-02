@@ -23,6 +23,26 @@ import "./../test/"
 import "./../home/"
 import "./../newPatient/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype EditOperator
+   \brief Contains the dialog box to edit  operators
+
+  This is used in ManageOperator .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of EditOperator is demonstrated below
+   \qml
+       EditOperator{
+           id:opManage
+           width: parent.width - 2* (parent.width/10)
+           height: parent.height - 2*(parent.height/10)
+           anchors.centerIn: parent
+       }
+   \endqml
+
+*/
 Dialog {
     id: dialog
     modal: true

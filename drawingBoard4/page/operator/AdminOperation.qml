@@ -22,7 +22,28 @@ import "./../test/"
 import "./../home/"
 import "./../newPatient/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype EditOperator
+   \brief Contains the dialog box to allow operators to perform admin operations
 
+  This is used in ManageOperator .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of AdminOperation is demonstrated below
+   \qml
+    AdminOperation{
+        id:adminDialog
+        width: parent.width - 100
+        height: parent.height - 100
+        anchors.centerIn: parent
+        Component.onCompleted: {
+            openEdit.connect(dialog.openEditDialog)
+        }
+   \endqml
+
+*/
 Dialog {
     id: dialog
     modal: true

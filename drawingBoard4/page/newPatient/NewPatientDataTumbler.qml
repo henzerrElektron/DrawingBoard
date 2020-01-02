@@ -23,7 +23,34 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype NewPatientDataTumbler
+   \brief The vertical tumber that can be altered to make it horizontal
 
+  This is used in NewPatientRiskFactorSwitchSlide and NewPatientRiskFactorSwitchSliderHorizontal .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientDataTumbler is demonstrated below
+   \qml
+            NewPatientDataTumbler{
+                id:comboBox
+                anchors.fill: parent
+                labelHorizontal:true
+                labelText:StringConstants.lbl_rpSelectOperator
+                firstTumblerVisibility: false
+                secTumblerVisibility: false
+                thirdTumblerVisibility: false
+                firstTumblerModel:theExistingPatientsModel
+                comboBoxModel: theExistingPatientsModel
+                comboBoxRoleOrModelFlag:false
+                Component.onCompleted: {
+                }
+            }
+   \endqml
+
+*/
 Rectangle {
     id:mainTumbler
     // width: frame.implicitWidth + 10

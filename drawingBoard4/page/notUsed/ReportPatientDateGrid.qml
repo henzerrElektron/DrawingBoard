@@ -66,7 +66,8 @@ Rectangle{
     //    onBtn5Clicked: console.log("Btn5 Clicked Report Patient DateGrid")
     //    onBtn6Clicked: console.log("Btn6 clicked Report Patient DateGrid")
 
-    NewPatientGroupLabel{
+    //NewPatientGroupLabel{
+     GroupLabel{
         id:contactDetailLabel1
         anchors.left: parent.left
         anchors.right: parent.right

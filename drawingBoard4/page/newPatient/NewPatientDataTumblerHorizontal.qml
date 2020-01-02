@@ -23,7 +23,24 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype NewPatientDataTumblerHorizontal
+   \brief The horizontal version of the data Tumbler
 
+  This is used in NewPatientRiskFactorSwitchSliderHorizontal .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientDataTumblerHorizontal is demonstrated below
+   \qml
+            NewPatientDataTumblerHorizontal{
+                id:comboBox
+                anchors.fill: parent
+            }
+   \endqml
+
+*/
 Rectangle {
     //width: //frame.implicitWidth + 10
     //height: frame.implicitHeight + 10

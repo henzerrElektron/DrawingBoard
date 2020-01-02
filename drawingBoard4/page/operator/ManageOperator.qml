@@ -24,7 +24,27 @@ import "./../home/"
 import "./../newPatient/"
 import "./../../tables/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype ManageOperator
+   \brief Contains the dialog box to manage the operators
+    This contains buttons to invke AdminOperation and EditOperator
 
+  This is used in MainSwipe .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ManageOperator is demonstrated below
+   \qml
+       ManageOperator{
+           id:opManage
+           width: parent.width - 2* (parent.width/10)
+           height: parent.height - 2*(parent.height/10)
+           anchors.centerIn: parent
+       }
+   \endqml
+
+*/
 Dialog {
     id: dialog
     modal: true
@@ -130,7 +150,8 @@ Dialog {
             anchors.bottom:parent.bottom
             rows: 4
             columns: 3
-            NewPatientGroupLabel{
+            //NewPatientGroupLabel{
+             GroupLabel{
                 id:operatorLabel
                 text: StringConstants.lbl_existingOperators
                 //color: StringConstants.actionBtnBackgroundColor

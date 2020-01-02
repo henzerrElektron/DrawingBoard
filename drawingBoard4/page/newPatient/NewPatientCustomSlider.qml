@@ -2,6 +2,28 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import "."
 import ApplicationConstants 1.0
+/*!
+   \qmltype NewPatientCustomSlider
+   \brief Custom sliders for New Patients entry details
+
+  This is used in NewPatientSliderLabelUnit .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientCustomSlider is demonstrated below
+   \qml
+        NewPatientCustomSlider{
+            id: topSlider
+            anchors.fill:parent
+            value: 0.5
+            onValueChanged: {
+                sliderValueChange(value)
+            }
+        }
+   \endqml
+
+*/
 Slider {
     id:control
     value: 0.1
@@ -39,7 +61,7 @@ Slider {
             id:value1Label
             anchors.centerIn: parent
             text:value.toFixed(0) //parseInt(first.value,10)//.toFixed(0)//Math.round(first.value *100)/100//.toString()
-             font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }//StringConstants.barBackgroundColor
+            font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }//StringConstants.barBackgroundColor
             onTextChanged:console.log(value1Label.text)
         }
     }

@@ -29,7 +29,8 @@ Rectangle{
     border.width: 1
     border.color: StringConstants.borderColorBlack
     color: StringConstants.color_gbTransparent
-    NewPatientGroupLabel{
+    //NewPatientGroupLabel{
+     GroupLabel{
         id:medicalDetailsLabel
           isTabHeader:true
         //anchors.left: parent.left

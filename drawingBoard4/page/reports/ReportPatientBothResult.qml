@@ -98,7 +98,8 @@ Rectangle {
                     Layout.preferredHeight: 25
                     Layout.minimumHeight: 25
                     Layout.maximumHeight: 25
-                    NewPatientGroupLabel{
+                    //NewPatientGroupLabel{
+                     GroupLabel{
                         text: StringConstants.lbl_leftEyeResults//"LeftEyeResults"
                         font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
                         verticalAlignment: Text.AlignVCenter
@@ -200,7 +201,8 @@ Rectangle {
                     Layout.preferredHeight: 25
                     Layout.minimumHeight: 25
                     Layout.maximumHeight: 25
-                    NewPatientGroupLabel{
+                    //NewPatientGroupLabel{
+                     GroupLabel{
                         text: StringConstants.lbl_righEyeResults//"RightEyeResults"
                         font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
                         verticalAlignment: Text.AlignVCenter

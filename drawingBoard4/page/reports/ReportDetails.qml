@@ -20,7 +20,24 @@ import "./../newPatient/"
 import "./../../common/"
 import ApplicationConstants 1.0
 
+/*!
+   \qmltype ReportDetails
+   \brief Contains the header section's patient/Pratice information of the report page
 
+  This contains patient/pratice details that is auitomatically loaded based on which page the user is currently on.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportDetails is demonstrated below
+   \qml
+                    ReportDetails{
+                        id:rpDetailLabelGroup
+                        anchors.fill: parent
+                    }
+   \endqml
+
+*/
 Rectangle{
     id:mainGridRec
     anchors.fill: parent
@@ -29,7 +46,8 @@ Rectangle{
     property alias labelText: grid.labelText
     //property string filterName: ""
     property bool patientOrOperator: false//true means patient // false means operator
-    NewPatientGroupLabel{
+    //NewPatientGroupLabel{
+     GroupLabel{
         id:contactDetailLabel1
         anchors.top: parent.top
         anchors.left: parent.left
@@ -53,7 +71,7 @@ Rectangle{
             //anchors.centerIn: parent
             //anchors.top: contactDetailLabel1.bottom
             //anchors.topMargin: 2 * contactDetailLabel1.height
-           // anchors.leftMargin: 5
+            // anchors.leftMargin: 5
             anchors.fill: parent
             //filterName: StringConstants.report_PatientDetailModel
             verticalLayoutDirection: Grid.TopToBottom

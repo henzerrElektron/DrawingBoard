@@ -27,7 +27,26 @@ import "./../../common/"
 //Item {
 //  width: 950
 //  height: 275
+/*!
+   \qmltype NewPatientHeader
+   \brief The header for the New Patient Page
 
+  This is used in NewPatientPage.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientHeader is demonstrated below
+   \qml
+            NewPatientHeader{
+                id:newPatientLbl
+                anchors.fill: parent
+                Component.onCompleted: {
+                }
+            }
+   \endqml
+
+*/
 Rectangle {
     id: rectangle
     color: StringConstants.testPage_backgroundColor//StringConstants.testPage_backgroundColor

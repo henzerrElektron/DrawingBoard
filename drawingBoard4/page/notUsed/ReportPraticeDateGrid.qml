@@ -45,7 +45,8 @@ Rectangle{
     onBtn4Clicked:  console.log("Btn4 clicked Report Pratice")
     onBtn5Clicked:  console.log("Btn5 clicked Report Pratice")
     onBtn6Clicked: console.log("Btn6 clicked Report Pratice")
-    NewPatientGroupLabel{
+    //NewPatientGroupLabel{
+    GroupLabel{
         id:contactDetailLabel1
         anchors.left: parent.left
         anchors.right: parent.right

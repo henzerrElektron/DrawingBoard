@@ -23,6 +23,26 @@ import "./../test/"
 import "./../home/"
 import "./../newPatient/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype ReportDateGrid
+   \brief Contains the relevant date grids for Patient/Pratice
+   This allows the user to select dates quickly such that they need not use the sliders
+   The user just nned to select the button relevatn to the number or  months/Years they need results for
+
+  This contains patient results for left eye .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportDateGrid is demonstrated below
+   \qml
+                ReportPatientLeftResult{
+                    id:leftResult
+                    anchors.fill: parent
+                }
+   \endqml
+
+*/
 Rectangle{
     id:reportHeaderItemRec
     anchors.fill: parent
@@ -50,7 +70,8 @@ Rectangle{
         console.log("Index invoked"+index)
     }
 
-    NewPatientGroupLabel{
+    //NewPatientGroupLabel{
+     GroupLabel{
         id:contactDetailLabel1
         anchors.left: parent.left
         anchors.right: parent.right

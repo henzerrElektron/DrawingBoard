@@ -53,7 +53,8 @@ Page{
         height: 50
         border.color: StringConstants.actionBtnBorderColor
         border.width: 2
-        NewPatientGroupLabel{
+        //NewPatientGroupLabel{
+         GroupLabel{
             id:leftLabel
             text: StringConstants.lbl_npNotes
             anchors.fill: parent

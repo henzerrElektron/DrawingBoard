@@ -19,7 +19,28 @@ import "./../../delegates/"
 import "./../../models/"
 import "./../newPatient/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype ReportDetailDateRange
+   \brief Contains the header section of the report page that comporises of Patient/Pratice details and the relevant date grids
 
+  This contains patient/pratice details and also the relevant date grid.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportDetails is demonstrated below
+   \qml
+        ReportDetailDateRange{
+                        id:pageDateRange
+                        anchors.fill: parent
+                        Component.onCompleted: {
+                                    pageDateRange.okClicked.connect(popup.closePopup)
+                                    pageDateRange.cancelClicked.connect(popup.closePopup)
+                                                 }
+                                }
+   \endqml
+
+*/
 
 Rectangle{
     id:mainRec
@@ -43,7 +64,8 @@ Rectangle{
         anchors.fill: parent
         rows: IntegerConstants.rowCount4
         columns: IntegerConstants.columnCount2
-        NewPatientGroupLabel{
+        //NewPatientGroupLabel{
+         GroupLabel{
             id:contactDetailLabel1
             Layout.fillWidth: true
             Layout.row: IntegerConstants.rowCount1
@@ -202,39 +224,39 @@ Rectangle{
                 }
             }
         }
-//        Rectangle{
-//            id:rectangleSub7
-//            color:StringConstants.testPage_backgroundColor
-//            Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
-//            Layout.row: IntegerConstants.rowCount4
-//            Layout.rowSpan: IntegerConstants.rowCount1
-//            Layout.column: IntegerConstants.columnCount1
-//            Layout.columnSpan:IntegerConstants.columnSpan2
-//            anchors.top: rectangleSub6.bottom
-//            anchors.topMargin: 10
-//            anchors.left: rectangleSub6.left
-//            anchors.right: rectangleSub6.right
-//            anchors.bottom: parent.bottom
-//            anchors.bottomMargin: 5
-//            Layout.fillHeight: true
-//            Layout.fillWidth: true
-//            Layout.preferredHeight:100//(parent.height -  (rectangleSub6.height+rectangleSub5.height+rectangleSub4.height+contactDetailLabel1.height+50))
-//            Layout.minimumHeight: 100
-//            Layout.maximumHeight: 100
-//            ReportOkCancelGroup{
-//                id:pgOkCancel
-//                //anchors.left: parent.left
-//                //anchors.right: parent.right
-//                anchors.centerIn: parent
-//                //height: 100
+        //        Rectangle{
+        //            id:rectangleSub7
+        //            color:StringConstants.testPage_backgroundColor
+        //            Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
+        //            Layout.row: IntegerConstants.rowCount4
+        //            Layout.rowSpan: IntegerConstants.rowCount1
+        //            Layout.column: IntegerConstants.columnCount1
+        //            Layout.columnSpan:IntegerConstants.columnSpan2
+        //            anchors.top: rectangleSub6.bottom
+        //            anchors.topMargin: 10
+        //            anchors.left: rectangleSub6.left
+        //            anchors.right: rectangleSub6.right
+        //            anchors.bottom: parent.bottom
+        //            anchors.bottomMargin: 5
+        //            Layout.fillHeight: true
+        //            Layout.fillWidth: true
+        //            Layout.preferredHeight:100//(parent.height -  (rectangleSub6.height+rectangleSub5.height+rectangleSub4.height+contactDetailLabel1.height+50))
+        //            Layout.minimumHeight: 100
+        //            Layout.maximumHeight: 100
+        //            ReportOkCancelGroup{
+        //                id:pgOkCancel
+        //                //anchors.left: parent.left
+        //                //anchors.right: parent.right
+        //                anchors.centerIn: parent
+        //                //height: 100
 
-//                Component.onCompleted: {
-//                    pgOkCancel.okClicked.connect(mainRec.pgOkCancel)
-//                    pgOkCancel.cancelClicked.connect(mainRec.pgOkCancel)
-//                }
-//            }
+        //                Component.onCompleted: {
+        //                    pgOkCancel.okClicked.connect(mainRec.pgOkCancel)
+        //                    pgOkCancel.cancelClicked.connect(mainRec.pgOkCancel)
+        //                }
+        //            }
 
-//        }
+        //        }
 
     }
 }

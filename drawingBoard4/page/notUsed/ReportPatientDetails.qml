@@ -17,6 +17,7 @@ import "./../../images/"
 import "./../../delegates/"
 import "./../../models/"
 import "./../newPatient/"
+import "./../../common/"
 import ApplicationConstants 1.0
 
 
@@ -24,7 +25,8 @@ Rectangle{
     id:mainGridRec
     anchors.fill: parent
     color: StringConstants.actionBtnBackgroundColor
-    NewPatientGroupLabel{
+    //NewPatientGroupLabel{
+     GroupLabel{
         id:contactDetailLabel1
         anchors.top: parent.top
         anchors.left: parent.left

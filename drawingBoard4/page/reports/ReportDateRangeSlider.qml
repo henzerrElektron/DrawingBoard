@@ -19,6 +19,44 @@ import "./../../models/"
 import "./../newPatient/"
 import "./../../common/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype ReportDateRangeSlider
+   \brief Contains a  modified range slider for year ,month and date
+   It displays month when the year is same
+   It displays date when month is same
+
+  This allows the user to pick date from-to date to view patient/Pratice records for the selected date range
+  This Component  uses in ReportRangeSlider
+
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportDateRangeSlider is demonstrated below
+   \qml
+            ReportDateRangeSlider{
+                id:pageSlider
+                sliderDayVisible: false
+                sliderMonthVisible: false
+                sliderYearVisible: true
+                anchors.fill: parent
+                Component.onCompleted: {
+                    pageSlider.dateFromChange.connect(pageStartTumbler.setTumblerDate)
+                    pageSlider.dateToChange.connect(pageEndTumbler.setTumblerDate)
+                    pageSlider.monthFromChange.connect(pageStartTumbler.setTumblerMonth)
+                    pageSlider.monthToChange.connect(pageEndTumbler.setTumblerMonth)
+                    pageSlider.calcYearFromChange.connect(pageStartTumbler.setTumblerYear)
+                    pageSlider.calcYearToChange.connect(pageEndTumbler.setTumblerYear)
+                    pageSlider.calcYearFromChange.connect(checkEqualYear)
+                    pageSlider.calcYearToChange.connect(checkEqualYear)
+                    pageSlider.monthFromChange.connect(checkEqualMonth)
+                    pageSlider.monthToChange.connect(checkEqualMonth)
+
+                }
+            }
+   \endqml
+
+*/
 Rectangle{
     id:mainGridRec
     anchors.left: parent.left

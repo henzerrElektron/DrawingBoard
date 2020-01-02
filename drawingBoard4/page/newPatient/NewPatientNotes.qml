@@ -32,7 +32,8 @@ Page{
         anchors.right: parent.right
         color: "transparent"
         height: 50
-        NewPatientGroupLabel{
+        //NewPatientGroupLabel{
+         GroupLabel{
             id:leftLabel
             text: StringConstants.lbl_npNotes
             isTabHeader:true

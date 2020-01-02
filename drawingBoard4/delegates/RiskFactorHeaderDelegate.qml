@@ -13,10 +13,10 @@ import Qt.labs.settings 1.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Shapes 1.11
 import "."
-import "./../../images/"
-import "./../../delegates/"
-import "./../../models/"
-import "./../../common/"
+import "./../images/"
+import "./../delegates/"
+import "./../models/"
+import "./../common/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
@@ -36,7 +36,8 @@ Rectangle{
     //height: 100
     //width: 400
     color: "transparent"
-    NewPatientGroupLabel{
+    //NewPatientGroupLabel{
+     GroupLabel{
         id:riskFactorLabel
         isTabHeader:true
         text: StringConstants.lbl_riskFactors

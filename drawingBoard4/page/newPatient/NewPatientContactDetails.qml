@@ -22,14 +22,34 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype NewPatientContactDetails
+   \brief Contains input entries for patient contact details
 
+  This is used in NewPatientTabs .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientContactDetails is demonstrated below
+   \qml
+            NewPatientContactDetails{
+                id:contactTabPage1
+                anchors.fill: parent
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+            }
+   \endqml
+
+*/
 Rectangle{
     id:mainRec
     anchors.fill: parent
     color:"transparent"//StringConstants.testPage_backgroundColor
     border.color: StringConstants.borderColorBlack
     border.width: 2
-    NewPatientGroupLabel{
+    //NewPatientGroupLabel{
+     GroupLabel{
         id:contactDetailLabel
         isTabHeader:true
         text: StringConstants.lbl_npContactDetails

@@ -23,22 +23,68 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype NewPatientDataComboBox
+   \brief Combo box for title and gender
 
+  This is used in NewPatientDataTumbler .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientDataComboBox is demonstrated below
+   \qml
+            NewPatientDataComboBox  {
+                id: topTextArea
+                anchors.fill: parent
+                visible: true
+                editable: true
+            }
+   \endqml
+
+*/
 ComboBox {
     id: topTextArea
     //anchors.fill: parent
     anchors.left: parent.left
     anchors.right: parent.right
+    /*!
+           Alias for width.
+    */
     property alias comboBoxWidth: topTextArea.width
+    /*!
+           Alias for height.
+    */
     property alias comboBoxHeight: topTextArea.height
+    /*!
+           Alias for model.
+    */
     property alias comboBoxModel: topTextArea.model
+    /*!
+           Alias for display text.
+    */
     property alias comboBoxText: topTextArea.displayText
+    /*!
+           Alias for current text.
+    */
     property alias comboBoxCurText: topTextArea.currentText
+    /*!
+           Alias for current index.
+    */
     property alias comboBoxIndex: topTextArea.currentIndex
     property real comboBoxPreviousIndex: 0//topTextArea.currentIndex
     //property alias comboBoxDelegateText: valueText.text
+    /*!
+           Alias for text role.
+    */
     property alias comboBoxTextRole: topTextArea.textRole
+    /*!
+           Alias for input hints.
+    */
     property alias comboBoxInputHints: topTextArea.inputMethodHints
+    /*!
+           Alias for combo box validator.
+    */
     property alias comboBoxValidator: topTextArea.validator
     property bool roleOrModel: true
     property bool delegateRoleOrModel: true

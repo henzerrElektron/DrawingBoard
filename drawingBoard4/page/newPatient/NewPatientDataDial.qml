@@ -22,7 +22,26 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype NewPatientDataSwitches
+   \brief Modified dial which is used to display various color of the eye
 
+  This is used in NewPatientRiskFactorSwitchSlide .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientDataSwitches is demonstrated below
+   \qml
+        NewPatientDataDial{
+            id:dialUnit
+            Component.onCompleted: {
+
+            }
+        }
+   \endqml
+
+*/
 Dial {
     id: idDial
     width: 100; height: 80

@@ -15,9 +15,9 @@ import QtQuick.Shapes 1.11
 import QtQuick.Extras 1.4
 import QtQuick.Controls.Styles 1.4
 import "."
-import "./../../images/"
-import "./../../delegates/"
-import "./../../models/"
+import "./../images/"
+import "./../delegates/"
+//import "./../../models/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0

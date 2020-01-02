@@ -112,7 +112,8 @@ Rectangle {
             //width: 100
             //height: 50//150
             Layout.minimumHeight: 90//parent.height/5//110//75+searchLabel.height<110?110:75+searchLabel.height
-            NewPatientGroupLabel{
+            //NewPatientGroupLabel{
+             GroupLabel{
                 id:searchLabel
                 text: StringConstants.lbl_rpSelectOperator
                 anchors.topMargin: 5
