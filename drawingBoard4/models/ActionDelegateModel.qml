@@ -8,7 +8,23 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype ActionDelegateModel
+   \brief This contains all the actions in the model
 
+  This is used in the PageActionsButtons.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ActionDelegateModel is demonstrated below
+   \qml
+    ActionDelegateModel {
+        id: actionDelegateModel
+    }
+   \endqml
+
+*/
 ListModel{
     id:actionDelegateModel
     readonly property var modelElements:[

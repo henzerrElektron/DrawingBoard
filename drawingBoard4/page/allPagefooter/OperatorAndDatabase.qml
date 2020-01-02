@@ -18,6 +18,24 @@ import "./../../delegates/"
 import "./../../models/"
 import "./../test/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype SwitchPatientLabel
+   \brief This contains the footer that is used in all the pages.It gives access to the database settings and operator settings
+
+  This is used in the main screen as a footer.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of OperatorAndDatabase is demonstrated below
+   \qml
+                OperatorAndDatabase{
+                    id:dbOperator
+                    anchors.fill: parent
+                }
+   \endqml
+
+*/
 Rectangle{
     id:mainRec
     //anchors.fill: parent

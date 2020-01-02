@@ -22,7 +22,23 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype CalendarYearModel
+   \brief This contains the model of the calendar for date,month and year
 
+  This is used in the NewPatientDobTumbler.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of AllPageModel is demonstrated below
+   \qml
+    AllPageModel {
+        id: allPageModel
+    }
+   \endqml
+
+*/
 CalendarModel {
     id:calModel
     property var difference: calModel.yearAt(0)

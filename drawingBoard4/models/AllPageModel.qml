@@ -7,6 +7,23 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype AllPageModel
+   \brief This contains all the actions for all the main pages
+
+  This is used in the PageActionButtons.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of AllPageModel is demonstrated below
+   \qml
+    AllPageModel {
+        id: allPageModel
+    }
+   \endqml
+
+*/
 DelegateModel{
     id: allPageModel
     //items.count: actionDelegateModel.count

@@ -6,7 +6,23 @@ import "."
 import "./../images/"
 import "./../validators/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype MedicalAndRiskFactorModel
+   \brief This contains the medical and Risk factor model
 
+  This is used in the NewPatientMedicalDetailsRiskFactorGroup.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of MedicalAndRiskFactorModel is demonstrated below
+   \qml
+    MedicalAndRiskFactorModel {
+        id: medicalAndRiskFactorModel
+    }
+   \endqml
+
+*/
 ListModel {
     id:medicalRiskFactorModel
     readonly property var modelElements: [

@@ -25,6 +25,33 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype SwitchSearchBox
+   \brief This contains the search boxes where the patient can be searched  based on a model
+
+  This is used in SwitchSearchItems.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of SwitchSearchBox is demonstrated below
+   \qml
+            SwitchSearchBox {
+                id: label_lblmedicalRef
+                anchors.fill:parent
+                comboBoxModel: theExistingPatientsModel
+                comboBoxTextRole: "MedicalReference"
+                comboBoxLabel:"MedicalReference"
+                comboDelegateRoleOrModel:false
+                comboBoxtypes:theExistingPatientsModel.MedRefRole
+                comboBoxInputHints:Qt.ImhUppercaseOnly|Qt.ImhLowercaseOnly
+                comboBoxValidator:RegExpValidator{regExp:/^\w+$/ }
+                Component.onCompleted: {
+                }
+            }
+   \endqml
+
+*/
 Rectangle {
     id: searchRec
     anchors.fill: parent

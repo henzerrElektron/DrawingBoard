@@ -26,7 +26,28 @@ import SwitchPatientTableModel 0.1
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype SwitchSearchItems
+   \brief This contains the SwitchSearchBox items, Patient can be searched based on First Name,Sur name and medical reference
 
+  This is used in CommonTableGrid and ReportPatientTimeline.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of SwitchSearchItems is demonstrated below
+   \qml
+            SwitchSearchItems{
+                id:switchItems
+                visible: true
+                pageHeader: StringConstants.lbl_rpSelectPatient
+                patientFirstNameModel:theExistingPatientsModel
+                patientSurNameModel:theExistingPatientsModel
+                medicalRefModel: theExistingPatientsModel
+            }
+   \endqml
+
+*/
 Rectangle {
     id: searchTable
     color: StringConstants.barBackgroundColor//StringConstants.testPage_backgroundColor//"white"//"transparent"

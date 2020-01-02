@@ -29,7 +29,25 @@ import ApplicationConstants 1.0
 //Item {
 //    width: 950
 //    height: 275
+/*!
+   \qmltype SwitchPatientLabel
+   \brief This contains the SwithPatient page header that contains all information and action buttons
 
+  This is used in SwitchPatient.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of SwitchPatientLabel is demonstrated below
+   \qml
+            SwitchPatientLabel{
+                id:ptLabel
+                anchors.fill: parent
+                onSelectedText: curTestTabs1.logString(curText,role)
+            }
+   \endqml
+
+*/
 Rectangle {
     id: spLabel
     color: StringConstants.testPage_backgroundColor

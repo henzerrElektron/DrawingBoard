@@ -22,7 +22,23 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype ColorModel
+   \brief This contains the model of the color of the eyes
 
+  This is used in the NewPatientDataDial which is also used by NewPatientMedicalRiskFactors.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of AllPageModel is demonstrated below
+   \qml
+    AllPageModel {
+        id: allPageModel
+    }
+   \endqml
+
+*/
 ListModel {
     id: colorModel
     //ListElement{name:"Unknown";value:"white"}

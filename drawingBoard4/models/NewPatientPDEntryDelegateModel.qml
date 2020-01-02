@@ -4,7 +4,23 @@ import QtQuick 2.12
 import QtQml.Models 2.12
 import "."
 import ApplicationConstants 1.0
+/*!
+   \qmltype NewPatientPDEntryDelegateModel
+   \brief This contains the medical risk factor items in groups
 
+  This is used in the NewPatientPersonalDetailEntryGroup.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientPDEntryDelegateModel is demonstrated below
+   \qml
+    NewPatientPDEntryDelegateModel {
+        id: newPatientPDEntryDelegateModel
+    }
+   \endqml
+
+*/
 DelegateModel {
     id:npPDEntryDelegateModel
     items.objectName: "NewPatientPDEntryDelegateModel"

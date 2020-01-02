@@ -5,7 +5,23 @@ import QtQuick.Window 2.0
 import "."
 import "./../images/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype NewPatientPersonalDetailModel
+   \brief This contains the medical risk factor items in groups
 
+  This is used in the NewPatientPersonalDetailGroup.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientPersonalDetailModel is demonstrated below
+   \qml
+    NewPatientPersonalDetailModel {
+        id: newPatientPersonalDetailModel
+    }
+   \endqml
+
+*/
 ListModel {
     id:newPatientPersonalDetailModel
     readonly property var  modelElements: [

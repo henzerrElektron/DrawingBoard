@@ -4,7 +4,23 @@ import QtQuick 2.12
 import QtQml.Models 2.12
 import "."
 import ApplicationConstants 1.0
+/*!
+   \qmltype AllDateModel
+   \brief This contains all the report related items for ReportPraticeItems and ReportPatientItems
 
+  This is used in the ReportPageDateBtnGroup and AllDateDelegateModel.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of AllDateModel is demonstrated below
+   \qml
+    AllDateModel {
+        id: allDateModel
+    }
+   \endqml
+
+*/
 ListModel{
     id:allDateModel
     readonly property var modelElements: [

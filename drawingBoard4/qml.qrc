@@ -77,9 +77,9 @@
         <file>page/test/TestPageSupplementTabPage.qml</file>
         <file>common/IconOnlyButtons.qml</file>
         <file>page/test/TestPageNotesTabPage.qml</file>
-        <file>page/changePatient/changePatient.qml</file>
+        <file>page/notUsed/changePatient.qml</file>
         <file>page/home/HomePageLabel.qml</file>
-        <file>page/home/HomePageTitle.qml</file>
+        <file>page/notUsed/HomePageTitle.qml</file>
         <file>page/notUsed/HomePageActionButtons.qml</file>
         <file>delegates/PageActionsButtons.qml</file>
         <file>page/home/HomePageRightLogo.qml</file>
@@ -90,8 +90,8 @@
         <file>page/changePatient/SwitchPatientLabel.qml</file>
         <file>page/changePatient/SwitchSearchBox.qml</file>
         <file>page/changePatient/SwitchSearchItems.qml</file>
-        <file>page/changePatient/ExistingPatientTableGrid.qml</file>
-        <file>page/changePatient/ExistingPatientTableView.qml</file>
+        <file>page/notUsed/ExistingPatientTableGrid.qml</file>
+        <file>page/notUsed/ExistingPatientTableView.qml</file>
         <file>page/notUsed/NewPatientLabel.qml</file>
         <file>page/newPatient/NewPatientMedicalDetails.qml</file>
         <file>page/newPatient/NewPatientContactDetails.qml</file>

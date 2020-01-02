@@ -3,6 +3,23 @@ import QtQml.Models 2.12
 import QtQuick.Controls 2.5
 import ApplicationConstants 1.0
 import "."
+/*!
+   \qmltype OperatorPageDelegateModel
+   \brief This contains the details of the operator
+
+  This is used in the NewPatientPersonalDetailsEntryGroup.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientPersonalDetailsEntryModel is demonstrated below
+   \qml
+    OperatorPageDelegateModel {
+        id: operatorPageDelegateModel
+    }
+   \endqml
+
+*/
 DelegateModel{
     id:operatorPageModel
     model: actionModel

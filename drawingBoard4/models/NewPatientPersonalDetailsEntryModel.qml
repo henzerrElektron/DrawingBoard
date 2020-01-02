@@ -5,7 +5,23 @@ import QtQuick.Window 2.0
 import "."
 import "./../images/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype NewPatientPersonalDetailsEntryModel
+   \brief This contains the personal details of the patient in a model
 
+  This is used in the NewPatientPersonalDetailsEntryGroup.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientPersonalDetailsEntryModel is demonstrated below
+   \qml
+    NewPatientPersonalDetailsEntryModel {
+        id: newPatientPersonalDetailsEntryModel
+    }
+   \endqml
+
+*/
 ListModel {
     id:newPatientPersonalDetailEntryModel
     readonly property var  modelElements: [
