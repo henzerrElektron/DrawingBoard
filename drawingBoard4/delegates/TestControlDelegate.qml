@@ -4,6 +4,24 @@ import QtQuick.Layouts 1.3
 import "."
 import "./../images/"
 import ApplicationConstants 1.0
+
+
+/*!
+   \qmltype TestControlDelegate
+   \brief This component used to display all test control buttons.
+   This is subclass of RoundButton
+
+  This is used in TestItems .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of TestControlDelegate is demonstrated below
+   \qml
+          TestControlDelegate{}
+   \endqml
+
+*/
 //Component{
 //    id:testControlDelegate
 //    Connections{

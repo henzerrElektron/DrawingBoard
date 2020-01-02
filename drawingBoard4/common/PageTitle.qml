@@ -23,7 +23,32 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype PageLabel
+   \brief This provides a title to the page along with all the action buttons.
 
+  This is used in many classes.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of PageLabel is demonstrated below
+   \qml
+            PageTitle{
+                id:pgTitle
+                anchors.fill: parent
+                logoVisible: false
+                actionGridGroup:"existingPatientItems"
+                actionFilterName:"existingPatientItems"
+                labelText: StringConstants.label_searchPatientTitle
+                Component.onCompleted: {
+                    pgTitle.invokeSource.connect(spLabel.invokeSource)
+                    pgTitle.invokeIndex.connect(spLabel.invokeIndex)
+                }
+            }
+   \endqml
+
+*/
 Rectangle{
     id:pgTitle//rectangle1
     //color: "black"

@@ -7,6 +7,28 @@ import "./../models/"
 import "./../delegates/"
 import ApplicationConstants 1.0
 import Qt.labs.qmlmodels 1.0
+/*!
+   \qmltype NewPatientContactDetailGroup
+   \brief This component used to display the contact details items in a gridview with Label and Text Delegate
+
+  This is used mainly in NewPatientContactDetails.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientContactDetailGroup is demonstrated below
+   \qml
+        NewPatientContactDetailGroup{
+            id:contactTabPage1
+            anchors.fill: parent
+            verticalLayoutDirection: Grid.TopToBottom
+            layoutDirection: Qt.LeftToRight
+            flow: Grid.LeftToRight
+            flickableDirection: Flickable.HorizontalAndVerticalFlick
+        }
+   \endqml
+
+*/
 GridView {
     id: theListView
     //anchors.fill: parent

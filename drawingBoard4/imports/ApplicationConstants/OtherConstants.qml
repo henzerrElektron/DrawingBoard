@@ -2,6 +2,26 @@ pragma Singleton
 import QtQuick 2.12
 //import "."
 //import "./../../"
+/*!
+   \qmltype OtherConstants
+   \brief This contains all the other Constants and fonts that are used in the application.
+
+  This is used in the most of the front end classes.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of OtherConstants is demonstrated below
+   \qml
+   Rectangle{
+    id:ready
+    anchors.fill:parent
+    border.width: 2px
+    border.color: OtherConstants.backgroundColor
+    }
+   \endqml
+
+*/
 QtObject {
 
     property FontLoader segoeuiFL: FontLoader{

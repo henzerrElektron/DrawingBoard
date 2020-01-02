@@ -23,7 +23,23 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype CalyearDelegateComponent
+   \brief This component is mainly used to calculate years.
 
+  This is used mainly in NewPatientDobTumbler.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of CalyearDelegateComponent is demonstrated below
+   \qml
+                CalyearDelegateComponent{
+                    id:calYearCom
+                }
+   \endqml
+
+*/
 Component {
     id: calYearDelegateComponent
 

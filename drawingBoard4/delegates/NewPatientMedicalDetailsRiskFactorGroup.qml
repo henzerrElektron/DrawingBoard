@@ -7,7 +7,29 @@ import "./../models/"
 import "./../delegates/"
 import "./../page/newPatient/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype NewPatientMedicalDetailsRiskFactorGroup
+   \brief This component used to display the risk factor items using a SliderSwitchHorizontal component
 
+  This is used mainly in NewPatientContactDetails.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientMedicalDetailsRiskFactorGroup is demonstrated below
+   \qml
+        NewPatientMedicalDetailsRiskFactorGroup{
+            id:modelgroup
+            ilterName: StringConstants.model_dietAndLifeStyle//StringConstants.model_medicalDetails
+            anchors.fill: parent
+            verticalLayoutDirection: Grid.TopToBottom
+            layoutDirection: Qt.LeftToRight
+            flow: Grid.LeftToRight
+            flickableDirection: Flickable.HorizontalAndVerticalFlick
+        }
+   \endqml
+
+*/
 GridView {
     id: theListView
     anchors.fill: parent

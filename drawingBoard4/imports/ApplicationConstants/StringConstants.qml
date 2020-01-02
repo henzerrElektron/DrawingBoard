@@ -2,6 +2,26 @@ pragma Singleton
 import QtQuick 2.12
 //import "."
 //import "./../../"
+/*!
+   \qmltype StringConstants
+   \brief This contains all the strings that are used in the application. This need to support translations
+
+  This is used in the most of the front end classes.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of StringConstants is demonstrated below
+   \qml
+   Rectangle{
+    id:ready
+    anchors.fill:parent
+    border.width: 2px
+    border.color: StringConstants.borderColorBlack
+    }
+   \endqml
+
+*/
 QtObject {
 
 

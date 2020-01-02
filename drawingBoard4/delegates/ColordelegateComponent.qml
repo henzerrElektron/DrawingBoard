@@ -23,7 +23,23 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype ColordelegateComponent
+   \brief This component is used as a model for the horizontal tumbler.
 
+  This is used mainly in NewPatientDataTumbler,NewPatientDataTumblerHorizontal,TumblerRec and ColorTumbler.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ColordelegateComponent is demonstrated below
+   \qml
+    ColordelegateComponent {
+        id: colordelegateComponent
+    }
+   \endqml
+
+*/
 Component {
     id: colordelegateComponent
 

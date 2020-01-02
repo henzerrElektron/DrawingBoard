@@ -6,7 +6,28 @@ import "./../images/"
 import "./../models/"
 import "./../delegates/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype NewPatientPersonalDetailGroup
+   \brief This component used to display the patient personal detail as a readonly text item
 
+  This is used mainly in PatientLabel,SwitchPatientLabel.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientPersonalDetailGroup is demonstrated below
+   \qml
+                    NewPatientPersonalDetailGroup{
+                        id:pageLabels
+                        anchors.fill:parent
+                        verticalLayoutDirection: Grid.TopToBottom
+                        layoutDirection: Qt.LeftToRight
+                        flow: Grid.LeftToRight
+                        filterName:StringConstants.textBoxItemsModel
+                    }
+   \endqml
+
+*/
 GridView {
     id: theListView
     //anchors.fill: parent

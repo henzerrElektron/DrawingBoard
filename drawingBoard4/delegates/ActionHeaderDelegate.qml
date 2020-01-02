@@ -17,6 +17,29 @@ import QtQuick.Shapes 1.11
 //import ApplicationOtherConstants 1.0
 import ApplicationConstants 1.0
 import "."
+/*!
+   \qmltype ActionHeaderDelegate
+   \brief This button is a tab button mainly used in Tab Bars.
+
+  This is used mainly in PageActionsButtons.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ActionHeaderDelegate is demonstrated below
+   \qml
+            ActionHeaderDelegate{
+                id:actHeaderDelegate
+                Package.name:filterName//"homeItems"
+                Component.onCompleted: {
+                    invokeSource.connect(theListView.invokeSource)
+                    invokeIndex.connect(theListView.invokeIndex)
+                    test.connect(theListView.tested)
+                }
+            }
+   \endqml
+
+*/
 //Component{
 //    id: actionHeaderDelegate
 

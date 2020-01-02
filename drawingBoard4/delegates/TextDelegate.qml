@@ -4,7 +4,30 @@ import "."
 import "./../common/"
 import "./../validators/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype TextDelegate
+   \brief This component used to display all text items.
+   This is subclass of RoundButton
 
+  This is used in NewPatientContactDetailGroup,NewPatientPersonalDetailEntryGroup,contactDetailLabelTextGroup,PatientDetailDelegateEntryGroup and all validators .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of TextDelegate is demonstrated below
+   \qml
+            TextDelegate{
+                id:label
+                Package.name: filterName//"PatientDetailedModel"
+                height: GridView.view.cellHeight
+                width: GridView.view.cellWidth
+                onTextChanged: {
+                    console.log("The value of the text is"+text)
+                }
+            }
+   \endqml
+
+*/
 TextField {
     id: textField
 

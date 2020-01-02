@@ -2,6 +2,26 @@ pragma Singleton
 import QtQuick 2.12
 //import "."
 //import "./../../"
+/*!
+   \qmltype IntegerConstants
+   \brief This contains all the integer Constants that are used in the application.
+
+  This is used in the most of the front end classes.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of IntegerConstants is demonstrated below
+   \qml
+   Rectangle{
+    id:ready
+    anchors.fill:parent
+    border.width: IntegerConstants.page_fontSize
+    border.color: OtherConstants.backgroundColor
+    }
+   \endqml
+
+*/
 QtObject {
 
     readonly property int width: 1024

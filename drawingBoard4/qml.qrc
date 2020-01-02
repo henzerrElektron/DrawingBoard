@@ -45,7 +45,7 @@
         <file>page/notUsed/HomeDelegateModel.qml</file>
         <file>page/notUsed/NewPatientDelegateModel.qml</file>
         <file>page/notUsed/ExistingPatientDelegateModel.qml</file>
-        <file>models/TestPageDelegateModel.qml</file>
+        <file>page/notUsed/TestPageDelegateModel.qml</file>
         <file>page/notUsed/ReportPageDelegateModel.qml</file>
         <file>models/OperatorPageDelegateModel.qml</file>
         <file>models/AllPageModel.qml</file>

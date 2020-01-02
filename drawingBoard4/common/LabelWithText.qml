@@ -23,7 +23,35 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype IconlOnlyButtons
+   \brief This provides a label and also the corresponding text.
 
+  This is used in the NewPatientPersonalDetails,ReportPatientDetails,ReportPraticeDetails and AdminOperation.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of IconlOnlyButtons is demonstrated below
+   \qml
+        LabelWithText{
+            id:oneLabel
+            index:1
+            labelText:StringConstants.lbl_npSurName
+            tfReadOnly:false
+            tfPlaceHolderText:StringConstants.lbl_npRequestSurName
+            textValidator:RegExpValidator{regExp:StringConstants.txtValidatorWordsNumbersOnly}///^\w+$/ }
+            lblValueVisible:pageNpSpTp===1?false:true
+            textAlignLeftOrCenter:true
+            labelOnTop: pageNpSpTp===1?true:false
+            txtVisible:pageNpSpTp===1?true:false
+            itemVisible:pageNpSpTp===1?true:false
+            commonColor: StringConstants.barBackgroundColorr
+            lblValueText:StringConstants.lbl_npRequestSurName
+        }
+   \endqml
+
+*/
 Rectangle {
 
     id:mainRec

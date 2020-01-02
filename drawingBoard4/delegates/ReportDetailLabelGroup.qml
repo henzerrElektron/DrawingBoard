@@ -8,6 +8,28 @@ import "./../delegates/"
 import "./../page/newPatient/"
 import ApplicationConstants 1.0
 import Qt.labs.qmlmodels 1.0
+/*!
+   \qmltype PageActionsButtons
+   \brief This component used to display all report details.
+
+  This is used in ReportDetails .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of PageActionsButtons is demonstrated below
+   \qml
+           ReportDetailLabelGroup{
+                id:image2
+                anchors.fill:parent
+                verticalLayoutDirection: Grid.TopToBottom
+                layoutDirection: Qt.LeftToRight
+                flow: Grid.LeftToRight
+                filterName:StringConstants.textBoxItemsModel
+               }
+   \endqml
+
+*/
 GridView {
     id: theListView
     anchors.fill: parent
@@ -46,9 +68,9 @@ GridView {
     cellHeight: parent.height/count//(parent.height/count < 14) ? 14:parent.height/count
     width:parent.width//actionOrHome ?count*cellWidth:count*cellWidth
     height: parent.height//count*cellHeight//actionOrHome ?cellHeight:cellHeight
-   // onWidthChanged: update()
+    // onWidthChanged: update()
     onHeightChanged:
-      theListView.cellHeight = (height/count < 14) ? 14:height/count
+        theListView.cellHeight = (height/count < 14) ? 14:height/count
     //onCellHeightChanged: update()
     //onCellWidthChanged: update()
     function doFilter()
@@ -62,15 +84,15 @@ GridView {
             theListView.model = reportlDetailDelegateModel.parts.praticeDetailedModel
         }
     }
-//    header:contactDetailLabel1
-//        NewPatientGroupLabel{
-//        id:contactDetailLabel1
-//        anchors.top: parent.top
-//        anchors.left: parent.left
-//        anchors.right: parent.right
-//        //text: StringConstants.lbl_rpDetails
-//        height: 30
-//    }
+    //    header:contactDetailLabel1
+    //        NewPatientGroupLabel{
+    //        id:contactDetailLabel1
+    //        anchors.top: parent.top
+    //        anchors.left: parent.left
+    //        anchors.right: parent.right
+    //        //text: StringConstants.lbl_rpDetails
+    //        height: 30
+    //    }
 
     ReportlDetailDelegateModel{
         id:reportlDetailDelegateModel
@@ -92,10 +114,10 @@ GridView {
                 id:label
                 //y: 20
                 Package.name: filterName//"PatientDetailedModel"
-               // text: actionName
-               // font:OtherConstants.fontFamily
+                // text: actionName
+                // font:OtherConstants.fontFamily
                 color: "white"
-               // font.pixelSize: (parent.height/(count))//12//20
+                // font.pixelSize: (parent.height/(count))//12//20
                 font.bold: true
                 //font.pixelSize: label.height// -5
                 height: GridView.view.cellHeight //- label.y

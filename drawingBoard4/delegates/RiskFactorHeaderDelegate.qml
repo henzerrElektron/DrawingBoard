@@ -25,6 +25,28 @@ import ApplicationConstants 1.0
 
 //Component{
 //    id:headerDelegate
+/*!
+   \qmltype PageActionsButtons
+   \brief This component used to display all report pages buttons to select date range for the report generation.
+
+  This is used in ReportDateGrid .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of PageActionsButtons is demonstrated below
+   \qml
+          ReportPageDateBtnGroup{
+                id:image2
+                anchors.fill:parent
+                verticalLayoutDirection: Grid.TopToBottom
+                layoutDirection: Qt.LeftToRight
+                flow: Grid.LeftToRight
+                filterName:StringConstants.textBoxItemsModel
+               }
+   \endqml
+
+*/
 Rectangle{
     property alias switchMetricsChecked: switchMetrics.checked
     property alias switchMetricsVisible: switchMetrics.visible

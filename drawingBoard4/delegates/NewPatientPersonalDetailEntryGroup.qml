@@ -8,7 +8,28 @@ import "./../models/"
 import "./../delegates/"
 import ApplicationConstants 1.0
 import Qt.labs.qmlmodels 1.0
+/*!
+   \qmltype NewPatientPersonalDetailEntryGroup
+   \brief This component used to display the patient personal detail items using a Text or ComboBox component
 
+  This is used mainly in NewPatientContactDetails.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of NewPatientPersonalDetailEntryGroup is demonstrated below
+   \qml
+                    NewPatientPersonalDetailEntryGroup{
+                        id:pageLabels
+                        anchors.fill:parent
+                        verticalLayoutDirection: Grid.TopToBottom
+                        layoutDirection: Qt.LeftToRight
+                        flow: Grid.LeftToRight
+                        filterName:StringConstants.textBoxItemsModel
+                    }
+   \endqml
+
+*/
 GridView {
     id: theListView
     property var group: ""

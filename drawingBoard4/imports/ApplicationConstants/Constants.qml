@@ -53,6 +53,27 @@ pragma Singleton
 import QtQuick 2.12
 //import "."
 //import "./../../"
+/*!
+   \qmltype Constants
+   \brief This contains all the constants(integer and string) and this needs to be removed.
+
+
+  None of the classes use this and can be removed in the future.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of DateAndLocaleConstants is demonstrated below
+   \qml
+   Rectangle{
+    id:ready
+    anchors.fill:parent
+    border.width: 2px
+    border.color: Constants.borderColorBlack
+    }
+   \endqml
+
+*/
 QtObject {
     property FontLoader fontLoader: FontLoader {
         id: fontLoader

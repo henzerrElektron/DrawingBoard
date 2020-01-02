@@ -5,7 +5,25 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.3
 import QtQuick.Shapes 1.11
 import ApplicationConstants 1.0
+/*!
+   \qmltype BoxLabel
+   \brief This holds the label in the Test page grid.
 
+  This is used in the XYReportColFooter.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of BoxLabel is demonstrated below
+   \qml
+            BoxLabel{
+                id:estimateBox
+                recOrCircleOrTri:3
+                anchors.fill:parent
+            }
+   \endqml
+
+*/
 Rectangle{
     id:mainRec
     height: 20

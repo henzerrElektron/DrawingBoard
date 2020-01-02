@@ -22,6 +22,32 @@ import "./../page/test/"
 import "./../page/home/"
 import "./../page/newPatient/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype ReportPageBtn
+   \brief This provides a text only tool button.
+
+  This is used mainly in ReportPage classes,specifically in ReportPageDateBtnGroup,ReportOKCancelGroup,ReportPatientDateGrid,ReportPraticeDateGrid and ReportDateGrid.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportPageBtn is demonstrated below
+   \qml
+            ReportPageBtn{
+                id:reportBtn
+                height: GridView.view.cellHeight/2//parent.height/4
+                width: parent.width/4
+                text: actionName
+                Package.name: filterName
+                Component.onCompleted: {
+                    invokeSource.connect(theListView.invokeSource)
+                    invokeIndex.connect(theListView.invokeIndex)
+                    test.connect(theListView.tested)
+                }
+            }
+   \endqml
+
+*/
 ToolButton {
     id: control
     //text: qsTr("Button")

@@ -7,7 +7,28 @@ import "./../models/"
 import "./../delegates/"
 import "./../common/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype PageActionsButtons
+   \brief This component used to display all report pages buttons to select date range for the report generation.
 
+  This is used in ReportDateGrid .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of PageActionsButtons is demonstrated below
+   \qml
+          ReportPageDateBtnGroup{
+                id:image2
+                anchors.fill:parent
+                verticalLayoutDirection: Grid.TopToBottom
+                layoutDirection: Qt.LeftToRight
+                flow: Grid.LeftToRight
+                filterName:StringConstants.textBoxItemsModel
+               }
+   \endqml
+
+*/
 GridView {
     id: theListView
     //anchors.fill: parent

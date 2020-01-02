@@ -20,7 +20,25 @@ import ApplicationConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
 
+/*!
+   \qmltype PageLabel
+   \brief This provides a label and also the corresponding text.
 
+  This is used in the PageTitle and TestPageTitle.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of PageLabel is demonstrated below
+   \qml
+            PageLabel {
+                id: label_testPageHeading
+                text: StringConstants.label_testPgHeader
+                anchors.fill:parent
+            }
+   \endqml
+
+*/
 Label {
     id: label_lblPatientName
     anchors.fill: parent

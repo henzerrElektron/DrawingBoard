@@ -18,6 +18,22 @@ import "./../images"
 //import "./../imports/"
 import "./../icons/all/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype TestNavDelegate
+   \brief This component used to display all test navigation buttons.
+   This is subclass of RoundButton
+
+  This is used in TestNavItems .
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of TestControlDelegate is demonstrated below
+   \qml
+          TestNavDelegate{}
+   \endqml
+
+*/
 ToolButton {
     id: navToolButton
     //width: 60

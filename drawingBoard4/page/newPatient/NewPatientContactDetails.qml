@@ -23,22 +23,21 @@ import ApplicationConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
 /*!
-   \qmltype NewPatientContactDetails
-   \brief Contains input entries for patient contact details
+   \qmltype CommonBorder
+   \brief This provides a GroupLabel to items that are grouped in one place.
 
-  This is used in NewPatientTabs .
+  This is used in the most of the classes.
    \image tobeprovided.png
 
    \section1 Sample usage
 
-   The usage of NewPatientContactDetails is demonstrated below
+   The usage of GroupLabel is demonstrated below
    \qml
-            NewPatientContactDetails{
-                id:contactTabPage1
-                anchors.fill: parent
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-            }
+     GroupLabel{
+        id:searchLabel
+        anchors.fill:parent
+        text: StringConstants.label_searchQuestion
+        }
    \endqml
 
 */

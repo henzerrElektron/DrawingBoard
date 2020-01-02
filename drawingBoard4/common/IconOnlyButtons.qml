@@ -7,6 +7,28 @@ import "."
 import "./../images"
 //import "./../imports/"
 import "./../icons/all/"
+/*!
+   \qmltype IconlOnlyButtons
+   \brief This provides a tool buttons without text.
+
+  This is used in the RiskFactorHeaderDelegate.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of IconlOnlyButtons is demonstrated below
+   \qml
+    IconOnlyButtons{
+        id:addSupplement
+        visible: true
+        anchors.fill:parent
+        icon.name:   "add_supplement"
+        icon.source:   "qrc:/images/add_supplement.png"
+        icon.color:  "transparent"
+    }
+   \endqml
+
+*/
 ToolButton {
     id: iconlOnlyButtons
     implicitWidth:  50

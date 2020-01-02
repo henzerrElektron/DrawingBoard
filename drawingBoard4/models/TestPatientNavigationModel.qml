@@ -6,6 +6,23 @@ import "./../images/"
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype TestPatientNavigationModel
+   \brief This contains the items related to navigate between different patient records
+
+  This is used in the TestNavItems.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of TestPatientNavigationModel is demonstrated below
+   \qml
+    TestPatientNavigationModel {
+        id: testPatientNavigationModel
+    }
+   \endqml
+
+*/
 ListModel{
     id:navDelegateModel
     ListElement{

@@ -16,7 +16,28 @@ import ApplicationConstants 1.0
 import "."
 //Component{
 //    id: actionHeaderDelegate
+/*!
+   \qmltype HomePageBodyDelegate
+   \brief This component is used to display the main Buttons in the Home page.
 
+  This is used mainly in PageActionsButtons.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of HomePageBodyDelegate is demonstrated below
+   \qml
+            HomePageBodyDelegate{
+                id:homeDelegate
+                Package.name: "homeMainItems"
+                Component.onCompleted: {
+                    invokeSource.connect(theListView.invokeSource)
+                    invokeIndex.connect(theListView.invokeIndex)
+                }
+            }
+   \endqml
+
+*/
 Rectangle {
     //anchors.left: parent.left
     //anchors.right: parent.right

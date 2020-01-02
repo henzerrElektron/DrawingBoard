@@ -22,6 +22,28 @@ import "./../page/test/"
 import "./../page/home/"
 import "./../page/newPatient/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype ReportTabButton
+   \brief This button is a tab button mainly used in Tab Bars.
+
+  This is used mainly in all Tabs NewPatientTabs,ReportPatientResultTabs,ReportTabs,TestPlotTabs and TestTabs
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of ReportTabButton is demonstrated below
+   \qml
+        ReportTabButton {
+            id:btn1
+            anchors.fill:parent
+            text: StringConstants.lbl_npContactDetails
+            onClicked: {
+                btn1Clicked()
+            }
+        }
+   \endqml
+
+*/
 TabButton {
     id: control
     text: qsTr("Button")

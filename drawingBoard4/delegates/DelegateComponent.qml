@@ -23,7 +23,23 @@ import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0
 //import ApplicationOtherConstants 1.0
+/*!
+   \qmltype DelegateComponent
+   \brief This component is a custom label. The name of the class needs changing.
 
+  This is used mainly in NewPatientDataTumbler,NewPatientDataTumblerHorizontal and TumblerRec.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of DelegateComponent is demonstrated below
+   \qml
+    DelegateComponent {
+        id: delegateComponent
+    }
+   \endqml
+
+*/
 Component {
     id: delegateComponent
 //    Rectangle {

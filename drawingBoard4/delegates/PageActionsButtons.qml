@@ -6,6 +6,27 @@ import "./../images/"
 import "./../models/"
 import "./../delegates/"
 import ApplicationConstants 1.0
+/*!
+   \qmltype PageActionsButtons
+   \brief This component used to display all action buttons in the Title section of all pages.
+   This also displays the Home page main buttons
+
+  This is used in many classes.
+   \image tobeprovided.png
+
+   \section1 Sample usage
+
+   The usage of PageActionsButtons is demonstrated below
+   \qml
+            PageActionsButtons{
+                id:image2
+                group: "homeItems"
+                filterName:"homeItems"
+                actionOrHome: true
+            }
+   \endqml
+
+*/
 GridView {
     id: theListView
     //anchors.fill: parent
