@@ -1,216 +1,216 @@
 <RCC>
-    <qresource prefix="/">
-        <file>page/notUsed/ResultOldStyleTableGrid.qml</file>
-        <file>page/notUsed/ResultOldStyleParametersTableView.qml</file>
-        <file>page/notUsed/ResultOldStyleMpValue.qml</file>
-        <file>page/notUsed/ResultOldStyleConfidenceTableView.qml</file>
-        <file>page/notUsed/NewPatientRecommendations.qml</file>
-        <file>page/notUsed/WeightKgModel.qml</file>
-        <file>page/notUsed/ColorTumbler.qml</file>
-        <file>page/notUsed/NewPatientTitleGender.qml</file>
-        <file>page/notUsed/NewPatientDateCalendar.qml</file>
-        <file>page/notUsed/NewPatientDateChooser.qml</file>
-        <file>page/notUsed/FontAwesomeToolButton.qml</file>
-        <file>page/notUsed/ItemLoader.qml</file>
-        <file>page/notUsed/ContactDetailLabelTextGroup.qml</file>
-        <file>page/notUsed/PatientDetailDelegateEntryGroup.qml</file>
-        <file>page/notUsed/ReportOkCancelGroup.qml</file>
-        <file>page/notUsed/LabelOnTopDelegate.qml</file>
-        <file>common/BoxLabel.qml</file>
-        <file>main.qml</file>
-        <file>page/test/TestTabs.qml</file>
-        <file>imports/ApplicationConstants/Constants.qml</file>
-        <file>imports/ApplicationConstants/IntegerConstants.qml</file>
-        <file>imports/ApplicationConstants/OtherConstants.qml</file>
-        <file>imports/ApplicationConstants/StringConstants.qml</file>
-        <file>imports/ApplicationConstants/SegoeFonts/segoeui.ttf</file>
-        <file>imports/ApplicationConstants/SegoeFonts/segoeuib.ttf</file>
-        <file>imports/ApplicationConstants/SegoeFonts/segoeuii.ttf</file>
-        <file>imports/ApplicationConstants/SegoeFonts/segoeuil.ttf</file>
-        <file>imports/ApplicationConstants/SegoeFonts/segoeuisl.ttf</file>
-        <file>imports/ApplicationConstants/SegoeFonts/segoeuiz.ttf</file>
-        <file>imports/ApplicationConstants/SegoeFonts/seguibl.ttf</file>
-        <file>imports/ApplicationConstants/SegoeFonts/seguibli.ttf</file>
-        <file>imports/ApplicationConstants/SegoeFonts/seguihis.ttf</file>
-        <file>imports/ApplicationConstants/SegoeFonts/seguili.ttf</file>
-        <file>imports/ApplicationConstants/SegoeFonts/seguisb.ttf</file>
-        <file>imports/ApplicationConstants/SegoeFonts/seguisbi.ttf</file>
-        <file>imports/ApplicationConstants/SegoeFonts/seguisli.ttf</file>
-        <file>imports/ApplicationConstants/fontAwesome/fontawesome-webfont.ttf</file>
-        <file>imports/ApplicationConstants/fontAwesome/Font Awesome 5 Brands-Regular-400.otf</file>
-        <file>imports/ApplicationConstants/fontAwesome/Font Awesome 5 Free-Regular-400.otf</file>
-        <file>imports/ApplicationConstants/fontAwesome/Font Awesome 5 Free-Solid-900.otf</file>
-        <file>models/qmldir</file>
-        <file>models/ActionDelegateModel.qml</file>
-        <file>page/notUsed/HomeDelegateModel.qml</file>
-        <file>page/notUsed/NewPatientDelegateModel.qml</file>
-        <file>page/notUsed/ExistingPatientDelegateModel.qml</file>
-        <file>page/notUsed/TestPageDelegateModel.qml</file>
-        <file>page/notUsed/ReportPageDelegateModel.qml</file>
-        <file>models/OperatorPageDelegateModel.qml</file>
-        <file>models/AllPageModel.qml</file>
-        <file>delegates/ActionHeaderDelegate.qml</file>
-        <file>page/notUsed/ResultsTableView.qml</file>
-        <file>page/notUsed/ResultTableGrid.qml</file>
-        <file>delegates/TestControlDelegate.qml</file>
-        <file>models/TestControlModel.qml</file>
-        <file>page/notUsed/TestItems.qml</file>
-        <file>page/test/TestController.qml</file>
-        <file>page/test/XYPlot.qml</file>
-        <file>page/test/HorizontalLineComponent.qml</file>
-        <file>page/test/PlotRecComponent.qml</file>
-        <file>page/test/PlotTriComponent.qml</file>
-        <file>page/test/PlotterPointers.qml</file>
-        <file>page/test/PatientLabel.qml</file>
-        <file>page/test/TestPageButton.qml</file>
-        <file>page/test/TestPageLabel.qml</file>
-        <file>page/test/TestPagePatientResultIndex.qml</file>
-        <file>page/test/TestPageAllLabels.qml</file>
-        <file>page/notUsed/TestPageActionButtons.qml</file>
-        <file>page/test/TestPageSwitchButtons.qml</file>
-        <file>page/notUsed/TestPageTitle.qml</file>
-        <file>page/test/TestPlotTabs.qml</file>
-        <file>models/TestPatientNavigationModel.qml</file>
-        <file>page/test/TestNavItems.qml</file>
-        <file>delegates/TestNavDelegate.qml</file>
-        <file>page/notUsed/TestPageSupplementTableView.qml</file>
-        <file>page/test/TestPageSupplementTabPage.qml</file>
-        <file>common/IconOnlyButtons.qml</file>
-        <file>page/test/TestPageNotesTabPage.qml</file>
-        <file>page/notUsed/changePatient.qml</file>
-        <file>page/home/HomePageLabel.qml</file>
-        <file>page/notUsed/HomePageTitle.qml</file>
-        <file>page/notUsed/HomePageActionButtons.qml</file>
-        <file>delegates/PageActionsButtons.qml</file>
-        <file>page/home/HomePageRightLogo.qml</file>
-        <file>page/home/HomePageLeftLogo.qml</file>
-        <file>page/home/HomePageLogo.qml</file>
-        <file>page/notUsed/HomePageBody.qml</file>
-        <file>delegates/HomePageBodyDelegate.qml</file>
-        <file>page/changePatient/SwitchPatientLabel.qml</file>
-        <file>page/changePatient/SwitchSearchBox.qml</file>
-        <file>page/changePatient/SwitchSearchItems.qml</file>
-        <file>page/notUsed/ExistingPatientTableGrid.qml</file>
-        <file>page/notUsed/ExistingPatientTableView.qml</file>
-        <file>page/notUsed/NewPatientLabel.qml</file>
-        <file>page/newPatient/NewPatientMedicalDetails.qml</file>
-        <file>page/newPatient/NewPatientContactDetails.qml</file>
-        <file>page/newPatient/NewPatientRiskFactors.qml</file>
-        <file>page/notUsed/NewPatientLabelWithText.qml</file>
-        <file>page/notUsed/NewPatientGroupLabel.qml</file>
-        <file>page/newPatient/NewPatientRiskFactorSwitchSlide.qml</file>
-        <file>page/newPatient/NewPatientDataDial.qml</file>
-        <file>page/newPatient/NewPatientDataTumbler.qml</file>
-        <file>page/newPatient/NewPatientSliderLabelUnit.qml</file>
-        <file>page/newPatient/NewPatientDataSwitches.qml</file>
-        <file>delegates/RiskFactorHeaderDelegate.qml</file>
-        <file>models/ColorModel.qml</file>
-        <file>delegates/DelegateComponent.qml</file>
-        <file>delegates/ColordelegateComponent.qml</file>
-        <file>page/newPatient/NewPatientDataTumblerHorizontal.qml</file>
-        <file>page/newPatient/NewPatientRiskFactorSwitchSliderHorizontal.qml</file>
-        <file>page/newPatient/NewPatientPersonalDetails.qml</file>
-        <file>page/newPatient/TumberRec.qml</file>
-        <file>page/notUsed/YearDelegateComponent.qml</file>
-        <file>models/CalendarYearModel.qml</file>
-        <file>delegates/CalyearDelegateComponent.qml</file>
-        <file>page/newPatient/NewPatientTabs.qml</file>
-        <file>page/newPatient/NewPatientHeader.qml</file>
-        <file>page/newPatient/NewPatientDobTumbler.qml</file>
-        <file>imports/qmldir</file>
-        <file>imports/ApplicationConstants/qmldir</file>
-        <file>common/PageLabel.qml</file>
-        <file>common/PageTitle.qml</file>
-        <file>page/reports/ReportDetails.qml</file>
-        <file>page/reports/ReportDetailDateRange.qml</file>
-        <file>page/reports/ReportPageHeader.qml</file>
-        <file>page/reports/ReportDateRangeSlider.qml</file>
-        <file>page/reports/ReportRangeSlider.qml</file>
-        <file>page/reports/ReportCustomRangeSlider.qml</file>
-        <file>page/reports/ReportTabs.qml</file>
-        <file>page/reports/ReportPraticeTimeline.qml</file>
-        <file>page/reports/ReportPatientTimeline.qml</file>
-        <file>page/notUsed/ReportPraticeTable.qml</file>
-        <file>page/notUsed/ReportPatientTableGrid.qml</file>
-        <file>page/notUsed/ReportPraticeTableGrid.qml</file>
-        <file>page/notUsed/ReportPatientTable.qml</file>
-        <file>page/test/XYCrossGridView.qml</file>
-        <file>page/test/XYColGridView.qml</file>
-        <file>page/test/XYColDelegate.qml</file>
-        <file>page/test/XYColFooter.qml</file>
-        <file>page/test/GridCrossDelegate.qml</file>
-        <file>page/test/XYRowGridView.qml</file>
-        <file>page/test/XYRowFooter.qml</file>
-        <file>page/test/XYRowDelegate.qml</file>
-        <file>page/notUsed/ReportPatientLeftRightGraph.qml</file>
-        <file>page/test/XYCrossMouseArea.qml</file>
-        <file>page/test/XYReportRowDelegate.qml</file>
-        <file>page/test/XYReportColFooter.qml</file>
-        <file>page/mainPages/HomePage.qml</file>
-        <file>page/mainPages/NewPatientPage.qml</file>
-        <file>page/mainPages/ReportPage.qml</file>
-        <file>page/mainPages/SwitchPatient.qml</file>
-        <file>page/mainPages/TestPage.qml</file>
-        <file>page/notUsed/MainStack.qml</file>
-        <file>page/mainPages/MainSwipe.qml</file>
-        <file>tables/CommonTableGrid.qml</file>
-        <file>tables/CommonTableView.qml</file>
-        <file>page/newPatient/NewPatientDataComboBox.qml</file>
-        <file>page/reports/ReportDateGrid.qml</file>
-        <file>common/ReportPageBtn.qml</file>
-        <file>common/ReportTabButton.qml</file>
-        <file>page/newPatient/NewPatientMedicalRiskFactors.qml</file>
-        <file>page/newPatient/NewPatientNotes.qml</file>
-        <file>page/notUsed/TestPageSupplementTableGrid.qml</file>
-        <file>page/notUsed/ReportPatientDetails.qml</file>
-        <file>page/notUsed/ReportPraticeDetails.qml</file>
-        <file>page/notUsed/ReportPraticeDateGrid.qml</file>
-        <file>page/notUsed/ReportPatientDateGrid.qml</file>
-        <file>common/CommonBorder.qml</file>
-        <file>page/reports/ReportPatientResultTabs.qml</file>
-        <file>page/reports/ReportPatientLeftResult.qml</file>
-        <file>page/reports/ReportPatientRightResult.qml</file>
-        <file>page/reports/ReportPatientBothResult.qml</file>
-        <file>page/test/ResultCommonTableGrids.qml</file>
-        <file>page/notUsed/NewPatientSearchableTitleGender.qml</file>
-        <file>page/newPatient/NewPatientCustomSlider.qml</file>
-        <file>page/allPagefooter/OperatorAndDatabase.qml</file>
-        <file>imports/ApplicationConstants/DateAndLocaleConstants.qml</file>
-        <file>page/operator/EditOperator.qml</file>
-        <file>page/operator/ManageOperator.qml</file>
-        <file>page/operator/AdminOperation.qml</file>
-        <file>models/AllDateModel.qml</file>
-        <file>models/AllDateDelegateModel.qml</file>
-        <file>delegates/ReportPageDateBtnGroup.qml</file>
-        <file>page/notUsed/AllReportDataModel.qml</file>
-        <file>models/ReportDetailModel.qml</file>
-        <file>models/ReportlDetailDelegateModel.qml</file>
-        <file>delegates/ReportDetailLabelGroup.qml</file>
-        <file>delegates/LabelDelegate.qml</file>
-        <file>models/NewPatientContactDetailModel.qml</file>
-        <file>page/notUsed/ContactDetailDelegateModel.qml</file>
-        <file>delegates/NewPatientContactDetailGroup.qml</file>
-        <file>delegates/TextDelegate.qml</file>
-        <file>validators/AllValidators.qml</file>
-        <file>validators/AgeValidator.qml</file>
-        <file>validators/NumberValidator.qml</file>
-        <file>validators/WordNumberValidator.qml</file>
-        <file>validators/DobValidator.qml</file>
-        <file>validators/EmailValidator.qml</file>
-        <file>validators/WordValidtor.qml</file>
-        <file>models/NewPatientPersonalDetailModel.qml</file>
-        <file>models/NewPatientPersonalDetailsEntryModel.qml</file>
-        <file>models/NewPatientPersonalDetailDelegateModel.qml</file>
-        <file>delegates/NewPatientPersonalDetailGroup.qml</file>
-        <file>page/supplement/SupplementDialog.qml</file>
-        <file>delegates/NewPatientPersonalDetailEntryGroup.qml</file>
-        <file>models/NewPatientPDEntryDelegateModel.qml</file>
-        <file>models/MedicalAndRiskFactorModel.qml</file>
-        <file>models/MedicalRiskFactorDelegateModel.qml</file>
-        <file>delegates/NewPatientMedicalDetailsRiskFactorGroup.qml</file>
-        <file>page/notUsed/NewPatientSearchBox.qml</file>
-        <file>tables/RowColTableGrid.qml</file>
-        <file>common/GroupLabel.qml</file>
-        <file>common/LabelWithText.qml</file>
-    </qresource>
+<qresource prefix="/">
+<file>main.qml</file>
+<file>imports/qmldir</file>
+<file>imports/ApplicationConstants/qmldir</file>
+<file>imports/ApplicationConstants/DateAndLocaleConstants.qml</file>
+<file>imports/ApplicationConstants/Constants.qml</file>
+<file>imports/ApplicationConstants/IntegerConstants.qml</file>
+<file>imports/ApplicationConstants/OtherConstants.qml</file>
+<file>imports/ApplicationConstants/StringConstants.qml</file>
+<file>imports/ApplicationConstants/SegoeFonts/segoeui.ttf</file>
+<file>imports/ApplicationConstants/SegoeFonts/segoeuib.ttf</file>
+<file>imports/ApplicationConstants/SegoeFonts/segoeuii.ttf</file>
+<file>imports/ApplicationConstants/SegoeFonts/segoeuil.ttf</file>
+<file>imports/ApplicationConstants/SegoeFonts/segoeuisl.ttf</file>
+<file>imports/ApplicationConstants/SegoeFonts/segoeuiz.ttf</file>
+<file>imports/ApplicationConstants/SegoeFonts/seguibl.ttf</file>
+<file>imports/ApplicationConstants/SegoeFonts/seguibli.ttf</file>
+<file>imports/ApplicationConstants/SegoeFonts/seguihis.ttf</file>
+<file>imports/ApplicationConstants/SegoeFonts/seguili.ttf</file>
+<file>imports/ApplicationConstants/SegoeFonts/seguisb.ttf</file>
+<file>imports/ApplicationConstants/SegoeFonts/seguisbi.ttf</file>
+<file>imports/ApplicationConstants/SegoeFonts/seguisli.ttf</file>
+<file>imports/ApplicationConstants/fontAwesome/fontawesome-webfont.ttf</file>
+<file>imports/ApplicationConstants/fontAwesome/Font Awesome 5 Brands-Regular-400.otf</file>
+<file>imports/ApplicationConstants/fontAwesome/Font Awesome 5 Free-Regular-400.otf</file>
+<file>imports/ApplicationConstants/fontAwesome/Font Awesome 5 Free-Solid-900.otf</file>
+<file>models/TestPatientNavigationModel.qml</file>
+<file>models/ColorModel.qml</file>
+<file>models/CalendarYearModel.qml</file>
+<file>models/AllDateModel.qml</file>
+<file>models/AllDateDelegateModel.qml</file>
+<file>models/ReportDetailModel.qml</file>
+<file>models/ReportlDetailDelegateModel.qml</file>
+<file>models/NewPatientContactDetailModel.qml</file>
+<file>models/NewPatientPersonalDetailModel.qml</file>
+<file>models/NewPatientPersonalDetailsEntryModel.qml</file>
+<file>models/NewPatientPersonalDetailDelegateModel.qml</file>
+<file>models/NewPatientPDEntryDelegateModel.qml</file>
+<file>models/MedicalAndRiskFactorModel.qml</file>
+<file>models/MedicalRiskFactorDelegateModel.qml</file>
+<file>models/qmldir</file>
+<file>models/ActionDelegateModel.qml</file>
+<file>models/OperatorPageDelegateModel.qml</file>
+<file>models/AllPageModel.qml</file>
+<file>models/TestControlModel.qml</file>
+<file>delegates/TestNavDelegate.qml</file>
+<file>delegates/PageActionsButtons.qml</file>
+<file>delegates/HomePageBodyDelegate.qml</file>
+<file>delegates/RiskFactorHeaderDelegate.qml</file>
+<file>delegates/DelegateComponent.qml</file>
+<file>delegates/ColordelegateComponent.qml</file>
+<file>delegates/CalyearDelegateComponent.qml</file>
+<file>delegates/ReportPageDateBtnGroup.qml</file>
+<file>delegates/ReportDetailLabelGroup.qml</file>
+<file>delegates/LabelDelegate.qml</file>
+<file>delegates/NewPatientContactDetailGroup.qml</file>
+<file>delegates/TextDelegate.qml</file>
+<file>delegates/NewPatientMedicalDetailsRiskFactorGroup.qml</file>
+<file>delegates/NewPatientPersonalDetailGroup.qml</file>
+<file>delegates/NewPatientPersonalDetailEntryGroup.qml</file>
+<file>delegates/ActionHeaderDelegate.qml</file>
+<file>delegates/TestControlDelegate.qml</file>
+<file>common/IconOnlyButtons.qml</file>
+<file>common/PageLabel.qml</file>
+<file>common/PageTitle.qml</file>
+<file>common/ReportPageBtn.qml</file>
+<file>common/ReportTabButton.qml</file>
+<file>common/CommonBorder.qml</file>
+<file>common/GroupLabel.qml</file>
+<file>common/LabelWithText.qml</file>
+<file>common/BoxLabel.qml</file>
+<file>tables/CommonTableGrid.qml</file>
+<file>tables/CommonTableView.qml</file>
+<file>tables/RowColTableGrid.qml</file>
+<file>validators/AllValidators.qml</file>
+<file>validators/AgeValidator.qml</file>
+<file>validators/NumberValidator.qml</file>
+<file>validators/WordNumberValidator.qml</file>
+<file>validators/DobValidator.qml</file>
+<file>validators/EmailValidator.qml</file>
+<file>validators/WordValidtor.qml</file>
+<file>page/test/TestTabs.qml</file>
+<file>page/test/TestController.qml</file>
+<file>page/test/XYPlot.qml</file>
+<file>page/test/HorizontalLineComponent.qml</file>
+<file>page/test/PlotRecComponent.qml</file>
+<file>page/test/PlotTriComponent.qml</file>
+<file>page/test/PlotterPointers.qml</file>
+<file>page/test/PatientLabel.qml</file>
+<file>page/test/TestPageButton.qml</file>
+<file>page/test/TestPageLabel.qml</file>
+<file>page/test/TestPagePatientResultIndex.qml</file>
+<file>page/test/TestPageAllLabels.qml</file>
+<file>page/test/TestPageSwitchButtons.qml</file>
+<file>page/test/TestPlotTabs.qml</file>
+<file>page/test/TestNavItems.qml</file>
+<file>page/test/TestPageSupplementTabPage.qml</file>
+<file>page/test/TestPageNotesTabPage.qml</file>
+<file>page/test/XYCrossGridView.qml</file>
+<file>page/test/XYColGridView.qml</file>
+<file>page/test/XYColDelegate.qml</file>
+<file>page/test/XYColFooter.qml</file>
+<file>page/test/GridCrossDelegate.qml</file>
+<file>page/test/XYRowGridView.qml</file>
+<file>page/test/XYRowFooter.qml</file>
+<file>page/test/XYRowDelegate.qml</file>
+<file>page/test/XYCrossMouseArea.qml</file>
+<file>page/test/XYReportRowDelegate.qml</file>
+<file>page/test/XYReportColFooter.qml</file>
+<file>page/test/ResultCommonTableGrids.qml</file>
+<file>page/home/HomePageLabel.qml</file>
+<file>page/home/HomePageRightLogo.qml</file>
+<file>page/home/HomePageLeftLogo.qml</file>
+<file>page/home/HomePageLogo.qml</file>
+<file>page/changePatient/SwitchPatientLabel.qml</file>
+<file>page/changePatient/SwitchSearchBox.qml</file>
+<file>page/changePatient/SwitchSearchItems.qml</file>
+<file>page/newPatient/NewPatientMedicalDetails.qml</file>
+<file>page/newPatient/NewPatientContactDetails.qml</file>
+<file>page/newPatient/NewPatientRiskFactors.qml</file>
+<file>page/newPatient/NewPatientRiskFactorSwitchSlide.qml</file>
+<file>page/newPatient/NewPatientDataDial.qml</file>
+<file>page/newPatient/NewPatientDataTumbler.qml</file>
+<file>page/newPatient/NewPatientSliderLabelUnit.qml</file>
+<file>page/newPatient/NewPatientDataSwitches.qml</file>
+<file>page/newPatient/NewPatientDataTumblerHorizontal.qml</file>
+<file>page/newPatient/NewPatientRiskFactorSwitchSliderHorizontal.qml</file>
+<file>page/newPatient/NewPatientPersonalDetails.qml</file>
+<file>page/newPatient/TumberRec.qml</file>
+<file>page/newPatient/NewPatientTabs.qml</file>
+<file>page/newPatient/NewPatientHeader.qml</file>
+<file>page/newPatient/NewPatientDobTumbler.qml</file>
+<file>page/newPatient/NewPatientDataComboBox.qml</file>
+<file>page/newPatient/NewPatientMedicalRiskFactors.qml</file>
+<file>page/newPatient/NewPatientNotes.qml</file>
+<file>page/newPatient/NewPatientCustomSlider.qml</file>
+<file>page/reports/ReportDetails.qml</file>
+<file>page/reports/ReportDetailDateRange.qml</file>
+<file>page/reports/ReportPageHeader.qml</file>
+<file>page/reports/ReportDateRangeSlider.qml</file>
+<file>page/reports/ReportRangeSlider.qml</file>
+<file>page/reports/ReportCustomRangeSlider.qml</file>
+<file>page/reports/ReportTabs.qml</file>
+<file>page/reports/ReportPraticeTimeline.qml</file>
+<file>page/reports/ReportPatientTimeline.qml</file>
+<file>page/reports/ReportDateGrid.qml</file>
+<file>page/reports/ReportPatientResultTabs.qml</file>
+<file>page/reports/ReportPatientLeftResult.qml</file>
+<file>page/reports/ReportPatientRightResult.qml</file>
+<file>page/reports/ReportPatientBothResult.qml</file>
+<file>page/mainPages/HomePage.qml</file>
+<file>page/mainPages/NewPatientPage.qml</file>
+<file>page/mainPages/ReportPage.qml</file>
+<file>page/mainPages/SwitchPatient.qml</file>
+<file>page/mainPages/TestPage.qml</file>
+<file>page/mainPages/MainSwipe.qml</file>
+<file>page/allPagefooter/OperatorAndDatabase.qml</file>
+<file>page/operator/EditOperator.qml</file>
+<file>page/operator/ManageOperator.qml</file>
+<file>page/operator/AdminOperation.qml</file>
+<file>page/supplement/SupplementDialog.qml</file>
+<file>page/notUsed/ResultOldStyleTableGrid.qml</file>
+<file>page/notUsed/ResultOldStyleParametersTableView.qml</file>
+<file>page/notUsed/ResultOldStyleMpValue.qml</file>
+<file>page/notUsed/ResultOldStyleConfidenceTableView.qml</file>
+<file>page/notUsed/NewPatientRecommendations.qml</file>
+<file>page/notUsed/WeightKgModel.qml</file>
+<file>page/notUsed/ColorTumbler.qml</file>
+<file>page/notUsed/NewPatientTitleGender.qml</file>
+<file>page/notUsed/NewPatientDateCalendar.qml</file>
+<file>page/notUsed/NewPatientDateChooser.qml</file>
+<file>page/notUsed/FontAwesomeToolButton.qml</file>
+<file>page/notUsed/ItemLoader.qml</file>
+<file>page/notUsed/ContactDetailLabelTextGroup.qml</file>
+<file>page/notUsed/PatientDetailDelegateEntryGroup.qml</file>
+<file>page/notUsed/ReportOkCancelGroup.qml</file>
+<file>page/notUsed/LabelOnTopDelegate.qml</file>
+<file>page/notUsed/HomeDelegateModel.qml</file>
+<file>page/notUsed/NewPatientDelegateModel.qml</file>
+<file>page/notUsed/ExistingPatientDelegateModel.qml</file>
+<file>page/notUsed/TestPageDelegateModel.qml</file>
+<file>page/notUsed/ReportPageDelegateModel.qml</file>
+<file>page/notUsed/ResultsTableView.qml</file>
+<file>page/notUsed/ResultTableGrid.qml</file>
+<file>page/notUsed/TestItems.qml</file>
+<file>page/notUsed/TestPageActionButtons.qml</file>
+<file>page/notUsed/TestPageSupplementTableView.qml</file>
+<file>page/notUsed/TestPageTitle.qml</file>
+<file>page/notUsed/changePatient.qml</file>
+<file>page/notUsed/HomePageTitle.qml</file>
+<file>page/notUsed/HomePageActionButtons.qml</file>
+<file>page/notUsed/HomePageBody.qml</file>
+<file>page/notUsed/ExistingPatientTableGrid.qml</file>
+<file>page/notUsed/ExistingPatientTableView.qml</file>
+<file>page/notUsed/NewPatientLabel.qml</file>
+<file>page/notUsed/NewPatientLabelWithText.qml</file>
+<file>page/notUsed/NewPatientGroupLabel.qml</file>
+<file>page/notUsed/YearDelegateComponent.qml</file>
+<file>page/notUsed/ReportPraticeTable.qml</file>
+<file>page/notUsed/ReportPatientTableGrid.qml</file>
+<file>page/notUsed/ReportPraticeTableGrid.qml</file>
+<file>page/notUsed/ReportPatientTable.qml</file>
+<file>page/notUsed/ReportPatientLeftRightGraph.qml</file>
+<file>page/notUsed/MainStack.qml</file>
+<file>page/notUsed/TestPageSupplementTableGrid.qml</file>
+<file>page/notUsed/ReportPatientDetails.qml</file>
+<file>page/notUsed/ReportPraticeDetails.qml</file>
+<file>page/notUsed/ReportPraticeDateGrid.qml</file>
+<file>page/notUsed/ReportPatientDateGrid.qml</file>
+<file>page/notUsed/NewPatientSearchableTitleGender.qml</file>
+<file>page/notUsed/AllReportDataModel.qml</file>
+<file>page/notUsed/ContactDetailDelegateModel.qml</file>
+<file>page/notUsed/NewPatientSearchBox.qml</file>
+</qresource>
 </RCC>
