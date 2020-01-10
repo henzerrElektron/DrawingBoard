@@ -275,10 +275,10 @@ ListModel {
         {
             actionName:StringConstants.lbl_npDOBAge,//StringConstants.lbl_npDOBAgeText,
             actionText:StringConstants.lbl_npDOBAgeValue,
-            type:StringConstants.textItem,
+            type:StringConstants.dobItem,//textItem,
             isLabel:false,
-            isEntry:true,
-            textItem:true,
+            isEntry:false,
+            dobItem:true,
             readonlyItem:true,
             isNewPatientPage:true,
             //placeHolderTextItem:StringConstants.lbl_npRequestMedicalReference,

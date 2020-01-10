@@ -207,6 +207,7 @@ QtObject {
     readonly property string lbl_rpNoOfCombinedTestsValue: "9"
     readonly property string lbl_rpDetails: "Report Details"
     readonly property string lbl_rpDateRange: "Date Range"
+    readonly property string lbl_rpDateRangeInfo: "Please select the start and end date and press ok to search for records"
     readonly property string lbl_rpStartDate: "Start Date:"
     readonly property string lbl_rpStartDateValue: ""
     readonly property string lbl_rpEndDate: "End Date:"
@@ -443,9 +444,11 @@ QtObject {
     readonly property string labelItem: "labelItem"
     readonly property string textItem: "textItem"
     readonly property string comboItem: "comboItem"
+    readonly property string dobItem: "dobItem"
     readonly property string key: "key"
     readonly property string comboBoxItemModel: "comboBoxItems"
-    readonly property string textBoxItemsModel: "textBoxItems"
+    readonly property string textBoxItemsModel: "textBoxItems"// This is available in all editors.
+    readonly property string doBItemModel: "dobItems"
 
 
 

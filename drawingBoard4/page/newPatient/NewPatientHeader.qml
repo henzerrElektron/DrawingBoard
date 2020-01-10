@@ -289,49 +289,53 @@ Rectangle {
                     //                        }
                     //                    }
                 }
-                Rectangle {
-                    id: rectangleSub4
-                    color:StringConstants.actionBtnBackgroundColor//testPage_backgroundColor// "black"//
-                    Layout.column: 1
-                    border.color: StringConstants.barBackgroundColor
-                    border.width: 1
-                    // Layout.row: 1
-                    // Layout.rowSpan: 3
-                    //anchors.left: rectangleSub3.right
-                   // anchors.top: rectangle2.top
-                    anchors.bottom: rectangle2.bottom
-                    Layout.minimumHeight: rectangle2.height - 5//< 400?400:rectangle2.height
-                    Layout.maximumHeight: rectangle2.height - 5//
-                    Layout.fillHeight: true
-                    Layout.topMargin: 5
-                    //Layout.rightMargin: 30
-                     Layout.leftMargin: 20
-                    Layout.preferredWidth: pgTitle.actionGridWidth - 20//pageSwitchButtons.width//pageSwitchButtons.width
-                    Layout.maximumWidth: pgTitle.actionGridWidth - 20//pageSwitchButtons.width//parent.width/4
-                    //Layout.fillWidth: true
+//                Rectangle {
+//                    id: rectangleSub4
+//                    color:StringConstants.color_gbTransparent//StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor
+//                    //testPage_backgroundColor// "black"//
+//                    Layout.column: 2
+//                    //border.color: StringConstants.barBackgroundColor
+//                    //border.width: 1
+//                     Layout.row: 3
+//                     Layout.rowSpan: 1
+//                    //anchors.left: rectangleSub3.right
+//                   //anchors.top: rectangle2.top
+//                   // anchors.bottom: rectangle2.bottom
+//                   Layout.minimumHeight: 75//rectangle2.height - 5//< 400?400:rectangle2.height
+//                   // Layout.maximumHeight: rectangle2.height - 5//
+//                   // Layout.fillHeight: true
+//                   Layout.topMargin: -((parent.height)/2 - (parent.height/10))  //- (rectangleSub3.height)/10)
+//                    //Layout.rightMargin: 30
+//                     Layout.leftMargin: 20
+//                     Layout.minimumWidth: 400
+//                    //Layout.preferredWidth: pgTitle.actionGridWidth - 20//pageSwitchButtons.width//pageSwitchButtons.width
+//                    //Layout.maximumWidth: pgTitle.actionGridWidth - 20//pageSwitchButtons.width//parent.width/4
+//                    //Layout.fillWidth: true
 
-                    Layout.alignment: Qt.AlignRight
-                    NewPatientDobTumbler{
-                        id:pageSwitchButtons
-                        recTextVisible: false
-                        dateTumblerVisible:true
-                        monthTumblerVisible: true
-                        yearTumblerVisible: true
-                        //anchors.fill: parent
-                        // width: parent.width/2
-                        // height: parent.height/2
-                        anchors.top: parent.top
-                        anchors.bottom: parent.bottom
-                       // anchors.right: parent.right
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        /// anchors.verticalCenter: parent.verticalCenter
-                        Component.onCompleted: {
-                            setTumblerYear(0)//IntegerConstants.dobStartDate
-                            setTumblerDate(0)
-                            setTumblerMonth(0)
-                        }
-                    }//TestPageSwitchButtons
-                }
+//                    NewPatientDobTumbler{
+//                        id:pageSwitchButtons
+//                        recTextVisible: false
+//                        dateTumblerVisible:false
+//                        monthTumblerVisible: false
+//                        yearTumblerVisible: false
+//                        dateHeight: 50
+//                        monthHeight: 50
+//                        yearHeight: 50
+//                        //anchors.fill: parent
+//                        // width: parent.width/2
+//                        // height: parent.height/2
+//                        anchors.top: parent.top
+//                        anchors.bottom: parent.bottom
+//                       // anchors.right: parent.right
+//                        anchors.horizontalCenter: parent.horizontalCenter
+//                        /// anchors.verticalCenter: parent.verticalCenter
+//                        Component.onCompleted: {
+//                            setTumblerYear(0)//IntegerConstants.dobStartDate
+//                            setTumblerDate(0)
+//                            setTumblerMonth(0)
+//                        }
+//                    }//TestPageSwitchButtons
+//                }//
 
             }
         }
@@ -434,7 +438,15 @@ Designer {
 
 
 
+
+
+
+
+
+
+
+
 /*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:1;anchors_height:200;anchors_width:200;anchors_x:107;anchors_y:66}
+    D{i:1;anchors_height:200;anchors_width:200;anchors_x:107;anchors_y:66}
 }
  ##^##*/

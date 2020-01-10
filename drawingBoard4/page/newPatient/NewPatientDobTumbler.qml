@@ -54,9 +54,9 @@ import Qt.labs.calendar 1.0
 Rectangle {
     id: mainRec
     //color: StringConstants.label_NewPatientLabelBgColor//
-    color: "transparent"
+    color: "transparent"//"green"//
     width: mainGrid.width+3*(2* mainGrid.columnSpacing)
-    height: mainGrid.height
+    //height: mainGrid.height
     property int curSetDate: 0
     property int prevSetDate: -1
     onPrevSetDateChanged: {
@@ -78,12 +78,29 @@ Rectangle {
     property string curDateMonthYear: ""
     property alias dateTumblerVisible: dateTumbler.firstTumblerVisibility
     property alias monthTumblerVisible: monthTumbler.firstTumblerVisibility
-     property alias yearTumblerVisible: yearTumbler.firstTumblerVisibility
+    property alias yearTumblerVisible: yearTumbler.firstTumblerVisibility
     property alias dateModel: dateTumbler.firstTumblerModel
     property alias monthModel: monthTumbler.secTumblerModel
     property alias yearModel: yearTumbler.thirdTumblerModel
     property alias recTextVisible: recText.visible
+    property alias recLabelVisible: recTitle.visible
+    onRecTextVisibleChanged: {
+        txtDob.visible = recTextVisible
+    }
+
+    onRecLabelVisibleChanged: {
+        lbl.visible = recLabelVisible
+    }
+
+    property alias lblHeight: lbl.height
+    property alias lblWidth: lbl.width
     property alias lblText: lbl.text
+    property alias dobText: txtDob.text
+    property alias dobHeight: txtDob.height
+    property alias dobWidth: txtDob.width
+    property alias dateHeight: recDate.height
+    property alias monthHeight: recMonth.height
+    property alias yearHeight: recYear.height
     property bool sortLeapYears: false//true//
     signal setTumblerDate(int index)
     signal setTumblerMonth(int index)
@@ -267,25 +284,25 @@ Rectangle {
                         {
                             setTumblerDate(otherTumblerDay-1)
                         }
-//                        else
-//                        {
-//                            setTumblerDate(prevSetDate)//setTumblerDate(otherTumblerDay)
-//                        }
+                        //                        else
+                        //                        {
+                        //                            setTumblerDate(prevSetDate)//setTumblerDate(otherTumblerDay)
+                        //                        }
 
                     }
                     else
                     {
-//                        if((prevSetDate !== -1))//||(curSetDate != 0))
-//                        {
-//                            setTumblerDate(prevSetDate)
-//                        }
-//                        else
-//                        {
-//                            if((otherTumblerDay !== 0))
-//                            {
-//                                setTumblerDate(otherTumblerDay-1)
-//                            }
-//                        }
+                        //                        if((prevSetDate !== -1))//||(curSetDate != 0))
+                        //                        {
+                        //                            setTumblerDate(prevSetDate)
+                        //                        }
+                        //                        else
+                        //                        {
+                        //                            if((otherTumblerDay !== 0))
+                        //                            {
+                        //                                setTumblerDate(otherTumblerDay-1)
+                        //                            }
+                        //                        }
                     }
                 }
             }
@@ -441,13 +458,14 @@ Rectangle {
         columns: IntegerConstants.columnCount3
         rows: IntegerConstants.rowCount4
         columnSpacing: IntegerConstants.spacing
+        rowSpacing: 0
         Layout.minimumHeight: recDate.height+recTitle.height
         Layout.minimumWidth: recDate.width+recMonth.width+recYear.width//+3*(2* IntegerConstants.columnSpacingTen)//630
         Layout.maximumWidth: recDate.width+recMonth.width+recYear.width//+3*(2* IntegerConstants.columnSpacingTen)
         //Layout.preferredWidth: recDate.width+recMonth.width+recYear.width+3*(2* IntegerConstants.columnSpacingTen)
         Rectangle{
             id:recTitle
-            width: 60
+            width: lbl.width//60
             color: "transparent"
             Layout.topMargin: 0
             Layout.leftMargin: 10
@@ -457,10 +475,11 @@ Rectangle {
             Layout.columnSpan: recTextVisible?IntegerConstants.columnSpan1:IntegerConstants.columnSpan3//3
             Layout.alignment: recTextVisible?Qt.AlignLeft:Qt.AlignHCenter
             anchors.top: parent.top
+            // anchors.topMargin: 10
             anchors.left: recTextVisible?recDate.left:0//recMonth.left
             anchors.horizontalCenter: recTextVisible?0:parent.horizontalCenter
             //anchors.right: recYear.right
-            height: 20//50//25//50
+            height: lbl.height//20//50//25//50
             //width: 100//parent.width
             Label{
                 id:lbl
@@ -468,9 +487,11 @@ Rectangle {
                 color: StringConstants.barBackgroundColor
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
+                font { family: OtherConstants.fontFamily; pixelSize: 15; weight: Font.Bold; capitalization: Font.MixedCase }
                 //anchors.centerIn: parent
-                verticalAlignment: Text.AlignVCenter
+                verticalAlignment: Text.AlignBottom
                 horizontalAlignment: Text.AlignHCenter
+                //background: Rectangle{color: "black"}
                 //anchors.fill: parent
             }
         }
@@ -484,7 +505,8 @@ Rectangle {
             anchors.top: parent.top
             //anchors.left: recDate.left
             //anchors.right: recYear.right
-            height: 20//50//25
+            height: txtDob.height//20//50//25
+            width: txtDob.width
             //width: parent.width
             TextField{
                 id:txtDob
@@ -495,25 +517,28 @@ Rectangle {
                 anchors.fill: parent
                 readOnly: true
                 //font: Constants.fontFamily
-                font.pixelSize: 13
+                font { family: OtherConstants.fontFamily; pixelSize: 15; weight: Font.Bold; capitalization: Font.MixedCase }
             }
         }
 
         Rectangle{
             id:recDate
-            color: "transparent"
-            Layout.row: IntegerConstants.rowCount2//Constants.rowCount2
+            color: "transparent"//"blue"//
+            Layout.row:IntegerConstants.rowCount2//Constants.rowCount2
             Layout.column: IntegerConstants.columnCount1
-            anchors.top:recTitle.bottom
+            anchors.top:recTitle.height===0?parent.top:recTitle.bottom
             anchors.left: parent.left
             anchors.leftMargin: IntegerConstants.margin10
-            height:IntegerConstants.dobCalTumblerHeight
+            height:IntegerConstants.dobCalTumblerHeight//dateTumbler.height//
             width: IntegerConstants.dobCalTumblerWidth
 
 
             NewPatientDataTumbler{
                 id:dateTumbler
                 labelVisible: false
+                labelHeight: 0
+                labelWidth: 0
+                anchors.fill: parent
                 ////////////////////////////////////labelText: Constants.dobDay
                 firstTumblerVisibility: true
                 secTumblerVisibility: false
@@ -561,11 +586,13 @@ Rectangle {
             Layout.row: IntegerConstants.rowCount2
             Layout.column: IntegerConstants.columnCount2
             //Layout.columnSpan: IntegerConstants.columnSpan2
-            height:IntegerConstants.dobCalTumblerHeight
+            height:IntegerConstants.dobCalTumblerHeight//monthTumbler.height//
             width: 1.5*IntegerConstants.dobCalTumblerWidth
             NewPatientDataTumbler{
                 id:monthTumbler
                 labelVisible: false
+                labelHeight: 0
+                labelWidth: 0
                 //////////////////////////////////////////labelText:Constants.dobMonth
                 firstTumblerVisibility: true
                 secTumblerVisibility: false
@@ -593,7 +620,7 @@ Rectangle {
             anchors.leftMargin: IntegerConstants.margin10
             Layout.row: IntegerConstants.rowCount2
             Layout.column: IntegerConstants.columnCount3
-            height:IntegerConstants.dobCalTumblerHeight
+            height:IntegerConstants.dobCalTumblerHeight//yearTumbler.height//
             width: IntegerConstants.dobCalTumblerWidth
             NewPatientDataTumbler{
                 id:yearTumbler
@@ -604,6 +631,8 @@ Rectangle {
                     id:calYearCom
                 }
                 labelVisible: false
+                labelHeight: 0
+                labelWidth: 0
                 ////////////////////labelText:Constants.dobYear
                 firstTumblerVisibility: true
                 secTumblerVisibility: false

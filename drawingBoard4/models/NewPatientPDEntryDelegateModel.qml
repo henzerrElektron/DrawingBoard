@@ -45,7 +45,17 @@ DelegateModel {
             Component.onCompleted: {
                 console.log("I am completed"+objectName)
             }
+        },
+        DelegateModelGroup{
+            id:group3
+            objectName: StringConstants.doBItemModel;
+            includeByDefault: false;
+            name:StringConstants.doBItemModel;
+            Component.onCompleted: {
+                console.log("I am completed"+objectName)
+            }
         }
+
     ]
     NewPatientPersonalDetailsEntryModel{
         id:newPatientPersonalDetailEntryModel
@@ -81,6 +91,13 @@ DelegateModel {
                         if(entry.textItem === true)
                         {
                             items.insert(entry,StringConstants.textBoxItemsModel)
+                        }
+                    }
+                    if(entry.dobItem !== undefined)
+                    {
+                        if(entry.dobItem === true)
+                        {
+                            items.insert(entry,StringConstants.doBItemModel)
                         }
                     }
                 }

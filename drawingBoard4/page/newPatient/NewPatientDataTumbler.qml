@@ -135,6 +135,8 @@ Rectangle {
         //firstTumberRec.anchors.fill.parent
     }
     property bool labelHorizontal: false
+    property alias labelHeight: lbl.height
+    property alias labelWidth: lbl.width
     property alias labelText: lbl.text
     property alias labelVisible:  lbl.visible
     property bool numberOrColorDelegate: false

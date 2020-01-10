@@ -61,9 +61,9 @@ Rectangle{
         width: (mainRec.width/2)+30
         color: StringConstants.barBackgroundColor//StringConstants.testPage_backgroundColor//color_gbTransparent//"transparent"
         anchors.top: contactDetailLabel.bottom
-        anchors.topMargin: 5//10
+        anchors.topMargin: 10//10
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 5//10
+        anchors.bottomMargin: 10//10
         //anchors.right: parent.right
         anchors.rightMargin: 10
         anchors.left: parent.left

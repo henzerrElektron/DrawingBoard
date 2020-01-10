@@ -121,7 +121,7 @@ Page {
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 10
             anchors.topMargin: 10
-            Layout.maximumHeight:parent.height - parent.height/4
+            Layout.maximumHeight:(parent.height - parent.height/4)
             NewPatientTabs{
                 id:newPatientTabs
                 anchors.fill: parent

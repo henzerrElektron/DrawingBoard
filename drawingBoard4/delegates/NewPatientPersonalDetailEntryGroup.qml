@@ -130,7 +130,8 @@ GridView {
                         TextDelegate{
                             id:label
                             //height: GridView.view.cellHeight/2 - 20
-                            width: 350//GridView.view.cellWidth * 2
+                            width: readonlyItem?175:350//GridView.view.cellWidth * 2
+                            readOnly: readonlyItem
                             font { family: OtherConstants.fontFamily; pixelSize: 15; weight: Font.Bold; capitalization: Font.MixedCase }
                             // color: StringConstants.barBorderColor
                             background: Rectangle {
@@ -186,7 +187,7 @@ GridView {
                         //                            }
                         //                        }
                         ComboBox{
-                         //NewPatientDataComboBox  {
+                            //NewPatientDataComboBox  {
                             id:comboItem
                             height: GridView.view.cellHeight/2  - 20
                             width: 2* GridView.view.cellWidth
@@ -200,7 +201,91 @@ GridView {
                     }
                 }
             }
+            DelegateChoice{
+                roleValue: "dobItem"
+                Rectangle{
+                    id:mainGridLayout2
+                    Column{
+                        id:col1
+                        LabelDelegate{
+                            id:label22
+                            //Package.name: filterName//"PatientDetailedModel"
+                            text: actionName
+                            // color: "black"
+                            //height: GridView.view.cellHeight/2 - 20
+                            width: GridView.view.cellWidth
+                            font { family: OtherConstants.fontFamily; pixelSize: 15; weight: Font.Bold; capitalization: Font.MixedCase }
+                            //font.pixelSize:25//index%2 === 0? 25:15
+                            color: StringConstants.barBorderColor//testPage_lblFontColor//index%2 === 0?StringConstants.testPage_lblFontColor:StringConstants.barBorderColor
+                            onTextChanged: {
+                                console.log("The value of the text is"+text+actionName)
+                            }
+                        }
+                        Row{
+                            TextDelegate{
+                                id:label23
+                                //height: GridView.view.cellHeight/2 - 20
+                                width: readonlyItem?75:350//GridView.view.cellWidth * 2
+                                readOnly: readonlyItem
+                                font { family: OtherConstants.fontFamily; pixelSize: 15; weight: Font.Bold; capitalization: Font.MixedCase }
+                                // color: StringConstants.barBorderColor
+                                background: Rectangle {
+                                    //implicitWidth: 200
+                                    //implicitHeight: 40
+                                    color: StringConstants.barBackgroundColor//control.enabled ? "transparent" : "#353637"
+                                    border.color: StringConstants.readonlyColor//control.enabled ? "#21be2b" : "transparent"
+                                }
+                                onTextChanged: {
+                                    console.log("The value of the text is"+text)
+                                }
+                            }
 
+
+                        }
+                    }
+                    Column{
+                        id:col2
+                        anchors.left: col1.right
+                        NewPatientDobTumbler{
+                            id:pageSwitchButtons
+                            recTextVisible: false
+                            dateTumblerVisible:false
+                            monthTumblerVisible: false
+                            yearTumblerVisible: false
+                            // dateHeight: 35
+                            //  monthHeight: 35
+                            //  yearHeight: 35
+                            lblText:""
+                            lblHeight:label22.height -6// - 3// + 20
+                            lblWidth: 0
+                            dobText:""
+                            dobHeight:0
+                            dobWidth: 0
+                            recLabelVisible: false
+                            //anchors.fill: parent
+                            // width: parent.width/2
+                            // height: parent.height/2
+                            // anchors.top: parent.top
+                            //anchors.bottom: parent.bottom
+                            // anchors.right: parent.right
+                            //anchors.horizontalCenter: label23.horizontalCenter
+                            /// anchors.verticalCenter: parent.verticalCenter
+                            Component.onCompleted: {
+                                setTumblerYear(0)//IntegerConstants.dobStartDate
+                                setTumblerDate(0)
+                                setTumblerMonth(0)
+                            }
+                        }//TestPageSwitchButtons
+                    }
+
+                    //                   DobDelegate{
+                    //                         width: GridView.view.cellWidth
+                    //                         height: GridView.view.cellHeight
+                    //                         labelText:actionName
+                    //                         readText:readonlyItem
+                    //                   }
+                }
+            }
             Component.onCompleted: {
                 console.log("I am getting completed")
             }

@@ -95,9 +95,9 @@ Rectangle{
             Layout.preferredWidth: pageStartTumbler.width
             Layout.minimumWidth:pageStartTumbler.width
             Layout.maximumWidth: pageStartTumbler.width
-            Layout.preferredHeight: pageEndTumbler.height
-            Layout.minimumHeight: pageEndTumbler.height
-            Layout.maximumHeight: pageEndTumbler.height
+            Layout.preferredHeight: parent.height/2//pageEndTumbler.height
+            Layout.minimumHeight: parent.height/2//pageEndTumbler.height
+            Layout.maximumHeight: parent.height/2//pageEndTumbler.height
             NewPatientDobTumbler{
                 id:pageStartTumbler
                 recTextVisible: false
@@ -137,9 +137,9 @@ Rectangle{
             Layout.maximumWidth: pageEndTumbler.width
 
             //Layout.fillHeight: true
-            Layout.preferredHeight: pageEndTumbler.height
-            Layout.minimumHeight: pageEndTumbler.height
-            Layout.maximumHeight: pageEndTumbler.height
+            Layout.preferredHeight:parent.height/2// pageEndTumbler.height
+            Layout.minimumHeight:parent.height/2// pageEndTumbler.height
+            Layout.maximumHeight:parent.height/2// pageEndTumbler.height
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignRight|Qt.AlignTop
             NewPatientDobTumbler{
