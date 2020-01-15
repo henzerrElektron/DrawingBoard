@@ -46,51 +46,57 @@ Page{
     title: StringConstants.lbl_npNotes//"Enter notes relevant to this test session"
     anchors.fill: parent
     Rectangle{
-        id:rectangle
-        anchors.left: parent.left
-        anchors.right: parent.right
-        color: "transparent"
-        height: 50
-        border.color: StringConstants.actionBtnBorderColor
-        border.width: 2
-        //NewPatientGroupLabel{
-         GroupLabel{
-            id:leftLabel
-            text: StringConstants.lbl_npNotes
-            anchors.fill: parent
-            anchors.leftMargin: 10
-            anchors.rightMargin: 10
-            //anchors.centerIn: parent
-        }
-    }
-    Rectangle{
-        id:mainRec
-        //anchors.fill: parent
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: rectangle.bottom
-        anchors.bottom: parent.bottom
-        //color: StringConstants.actionBtnBackgroundColor
-        border.color: StringConstants.actionBtnBorderColor
-        border.width: 2
+        id:notesTabTec
+        anchors.fill: parent
 
-        TextEdit {
-            id: textEdit
-            anchors.top:  parent.top//rectangle.bottom
-            anchors.topMargin: 10
+
+        Rectangle{
+            id:rectangle
             anchors.left: parent.left
-            anchors.leftMargin: 10
             anchors.right: parent.right
-            anchors.rightMargin: 10
+            color: "transparent"
+            height: 50
+            border.color: StringConstants.actionBtnBorderColor
+            border.width: 2
+            //NewPatientGroupLabel{
+            GroupLabel{
+                id:leftLabel
+                text: StringConstants.lbl_npNotes
+                anchors.fill: parent
+                anchors.leftMargin: 10
+                anchors.rightMargin: 10
+                //anchors.centerIn: parent
+            }
+        }
+        Rectangle{
+            id:mainRec
+            //anchors.fill: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: rectangle.bottom
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 10
-            text: qsTr("Please enter the text here....")
-            textFormat: Text.AutoText
-            //canRedo: true
-            //canUndo: true
-            //canPaste: true
-            font.pixelSize: 12
-            //color: "white"
+            //color: StringConstants.actionBtnBackgroundColor
+            border.color: StringConstants.actionBtnBorderColor
+            border.width: 2
+
+            TextEdit {
+                id: textEdit
+                anchors.top:  parent.top//rectangle.bottom
+                anchors.topMargin: 10
+                anchors.left: parent.left
+                anchors.leftMargin: 10
+                anchors.right: parent.right
+                anchors.rightMargin: 10
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 10
+                text: qsTr("Please enter the text here....")
+                textFormat: Text.AutoText
+                //canRedo: true
+                //canUndo: true
+                //canPaste: true
+                font.pixelSize: 12
+                //color: "white"
+            }
         }
     }
     Component.onDestruction: { cleanup()    }

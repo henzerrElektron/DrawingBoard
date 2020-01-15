@@ -48,6 +48,7 @@ import ApplicationConstants 1.0
 
 */
 Rectangle{
+    id:mainRec
     property alias switchMetricsChecked: switchMetrics.checked
     property alias switchMetricsVisible: switchMetrics.visible
     property alias addSupplementVisible: addSupplement.visible
@@ -55,6 +56,7 @@ Rectangle{
     anchors.left: parent.left
     anchors.right: parent.right
     Layout.fillWidth: true
+    signal buttonClicked()
     //height: 100
     //width: 400
     color: "transparent"
@@ -104,6 +106,9 @@ Rectangle{
         icon.name:   "add_supplement"
         icon.source:   "qrc:/images/add_supplement.png"
         icon.color:  "transparent"
+        Component.onCompleted: {
+            buttonClicked.connect(mainRec.buttonClicked)
+        }
     }
 
 }

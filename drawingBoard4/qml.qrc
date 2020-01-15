@@ -70,6 +70,7 @@
         <file>common/GroupLabel.qml</file>
         <file>common/LabelWithText.qml</file>
         <file>common/BoxLabel.qml</file>
+        <file>common/NotesTableRec.qml</file>
         <file>tables/CommonTableGrid.qml</file>
         <file>tables/CommonTableView.qml</file>
         <file>tables/RowColTableGrid.qml</file>
@@ -212,6 +213,11 @@
         <file>page/notUsed/AllReportDataModel.qml</file>
         <file>page/notUsed/ContactDetailDelegateModel.qml</file>
         <file>page/notUsed/NewPatientSearchBox.qml</file>
+        <file>page/notUsed/SupplementModel.qml</file>
+        <file>page/notUsed/SupplementModelDelegateGroup.qml</file>
+        <file>page/notUsed/SupplementDelegateModel.qml</file>
+        <file>page/notUsed/MedicalDetailsDelegateChooser.qml</file>
         <file>delegates/DobDelegate.qml</file>
+
     </qresource>
 </RCC>

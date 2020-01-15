@@ -53,7 +53,17 @@ DelegateModel {
             Component.onCompleted: {
                 console.log("I am completed"+objectName)
             }
+        },
+        DelegateModelGroup{
+            id:group4
+            objectName:StringConstants.model_supplementationItems;
+            includeByDefault: false;
+            name: StringConstants.model_supplementationItems
+            Component.onCompleted: {
+                console.log("I am completed"+objectName)
+            }
         }
+
     ]
     MedicalAndRiskFactorModel{
         id:medicalRiskFactorModel
@@ -91,6 +101,13 @@ DelegateModel {
                 if(entry.isMedicalFactors === true)
                 {
                     items.insert(entry,StringConstants.model_medicalFactors)
+                }
+            }
+            if(entry.isSupplementPage !== undefined)
+            {
+                if(entry.isSupplementPage === true)
+                {
+                    items.insert(entry,StringConstants.model_supplementationItems)
                 }
             }
         }

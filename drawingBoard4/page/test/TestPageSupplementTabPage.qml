@@ -19,6 +19,7 @@ import "./../../models/"
 import "./../../common/"
 import "./../newPatient/"
 import "./../../tables/"
+import "./../supplement/"
 import TestPageSupplementationModel 0.1
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
@@ -46,6 +47,7 @@ Page{
     id:supplementTabPage
      objectName: StringConstants.objectName_testPageSupplementTabPage
     anchors.fill: parent
+    signal buttonClicked()
     //    Rectangle{
     //        id:rectangle
     //        anchors.left: parent.left
@@ -100,6 +102,9 @@ Page{
                     addSupplementVisible:true
                     riskFactorLabel:StringConstants.lbl_supplementHistory
                     anchors.fill: parent
+                    Component.onCompleted: {
+                        buttonClicked.connect(spDialog.open)
+                    }
                 }
             }
 
@@ -162,6 +167,14 @@ Page{
                 //                }
             }
         }
+    }
+    SupplementDialog{
+        id:spDialog
+        width: parent.width//.parent.width/2//parent.width - (parent.width/10)
+        height:parent.height+parent.height/4//parent.height - (parent.height/10)
+        anchors.centerIn: parent
+        Layout.fillHeight: true
+        Layout.fillWidth: true
     }
     Component.onDestruction: { cleanup()    }
     function init() { console.log("INIT "+Component.objectName)    }

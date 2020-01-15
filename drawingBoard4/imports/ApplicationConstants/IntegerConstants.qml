@@ -263,6 +263,11 @@ QtObject {
     readonly property int minAlcholPerDay: 0
     readonly property int minPortionsPerDay: 0
 
+    readonly property int luteinDosageMinIntake: 1
+    readonly property int luteinDosageMaxIntake: 10
+    readonly property int luteinIntakeMin: 1
+    readonly property int luteinIntakeMax: 10
+
 
     readonly property int maxAge: 100
     readonly property int maxWeightMetricOFF: 100

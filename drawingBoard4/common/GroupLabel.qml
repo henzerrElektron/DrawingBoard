@@ -38,6 +38,6 @@ Label {
     color: isTabHeader === true?StringConstants.barBackgroundColor:StringConstants.label_NewPatientLabelBgColor///StringConstants.label_NewPatientLabelBgColor//"white"
     background: Rectangle{
         id:labelRec
-        color: isTabHeader === true?StringConstants.label_NewPatientLabelBgColor:StringConstants.barBackgroundColor//"black"//StringConstants.barBackgroundColor//
+        color: isTabHeader === true?StringConstants.label_NewPatientLabelBgColor:StringConstants.color_gbTransparent//"black"//StringConstants.barBackgroundColor//
     }
 }

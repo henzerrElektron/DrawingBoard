@@ -493,6 +493,14 @@ QtObject {
     readonly property string np_pdActionTextDiabetic: "Diabetic"
     readonly property string np_pdActionTextAmdHistory: "AMD family history"
 
+    readonly property string sp_actionNameTitle: "Please enter the supplementation details for this patient"
+    readonly property string sp_sdNameLuteinDosageName: "Lutein Dosage"
+    readonly property string sp_sdTextLuteinDosageName: "Lutein Dosage"
+    readonly property string sp_sdNameIntakePerDay: "Intake per day"
+    readonly property string sp_sdTextIntakePerDay: "Intake per day"
+    readonly property string sp_sdNameSupplementDescription: "Supplement Description"
+    readonly property string sp_sdTextSupplementDescription: ""
+
     readonly property string lbl_weight: "Weight"
     readonly property string lbl_kg: "Kg"
     readonly property string lbl_lbs: "lbs"
@@ -501,6 +509,9 @@ QtObject {
     readonly property string lbl_meter: "m"
     readonly property string lbl_feet: "feet"
     readonly property string lbl_inch: "inch"
+
+    readonly property string lbl_luteinDosageMetric: "mg"
+    readonly property string lbl_luteinIntakeDays: "perDay"
 
     readonly property string lbl_smoker: "Smoker"
     readonly property string lbl_cigPerDay: "Cigarettes per day"
@@ -515,16 +526,24 @@ QtObject {
     readonly property string lbl_amdHistory: "AMD family History"
     readonly property string lbl_eyeColor: "Eye Color"
 
+    readonly property string np_pdAmdHistory: "AMD family History"
+    readonly property string np_pdEyeColor: "Eye Color"
+
     readonly property string lbl_intraocularLens: "Intraocular Lens"
     readonly property string lbl_RightFitted: "Right Fitted"
     readonly property string lbl_yrs: "yrs"
     readonly property string lbl_leftFitted: "Left Fitted"
     readonly property string lbl_diabetic: "Diabetic"
 
+    readonly property string model_supplementationDosageDetails: "supplementationDosageDetails"
+    readonly property string model_supplementationDosageNotes: "supplementationDosageNotes"
+    readonly property string model_supplementationDetails: "supplementationDetails"
+    readonly property string model_supplementDosageNameIntakeDetails: "supplementationDosageDetails"
+    readonly property string model_supplementDosageNotesDetails: "SupplementDosageNotesDetails"
     readonly property string model_medicalDetails: "medicalDetailItems"
     readonly property string model_dietAndLifeStyle: "dietItems"
     readonly property string model_medicalFactors: "medicalFactorsItems"
-
+    readonly property string model_supplementationItems: "supplementationItems"
     readonly property string objectName_regexpValidatorAgeOnly: "regexpValidatorAgeOnly"
     readonly property string objectName_validators: "validators"
     readonly property string objectName_regexpValidatorDobOnly: "regexpValidatorDobOnly"

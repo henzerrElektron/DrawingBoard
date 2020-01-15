@@ -33,6 +33,10 @@ ToolButton {
     id: iconlOnlyButtons
     implicitWidth:  50
     implicitHeight:  50
+    signal buttonClicked()
+    signal invokeSource(string source)
+    signal invokeIndex(int index)
+    signal tested()
     //property alias iconName: iconlOnlyButtons.icon.name//icon.name
    // property alias iconSource: iconlOnlyButtons.icon.source
     //property alias iconOnlyName: icon.name
@@ -53,4 +57,7 @@ ToolButton {
     icon.source: "qrc:/images/icon_to_last.png"
     icon.color: "transparent"
     display: AbstractButton.IconOnly
+    onClicked: {
+        buttonClicked()
+    }
 }
