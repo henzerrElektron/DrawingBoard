@@ -50,6 +50,7 @@ GridView {
     onFilterNameChanged: doFilter()
     property var idealCellHeight: 200
     property var idealCellWidth: 200
+    signal switchChecked(bool flag)
     signal componentTriggered(string name)
     signal invokeSource(string source)
     signal invokeIndex(int index)
@@ -162,23 +163,28 @@ GridView {
                     labelText: actionText//"Right Fitted"
                     dataTumblerVisibility: eyedialVisible
                     topSliderVisible:hasComboBox//true//
+                    btmSliderVisible:opMetricOrImperial?hasSecSlider:false
                     tumblerVisibility:eyedialVisible
                     dataTumblerfirstVisibility: eyedialVisible//true
                     dataTumblerNoOrColorDelegate:eyedialVisible
                     eyeColorDialVisibilty: eyedialVisible
-                    btmSliderVisible:false
-                    dataTumblersecVisibility: false
+                    dataTumblersecVisibility:false
                     dataTumblerthirdVisibility: false
                     firstSwitchVisible: hasKnownSwitch
                     secondSwitchVisible:hasYesNoSwitch
                     topSliderMinValue: sliderMiNValue
-                    topSliderMaxValue:sliderMaxValueCol
-                    dataTumblerFirstModel: tumblerFirstModel === -1?cModel:tumberFirstModel
+                    topSliderMaxValue:sliderMaxValue
+                    btmSliderMinValue:secSliderMiNValue
+                    btmSliderMaxValue:secSliderMaxValue
+                    btmSliderModel:secSliderModel
+                    dataTumblerFirstModel: eyedialVisible === true?cModel:tumberFirstModel
                     topSliderModel: tumblerFirstModel
-                    topSliderLabelText:comboBoxMetricOffText//"yrs"
+                    topSliderLabelText:opMetricOrImperial?comboBoxMetricONText:comboBoxMetricOffText//"yrs"
+                    btmSliderLabelText:comboBoxMetricOnSubText
                     //tumblerVisibility:false
                     Component.onCompleted: {
                         console.log("I am completed")
+                        theListView.switchChecked.connect(rightFittedOperator.doswitchChecked)
                     }
                 }
             }

@@ -57,6 +57,7 @@ Rectangle{
     anchors.right: parent.right
     Layout.fillWidth: true
     signal buttonClicked()
+    signal switchChecked(bool flag)
     //height: 100
     //width: 400
     color: "transparent"
@@ -93,6 +94,15 @@ Rectangle{
                           verticalAlignment: Text.AlignVCenter
                           leftPadding: switchMetrics.indicator.width + switchMetrics.spacing
                       }
+        onToggled: {
+            if(checked === true)
+            {
+                switchChecked(true)
+            }
+            else{
+                 switchChecked(false)
+            }
+        }
     }
     IconOnlyButtons{
         id:addSupplement

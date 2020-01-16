@@ -96,6 +96,7 @@ Rectangle{
     property alias dataTumblerVisibility: subRec0.visible
     property alias labelVisibility: label.visible
     property bool labelCol1or2: true
+    property bool opMetricOrImperial: false
     property alias eyeColorDialVisibilty: dialRect.visible
     property alias dataTumblerNoOrColorDelegate: dataTumbler.numberOrColorDelegate
     property alias topSliderModel: topSliderUnit.topTextAreaModel
@@ -125,12 +126,15 @@ Rectangle{
     }
 
 
-
+    function doswitchChecked(flag)
+    {
+        opMetricOrImperial = flag
+    }
     signal toggleSwitchButton()
     //height: //dataTumbler.height
     anchors.fill: parent
     //anchors.topMargin: 50
-   // anchors.verticalCenter: parent.verticalCenter
+    // anchors.verticalCenter: parent.verticalCenter
     anchors.leftMargin: 20
     anchors.rightMargin: 20
     color: StringConstants.color_gbTransparent//StringConstants.borderColorBlack//StringConstants.color_gbTransparent//
@@ -158,7 +162,7 @@ Rectangle{
             bottomPadding: 10
             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
             //Layout.topMargin: dataTumblerVisibility?(dataSwitchesVisible?50:25):10
-           // Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            // Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             //Layout.alignment:dataSwitchesVisible?Qt.AlignTop|Qt.AlignHCenter: Qt.AlignTop|Qt.AlignHCenter
             Layout.column: labelCol1or2?1:2
             Layout.columnSpan: 1
@@ -172,10 +176,10 @@ Rectangle{
             horizontalAlignment: Text.AlignHCenter
             anchors.verticalCenter: eyeColorDialVisibilty?dialRect.verticalCenter:parent.verticalCenter
             verticalAlignment: Text.AlignVCenter//Text.AlignVCenter
-//            background: Rectangle{
-//                id:colorRec
-//                color: "green"
-//            }
+            //            background: Rectangle{
+            //                id:colorRec
+            //                color: "green"
+            //            }
         }
         Rectangle{
             id:dataSwitchRec
@@ -185,11 +189,11 @@ Rectangle{
             Layout.fillHeight: true
             Layout.minimumWidth:125// dataTumblerVisibility?125:250
             Layout.minimumHeight:label.height//dataTumblerVisibility?40:35
-           // Layout.alignment:  Qt.AlignLeft | Qt.AlignTop//Qt.AlignLeft |
+            // Layout.alignment:  Qt.AlignLeft | Qt.AlignTop//Qt.AlignLeft |
             anchors.verticalCenter: parent.verticalCenter
-           color: StringConstants.color_gbTransparent
-          //  Layout.topMargin:dataTumblerVisibility?25: 5
-          //  color: "red"
+            color: StringConstants.color_gbTransparent
+            //  Layout.topMargin:dataTumblerVisibility?25: 5
+            //  color: "red"
             NewPatientDataSwitches{
                 id:dataSwitches
                 anchors.fill: parent

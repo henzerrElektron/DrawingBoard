@@ -79,17 +79,20 @@ Rectangle{
                 //                anchors.left: parent.left
                 //                anchors.right: parent.right
                 //                height: 50
-                onSwitchMetricsCheckedChanged: {
-                    if(switchMetricsChecked)
-                    {
-                        subRec4.height = parent.height/5
-                        update()
-                    }
-                    else
-                    {
-                        subRec4.height = parent.height/8
-                        update()
-                    }
+//                onSwitchMetricsCheckedChanged: {
+//                    if(switchMetricsChecked)
+//                    {
+//                        subRec4.height = parent.height/5
+//                        update()
+//                    }
+//                    else
+//                    {
+//                        subRec4.height = parent.height/8
+//                        update()
+//                    }
+//                }
+                Component.onCompleted: {
+                    switchChecked.connect(modelgroup.switchChecked)
                 }
             }
         }

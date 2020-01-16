@@ -273,6 +273,7 @@ QtObject {
     readonly property int maxWeightMetricOFF: 100
     readonly property int maxWeightMetricON: 220
     readonly property int maxHeightMetricOFF: 3
+    //readonly property int minHeightMetricON: 0
     readonly property int maxHeightMetricON: 9
     readonly property int maxHeightSubMetricON: 10
     readonly property int maxCigPerDay: 100

@@ -103,6 +103,7 @@ TableView {
 
     }//parent.height/rows}//parent.height/(rows>10?rows/10:10)}//rowHeights[row]}
     delegate: Rectangle {
+        id:rec
         onColorChanged: console.log("Color changed")
         //TableView.onPooled: console.log(display + " pooled")
         //TableView.onReused: console.log(display + " resused")
@@ -111,6 +112,11 @@ TableView {
             font.pointSize: 12
             anchors.centerIn: parent
         }
+//        MouseArea{
+//            id:moArea
+//            anchors.fill: parent
+//            onClicked: rec.color = "blue"
+//        }
     }
     Rectangle { // mask the headers
         id:tableBackground
@@ -121,6 +127,7 @@ TableView {
         width: commonTableView.width
         height: commonTableView.height//supplementTableView.topMargin * 2
     }
+
     ScrollIndicator.horizontal: ScrollIndicator { }
     ScrollIndicator.vertical: ScrollIndicator { }
     Component.onDestruction: { cleanup()    }
