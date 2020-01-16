@@ -445,6 +445,7 @@ QtObject {
     readonly property string textItem: "textItem"
     readonly property string comboItem: "comboItem"
     readonly property string dobItem: "dobItem"
+    readonly property string switchItem: "switchItem"
     readonly property string key: "key"
     readonly property string comboBoxItemModel: "comboBoxItems"
     readonly property string textBoxItemsModel: "textBoxItems"// This is available in all editors.
@@ -482,6 +483,7 @@ QtObject {
     readonly property string np_pdActionNameLeftFitted: "Left Fitted"
     readonly property string np_pdActionNameDiabetic: "Diabetic"
     readonly property string np_pdActionNameAmdHistory: "AMD family history"
+    readonly property string np_pdActionNameEyeColor: "Eye Color"
 
     readonly property string np_pdActionTextWeight: "Weight"
     readonly property string np_pdActionTextHeight: "Height"
@@ -544,6 +546,7 @@ QtObject {
     readonly property string model_dietAndLifeStyle: "dietItems"
     readonly property string model_medicalFactors: "medicalFactorsItems"
     readonly property string model_supplementationItems: "supplementationItems"
+    readonly property string model_otherRiskFactorItems: "otherRiskFactorItems"
     readonly property string objectName_regexpValidatorAgeOnly: "regexpValidatorAgeOnly"
     readonly property string objectName_validators: "validators"
     readonly property string objectName_regexpValidatorDobOnly: "regexpValidatorDobOnly"

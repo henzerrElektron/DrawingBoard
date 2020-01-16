@@ -43,6 +43,7 @@ Rectangle{
     border.color: StringConstants.borderColorBlack
     anchors.leftMargin: 2
     anchors.rightMargin: 2
+    anchors.bottomMargin: 2
     //width: mainGrid.width
     //height: mainGrid.height
     GridLayout{
@@ -50,36 +51,154 @@ Rectangle{
         rowSpacing: 5
         anchors.fill: parent
         //height: 2*subRec1.height+8* subRec2.height
-        rows:6//10
+        rows:10//10
         Rectangle{
             id:subRec1
             Layout.row: 1
             Layout.rowSpan: 1
-            Layout.minimumHeight: 50
-            Layout.maximumHeight: 50
-            Layout.fillHeight: true
-            Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
+            Layout.minimumHeight: mainRec.height/mainGrid.rows//50
+            Layout.maximumHeight: mainRec.height/mainGrid.rows//50
+            Layout.fillWidth: true
+            //Layout.alignment: Qt.AlignTop
             RiskFactorHeaderDelegate{
                 id: headerDelegate1
                 anchors.fill: parent
                 switchMetricsVisible:false
                 addSupplementVisible:false
                 riskFactorLabel: StringConstants.lbl_otherRiskFactors
-                onSwitchMetricsCheckedChanged: {
-                    if(switchMetricsChecked)
-                    {
-                        subRec4.height = parent.height/5
-                        update()
-                    }
-                    else
-                    {
-                        subRec4.height = parent.height/8
-                        update()
-                    }
+//                onSwitchMetricsCheckedChanged: {
+//                    if(switchMetricsChecked)
+//                    {
+//                        subRec4.height = parent.height/5
+//                        update()
+//                    }
+//                    else
+//                    {
+//                        subRec4.height = parent.height/8
+//                        update()
+//                    }
+//                }
+            }
+        }
+        Rectangle{
+            id:subRec2
+            Layout.row: 2
+            Layout.rowSpan: 1
+            anchors.top: subRec1.bottom//subRec7.bottom
+            anchors.topMargin: 10//10
+            //Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.minimumHeight: 15//20
+            Layout.maximumHeight: 15//20
+            Layout.alignment: Qt.AlignHCenter
+            Label  {
+                id:label1
+                // Layout.row: 1
+                // Layout.rowSpan: 1
+                //height: 15
+                //anchors.top: rec5.bottom
+                //anchors.topMargin: 0
+                anchors.left: parent.left
+                anchors.right: parent.right
+                text: StringConstants.lbl_otherRiskFactors
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+            }
+        }
+        Rectangle{
+            id:rec1
+            Layout.row: 3
+            Layout.rowSpan: 6
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            anchors.top: label.bottom
+           // anchors.bottom: subRec8.bottom
+            GridLayout{
+                id:grid
+                anchors.fill: parent
+                NewPatientMedicalDetailsRiskFactorGroup{
+                    id:modelgroup
+                    filterName: StringConstants.model_otherRiskFactorItems//StringConstants.model_medicalDetails
+                    anchors.fill: parent
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    verticalLayoutDirection: Grid.TopToBottom
+                    layoutDirection:Qt.LeftToRight
+                    flow: Grid.LeftToRight
+                    flickableDirection: Flickable.HorizontalAndVerticalFlick
                 }
             }
         }
+//        Rectangle{
+//            id:subRec9
+//            Layout.row: 5
+//            Layout.rowSpan: 1
+//            anchors.top: subRec8.bottom
+//            //Layout.fillHeight: true
+//            Layout.fillWidth: true
+//            Layout.minimumHeight:50//35//94//35// 93
+//            Layout.maximumHeight: 50//35//94//35//93
+//            Layout.leftMargin: 10
+//            Layout.rightMargin: 10
+//            NewPatientRiskFactorSwitchSliderHorizontal{
+//                id:amdOperator
+//                anchors.fill: parent
+//                labelText: "AMD family History"
+//                dataSwitchesVisible:true
+//                dataTumblersecVisibility: false
+//                dataTumblerfirstVisibility: false
+//                dataTumblerthirdVisibility: false
+//                dataTumblerVisibility:false
+//                tumblerVisibility:false
+//                firstSwitchVisible: false
+//                //topSliderMinValue: 0
+//                //topSliderMaxValue:100
+//                dataTumblerNoOrColorDelegate:false
+//                topSliderVisible: false
+//                btmSliderVisible: false
+//                //topSliderModel:100
+//                //topSliderLabelText: "eyeColor"
+//                //btmSliderVisible:false
+//                eyeColorDialVisibilty: false
+
+//            }
+//        }
+//        Rectangle{
+//            id:subRec10
+//            Layout.row:6
+//            Layout.rowSpan: 1
+//            Layout.fillWidth: true
+//            anchors.top: subRec9.bottom
+//            //Layout.fillHeight: true
+//            Layout.minimumHeight: 50//65//70
+//            Layout.maximumHeight: 50//65//70
+//            Layout.leftMargin: 10
+//            Layout.rightMargin: 10
+//            NewPatientRiskFactorSwitchSliderHorizontal{
+//                id:eyeColorOperator
+//                labelText: "Eye Color"
+//                dataSwitchesVisible:false
+//                dataTumblersecVisibility: false
+//                dataTumblerfirstVisibility: true
+//                dataTumblerthirdVisibility: false
+//                topSliderMinValue: 0
+//                topSliderMaxValue:100
+//                dataTumblerNoOrColorDelegate:true
+//                dataTumblerFirstModel: ColorModel{}
+//                topSliderVisible: false
+//                btmSliderVisible: false
+//                tumblerVisibility:true
+//                //topSliderModel:100
+//                //topSliderLabelText: "eyeColor"
+//                //btmSliderVisible:false
+//                eyeColorDialVisibilty: true
+//            }
+
+//        }
+    }
+}
 
 //        Rectangle{
 //            id:subRec2
@@ -243,102 +362,8 @@ Rectangle{
 //            }
 //        }
 
-        Rectangle{
-            id:subRec8
-            Layout.row: 4
-            Layout.rowSpan: 1
-            anchors.top: subRec1.bottom//subRec7.bottom
-            anchors.topMargin: 5//10
-            //Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.minimumHeight: 15//20
-            Layout.maximumHeight: 15//20
-            Layout.leftMargin: 10
-            Layout.rightMargin: 10
-            Label  {
-                id:label1
-                // Layout.row: 1
-                // Layout.rowSpan: 1
-                //height: 15
-                //anchors.top: rec5.bottom
-                //anchors.topMargin: 0
-                anchors.left: parent.left
-                anchors.right: parent.right
-                text: qsTr("Medical Factors")
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
-            }
-        }
-        Rectangle{
-            id:subRec9
-            Layout.row: 5
-            Layout.rowSpan: 1
-            anchors.top: subRec8.bottom
-            //Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.minimumHeight:50//35//94//35// 93
-            Layout.maximumHeight: 50//35//94//35//93
-            Layout.leftMargin: 10
-            Layout.rightMargin: 10
-            NewPatientRiskFactorSwitchSliderHorizontal{
-                id:amdOperator
-                anchors.fill: parent
-                labelText: "AMD family History"
-                dataSwitchesVisible:true
-                dataTumblersecVisibility: false
-                dataTumblerfirstVisibility: false
-                dataTumblerthirdVisibility: false
-                dataTumblerVisibility:false
-                tumblerVisibility:false
-                firstSwitchVisible: false
-                //topSliderMinValue: 0
-                //topSliderMaxValue:100
-                dataTumblerNoOrColorDelegate:false
-                topSliderVisible: false
-                btmSliderVisible: false
-                //topSliderModel:100
-                //topSliderLabelText: "eyeColor"
-                //btmSliderVisible:false
-                eyeColorDialVisibilty: false
 
-            }
-        }
-        Rectangle{
-            id:subRec10
-            Layout.row:6
-            Layout.rowSpan: 1
-            Layout.fillWidth: true
-            anchors.top: subRec9.bottom
-            //Layout.fillHeight: true
-            Layout.minimumHeight: 50//65//70
-            Layout.maximumHeight: 50//65//70
-            Layout.leftMargin: 10
-            Layout.rightMargin: 10
-            NewPatientRiskFactorSwitchSliderHorizontal{
-                id:eyeColorOperator
-                labelText: "Eye Color"
-                dataSwitchesVisible:false
-                dataTumblersecVisibility: false
-                dataTumblerfirstVisibility: true
-                dataTumblerthirdVisibility: false
-                topSliderMinValue: 0
-                topSliderMaxValue:100
-                dataTumblerNoOrColorDelegate:true
-                dataTumblerFirstModel: ColorModel{}
-                topSliderVisible: false
-                btmSliderVisible: false
-                tumblerVisibility:true
-                //topSliderModel:100
-                //topSliderLabelText: "eyeColor"
-                //btmSliderVisible:false
-                eyeColorDialVisibilty: true
-            }
 
-        }
-    }
-
-}
 //   ScrollIndicator.vertical: ScrollIndicator { }
 //}
 

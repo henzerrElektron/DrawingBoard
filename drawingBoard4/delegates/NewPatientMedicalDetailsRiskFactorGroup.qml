@@ -73,6 +73,10 @@ GridView {
     width:parent.width//actionOrHome ?count*cellWidth:count*cellWidth
     height:parent.height//>cellHeight?parent.height:500//actionOrHome ?cellHeight:cellHeight
     model: medicalRiskFactorDelegateModel
+    ColorModel{
+        id:cModel
+    }
+
     function doFilter()
     {
         console.log("The filtername is "+filterName)
@@ -92,6 +96,10 @@ GridView {
         {
             theListView.model = medicalRiskFactorDelegateModel.parts.supplementationItems
         }
+        if(filterName === StringConstants.model_otherRiskFactorItems)
+        {
+            theListView.model = medicalRiskFactorDelegateModel.parts.otherRiskFactorItems
+        }
 
         console.log("The filter name is"+filterName+ "the group name is"+npPersonalDetailDelegateModel.filterOnGroup)
     }
@@ -104,14 +112,14 @@ GridView {
                 Package.name: filterName
                 width: GridView.cellWidth;
                 //height:filterName===StringConstants.model_supplementationItems?GridView.view.cellHeight/(count):GridView.view.cellHeight
-                state: type === StringConstants.comboItem? 'comboItem':'textItem'
+                state: type !== StringConstants.textItem? 'comboItem':'textItem'
                 states: [
                     State {
                         name: "comboItem"
                         PropertyChanges {
                             target: wrapper
                             children:recValeu
-                            color:filterName===StringConstants.model_supplementationItems?"green":"transparent"
+                            //color:filterName===StringConstants.model_supplementationItems?"green":"transparent"
                             children.width: GridView.view.cellWidth
                             //children.height:filterName===StringConstants.model_supplementationItems?GridView.view.cellHeight/(count): GridView.view.cellHeight
                             width:GridView.view.cellWidth
@@ -152,23 +160,23 @@ GridView {
                     anchors.topMargin:parent.height/10//filterName===StringConstants.model_supplementationItems?0:parent.height/10
                     //height: 150
                     labelText: actionText//"Right Fitted"
-                    dataTumblerVisibility: hasComboBox
-                    tumblerVisibility:hasComboBox
+                    dataTumblerVisibility: eyedialVisible
+                    topSliderVisible:hasComboBox//true//
+                    tumblerVisibility:eyedialVisible
+                    dataTumblerfirstVisibility: eyedialVisible//true
+                    dataTumblerNoOrColorDelegate:eyedialVisible
+                    eyeColorDialVisibilty: eyedialVisible
+                    btmSliderVisible:false
                     dataTumblersecVisibility: false
                     dataTumblerthirdVisibility: false
-                    dataTumblerfirstVisibility: false//true
                     firstSwitchVisible: hasKnownSwitch
                     secondSwitchVisible:hasYesNoSwitch
                     topSliderMinValue: sliderMiNValue
-                    topSliderMaxValue:sliderMaxValue
-                    dataTumblerNoOrColorDelegate:false
-                    dataTumblerFirstModel: tumblerFirstModel
+                    topSliderMaxValue:sliderMaxValueCol
+                    dataTumblerFirstModel: tumblerFirstModel === -1?cModel:tumberFirstModel
                     topSliderModel: tumblerFirstModel
                     topSliderLabelText:comboBoxMetricOffText//"yrs"
-                    topSliderVisible:hasComboBox//true//
-                    btmSliderVisible:false
                     //tumblerVisibility:false
-                    eyeColorDialVisibilty: false
                     Component.onCompleted: {
                         console.log("I am completed")
                     }
@@ -262,6 +270,7 @@ GridView {
             parts.dietItems.filterOnGroup = StringConstants.model_dietAndLifeStyle
             parts.medicalFactorsItems.filterOnGroup = StringConstants.model_medicalFactors
             parts.supplementationItems.filterOnGroup = StringConstants.model_supplementationItems
+            parts.otherRiskFactorItems.filterOnGroup = StringConstants.model_otherRiskFactorItems
         }
     }
     MedicalAndRiskFactorModel{

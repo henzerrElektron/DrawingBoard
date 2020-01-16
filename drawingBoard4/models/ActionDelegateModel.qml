@@ -338,7 +338,7 @@ ListModel{
             actionDelegateModel.append(element)
         })
     }
-
+//This cant be used due to translation reason
     //    ListElement{
     //        actionName:"Home";
     //        homeAction:true;

@@ -62,6 +62,15 @@ DelegateModel {
             Component.onCompleted: {
                 console.log("I am completed"+objectName)
             }
+        },
+        DelegateModelGroup{
+            id:group5
+            objectName: StringConstants.model_otherRiskFactorItems;
+            includeByDefault: false;
+            name:StringConstants.model_otherRiskFactorItems
+            Component.onCompleted: {
+                console.log("I am completed"+objectName)
+            }
         }
 
     ]
@@ -108,6 +117,13 @@ DelegateModel {
                 if(entry.isSupplementPage === true)
                 {
                     items.insert(entry,StringConstants.model_supplementationItems)
+                }
+            }
+            if(entry.isOtherMedicalFactorsPage !== undefined)
+            {
+                if(entry.isOtherMedicalFactorsPage === true)
+                {
+                    items.insert(entry,StringConstants.model_otherRiskFactorItems)
                 }
             }
         }
