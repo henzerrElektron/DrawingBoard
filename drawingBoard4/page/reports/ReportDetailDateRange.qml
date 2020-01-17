@@ -46,7 +46,7 @@ Rectangle{
     id:mainRec
     anchors.fill: parent
     color: StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor
-    width: rectangleSub4.width+rectangleSub5.width+60//parent.width > (rectangleSub4.width+rectangleSub5.width+100)?parent.width:(rectangleSub4.width+rectangleSub5.width+100) //rectangleSub4.width+rectangleSub5.width+60//rectangleSub5.rightMargin
+    width: mainGrid.width//rectangleSub4.width+rectangleSub5.width+60//parent.width > (rectangleSub4.width+rectangleSub5.width+100)?parent.width:(rectangleSub4.width+rectangleSub5.width+100) //rectangleSub4.width+rectangleSub5.width+60//rectangleSub5.rightMargin
     //height: mainGrid.height//rectangleSub4.height+rectangleSub5.height+rectangleSub6.height+rectangleSub7.height
     signal okClicked()
     signal cancelClicked()
@@ -61,7 +61,10 @@ Rectangle{
         id:mainGrid
         //anchors.rightMargin: 10
         //anchors.leftMargin: 10
-        anchors.fill: parent
+        //anchors.fill: parent
+        width: rectangleSub4.width+rectangleSub5.width+60
+        height: parent.height//rectangleSub4.height+rectangleSub5.height+rectangleSub6.height
+        anchors.centerIn: parent
         rows: IntegerConstants.rowCount4
         columns: IntegerConstants.columnCount2
         //NewPatientGroupLabel{
@@ -137,8 +140,8 @@ Rectangle{
             color:StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor
             anchors.left: rectangleSub4.right
             anchors.leftMargin: IntegerConstants.margin10
-            anchors.right: parent.right
-            anchors.rightMargin: 10
+            //anchors.right: parent.right
+            //anchors.rightMargin: 10
             anchors.verticalCenter: rectangleSub4.verticalCenter
             width: pageEndTumbler.width//parent.width/2 <pageEndTumbler.width?pageEndTumbler.width:parent.width/2
             height: parent.height/2
@@ -163,7 +166,7 @@ Rectangle{
                 lblText:StringConstants.lbl_rpEndDate
                 sortLeapYears:true
                 firstOrLast: true
-                anchors.right: parent.right
+               // anchors.right: parent.right
 
 
                 Component.onCompleted: {
