@@ -79,7 +79,8 @@ Rectangle {
     property alias patientSurNameModel: label_PatientName.comboBoxModel
     property alias patientFirstNameModel: label_lblPatientName.comboBoxModel
     property alias pageHeader: searchLabel.text
-    GridLayout{
+   // GridLayout{
+    Grid{
         id: mainGridRow
         anchors.top: searchLabel.bottom
         anchors.left: parent.left
@@ -94,13 +95,15 @@ Rectangle {
         Rectangle{
             id:rectangleSub1
             color: StringConstants.barBackgroundColor//StringConstants.actionBtnBackgroundColor//testPage_backgroundColor
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
             anchors.top: searchLabel.bottom
-            Layout.column: 1
-            Layout.columnSpan: 1
-            Layout.rowSpan: 1
-            Layout.row: 1
+            width: parent.width/3
+            height: parent.height
+           // Layout.column: 1
+           // Layout.columnSpan: 1
+           // Layout.rowSpan: 1
+           // Layout.row: 1
             //Layout.minimumHeight: 75
             SwitchSearchBox {
                 id: label_lblPatientName
@@ -130,14 +133,15 @@ Rectangle {
             id:rectangleSub2
             color:StringConstants.barBackgroundColor//StringConstants.actionBtnBackgroundColor//testPage_backgroundColor
             anchors.top: searchLabel.bottom
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.column: 2
-            Layout.columnSpan: 1
-            Layout.rowSpan: 1
-            Layout.row: 1
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
+            //Layout.column: 2
+            //Layout.columnSpan: 1
+            //Layout.rowSpan: 1
+            //Layout.row: 1
             //Layout.minimumHeight: 75
-
+            width: parent.width/3
+            height: parent.height
             SwitchSearchBox {
                 id: label_PatientName
                 anchors.top: parent.top
@@ -165,14 +169,15 @@ Rectangle {
             id:rectangleSub3
             color: StringConstants.barBackgroundColor//StringConstants.actionBtnBackgroundColor//testPage_backgroundColor
             anchors.top: searchLabel.bottom
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
             //Layout.minimumHeight: 75
-            Layout.column: 3
-            Layout.columnSpan: 1
-            Layout.rowSpan: 1
-            Layout.row: 1
-
+            //Layout.column: 3
+            //Layout.columnSpan: 1
+           // Layout.rowSpan: 1
+           // Layout.row: 1
+            width: parent.width/3
+            height: parent.height
             SwitchSearchBox {
                 id: label_lblmedicalRef
                 anchors.top: parent.top

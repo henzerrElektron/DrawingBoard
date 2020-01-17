@@ -325,7 +325,7 @@ QtObject {
     readonly property string strOK: "OK"
     readonly property string strCancel: "Cancel"
     readonly property string lbl_adminHeading: "Enter Administrator Password"
-    readonly property string lbl_adminText: "Enter the Administrator password provided with the software."
+    readonly property string lbl_adminText: "Please enter the Administrator password provided with the software."
     readonly property string lbl_password: "Password"
     readonly property string lbl_passwordReq: "please enter the Password"
     readonly property string lbl_submit: "Submit"

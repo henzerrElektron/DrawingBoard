@@ -141,7 +141,7 @@ Rectangle {
             // anchors.leftMargin: 0
             // width: parent.width/4
             //font: StringConstants.fontFamily
-            color: StringConstants.barBackgroundColor//commonColor//"white"
+           // color: StringConstants.barBackgroundColor//commonColor//"white"
             //width: 200//(parent.width - (100))/3
             //height: 100
             //        background: Rectangle{
@@ -239,17 +239,16 @@ Rectangle {
             readOnly: false
             width: parent.width - label.width
             text: ""
-
             //font: StringConstants.fontFamily
             font.bold: true
             font.pixelSize:15// Constants.testPage_lblFontSize//25
             font.weight: Font.ExtraBold
             renderType: Text.QtRendering
-            color: StringConstants.barBackgroundColor//commonColor//"white"
+            color: StringConstants.actionBtnBorderColor//commonColor//"white"
             background: Rectangle {
                 //implicitWidth: 200
                 // implicitHeight: 40
-                color: textField.enabled ? StringConstants.actionBtnBackgroundColor :StringConstants.barBackgroundColor
+                color: StringConstants.barBackgroundColor//textField.enabled ? StringConstants.actionBtnBackgroundColor :StringConstants.barBackgroundColor
                 border.color: textField.enabled ? StringConstants.barBackgroundColor : "transparent"
             }
         }

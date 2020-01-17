@@ -61,13 +61,15 @@ onAccepted: {
         anchors.fill: parent
         Label {
             id: label
-            text:StringConstants.lbl_adminText //qsTr("Label")
+            text:StringConstants.lbl_adminText
+            horizontalAlignment: Text.AlignHCenter //qsTr("Label")
             anchors.top: parent.top
             anchors.topMargin: 10
             anchors.right: parent.right
             anchors.rightMargin: 0
             anchors.left: parent.left
             anchors.leftMargin: 10
+            verticalAlignment: Text.AlignVCenter
         }
         GridLayout{
             anchors.top: label.bottom
@@ -106,3 +108,9 @@ onAccepted: {
 
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/

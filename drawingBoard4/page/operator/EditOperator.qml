@@ -55,16 +55,20 @@ Dialog {
         Label {
             id: label
             text:StringConstants.operatorHeading //qsTr("Label")
+            height: 50
             anchors.top: parent.top
             anchors.topMargin: 10
             anchors.right: parent.right
             anchors.rightMargin: 0
             anchors.left: parent.left
             anchors.leftMargin: 10
+            anchors.bottomMargin: 10
         }
 
-        GridLayout{
+       // GridLayout{
+        Grid{
             anchors.top: label.bottom
+           // anchors.fill: parent
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom:parent.bottom
@@ -97,26 +101,31 @@ Dialog {
             Label{
                 id:opLabel
                 anchors.left: currentOpLabel.left
-                Layout.row: IntegerConstants.rowCount1
-                Layout.rowSpan: IntegerConstants.rowSpan1
-                Layout.column: IntegerConstants.columnCount1
-                Layout.columnSpan: IntegerConstants.columnSpan1
-                height: 45
+               // Layout.row: IntegerConstants.rowCount1
+              //  Layout.rowSpan: IntegerConstants.rowSpan1
+              //  Layout.column: IntegerConstants.columnCount1
+              //  Layout.columnSpan: IntegerConstants.columnSpan1
+                height:opText.height //45
                 text:StringConstants.operatorName
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+
+               // Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             }
             TextField{
                 id:opText
-                Layout.row: IntegerConstants.rowCount1
-                Layout.rowSpan: IntegerConstants.rowSpan1
-                Layout.column: IntegerConstants.columnCount2
-                Layout.columnSpan: IntegerConstants.columnSpan1
+                width: parent.width/4
+                anchors.left: opLabel.right
+                anchors.right: parent.right
+                anchors.leftMargin: parent.width/4
+               // Layout.row: IntegerConstants.rowCount1
+              //  Layout.rowSpan: IntegerConstants.rowSpan1
+              //  Layout.column: IntegerConstants.columnCount2
+              //  Layout.columnSpan: IntegerConstants.columnSpan1
                 placeholderText:StringConstants.operatorNameReq
                 validator:RegExpValidator{regExp:StringConstants.txtValidatorWordsOnly}///^\+?\d+$/
                 font.bold: true
-                Layout.minimumWidth: parent.width/2
+             //   Layout.minimumWidth: parent.width/2
                 font.pixelSize:15// Constants.testPage_lblFontSize//25
                 font.weight: Font.ExtraBold
                 renderType: Text.QtRendering
@@ -126,14 +135,17 @@ Dialog {
             Label {
                 id: activeLabel
                 anchors.left: currentOpLabel.left
+                anchors.top: opLabel.bottom
                 text:StringConstants.operatorActive
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                //anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: checkBox.verticalCenter
+               // Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter //qsTr("Label")
-                Layout.row: IntegerConstants.rowCount2
-                Layout.rowSpan: IntegerConstants.rowSpan1
-                Layout.column: IntegerConstants.columnCount1
-                Layout.columnSpan: IntegerConstants.columnSpan1
+               // Layout.row: IntegerConstants.rowCount2
+               // Layout.rowSpan: IntegerConstants.rowSpan1
+              //  Layout.column: IntegerConstants.columnCount1
+              //  Layout.columnSpan: IntegerConstants.columnSpan1
                 //Layout.minimumWidth: parent.width/3
             }
 
@@ -141,25 +153,28 @@ Dialog {
                 id: checkBox
                 anchors.left: opText.left
                 anchors.right: opText.right
-                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                Layout.row: IntegerConstants.rowCount2
-                Layout.rowSpan: IntegerConstants.rowSpan1
-                Layout.column: IntegerConstants.columnCount2
-                Layout.columnSpan: IntegerConstants.columnSpan1
+                anchors.top: opText.bottom
+                //Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+               // Layout.row: IntegerConstants.rowCount2
+               // Layout.rowSpan: IntegerConstants.rowSpan1
+               // Layout.column: IntegerConstants.columnCount2
+               // Layout.columnSpan: IntegerConstants.columnSpan1
                 //text: qsTr("Check Box")
                 display: AbstractButton.IconOnly
             }
 
             Label {
                 id: currentOpLabel
+               // anchors.top: checkBox.bottom
+                anchors.verticalCenter: checkBox1.verticalCenter
                 text:StringConstants.currentOperator
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                //Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter //qsTr("Label")
-                Layout.row: IntegerConstants.rowCount3
-                Layout.rowSpan: IntegerConstants.rowSpan1
-                Layout.column: IntegerConstants.columnCount1
-                Layout.columnSpan: IntegerConstants.columnSpan1
+                //Layout.row: IntegerConstants.rowCount3
+                //Layout.rowSpan: IntegerConstants.rowSpan1
+                //Layout.column: IntegerConstants.columnCount1
+                //Layout.columnSpan: IntegerConstants.columnSpan1
             }
 
 
@@ -167,13 +182,14 @@ Dialog {
                 id: checkBox1
                 anchors.left: opText.left
                 anchors.right: opText.right
+                anchors.top: checkBox.bottom
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 //text: qsTr("Check Box")
                 display: AbstractButton.IconOnly
-                Layout.row: IntegerConstants.rowCount3
-                Layout.rowSpan: IntegerConstants.rowSpan1
-                Layout.column: IntegerConstants.columnCount2
-                Layout.columnSpan: IntegerConstants.columnSpan1
+               // Layout.row: IntegerConstants.rowCount3
+               // Layout.rowSpan: IntegerConstants.rowSpan1
+               // Layout.column: IntegerConstants.columnCount2
+              //  Layout.columnSpan: IntegerConstants.columnSpan1
             }
         }
 
