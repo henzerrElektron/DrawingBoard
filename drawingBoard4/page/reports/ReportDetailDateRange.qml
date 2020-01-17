@@ -46,7 +46,7 @@ Rectangle{
     id:mainRec
     anchors.fill: parent
     color: StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor
-    width:  rectangleSub4.width+rectangleSub5.width+60//rectangleSub5.rightMargin
+    width: rectangleSub4.width+rectangleSub5.width+60//parent.width > (rectangleSub4.width+rectangleSub5.width+100)?parent.width:(rectangleSub4.width+rectangleSub5.width+100) //rectangleSub4.width+rectangleSub5.width+60//rectangleSub5.rightMargin
     //height: mainGrid.height//rectangleSub4.height+rectangleSub5.height+rectangleSub6.height+rectangleSub7.height
     signal okClicked()
     signal cancelClicked()
@@ -57,7 +57,7 @@ Rectangle{
         close()
     }
 
-    GridLayout{
+    Grid{
         id:mainGrid
         //anchors.rightMargin: 10
         //anchors.leftMargin: 10
@@ -65,39 +65,49 @@ Rectangle{
         rows: IntegerConstants.rowCount4
         columns: IntegerConstants.columnCount2
         //NewPatientGroupLabel{
-         GroupLabel{
+        GroupLabel{
             id:contactDetailLabel1
-            Layout.fillWidth: true
-            Layout.row: IntegerConstants.rowCount1
-            Layout.rowSpan: IntegerConstants.rowSpan1
-            Layout.column: IntegerConstants.columnCount1
-            Layout.columnSpan:IntegerConstants.columnSpan2
-            text: StringConstants.lbl_rpDateRange
-            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-            Layout.preferredHeight: 30
-            //Layout.fillWidth: true
-            Layout.minimumHeight: 30
-            Layout.maximumHeight: 30
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottomMargin: 10
+            height: parent.height/10<30?30:parent.height/10
+
+            //            Layout.fillWidth: true
+            //            Layout.row: IntegerConstants.rowCount1
+            //            Layout.rowSpan: IntegerConstants.rowSpan1
+            //            Layout.column: IntegerConstants.columnCount1
+            //            Layout.columnSpan:IntegerConstants.columnSpan2
+            //            text: StringConstants.lbl_rpDateRange
+            //            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+            //            Layout.preferredHeight: 30
+            //            //Layout.fillWidth: true
+            //            Layout.minimumHeight: 30
+            //            Layout.maximumHeight: 30
         }
         Rectangle {
             id: rectangleSub4
             color:StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor// "black"//StringConstants.actionBtnBackgroundColor//
-            Layout.row: IntegerConstants.rowCount2
+          //  Layout.row: IntegerConstants.rowCount2
             //Layout.rowSpan: IntegerConstants.rowSpan2
-            Layout.column: IntegerConstants.columnCount1
-            Layout.columnSpan:IntegerConstants.columnSpan1
+        //    Layout.column: IntegerConstants.columnCount1
+        //    Layout.columnSpan:IntegerConstants.columnSpan1
+            anchors.top: contactDetailLabel1.bottom
+            anchors.left: parent.left
+            anchors.leftMargin: 10
+            width: pageStartTumbler.width//parent.width/2 < pageStartTumbler.width?pageStartTumbler.width:parent.width/2
+            height: parent.height/2
             // Layout.row: 1
             // Layout.rowSpan: 3
             //Layout.fillHeight: true
             // Layout.maximumWidth: 300//parent.width/4
-            Layout.fillWidth: true
-            Layout.alignment: Qt.AlignRight|Qt.AlignTop
-            Layout.preferredWidth: pageStartTumbler.width
-            Layout.minimumWidth:pageStartTumbler.width
-            Layout.maximumWidth: pageStartTumbler.width
-            Layout.preferredHeight: parent.height/2//pageEndTumbler.height
-            Layout.minimumHeight: parent.height/2//pageEndTumbler.height
-            Layout.maximumHeight: parent.height/2//pageEndTumbler.height
+        //    Layout.fillWidth: true
+       //     Layout.alignment: Qt.AlignRight|Qt.AlignTop
+       //     Layout.preferredWidth: pageStartTumbler.width
+       //     Layout.minimumWidth:pageStartTumbler.width
+      //      Layout.maximumWidth: pageStartTumbler.width
+      //      Layout.preferredHeight: parent.height/2//pageEndTumbler.height
+      //      Layout.minimumHeight: parent.height/2//pageEndTumbler.height
+      //      Layout.maximumHeight: parent.height/2//pageEndTumbler.height
             NewPatientDobTumbler{
                 id:pageStartTumbler
                 recTextVisible: false
@@ -127,21 +137,26 @@ Rectangle{
             color:StringConstants.actionBtnBackgroundColor//StringConstants.testPage_backgroundColor
             anchors.left: rectangleSub4.right
             anchors.leftMargin: IntegerConstants.margin10
+            anchors.right: parent.right
+            anchors.rightMargin: 10
+            anchors.verticalCenter: rectangleSub4.verticalCenter
+            width: pageEndTumbler.width//parent.width/2 <pageEndTumbler.width?pageEndTumbler.width:parent.width/2
+            height: parent.height/2
             //anchors.right: parent.right
-            Layout.rightMargin: 10// "black"//StringConstants.actionBtnBackgroundColor//
-            Layout.row: IntegerConstants.rowCount2
-            Layout.column: IntegerConstants.columnCount2
-            Layout.columnSpan:IntegerConstants.columnSpan1
-            Layout.preferredWidth: pageEndTumbler.width
-            Layout.minimumWidth:pageEndTumbler.width
-            Layout.maximumWidth: pageEndTumbler.width
+           // Layout.rightMargin: 10// "black"//StringConstants.actionBtnBackgroundColor//
+          //  Layout.row: IntegerConstants.rowCount2
+          //  Layout.column: IntegerConstants.columnCount2
+          //  Layout.columnSpan:IntegerConstants.columnSpan1
+          //  Layout.preferredWidth: pageEndTumbler.width
+          //  Layout.minimumWidth:pageEndTumbler.width
+         //   Layout.maximumWidth: pageEndTumbler.width
 
             //Layout.fillHeight: true
-            Layout.preferredHeight:parent.height/2// pageEndTumbler.height
-            Layout.minimumHeight:parent.height/2// pageEndTumbler.height
-            Layout.maximumHeight:parent.height/2// pageEndTumbler.height
-            Layout.fillWidth: true
-            Layout.alignment: Qt.AlignRight|Qt.AlignTop
+        //    Layout.preferredHeight:parent.height/2// pageEndTumbler.height
+       //     Layout.minimumHeight:parent.height/2// pageEndTumbler.height
+       //     Layout.maximumHeight:parent.height/2// pageEndTumbler.height
+      //      Layout.fillWidth: true
+       //     Layout.alignment: Qt.AlignRight|Qt.AlignTop
             NewPatientDobTumbler{
                 id:pageEndTumbler
                 recTextVisible: false
@@ -170,10 +185,10 @@ Rectangle{
         Rectangle {
             id: rectangleSub6
             color:"white"//StringConstants.testPage_backgroundColor//StringConstants.actionBtnBackgroundColor
-            Layout.row: IntegerConstants.rowCount3
-            Layout.rowSpan: IntegerConstants.rowCount1
-            Layout.column: IntegerConstants.columnCount1
-            Layout.columnSpan:IntegerConstants.columnSpan2
+         //   Layout.row: IntegerConstants.rowCount3
+        //    Layout.rowSpan: IntegerConstants.rowCount1
+        //    Layout.column: IntegerConstants.columnCount1
+        //    Layout.columnSpan:IntegerConstants.columnSpan2
             //            anchors.top: rectangleSub5.bottom
             //            anchors.right: parent.right
             //            anchors.left: parent.left
@@ -185,13 +200,16 @@ Rectangle{
             //Layout.topMargin: 15//20
             //Layout.bottomMargin: 10
             //Layout.bottomMargin: 15
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+       //     Layout.fillWidth: true
+       //     Layout.fillHeight: true
             anchors.left: rectangleSub4.left
             anchors.right: rectangleSub5.right
             anchors.top: rectangleSub5.bottom
-            anchors.topMargin: 25
-            Layout.maximumHeight: pageSlider.height
+            anchors.topMargin: 10
+            height: pageSlider.height
+            width: pageSlider.width
+      //      anchors.topMargin: 25
+      //      Layout.maximumHeight: pageSlider.height
             //anchors.rightMargin: 10
             //anchors.leftMargin: 10
             //Layout.rightMargin: 10
@@ -200,15 +218,17 @@ Rectangle{
             //Layout.fillHeight: true
             ReportDateRangeSlider{
                 id:pageSlider
-                anchors.left: parent.left
-                anchors.right: parent.right
+                //anchors.left: parent.left
+               // anchors.right: parent.right
                 height:100
                 sliderDayVisible: false//true//
                 sliderMonthVisible: false//true//
                 sliderYearVisible: true
                 //anchors.fill: parent
-                ///anchors.leftMargin: 10
-                //anchors.rightMargin: 10
+                //anchors.centerIn: parent
+               // width: parent.width/2+parent.width/10
+              //  anchors.leftMargin: 10
+             //   anchors.rightMargin: 10
                 Component.onCompleted: {
                     pageSlider.dateFromChange.connect(pageStartTumbler.setTumblerDate)
                     pageSlider.dateToChange.connect(pageEndTumbler.setTumblerDate)

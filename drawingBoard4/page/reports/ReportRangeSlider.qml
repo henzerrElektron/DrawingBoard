@@ -119,22 +119,27 @@ Rectangle{
         console.log("This is in a wrong position"+prevTo+"ok"+slider1.to)
     }
 
-    GridLayout{
+    // GridLayout{
+    Grid{
         id:grid
         anchors.fill: parent
         rows: IntegerConstants.rowCount2
         columns: IntegerConstants.columnCount3
         Rectangle{
             id:title
-            Layout.alignment: Qt.AlignTop|Qt.AlignHCenter
-            Layout.fillWidth: true
-            Layout.row: 1
-            Layout.rowSpan: 1
-            Layout.column: 1
-            Layout.columnSpan: 3
-            Layout.preferredHeight: 30//slider1.height
-            Layout.minimumHeight: 30
-            Layout.maximumHeight: 30
+            anchors.top: parent.top
+            anchors.horizontalCenter: parent.horizontalCenter
+            height: 30
+            width: 30
+            // Layout.alignment: Qt.AlignTop|Qt.AlignHCenter
+            //  Layout.fillWidth: true
+            ////  Layout.row: 1
+            //  Layout.rowSpan: 1
+            //  Layout.column: 1
+            //   Layout.columnSpan: 3
+            //   Layout.preferredHeight: 30//slider1.height
+            //    Layout.minimumHeight: 30
+            //    Layout.maximumHeight: 30
             color: "transparent"
             Label{
                 id:titleLbl
@@ -149,17 +154,20 @@ Rectangle{
         Rectangle{
             id:rec1MinLabel
             anchors.top: title.bottom
-            Layout.alignment: Qt.AlignTop|Qt.AlignLeft
-            Layout.fillHeight: true
-            Layout.row: 2
-            Layout.column: 1
-            Layout.columnSpan: 1
-            Layout.preferredWidth: 25
-            Layout.minimumWidth: 25
-            Layout.maximumWidth: 25
-            Layout.preferredHeight: 30//slider1.height
-            Layout.minimumHeight: 30
-            Layout.maximumHeight: 30
+            anchors.left: parent.left
+            width: 25
+            height: 30
+            //Layout.alignment: Qt.AlignTop|Qt.AlignLeft
+            //  Layout.fillHeight: true
+            //   Layout.row: 2
+            //   Layout.column: 1
+            //    Layout.columnSpan: 1
+            //     Layout.preferredWidth: 25
+            //     Layout.minimumWidth: 25
+            //     Layout.maximumWidth: 25
+            //     Layout.preferredHeight: 30//slider1.height
+            ////      Layout.minimumHeight: 30
+            //      Layout.maximumHeight: 30
             color: "transparent"
             Label{
                 id:dateMinLabel
@@ -172,16 +180,21 @@ Rectangle{
         Rectangle{
             id:rec1
             anchors.top: title.bottom
-            Layout.alignment: Qt.AlignTop|Qt.AlignHCenter
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.row: 2
-            Layout.rowSpan: 1
-            Layout.column: 2
-            Layout.columnSpan: 1
-            Layout.preferredHeight: 30//slider1.height
-            Layout.minimumHeight: 30
-            Layout.maximumHeight: 30
+            anchors.left: rec1MinLabel.right
+            anchors.horizontalCenter: parent.horizontalCenter
+            height: 30
+            width: 300
+            // Layout.alignment: Qt.AlignTop|Qt.AlignHCenter
+            // Layout.fillHeight: true
+            //  Layout.fillWidth: true
+            //  Layout.row: 2
+            //  Layout.rowSpan: 1
+            //   Layout.column: 2
+            //   Layout.columnSpan: 1
+            //   Layout.preferredHeight: 30//slider1.height
+            //   Layout.minimumHeight: 30
+            //    Layout.maximumHeight: 30
+            //    Layout.minimumWidth: 300
             color: "transparent"
             ReportCustomRangeSlider {
                 id:slider1
@@ -206,7 +219,7 @@ Rectangle{
                     {
                         if(firstValue === secValue)
                         {
-                             equalFirstSec(secValue)
+                            equalFirstSec(secValue)
                         }
                     }
 
@@ -270,7 +283,7 @@ Rectangle{
                     {
                         if(firstValue === secValue)
                         {
-                           equalFirstSec(secValue)
+                            equalFirstSec(secValue)
                         }
                     }
 
@@ -329,17 +342,20 @@ Rectangle{
         Rectangle{
             id:rec1MaxLabel
             anchors.top: title.bottom
-            Layout.fillHeight: true
-            Layout.row: 2
-            Layout.column: 3
-            Layout.columnSpan: 1
-            Layout.alignment: Qt.AlignTop|Qt.AlignRight
-            Layout.preferredWidth: 25
-            Layout.minimumWidth: 25
-            Layout.maximumWidth: 25
-            Layout.preferredHeight: 30
-            Layout.minimumHeight: 30
-            Layout.maximumHeight: 30
+            anchors.left:  rec1.right
+            height: 30
+            width: 25
+            //   Layout.fillHeight: true
+            //   Layout.row: 2
+            //   Layout.column: 3
+            //    Layout.columnSpan: 1
+            //    Layout.alignment: Qt.AlignTop|Qt.AlignRight
+            //    Layout.preferredWidth: 25
+            //     Layout.minimumWidth: 25
+            //      Layout.maximumWidth: 25
+            //      Layout.preferredHeight: 30
+            //      Layout.minimumHeight: 30
+            //      Layout.maximumHeight: 30
             color: "transparent"
             Label{
                 anchors.fill: parent

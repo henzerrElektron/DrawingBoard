@@ -61,6 +61,7 @@ Rectangle{
     id:mainGridRec
     anchors.left: parent.left
     anchors.right: parent.right
+   // width: mainRec.width
     //anchors.fill: parent
     height: mainRec.height
     //color: "black"
@@ -261,7 +262,8 @@ Rectangle{
     }
 
 
-    GridLayout{
+   // GridLayout{
+    Grid{
         id:mainRec
         anchors.left: parent.left
         anchors.right: parent.right
@@ -289,15 +291,17 @@ Rectangle{
             color: "white"
             //Layout.rightMargin: 10
             //Layout.leftMargin: 10//"red"
-            Layout.alignment: Qt.AlignTop
+           // Layout.alignment: Qt.AlignTop
             //anchors.top: parent.top
-            Layout.row: IntegerConstants.rowCount1
-            Layout.rowSpan: IntegerConstants.rowSpan1
-            Layout.fillWidth: true
-            Layout.preferredHeight: 65// sliderYear.height
-            Layout.maximumHeight:65// sliderYear.height
-            Layout.minimumHeight: 0//sliderYear.height
-
+         //   Layout.row: IntegerConstants.rowCount1
+         //   Layout.rowSpan: IntegerConstants.rowSpan1
+        //    Layout.fillWidth: true
+        //    Layout.preferredHeight: 65// sliderYear.height
+        //    Layout.maximumHeight:65// sliderYear.height
+        //    Layout.minimumHeight: 0//sliderYear.height
+             anchors.top: parent.top
+             width: parent.width
+             height: 65
             ReportRangeSlider {
                 id: sliderYear
                 anchors.fill: slider3Rec
@@ -342,12 +346,14 @@ Rectangle{
 //                bBorderWidth: 2
 //                borderColor: StringConstants.barBorderColor
 //            }
-            Layout.row: IntegerConstants.rowCount2
-            Layout.rowSpan: IntegerConstants.rowSpan1
-            Layout.fillWidth: true
-            Layout.preferredHeight: 65//sliderMonth.height
-            Layout.maximumHeight: 65//sliderMonth.height
-            Layout.minimumHeight: 0//sliderMonth.height
+          //  Layout.row: IntegerConstants.rowCount2
+          //  Layout.rowSpan: IntegerConstants.rowSpan1
+         //   Layout.fillWidth: true
+          //  Layout.preferredHeight: 65//sliderMonth.height
+         //   Layout.maximumHeight: 65//sliderMonth.height
+        //    Layout.minimumHeight: 0//sliderMonth.height
+            height: 65
+            width: parent.width
             color: "white"
             //Layout.rightMargin: 10
            // Layout.leftMargin: 10//"red"//color: "transparent"
@@ -399,16 +405,19 @@ Rectangle{
 //                bBorderWidth: 2
 //                borderColor: StringConstants.barBorderColor
 //            }
-            Layout.row: IntegerConstants.rowCount3
-            Layout.rowSpan: IntegerConstants.rowSpan1
-            Layout.fillWidth: true
-            Layout.preferredHeight: 65//sliderDay.height
-            Layout.maximumHeight: 65//sliderDay.height
-            Layout.minimumHeight: 0//sliderDay.height
+           // Layout.row: IntegerConstants.rowCount3
+           // Layout.rowSpan: IntegerConstants.rowSpan1
+          //  Layout.fillWidth: true
+          //  Layout.preferredHeight: 65//sliderDay.height
+         //   Layout.maximumHeight: 65//sliderDay.height
+        //    Layout.minimumHeight: 0//sliderDay.height
             color: "white"
+            height: 65
+            width: parent.width
+            anchors.bottomMargin: 10
            // Layout.rightMargin: 10
           //  Layout.leftMargin: 10//color: "transparent"
-            Layout.bottomMargin: 10
+          //  Layout.bottomMargin: 10
             ReportRangeSlider {
                 id: sliderDay
                 anchors.left: parent.left
