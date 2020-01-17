@@ -109,7 +109,8 @@ Rectangle {
     onInvokeIndex: {
         console.log("Index invoked"+index)
     }
-    GridLayout{
+   // GridLayout{
+    Grid{
         id: mainRow
         anchors.fill: parent
         rows:1//3
@@ -118,11 +119,13 @@ Rectangle {
         Rectangle {
             id: rectangle2
             color: StringConstants.barBackgroundColor//testPage_backgroundColor
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.row: 2
-            Layout.rowSpan: 2
-            GridLayout{
+            anchors.fill: parent
+           // Layout.fillHeight: true
+          //  Layout.fillWidth: true
+          //  Layout.row: 2
+          //  Layout.rowSpan: 2
+           // GridLayout{
+            Grid{
                 id: mainCol
                 anchors.fill: parent
                 columns: 2
@@ -131,21 +134,24 @@ Rectangle {
                 Rectangle{
                     id:rectangleSub1
                     color: StringConstants.barBackgroundColor//testPage_backgroundColor
-                    Layout.rightMargin: 3//3
-                    Layout.bottomMargin: 2
-                    Layout.leftMargin: 2
-                    Layout.topMargin: 2
-                    Layout.row: 1
-                    Layout.column: 1
-                    Layout.columnSpan: 1
+                    //Layout.rightMargin: 3//3
+                    //Layout.bottomMargin: 2
+                    //Layout.leftMargin: 2
+                    //Layout.topMargin: 2
+                    //Layout.row: 1
+                    //Layout.column: 1
+                    //Layout.columnSpan: 1
                     //Layout.column: 1
                     //Layout.row: 2
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
+                   // Layout.fillHeight: true
+                   // Layout.fillWidth: true
                     //Layout.leftMargin: 10
-                    Layout.preferredWidth:parent.width/2 - 10//500//
-                    Layout.minimumWidth: parent.width/2 - 10//500//
-                    Layout.maximumWidth: parent.width/2 - 10//500//
+                   // Layout.preferredWidth:parent.width/2 - 10//500//
+                  //  Layout.minimumWidth: parent.width/2 - 10//500//
+                  //  Layout.maximumWidth: parent.width/2 - 10//500//
+                    width: parent.width/2// - 20
+                    height: parent.height
+                    anchors.left: parent.left
                     border.width: 3
                     border.color: StringConstants.label_NewPatientLabelBgColor
                     //width: 100
@@ -153,6 +159,7 @@ Rectangle {
 
                     ReportDetails{
                         id:rpDetailLabelGroup
+                        anchors.topMargin: 10
                         anchors.bottomMargin: 10
                         anchors.rightMargin: 10
                         anchors.leftMargin: 10
@@ -188,23 +195,27 @@ Rectangle {
                 Rectangle{
                     id:rectangleSub2
                     color: StringConstants.barBackgroundColor//testPage_backgroundColor
-                    Layout.rightMargin: 2
-                    Layout.bottomMargin: 2
-                    Layout.leftMargin: 2
-                    Layout.topMargin: 2
-                    Layout.row: 1
-                    Layout.column: 2
-                    Layout.columnSpan: 1
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    Layout.preferredWidth:parent.width/2 -10//500//
-                    Layout.minimumWidth: parent.width/2 - 10//500//
-                    Layout.maximumWidth: parent.width/2 - 10//500//
+//                    Layout.rightMargin: 2
+//                    Layout.bottomMargin: 2
+//                    Layout.leftMargin: 2
+//                    Layout.topMargin: 2
+//                    Layout.row: 1
+//                    Layout.column: 2
+//                    Layout.columnSpan: 1
+//                    Layout.fillHeight: true
+//                    Layout.fillWidth: true
+//                    Layout.preferredWidth:parent.width/2 -10//500//
+//                    Layout.minimumWidth: parent.width/2 - 10//500//
+//                    Layout.maximumWidth: parent.width/2 - 10//500//
+                    width: parent.width/2 //- 20
+                    height: parent.height
+                    anchors.left: rectangleSub1.right
                     border.width: 3
                     border.color: StringConstants.label_NewPatientLabelBgColor
                     //Layout.rightMargin: 10
                     ReportDateGrid{
                         id:rpDateGrid
+                        anchors.topMargin: 10
                         anchors.bottomMargin: 10
                         anchors.rightMargin: 10
                         anchors.leftMargin: 10

@@ -55,7 +55,8 @@ Rectangle {
     {
         pageHeader.setDetailDateRangeSource("patient")//.state = "patient"
     }
-    GridLayout{
+   // GridLayout{
+    Grid{
         id: mainCol
         anchors.fill: parent
         columns: 2
@@ -69,8 +70,11 @@ Rectangle {
         Rectangle{
             id:leftRec
             visible: leftVisible
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            width: parent.width/2 - 10
+            height: parent.height
+            anchors.leftMargin: 10
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
             //Layout.row: 1
             //Layout.rowSpan: 3
             //SplitView.minimumWidth:  parent.width/4
@@ -79,9 +83,10 @@ Rectangle {
             //Layout.minimumWidth: parent.width/4
             //Layout.preferredWidth: parent.width/2
             // Layout.minimumHeight: parent.height
-            Layout.column: 1
-            Layout.columnSpan: 1
-            GridLayout{
+            //Layout.column: 1
+            //Layout.columnSpan: 1
+           // GridLayout{
+            Grid{
                 id:leftGridLayout
                 anchors.fill: parent
                 rows: 3
@@ -93,11 +98,12 @@ Rectangle {
                     visible: leftVisible
                     anchors.top: subRec.bottom
                     anchors.topMargin: 5
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: 25
-                    Layout.minimumHeight: 25
-                    Layout.maximumHeight: 25
+                   // Layout.fillHeight: true
+                  //  Layout.fillWidth: true
+                  //  Layout.preferredHeight: 25
+                  //  Layout.minimumHeight: 25
+                  //  Layout.maximumHeight: 25
+                    height: 25
                     //NewPatientGroupLabel{
                      GroupLabel{
                         text: StringConstants.lbl_leftEyeResults//"LeftEyeResults"
@@ -112,12 +118,15 @@ Rectangle {
                     color: StringConstants.barBackgroundColor//"white"//StringConstants.testPage_backgroundColor//"green"///
                     //Layout.column: 1
                     //Layout.columnSpan:1
-                    Layout.row: 2
+                   // Layout.row: 2
                     visible: leftVisible
-                    Layout.fillHeight: true
+                    height: parent.height/3
+                    width: parent.width
+                    anchors.topMargin: 10
+                    //Layout.fillHeight: true
                     anchors.top: rectanglelabel1.bottom
-                    Layout.fillWidth: true
-                    Layout.topMargin: 10
+                    //Layout.fillWidth: true
+                    //Layout.topMargin: 10
 
                     XYPlot{
                         id:xyPlotId
@@ -131,15 +140,17 @@ Rectangle {
                     color: StringConstants.barBackgroundColor//"white"//StringConstants.testPage_backgroundColor//"green"///
                     //Layout.column: 1
                     //Layout.columnSpan: 1
-                    Layout.row: 3
+                   // Layout.row: 3
                     visible: leftVisible
                     anchors.top: rectangleSub3.bottom
                     anchors.topMargin: 5
                     anchors.bottom: parent.bottom
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: parent.height/3
-                    Layout.maximumHeight: parent.height/3
+                    height: parent.height/3
+                    width: parent.width
+                  //  Layout.fillHeight: true
+                  //  Layout.fillWidth: true
+                 //   Layout.preferredHeight: parent.height/3
+                 //   Layout.maximumHeight: parent.height/3
                     Rectangle
                     {
                         id:tableRec
@@ -180,11 +191,15 @@ Rectangle {
             //Layout.minimumHeight: parent.height
             // Layout.row: 1
             //  Layout.rowSpan: 3
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.column: 2
-            Layout.columnSpan: 1
-            GridLayout{
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
+           // Layout.column: 2
+           // Layout.columnSpan: 1
+            width: parent.width/2 //- 5
+            height: parent.height
+            //anchors.rightMargin: 5
+            //GridLayout{
+            Grid{
                 id:rightGridLayout
                 anchors.fill: parent
                 rows: 3
@@ -195,12 +210,13 @@ Rectangle {
                     visible: rightVisible
                     anchors.topMargin: 5
                     //Layout.column: 1
-                    Layout.row: 1
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: 25
-                    Layout.minimumHeight: 25
-                    Layout.maximumHeight: 25
+                   // Layout.row: 1
+                   // Layout.fillHeight: true
+                   // Layout.fillWidth: true
+                   // Layout.preferredHeight: 25
+                   // Layout.minimumHeight: 25
+                  //  Layout.maximumHeight: 25
+                    height: 25
                     //NewPatientGroupLabel{
                      GroupLabel{
                         text: StringConstants.lbl_righEyeResults//"RightEyeResults"
@@ -216,13 +232,15 @@ Rectangle {
                     color: StringConstants.barBackgroundColor//"white"//StringConstants.testPage_backgroundColor//"green"///
                     //Layout.column: 1
                     //Layout.columnSpan:1
-                    Layout.row: 2
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
+                    //Layout.row: 2
+                    //Layout.fillHeight: true
+                    //Layout.fillWidth: true
+                    width: parent.width
+                    height: parent.height/3
                     anchors.top: rectanglelabel2.bottom
                     visible: rightVisible
-                    Layout.topMargin: 10
-
+                   // Layout.topMargin: 10
+                    anchors.topMargin: 10
                     XYPlot{
                         id:xyPlotId1
                         anchors.fill: parent
@@ -237,15 +255,17 @@ Rectangle {
                     color: StringConstants.barBackgroundColor//"white"//StringConstants.testPage_backgroundColor
                     //Layout.column: 1
                     //Layout.columnSpan: 1
-                    Layout.row: 3
+                   // Layout.row: 3
                     visible: rightVisible
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: parent.height/3
-                    Layout.maximumHeight: parent.height/3
+                   // Layout.fillHeight: true
+                  //  Layout.fillWidth: true
+                   // Layout.preferredHeight: parent.height/3
+                  //  Layout.maximumHeight: parent.height/3
                     anchors.top: rectangleSub4.bottom
                     anchors.topMargin: 5
                     anchors.bottom: parent.bottom
+                    height: parent.height/3
+                    width: parent.width
                     Rectangle
                     {
                         id:tableRec1
