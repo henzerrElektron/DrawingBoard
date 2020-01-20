@@ -57,7 +57,8 @@ import SortFilterModel 0.1
    \endqml
 
 */
-GridLayout{
+//GridLayout{
+Grid{
     id:gridLayout
     objectName: StringConstants.objectName_commonTableGrid
     columns: 1
@@ -138,14 +139,18 @@ GridLayout{
         //Layout.column: 1
         //Layout.columnSpan: 3
         //Layout.fillHeight: true
-        Layout.fillWidth: true
+       // Layout.fillWidth: true
         //Layout.preferredHeight: parent.height/5
-        Layout.minimumHeight: parent.height/6
-        Layout.bottomMargin: 10
+        //Layout.minimumHeight: parent.height/6
+       // Layout.bottomMargin: 10
+        width: parent.width
+        height: parent.height/6
+        anchors.top: parent.top
+        anchors.bottomMargin: 10
         border.width: 3
         border.color:  StringConstants.label_NewPatientLabelBgColor
         //Layout.maximumHeight: parent.height/5
-        Layout.row: 1
+        //Layout.row: 1
         SwitchSearchItems{
             id:rectangleSwitchPatientLabel
             anchors.fill: parent
@@ -158,13 +163,17 @@ GridLayout{
 
     Rectangle{
         id:columnHeader
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        Layout.preferredHeight: 50//parent.height - tableRec.height
-        Layout.minimumHeight: 50//parent.height - tableRec.height
-        Layout.maximumHeight:50// parent.height - tableRec.height
-        Layout.row: 2
+        //Layout.fillWidth: true
+       // Layout.fillHeight: true
+       // Layout.preferredHeight: 50//parent.height - tableRec.height
+       // Layout.minimumHeight: 50//parent.height - tableRec.height
+       // Layout.maximumHeight:50// parent.height - tableRec.height
+       // Layout.row: 2
         // anchors.top: searchRec.bottom
+        height: 50
+        width: parent.width//count
+        anchors.top:searchRec.visible? searchRec.bottom:parent.top
+        anchors.topMargin: 5
         color:StringConstants.gridheaderColor
         //        y:supplementTableView.contentY
         //        z:2
@@ -232,11 +241,15 @@ GridLayout{
     }
     Rectangle{
         id:tableRec
-        Layout.fillWidth: true
-        Layout.fillHeight: true
+        width: parent.width
+       // height: searchRec.visible?parent.height - (searchRec.height + columnHeader.height):parent.height - columnHeader
+        anchors.top: columnHeader.bottom
+        anchors.bottom: parent.bottom
+        //Layout.fillWidth: true
+        //Layout.fillHeight: true
         // anchors.left: columnHeader.left
         //  anchors.right: columnHeader.right
-        Layout.row: 3
+       // Layout.row: 3
         //border.color: StringConstants.actionBtnBackgroundColor
         //border.width: 6
         CommonBorder

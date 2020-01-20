@@ -60,23 +60,38 @@ Rectangle {
         exclusive: true
     }
 
-    GridLayout{
+    //GridLayout{
+    Grid{
         id:subGrid
         anchors.left: parent.left
-        anchors.leftMargin: 0
+        //anchors.leftMargin: 0
         //anchors.left: parent.horizontalCenter
         anchors.right: parent.right
         anchors.bottom: parent.bottom
+        //anchors.topMargin: 10
+        //anchors.bottomMargin: 10
+        anchors.leftMargin: 10
+        anchors.rightMargin: 10
         anchors.top: parent.top
         anchors.fill: parent
         rows: 2
         columns:2
+        spacing: 5
+        columnSpacing: 10
         Rectangle{
             id:rec1
-            Layout.row: 1
-            Layout.column: 1
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            width: parent.width/2 //- 40
+            height: parent.height/2 //- 40
+//            anchors.left: parent.left
+//            anchors.top: parent.top
+//            anchors.leftMargin: 10
+//            anchors.rightMargin: 10
+//            anchors.topMargin: 10
+//            anchors.bottomMargin: 10
+          //  Layout.row: 1
+          //  Layout.column: 1
+         //   Layout.fillHeight: true
+         //   Layout.fillWidth: true
             TestPageButton {
                 id: buttonRight
                 anchors.fill: parent
@@ -92,10 +107,19 @@ Rectangle {
         }
         Rectangle{
             id:rec2
-            Layout.row: 1
-            Layout.column: 2
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            width: parent.width/2 //- 40
+            height: parent.height/2// - 40
+//            anchors.leftMargin: 10
+//            anchors.rightMargin: 10
+//            anchors.topMargin: 10
+//            anchors.bottomMargin: 10
+//            anchors.left: rec1.right
+//            anchors.right: parent.right
+//            anchors.top: parent.top
+            //Layout.row: 1
+          //  Layout.column: 2
+          //  Layout.fillHeight: true
+         //   Layout.fillWidth: true
             TestPageButton {
                 id: buttonLeft
                 anchors.fill: parent
@@ -110,10 +134,19 @@ Rectangle {
         }
         Rectangle{
             id:rec3
-            Layout.row: 2
-            Layout.column: 1
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            width: parent.width/2 //- 40
+            height: parent.height/2 //-40
+//            anchors.leftMargin: 10
+//            anchors.rightMargin: 10
+//            anchors.topMargin: 10
+//            anchors.bottomMargin: 10
+//            anchors.top: rec1.bottom
+//            //anchors.bottom: parent.bottom
+//            anchors.left: parent.left
+         //   Layout.row: 2
+         //   Layout.column: 1
+         //   Layout.fillHeight: true
+        //    Layout.fillWidth: true
             TestPageButton {
                 id: buttonStandard
                 anchors.fill: parent
@@ -128,10 +161,20 @@ Rectangle {
 
         Rectangle{
             id:rec4
-            Layout.row: 2
-            Layout.column: 2
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+           // Layout.row: 2
+          //  Layout.column: 2
+         //   Layout.fillHeight: true
+         //   Layout.fillWidth: true
+            width: parent.width/2 //- 40
+            height: parent.height/2 //- 40
+//            anchors.leftMargin: 10
+//            anchors.rightMargin: 10
+//            anchors.topMargin: 10
+//            anchors.bottomMargin: 10
+//            anchors.top: rec2.bottom
+//            anchors.left: rec3.right
+//            anchors.right: parent.right
+           // anchors.bottom: parent.bottom
             TestPageButton {
                 id: buttonDetailed
                 anchors.fill: parent
@@ -157,7 +200,8 @@ Rectangle {
 
 
 
-/*##^## Designer {
-    D{i:0;autoSize:true;height:480;width:640}
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}D{i:4;anchors_height:200;anchors_width:280}
 }
- ##^##*/
+##^##*/

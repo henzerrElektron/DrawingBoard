@@ -82,20 +82,23 @@ Page{
     {
         id:mainRec
         anchors.fill: parent
-        GridLayout
+       // GridLayout
+        Grid
         {
             id:mainGrid
             anchors.fill: parent
             rows: 2
             Rectangle{
                 id:subRec1
-                Layout.row: 1
-                Layout.rowSpan: 1
-                Layout.alignment: Qt.AlignTop
-                Layout.minimumHeight: 50
-                Layout.maximumHeight: 50
+              //  Layout.row: 1
+             //   Layout.rowSpan: 1
+            //    Layout.alignment: Qt.AlignTop
+            //    Layout.minimumHeight: 50
+            //    Layout.maximumHeight: 50
                 //Layout.fillHeight: true
-                Layout.fillWidth: true
+                height: 50
+                width: parent.width
+               // Layout.fillWidth: true
                 RiskFactorHeaderDelegate{
                     id: headerDelegate1
                     switchMetricsVisible:false
@@ -111,13 +114,15 @@ Page{
 
             Rectangle{
                 id:rectangle1
-                Layout.row: 2
-                Layout.rowSpan: 1
+               // Layout.row: 2
+               // Layout.rowSpan: 1
                 border.width: 1
                 border.color: "black"
                 anchors.top: subRec1.bottom
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+                height: parent.height - subRec1.height
+                width: parent.width
+               // Layout.fillHeight: true
+               // Layout.fillWidth: true
                 Rectangle
                 {
                     id:tableRec

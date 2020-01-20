@@ -49,7 +49,8 @@ import ApplicationConstants 1.0
 Component{
     id:footerItem1
     //objectName: StringConstants.objectName_reportXYRowColFooter
-    GridLayout{
+    //GridLayout{
+    Grid{
         id: footerGrid
         height:colRec.height+boxRect1+boxRect2+boxRect3//parent.height/3//column.height/2
         width: parent.width//column.width///30//row.width
@@ -60,16 +61,19 @@ Component{
         //anchors.centerIn: parent
         Rectangle {
             //anchors.fill: parent
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.row: 1
-            Layout.rowSpan: 1
-            Layout.column: 1
-            Layout.columnSpan: 3
-            Layout.alignment: Qt.AlignTop
-            Layout.preferredHeight: headerLabel.height
-            Layout.minimumHeight:headerLabel.height
-            Layout.maximumHeight:headerLabel.height
+           // Layout.fillHeight: true
+         //   Layout.fillWidth: true
+         //   Layout.row: 1
+         //   Layout.rowSpan: 1
+        //    Layout.column: 1
+        //    Layout.columnSpan: 3
+            anchors.top: parent.top
+        //    Layout.alignment: Qt.AlignTop
+        //    Layout.preferredHeight: headerLabel.height
+       //     Layout.minimumHeight:headerLabel.height
+       //     Layout.maximumHeight:headerLabel.height
+            height: headerLabel.height
+            width: parent.width
             id:colRec
             //color: "yellow"
 
@@ -96,19 +100,23 @@ Component{
         }
         Rectangle{
             id:boxRect1
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.row: 2
-            Layout.rowSpan: 1
-            Layout.column: 1
-            Layout.columnSpan: 1
-            Layout.preferredHeight: estimateBox.height
-            Layout.minimumHeight:estimateBox.height
-            Layout.maximumHeight:estimateBox.height
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
+            //Layout.row: 2
+            //Layout.rowSpan: 1
+           // Layout.column: 1
+           // Layout.columnSpan: 1
+           // Layout.preferredHeight: estimateBox.height
+           // Layout.minimumHeight:estimateBox.height
+           // Layout.maximumHeight:estimateBox.height
             //Layout.preferredWidth: estimateBox.width
             //Layout.minimumWidth: graphAdjusted.width
             //Layout.maximumWidth: graphAdjusted.width
             //Layout.alignment: Qt.AlignVCenter
+            height: estimateBox.height
+            width: parent.width/3//estimateBox.width
+            anchors.left: parent.left
+            anchors.top: colRec.bottom
             BoxLabel{
                 id:estimateBox
                 recOrCircleOrTri:3
@@ -118,19 +126,23 @@ Component{
         }
         Rectangle{
             id:boxRect2
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.row: 2
-            Layout.rowSpan: 1
-            Layout.column: 2
-            Layout.columnSpan: 1
-            Layout.preferredHeight: absoluteBox.height
-            Layout.minimumHeight:absoluteBox.height
-            Layout.maximumHeight:absoluteBox.height
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
+           // Layout.row: 2
+           // Layout.rowSpan: 1
+           // Layout.column: 2
+           // Layout.columnSpan: 1
+          //  Layout.preferredHeight: absoluteBox.height
+          //  Layout.minimumHeight:absoluteBox.height
+           // Layout.maximumHeight:absoluteBox.height
             //Layout.preferredWidth: absoluteBox.width
             //Layout.minimumWidth: graphAdjusted.width
             //Layout.maximumWidth: graphAdjusted.width
            // Layout.alignment: Qt.AlignVCenter
+            anchors.left: boxRect1.right
+            anchors.top: colRec.bottom
+            height: absoluteBox.height
+            width: parent.width/3//absoluteBox.width
             BoxLabel{
                 id:absoluteBox
                 anchors.fill: parent
@@ -146,19 +158,24 @@ Component{
         }
         Rectangle{
             id:boxRect3
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.row: 2
-            Layout.rowSpan: 1
-            Layout.column: 3
-            Layout.columnSpan: 1
-            Layout.preferredHeight: graphAdjusted.height
-            Layout.minimumHeight:graphAdjusted.height
-            Layout.maximumHeight:graphAdjusted.height
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
+            //Layout.row: 2
+            //Layout.rowSpan: 1
+            //Layout.column: 3
+            //Layout.columnSpan: 1
+            //Layout.preferredHeight: graphAdjusted.height
+            //Layout.minimumHeight:graphAdjusted.height
+            //Layout.maximumHeight:graphAdjusted.height
             //Layout.preferredWidth: graphAdjusted.width
             //Layout.minimumWidth: graphAdjusted.width
             //Layout.maximumWidth: graphAdjusted.width
             //Layout.alignment: Qt.AlignVCenter
+            anchors.left: boxRect2.right
+            anchors.top: colRec.bottom
+            anchors.right: parent.right
+            width: parent.width/3//graphAdjusted.width
+            height: graphAdjusted.height
             BoxLabel{
                 id:graphAdjusted
                 recOrCircleOrTri:1

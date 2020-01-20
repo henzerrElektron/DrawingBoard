@@ -64,7 +64,8 @@ Rectangle {
     }
     //height: 400
     //width: 800
-    GridLayout{
+  //  GridLayout{
+    Grid{
         id: mainRow
         // width: 700
         anchors.fill: parent
@@ -81,12 +82,13 @@ Rectangle {
             //Layout.columnSpan: 3
             //Layout.fillHeight: true
             height:80// pgTitle.height
+            width: parent.width
             //Layout.maximumHeight: 150//rectangle.height/3
             //height: rectangle.height/3
-            Layout.fillWidth: true
-            Layout.row: 1
-            Layout.column: 1
-            Layout.columnSpan: 2
+           // Layout.fillWidth: true
+           // Layout.row: 1
+           // Layout.column: 1
+          //  Layout.columnSpan: 2
             //Test
             PageTitle{
                 id:pgTitle
@@ -127,13 +129,19 @@ Rectangle {
             //color: "black"
             //anchors.top: parent.top
             //anchors.left: parent.left
-            Layout.row: 2
-            Layout.column: 1
+            //Layout.row: 2
+           // Layout.column: 1
+            anchors.top: rectangle1.bottom
+            anchors.bottom: parent.bottom
+            anchors.leftMargin: 10
+            width: parent.width/2
+            height: parent.height - rectangle1.height
             //Layout.columnSpan: 1
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+           // Layout.fillHeight: true
+          //  Layout.fillWidth: true
+
             //TestPageAllLabels
-            Layout.leftMargin: 10
+          //  Layout.leftMargin: 10
             NewPatientPersonalDetailGroup{
                 id:personalDetailsPage
                 anchors.fill: parent
@@ -169,19 +177,25 @@ Rectangle {
         Rectangle {
             id: rectangleSub2
             color: StringConstants.testPage_backgroundColor
-            Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+             anchors.top: rectangle1.bottom
+             anchors.bottom: parent.bottom
+             anchors.left: rectangleSub1.right
+             anchors.right: parent.right
+            //Layout.alignment: Qt.AlignLeft | Qt.AlignTop
             //color: "red"
             //anchors.top: parent.top
             //anchors.left: parent.left
-            Layout.row: 2
-            Layout.column: 2
-            Layout.columnSpan: 1
-            Layout.fillHeight: true
-            Layout.minimumWidth:   parent.width/3 - parent.width/50
-            Layout.minimumHeight:  parent.height/2
-            Layout.maximumWidth:  parent.width/3 - parent.width/50
-            Layout.maximumHeight: parent.height/2
-
+            //Layout.row: 2
+            //Layout.column: 2
+            //Layout.columnSpan: 1
+           // Layout.fillHeight: true
+           // Layout.minimumWidth:   parent.width/3 - parent.width/50
+           // Layout.minimumHeight:  parent.height/2
+           // Layout.maximumWidth:  parent.width/3 - parent.width/50
+           // Layout.maximumHeight: parent.height/2
+           // height:  parent.height/2
+            width: parent.width/3 - parent.width/50
+            height: parent.height - rectangle1.height
             //width: parent.width/3
             //Layout.fillWidth: true
             TestPageSwitchButtons{

@@ -67,7 +67,8 @@ Rectangle {
         }
     }
 
-    GridLayout {
+    //GridLayout {
+    Grid{
         id: gridLayout
         anchors.fill: parent
         rows:3
@@ -80,18 +81,20 @@ Rectangle {
         Rectangle{
             id:rectangle1
             color: StringConstants.actionBtnBackgroundColor//"transparent"
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.row: 1
+            //Layout.fillWidth: true
+            //Layout.fillHeight: true
+           // Layout.row: 1
             anchors.left: parent.left
             anchors.leftMargin: 0
             anchors.right: parent.right
             anchors.rightMargin: 0
             anchors.top: parent.top
             anchors.topMargin: 0
-            Layout.minimumHeight: parent.height/4 +25//- 75
-            Layout.preferredHeight: parent.height/4 +25//- 75
-            Layout.maximumHeight: parent.height/4 +25//- 75
+          //  Layout.minimumHeight: parent.height/4 +25//- 75
+          //  Layout.preferredHeight: parent.height/4 +25//- 75
+          //  Layout.maximumHeight: parent.height/4 +25//- 75
+            width: parent.width
+            height: parent.height/4//+25
             PatientLabel{
                 id:ptLabel
                 anchors.fill: parent
@@ -114,16 +117,19 @@ Rectangle {
             // anchors.bottom: rectangle6.top
             //anchors.right: rectangle2.left
             //anchors.fill: parent
-            Layout.column: 1
-            Layout.columnSpan: 1
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.row: 2
+            //Layout.column: 1
+            //Layout.columnSpan: 1
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
+            //Layout.row: 2
             //Layout.minimumHeight: 400
-            Layout.minimumHeight: parent.height - rectangle1.height
-            Layout.maximumHeight: parent.height - rectangle1.height
-            Layout.preferredHeight: parent.height - rectangle1.height
-            Layout.minimumWidth: parent.width/2 + parent.width/5
+            //Layout.minimumHeight: parent.height - rectangle1.height
+            //Layout.maximumHeight: parent.height - rectangle1.height
+            //Layout.preferredHeight: parent.height - rectangle1.height
+            //Layout.minimumWidth: parent.width/2 + parent.width/5
+            anchors.top: rectangle1.bottom
+            height: parent.height - rectangle1.height
+            width: rectangle3.visible?(parent.width/2 + parent.width/5):parent.width
             //Layout.preferredHeight:400
             //Layout.preferredWidth:400
             //            XYPlot{
@@ -160,19 +166,25 @@ Rectangle {
             // anchors.bottom: rectangle6.top
             //  anchors.right: parent.right
             //anchors.fill: parent
-            Layout.column: 3
-            Layout.columnSpan: 1
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.row: 2
+            //Layout.column: 3
+            //Layout.columnSpan: 1
+           // Layout.fillHeight: true
+           // Layout.fillWidth: true
+           // Layout.row: 2
             //Layout.minimumHeight: 400
-            Layout.minimumWidth: parent.width -rectangle2.width
-            Layout.maximumHeight: parent.height - rectangle6.height
+           // Layout.minimumWidth: parent.width -rectangle2.width
+           // Layout.maximumHeight: parent.height - rectangle6.height
             //Layout.maximumWidth: parent.width - rectangle2.width
             //Layout.preferredWidth:  parent.width - rectangle2.width
             //width: parent.width - rectangle2.width
             //height: parent.height
-            GridLayout {
+            anchors.top: rectangle1.bottom
+            anchors.bottom: parent.bottom
+            anchors.left: rectangle2.right
+            width: parent.width - rectangle2.width
+           // height: parent.height - rectangle4.height
+           // GridLayout {
+            Grid{
                 id: subgridLayout
                 rowSpacing: 0
                 anchors.fill: parent
@@ -181,11 +193,13 @@ Rectangle {
                 Rectangle{
                     id:rectangle4
                     color: "transparent"
-                    Layout.column: 1
-                    Layout.columnSpan: 1
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    Layout.maximumHeight: parent.height/4
+                    //Layout.column: 1
+                   // Layout.columnSpan: 1
+                   // Layout.fillHeight: true
+                   // Layout.fillWidth: true
+                    width: parent.width
+                    height: parent.height/4
+                    //Layout.maximumHeight: parent.height/4
                     Layout.row: 1
                     TestController{
                         id:curTestControl
@@ -198,18 +212,23 @@ Rectangle {
                     id:rectangle5
                     //color: "black"
                     color: StringConstants.color_gbTransparent//StringConstants.testPage_backgroundColor//"transparent" "transparent"
-                    Layout.column: 1
-                    Layout.columnSpan: 1
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    Layout.row: 2
+                    //Layout.column: 1
+                    //Layout.columnSpan: 1
+                   // Layout.fillHeight: true
+                    //Layout.fillWidth: true
+                   // Layout.row: 2
                     //Layout.margins: 10
                     //Layout.leftMargin: 10
-                    Layout.rightMargin: 10
+                   // Layout.rightMargin: 10
                     //anchors.top: rectangle4.bottom
                     // anchors.topMargin: -5
                     //  anchors.bottom: parent.bottom
                     //anchors.left: parent
+                    anchors.top: rectangle4.bottom
+                    anchors.bottom: parent.bottom
+                    anchors.rightMargin: 10
+                    width: parent.width
+                    height: parent.height - rectangle4.height
                     TestTabs{
                         id:curTestTabs
                         anchors.fill: parent
@@ -228,12 +247,12 @@ Rectangle {
             anchors.bottom: parent.bottom
             anchors.right: rectangle2.right//parent.right
             //anchors.fill: parent
-            Layout.column: 1
-            Layout.columnSpan: 1
+            //Layout.column: 1
+            //Layout.columnSpan: 1
             //Layout.fillHeight: true
             //Layout.fillWidth: true
-            Layout.row:3
-            width: parent.width
+            //Layout.row:3
+            width: parent.width - rectangle3.width
             height: 75//100
             TestPagePatientResultIndex
             {

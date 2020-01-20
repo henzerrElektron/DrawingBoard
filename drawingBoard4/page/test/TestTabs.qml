@@ -317,12 +317,19 @@ Page {
         Page {
             id: page3
             visible: true;
-            TestPageSupplementTabPage{
-                id: supplementTab
+            Rectangle{
+                id:supplementTabPage
+                color:StringConstants.barBackgroundColor
                 anchors.fill: parent
-                //width: parent.width
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+              //  Layout.fillWidth: true
+             //   Layout.fillHeight: true
+                TestPageSupplementTabPage{
+                    id: supplementTab
+                    anchors.fill: parent
+                    //width: parent.width
+                 //   Layout.fillHeight: true
+                //    Layout.fillWidth: true
+                }
             }
 
             //background: Rectangle { color: "magenta" }
