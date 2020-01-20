@@ -57,6 +57,7 @@ Rectangle {
     GridLayout{
         id: mainRow
         anchors.fill: parent
+        //anchors.bottomMargin: 10
         rows:2
         //Home
         Rectangle {

@@ -48,17 +48,19 @@ Component{
     id:footerItem1
     //signal check1Checked()
     //signal check2Checked()
-    GridLayout{
+    //GridLayout{
+    Grid{
         id: footerGrid
         height:parent.height/3//column.height/2
         width: parent.width//column.width///30//row.width
         rotation: 0
-        Layout.alignment: Qt.AlignHCenter
+        anchors.horizontalCenter: parent.horizontalCenter
+        //Layout.alignment: Qt.AlignHCenter
         //anchors.centerIn: parent
         Rectangle {
-            //anchors.fill: parent
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            anchors.fill: parent
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
             id:colRec
             color: "white"
             CheckBox {

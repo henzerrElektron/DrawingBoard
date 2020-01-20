@@ -72,16 +72,17 @@ Item {
         console.log(tempItem+"yitem"+yItem+"height"+mouseAreaWidth+"row"+IntegerConstants.numGridRow)
         return tempItem;
     }
-    GridLayout
+    // GridLayout
+    Grid
     {
         id:gridCurrent
         anchors.fill: parent
-//        HorizontalLineComponent{
-//            id:component_horizontalLineComponent
-//        }
-//        VerticalLineComponent{
-//            id:component_verticalLineComponent
-//        }
+        //        HorizontalLineComponent{
+        //            id:component_horizontalLineComponent
+        //        }
+        //        VerticalLineComponent{
+        //            id:component_verticalLineComponent
+        //        }
         Rectangle {
             id: gridRec
             //anchors.fill: parent

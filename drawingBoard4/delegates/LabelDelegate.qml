@@ -27,11 +27,12 @@ import ApplicationConstants 1.0
 */
 Label{
     id:label
+    property int curPixelSize: 12
     objectName: "labelItems"
     //Package.name: filterName//"PatientDetailedModel"
     text: actionName
     verticalAlignment: Text.AlignVCenter
-     font { family: OtherConstants.fontFamily; pixelSize: pixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
+     font { family: OtherConstants.fontFamily; pixelSize: curPixelSize; weight: Font.Bold; capitalization: Font.MixedCase }
 
 
    // width: 100

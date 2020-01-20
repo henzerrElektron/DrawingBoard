@@ -64,10 +64,10 @@ GridView {
     }
     //cellWidth: actionOrHome ?idealCellWidth===75?75:idealCellWidth:(parent.width/(count))-marginWidth//75
     //cellHeight: actionOrHome ?idealCellHeight===75?75:idealCellHeight:parent.height - parent.height/5//parent.height/3//75
-    cellWidth: actionOrHome ?75:(parent.width/(count))-marginWidth//75
-    cellHeight: actionOrHome ?75:parent.height - parent.height/5//parent.height/3//75
+    cellWidth: actionOrHome ?idealCellWidth:(parent.width/(count))-marginWidth//75
+    cellHeight: actionOrHome ?idealCellHeight:parent.height - parent.height/5//parent.height/3//75
     width:count*cellWidth//actionOrHome ?count*cellWidth:count*cellWidth
-    height: cellHeight//actionOrHome ?cellHeight:cellHeight
+    height: parent.height//cellHeight//actionOrHome ?cellHeight:cellHeight
     //model:test()//allPageModel.parts.homeMainItems
     function doFilter()
     {

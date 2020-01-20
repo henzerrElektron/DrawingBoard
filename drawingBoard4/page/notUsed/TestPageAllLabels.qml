@@ -18,6 +18,7 @@ import "./../../images/"
 //import "./../../imports/"
 import "./../../models/"
 import "./../../delegates/"
+import "./../test/"
 import ApplicationConstants 1.0
 //import ApplicationIntegerConstants 1.0
 //import ApplicationStringConstants 1.0

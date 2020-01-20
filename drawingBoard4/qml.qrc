@@ -90,9 +90,7 @@
         <file>page/test/PlotterPointers.qml</file>
         <file>page/test/PatientLabel.qml</file>
         <file>page/test/TestPageButton.qml</file>
-        <file>page/test/TestPageLabel.qml</file>
         <file>page/test/TestPagePatientResultIndex.qml</file>
-        <file>page/test/TestPageAllLabels.qml</file>
         <file>page/test/TestPageSwitchButtons.qml</file>
         <file>page/test/TestPlotTabs.qml</file>
         <file>page/test/TestNavItems.qml</file>
@@ -217,6 +215,8 @@
         <file>page/notUsed/SupplementModelDelegateGroup.qml</file>
         <file>page/notUsed/SupplementDelegateModel.qml</file>
         <file>page/notUsed/MedicalDetailsDelegateChooser.qml</file>
+        <file>page/notUsed/TestPageAllLabels.qml</file>
+        <file>page/notUsed/TestPageLabel.qml</file>
         <file>delegates/DobDelegate.qml</file>
         <file>page/newPatient/NewPatientTumblerDialUnit.qml</file>
     </qresource>

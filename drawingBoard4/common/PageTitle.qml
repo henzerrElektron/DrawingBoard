@@ -80,7 +80,7 @@ Rectangle{
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        anchors.topMargin: IntegerConstants.margin10
+        anchors.topMargin: IntegerConstants.margin5
         anchors.leftMargin: IntegerConstants.margin10
         columnSpacing: IntegerConstants.margin5
         Rectangle{
@@ -138,6 +138,10 @@ Rectangle{
                 group: ""//"testPageItems"
                 filterName:""//"testPageItems"
                 actionOrHome: true
+                idealCellWidth: parent.width/count - count * cellSpacing >75?75:parent.width/count - count * cellSpacing
+                idealCellHeight: parent.height > 75?75:parent.height
+                height: parent.height
+                cellSpacing: 5
                 Component.onCompleted: {
                     invokeSource.connect(pgTitle.invokeSource)
                     invokeIndex.connect(pgTitle.invokeIndex)

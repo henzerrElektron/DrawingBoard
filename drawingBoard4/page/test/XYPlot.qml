@@ -116,7 +116,8 @@ Rectangle {
 
     }
 
-    GridLayout {
+    //GridLayout {
+    Grid{
         id: grid
         anchors.bottom: column.top
         anchors.bottomMargin: 0
@@ -128,8 +129,8 @@ Rectangle {
         anchors.leftMargin: 0
         XYCrossGridView {
             id: gridView
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
             anchors.fill: parent
             focus: true
             interactive: false

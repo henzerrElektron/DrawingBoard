@@ -48,14 +48,15 @@ import ApplicationConstants 1.0
 Component{
     id:footerItem
     //objectName: StringConstants.objectName_xyRowFooter
-    GridLayout{
+    //GridLayout{
+    Grid{
         id: footerGrid
         height:parent.height
         width: parent.width/3//30//row.width
         Rectangle {
-            //anchors.fill: parent
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            anchors.fill: parent
+           // Layout.fillHeight: true
+           // Layout.fillWidth: true
             id:rowRec
             //color: "yellow"
             Label{

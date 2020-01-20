@@ -34,22 +34,24 @@ Item {
     id: element
     objectName: StringConstants.objectName_testController
     //height: 150
-    GridLayout{
-        id:rowLayout
-        anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.left: parent.left
-        flow: GridLayout.TopToBottom
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 0
-        signal clickedButton(int arg);
-        //height:50//label_eye.height+label_instrument.height+testItems.height - 100
-        //row: 2
-        Rectangle{
-            id:mainRec
-            anchors.fill: parent
-            border.color: "black"
-            border.width: 3
+    //GridLayout{
+    Rectangle{
+        id:mainRec
+        anchors.fill: parent
+        border.color: "black"
+        border.width: 3
+        Grid{
+            id:rowLayout
+            anchors.top: parent.top
+            anchors.right: parent.right
+            anchors.left: parent.left
+            flow: GridLayout.TopToBottom
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 0
+            signal clickedButton(int arg);
+            //height:50//label_eye.height+label_instrument.height+testItems.height - 100
+            //row: 2
+
             Label {
                 id: label_eye
                 //implicitHeight:  100
@@ -101,7 +103,7 @@ Item {
                 }
             }
 
-           // TestItems {
+            // TestItems {
             PageActionsButtons{
                 id: testItems
                 layoutDirection: Qt.LeftToRight
@@ -112,7 +114,7 @@ Item {
                 //anchors.rightMargin: 10
                 anchors.left: parent.left
                 //anchors.leftMargin: 10
-               // anchors.horizontalCenter: parent.horizontalCenter
+                // anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
                 group: StringConstants.modelTestPageControlItems//"testPageControlItems"//"testPageItems"
                 filterName:StringConstants.modelTestPageControlItems
@@ -120,7 +122,7 @@ Item {
                 //idealCellHeight: 25//parent.height - (label_eye.height + label_instrument.height)
                 //idealCellWidth: 25//parent.width - (label_eye.width + label_instrument.width)
                 //height: idealCellHeight
-               // width:500// 2* parent.width// (theModel.count * idealCellWidth) - (theModel.count * idealCellWidth)/5
+                // width:500// 2* parent.width// (theModel.count * idealCellWidth) - (theModel.count * idealCellWidth)/5
                 actionOrHome: true
                 //theCellHeight: 35
                 //theCellWidth: 35
@@ -131,6 +133,7 @@ Item {
                 // width: parent.width/3
                 // height: parent.height/4
             }
+
         }
     }
     Component.onDestruction: { cleanup()    }
