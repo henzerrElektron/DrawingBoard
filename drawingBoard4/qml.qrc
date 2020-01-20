@@ -218,6 +218,6 @@
         <file>page/notUsed/SupplementDelegateModel.qml</file>
         <file>page/notUsed/MedicalDetailsDelegateChooser.qml</file>
         <file>delegates/DobDelegate.qml</file>
-
+        <file>page/newPatient/NewPatientTumblerDialUnit.qml</file>
     </qresource>
 </RCC>

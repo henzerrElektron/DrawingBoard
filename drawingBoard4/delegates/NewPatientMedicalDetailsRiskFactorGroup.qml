@@ -113,7 +113,7 @@ GridView {
                 Package.name: filterName
                 width: GridView.cellWidth;
                 //height:filterName===StringConstants.model_supplementationItems?GridView.view.cellHeight/(count):GridView.view.cellHeight
-                state: type !== StringConstants.textItem? 'comboItem':'textItem'
+                state: type// !== StringConstants.textItem? 'comboItem':'textItem'
                 states: [
                     State {
                         name: "comboItem"
@@ -140,9 +140,48 @@ GridView {
 
 
                         }
+                    },
+                    State {
+                        name: "switchItem"
+                        PropertyChanges {
+                            target: wrapper
+                            children:recSwitch
+                            children.width: GridView.view.cellWidth
+                            children.height: GridView.view.cellHeight
+                            width:GridView.view.cellWidth
+                            height:GridView.view.cellHeight
+
+                        }
                     }
                 ]
             }
+            Rectangle{
+                id:recSwitch
+                objectName: "switchItemRec"
+                anchors.fill: parent
+                Package.name: "switchItem"
+                color: StringConstants.color_gbTransparent
+                NewPatientTumblerDialUnit{
+                    id:dialTumbler
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: parent.height/10
+                    labelText: actionText
+                    dataTumblerVisibility: eyedialVisible
+                    tumblerVisibility: eyedialVisible
+                    dataTumblerfirstVisibility: eyedialVisible
+                    dataTumblerNoOrColorDelegate: eyedialVisible
+                    eyeColorDialVisibilty: eyedialVisible
+                    dataTumblersecVisibility: false
+                    dataTumblerthirdVisibility: false
+                    //firstSwitchVisible: hasknownSwitch
+                    //secondSwitchVisible:hasYesNoSwitch
+                    dataTumblerFirstModel: eyedialVisible === true?cModel:tumberFirstModel
+                }
+            }
+
             Rectangle{
                 id:recValeu
                 objectName: "comboItemRec"

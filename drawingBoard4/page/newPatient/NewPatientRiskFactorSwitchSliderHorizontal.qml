@@ -174,7 +174,7 @@ Rectangle{
             //Layout.fillWidth: true
             height: dataSwitchRec.height//50//100//mainRec.height/15
             horizontalAlignment: Text.AlignHCenter
-            anchors.verticalCenter: eyeColorDialVisibilty?dialRect.verticalCenter:parent.verticalCenter
+           // anchors.verticalCenter: eyeColorDialVisibilty?dialRect.verticalCenter:parent.verticalCenter
             verticalAlignment: Text.AlignVCenter//Text.AlignVCenter
             //            background: Rectangle{
             //                id:colorRec

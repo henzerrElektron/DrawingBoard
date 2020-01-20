@@ -230,7 +230,7 @@ ListModel {
             //defaultValue:IntegerConstants.numberZero,
             //comboBoxMetricOnSubText:"",
             eyedialVisible:false,
-            type:StringConstants.switchItem,
+            type:StringConstants.comboItem,
             index:9,
         },
         {
