@@ -54,6 +54,15 @@ DelegateModel {
             Component.onCompleted: {
                 console.log("I am completed"+objectName)
             }
+        },
+        DelegateModelGroup{
+            id:group4
+            objectName: StringConstants.allItem
+            includeByDefault: false;
+            name:StringConstants.allItem
+            Component.onCompleted: {
+                console.log("I am completed"+objectName)
+            }
         }
 
     ]
@@ -79,25 +88,28 @@ DelegateModel {
             {
                 if(entry.isNewPatientPage === true)
                 {
-                    if(entry.comboItem !== undefined)
+                    if(entry.allItem !== undefined)
                     {
-                        if(entry.comboItem === true)
+                        if(entry.comboItem !== undefined)
                         {
-                            items.insert(entry,StringConstants.comboBoxItemModel)
+                            if((entry.comboItem === true)&&(entry.allItem === true))
+                            {
+                                items.insert(entry,StringConstants.comboBoxItemModel)
+                            }
                         }
-                    }
-                    if(entry.textItem !== undefined)
-                    {
-                        if(entry.textItem === true)
+                        if(entry.textItem !== undefined)
                         {
-                            items.insert(entry,StringConstants.textBoxItemsModel)
+                            if((entry.textItem === true)&&(entry.allItem === true))
+                            {
+                                items.insert(entry,StringConstants.textBoxItemsModel)
+                            }
                         }
-                    }
-                    if(entry.dobItem !== undefined)
-                    {
-                        if(entry.dobItem === true)
+                        if(entry.dobItem !== undefined)
                         {
-                            items.insert(entry,StringConstants.doBItemModel)
+                            if((entry.dobItem === true)&&(entry.allItem === true))
+                            {
+                                items.insert(entry,StringConstants.doBItemModel)
+                            }
                         }
                     }
                 }

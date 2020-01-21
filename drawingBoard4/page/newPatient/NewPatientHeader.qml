@@ -257,7 +257,7 @@ Rectangle {
                         verticalLayoutDirection: Grid.TopToBottom
                         layoutDirection: Qt.LeftToRight
                         flow: Grid.LeftToRight
-                        filterName:StringConstants.textBoxItemsModel//StringConstants.np_PersonalDetailTestPage
+                        filterName:StringConstants.allItem//StringConstants.np_PersonalDetailTestPage
                     }
 
                     //Layout.minimumHeight: parent.height// - rectangle1.height

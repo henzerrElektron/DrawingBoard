@@ -450,7 +450,7 @@ QtObject {
     readonly property string comboBoxItemModel: "comboBoxItems"
     readonly property string textBoxItemsModel: "textBoxItems"// This is available in all editors.
     readonly property string doBItemModel: "dobItems"
-
+    readonly property string allItem:"allItems"
 
 
     readonly property string buttonName_leftEye: "Left Eye"

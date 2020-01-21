@@ -7,7 +7,7 @@ import "./../models/"
 import "./../delegates/"
 import "./../common/"
 import "./../page/newPatient/"
-import Qt.labs.qmlmodels 1.0
+//import Qt.labs.qmlmodels 1.0
 import ApplicationConstants 1.0
 /*!
    \qmltype NewPatientMedicalDetailsRiskFactorGroup
