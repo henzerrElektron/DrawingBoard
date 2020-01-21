@@ -75,6 +75,7 @@ Rectangle{
             anchors.fill: parent
             //Layout.fillHeight: true
            // Layout.fillWidth: true
+           filterName: StringConstants.np_ContactDetailAllModel
             verticalLayoutDirection: Grid.TopToBottom
             layoutDirection: Qt.LeftToRight
             flow: Grid.LeftToRight

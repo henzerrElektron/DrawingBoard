@@ -14,23 +14,31 @@ DelegateModel  {
     groups: [
         DelegateModelGroup{
             id:group1
-            objectName: StringConstants.np_ContactDetailLabelModel
+            objectName: StringConstants.np_ContactDetailLabelModel;
             includeByDefault: false;
-            name:StringConstants.np_ContactDetailLabelModel
+            name:StringConstants.np_ContactDetailLabelModel;
             Component.onCompleted: {
                 console.log("I am completed"+objectName)
             }
         },
         DelegateModelGroup{
             id:group2
-            objectName:StringConstants.np_ContactDetailTextModel
+            objectName:StringConstants.np_ContactDetailTextModel;
             includeByDefault: false;
-            name:StringConstants.np_ContactDetailTextModel
+            name:StringConstants.np_ContactDetailTextModel;
+            Component.onCompleted: {
+                console.log("I am completed"+objectName)
+            }
+        },
+        DelegateModelGroup{
+            id:group3
+            objectName: StringConstants.np_ContactDetailAllModel;
+            includeByDefault: false;
+            name:StringConstants.np_ContactDetailAllModel;
             Component.onCompleted: {
                 console.log("I am completed"+objectName)
             }
         }
-
     ]
     NewPatientContactDetailModel{
         id:npContactDetailModel
@@ -38,7 +46,7 @@ DelegateModel  {
     Component.onCompleted: {
         console.log("Items name is"+items.objectName)
         console.log("The value of items in the group is"+items.count)
-        var rowCount = npContactDetailModel.count;
+        var rowCount = model.count//npContactDetailModel.count// npContactDetailModel.count;
         for(var j = 0; j<items.count;j++)
         {
             console.log("Group names are"+j+npContactDetailDelegateModel.groups.get(j).actionName)
@@ -48,18 +56,23 @@ DelegateModel  {
         for(var i = 0;i<rowCount;i++){
             var entry = npContactDetailModel.get(i);
             console.log("The value of the entry is"+entry.actionName)
-            if(entry.isLabel !== undefined)
+            if(entry.allItem !== undefined)
             {
-                if(entry.isLabel === true)
+                if(entry.isLabel !== undefined)
                 {
-                     items.insert(entry,StringConstants.np_ContactDetailLabelModel)
+                    if((entry.isLabel === true)&&(entry.allItem === true))
+                    {
+                        items.insert(entry,StringConstants.np_ContactDetailLabelModel)
+                        items.insert(entry,StringConstants.np_ContactDetailAllModel)
+                    }
                 }
-            }
-            if(entry.isEntry !== undefined)
-            {
-                if(entry.isEntry === true)
+                if(entry.isEntry !== undefined)
                 {
-                     items.insert(entry,StringConstants.np_ContactDetailTextModel)
+                    if((entry.isEntry === true)&&(entry.allItem === true))
+                    {
+                        items.insert(entry,StringConstants.np_ContactDetailTextModel)
+                        items.insert(entry,StringConstants.np_ContactDetailAllModel)
+                    }
                 }
             }
         }

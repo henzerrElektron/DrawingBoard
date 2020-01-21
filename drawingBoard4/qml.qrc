@@ -44,6 +44,7 @@
         <file>models/OperatorPageDelegateModel.qml</file>
         <file>models/AllPageModel.qml</file>
         <file>models/TestControlModel.qml</file>
+        <file>models/NewPatientContactDetailDelegateModel.qml</file>
         <file>delegates/TestNavDelegate.qml</file>
         <file>delegates/PageActionsButtons.qml</file>
         <file>delegates/HomePageBodyDelegate.qml</file>
@@ -219,6 +220,5 @@
         <file>page/notUsed/TestPageLabel.qml</file>
         <file>delegates/DobDelegate.qml</file>
         <file>page/newPatient/NewPatientTumblerDialUnit.qml</file>
-        <file>models/NewPatientContactDetailDelegateModel.qml</file>
     </qresource>
 </RCC>

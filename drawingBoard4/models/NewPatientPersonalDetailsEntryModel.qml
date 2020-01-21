@@ -189,7 +189,7 @@ ListModel {
             hideBorderFlag:true,
             comboOrModelFlag:false,
             index:17,
-        },
+        }
 //        {
 //            actionName:StringConstants.lbl_npDOB,
 //            actionText:StringConstants.lbl_npDOBLabel,

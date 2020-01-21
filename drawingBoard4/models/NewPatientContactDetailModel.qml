@@ -8,14 +8,15 @@ import "./../validators/"
 import ApplicationConstants 1.0
 
 ListModel {
-    id:contactDetailModel
+    id:npContactDetailModel
     readonly property var modelElements: [
         {
             actionName:StringConstants.lbl_npContactMobile,
             actionText:StringConstants.lbl_npContactMobile,
             isLabel:true,
             isEntry:false,
-            type:"labelItem",
+            allItem:true,
+            type:StringConstants.labelItem,
             index:1
         },
         {
@@ -25,8 +26,9 @@ ListModel {
             validationText:StringConstants.txtValidatorNumbersOnly,
             isLabel:false,
             isEntry:true,
+            allItem:true,
             numberWordindex:IntegerConstants.numberOnly,
-            type:"textItem",
+            type:StringConstants.textItem,
             index:2
         },
         {
@@ -34,7 +36,8 @@ ListModel {
             actionText:StringConstants.lbl_npContactAddr1,
             isLabel:true,
             isEntry:false,
-            type:"labelItem",
+            allItem:true,
+            type:StringConstants.labelItem,
             index:3
         },
         {
@@ -45,7 +48,8 @@ ListModel {
             validationText:StringConstants.txtValidatorWordsNumbersOnly,
             isLabel:false,
             isEntry:true,
-            type:"textItem",
+            allItem:true,
+            type:StringConstants.textItem,
             index:4
         },
         {
@@ -53,7 +57,8 @@ ListModel {
             actionText:StringConstants.lbl_npContactAddr2,
             isLabel:true,
             isEntry:false,
-            type:"labelItem",
+            allItem:true,
+            type:StringConstants.labelItem,
             index:5
         },
         {
@@ -64,7 +69,8 @@ ListModel {
             validationText:StringConstants.txtValidatorWordsNumbersOnly,
             isLabel:false,
             isEntry:true,
-            type:"textItem",
+            allItem:true,
+            type:StringConstants.textItem,
             index:6
         },
         {
@@ -72,7 +78,8 @@ ListModel {
             actionText:StringConstants.lbl_npContactEmail,
             isLabel:true,
             isEntry:false,
-            type:"labelItem",
+            allItem:true,
+            type:StringConstants.labelItem,
             index:7
         },
         {
@@ -83,7 +90,8 @@ ListModel {
             validationText:StringConstants.txtValidatorEmailOnly,
             isLabel:false,
             isEntry:true,
-            type:"textItem",
+            type:StringConstants.textItem,
+            allItem:true,
             index:8
         },
         {
@@ -91,7 +99,8 @@ ListModel {
             actionText:StringConstants.lbl_npContactCity,
             isLabel:true,
             isEntry:false,
-            type:"labelItem",
+            allItem:true,
+            type:StringConstants.labelItem,
             index:9
         },
         {
@@ -102,7 +111,8 @@ ListModel {
             validationText:StringConstants.txtValidatorWordsOnly,
             isLabel:false,
             isEntry:true,
-            type:"textItem",
+            allItem:true,
+            type:StringConstants.textItem,
             index:10
         },
         {
@@ -110,7 +120,8 @@ ListModel {
             actionText:StringConstants.lbl_npContactPostalCode,
             isLabel:true,
             isEntry:false,
-            type:"labelItem",
+            allItem:true,
+            type:StringConstants.labelItem,
             index:11
         },
         {
@@ -121,7 +132,8 @@ ListModel {
             validationText:StringConstants.txtValidatorWordsNumbersOnly,
             isLabel:false,
             isEntry:true,
-            type:"textItem",
+            allItem:true,
+            type:StringConstants.textItem,
             index:12
         },
         {
@@ -129,7 +141,8 @@ ListModel {
             actionText:StringConstants.lbl_npContactCounty,
             isLabel:true,
             isEntry:false,
-            type:"labelItem",
+            allItem:true,
+            type:StringConstants.labelItem,
             index:13
         },
         {
@@ -140,7 +153,8 @@ ListModel {
             validationText:StringConstants.txtValidatorWordsOnly,
             isLabel:false,
             isEntry:true,
-            type:"textItem",
+            allItem:true,
+            type:StringConstants.textItem,
             index:14
         },
         {
@@ -148,7 +162,8 @@ ListModel {
             actionText:StringConstants.lbl_npContactCountry,
             isLabel:true,
             isEntry:false,
-            type:"labelItem",
+            allItem:true,
+            type:StringConstants.labelItem,
             index:15
         },
         {
@@ -159,16 +174,16 @@ ListModel {
             validationText:StringConstants.txtValidatorWordsOnly,
             isLabel:false,
             isEntry:true,
-            type:"textItem",
+            allItem:true,
+            type:StringConstants.textItem,
             index:16
-        },
-
+        }
     ]
     Component.onCompleted: {
         modelElements.forEach(function(element)
         {
             console.log("The value of the element is"+element.actionName)
-            contactDetailModel.append(element)
+            npContactDetailModel.append(element)
         })
         console.log("The model elements are "+modelElements)
     }
