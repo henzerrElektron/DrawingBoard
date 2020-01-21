@@ -219,5 +219,6 @@
         <file>page/notUsed/TestPageLabel.qml</file>
         <file>delegates/DobDelegate.qml</file>
         <file>page/newPatient/NewPatientTumblerDialUnit.qml</file>
+        <file>models/NewPatientContactDetailDelegateModel.qml</file>
     </qresource>
 </RCC>

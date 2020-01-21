@@ -473,6 +473,8 @@ QtObject {
 
     readonly property string np_PersonalDetailExistingPage: "patientPDExistingPage"
     readonly property string np_PersonalDetailTestPage: "patientPDTestPage"
+    readonly property string np_ContactDetailLabelModel:"PatientContactLabelModel"
+    readonly property string np_ContactDetailTextModel:"PatientContactTextModel"
 
     readonly property string np_pdActionNameWeight: "Weight"
     readonly property string np_pdActionNameHeight: "Height"

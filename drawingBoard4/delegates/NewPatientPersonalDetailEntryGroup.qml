@@ -7,7 +7,7 @@ import "./../page/newPatient"
 import "./../models/"
 import "./../delegates/"
 import ApplicationConstants 1.0
-import Qt.labs.qmlmodels 1.0
+//import Qt.labs.qmlmodels 1.0
 /*!
    \qmltype NewPatientPersonalDetailEntryGroup
    \brief This component used to display the patient personal detail items using a Text or ComboBox component
